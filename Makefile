@@ -1,17 +1,25 @@
 TEX = pdflatex -shell-escape # -interaction=nonstopmode -file-line-error
 BIB = biber
-FILE = LaurentNtibarikureResume
+CV = LaurentNtibarikureResume
+CL = LaurentNtibarikureCoverLetter
 MSG = $(shell date +%Y%m%d%H%M%S)
 
 .SUFFIXES: .aux .pdf .tex
 .PHONY: clean
 
-all :
-	$(TEX) $(FILE).tex
-	$(BIB) $(FILE)
-	$(TEX) $(FILE).tex
-#$(TEX) $(FILE).tex
-	open $(FILE).pdf
+all : cv
+
+cv:
+	$(TEX) $(CV).tex
+	$(BIB) $(CV)
+	$(TEX) $(CV).tex
+	$(TEX) $(CV).tex
+	open $(CV).pdf
+
+cl:
+	$(TEX) $(CL).tex
+	$(TEX) $(CL).tex
+	open $(CL).pdf
 
 push :
 	git add --all

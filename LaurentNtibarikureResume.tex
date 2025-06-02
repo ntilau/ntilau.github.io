@@ -14,17 +14,18 @@
 %% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
 % \documentclass[10pt,a4paper,normalphoto]{altacv}
 
-\documentclass[9.5pt,a4paper,ragged2e,withhyper]{altacv} %ragged2e
+\documentclass[9pt,a4paper,ragged2e,withhyper]{altacv} %ragged2e
 %% AltaCV uses the fontawesome5 and simpleicons packages.
 %% See http://texdoc.net/pkg/fontawesome5 and http://texdoc.net/pkg/simpleicons for full list of symbols.
 
 % Change the page layout if you need to
 \geometry{left=1.cm,right=1.cm,top=1.25cm,bottom=1.25cm,columnsep=0.25cm,footskip=1.5\baselineskip}
 
+\usepackage{lastpage}
 \usepackage{fancyhdr}
 \fancyhf{}
 \renewcommand{\headrule}{}
-\fancyfoot[R]{\footnotesize \thepage}
+\fancyfoot[R]{\footnotesize \thepage /\pageref{LastPage}}
 \AtBeginDocument{\pagestyle{fancy}}
 
 % The paracol package lets you typeset columns of text in parallel
