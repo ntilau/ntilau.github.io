@@ -1,3 +1,3 @@
-# Laurent Ntibarikure Personal page in progress 
+# ntilau.github.io 
 
 ![CurriculumVitae](LaurentNtibarikureResume.pdf)
