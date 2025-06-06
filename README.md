@@ -1,3 +1,3 @@
-# Laurent Ntibarikure Curriculum Vitae
+# Laurent Ntibarikure Personal page in progress 
 
 ![CurriculumVitae](LaurentNtibarikureResume.pdf)
