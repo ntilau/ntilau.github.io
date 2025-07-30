@@ -1,0 +1,3391 @@
+$begin 'AnsoftProject'
+	Created='Wed Apr 28 13:12:49 2004'
+	Product='HFSS'
+	NextUniqueID=0
+	MoveBackwards=false
+	$begin 'Desktop'
+		Version(10, 0)
+		InfrastructureVersion(1, 0)
+	$end 'Desktop'
+	$begin 'Datasets'
+		NextUniqueID=0
+		MoveBackwards=false
+		$begin 'DatasetDefinitions'
+		$end 'DatasetDefinitions'
+	$end 'Datasets'
+	$begin 'Definitions'
+		$begin 'Folders'
+			Definitions(1104, 10000, 1, 1, 0, false, false)
+			Materials(1104, 9500, 9, 2, 1, false, false)
+		$end 'Folders'
+		$begin 'Materials'
+			$begin 'vacuum'
+				CoordinateSystemType='Cartesian'
+				$begin 'AttachedData'
+				$end 'AttachedData'
+				permittivity='1'
+				ModTime=1083175979
+				Library='Materials'
+				LibLocation='SysLibrary '
+			$end 'vacuum'
+			$begin 'pec'
+				CoordinateSystemType='Cartesian'
+				$begin 'AttachedData'
+				$end 'AttachedData'
+				conductivity='1e+030'
+				ModTime=1083176359
+				Library='Materials'
+				LibLocation='SysLibrary '
+			$end 'pec'
+			$begin 'air'
+				CoordinateSystemType='Cartesian'
+				$begin 'AttachedData'
+				$end 'AttachedData'
+				permittivity='1.0006'
+				permeability='1.0000004'
+				ModTime=1083177052
+				Library='Materials'
+				LibLocation='SysLibrary '
+			$end 'air'
+		$end 'Materials'
+		$begin 'Scripts'
+		$end 'Scripts'
+	$end 'Definitions'
+	$begin 'HFSSEnvironment'
+		Version(1, 0)
+	$end 'HFSSEnvironment'
+	$begin 'geometry3deditor'
+		Version(1, 0)
+	$end 'geometry3deditor'
+	DesignIDServer=2
+	MoveBackwards=false
+	$begin 'HFSSModel'
+		Name='HFSSModel1'
+		DesignID=0
+		SolutionType='DrivenModal'
+		MaterialDensity=1
+		MassOfTissue=1
+		$begin 'ModelSetup'
+			$begin 'Editor3D Doc Preferences'
+				'Plane Background'=true
+				BackgroundColor1=16777215
+				BackgroundColor2=0
+				'Need Lights'=true
+				'Ambient Light'=8355711
+				'Num Lights'=2
+				Light0[4: 8355711, 0.200000002980232, 0.400000005960464, 1]
+				Light1[4: 8355711, -0.200000002980232, -0.400000005960464, -1]
+			$end 'Editor3D Doc Preferences'
+			$begin 'Properties'
+				VariableProp('lambda', 'UD', '', '10mm')
+				VariableProp('dip_rad', 'UD', '', 'lambda/200')
+				VariableProp('radiation_rad', 'UD', '', 'dip_rad+(lambda/4)')
+				VariableProp('gap_src', 'UD', '', '0.0125mm')
+				VariableProp('res_length', 'UD', '', '.475*lambda')
+				VariableProp('dip_length', 'UD', '', 'res_length/2-(gap_src/2)')
+				VariableProp('radiation_height', 'UD', '', 'gap_src/2 + dip_length + lambda/10')
+			$end 'Properties'
+			SnapMode=31
+			GroupByMaterial=true
+			$begin 'GeometryCore'
+				BlockVersionID=2
+				NativeKernel='ACIS'
+				Units='mm'
+				InstanceID=-1
+				$begin 'GeometryOperations'
+					BlockVersionID=2
+					$begin 'AnsoftRangedIDServerManager'
+						$begin 'AnsoftRangedIDServer'
+							IDServerObjectTypeID=0
+							IDServerRangeMin=0
+							IDServerRangeMax=2146483647
+							NextUniqueID=45
+							MoveBackwards=false
+						$end 'AnsoftRangedIDServer'
+						$begin 'AnsoftRangedIDServer'
+							IDServerObjectTypeID=1
+							IDServerRangeMin=2146483648
+							IDServerRangeMax=2146485647
+							NextUniqueID=2146483660
+							MoveBackwards=false
+						$end 'AnsoftRangedIDServer'
+					$end 'AnsoftRangedIDServerManager'
+					StartBackGroundFaceID=2146483654
+					$begin 'CoordinateSystems'
+					$end 'CoordinateSystems'
+					$begin 'ToplevelParts'
+						$begin 'GeometryPart'
+							$begin 'Attributes'
+								Name='dip1'
+								Flags=''
+								Color='(132 132 193)'
+								Transparency=0
+								PartCoordinateSystem=1
+								MaterialName='pec'
+								SolveInside=false
+							$end 'Attributes'
+							$begin 'Operations'
+								$begin 'Operation'
+									OperationType='Cylinder'
+									ID=5
+									ReferenceCoordSystemID=1
+									$begin 'CylinderParameters'
+										CoordinateSystemID=-1
+										XCenter='0mm'
+										YCenter='0mm'
+										ZCenter='gap_src/2'
+										Radius='dip_rad'
+										Height='dip_length'
+										WhichAxis='Z'
+									$end 'CylinderParameters'
+									ParentPartID=6
+									$begin 'OperationIdentity'
+										$begin 'Topology'
+											NumLumps=1
+											NumShells=1
+											NumFaces=3
+											NumWires=0
+											NumLoops=4
+											NumCoedges=4
+											NumEdges=2
+											NumVertices=2
+										$end 'Topology'
+										BodyID=6
+										StartFaceID=7
+										StartEdgeID=10
+										StartVertexID=12
+										NumNewFaces=3
+										NumNewEdges=2
+										NumNewVertices=2
+										FaceNameAndIDMap()
+										EdgeNameAndIDMap()
+										VertexNameAndIDMap()
+									$end 'OperationIdentity'
+								$end 'Operation'
+								$begin 'CloneToOperation'
+									OperationType='DuplicateAroundAxis'
+									ID=14
+									ReferenceCoordSystemID=1
+									$begin 'DuplicateAroundAxisParameters'
+										WhichAxis='X'
+										AngleStr='180deg'
+										NumClones=2
+									$end 'DuplicateAroundAxisParameters'
+									ParentPartID=6
+								$end 'CloneToOperation'
+							$end 'Operations'
+						$end 'GeometryPart'
+						$begin 'GeometryPart'
+							$begin 'Attributes'
+								Name='dip1_1'
+								Flags=''
+								Color='(132 132 193)'
+								Transparency=0
+								PartCoordinateSystem=1
+								MaterialName='pec'
+								SolveInside=false
+							$end 'Attributes'
+							$begin 'Operations'
+								$begin 'Operation'
+									OperationType='DuplicateBodyAroundAxis'
+									ID=15
+									$begin 'CloneFromParameters'
+										CoordinateSystemID=-1
+										SourcePartID=6
+										WhichClone=0
+									$end 'CloneFromParameters'
+									ParentPartID=16
+									$begin 'OperationIdentity'
+										$begin 'Topology'
+											NumLumps=1
+											NumShells=1
+											NumFaces=3
+											NumWires=0
+											NumLoops=4
+											NumCoedges=4
+											NumEdges=2
+											NumVertices=2
+										$end 'Topology'
+										BodyID=16
+										StartFaceID=17
+										StartEdgeID=20
+										StartVertexID=22
+										NumNewFaces=3
+										NumNewEdges=2
+										NumNewVertices=2
+										FaceNameAndIDMap()
+										EdgeNameAndIDMap()
+										VertexNameAndIDMap()
+										$begin 'CloneFromOperationIdentityHelper'
+											CloneFaces(7='17', 8='18', 9='19')
+											CloneEdges(10='20', 11='21')
+											CloneVertices(12='22', 13='23')
+										$end 'CloneFromOperationIdentityHelper'
+										OriginalFaceIDs(7, 8, 9)
+										OriginalEdgeIDs(10, 11)
+										OriginalVertexIDs(12, 13)
+									$end 'OperationIdentity'
+									PlaceHolderOpnId=14
+								$end 'Operation'
+							$end 'Operations'
+						$end 'GeometryPart'
+						$begin 'GeometryPart'
+							$begin 'Attributes'
+								Name='source'
+								Flags=''
+								Color='(0 0 255)'
+								Transparency=0.5
+								PartCoordinateSystem=1
+								MaterialName='vacuum'
+								SolveInside=true
+							$end 'Attributes'
+							$begin 'Operations'
+								$begin 'Operation'
+									OperationType='Rectangle'
+									ID=24
+									ReferenceCoordSystemID=1
+									$begin 'RectangleParameters'
+										CoordinateSystemID=-1
+										XStart='0mm'
+										YStart='-dip_rad'
+										ZStart='-gap_src/2'
+										Width='dip_rad*2'
+										Height='gap_src'
+										WhichAxis='X'
+									$end 'RectangleParameters'
+									ParentPartID=25
+									$begin 'OperationIdentity'
+										$begin 'Topology'
+											NumLumps=1
+											NumShells=1
+											NumFaces=0
+											NumWires=1
+											NumLoops=0
+											NumCoedges=4
+											NumEdges=4
+											NumVertices=4
+										$end 'Topology'
+										BodyID=25
+										StartFaceID=-1
+										StartEdgeID=26
+										StartVertexID=30
+										NumNewFaces=0
+										NumNewEdges=4
+										NumNewVertices=4
+										FaceNameAndIDMap()
+										EdgeNameAndIDMap()
+										VertexNameAndIDMap()
+									$end 'OperationIdentity'
+								$end 'Operation'
+								$begin 'Operation'
+									OperationType='CoverLines'
+									ID=34
+									$begin 'LocalOperationParameters'
+										CoordinateSystemID=-1
+										LocalOpPart=25
+									$end 'LocalOperationParameters'
+									ParentPartID=25
+									$begin 'OperationIdentity'
+										$begin 'Topology'
+											NumLumps=1
+											NumShells=1
+											NumFaces=1
+											NumWires=0
+											NumLoops=1
+											NumCoedges=4
+											NumEdges=4
+											NumVertices=4
+										$end 'Topology'
+										BodyID=-1
+										StartFaceID=35
+										StartEdgeID=-1
+										StartVertexID=-1
+										NumNewFaces=1
+										NumNewEdges=0
+										NumNewVertices=0
+										FaceNameAndIDMap()
+										EdgeNameAndIDMap()
+										VertexNameAndIDMap()
+										$begin 'GeomTopolBasedOperationIdentityHelper'
+											$begin 'NewFaces'
+												$begin 'Face'
+													NormalizedSerialNum=0
+													ID=35
+													$begin 'FaceGeomTopol'
+														FaceTopol(1, 4, 4, 4)
+														$begin 'FaceGeometry'
+															Area=0.00125
+															FcUVMid(4.0666051797679e-018, 0, 1.12844638235259e-017)
+															$begin 'FcTolVts'
+																TolVt(0, -0.05, -0.00625, 0)
+																TolVt(6.12303176911189e-018, 0.05, -0.00624999999999998, 0)
+																TolVt(8.1332103595358e-018, 0.05, 0.00625000000000002, 0)
+																TolVt(2.01017859042391e-018, -0.05, 0.00625, 0)
+															$end 'FcTolVts'
+														$end 'FaceGeometry'
+													$end 'FaceGeomTopol'
+												$end 'Face'
+											$end 'NewFaces'
+											$begin 'NewEdges'
+											$end 'NewEdges'
+											$begin 'NewVertices'
+											$end 'NewVertices'
+										$end 'GeomTopolBasedOperationIdentityHelper'
+									$end 'OperationIdentity'
+									ParentOperationID=24
+								$end 'Operation'
+							$end 'Operations'
+						$end 'GeometryPart'
+						$begin 'GeometryPart'
+							$begin 'Attributes'
+								Name='radiation'
+								Flags=''
+								Color='(128 255 255)'
+								Transparency=0.8
+								PartCoordinateSystem=1
+								MaterialName='air'
+								SolveInside=true
+							$end 'Attributes'
+							$begin 'Operations'
+								$begin 'Operation'
+									OperationType='Cylinder'
+									ID=36
+									ReferenceCoordSystemID=1
+									$begin 'CylinderParameters'
+										CoordinateSystemID=-1
+										XCenter='0mm'
+										YCenter='0mm'
+										ZCenter='-radiation_height'
+										Radius='radiation_rad'
+										Height='radiation_height*2'
+										WhichAxis='Z'
+									$end 'CylinderParameters'
+									ParentPartID=37
+									$begin 'OperationIdentity'
+										$begin 'Topology'
+											NumLumps=1
+											NumShells=1
+											NumFaces=3
+											NumWires=0
+											NumLoops=4
+											NumCoedges=4
+											NumEdges=2
+											NumVertices=2
+										$end 'Topology'
+										BodyID=37
+										StartFaceID=38
+										StartEdgeID=41
+										StartVertexID=43
+										NumNewFaces=3
+										NumNewEdges=2
+										NumNewVertices=2
+										FaceNameAndIDMap()
+										EdgeNameAndIDMap()
+										VertexNameAndIDMap()
+									$end 'OperationIdentity'
+								$end 'Operation'
+							$end 'Operations'
+						$end 'GeometryPart'
+					$end 'ToplevelParts'
+					$begin 'OperandParts'
+					$end 'OperandParts'
+					$begin 'Planes'
+					$end 'Planes'
+					$begin 'Points'
+					$end 'Points'
+					$begin 'GeometryEntityLists'
+					$end 'GeometryEntityLists'
+				$end 'GeometryOperations'
+				$begin 'GeometryDependencies'
+					$begin 'DependencyInformation'
+						NumParents=1
+						DependencyObject('GeometryBodyOperation', 5)
+						DependencyObject('CoordinateSystem', 1)
+					$end 'DependencyInformation'
+					$begin 'DependencyInformation'
+						NumParents=1
+						DependencyObject('GeometryOperation', 14)
+						DependencyObject('CoordinateSystem', 1)
+					$end 'DependencyInformation'
+					$begin 'DependencyInformation'
+						NumParents=2
+						DependencyObject('GeometryBodyOperation', 15)
+						DependencyObject('GeometryOperation', 14)
+						DependencyObject('GeometryBodyOperation', 5)
+					$end 'DependencyInformation'
+					$begin 'DependencyInformation'
+						NumParents=1
+						DependencyObject('GeometryBodyOperation', 24)
+						DependencyObject('CoordinateSystem', 1)
+					$end 'DependencyInformation'
+					$begin 'DependencyInformation'
+						NumParents=1
+						DependencyObject('GeometryBodyOperation', 34)
+						DependencyObject('GeometryBodyOperation', 24)
+					$end 'DependencyInformation'
+					$begin 'DependencyInformation'
+						NumParents=1
+						DependencyObject('GeometryBodyOperation', 36)
+						DependencyObject('CoordinateSystem', 1)
+					$end 'DependencyInformation'
+				$end 'GeometryDependencies'
+			$end 'GeometryCore'
+		$end 'ModelSetup'
+		$begin 'BoundarySetup'
+			$begin 'GlobalBoundData'
+				PortImpedance='1'
+				GlobalMaterialEnv='vacuum'
+			$end 'GlobalBoundData'
+			$begin 'Boundaries'
+				NextUniqueID=3
+				MoveBackwards=false
+				$begin 'Rad1'
+					ID=2
+					BoundType='Radiation'
+					IsIncidentField=false
+					IsEnforcedField=false
+					IsFssReference=false
+					IsForPML=false
+					Faces(38, 39, 40)
+				$end 'Rad1'
+				$begin 'source'
+					ID=0
+					BoundType='Lumped Port'
+					$begin 'Modes'
+						$begin 'Mode1'
+							ModeNum=1
+							UseIntLine=true
+							$begin 'IntLine'
+								$begin 'GeometryPosition'
+									IsAttachedToEntity=true
+									EntityID=26
+									PositionType='EdgeCenter'
+									UParam=0
+									VParam=0
+									XPosition='0'
+									YPosition='0'
+									ZPosition='0'
+								$end 'GeometryPosition'
+								$begin 'GeometryPosition'
+									IsAttachedToEntity=true
+									EntityID=28
+									PositionType='EdgeCenter'
+									UParam=0
+									VParam=0
+									XPosition='0'
+									YPosition='0'
+									ZPosition='0'
+								$end 'GeometryPosition'
+							$end 'IntLine'
+							CharImp='Zpi'
+						$end 'Mode1'
+					$end 'Modes'
+					FullResistance='79Ohm'
+					FullReactance='0Ohm'
+					Objects(25)
+				$end 'source'
+			$end 'Boundaries'
+			$begin 'ProductSpecificData'
+				$begin 'PMLData'
+					$begin 'PMLGroups'
+					$end 'PMLGroups'
+				$end 'PMLData'
+				$begin 'SortOrder'
+					Port[1: -1]
+				$end 'SortOrder'
+			$end 'ProductSpecificData'
+		$end 'BoundarySetup'
+		$begin 'MeshSetup'
+			$begin 'MeshOperations'
+				NextUniqueID=0
+				MoveBackwards=false
+			$end 'MeshOperations'
+		$end 'MeshSetup'
+		$begin 'AnalysisSetup'
+			$begin 'SolveSetups'
+				NextUniqueID=2
+				MoveBackwards=false
+				$begin 'Setup1'
+					ID=1
+					SetupType='HfssDriven'
+					Frequency='29.9792GHz'
+					PortsOnly=false
+					MaxDeltaS=0.02
+					UseMatrixConv=false
+					MaximumPasses=20
+					MinimumPasses=1
+					MinimumConvergedPasses=1
+					PercentRefinement=20
+					ReducedSolutionBasis=false
+					DoLambdaRefine=true
+					DoMaterialLambda=true
+					Target=0.3333
+					UseConvOutputVariable=false
+					IsEnabled=true
+					ExternalMesh=false
+					UseMaxTetIncrease=false
+					MaxTetIncrease=100000
+					PortAccuracy=2
+					UseABCOnPort=false
+					SetPortMinMaxTri=false
+					PortMinTri=100
+					PortMaxTri=500
+					$begin 'Sweeps'
+						NextUniqueID=1
+						MoveBackwards=false
+						$begin 'Sweep1'
+							ID=0
+							IsEnabled=true
+							Type='Fast'
+							InterpTolerance=0.5
+							InterpMaxSolns=20
+							InterpUseS=true
+							InterpUseT=false
+							InterpUsePortImped=false
+							InterpUsePropConst=false
+							UseFullBasis=true
+							SetupType='LinearCount'
+							StartFreq='25GHz'
+							StopFreq='35GHz'
+							Count=1000
+							SaveFields=true
+							ExtrapToDC=false
+						$end 'Sweep1'
+					$end 'Sweeps'
+				$end 'Setup1'
+			$end 'SolveSetups'
+		$end 'AnalysisSetup'
+		$begin 'Optimetrics'
+			$begin 'OptimetricsSetups'
+				NextUniqueID=0
+				MoveBackwards=false
+			$end 'OptimetricsSetups'
+		$end 'Optimetrics'
+		$begin 'Solutions'
+			FieldType='NoIncidentWave'
+			SourceEntry(ID=0, Index=0, Terminal=false, Terminated=false, Magnitude='1W', Phase='0deg')
+		$end 'Solutions'
+		$begin 'PortFieldDisplay'
+			$begin 'PortFieldDisplay'
+				ScaleFactor=5
+				Solution='Setup1 : LastAdaptive'
+				Frequency='29.9792GHz'
+				ColorR=255
+				ColorG=1
+				ColorB=1
+			$end 'PortFieldDisplay'
+		$end 'PortFieldDisplay'
+		$begin 'FieldsReporter'
+			$begin 'FieldsCalculator'
+				Line_Discretization=1000
+			$end 'FieldsCalculator'
+			$begin 'PlotDefaults'
+				Default_SolutionId=223
+				Default_PlotFolder='Automatic'
+			$end 'PlotDefaults'
+			$begin 'FieldsPlotManagerID'
+				NextUniqueID=0
+				MoveBackwards=false
+				NumQuantityType=0
+				NumPlots=0
+			$end 'FieldsPlotManagerID'
+		$end 'FieldsReporter'
+		$begin 'RadField'
+			$begin 'FarFieldSetups'
+				NextUniqueID=2
+				MoveBackwards=false
+				$begin 'Infinite Sphere1'
+					Type='Infinite Sphere'
+					ID=1
+					UseCustomRadiationSurface=false
+					ThetaStart='0deg'
+					ThetaStop='180deg'
+					ThetaStep='5deg'
+					PhiStart='0deg'
+					PhiStop='360deg'
+					PhiStep='10deg'
+					UseLocalCS=false
+				$end 'Infinite Sphere1'
+			$end 'FarFieldSetups'
+			$begin 'ArraySetup'
+				UseOption='NoArray'
+				$begin 'RegularArray'
+					NumUCells='10'
+					NumVCells='10'
+					CellUDist='10mm'
+					CellVDist='10mm'
+					UDirnX='1'
+					UDirnY='0'
+					UDirnZ='0'
+					VDirnX='0'
+					VDirnY='1'
+					VDirnZ='0'
+					FirstCellPosX='0mm'
+					FirstCellPosY='0mm'
+					FirstCellPosZ='0mm'
+					UseScanAngle=true
+					ScanAnglePhi='45deg'
+					ScanAngleTheta='45deg'
+					UDirnPhaseShift='0deg'
+					VDirnPhaseShift='0deg'
+				$end 'RegularArray'
+				$begin 'CustomArray'
+					NumCells=0
+					$begin 'Cell'
+					$end 'Cell'
+				$end 'CustomArray'
+			$end 'ArraySetup'
+			$begin 'NearFieldSetups'
+				NextUniqueID=2
+				MoveBackwards=false
+			$end 'NearFieldSetups'
+		$end 'RadField'
+		$begin 'SolutionManager'
+			$begin 'OutputVariables'
+				Directiviti_dBi('10.0*log10(abs(DirTotal))', 1, '', 1, '', 0, 0, 2, 0, false, false, 1, 1, 0, 1, 1)
+			$end 'OutputVariables'
+			$begin 'SimSetup'
+				TypeName='BaseSetup'
+				ID=219
+				Name='Setup1'
+				$begin 'Solution'
+					ID=221
+					Name='Adaptive_1'
+					$begin 'SimDataExtractor'
+						$begin 'Sweeps'
+							$begin 'Sweep'
+								Variable='Freq'
+								Column='29.9792GHz'
+								Units='GHz'
+							$end 'Sweep'
+							$begin 'PostprocessSweep'
+								Variable='NormalizedDistance'
+								RegularSweep=1
+								Units=''
+								Minimum=0
+								Maximum=1
+								Increment=0.01
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phi'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Theta'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phase'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'Sweep'
+								Variable='Pass'
+								Column='1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20'
+								Units=''
+							$end 'Sweep'
+						$end 'Sweeps'
+						IsPortOnly=false
+					$end 'SimDataExtractor'
+				$end 'Solution'
+				$begin 'Solution'
+					ID=223
+					Name='LastAdaptive'
+					$begin 'SimDataExtractor'
+						SimValue('DirTheta', 1, 90, true, 0, 0, 2, 0, false, false, 1, 1, 0, 1, 1)
+						$begin 'Sweeps'
+							$begin 'Sweep'
+								Variable='Freq'
+								Column='29.9792GHz'
+								Units='GHz'
+							$end 'Sweep'
+							$begin 'PostprocessSweep'
+								Variable='NormalizedDistance'
+								RegularSweep=1
+								Units=''
+								Minimum=0
+								Maximum=1
+								Increment=0.01
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phi'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.174532925199433
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Theta'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=3.14159265358979
+								Increment=0.174532925199433
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phase'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+						$end 'Sweeps'
+						$begin 'SolutionPointSets'
+							NextUniqueID=9
+							MoveBackwards=false
+							$begin 'SolutionPointSet'
+								ID=1
+								name='LastAdaptive:SolutionPointSet 1'
+								CurrentIndex=4
+								SolutionVersion=0
+								SimValueContext(0, 0, 2, 0, false, false, 1, 1, 0, 1, 1)
+								$begin 'SubSweeps'
+									$begin 'Phi'
+										All=false
+										Indices(0)
+										$begin 'SweepBase'
+											Variable='Phi'
+											RegularSweep=1
+											Units='deg'
+											Minimum=0
+											Maximum=6.28318530717959
+											Increment=0.174532925199433
+											CreateIndexedSubsweepFlag=true
+										$end 'SweepBase'
+									$end 'Phi'
+									$begin 'Theta'
+										All=true
+										Indices()
+										$begin 'SweepBase'
+											Variable='Theta'
+											RegularSweep=1
+											Units='deg'
+											Minimum=0
+											Maximum=3.14159265358979
+											Increment=0.0872664625997165
+											CreateIndexedSubsweepFlag=true
+										$end 'SweepBase'
+									$end 'Theta'
+									$begin 'Freq'
+										All=false
+										Indices(0)
+										$begin 'SweepBase'
+											Variable='Freq'
+											Column='29.9792GHz'
+											Units='GHz'
+										$end 'SweepBase'
+									$end 'Freq'
+								$end 'SubSweeps'
+								$begin 'Traces'
+									$begin 'Trace2D'
+										name='LastAdaptive:SolutionPointSet 1:Trace2D 1'
+										X(Desc='Theta', CatID=1, FuncID=1, IsInteger=false, Units='deg', X='abs(Theta)')
+										Y(Desc='DirTheta', CatID=55, FuncID=1, IsInteger=false, Units='', Y='abs(DirTheta)')
+									$end 'Trace2D'
+								$end 'Traces'
+							$end 'SolutionPointSet'
+							$begin 'SolutionPointSet'
+								ID=4
+								name='LastAdaptive:SolutionPointSet 4'
+								CurrentIndex=2
+								SolutionVersion=0
+								SimValueContext(0, 0, 2, 0, false, false, 1, 1, 0, 1, 1)
+								$begin 'SubSweeps'
+									$begin 'Phi'
+										All=true
+										Indices()
+										$begin 'SweepBase'
+											Variable='Phi'
+											RegularSweep=1
+											Units='deg'
+											Minimum=0
+											Maximum=6.28318530717959
+											Increment=0.174532925199433
+											CreateIndexedSubsweepFlag=true
+										$end 'SweepBase'
+									$end 'Phi'
+									$begin 'Theta'
+										All=true
+										Indices()
+										$begin 'SweepBase'
+											Variable='Theta'
+											RegularSweep=1
+											Units='deg'
+											Minimum=0
+											Maximum=3.14159265358979
+											Increment=0.0872664625997165
+											CreateIndexedSubsweepFlag=true
+										$end 'SweepBase'
+									$end 'Theta'
+									$begin 'Freq'
+										All=false
+										Indices(0)
+										$begin 'SweepBase'
+											Variable='Freq'
+											Column='29.9792GHz'
+											Units='GHz'
+										$end 'SweepBase'
+									$end 'Freq'
+								$end 'SubSweeps'
+								$begin 'Traces'
+									$begin 'Trace3D'
+										name='Design 0:Solution 223:Pointset 4:Trace3D 1'
+										X(Desc='Phi', CatID=1, FuncID=0, IsInteger=false, Units='deg', X='Phi')
+										Y(Desc='Theta', CatID=1, FuncID=0, IsInteger=false, Units='deg', Y='Theta')
+										Z(Desc='Directiviti_dBi', CatID=2, FuncID=0, IsInteger=false, Units='', Z='Directiviti_dBi')
+									$end 'Trace3D'
+								$end 'Traces'
+							$end 'SolutionPointSet'
+							$begin 'SolutionPointSet'
+								ID=5
+								name='LastAdaptive:SolutionPointSet 5'
+								CurrentIndex=2
+								SolutionVersion=0
+								SimValueContext(0, 0, 2, 0, false, false, 1, 1, 0, 1, 1)
+								$begin 'SubSweeps'
+									$begin 'Theta'
+										All=true
+										Indices(9)
+										$begin 'SweepBase'
+											Variable='Theta'
+											RegularSweep=1
+											Units='deg'
+											Minimum=0
+											Maximum=3.14159265358979
+											Increment=0.0872664625997165
+											CreateIndexedSubsweepFlag=true
+										$end 'SweepBase'
+									$end 'Theta'
+									$begin 'Phi'
+										All=false
+										Indices(0)
+										$begin 'SweepBase'
+											Variable='Phi'
+											RegularSweep=1
+											Units='deg'
+											Minimum=0
+											Maximum=6.28318530717959
+											Increment=0.174532925199433
+											CreateIndexedSubsweepFlag=true
+										$end 'SweepBase'
+									$end 'Phi'
+									$begin 'Freq'
+										All=false
+										Indices(0)
+										$begin 'SweepBase'
+											Variable='Freq'
+											Column='29.9792GHz'
+											Units='GHz'
+										$end 'SweepBase'
+									$end 'Freq'
+								$end 'SubSweeps'
+								$begin 'Traces'
+									$begin 'Trace2D'
+										name='Design 0:Solution 223:Pointset 5:Trace2D 1'
+										X(Desc='Theta', CatID=1, FuncID=0, IsInteger=false, Units='deg', X='Theta')
+										Y(Desc='Directiviti_dBi', CatID=2, FuncID=0, IsInteger=false, Units='', Y='Directiviti_dBi')
+									$end 'Trace2D'
+								$end 'Traces'
+							$end 'SolutionPointSet'
+						$end 'SolutionPointSets'
+						IsPortOnly=false
+					$end 'SimDataExtractor'
+				$end 'Solution'
+				$begin 'Solution'
+					ID=225
+					Name='Sweep1'
+					$begin 'SimDataExtractor'
+						SimValue('Z(source,source)', 2, 90, false, 3, 0, 2, 0, true, false, -1, 1, 0, 1, 1)
+						SimValue('S(source,source)', 2, 90, false, 3, 0, 2, 0, true, false, -1, 1, 0, 1, 1)
+						SimValue('DirTotal', 1, 90, true, 0, 0, 2, 0, false, false, 1, 1, 0, 1, 1)
+						$begin 'Sweeps'
+							$begin 'PostprocessSweep'
+								Variable='Freq'
+								RegularSweep=1
+								Units='GHz'
+								Minimum=25000000000
+								Maximum=35000000000
+								Increment=10010010.01001
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='NormalizedDistance'
+								RegularSweep=1
+								Units=''
+								Minimum=0
+								Maximum=1
+								Increment=0.01
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phi'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Theta'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phase'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+						$end 'Sweeps'
+						$begin 'SolutionPointSets'
+							NextUniqueID=10
+							MoveBackwards=false
+							$begin 'SolutionPointSet'
+								ID=0
+								name='Sweep1:SolutionPointSet 1'
+								CurrentIndex=31
+								SolutionVersion=0
+								SimValueContext(3, 0, 2, 0, true, false, -1, 1, 0, 1, 1)
+								$begin 'SubSweeps'
+									$begin 'Freq'
+										All=true
+										Indices()
+										$begin 'SweepBase'
+											Variable='Freq'
+											RegularSweep=1
+											Units='GHz'
+											Minimum=25000000000
+											Maximum=35000000000
+											Increment=10010010.01001
+											CreateIndexedSubsweepFlag=false
+										$end 'SweepBase'
+										$begin 'SubColumns'
+											SubsweepColumn(V='25GHz;25.01001001001GHz;25.02002002002GHz;25.03003003003GHz;25.04004004004GHz;25.0500500500501GHz;25.0600600600601GHz;25.0700700700701GHz;25.0800800800801GHz;25.0900900900901GHz;25.1001001001001GHz;25.1101101101101GHz;25.1201201201201GHz;25.1301301301301GHz;25.1401401401401GHz;25.1501501501502GHz;25.1601601601602GHz;25.1701701701702GHz;25.1801801801802GHz;25.1901901901902GHz;25.2002002002002GHz;25.2102102102102GHz;25.2202202202202GHz;25.2302302302302GHz;25.2402402402402GHz;25.2502502502503GHz;25.2602602602603GHz;25.2702702702703GHz;25.2802802802803GHz;25.2902902902903GHz;25.3003003003003GHz;25.3103103103103GHz;25.3203203203203GHz;25.3303303303303GHz;25.3403403403403GHz;25.3503503503504GHz;25.3603603603604GHz;25.3703703703704GHz;25.3803803803804GHz;25.3903903903904GHz;25.4004004004004GHz;25.4104104104104GHz;25.4204204204204GHz;25.4304304304304GHz;25.4404404404404GHz;25.4504504504505GHz;25.4604604604605GHz;25.4704704704705GHz;25.4804804804805GHz;25.4904904904905GHz;25.5005005005005GHz;25.5105105105105GHz;25.5205205205205GHz;25.5305305305305GHz;25.5405405405405GHz;25.5505505505505GHz;25.5605605605606GHz;25.5705705705706GHz;25.5805805805806GHz;25.5905905905906GHz;25.6006006006006GHz;25.6106106106106GHz;25.6206206206206GHz;25.6306306306306GHz;25.6406406406406GHz;25.6506506506507GHz;25.6606606606607GHz;25.6706706706707GHz;25.6806806806807GHz;25.6906906906907GHz;25.7007007007007GHz;25.7107107107107GHz;25.7207207207207GHz;25.7307307307307GHz;25.7407407407407GHz;25.7507507507508GHz;25.7607607607608GHz;25.7707707707708GHz;25.7807807807808GHz;25.7907907907908GHz;25.8008008008008GHz;25.8108108108108GHz;25.8208208208208GHz;25.8308308308308GHz;25.8408408408408GHz;25.8508508508509GHz;25.8608608608609GHz;25.8708708708709GHz;25.8808808808809GHz;25.8908908908909GHz;25.9009009009009GHz;25.9109109109109GHz;25.9209209209209GHz;25.9309309309309GHz;25.9409409409409GHz;25.950950950951GHz;25.960960960961GHz;25.970970970971GHz;25.980980980981GHz;25.990990990991GHz;26.001001001001GHz;26.011011011011GHz;26.021021021021GHz;26.031031031031GHz;26.041041041041GHz;26.051051051051GHz;26.0610610610611GHz;26.0710710710711GHz;26.0810810810811GHz;26.0910910910911GHz;26.1011011011011GHz;26.1111111111111GHz;26.1211211211211GHz;26.1311311311311GHz;26.1411411411411GHz;26.1511511511512GHz;26.1611611611612GHz;26.1711711711712GHz;26.1811811811812GHz;26.1911911911912GHz;26.2012012012012GHz;26.2112112112112GHz;26.2212212212212GHz;26.2312312312312GHz;26.2412412412412GHz;26.2512512512513GHz;26.2612612612613GHz;26.2712712712713GHz;26.2812812812813GHz;26.2912912912913GHz;26.3013013013013GHz;26.3113113113113GHz;26.3213213213213GHz;26.3313313313313GHz;26.3413413413413GHz;26.3513513513513GHz;26.3613613613614GHz;26.3713713713714GHz;26.3813813813814GHz;26.3913913913914GHz;26.4014014014014GHz;26.4114114114114GHz;26.4214214214214GHz;26.4314314314314GHz;26.4414414414414GHz;26.4514514514515GHz;26.4614614614615GHz;26.4714714714715GHz;26.4814814814815GHz;26.4914914914915GHz;26.5015015015015GHz;26.5115115115115GHz;26.5215215215215GHz;26.5315315315315GHz;26.5415415415415GHz;26.5515515515516GHz;26.5615615615616GHz;26.5715715715716GHz;26.5815815815816GHz;26.5915915915916GHz;26.6016016016016GHz;26.6116116116116GHz;26.6216216216216GHz;26.6316316316316GHz;26.6416416416416GHz;26.6516516516517GHz;26.6616616616617GHz;26.6716716716717GHz;26.6816816816817GHz;26.6916916916917GHz;26.7017017017017GHz;26.7117117117117GHz;26.7217217217217GHz;26.7317317317317GHz;26.7417417417417GHz;26.7517517517518GHz;26.7617617617618GHz;26.7717717717718GHz;26.7817817817818GHz;26.7917917917918GHz;26.8018018018018GHz;26.8118118118118GHz;26.8218218218218GHz;26.8318318318318GHz;26.8418418418418GHz;26.8518518518518GHz;26.8618618618619GHz;26.8718718718719GHz;26.8818818818819GHz;26.8918918918919GHz;26.9019019019019GHz;26.9119119119119GHz;26.9219219219219GHz;26.9319319319319GHz;26.9419419419419GHz;26.951951951952GHz;26.961961961962GHz;26.971971971972GHz;26.981981981982GHz;26.991991991992GHz;27.002002002002GHz;27.012012012012GHz;27.022022022022GHz;27.032032032032GHz;27.042042042042GHz;27.0520520520521GHz;27.0620620620621GHz;27.0720720720721GHz;27.0820820820821GHz;27.0920920920921GHz;27.1021021021021GHz;27.1121121121121GHz;27.1221221221221GHz;27.1321321321321GHz;27.1421421421421GHz;27.1521521521521GHz;27.1621621621622GHz;27.1721721721722GHz;27.1821821821822GHz;27.1921921921922GHz;27.2022022022022GHz;27.2122122122122GHz;27.2222222222222GHz;27.2322322322322GHz;27.2422422422422GHz;27.2522522522523GHz;27.2622622622623GHz;27.2722722722723GHz;27.2822822822823GHz;27.2922922922923GHz;27.3023023023023GHz;27.3123123123123GHz;27.3223223223223GHz;27.3323323323323GHz;27.3423423423423GHz;27.3523523523523GHz;27.3623623623624GHz;27.3723723723724GHz;27.3823823823824GHz;27.3923923923924GHz;27.4024024024024GHz;27.4124124124124GHz;27.4224224224224GHz;27.4324324324324GHz;27.4424424424424GHz;27.4524524524524GHz;27.4624624624625GHz;27.4724724724725GHz;27.4824824824825GHz;27.4924924924925GHz;27.5025025025025GHz;27.5125125125125GHz;27.5225225225225GHz;27.5325325325325GHz;27.5425425425425GHz;27.5525525525526GHz;27.5625625625626GHz;27.5725725725726GHz;27.5825825825826GHz;27.5925925925926GHz;27.6026026026026GHz;27.6126126126126GHz;27.6226226226226GHz;27.6326326326326GHz;27.6426426426426GHz;27.6526526526526GHz;27.6626626626627GHz;27.6726726726727GHz;27.6826826826827GHz;27.6926926926927GHz;27.7027027027027GHz;27.7127127127127GHz;27.7227227227227GHz;27.7327327327327GHz;27.7427427427427GHz;27.7527527527528GHz;27.7627627627628GHz;27.7727727727728GHz;27.7827827827828GHz;27.7927927927928GHz;27.8028028028028GHz;27.8128128128128GHz;27.8228228228228GHz;27.8328328328328GHz;27.8428428428428GHz;27.8528528528529GHz;27.8628628628629GHz;27.8728728728729GHz;27.8828828828829GHz;27.8928928928929GHz;27.9029029029029GHz;27.9129129129129GHz;27.9229229229229GHz;27.9329329329329GHz;27.9429429429429GHz;27.9529529529529GHz;27.962962962963GHz;27.972972972973GHz;27.982982982983GHz;27.992992992993GHz;28.003003003003GHz;28.013013013013GHz;28.023023023023GHz;28.033033033033GHz;28.043043043043GHz;28.0530530530531GHz;28.0630630630631GHz;28.0730730730731GHz;28.0830830830831GHz;28.0930930930931GHz;28.1031031031031GHz;28.1131131131131GHz;28.1231231231231GHz;28.1331331331331GHz;28.1431431431431GHz;28.1531531531531GHz;28.1631631631632GHz;28.1731731731732GHz;28.1831831831832GHz;28.1931931931932GHz;28.2032032032032GHz;28.2132132132132GHz;28.2232232232232GHz;28.2332332332332GHz;28.2432432432432GHz;28.2532532532532GHz;28.2632632632633GHz;28.2732732732733GHz;28.2832832832833GHz;28.2932932932933GHz;28.3033033033033GHz;28.3133133133133GHz;28.3233233233233GHz;28.3333333333333GHz;28.3433433433433GHz;28.3533533533534GHz;28.3633633633634GHz;28.3733733733734GHz;28.3833833833834GHz;28.3933933933934GHz;28.4034034034034GHz;28.4134134134134GHz;28.4234234234234GHz;28.4334334334334GHz;28.4434434434434GHz;28.4534534534534GHz;28.4634634634635GHz;28.4734734734735GHz;28.4834834834835GHz;28.4934934934935GHz;28.5035035035035GHz;28.5135135135135GHz;28.5235235235235GHz;28.5335335335335GHz;28.5435435435435GHz;28.5535535535536GHz;28.5635635635636GHz;28.5735735735736GHz;28.5835835835836GHz;28.5935935935936GHz;28.6036036036036GHz;28.6136136136136GHz;28.6236236236236GHz;28.6336336336336GHz;28.6436436436436GHz;28.6536536536536GHz;28.6636636636637GHz;28.6736736736737GHz;28.6836836836837GHz;28.6936936936937GHz;28.7037037037037GHz;28.7137137137137GHz;28.7237237237237GHz;28.7337337337337GHz;28.7437437437437GHz;28.7537537537537GHz;28.7637637637638GHz;28.7737737737738GHz;28.7837837837838GHz;28.7937937937938GHz;28.8038038038038GHz;28.8138138138138GHz;28.8238238238238GHz;28.8338338338338GHz;28.8438438438438GHz;28.8538538538539GHz;28.8638638638639GHz;28.8738738738739GHz;28.8838838838839GHz;28.8938938938939GHz;28.9039039039039GHz;28.9139139139139GHz;28.9239239239239GHz;28.9339339339339GHz;28.9439439439439GHz;28.9539539539539GHz;28.963963963964GHz;28.973973973974GHz;28.983983983984GHz;28.993993993994GHz;29.004004004004GHz;29.014014014014GHz;29.024024024024GHz;29.034034034034GHz;29.044044044044GHz;29.054054054054GHz;29.0640640640641GHz;29.0740740740741GHz;29.0840840840841GHz;29.0940940940941GHz;29.1041041041041GHz;29.1141141141141GHz;29.1241241241241GHz;29.1341341341341GHz;29.1441441441441GHz;29.1541541541542GHz;29.1641641641642GHz;29.1741741741742GHz;29.1841841841842GHz;29.1941941941942GHz;29.2042042042042GHz;29.2142142142142GHz;29.2242242242242GHz;29.2342342342342GHz;29.2442442442442GHz;29.2542542542542GHz;29.2642642642643GHz;29.2742742742743GHz;29.2842842842843GHz;29.2942942942943GHz;29.3043043043043GHz;29.3143143143143GHz;29.3243243243243GHz;29.3343343343343GHz;29.3443443443443GHz;29.3543543543544GHz;29.3643643643644GHz;29.3743743743744GHz;29.3843843843844GHz;29.3943943943944GHz;29.4044044044044GHz;29.4144144144144GHz;29.4244244244244GHz;29.4344344344344GHz;29.4444444444444GHz;29.4544544544545GHz;29.4644644644645GHz;29.4744744744745GHz;29.4844844844845GHz;29.4944944944945GHz;29.5045045045045GHz;29.5145145145145GHz;29.5245245245245GHz;29.5345345345345GHz;29.5445445445445GHz;29.5545545545545GHz;29.5645645645646GHz;29.5745745745746GHz;29.5845845845846GHz;29.5945945945946GHz;29.6046046046046GHz;29.6146146146146GHz;29.6246246246246GHz;29.6346346346346GHz;29.6446446446446GHz;29.6546546546546GHz;29.6646646646647GHz;29.6746746746747GHz;29.6846846846847GHz;29.6946946946947GHz;29.7047047047047GHz;29.7147147147147GHz;29.7247247247247GHz;29.7347347347347GHz;29.7447447447447GHz;29.7547547547548GHz;29.7647647647648GHz;29.7747747747748GHz;29.7847847847848GHz;29.7947947947948GHz;29.8048048048048GHz;29.8148148148148GHz;29.8248248248248GHz;29.8348348348348GHz;29.8448448448448GHz;29.8548548548549GHz;29.8648648648649GHz;29.8748748748749GHz;29.8848848848849GHz;29.8948948948949GHz;29.9049049049049GHz;29.9149149149149GHz;29.9249249249249GHz;29.9349349349349GHz;29.9449449449449GHz;29.954954954955GHz;29.964964964965GHz;29.974974974975GHz;29.984984984985GHz;29.994994994995GHz;30.005005005005GHz;30.015015015015GHz;30.025025025025GHz;30.035035035035GHz;30.045045045045GHz;30.0550550550551GHz;30.0650650650651GHz;30.0750750750751GHz;30.0850850850851GHz;30.0950950950951GHz;30.1051051051051GHz;30.1151151151151GHz;30.1251251251251GHz;30.1351351351351GHz;30.1451451451451GHz;30.1551551551552GHz;30.1651651651652GHz;30.1751751751752GHz;30.1851851851852GHz;30.1951951951952GHz;30.2052052052052GHz;30.2152152152152GHz;30.2252252252252GHz;30.2352352352352GHz;30.2452452452452GHz;30.2552552552553GHz;30.2652652652653GHz;30.2752752752753GHz;30.2852852852853GHz;30.2952952952953GHz;30.3053053053053GHz;30.3153153153153GHz;30.3253253253253GHz;30.3353353353353GHz;30.3453453453453GHz;30.3553553553554GHz;30.3653653653654GHz;30.3753753753754GHz;30.3853853853854GHz;30.3953953953954GHz;30.4054054054054GHz;30.4154154154154GHz;30.4254254254254GHz;30.4354354354354GHz;30.4454454454454GHz;30.4554554554555GHz;30.4654654654655GHz;30.4754754754755GHz;30.4854854854855GHz;30.4954954954955GHz;30.5055055055055GHz;30.5155155155155GHz;30.5255255255255GHz;30.5355355355355GHz;30.5455455455455GHz;30.5555555555556GHz;30.5655655655656GHz;30.5755755755756GHz;30.5855855855856GHz;30.5955955955956GHz;30.6056056056056GHz;30.6156156156156GHz;30.6256256256256GHz;30.6356356356356GHz;30.6456456456456GHz;30.6556556556557GHz;30.6656656656657GHz;30.6756756756757GHz;30.6856856856857GHz;30.6956956956957GHz;30.7057057057057GHz;30.7157157157157GHz;30.7257257257257GHz;30.7357357357357GHz;30.7457457457457GHz;30.7557557557558GHz;30.7657657657658GHz;30.7757757757758GHz;30.7857857857858GHz;30.7957957957958GHz;30.8058058058058GHz;30.8158158158158GHz;30.8258258258258GHz;30.8358358358358GHz;30.8458458458458GHz;30.8558558558559GHz;30.8658658658659GHz;30.8758758758759GHz;30.8858858858859GHz;30.8958958958959GHz;30.9059059059059GHz;30.9159159159159GHz;30.9259259259259GHz;30.9359359359359GHz;30.9459459459459GHz;30.9559559559559GHz;30.965965965966GHz;30.975975975976GHz;30.985985985986GHz;30.995995995996GHz;31.006006006006GHz;31.016016016016GHz;31.026026026026GHz;31.036036036036GHz;31.046046046046GHz;31.0560560560561GHz;31.0660660660661GHz;31.0760760760761GHz;31.0860860860861GHz;31.0960960960961GHz;31.1061061061061GHz;31.1161161161161GHz;31.1261261261261GHz;31.1361361361361GHz;31.1461461461461GHz;31.1561561561562GHz;31.1661661661662GHz;31.1761761761762GHz;31.1861861861862GHz;31.1961961961962GHz;31.2062062062062GHz;31.2162162162162GHz;31.2262262262262GHz;31.2362362362362GHz;31.2462462462462GHz;31.2562562562562GHz;31.2662662662663GHz;31.2762762762763GHz;31.2862862862863GHz;31.2962962962963GHz;31.3063063063063GHz;31.3163163163163GHz;31.3263263263263GHz;31.3363363363363GHz;31.3463463463463GHz;31.3563563563564GHz;31.3663663663664GHz;31.3763763763764GHz;31.3863863863864GHz;31.3963963963964GHz;31.4064064064064GHz;31.4164164164164GHz;31.4264264264264GHz;31.4364364364364GHz;31.4464464464464GHz;31.4564564564565GHz;31.4664664664665GHz;31.4764764764765GHz;31.4864864864865GHz;31.4964964964965GHz;31.5065065065065GHz;31.5165165165165GHz;31.5265265265265GHz;31.5365365365365GHz;31.5465465465465GHz;31.5565565565566GHz;31.5665665665666GHz;31.5765765765766GHz;31.5865865865866GHz;31.5965965965966GHz;31.6066066066066GHz;31.6166166166166GHz;31.6266266266266GHz;31.6366366366366GHz;31.6466466466466GHz;31.6566566566567GHz;31.6666666666667GHz;31.6766766766767GHz;31.6866866866867GHz;31.6966966966967GHz;31.7067067067067GHz;31.7167167167167GHz;31.7267267267267GHz;31.7367367367367GHz;31.7467467467467GHz;31.7567567567568GHz;31.7667667667668GHz;31.7767767767768GHz;31.7867867867868GHz;31.7967967967968GHz;31.8068068068068GHz;31.8168168168168GHz;31.8268268268268GHz;31.8368368368368GHz;31.8468468468468GHz;31.8568568568569GHz;31.8668668668669GHz;31.8768768768769GHz;31.8868868868869GHz;31.8968968968969GHz;31.9069069069069GHz;31.9169169169169GHz;31.9269269269269GHz;31.9369369369369GHz;31.9469469469469GHz;31.956956956957GHz;31.966966966967GHz;31.976976976977GHz;31.986986986987GHz;31.996996996997GHz;32.007007007007GHz;32.017017017017GHz;32.027027027027GHz;32.037037037037GHz;32.047047047047GHz;32.0570570570571GHz;32.0670670670671GHz;32.0770770770771GHz;32.0870870870871GHz;32.0970970970971GHz;32.1071071071071GHz;32.1171171171171GHz;32.1271271271271GHz;32.1371371371371GHz;32.1471471471471GHz;32.1571571571572GHz;32.1671671671672GHz;32.1771771771772GHz;32.1871871871872GHz;32.1971971971972GHz;32.2072072072072GHz;32.2172172172172GHz;32.2272272272272GHz;32.2372372372372GHz;32.2472472472472GHz;32.2572572572573GHz;32.2672672672673GHz;32.2772772772773GHz;32.2872872872873GHz;32.2972972972973GHz;32.3073073073073GHz;32.3173173173173GHz;32.3273273273273GHz;32.3373373373373GHz;32.3473473473473GHz;32.3573573573574GHz;32.3673673673674GHz;32.3773773773774GHz;32.3873873873874GHz;32.3973973973974GHz;32.4074074074074GHz;32.4174174174174GHz;32.4274274274274GHz;32.4374374374374GHz;32.4474474474474GHz;32.4574574574575GHz;32.4674674674675GHz;32.4774774774775GHz;32.4874874874875GHz;32.4974974974975GHz;32.5075075075075GHz;32.5175175175175GHz;32.5275275275275GHz;32.5375375375375GHz;32.5475475475475GHz;32.5575575575576GHz;32.5675675675676GHz;32.5775775775776GHz;32.5875875875876GHz;32.5975975975976GHz;32.6076076076076GHz;32.6176176176176GHz;32.6276276276276GHz;32.6376376376376GHz;32.6476476476476GHz;32.6576576576577GHz;32.6676676676677GHz;32.6776776776777GHz;32.6876876876877GHz;32.6976976976977GHz;32.7077077077077GHz;32.7177177177177GHz;32.7277277277277GHz;32.7377377377377GHz;32.7477477477477GHz;32.7577577577578GHz;32.7677677677678GHz;32.7777777777778GHz;32.7877877877878GHz;32.7977977977978GHz;32.8078078078078GHz;32.8178178178178GHz;32.8278278278278GHz;32.8378378378378GHz;32.8478478478478GHz;32.8578578578579GHz;32.8678678678679GHz;32.8778778778779GHz;32.8878878878879GHz;32.8978978978979GHz;32.9079079079079GHz;32.9179179179179GHz;32.9279279279279GHz;32.9379379379379GHz;32.9479479479479GHz;32.957957957958GHz;32.967967967968GHz;32.977977977978GHz;32.987987987988GHz;32.997997997998GHz;33.008008008008GHz;33.018018018018GHz;33.028028028028GHz;33.038038038038GHz;33.048048048048GHz;33.0580580580581GHz;33.0680680680681GHz;33.0780780780781GHz;33.0880880880881GHz;33.0980980980981GHz;33.1081081081081GHz;33.1181181181181GHz;33.1281281281281GHz;33.1381381381381GHz;33.1481481481481GHz;33.1581581581582GHz;33.1681681681682GHz;33.1781781781782GHz;33.1881881881882GHz;33.1981981981982GHz;33.2082082082082GHz;33.2182182182182GHz;33.2282282282282GHz;33.2382382382382GHz;33.2482482482482GHz;33.2582582582583GHz;33.2682682682683GHz;33.2782782782783GHz;33.2882882882883GHz;33.2982982982983GHz;33.3083083083083GHz;33.3183183183183GHz;33.3283283283283GHz;33.3383383383383GHz;33.3483483483483GHz;33.3583583583584GHz;33.3683683683684GHz;33.3783783783784GHz;33.3883883883884GHz;33.3983983983984GHz;33.4084084084084GHz;33.4184184184184GHz;33.4284284284284GHz;33.4384384384384GHz;33.4484484484484GHz;33.4584584584585GHz;33.4684684684685GHz;33.4784784784785GHz;33.4884884884885GHz;33.4984984984985GHz;33.5085085085085GHz;33.5185185185185GHz;33.5285285285285GHz;33.5385385385385GHz;33.5485485485485GHz;33.5585585585585GHz;33.5685685685686GHz;33.5785785785786GHz;33.5885885885886GHz;33.5985985985986GHz;33.6086086086086GHz;33.6186186186186GHz;33.6286286286286GHz;33.6386386386386GHz;33.6486486486486GHz;33.6586586586587GHz;33.6686686686687GHz;33.6786786786787GHz;33.6886886886887GHz;33.6986986986987GHz;33.7087087087087GHz;33.7187187187187GHz;33.7287287287287GHz;33.7387387387387GHz;33.7487487487487GHz;33.7587587587588GHz;33.7687687687688GHz;33.7787787787788GHz;33.7887887887888GHz;33.7987987987988GHz;33.8088088088088GHz;33.8188188188188GHz;33.8288288288288GHz;33.8388388388388GHz;33.8488488488488GHz;33.8588588588588GHz;33.8688688688689GHz;33.8788788788789GHz;33.8888888888889GHz;33.8988988988989GHz;33.9089089089089GHz;33.9189189189189GHz;33.9289289289289GHz;33.9389389389389GHz;33.9489489489489GHz;33.958958958959GHz;33.968968968969GHz;33.978978978979GHz;33.988988988989GHz;33.998998998999GHz;34.009009009009GHz;34.019019019019GHz;34.029029029029GHz;34.039039039039GHz;34.049049049049GHz;34.0590590590591GHz;34.0690690690691GHz;34.0790790790791GHz;34.0890890890891GHz;34.0990990990991GHz;34.1091091091091GHz;34.1191191191191GHz;34.1291291291291GHz;34.1391391391391GHz;34.1491491491491GHz;34.1591591591592GHz;34.1691691691692GHz;34.1791791791792GHz;34.1891891891892GHz;34.1991991991992GHz;34.2092092092092GHz;34.2192192192192GHz;34.2292292292292GHz;34.2392392392392GHz;34.2492492492492GHz;34.2592592592593GHz;34.2692692692693GHz;34.2792792792793GHz;34.2892892892893GHz;34.2992992992993GHz;34.3093093093093GHz;34.3193193193193GHz;34.3293293293293GHz;34.3393393393393GHz;34.3493493493493GHz;34.3593593593594GHz;34.3693693693694GHz;34.3793793793794GHz;34.3893893893894GHz;34.3993993993994GHz;34.4094094094094GHz;34.4194194194194GHz;34.4294294294294GHz;34.4394394394394GHz;34.4494494494494GHz;34.4594594594595GHz;34.4694694694695GHz;34.4794794794795GHz;34.4894894894895GHz;34.4994994994995GHz;34.5095095095095GHz;34.5195195195195GHz;34.5295295295295GHz;34.5395395395395GHz;34.5495495495495GHz;34.5595595595596GHz;34.5695695695696GHz;34.5795795795796GHz;34.5895895895896GHz;34.5995995995996GHz;34.6096096096096GHz;34.6196196196196GHz;34.6296296296296GHz;34.6396396396396GHz;34.6496496496496GHz;34.6596596596597GHz;34.6696696696697GHz;34.6796796796797GHz;34.6896896896897GHz;34.6996996996997GHz;34.7097097097097GHz;34.7197197197197GHz;34.7297297297297GHz;34.7397397397397GHz;34.7497497497497GHz;34.7597597597598GHz;34.7697697697698GHz;34.7797797797798GHz;34.7897897897898GHz;34.7997997997998GHz;34.8098098098098GHz;34.8198198198198GHz;34.8298298298298GHz;34.8398398398398GHz;34.8498498498498GHz;34.8598598598598GHz;34.8698698698699GHz;34.8798798798799GHz;34.8898898898899GHz;34.8998998998999GHz;34.9099099099099GHz;34.9199199199199GHz;34.9299299299299GHz;34.9399399399399GHz;34.9499499499499GHz;34.9599599599599GHz;34.96996996997GHz;34.97997997998GHz;34.98998998999GHz;35GHz')
+										$end 'SubColumns'
+									$end 'Freq'
+								$end 'SubSweeps'
+								$begin 'Traces'
+									$begin 'Trace2D'
+										name='Sweep1:SolutionPointSet 1:Trace2D 1'
+										X(Desc='Freq', CatID=1, FuncID=0, IsInteger=false, Units='GHz', X='Freq')
+										Y(Desc='Z(source,source)', CatID=5, FuncID=17, IsInteger=false, Units='', Y='im(Z(source,source))')
+									$end 'Trace2D'
+									$begin 'Trace2D'
+										name='Sweep1:SolutionPointSet 1:Trace2D 2'
+										X(Desc='Freq', CatID=1, FuncID=0, IsInteger=false, Units='GHz', X='Freq')
+										Y(Desc='Z(source,source)', CatID=5, FuncID=26, IsInteger=false, Units='', Y='re(Z(source,source))')
+									$end 'Trace2D'
+									$begin 'Trace2D'
+										name='Sweep1:SolutionPointSet 1:Trace2D 3'
+										X(Desc='Freq', CatID=1, FuncID=0, IsInteger=false, Units='GHz', X='Freq')
+										Y(Desc='Z(source,source)', CatID=5, FuncID=17, IsInteger=false, Units='', Y='im(Z(source,source))')
+									$end 'Trace2D'
+									$begin 'Trace2D'
+										name='Sweep1:SolutionPointSet 1:Trace2D 4'
+										X(Desc='Freq', CatID=1, FuncID=0, IsInteger=false, Units='GHz', X='Freq')
+										Y(Desc='Z(source,source)', CatID=5, FuncID=26, IsInteger=false, Units='', Y='re(Z(source,source))')
+									$end 'Trace2D'
+									$begin 'Trace2D'
+										name='Sweep1:SolutionPointSet 1:Trace2D 5'
+										X(Desc='Freq', CatID=1, FuncID=0, IsInteger=false, Units='GHz', X='Freq')
+										Y(Desc='S(source,source)', CatID=3, FuncID=11, IsInteger=false, Units='', Y='dB(S(source,source))')
+									$end 'Trace2D'
+								$end 'Traces'
+							$end 'SolutionPointSet'
+							$begin 'SolutionPointSet'
+								ID=1
+								name='Sweep1:SolutionPointSet 2'
+								CurrentIndex=7
+								SolutionVersion=0
+								SimValueContext(3, 0, 2, 0, true, false, -1, 1, 0, 1, 1)
+								$begin 'SubSweeps'
+									$begin 'Freq'
+										All=true
+										Indices()
+										$begin 'SweepBase'
+											Variable='Freq'
+											RegularSweep=1
+											Units='GHz'
+											Minimum=25000000000
+											Maximum=35000000000
+											Increment=10010010.01001
+											CreateIndexedSubsweepFlag=false
+										$end 'SweepBase'
+										$begin 'SubColumns'
+											SubsweepColumn(V='25GHz;25.01001001001GHz;25.02002002002GHz;25.03003003003GHz;25.04004004004GHz;25.0500500500501GHz;25.0600600600601GHz;25.0700700700701GHz;25.0800800800801GHz;25.0900900900901GHz;25.1001001001001GHz;25.1101101101101GHz;25.1201201201201GHz;25.1301301301301GHz;25.1401401401401GHz;25.1501501501502GHz;25.1601601601602GHz;25.1701701701702GHz;25.1801801801802GHz;25.1901901901902GHz;25.2002002002002GHz;25.2102102102102GHz;25.2202202202202GHz;25.2302302302302GHz;25.2402402402402GHz;25.2502502502503GHz;25.2602602602603GHz;25.2702702702703GHz;25.2802802802803GHz;25.2902902902903GHz;25.3003003003003GHz;25.3103103103103GHz;25.3203203203203GHz;25.3303303303303GHz;25.3403403403403GHz;25.3503503503504GHz;25.3603603603604GHz;25.3703703703704GHz;25.3803803803804GHz;25.3903903903904GHz;25.4004004004004GHz;25.4104104104104GHz;25.4204204204204GHz;25.4304304304304GHz;25.4404404404404GHz;25.4504504504505GHz;25.4604604604605GHz;25.4704704704705GHz;25.4804804804805GHz;25.4904904904905GHz;25.5005005005005GHz;25.5105105105105GHz;25.5205205205205GHz;25.5305305305305GHz;25.5405405405405GHz;25.5505505505505GHz;25.5605605605606GHz;25.5705705705706GHz;25.5805805805806GHz;25.5905905905906GHz;25.6006006006006GHz;25.6106106106106GHz;25.6206206206206GHz;25.6306306306306GHz;25.6406406406406GHz;25.6506506506507GHz;25.6606606606607GHz;25.6706706706707GHz;25.6806806806807GHz;25.6906906906907GHz;25.7007007007007GHz;25.7107107107107GHz;25.7207207207207GHz;25.7307307307307GHz;25.7407407407407GHz;25.7507507507508GHz;25.7607607607608GHz;25.7707707707708GHz;25.7807807807808GHz;25.7907907907908GHz;25.8008008008008GHz;25.8108108108108GHz;25.8208208208208GHz;25.8308308308308GHz;25.8408408408408GHz;25.8508508508509GHz;25.8608608608609GHz;25.8708708708709GHz;25.8808808808809GHz;25.8908908908909GHz;25.9009009009009GHz;25.9109109109109GHz;25.9209209209209GHz;25.9309309309309GHz;25.9409409409409GHz;25.950950950951GHz;25.960960960961GHz;25.970970970971GHz;25.980980980981GHz;25.990990990991GHz;26.001001001001GHz;26.011011011011GHz;26.021021021021GHz;26.031031031031GHz;26.041041041041GHz;26.051051051051GHz;26.0610610610611GHz;26.0710710710711GHz;26.0810810810811GHz;26.0910910910911GHz;26.1011011011011GHz;26.1111111111111GHz;26.1211211211211GHz;26.1311311311311GHz;26.1411411411411GHz;26.1511511511512GHz;26.1611611611612GHz;26.1711711711712GHz;26.1811811811812GHz;26.1911911911912GHz;26.2012012012012GHz;26.2112112112112GHz;26.2212212212212GHz;26.2312312312312GHz;26.2412412412412GHz;26.2512512512513GHz;26.2612612612613GHz;26.2712712712713GHz;26.2812812812813GHz;26.2912912912913GHz;26.3013013013013GHz;26.3113113113113GHz;26.3213213213213GHz;26.3313313313313GHz;26.3413413413413GHz;26.3513513513513GHz;26.3613613613614GHz;26.3713713713714GHz;26.3813813813814GHz;26.3913913913914GHz;26.4014014014014GHz;26.4114114114114GHz;26.4214214214214GHz;26.4314314314314GHz;26.4414414414414GHz;26.4514514514515GHz;26.4614614614615GHz;26.4714714714715GHz;26.4814814814815GHz;26.4914914914915GHz;26.5015015015015GHz;26.5115115115115GHz;26.5215215215215GHz;26.5315315315315GHz;26.5415415415415GHz;26.5515515515516GHz;26.5615615615616GHz;26.5715715715716GHz;26.5815815815816GHz;26.5915915915916GHz;26.6016016016016GHz;26.6116116116116GHz;26.6216216216216GHz;26.6316316316316GHz;26.6416416416416GHz;26.6516516516517GHz;26.6616616616617GHz;26.6716716716717GHz;26.6816816816817GHz;26.6916916916917GHz;26.7017017017017GHz;26.7117117117117GHz;26.7217217217217GHz;26.7317317317317GHz;26.7417417417417GHz;26.7517517517518GHz;26.7617617617618GHz;26.7717717717718GHz;26.7817817817818GHz;26.7917917917918GHz;26.8018018018018GHz;26.8118118118118GHz;26.8218218218218GHz;26.8318318318318GHz;26.8418418418418GHz;26.8518518518518GHz;26.8618618618619GHz;26.8718718718719GHz;26.8818818818819GHz;26.8918918918919GHz;26.9019019019019GHz;26.9119119119119GHz;26.9219219219219GHz;26.9319319319319GHz;26.9419419419419GHz;26.951951951952GHz;26.961961961962GHz;26.971971971972GHz;26.981981981982GHz;26.991991991992GHz;27.002002002002GHz;27.012012012012GHz;27.022022022022GHz;27.032032032032GHz;27.042042042042GHz;27.0520520520521GHz;27.0620620620621GHz;27.0720720720721GHz;27.0820820820821GHz;27.0920920920921GHz;27.1021021021021GHz;27.1121121121121GHz;27.1221221221221GHz;27.1321321321321GHz;27.1421421421421GHz;27.1521521521521GHz;27.1621621621622GHz;27.1721721721722GHz;27.1821821821822GHz;27.1921921921922GHz;27.2022022022022GHz;27.2122122122122GHz;27.2222222222222GHz;27.2322322322322GHz;27.2422422422422GHz;27.2522522522523GHz;27.2622622622623GHz;27.2722722722723GHz;27.2822822822823GHz;27.2922922922923GHz;27.3023023023023GHz;27.3123123123123GHz;27.3223223223223GHz;27.3323323323323GHz;27.3423423423423GHz;27.3523523523523GHz;27.3623623623624GHz;27.3723723723724GHz;27.3823823823824GHz;27.3923923923924GHz;27.4024024024024GHz;27.4124124124124GHz;27.4224224224224GHz;27.4324324324324GHz;27.4424424424424GHz;27.4524524524524GHz;27.4624624624625GHz;27.4724724724725GHz;27.4824824824825GHz;27.4924924924925GHz;27.5025025025025GHz;27.5125125125125GHz;27.5225225225225GHz;27.5325325325325GHz;27.5425425425425GHz;27.5525525525526GHz;27.5625625625626GHz;27.5725725725726GHz;27.5825825825826GHz;27.5925925925926GHz;27.6026026026026GHz;27.6126126126126GHz;27.6226226226226GHz;27.6326326326326GHz;27.6426426426426GHz;27.6526526526526GHz;27.6626626626627GHz;27.6726726726727GHz;27.6826826826827GHz;27.6926926926927GHz;27.7027027027027GHz;27.7127127127127GHz;27.7227227227227GHz;27.7327327327327GHz;27.7427427427427GHz;27.7527527527528GHz;27.7627627627628GHz;27.7727727727728GHz;27.7827827827828GHz;27.7927927927928GHz;27.8028028028028GHz;27.8128128128128GHz;27.8228228228228GHz;27.8328328328328GHz;27.8428428428428GHz;27.8528528528529GHz;27.8628628628629GHz;27.8728728728729GHz;27.8828828828829GHz;27.8928928928929GHz;27.9029029029029GHz;27.9129129129129GHz;27.9229229229229GHz;27.9329329329329GHz;27.9429429429429GHz;27.9529529529529GHz;27.962962962963GHz;27.972972972973GHz;27.982982982983GHz;27.992992992993GHz;28.003003003003GHz;28.013013013013GHz;28.023023023023GHz;28.033033033033GHz;28.043043043043GHz;28.0530530530531GHz;28.0630630630631GHz;28.0730730730731GHz;28.0830830830831GHz;28.0930930930931GHz;28.1031031031031GHz;28.1131131131131GHz;28.1231231231231GHz;28.1331331331331GHz;28.1431431431431GHz;28.1531531531531GHz;28.1631631631632GHz;28.1731731731732GHz;28.1831831831832GHz;28.1931931931932GHz;28.2032032032032GHz;28.2132132132132GHz;28.2232232232232GHz;28.2332332332332GHz;28.2432432432432GHz;28.2532532532532GHz;28.2632632632633GHz;28.2732732732733GHz;28.2832832832833GHz;28.2932932932933GHz;28.3033033033033GHz;28.3133133133133GHz;28.3233233233233GHz;28.3333333333333GHz;28.3433433433433GHz;28.3533533533534GHz;28.3633633633634GHz;28.3733733733734GHz;28.3833833833834GHz;28.3933933933934GHz;28.4034034034034GHz;28.4134134134134GHz;28.4234234234234GHz;28.4334334334334GHz;28.4434434434434GHz;28.4534534534534GHz;28.4634634634635GHz;28.4734734734735GHz;28.4834834834835GHz;28.4934934934935GHz;28.5035035035035GHz;28.5135135135135GHz;28.5235235235235GHz;28.5335335335335GHz;28.5435435435435GHz;28.5535535535536GHz;28.5635635635636GHz;28.5735735735736GHz;28.5835835835836GHz;28.5935935935936GHz;28.6036036036036GHz;28.6136136136136GHz;28.6236236236236GHz;28.6336336336336GHz;28.6436436436436GHz;28.6536536536536GHz;28.6636636636637GHz;28.6736736736737GHz;28.6836836836837GHz;28.6936936936937GHz;28.7037037037037GHz;28.7137137137137GHz;28.7237237237237GHz;28.7337337337337GHz;28.7437437437437GHz;28.7537537537537GHz;28.7637637637638GHz;28.7737737737738GHz;28.7837837837838GHz;28.7937937937938GHz;28.8038038038038GHz;28.8138138138138GHz;28.8238238238238GHz;28.8338338338338GHz;28.8438438438438GHz;28.8538538538539GHz;28.8638638638639GHz;28.8738738738739GHz;28.8838838838839GHz;28.8938938938939GHz;28.9039039039039GHz;28.9139139139139GHz;28.9239239239239GHz;28.9339339339339GHz;28.9439439439439GHz;28.9539539539539GHz;28.963963963964GHz;28.973973973974GHz;28.983983983984GHz;28.993993993994GHz;29.004004004004GHz;29.014014014014GHz;29.024024024024GHz;29.034034034034GHz;29.044044044044GHz;29.054054054054GHz;29.0640640640641GHz;29.0740740740741GHz;29.0840840840841GHz;29.0940940940941GHz;29.1041041041041GHz;29.1141141141141GHz;29.1241241241241GHz;29.1341341341341GHz;29.1441441441441GHz;29.1541541541542GHz;29.1641641641642GHz;29.1741741741742GHz;29.1841841841842GHz;29.1941941941942GHz;29.2042042042042GHz;29.2142142142142GHz;29.2242242242242GHz;29.2342342342342GHz;29.2442442442442GHz;29.2542542542542GHz;29.2642642642643GHz;29.2742742742743GHz;29.2842842842843GHz;29.2942942942943GHz;29.3043043043043GHz;29.3143143143143GHz;29.3243243243243GHz;29.3343343343343GHz;29.3443443443443GHz;29.3543543543544GHz;29.3643643643644GHz;29.3743743743744GHz;29.3843843843844GHz;29.3943943943944GHz;29.4044044044044GHz;29.4144144144144GHz;29.4244244244244GHz;29.4344344344344GHz;29.4444444444444GHz;29.4544544544545GHz;29.4644644644645GHz;29.4744744744745GHz;29.4844844844845GHz;29.4944944944945GHz;29.5045045045045GHz;29.5145145145145GHz;29.5245245245245GHz;29.5345345345345GHz;29.5445445445445GHz;29.5545545545545GHz;29.5645645645646GHz;29.5745745745746GHz;29.5845845845846GHz;29.5945945945946GHz;29.6046046046046GHz;29.6146146146146GHz;29.6246246246246GHz;29.6346346346346GHz;29.6446446446446GHz;29.6546546546546GHz;29.6646646646647GHz;29.6746746746747GHz;29.6846846846847GHz;29.6946946946947GHz;29.7047047047047GHz;29.7147147147147GHz;29.7247247247247GHz;29.7347347347347GHz;29.7447447447447GHz;29.7547547547548GHz;29.7647647647648GHz;29.7747747747748GHz;29.7847847847848GHz;29.7947947947948GHz;29.8048048048048GHz;29.8148148148148GHz;29.8248248248248GHz;29.8348348348348GHz;29.8448448448448GHz;29.8548548548549GHz;29.8648648648649GHz;29.8748748748749GHz;29.8848848848849GHz;29.8948948948949GHz;29.9049049049049GHz;29.9149149149149GHz;29.9249249249249GHz;29.9349349349349GHz;29.9449449449449GHz;29.954954954955GHz;29.964964964965GHz;29.974974974975GHz;29.984984984985GHz;29.994994994995GHz;30.005005005005GHz;30.015015015015GHz;30.025025025025GHz;30.035035035035GHz;30.045045045045GHz;30.0550550550551GHz;30.0650650650651GHz;30.0750750750751GHz;30.0850850850851GHz;30.0950950950951GHz;30.1051051051051GHz;30.1151151151151GHz;30.1251251251251GHz;30.1351351351351GHz;30.1451451451451GHz;30.1551551551552GHz;30.1651651651652GHz;30.1751751751752GHz;30.1851851851852GHz;30.1951951951952GHz;30.2052052052052GHz;30.2152152152152GHz;30.2252252252252GHz;30.2352352352352GHz;30.2452452452452GHz;30.2552552552553GHz;30.2652652652653GHz;30.2752752752753GHz;30.2852852852853GHz;30.2952952952953GHz;30.3053053053053GHz;30.3153153153153GHz;30.3253253253253GHz;30.3353353353353GHz;30.3453453453453GHz;30.3553553553554GHz;30.3653653653654GHz;30.3753753753754GHz;30.3853853853854GHz;30.3953953953954GHz;30.4054054054054GHz;30.4154154154154GHz;30.4254254254254GHz;30.4354354354354GHz;30.4454454454454GHz;30.4554554554555GHz;30.4654654654655GHz;30.4754754754755GHz;30.4854854854855GHz;30.4954954954955GHz;30.5055055055055GHz;30.5155155155155GHz;30.5255255255255GHz;30.5355355355355GHz;30.5455455455455GHz;30.5555555555556GHz;30.5655655655656GHz;30.5755755755756GHz;30.5855855855856GHz;30.5955955955956GHz;30.6056056056056GHz;30.6156156156156GHz;30.6256256256256GHz;30.6356356356356GHz;30.6456456456456GHz;30.6556556556557GHz;30.6656656656657GHz;30.6756756756757GHz;30.6856856856857GHz;30.6956956956957GHz;30.7057057057057GHz;30.7157157157157GHz;30.7257257257257GHz;30.7357357357357GHz;30.7457457457457GHz;30.7557557557558GHz;30.7657657657658GHz;30.7757757757758GHz;30.7857857857858GHz;30.7957957957958GHz;30.8058058058058GHz;30.8158158158158GHz;30.8258258258258GHz;30.8358358358358GHz;30.8458458458458GHz;30.8558558558559GHz;30.8658658658659GHz;30.8758758758759GHz;30.8858858858859GHz;30.8958958958959GHz;30.9059059059059GHz;30.9159159159159GHz;30.9259259259259GHz;30.9359359359359GHz;30.9459459459459GHz;30.9559559559559GHz;30.965965965966GHz;30.975975975976GHz;30.985985985986GHz;30.995995995996GHz;31.006006006006GHz;31.016016016016GHz;31.026026026026GHz;31.036036036036GHz;31.046046046046GHz;31.0560560560561GHz;31.0660660660661GHz;31.0760760760761GHz;31.0860860860861GHz;31.0960960960961GHz;31.1061061061061GHz;31.1161161161161GHz;31.1261261261261GHz;31.1361361361361GHz;31.1461461461461GHz;31.1561561561562GHz;31.1661661661662GHz;31.1761761761762GHz;31.1861861861862GHz;31.1961961961962GHz;31.2062062062062GHz;31.2162162162162GHz;31.2262262262262GHz;31.2362362362362GHz;31.2462462462462GHz;31.2562562562562GHz;31.2662662662663GHz;31.2762762762763GHz;31.2862862862863GHz;31.2962962962963GHz;31.3063063063063GHz;31.3163163163163GHz;31.3263263263263GHz;31.3363363363363GHz;31.3463463463463GHz;31.3563563563564GHz;31.3663663663664GHz;31.3763763763764GHz;31.3863863863864GHz;31.3963963963964GHz;31.4064064064064GHz;31.4164164164164GHz;31.4264264264264GHz;31.4364364364364GHz;31.4464464464464GHz;31.4564564564565GHz;31.4664664664665GHz;31.4764764764765GHz;31.4864864864865GHz;31.4964964964965GHz;31.5065065065065GHz;31.5165165165165GHz;31.5265265265265GHz;31.5365365365365GHz;31.5465465465465GHz;31.5565565565566GHz;31.5665665665666GHz;31.5765765765766GHz;31.5865865865866GHz;31.5965965965966GHz;31.6066066066066GHz;31.6166166166166GHz;31.6266266266266GHz;31.6366366366366GHz;31.6466466466466GHz;31.6566566566567GHz;31.6666666666667GHz;31.6766766766767GHz;31.6866866866867GHz;31.6966966966967GHz;31.7067067067067GHz;31.7167167167167GHz;31.7267267267267GHz;31.7367367367367GHz;31.7467467467467GHz;31.7567567567568GHz;31.7667667667668GHz;31.7767767767768GHz;31.7867867867868GHz;31.7967967967968GHz;31.8068068068068GHz;31.8168168168168GHz;31.8268268268268GHz;31.8368368368368GHz;31.8468468468468GHz;31.8568568568569GHz;31.8668668668669GHz;31.8768768768769GHz;31.8868868868869GHz;31.8968968968969GHz;31.9069069069069GHz;31.9169169169169GHz;31.9269269269269GHz;31.9369369369369GHz;31.9469469469469GHz;31.956956956957GHz;31.966966966967GHz;31.976976976977GHz;31.986986986987GHz;31.996996996997GHz;32.007007007007GHz;32.017017017017GHz;32.027027027027GHz;32.037037037037GHz;32.047047047047GHz;32.0570570570571GHz;32.0670670670671GHz;32.0770770770771GHz;32.0870870870871GHz;32.0970970970971GHz;32.1071071071071GHz;32.1171171171171GHz;32.1271271271271GHz;32.1371371371371GHz;32.1471471471471GHz;32.1571571571572GHz;32.1671671671672GHz;32.1771771771772GHz;32.1871871871872GHz;32.1971971971972GHz;32.2072072072072GHz;32.2172172172172GHz;32.2272272272272GHz;32.2372372372372GHz;32.2472472472472GHz;32.2572572572573GHz;32.2672672672673GHz;32.2772772772773GHz;32.2872872872873GHz;32.2972972972973GHz;32.3073073073073GHz;32.3173173173173GHz;32.3273273273273GHz;32.3373373373373GHz;32.3473473473473GHz;32.3573573573574GHz;32.3673673673674GHz;32.3773773773774GHz;32.3873873873874GHz;32.3973973973974GHz;32.4074074074074GHz;32.4174174174174GHz;32.4274274274274GHz;32.4374374374374GHz;32.4474474474474GHz;32.4574574574575GHz;32.4674674674675GHz;32.4774774774775GHz;32.4874874874875GHz;32.4974974974975GHz;32.5075075075075GHz;32.5175175175175GHz;32.5275275275275GHz;32.5375375375375GHz;32.5475475475475GHz;32.5575575575576GHz;32.5675675675676GHz;32.5775775775776GHz;32.5875875875876GHz;32.5975975975976GHz;32.6076076076076GHz;32.6176176176176GHz;32.6276276276276GHz;32.6376376376376GHz;32.6476476476476GHz;32.6576576576577GHz;32.6676676676677GHz;32.6776776776777GHz;32.6876876876877GHz;32.6976976976977GHz;32.7077077077077GHz;32.7177177177177GHz;32.7277277277277GHz;32.7377377377377GHz;32.7477477477477GHz;32.7577577577578GHz;32.7677677677678GHz;32.7777777777778GHz;32.7877877877878GHz;32.7977977977978GHz;32.8078078078078GHz;32.8178178178178GHz;32.8278278278278GHz;32.8378378378378GHz;32.8478478478478GHz;32.8578578578579GHz;32.8678678678679GHz;32.8778778778779GHz;32.8878878878879GHz;32.8978978978979GHz;32.9079079079079GHz;32.9179179179179GHz;32.9279279279279GHz;32.9379379379379GHz;32.9479479479479GHz;32.957957957958GHz;32.967967967968GHz;32.977977977978GHz;32.987987987988GHz;32.997997997998GHz;33.008008008008GHz;33.018018018018GHz;33.028028028028GHz;33.038038038038GHz;33.048048048048GHz;33.0580580580581GHz;33.0680680680681GHz;33.0780780780781GHz;33.0880880880881GHz;33.0980980980981GHz;33.1081081081081GHz;33.1181181181181GHz;33.1281281281281GHz;33.1381381381381GHz;33.1481481481481GHz;33.1581581581582GHz;33.1681681681682GHz;33.1781781781782GHz;33.1881881881882GHz;33.1981981981982GHz;33.2082082082082GHz;33.2182182182182GHz;33.2282282282282GHz;33.2382382382382GHz;33.2482482482482GHz;33.2582582582583GHz;33.2682682682683GHz;33.2782782782783GHz;33.2882882882883GHz;33.2982982982983GHz;33.3083083083083GHz;33.3183183183183GHz;33.3283283283283GHz;33.3383383383383GHz;33.3483483483483GHz;33.3583583583584GHz;33.3683683683684GHz;33.3783783783784GHz;33.3883883883884GHz;33.3983983983984GHz;33.4084084084084GHz;33.4184184184184GHz;33.4284284284284GHz;33.4384384384384GHz;33.4484484484484GHz;33.4584584584585GHz;33.4684684684685GHz;33.4784784784785GHz;33.4884884884885GHz;33.4984984984985GHz;33.5085085085085GHz;33.5185185185185GHz;33.5285285285285GHz;33.5385385385385GHz;33.5485485485485GHz;33.5585585585585GHz;33.5685685685686GHz;33.5785785785786GHz;33.5885885885886GHz;33.5985985985986GHz;33.6086086086086GHz;33.6186186186186GHz;33.6286286286286GHz;33.6386386386386GHz;33.6486486486486GHz;33.6586586586587GHz;33.6686686686687GHz;33.6786786786787GHz;33.6886886886887GHz;33.6986986986987GHz;33.7087087087087GHz;33.7187187187187GHz;33.7287287287287GHz;33.7387387387387GHz;33.7487487487487GHz;33.7587587587588GHz;33.7687687687688GHz;33.7787787787788GHz;33.7887887887888GHz;33.7987987987988GHz;33.8088088088088GHz;33.8188188188188GHz;33.8288288288288GHz;33.8388388388388GHz;33.8488488488488GHz;33.8588588588588GHz;33.8688688688689GHz;33.8788788788789GHz;33.8888888888889GHz;33.8988988988989GHz;33.9089089089089GHz;33.9189189189189GHz;33.9289289289289GHz;33.9389389389389GHz;33.9489489489489GHz;33.958958958959GHz;33.968968968969GHz;33.978978978979GHz;33.988988988989GHz;33.998998998999GHz;34.009009009009GHz;34.019019019019GHz;34.029029029029GHz;34.039039039039GHz;34.049049049049GHz;34.0590590590591GHz;34.0690690690691GHz;34.0790790790791GHz;34.0890890890891GHz;34.0990990990991GHz;34.1091091091091GHz;34.1191191191191GHz;34.1291291291291GHz;34.1391391391391GHz;34.1491491491491GHz;34.1591591591592GHz;34.1691691691692GHz;34.1791791791792GHz;34.1891891891892GHz;34.1991991991992GHz;34.2092092092092GHz;34.2192192192192GHz;34.2292292292292GHz;34.2392392392392GHz;34.2492492492492GHz;34.2592592592593GHz;34.2692692692693GHz;34.2792792792793GHz;34.2892892892893GHz;34.2992992992993GHz;34.3093093093093GHz;34.3193193193193GHz;34.3293293293293GHz;34.3393393393393GHz;34.3493493493493GHz;34.3593593593594GHz;34.3693693693694GHz;34.3793793793794GHz;34.3893893893894GHz;34.3993993993994GHz;34.4094094094094GHz;34.4194194194194GHz;34.4294294294294GHz;34.4394394394394GHz;34.4494494494494GHz;34.4594594594595GHz;34.4694694694695GHz;34.4794794794795GHz;34.4894894894895GHz;34.4994994994995GHz;34.5095095095095GHz;34.5195195195195GHz;34.5295295295295GHz;34.5395395395395GHz;34.5495495495495GHz;34.5595595595596GHz;34.5695695695696GHz;34.5795795795796GHz;34.5895895895896GHz;34.5995995995996GHz;34.6096096096096GHz;34.6196196196196GHz;34.6296296296296GHz;34.6396396396396GHz;34.6496496496496GHz;34.6596596596597GHz;34.6696696696697GHz;34.6796796796797GHz;34.6896896896897GHz;34.6996996996997GHz;34.7097097097097GHz;34.7197197197197GHz;34.7297297297297GHz;34.7397397397397GHz;34.7497497497497GHz;34.7597597597598GHz;34.7697697697698GHz;34.7797797797798GHz;34.7897897897898GHz;34.7997997997998GHz;34.8098098098098GHz;34.8198198198198GHz;34.8298298298298GHz;34.8398398398398GHz;34.8498498498498GHz;34.8598598598598GHz;34.8698698698699GHz;34.8798798798799GHz;34.8898898898899GHz;34.8998998998999GHz;34.9099099099099GHz;34.9199199199199GHz;34.9299299299299GHz;34.9399399399399GHz;34.9499499499499GHz;34.9599599599599GHz;34.96996996997GHz;34.97997997998GHz;34.98998998999GHz;35GHz')
+										$end 'SubColumns'
+									$end 'Freq'
+								$end 'SubSweeps'
+								$begin 'Traces'
+									$begin 'Trace2D'
+										name='Sweep1:SolutionPointSet 2:Trace2D 1'
+										X(Desc='Freq', CatID=1, FuncID=0, IsInteger=false, Units='GHz', X='Freq')
+										Y(Desc='S(source,source)', CatID=3, FuncID=11, IsInteger=false, Units='', Y='dB(S(source,source))')
+									$end 'Trace2D'
+								$end 'Traces'
+							$end 'SolutionPointSet'
+							$begin 'SolutionPointSet'
+								ID=9
+								name='Sweep1:SolutionPointSet 10'
+								CurrentIndex=2
+								SolutionVersion=0
+								SimValueContext(0, 0, 2, 0, false, false, 1, 1, 0, 1, 1)
+								$begin 'SubSweeps'
+									$begin 'Theta'
+										All=true
+										Indices()
+										$begin 'SweepBase'
+											Variable='Theta'
+											RegularSweep=1
+											Units='deg'
+											Minimum=0
+											Maximum=3.14159265358979
+											Increment=0.0872664625997165
+											CreateIndexedSubsweepFlag=true
+										$end 'SweepBase'
+									$end 'Theta'
+									$begin 'Phi'
+										All=false
+										Indices(0)
+										$begin 'SweepBase'
+											Variable='Phi'
+											RegularSweep=1
+											Units='deg'
+											Minimum=0
+											Maximum=6.28318530717959
+											Increment=0.174532925199433
+											CreateIndexedSubsweepFlag=true
+										$end 'SweepBase'
+									$end 'Phi'
+									$begin 'Freq'
+										All=false
+										Indices(460)
+										$begin 'SweepBase'
+											Variable='Freq'
+											RegularSweep=1
+											Units='GHz'
+											Minimum=25000000000
+											Maximum=35000000000
+											Increment=10010010.01001
+											CreateIndexedSubsweepFlag=false
+										$end 'SweepBase'
+										$begin 'SubColumns'
+											SubsweepColumn(V='25GHz;25.01001001001GHz;25.02002002002GHz;25.03003003003GHz;25.04004004004GHz;25.0500500500501GHz;25.0600600600601GHz;25.0700700700701GHz;25.0800800800801GHz;25.0900900900901GHz;25.1001001001001GHz;25.1101101101101GHz;25.1201201201201GHz;25.1301301301301GHz;25.1401401401401GHz;25.1501501501502GHz;25.1601601601602GHz;25.1701701701702GHz;25.1801801801802GHz;25.1901901901902GHz;25.2002002002002GHz;25.2102102102102GHz;25.2202202202202GHz;25.2302302302302GHz;25.2402402402402GHz;25.2502502502503GHz;25.2602602602603GHz;25.2702702702703GHz;25.2802802802803GHz;25.2902902902903GHz;25.3003003003003GHz;25.3103103103103GHz;25.3203203203203GHz;25.3303303303303GHz;25.3403403403403GHz;25.3503503503504GHz;25.3603603603604GHz;25.3703703703704GHz;25.3803803803804GHz;25.3903903903904GHz;25.4004004004004GHz;25.4104104104104GHz;25.4204204204204GHz;25.4304304304304GHz;25.4404404404404GHz;25.4504504504505GHz;25.4604604604605GHz;25.4704704704705GHz;25.4804804804805GHz;25.4904904904905GHz;25.5005005005005GHz;25.5105105105105GHz;25.5205205205205GHz;25.5305305305305GHz;25.5405405405405GHz;25.5505505505506GHz;25.5605605605606GHz;25.5705705705706GHz;25.5805805805806GHz;25.5905905905906GHz;25.6006006006006GHz;25.6106106106106GHz;25.6206206206206GHz;25.6306306306306GHz;25.6406406406406GHz;25.6506506506507GHz;25.6606606606607GHz;25.6706706706707GHz;25.6806806806807GHz;25.6906906906907GHz;25.7007007007007GHz;25.7107107107107GHz;25.7207207207207GHz;25.7307307307307GHz;25.7407407407407GHz;25.7507507507508GHz;25.7607607607608GHz;25.7707707707708GHz;25.7807807807808GHz;25.7907907907908GHz;25.8008008008008GHz;25.8108108108108GHz;25.8208208208208GHz;25.8308308308308GHz;25.8408408408408GHz;25.8508508508509GHz;25.8608608608609GHz;25.8708708708709GHz;25.8808808808809GHz;25.8908908908909GHz;25.9009009009009GHz;25.9109109109109GHz;25.9209209209209GHz;25.9309309309309GHz;25.9409409409409GHz;25.950950950951GHz;25.960960960961GHz;25.970970970971GHz;25.980980980981GHz;25.990990990991GHz;26.001001001001GHz;26.011011011011GHz;26.021021021021GHz;26.031031031031GHz;26.041041041041GHz;26.0510510510511GHz;26.0610610610611GHz;26.0710710710711GHz;26.0810810810811GHz;26.0910910910911GHz;26.1011011011011GHz;26.1111111111111GHz;26.1211211211211GHz;26.1311311311311GHz;26.1411411411411GHz;26.1511511511512GHz;26.1611611611612GHz;26.1711711711712GHz;26.1811811811812GHz;26.1911911911912GHz;26.2012012012012GHz;26.2112112112112GHz;26.2212212212212GHz;26.2312312312312GHz;26.2412412412412GHz;26.2512512512513GHz;26.2612612612613GHz;26.2712712712713GHz;26.2812812812813GHz;26.2912912912913GHz;26.3013013013013GHz;26.3113113113113GHz;26.3213213213213GHz;26.3313313313313GHz;26.3413413413413GHz;26.3513513513514GHz;26.3613613613614GHz;26.3713713713714GHz;26.3813813813814GHz;26.3913913913914GHz;26.4014014014014GHz;26.4114114114114GHz;26.4214214214214GHz;26.4314314314314GHz;26.4414414414414GHz;26.4514514514515GHz;26.4614614614615GHz;26.4714714714715GHz;26.4814814814815GHz;26.4914914914915GHz;26.5015015015015GHz;26.5115115115115GHz;26.5215215215215GHz;26.5315315315315GHz;26.5415415415415GHz;26.5515515515516GHz;26.5615615615616GHz;26.5715715715716GHz;26.5815815815816GHz;26.5915915915916GHz;26.6016016016016GHz;26.6116116116116GHz;26.6216216216216GHz;26.6316316316316GHz;26.6416416416416GHz;26.6516516516517GHz;26.6616616616617GHz;26.6716716716717GHz;26.6816816816817GHz;26.6916916916917GHz;26.7017017017017GHz;26.7117117117117GHz;26.7217217217217GHz;26.7317317317317GHz;26.7417417417417GHz;26.7517517517518GHz;26.7617617617618GHz;26.7717717717718GHz;26.7817817817818GHz;26.7917917917918GHz;26.8018018018018GHz;26.8118118118118GHz;26.8218218218218GHz;26.8318318318318GHz;26.8418418418418GHz;26.8518518518519GHz;26.8618618618619GHz;26.8718718718719GHz;26.8818818818819GHz;26.8918918918919GHz;26.9019019019019GHz;26.9119119119119GHz;26.9219219219219GHz;26.9319319319319GHz;26.9419419419419GHz;26.951951951952GHz;26.961961961962GHz;26.971971971972GHz;26.981981981982GHz;26.991991991992GHz;27.002002002002GHz;27.012012012012GHz;27.022022022022GHz;27.032032032032GHz;27.042042042042GHz;27.0520520520521GHz;27.0620620620621GHz;27.0720720720721GHz;27.0820820820821GHz;27.0920920920921GHz;27.1021021021021GHz;27.1121121121121GHz;27.1221221221221GHz;27.1321321321321GHz;27.1421421421421GHz;27.1521521521522GHz;27.1621621621622GHz;27.1721721721722GHz;27.1821821821822GHz;27.1921921921922GHz;27.2022022022022GHz;27.2122122122122GHz;27.2222222222222GHz;27.2322322322322GHz;27.2422422422422GHz;27.2522522522523GHz;27.2622622622623GHz;27.2722722722723GHz;27.2822822822823GHz;27.2922922922923GHz;27.3023023023023GHz;27.3123123123123GHz;27.3223223223223GHz;27.3323323323323GHz;27.3423423423423GHz;27.3523523523524GHz;27.3623623623624GHz;27.3723723723724GHz;27.3823823823824GHz;27.3923923923924GHz;27.4024024024024GHz;27.4124124124124GHz;27.4224224224224GHz;27.4324324324324GHz;27.4424424424424GHz;27.4524524524525GHz;27.4624624624625GHz;27.4724724724725GHz;27.4824824824825GHz;27.4924924924925GHz;27.5025025025025GHz;27.5125125125125GHz;27.5225225225225GHz;27.5325325325325GHz;27.5425425425425GHz;27.5525525525526GHz;27.5625625625626GHz;27.5725725725726GHz;27.5825825825826GHz;27.5925925925926GHz;27.6026026026026GHz;27.6126126126126GHz;27.6226226226226GHz;27.6326326326326GHz;27.6426426426426GHz;27.6526526526527GHz;27.6626626626627GHz;27.6726726726727GHz;27.6826826826827GHz;27.6926926926927GHz;27.7027027027027GHz;27.7127127127127GHz;27.7227227227227GHz;27.7327327327327GHz;27.7427427427427GHz;27.7527527527528GHz;27.7627627627628GHz;27.7727727727728GHz;27.7827827827828GHz;27.7927927927928GHz;27.8028028028028GHz;27.8128128128128GHz;27.8228228228228GHz;27.8328328328328GHz;27.8428428428428GHz;27.8528528528529GHz;27.8628628628629GHz;27.8728728728729GHz;27.8828828828829GHz;27.8928928928929GHz;27.9029029029029GHz;27.9129129129129GHz;27.9229229229229GHz;27.9329329329329GHz;27.9429429429429GHz;27.952952952953GHz;27.962962962963GHz;27.972972972973GHz;27.982982982983GHz;27.992992992993GHz;28.003003003003GHz;28.013013013013GHz;28.023023023023GHz;28.033033033033GHz;28.043043043043GHz;28.0530530530531GHz;28.0630630630631GHz;28.0730730730731GHz;28.0830830830831GHz;28.0930930930931GHz;28.1031031031031GHz;28.1131131131131GHz;28.1231231231231GHz;28.1331331331331GHz;28.1431431431431GHz;28.1531531531532GHz;28.1631631631632GHz;28.1731731731732GHz;28.1831831831832GHz;28.1931931931932GHz;28.2032032032032GHz;28.2132132132132GHz;28.2232232232232GHz;28.2332332332332GHz;28.2432432432432GHz;28.2532532532533GHz;28.2632632632633GHz;28.2732732732733GHz;28.2832832832833GHz;28.2932932932933GHz;28.3033033033033GHz;28.3133133133133GHz;28.3233233233233GHz;28.3333333333333GHz;28.3433433433433GHz;28.3533533533534GHz;28.3633633633634GHz;28.3733733733734GHz;28.3833833833834GHz;28.3933933933934GHz;28.4034034034034GHz;28.4134134134134GHz;28.4234234234234GHz;28.4334334334334GHz;28.4434434434434GHz;28.4534534534535GHz;28.4634634634635GHz;28.4734734734735GHz;28.4834834834835GHz;28.4934934934935GHz;28.5035035035035GHz;28.5135135135135GHz;28.5235235235235GHz;28.5335335335335GHz;28.5435435435435GHz;28.5535535535536GHz;28.5635635635636GHz;28.5735735735736GHz;28.5835835835836GHz;28.5935935935936GHz;28.6036036036036GHz;28.6136136136136GHz;28.6236236236236GHz;28.6336336336336GHz;28.6436436436436GHz;28.6536536536537GHz;28.6636636636637GHz;28.6736736736737GHz;28.6836836836837GHz;28.6936936936937GHz;28.7037037037037GHz;28.7137137137137GHz;28.7237237237237GHz;28.7337337337337GHz;28.7437437437437GHz;28.7537537537538GHz;28.7637637637638GHz;28.7737737737738GHz;28.7837837837838GHz;28.7937937937938GHz;28.8038038038038GHz;28.8138138138138GHz;28.8238238238238GHz;28.8338338338338GHz;28.8438438438438GHz;28.8538538538539GHz;28.8638638638639GHz;28.8738738738739GHz;28.8838838838839GHz;28.8938938938939GHz;28.9039039039039GHz;28.9139139139139GHz;28.9239239239239GHz;28.9339339339339GHz;28.9439439439439GHz;28.953953953954GHz;28.963963963964GHz;28.973973973974GHz;28.983983983984GHz;28.993993993994GHz;29.004004004004GHz;29.014014014014GHz;29.024024024024GHz;29.034034034034GHz;29.044044044044GHz;29.0540540540541GHz;29.0640640640641GHz;29.0740740740741GHz;29.0840840840841GHz;29.0940940940941GHz;29.1041041041041GHz;29.1141141141141GHz;29.1241241241241GHz;29.1341341341341GHz;29.1441441441441GHz;29.1541541541542GHz;29.1641641641642GHz;29.1741741741742GHz;29.1841841841842GHz;29.1941941941942GHz;29.2042042042042GHz;29.2142142142142GHz;29.2242242242242GHz;29.2342342342342GHz;29.2442442442442GHz;29.2542542542543GHz;29.2642642642643GHz;29.2742742742743GHz;29.2842842842843GHz;29.2942942942943GHz;29.3043043043043GHz;29.3143143143143GHz;29.3243243243243GHz;29.3343343343343GHz;29.3443443443443GHz;29.3543543543544GHz;29.3643643643644GHz;29.3743743743744GHz;29.3843843843844GHz;29.3943943943944GHz;29.4044044044044GHz;29.4144144144144GHz;29.4244244244244GHz;29.4344344344344GHz;29.4444444444444GHz;29.4544544544545GHz;29.4644644644645GHz;29.4744744744745GHz;29.4844844844845GHz;29.4944944944945GHz;29.5045045045045GHz;29.5145145145145GHz;29.5245245245245GHz;29.5345345345345GHz;29.5445445445445GHz;29.5545545545546GHz;29.5645645645646GHz;29.5745745745746GHz;29.5845845845846GHz;29.5945945945946GHz;29.6046046046046GHz;29.6146146146146GHz;29.6246246246246GHz;29.6346346346346GHz;29.6446446446446GHz;29.6546546546547GHz;29.6646646646647GHz;29.6746746746747GHz;29.6846846846847GHz;29.6946946946947GHz;29.7047047047047GHz;29.7147147147147GHz;29.7247247247247GHz;29.7347347347347GHz;29.7447447447447GHz;29.7547547547548GHz;29.7647647647648GHz;29.7747747747748GHz;29.7847847847848GHz;29.7947947947948GHz;29.8048048048048GHz;29.8148148148148GHz;29.8248248248248GHz;29.8348348348348GHz;29.8448448448448GHz;29.8548548548549GHz;29.8648648648649GHz;29.8748748748749GHz;29.8848848848849GHz;29.8948948948949GHz;29.9049049049049GHz;29.9149149149149GHz;29.9249249249249GHz;29.9349349349349GHz;29.9449449449449GHz;29.954954954955GHz;29.964964964965GHz;29.974974974975GHz;29.984984984985GHz;29.994994994995GHz;30.005005005005GHz;30.015015015015GHz;30.025025025025GHz;30.035035035035GHz;30.045045045045GHz;30.0550550550551GHz;30.0650650650651GHz;30.0750750750751GHz;30.0850850850851GHz;30.0950950950951GHz;30.1051051051051GHz;30.1151151151151GHz;30.1251251251251GHz;30.1351351351351GHz;30.1451451451451GHz;30.1551551551552GHz;30.1651651651652GHz;30.1751751751752GHz;30.1851851851852GHz;30.1951951951952GHz;30.2052052052052GHz;30.2152152152152GHz;30.2252252252252GHz;30.2352352352352GHz;30.2452452452452GHz;30.2552552552553GHz;30.2652652652653GHz;30.2752752752753GHz;30.2852852852853GHz;30.2952952952953GHz;30.3053053053053GHz;30.3153153153153GHz;30.3253253253253GHz;30.3353353353353GHz;30.3453453453453GHz;30.3553553553554GHz;30.3653653653654GHz;30.3753753753754GHz;30.3853853853854GHz;30.3953953953954GHz;30.4054054054054GHz;30.4154154154154GHz;30.4254254254254GHz;30.4354354354354GHz;30.4454454454454GHz;30.4554554554555GHz;30.4654654654655GHz;30.4754754754755GHz;30.4854854854855GHz;30.4954954954955GHz;30.5055055055055GHz;30.5155155155155GHz;30.5255255255255GHz;30.5355355355355GHz;30.5455455455455GHz;30.5555555555556GHz;30.5655655655656GHz;30.5755755755756GHz;30.5855855855856GHz;30.5955955955956GHz;30.6056056056056GHz;30.6156156156156GHz;30.6256256256256GHz;30.6356356356356GHz;30.6456456456456GHz;30.6556556556557GHz;30.6656656656657GHz;30.6756756756757GHz;30.6856856856857GHz;30.6956956956957GHz;30.7057057057057GHz;30.7157157157157GHz;30.7257257257257GHz;30.7357357357357GHz;30.7457457457457GHz;30.7557557557558GHz;30.7657657657658GHz;30.7757757757758GHz;30.7857857857858GHz;30.7957957957958GHz;30.8058058058058GHz;30.8158158158158GHz;30.8258258258258GHz;30.8358358358358GHz;30.8458458458458GHz;30.8558558558559GHz;30.8658658658659GHz;30.8758758758759GHz;30.8858858858859GHz;30.8958958958959GHz;30.9059059059059GHz;30.9159159159159GHz;30.9259259259259GHz;30.9359359359359GHz;30.9459459459459GHz;30.955955955956GHz;30.965965965966GHz;30.975975975976GHz;30.985985985986GHz;30.995995995996GHz;31.006006006006GHz;31.016016016016GHz;31.026026026026GHz;31.036036036036GHz;31.046046046046GHz;31.0560560560561GHz;31.0660660660661GHz;31.0760760760761GHz;31.0860860860861GHz;31.0960960960961GHz;31.1061061061061GHz;31.1161161161161GHz;31.1261261261261GHz;31.1361361361361GHz;31.1461461461461GHz;31.1561561561562GHz;31.1661661661662GHz;31.1761761761762GHz;31.1861861861862GHz;31.1961961961962GHz;31.2062062062062GHz;31.2162162162162GHz;31.2262262262262GHz;31.2362362362362GHz;31.2462462462462GHz;31.2562562562563GHz;31.2662662662663GHz;31.2762762762763GHz;31.2862862862863GHz;31.2962962962963GHz;31.3063063063063GHz;31.3163163163163GHz;31.3263263263263GHz;31.3363363363363GHz;31.3463463463463GHz;31.3563563563564GHz;31.3663663663664GHz;31.3763763763764GHz;31.3863863863864GHz;31.3963963963964GHz;31.4064064064064GHz;31.4164164164164GHz;31.4264264264264GHz;31.4364364364364GHz;31.4464464464464GHz;31.4564564564565GHz;31.4664664664665GHz;31.4764764764765GHz;31.4864864864865GHz;31.4964964964965GHz;31.5065065065065GHz;31.5165165165165GHz;31.5265265265265GHz;31.5365365365365GHz;31.5465465465465GHz;31.5565565565566GHz;31.5665665665666GHz;31.5765765765766GHz;31.5865865865866GHz;31.5965965965966GHz;31.6066066066066GHz;31.6166166166166GHz;31.6266266266266GHz;31.6366366366366GHz;31.6466466466466GHz;31.6566566566567GHz;31.6666666666667GHz;31.6766766766767GHz;31.6866866866867GHz;31.6966966966967GHz;31.7067067067067GHz;31.7167167167167GHz;31.7267267267267GHz;31.7367367367367GHz;31.7467467467467GHz;31.7567567567568GHz;31.7667667667668GHz;31.7767767767768GHz;31.7867867867868GHz;31.7967967967968GHz;31.8068068068068GHz;31.8168168168168GHz;31.8268268268268GHz;31.8368368368368GHz;31.8468468468468GHz;31.8568568568569GHz;31.8668668668669GHz;31.8768768768769GHz;31.8868868868869GHz;31.8968968968969GHz;31.9069069069069GHz;31.9169169169169GHz;31.9269269269269GHz;31.9369369369369GHz;31.9469469469469GHz;31.956956956957GHz;31.966966966967GHz;31.976976976977GHz;31.986986986987GHz;31.996996996997GHz;32.007007007007GHz;32.017017017017GHz;32.027027027027GHz;32.037037037037GHz;32.047047047047GHz;32.0570570570571GHz;32.0670670670671GHz;32.0770770770771GHz;32.0870870870871GHz;32.0970970970971GHz;32.1071071071071GHz;32.1171171171171GHz;32.1271271271271GHz;32.1371371371371GHz;32.1471471471471GHz;32.1571571571572GHz;32.1671671671672GHz;32.1771771771772GHz;32.1871871871872GHz;32.1971971971972GHz;32.2072072072072GHz;32.2172172172172GHz;32.2272272272272GHz;32.2372372372372GHz;32.2472472472472GHz;32.2572572572573GHz;32.2672672672673GHz;32.2772772772773GHz;32.2872872872873GHz;32.2972972972973GHz;32.3073073073073GHz;32.3173173173173GHz;32.3273273273273GHz;32.3373373373373GHz;32.3473473473473GHz;32.3573573573574GHz;32.3673673673674GHz;32.3773773773774GHz;32.3873873873874GHz;32.3973973973974GHz;32.4074074074074GHz;32.4174174174174GHz;32.4274274274274GHz;32.4374374374374GHz;32.4474474474475GHz;32.4574574574575GHz;32.4674674674675GHz;32.4774774774775GHz;32.4874874874875GHz;32.4974974974975GHz;32.5075075075075GHz;32.5175175175175GHz;32.5275275275275GHz;32.5375375375375GHz;32.5475475475475GHz;32.5575575575576GHz;32.5675675675676GHz;32.5775775775776GHz;32.5875875875876GHz;32.5975975975976GHz;32.6076076076076GHz;32.6176176176176GHz;32.6276276276276GHz;32.6376376376376GHz;32.6476476476476GHz;32.6576576576577GHz;32.6676676676677GHz;32.6776776776777GHz;32.6876876876877GHz;32.6976976976977GHz;32.7077077077077GHz;32.7177177177177GHz;32.7277277277277GHz;32.7377377377377GHz;32.7477477477478GHz;32.7577577577578GHz;32.7677677677678GHz;32.7777777777778GHz;32.7877877877878GHz;32.7977977977978GHz;32.8078078078078GHz;32.8178178178178GHz;32.8278278278278GHz;32.8378378378378GHz;32.8478478478478GHz;32.8578578578579GHz;32.8678678678679GHz;32.8778778778779GHz;32.8878878878879GHz;32.8978978978979GHz;32.9079079079079GHz;32.9179179179179GHz;32.9279279279279GHz;32.9379379379379GHz;32.9479479479479GHz;32.957957957958GHz;32.967967967968GHz;32.977977977978GHz;32.987987987988GHz;32.997997997998GHz;33.008008008008GHz;33.018018018018GHz;33.028028028028GHz;33.038038038038GHz;33.0480480480481GHz;33.0580580580581GHz;33.0680680680681GHz;33.0780780780781GHz;33.0880880880881GHz;33.0980980980981GHz;33.1081081081081GHz;33.1181181181181GHz;33.1281281281281GHz;33.1381381381381GHz;33.1481481481481GHz;33.1581581581582GHz;33.1681681681682GHz;33.1781781781782GHz;33.1881881881882GHz;33.1981981981982GHz;33.2082082082082GHz;33.2182182182182GHz;33.2282282282282GHz;33.2382382382382GHz;33.2482482482483GHz;33.2582582582583GHz;33.2682682682683GHz;33.2782782782783GHz;33.2882882882883GHz;33.2982982982983GHz;33.3083083083083GHz;33.3183183183183GHz;33.3283283283283GHz;33.3383383383383GHz;33.3483483483483GHz;33.3583583583584GHz;33.3683683683684GHz;33.3783783783784GHz;33.3883883883884GHz;33.3983983983984GHz;33.4084084084084GHz;33.4184184184184GHz;33.4284284284284GHz;33.4384384384384GHz;33.4484484484484GHz;33.4584584584585GHz;33.4684684684685GHz;33.4784784784785GHz;33.4884884884885GHz;33.4984984984985GHz;33.5085085085085GHz;33.5185185185185GHz;33.5285285285285GHz;33.5385385385385GHz;33.5485485485486GHz;33.5585585585586GHz;33.5685685685686GHz;33.5785785785786GHz;33.5885885885886GHz;33.5985985985986GHz;33.6086086086086GHz;33.6186186186186GHz;33.6286286286286GHz;33.6386386386386GHz;33.6486486486487GHz;33.6586586586587GHz;33.6686686686687GHz;33.6786786786787GHz;33.6886886886887GHz;33.6986986986987GHz;33.7087087087087GHz;33.7187187187187GHz;33.7287287287287GHz;33.7387387387387GHz;33.7487487487487GHz;33.7587587587588GHz;33.7687687687688GHz;33.7787787787788GHz;33.7887887887888GHz;33.7987987987988GHz;33.8088088088088GHz;33.8188188188188GHz;33.8288288288288GHz;33.8388388388388GHz;33.8488488488488GHz;33.8588588588589GHz;33.8688688688689GHz;33.8788788788789GHz;33.8888888888889GHz;33.8988988988989GHz;33.9089089089089GHz;33.9189189189189GHz;33.9289289289289GHz;33.9389389389389GHz;33.9489489489489GHz;33.958958958959GHz;33.968968968969GHz;33.978978978979GHz;33.988988988989GHz;33.998998998999GHz;34.009009009009GHz;34.019019019019GHz;34.029029029029GHz;34.039039039039GHz;34.049049049049GHz;34.0590590590591GHz;34.0690690690691GHz;34.0790790790791GHz;34.0890890890891GHz;34.0990990990991GHz;34.1091091091091GHz;34.1191191191191GHz;34.1291291291291GHz;34.1391391391391GHz;34.1491491491491GHz;34.1591591591592GHz;34.1691691691692GHz;34.1791791791792GHz;34.1891891891892GHz;34.1991991991992GHz;34.2092092092092GHz;34.2192192192192GHz;34.2292292292292GHz;34.2392392392392GHz;34.2492492492492GHz;34.2592592592593GHz;34.2692692692693GHz;34.2792792792793GHz;34.2892892892893GHz;34.2992992992993GHz;34.3093093093093GHz;34.3193193193193GHz;34.3293293293293GHz;34.3393393393393GHz;34.3493493493494GHz;34.3593593593594GHz;34.3693693693694GHz;34.3793793793794GHz;34.3893893893894GHz;34.3993993993994GHz;34.4094094094094GHz;34.4194194194194GHz;34.4294294294294GHz;34.4394394394394GHz;34.4494494494494GHz;34.4594594594595GHz;34.4694694694695GHz;34.4794794794795GHz;34.4894894894895GHz;34.4994994994995GHz;34.5095095095095GHz;34.5195195195195GHz;34.5295295295295GHz;34.5395395395395GHz;34.5495495495495GHz;34.5595595595596GHz;34.5695695695696GHz;34.5795795795796GHz;34.5895895895896GHz;34.5995995995996GHz;34.6096096096096GHz;34.6196196196196GHz;34.6296296296296GHz;34.6396396396396GHz;34.6496496496497GHz;34.6596596596597GHz;34.6696696696697GHz;34.6796796796797GHz;34.6896896896897GHz;34.6996996996997GHz;34.7097097097097GHz;34.7197197197197GHz;34.7297297297297GHz;34.7397397397397GHz;34.7497497497497GHz;34.7597597597598GHz;34.7697697697698GHz;34.7797797797798GHz;34.7897897897898GHz;34.7997997997998GHz;34.8098098098098GHz;34.8198198198198GHz;34.8298298298298GHz;34.8398398398398GHz;34.8498498498499GHz;34.8598598598599GHz;34.8698698698699GHz;34.8798798798799GHz;34.8898898898899GHz;34.8998998998999GHz;34.9099099099099GHz;34.9199199199199GHz;34.9299299299299GHz;34.9399399399399GHz;34.94994994995GHz;34.95995995996GHz;34.96996996997GHz;34.97997997998GHz;34.98998998999GHz;35GHz')
+										$end 'SubColumns'
+									$end 'Freq'
+								$end 'SubSweeps'
+								$begin 'Traces'
+									$begin 'Trace2D'
+										name='Design 0:Solution 225:Pointset 9:Trace2D 1'
+										X(Desc='Theta', CatID=1, FuncID=0, IsInteger=false, Units='deg', X='Theta')
+										Y(Desc='DirTotal', CatID=55, FuncID=0, IsInteger=false, Units='', Y='DirTotal')
+									$end 'Trace2D'
+								$end 'Traces'
+							$end 'SolutionPointSet'
+						$end 'SolutionPointSets'
+						IsPortOnly=false
+					$end 'SimDataExtractor'
+				$end 'Solution'
+				$begin 'Solution'
+					ID=230
+					Name='Adaptive_2'
+					$begin 'SimDataExtractor'
+						$begin 'Sweeps'
+							$begin 'Sweep'
+								Variable='Freq'
+								Column='29.9792GHz'
+								Units='GHz'
+							$end 'Sweep'
+							$begin 'PostprocessSweep'
+								Variable='NormalizedDistance'
+								RegularSweep=1
+								Units=''
+								Minimum=0
+								Maximum=1
+								Increment=0.01
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phi'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Theta'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phase'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'Sweep'
+								Variable='Pass'
+								Column='1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20'
+								Units=''
+							$end 'Sweep'
+						$end 'Sweeps'
+						IsPortOnly=false
+					$end 'SimDataExtractor'
+				$end 'Solution'
+				$begin 'Solution'
+					ID=233
+					Name='Adaptive_3'
+					$begin 'SimDataExtractor'
+						$begin 'Sweeps'
+							$begin 'Sweep'
+								Variable='Freq'
+								Column='29.9792GHz'
+								Units='GHz'
+							$end 'Sweep'
+							$begin 'PostprocessSweep'
+								Variable='NormalizedDistance'
+								RegularSweep=1
+								Units=''
+								Minimum=0
+								Maximum=1
+								Increment=0.01
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phi'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Theta'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phase'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'Sweep'
+								Variable='Pass'
+								Column='1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20'
+								Units=''
+							$end 'Sweep'
+						$end 'Sweeps'
+						IsPortOnly=false
+					$end 'SimDataExtractor'
+				$end 'Solution'
+				$begin 'Solution'
+					ID=236
+					Name='Adaptive_4'
+					$begin 'SimDataExtractor'
+						$begin 'Sweeps'
+							$begin 'Sweep'
+								Variable='Freq'
+								Column='29.9792GHz'
+								Units='GHz'
+							$end 'Sweep'
+							$begin 'PostprocessSweep'
+								Variable='NormalizedDistance'
+								RegularSweep=1
+								Units=''
+								Minimum=0
+								Maximum=1
+								Increment=0.01
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phi'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Theta'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phase'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'Sweep'
+								Variable='Pass'
+								Column='1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20'
+								Units=''
+							$end 'Sweep'
+						$end 'Sweeps'
+						IsPortOnly=false
+					$end 'SimDataExtractor'
+				$end 'Solution'
+				$begin 'Solution'
+					ID=239
+					Name='Adaptive_5'
+					$begin 'SimDataExtractor'
+						$begin 'Sweeps'
+							$begin 'Sweep'
+								Variable='Freq'
+								Column='29.9792GHz'
+								Units='GHz'
+							$end 'Sweep'
+							$begin 'PostprocessSweep'
+								Variable='NormalizedDistance'
+								RegularSweep=1
+								Units=''
+								Minimum=0
+								Maximum=1
+								Increment=0.01
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phi'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Theta'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phase'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'Sweep'
+								Variable='Pass'
+								Column='1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20'
+								Units=''
+							$end 'Sweep'
+						$end 'Sweeps'
+						IsPortOnly=false
+					$end 'SimDataExtractor'
+				$end 'Solution'
+				$begin 'Solution'
+					ID=242
+					Name='Adaptive_6'
+					$begin 'SimDataExtractor'
+						$begin 'Sweeps'
+							$begin 'Sweep'
+								Variable='Freq'
+								Column='29.9792GHz'
+								Units='GHz'
+							$end 'Sweep'
+							$begin 'PostprocessSweep'
+								Variable='NormalizedDistance'
+								RegularSweep=1
+								Units=''
+								Minimum=0
+								Maximum=1
+								Increment=0.01
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phi'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Theta'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phase'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'Sweep'
+								Variable='Pass'
+								Column='1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20'
+								Units=''
+							$end 'Sweep'
+						$end 'Sweeps'
+						IsPortOnly=false
+					$end 'SimDataExtractor'
+				$end 'Solution'
+				$begin 'Solution'
+					ID=245
+					Name='Adaptive_7'
+					$begin 'SimDataExtractor'
+						$begin 'Sweeps'
+							$begin 'Sweep'
+								Variable='Freq'
+								Column='29.9792GHz'
+								Units='GHz'
+							$end 'Sweep'
+							$begin 'PostprocessSweep'
+								Variable='NormalizedDistance'
+								RegularSweep=1
+								Units=''
+								Minimum=0
+								Maximum=1
+								Increment=0.01
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phi'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Theta'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phase'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'Sweep'
+								Variable='Pass'
+								Column='1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20'
+								Units=''
+							$end 'Sweep'
+						$end 'Sweeps'
+						IsPortOnly=false
+					$end 'SimDataExtractor'
+				$end 'Solution'
+				$begin 'Solution'
+					ID=248
+					Name='Adaptive_8'
+					$begin 'SimDataExtractor'
+						$begin 'Sweeps'
+							$begin 'Sweep'
+								Variable='Freq'
+								Column='29.9792GHz'
+								Units='GHz'
+							$end 'Sweep'
+							$begin 'PostprocessSweep'
+								Variable='NormalizedDistance'
+								RegularSweep=1
+								Units=''
+								Minimum=0
+								Maximum=1
+								Increment=0.01
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phi'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Theta'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phase'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'Sweep'
+								Variable='Pass'
+								Column='1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20'
+								Units=''
+							$end 'Sweep'
+						$end 'Sweeps'
+						IsPortOnly=false
+					$end 'SimDataExtractor'
+				$end 'Solution'
+			$end 'SimSetup'
+			$begin 'Version ID Map'
+				V=0
+				$begin 'Setup'
+					N='Setup1'
+					V=0
+					Soln(N='Adaptive_1', V=0)
+					Soln(N='LastAdaptive', V=0)
+					Soln(N='Sweep1', V=0)
+					Soln(N='Adaptive_2', V=0)
+					Soln(N='Adaptive_3', V=0)
+					Soln(N='Adaptive_4', V=0)
+					Soln(N='Adaptive_5', V=0)
+					Soln(N='Adaptive_6', V=0)
+					Soln(N='Adaptive_7', V=0)
+					Soln(N='Adaptive_8', V=0)
+				$end 'Setup'
+			$end 'Version ID Map'
+			$begin 'ID Map'
+				$begin 'Setup'
+					N='Setup1'
+					I=219
+					Soln(N='Adaptive_1', I=221)
+					Soln(N='LastAdaptive', I=223)
+					Soln(N='Sweep1', I=225)
+					Soln(N='Adaptive_2', I=230)
+					Soln(N='Adaptive_3', I=233)
+					Soln(N='Adaptive_4', I=236)
+					Soln(N='Adaptive_5', I=239)
+					Soln(N='Adaptive_6', I=242)
+					Soln(N='Adaptive_7', I=245)
+					Soln(N='Adaptive_8', I=248)
+				$end 'Setup'
+			$end 'ID Map'
+		$end 'SolutionManager'
+		Notes=$begin_cdata$		$end_cdata$
+		$begin 'AnimationSetups'
+		$end 'AnimationSetups'
+	$end 'HFSSModel'
+	$begin 'DataInstances'
+		$begin 'Instance'
+			DesignEditor='HFSSModel1'
+			$begin 'HfssDesignInstance'
+				DesignInstanceID=1
+				$begin 'WindowPosition'
+					$begin 'EditorWindow'
+						'3D Modeler'(Editor3d(View(WindowPos(5, -1, -1, -4, -28, 0, 0, 751, 542), OrientationMatrix(-0.0621882118284702, -0.0997229889035225, 0.157675877213478, 0, 0.186564609408379, -0.0332410000264645, 0.0525586307048798, 0, 0, 0.16620497405529, 0.10511726140976, 0, 2.38418579101563e-007, 4.76837158203125e-007, -9.25434398651123, 1, 0, -1.44664037227631, 1.44664037227631, -1, 1, 4.39772510528564, 14.1109628677368), Drawings[4: 'dip1', 'dip1_1', 'source', 'radiation'], 'View Data'('Render Mode'=1))))
+					$end 'EditorWindow'
+					$begin 'ReportWindow'
+						'XY Plot 1'(Report2D(View(WindowPos(5, -1, -1, -4, -28, 108, 108, 863, 654))))
+						'XY Plot 2'(Report2D(View(WindowPos(5, -1, -1, -4, -28, 135, 135, 890, 681))))
+						'XY Plot 3'(Report2D(View(WindowPos(5, -1, -1, -4, -28, 162, 162, 917, 708))))
+						'XY Plot 4'(Report2D(View(WindowPos(5, -1, -1, -4, -28, 189, 189, 944, 735))))
+						'Radiation Pattern 1'(Report2D(View(WindowPos(5, -1, -1, -4, -28, 243, 243, 998, 789))))
+						E_x(Report2D(View(WindowPos(5, -1, -1, -4, -28, 216, 216, 971, 762))))
+						'Data Table 1'(Report2D(View(WindowPos(5, -1, -1, -4, -28, 54, 54, 809, 600))))
+						'3D Polar Plot 1'(Editor3d(View(WindowPos(3, -1, -1, -4, -28, 27, 27, 782, 573), OrientationMatrix(-0.331658631563187, -0.109504945576191, 0.347940146923065, 0, 0.364335209131241, -0.122368097305298, 0.30877348780632, 0, 0.0177780948579311, 0.464851975440979, 0.163243681192398, 0, 2.92082424913076e-009, -4.78509036838659e-007, -9.54341602325439, 1, 0, -1.25738918781281, 1.25738918781281, -1, 1, 4.41993188858032, 14.6669006347656), Drawings[1: 'Trace_1'])))
+					$end 'ReportWindow'
+				$end 'WindowPosition'
+				$begin 'Reports'
+					$begin 'Report2D'
+						name='XY Plot 1'
+						ReportType=0
+						DisplayType=1
+						Title=''
+						Domain=''
+						$begin 'Graph2Ds'
+							$begin 'Graph2D'
+								TraceName='Sweep1:SolutionPointSet 1:Trace2D 1'
+								Type='Continuous'
+								Axis='Y1'
+							$end 'Graph2D'
+							$begin 'Graph2D'
+								TraceName='Sweep1:SolutionPointSet 1:Trace2D 2'
+								Type='Continuous'
+								Axis='Y1'
+							$end 'Graph2D'
+						$end 'Graph2Ds'
+						$begin 'PlotInfo'
+							PlotType='XYPlot'
+							Frozen=false
+							MarkDirty=false
+							Subtitle=''
+							Filename='HFSSModel1'
+							CircuitTitle='<Design>'
+							Title='XY Plot 1'
+							DateLabel='<02 Feb 2007>'
+							TimeLabel='<02:03:15>'
+							Name='Ansoft Corporation'
+							DefaultTitle=false
+							Arrows=false
+							ZoomMode=false
+							ZoomType=1
+							UserSelectedTrace=-1
+							Rho=0
+							RhoMin=0
+							MarkerType='NoMarker'
+							MarkerScale='Mag-Phase'
+							UserSelectedMarkerPoint=428
+							SymbolDisplay=false
+							SymbolInterval=15
+							$begin 'Axis'
+								$begin 'Axis0'
+									AxisType='XAxis'
+									AxisIndex=0
+									AxisScale='Linear'
+									AxisName='Freq'
+									AxisLabel='DEFAULT'
+									AxisMax=36000000000
+									AxisMin=24000000000
+									AxisMajorDivision=6
+									AxisMinorDivision=4
+									AxisManualRescale=false
+									AxisAutoUnits=true
+									AxisSide='Left'
+									$begin 'Units'
+										UnitFieldWidth=4
+										UnitPrecision=2
+										ScientificNotation=false
+										FullUnitType='GHz'
+									$end 'Units'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'Axis0'
+								$begin 'Axis1'
+									AxisType='YAxis'
+									AxisIndex=1
+									AxisScale='Linear'
+									AxisName='Y 1 '
+									AxisLabel='DEFAULT'
+									AxisMax=300
+									AxisMin=-100
+									AxisMajorDivision=4
+									AxisMinorDivision=5
+									AxisManualRescale=false
+									AxisAutoUnits=true
+									AxisSide='Left'
+									$begin 'Units'
+										UnitFieldWidth=5
+										UnitPrecision=2
+										ScientificNotation=false
+										FullUnitType=''
+									$end 'Units'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'Axis1'
+							$end 'Axis'
+							DisplayMinorGrid=true
+							InitialGrid=1
+							DisplayGridLabel=true
+							DisplayTraceLabel=false
+							$begin 'Trace'
+								$begin 'TraceInfo0'
+									TraceType='Continuous'
+									AutoTraceTitle=''
+									UserTraceTitle=''
+									UseAutoTraceTitle=false
+									$begin 'Attribute'
+										Color=16711680
+										ColorOdd=0
+										LineWidth=10
+										LineStyle=0
+										FillStyle=600
+										Visible=false
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=192
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TraceInfo0'
+								$begin 'TraceInfo1'
+									TraceType='Continuous'
+									AutoTraceTitle=''
+									UserTraceTitle=''
+									UseAutoTraceTitle=false
+									$begin 'Attribute'
+										Color=255
+										ColorOdd=0
+										LineWidth=10
+										LineStyle=0
+										FillStyle=600
+										Visible=false
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=192
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TraceInfo1'
+							$end 'Trace'
+							$begin 'AllAttributes'
+								BackGroundColor=16777215
+								ContrastColor=16777215
+								$begin 'TitleAttr'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=168
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TitleAttr'
+								$begin 'MajorGridAttr'
+									$begin 'Attribute'
+										Color=8421504
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=110
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'MajorGridAttr'
+								$begin 'MinorGridAttr'
+									$begin 'Attribute'
+										Color=12632256
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=110
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'MinorGridAttr'
+							$end 'AllAttributes'
+						$end 'PlotInfo'
+					$end 'Report2D'
+					$begin 'Report2D'
+						name='XY Plot 2'
+						ReportType=0
+						DisplayType=1
+						Title=''
+						Domain=''
+						$begin 'Graph2Ds'
+							$begin 'Graph2D'
+								TraceName='Sweep1:SolutionPointSet 1:Trace2D 3'
+								Type='Continuous'
+								Axis='Y1'
+							$end 'Graph2D'
+							$begin 'Graph2D'
+								TraceName='Sweep1:SolutionPointSet 1:Trace2D 4'
+								Type='Continuous'
+								Axis='Y1'
+							$end 'Graph2D'
+						$end 'Graph2Ds'
+						$begin 'PlotInfo'
+							PlotType='XYPlot'
+							Frozen=false
+							MarkDirty=false
+							Subtitle=''
+							Filename='HFSSModel1'
+							CircuitTitle='<Design>'
+							Title='XY Plot 2'
+							DateLabel='<02 Feb 2007>'
+							TimeLabel='<02:03:14>'
+							Name='Ansoft Corporation'
+							DefaultTitle=false
+							Arrows=false
+							ZoomMode=false
+							ZoomType=1
+							UserSelectedTrace=-1
+							Rho=0
+							RhoMin=0
+							MarkerType='NoMarker'
+							MarkerScale='Mag-Phase'
+							UserSelectedMarkerPoint=98
+							SymbolDisplay=false
+							SymbolInterval=15
+							$begin 'Axis'
+								$begin 'Axis0'
+									AxisType='XAxis'
+									AxisIndex=0
+									AxisScale='Linear'
+									AxisName='Freq'
+									AxisLabel='DEFAULT'
+									AxisMax=36000000000
+									AxisMin=24000000000
+									AxisMajorDivision=6
+									AxisMinorDivision=4
+									AxisManualRescale=false
+									AxisAutoUnits=true
+									AxisSide='Left'
+									$begin 'Units'
+										UnitFieldWidth=4
+										UnitPrecision=2
+										ScientificNotation=false
+										FullUnitType='GHz'
+									$end 'Units'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'Axis0'
+								$begin 'Axis1'
+									AxisType='YAxis'
+									AxisIndex=1
+									AxisScale='Linear'
+									AxisName='Y 1 '
+									AxisLabel='DEFAULT'
+									AxisMax=300
+									AxisMin=-100
+									AxisMajorDivision=4
+									AxisMinorDivision=5
+									AxisManualRescale=false
+									AxisAutoUnits=true
+									AxisSide='Left'
+									$begin 'Units'
+										UnitFieldWidth=5
+										UnitPrecision=2
+										ScientificNotation=false
+										FullUnitType=''
+									$end 'Units'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'Axis1'
+							$end 'Axis'
+							DisplayMinorGrid=true
+							InitialGrid=1
+							DisplayGridLabel=true
+							DisplayTraceLabel=false
+							$begin 'Trace'
+								$begin 'TraceInfo0'
+									TraceType='Continuous'
+									AutoTraceTitle=''
+									UserTraceTitle=''
+									UseAutoTraceTitle=false
+									$begin 'Attribute'
+										Color=16711680
+										ColorOdd=0
+										LineWidth=10
+										LineStyle=0
+										FillStyle=600
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TraceInfo0'
+								$begin 'TraceInfo1'
+									TraceType='Continuous'
+									AutoTraceTitle=''
+									UserTraceTitle=''
+									UseAutoTraceTitle=false
+									$begin 'Attribute'
+										Color=255
+										ColorOdd=0
+										LineWidth=10
+										LineStyle=0
+										FillStyle=600
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TraceInfo1'
+							$end 'Trace'
+							$begin 'tags'
+								$begin 'taginfo'
+									tagcount=2
+									TagInfo0='1146,0,1'
+									TagInfo1='2234,0,2'
+								$end 'taginfo'
+								$begin 'tagdata'
+									TagDataId=1146
+									TagDataTrace1=0
+									TagDataTrace2=0
+									TagDataCount=0
+									TagDataNumber=1
+									TagTracePoint1=561
+									TagTracePoint2=-1
+									TagPos1x=3125
+									TagPos1y=3030
+									TagPos2x=0
+									TagPos2y=0
+									TagType=0
+								$end 'tagdata'
+								$begin 'tagdata'
+									TagDataId=2234
+									TagDataTrace1=1
+									TagDataTrace2=0
+									TagDataCount=1
+									TagDataNumber=2
+									TagTracePoint1=562
+									TagTracePoint2=-1
+									TagPos1x=3654
+									TagPos1y=2645
+									TagPos2x=0
+									TagPos2y=0
+									TagType=0
+								$end 'tagdata'
+							$end 'tags'
+							$begin 'AllAttributes'
+								BackGroundColor=16777215
+								ContrastColor=16777215
+								$begin 'TitleAttr'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=168
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TitleAttr'
+								$begin 'MajorGridAttr'
+									$begin 'Attribute'
+										Color=8421504
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=110
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'MajorGridAttr'
+								$begin 'MinorGridAttr'
+									$begin 'Attribute'
+										Color=12632256
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=110
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'MinorGridAttr'
+							$end 'AllAttributes'
+						$end 'PlotInfo'
+					$end 'Report2D'
+					$begin 'Report2D'
+						name='XY Plot 3'
+						ReportType=0
+						DisplayType=1
+						Title=''
+						Domain=''
+						$begin 'Graph2Ds'
+							$begin 'Graph2D'
+								TraceName='Sweep1:SolutionPointSet 1:Trace2D 5'
+								Type='Continuous'
+								Axis='Y1'
+							$end 'Graph2D'
+						$end 'Graph2Ds'
+						$begin 'PlotInfo'
+							PlotType='XYPlot'
+							Frozen=false
+							MarkDirty=false
+							Subtitle=''
+							Filename='HFSSModel1'
+							CircuitTitle='<Design>'
+							Title='XY Plot 3'
+							DateLabel='<02 Feb 2007>'
+							TimeLabel='<02:03:13>'
+							Name='Ansoft Corporation'
+							DefaultTitle=false
+							Arrows=false
+							ZoomMode=false
+							ZoomType=1
+							UserSelectedTrace=-1
+							Rho=0
+							RhoMin=0
+							MarkerType='NoMarker'
+							MarkerScale='Mag-Phase'
+							UserSelectedMarkerPoint=494
+							SymbolDisplay=false
+							SymbolInterval=15
+							$begin 'Axis'
+								$begin 'Axis0'
+									AxisType='XAxis'
+									AxisIndex=0
+									AxisScale='Linear'
+									AxisName='Freq'
+									AxisLabel='DEFAULT'
+									AxisMax=36000000000
+									AxisMin=24000000000
+									AxisMajorDivision=6
+									AxisMinorDivision=4
+									AxisManualRescale=false
+									AxisAutoUnits=true
+									AxisSide='Left'
+									$begin 'Units'
+										UnitFieldWidth=4
+										UnitPrecision=2
+										ScientificNotation=false
+										FullUnitType='GHz'
+									$end 'Units'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'Axis0'
+								$begin 'Axis1'
+									AxisType='YAxis'
+									AxisIndex=1
+									AxisScale='Linear'
+									AxisName='dB(S(source,source)) [db] '
+									AxisLabel='DEFAULT'
+									AxisMax=0
+									AxisMin=-50
+									AxisMajorDivision=5
+									AxisMinorDivision=5
+									AxisManualRescale=false
+									AxisAutoUnits=true
+									AxisSide='Left'
+									$begin 'Units'
+										UnitFieldWidth=4
+										UnitPrecision=2
+										ScientificNotation=false
+										FullUnitType=''
+									$end 'Units'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'Axis1'
+							$end 'Axis'
+							DisplayMinorGrid=true
+							InitialGrid=1
+							DisplayGridLabel=true
+							DisplayTraceLabel=false
+							$begin 'Trace'
+								$begin 'TraceInfo0'
+									TraceType='Continuous'
+									AutoTraceTitle=''
+									UserTraceTitle=''
+									UseAutoTraceTitle=false
+									$begin 'Attribute'
+										Color=16711680
+										ColorOdd=0
+										LineWidth=10
+										LineStyle=0
+										FillStyle=600
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TraceInfo0'
+							$end 'Trace'
+							$begin 'tags'
+								$begin 'taginfo'
+									tagcount=1
+									TagInfo0='3357,0,1'
+								$end 'taginfo'
+								$begin 'tagdata'
+									TagDataId=3357
+									TagDataTrace1=0
+									TagDataTrace2=0
+									TagDataCount=0
+									TagDataNumber=1
+									TagTracePoint1=494
+									TagTracePoint2=-1
+									TagPos1x=3357
+									TagPos1y=5038
+									TagPos2x=0
+									TagPos2y=0
+									TagType=0
+								$end 'tagdata'
+							$end 'tags'
+							$begin 'AllAttributes'
+								BackGroundColor=16777215
+								ContrastColor=16777215
+								$begin 'TitleAttr'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=168
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TitleAttr'
+								$begin 'MajorGridAttr'
+									$begin 'Attribute'
+										Color=8421504
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=110
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'MajorGridAttr'
+								$begin 'MinorGridAttr'
+									$begin 'Attribute'
+										Color=12632256
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=110
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'MinorGridAttr'
+							$end 'AllAttributes'
+						$end 'PlotInfo'
+					$end 'Report2D'
+					$begin 'Report2D'
+						name='XY Plot 4'
+						ReportType=0
+						DisplayType=1
+						Title=''
+						Domain=''
+						$begin 'Graph2Ds'
+							$begin 'Graph2D'
+								TraceName='Sweep1:SolutionPointSet 2:Trace2D 1'
+								Type='Continuous'
+								Axis='Y1'
+							$end 'Graph2D'
+						$end 'Graph2Ds'
+						$begin 'PlotInfo'
+							PlotType='XYPlot'
+							Frozen=false
+							MarkDirty=false
+							Subtitle=''
+							Filename='HFSSModel1'
+							CircuitTitle='<Design>'
+							Title='XY Plot 4'
+							DateLabel='<02 Feb 2007>'
+							TimeLabel='<02:03:11>'
+							Name='Ansoft Corporation'
+							DefaultTitle=false
+							Arrows=false
+							ZoomMode=false
+							ZoomType=1
+							UserSelectedTrace=-1
+							Rho=0
+							RhoMin=0
+							MarkerType='NoMarker'
+							MarkerScale='Mag-Phase'
+							UserSelectedMarkerPoint=562
+							SymbolDisplay=false
+							SymbolInterval=15
+							$begin 'Axis'
+								$begin 'Axis0'
+									AxisType='XAxis'
+									AxisIndex=0
+									AxisScale='Linear'
+									AxisName='Freq'
+									AxisLabel='DEFAULT'
+									AxisMax=36000000000
+									AxisMin=24000000000
+									AxisMajorDivision=6
+									AxisMinorDivision=4
+									AxisManualRescale=false
+									AxisAutoUnits=true
+									AxisSide='Left'
+									$begin 'Units'
+										UnitFieldWidth=4
+										UnitPrecision=2
+										ScientificNotation=false
+										FullUnitType='GHz'
+									$end 'Units'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'Axis0'
+								$begin 'Axis1'
+									AxisType='YAxis'
+									AxisIndex=1
+									AxisScale='Linear'
+									AxisName='dB(S(source,source)) [db] '
+									AxisLabel='DEFAULT'
+									AxisMax=0
+									AxisMin=-50
+									AxisMajorDivision=5
+									AxisMinorDivision=5
+									AxisManualRescale=false
+									AxisAutoUnits=true
+									AxisSide='Left'
+									$begin 'Units'
+										UnitFieldWidth=4
+										UnitPrecision=2
+										ScientificNotation=false
+										FullUnitType=''
+									$end 'Units'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'Axis1'
+							$end 'Axis'
+							DisplayMinorGrid=true
+							InitialGrid=1
+							DisplayGridLabel=true
+							DisplayTraceLabel=false
+							$begin 'Trace'
+								$begin 'TraceInfo0'
+									TraceType='Continuous'
+									AutoTraceTitle=''
+									UserTraceTitle=''
+									UseAutoTraceTitle=false
+									$begin 'Attribute'
+										Color=16711680
+										ColorOdd=0
+										LineWidth=10
+										LineStyle=0
+										FillStyle=600
+										Visible=false
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=192
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TraceInfo0'
+							$end 'Trace'
+							$begin 'tags'
+								$begin 'taginfo'
+									tagcount=1
+									TagInfo0='905,0,1'
+								$end 'taginfo'
+								$begin 'tagdata'
+									TagDataId=905
+									TagDataTrace1=0
+									TagDataTrace2=0
+									TagDataCount=0
+									TagDataNumber=1
+									TagTracePoint1=562
+									TagTracePoint2=-1
+									TagPos1x=3969
+									TagPos1y=3595
+									TagPos2x=0
+									TagPos2y=0
+									TagType=0
+								$end 'tagdata'
+							$end 'tags'
+							$begin 'AllAttributes'
+								BackGroundColor=16777215
+								ContrastColor=16777215
+								$begin 'TitleAttr'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=168
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TitleAttr'
+								$begin 'MajorGridAttr'
+									$begin 'Attribute'
+										Color=8421504
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=110
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'MajorGridAttr'
+								$begin 'MinorGridAttr'
+									$begin 'Attribute'
+										Color=12632256
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=110
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'MinorGridAttr'
+							$end 'AllAttributes'
+						$end 'PlotInfo'
+					$end 'Report2D'
+					$begin 'Report2D'
+						name='Radiation Pattern 1'
+						ReportType=3
+						DisplayType=3
+						Title=''
+						Domain=''
+						$begin 'Graph2Ds'
+							$begin 'Graph2D'
+								TraceName='Design 0:Solution 225:Pointset 9:Trace2D 1'
+								Type='Continuous'
+								Axis='Y1'
+							$end 'Graph2D'
+						$end 'Graph2Ds'
+						$begin 'PlotInfo'
+							PlotType='MagAngPlot'
+							Frozen=false
+							MarkDirty=false
+							Subtitle=''
+							Filename='HFSSModel1'
+							CircuitTitle='<Design>'
+							Title='Radiation Pattern 1'
+							DateLabel='<02 Feb 2007>'
+							TimeLabel='<02:03:21>'
+							Name='Ansoft Corporation'
+							DefaultTitle=false
+							Arrows=false
+							ZoomMode=false
+							ZoomType=2
+							UserSelectedTrace=-1
+							Rho=2
+							RhoMin=1.02957e-005
+							MarkerType='NoMarker'
+							MarkerScale='Mag-Phase'
+							UserSelectedMarkerPoint=18
+							SymbolDisplay=false
+							SymbolInterval=15
+							$begin 'Axis'
+								$begin 'Axis0'
+									AxisType='XAxis'
+									AxisIndex=0
+									AxisScale='Linear'
+									AxisName='Theta'
+									AxisLabel='DEFAULT'
+									AxisMax=0
+									AxisMin=0
+									AxisMajorDivision=9
+									AxisMinorDivision=5
+									AxisManualRescale=false
+									AxisAutoUnits=false
+									AxisSide='Left'
+									$begin 'Units'
+										UnitFieldWidth=4
+										UnitPrecision=2
+										ScientificNotation=false
+										FullUnitType='deg'
+									$end 'Units'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=10
+										LineStyle=0
+										FillStyle=600
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'Axis0'
+								$begin 'Axis1'
+									AxisType='YAxis'
+									AxisIndex=1
+									AxisScale='Linear'
+									AxisName='DirTotal'
+									AxisLabel='DEFAULT'
+									AxisMax=0
+									AxisMin=0
+									AxisMajorDivision=0
+									AxisMinorDivision=0
+									AxisManualRescale=false
+									AxisAutoUnits=true
+									AxisSide='Left'
+									$begin 'Units'
+										UnitFieldWidth=4
+										UnitPrecision=2
+										ScientificNotation=false
+										FullUnitType=''
+									$end 'Units'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=10
+										LineStyle=0
+										FillStyle=600
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'Axis1'
+							$end 'Axis'
+							DisplayMinorGrid=true
+							InitialGrid=3
+							DisplayGridLabel=true
+							DisplayTraceLabel=false
+							$begin 'Trace'
+								$begin 'TraceInfo0'
+									TraceType='Continuous'
+									AutoTraceTitle=''
+									UserTraceTitle=''
+									UseAutoTraceTitle=true
+									$begin 'Attribute'
+										Color=16711680
+										ColorOdd=2129936
+										LineWidth=10
+										LineStyle=0
+										FillStyle=600
+										Visible=false
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=200
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TraceInfo0'
+							$end 'Trace'
+							$begin 'AllAttributes'
+								BackGroundColor=16777215
+								ContrastColor=16777215
+								$begin 'TitleAttr'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=168
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TitleAttr'
+								$begin 'MajorGridAttr'
+									$begin 'Attribute'
+										Color=8421504
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=110
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'MajorGridAttr'
+								$begin 'MinorGridAttr'
+									$begin 'Attribute'
+										Color=12632256
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=110
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'MinorGridAttr'
+								$begin 'RhoAxisAttr'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=10
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=167
+											FontWeight=400
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'RhoAxisAttr'
+								$begin 'CircAxisAttr'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'CircAxisAttr'
+								$begin 'CircularGridsAttr'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+									$begin 'Attribute'
+										Color=12130560
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+									$begin 'Attribute'
+										Color=12130560
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+									$begin 'Attribute'
+										Color=12130560
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+									$begin 'Attribute'
+										Color=12130560
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=32
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'CircularGridsAttr'
+							$end 'AllAttributes'
+						$end 'PlotInfo'
+					$end 'Report2D'
+					$begin 'Report2D'
+						name='E_x'
+						ReportType=3
+						DisplayType=1
+						Title=''
+						Domain=''
+						$begin 'Graph2Ds'
+							$begin 'Graph2D'
+								TraceName='Design 0:Solution 223:Pointset 5:Trace2D 1'
+								Type='Continuous'
+								Axis='Y1'
+							$end 'Graph2D'
+						$end 'Graph2Ds'
+						$begin 'PlotInfo'
+							PlotType='XYPlot'
+							Frozen=false
+							MarkDirty=false
+							Subtitle=''
+							Filename='HFSSModel1'
+							CircuitTitle='<Design>'
+							Title='E_x'
+							DateLabel='<02 Feb 2007>'
+							TimeLabel='<02:04:20>'
+							Name='Ansoft Corporation'
+							DefaultTitle=false
+							Arrows=false
+							ZoomMode=false
+							ZoomType=1
+							UserSelectedTrace=-1
+							Rho=0
+							RhoMin=0
+							MarkerType='NoMarker'
+							MarkerScale='Mag-Phase'
+							UserSelectedMarkerPoint=9
+							SymbolDisplay=false
+							SymbolInterval=15
+							$begin 'Axis'
+								$begin 'Axis0'
+									AxisType='XAxis'
+									AxisIndex=0
+									AxisScale='Linear'
+									AxisName='Theta'
+									AxisLabel='DEFAULT'
+									AxisMax=3.49066
+									AxisMin=0
+									AxisMajorDivision=4
+									AxisMinorDivision=5
+									AxisManualRescale=false
+									AxisAutoUnits=true
+									AxisSide='Left'
+									$begin 'Units'
+										UnitFieldWidth=5
+										UnitPrecision=2
+										ScientificNotation=false
+										FullUnitType='deg'
+									$end 'Units'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'Axis0'
+								$begin 'Axis1'
+									AxisType='YAxis'
+									AxisIndex=1
+									AxisScale='Linear'
+									AxisName='Directiviti_dBi'
+									AxisLabel='DEFAULT'
+									AxisMax=20
+									AxisMin=-60
+									AxisMajorDivision=4
+									AxisMinorDivision=4
+									AxisManualRescale=false
+									AxisAutoUnits=true
+									AxisSide='Left'
+									$begin 'Units'
+										UnitFieldWidth=4
+										UnitPrecision=2
+										ScientificNotation=false
+										FullUnitType=''
+									$end 'Units'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'Axis1'
+							$end 'Axis'
+							DisplayMinorGrid=true
+							InitialGrid=1
+							DisplayGridLabel=true
+							DisplayTraceLabel=false
+							$begin 'Trace'
+								$begin 'TraceInfo0'
+									TraceType='Continuous'
+									AutoTraceTitle=''
+									UserTraceTitle=''
+									UseAutoTraceTitle=false
+									$begin 'Attribute'
+										Color=16711680
+										ColorOdd=0
+										LineWidth=10
+										LineStyle=0
+										FillStyle=600
+										Visible=false
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=200
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TraceInfo0'
+							$end 'Trace'
+							$begin 'tags'
+								$begin 'taginfo'
+									tagcount=1
+									TagInfo0='1,0,1'
+								$end 'taginfo'
+								$begin 'tagdata'
+									TagDataId=1
+									TagDataTrace1=0
+									TagDataTrace2=0
+									TagDataCount=0
+									TagDataNumber=1
+									TagTracePoint1=9
+									TagTracePoint2=-1
+									TagPos1x=3323
+									TagPos1y=768
+									TagPos2x=0
+									TagPos2y=0
+									TagType=0
+								$end 'tagdata'
+							$end 'tags'
+							$begin 'AllAttributes'
+								BackGroundColor=16777215
+								ContrastColor=16777215
+								$begin 'TitleAttr'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=168
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TitleAttr'
+								$begin 'MajorGridAttr'
+									$begin 'Attribute'
+										Color=8421504
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=100
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'MajorGridAttr'
+								$begin 'MinorGridAttr'
+									$begin 'Attribute'
+										Color=12632256
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=100
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'MinorGridAttr'
+							$end 'AllAttributes'
+						$end 'PlotInfo'
+					$end 'Report2D'
+					$begin 'Report2D'
+						name='Data Table 1'
+						ReportType=3
+						DisplayType=4
+						Title=''
+						Domain=''
+						$begin 'Graph2Ds'
+							$begin 'Graph2D'
+								TraceName='LastAdaptive:SolutionPointSet 1:Trace2D 1'
+								Type='Continuous'
+								Axis='Y1'
+								$begin 'TableX'
+									FieldWidth=10
+									Precision=6
+									ScientificNotation=0
+									Unit='deg'
+									Component=0
+								$end 'TableX'
+								FamilyCount=19
+								$begin 'TableY1'
+									FieldWidth=10
+									Precision=6
+									ScientificNotation=0
+									Unit=''
+									Component=0
+								$end 'TableY1'
+								$begin 'TableY2'
+									FieldWidth=10
+									Precision=6
+									ScientificNotation=0
+									Unit=''
+									Component=0
+								$end 'TableY2'
+								$begin 'TableY3'
+									FieldWidth=10
+									Precision=6
+									ScientificNotation=0
+									Unit=''
+									Component=0
+								$end 'TableY3'
+								$begin 'TableY4'
+									FieldWidth=10
+									Precision=6
+									ScientificNotation=0
+									Unit=''
+									Component=0
+								$end 'TableY4'
+								$begin 'TableY5'
+									FieldWidth=10
+									Precision=6
+									ScientificNotation=0
+									Unit=''
+									Component=0
+								$end 'TableY5'
+								$begin 'TableY6'
+									FieldWidth=10
+									Precision=6
+									ScientificNotation=0
+									Unit=''
+									Component=0
+								$end 'TableY6'
+								$begin 'TableY7'
+									FieldWidth=10
+									Precision=6
+									ScientificNotation=0
+									Unit=''
+									Component=0
+								$end 'TableY7'
+								$begin 'TableY8'
+									FieldWidth=10
+									Precision=6
+									ScientificNotation=0
+									Unit=''
+									Component=0
+								$end 'TableY8'
+								$begin 'TableY9'
+									FieldWidth=10
+									Precision=6
+									ScientificNotation=0
+									Unit=''
+									Component=0
+								$end 'TableY9'
+								$begin 'TableY10'
+									FieldWidth=10
+									Precision=6
+									ScientificNotation=0
+									Unit=''
+									Component=0
+								$end 'TableY10'
+								$begin 'TableY11'
+									FieldWidth=10
+									Precision=6
+									ScientificNotation=0
+									Unit=''
+									Component=0
+								$end 'TableY11'
+								$begin 'TableY12'
+									FieldWidth=10
+									Precision=6
+									ScientificNotation=0
+									Unit=''
+									Component=0
+								$end 'TableY12'
+								$begin 'TableY13'
+									FieldWidth=10
+									Precision=6
+									ScientificNotation=0
+									Unit=''
+									Component=0
+								$end 'TableY13'
+								$begin 'TableY14'
+									FieldWidth=10
+									Precision=6
+									ScientificNotation=0
+									Unit=''
+									Component=0
+								$end 'TableY14'
+								$begin 'TableY15'
+									FieldWidth=10
+									Precision=6
+									ScientificNotation=0
+									Unit=''
+									Component=0
+								$end 'TableY15'
+								$begin 'TableY16'
+									FieldWidth=10
+									Precision=6
+									ScientificNotation=0
+									Unit=''
+									Component=0
+								$end 'TableY16'
+								$begin 'TableY17'
+									FieldWidth=10
+									Precision=6
+									ScientificNotation=0
+									Unit=''
+									Component=0
+								$end 'TableY17'
+								$begin 'TableY18'
+									FieldWidth=10
+									Precision=6
+									ScientificNotation=0
+									Unit=''
+									Component=0
+								$end 'TableY18'
+								$begin 'TableY19'
+									FieldWidth=10
+									Precision=6
+									ScientificNotation=0
+									Unit=''
+									Component=0
+								$end 'TableY19'
+							$end 'Graph2D'
+						$end 'Graph2Ds'
+						$begin 'TableAttributes'
+							Transpose=false
+							ColumnWidth(107, 191, 191, 191, 191, 191, 198, 198, 198, 198, 198, 198, 198, 198, 198, 198, 198, 198, 198, 198)
+							TableFont(-13, 0, 0, 0, 400, 0, 0, 0, 204, 0, 0, 0, 0, 'MS Shell Dlg')
+						$end 'TableAttributes'
+					$end 'Report2D'
+					$begin 'Report3D'
+						name='3D Polar Plot 1'
+						hasWindowBeenOpened=false
+						ReportType=3
+						DisplayType=7
+						$begin 'Graph3Ds'
+							$begin 'Graph3D'
+								TraceName='Design 0:Solution 223:Pointset 4:Trace3D 1'
+								GraphName='Trace_1'
+								$begin 'Design 0:Solution 223:Pointset 4:Trace3D 1_Sets'
+									Name='Trace_1'
+									IsoValType='Tone'
+									TraceType='Surface'
+									SmoothShade=true
+									Filled=true
+									Transparency=0
+									AddGrid=false
+									MapColor=false
+									CurveLineStyle=4
+									CurveLineWidth=5
+									CurveMarkStyle=9
+									CurveMarkSize=5
+									GridColor(102, 102, 102)
+									$begin 'OutlineID'
+										AddOutLine=false
+										Width=4
+										Style='Solid'
+										'Outline color'(191, 191, 191)
+									$end 'OutlineID'
+								$end 'Design 0:Solution 223:Pointset 4:Trace3D 1_Sets'
+							$end 'Graph3D'
+						$end 'Graph3Ds'
+						$begin 'PolarReport3DSettings'
+							'Real time mode'=true
+							$begin 'ColorMapSettings'
+								ColorMapType='Spectrum'
+								SpectrumType='Rainbow'
+								UniformColor(127, 255, 255)
+								RampColor(255, 127, 127)
+							$end 'ColorMapSettings'
+							$begin 'LabelsSettings'
+								ShowTitle=false
+								TitleText='dipole: Directiviti_dBi versus Phi and Theta (02/02/07)'
+								ShowAxes=true
+								X_Label='Phi'
+								Y_Label='Theta'
+								Z_Label='Directiviti_dBi'
+							$end 'LabelsSettings'
+							$begin 'Scale3DSettings'
+								m_nLevels=15
+								m_autoScale=true
+								minvalue=-50.1588847169822
+								maxvalue=3.25913107189232
+								log=false
+								IntrinsicMin=-50.1588847169822
+								IntrinsicMax=3.25913107189232
+							$end 'Scale3DSettings'
+							$begin 'zAxes'
+								MajorTicksNum=11
+								MinorTicksNum=5
+								DisplayMajor=true
+								DisplayMinor=false
+							$end 'zAxes'
+						$end 'PolarReport3DSettings'
+					$end 'Report3D'
+				$end 'Reports'
+			$end 'HfssDesignInstance'
+		$end 'Instance'
+	$end 'DataInstances'
+$end 'AnsoftProject'

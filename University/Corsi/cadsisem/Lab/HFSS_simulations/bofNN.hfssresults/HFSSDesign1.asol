@@ -1,0 +1,305 @@
+$begin '$base_index$'
+  $begin 'properties'
+    all_levels=000000000000
+    time(year=000000002009, month=000000000001, day=000000000003, hour=000000000020, min=000000000013, sec=000000000029)
+    version=000000000000
+  $end 'properties'
+  $begin '$base_index$'
+    $index$(pos=000000012231, lin=000000000281, lvl=000000000000)
+  $end '$base_index$'
+$end '$base_index$'
+$begin 'SolutionBlock1'
+	ProductName=''
+	CircuitName='HFSSDesign1'
+	VersionID=0
+	PostProcess=false
+	LossLess=true
+	NextUniqueID=254
+	MoveBackwards=false
+	$begin 'VariationIDs'
+		Map(V='', ID=126)
+	$end 'VariationIDs'
+	$begin 'LinkedDataList'
+	$end 'LinkedDataList'
+	$begin 'InitialMeshes'
+		M(VID=126, Ver=0, Dir='DV126_V0.imesh/')
+	$end 'InitialMeshes'
+$end 'SolutionBlock1'
+$begin 'BlockMapName'
+	FileHeader='SolutionBlock1'
+	'SolutionKey(SimSetup=4, Instance=\'\', Solution=-3, VersionID=0)'='SolutionBlock6'
+	'SolutionKey(SimSetup=4, Instance=\'SetupDefinition\', Solution=-1, VersionID=0)'='SolutionBlock5'
+	'SolutionKey(SimSetup=4, Instance=\'SolutionDefinition\', Solution=109, VersionID=0)'='SolutionBlock3'
+	'SolutionKey(SimSetup=4, Instance=\'SolutionDefinition\', Solution=110, VersionID=0)'='SolutionBlock4'
+	'SolutionKey(SimSetup=4, Instance=\'SolutionDefinition\', Solution=128, VersionID=0)'='SolutionBlock7'
+	'SolutionKey(SimSetup=4, Instance=\'SolutionDefinition\', Solution=131, VersionID=0)'='SolutionBlock8'
+	'SolutionKey(SimSetup=4, Instance=\'SolutionDefinition\', Solution=7, VersionID=134)'='SolutionBlock9'
+$end 'BlockMapName'
+$begin 'SolutionBlock9'
+	SolutionName='Sweep1'
+	SolutionID=7
+	V=134
+	$begin 'States'
+		F(VID=126, Ver=134)
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(15000000000, 15050000000, 15100000000, 15150000000, 15200000000, 15250000000, 15300000000, 15350000000, 15400000000, 15450000000, 15500000000, 15550000000, 15600000000, 15650000000, 15700000000, 15750000000, 15800000000, 15850000000, 15900000000, 15950000000, 16000000000, 16050000000, 16100000000, 16150000000, 16200000000, 16250000000, 16300000000, 16350000000, 16400000000, 16450000000, 16500000000, 16550000000, 16600000000, 16650000000, 16700000000, 16750000000, 16800000000, 16850000000, 16900000000, 16950000000, 17000000000, 17050000000, 17100000000, 17150000000, 17200000000, 17250000000, 17300000000, 17350000000, 17400000000, 17450000000, 17500000000, 17550000000, 17600000000, 17650000000, 17700000000, 17750000000, 17800000000, 17850000000, 17900000000, 17950000000, 18000000000, 18050000000, 18100000000, 18150000000, 18200000000, 18250000000, 18300000000, 18350000000, 18400000000, 18450000000, 18500000000, 18550000000, 18600000000, 18650000000, 18700000000, 18750000000, 18800000000, 18850000000, 18900000000, 18950000000, 19000000000, 19050000000, 19100000000, 19150000000, 19200000000, 19250000000, 19300000000, 19350000000, 19400000000, 19450000000, 19500000000, 19550000000, 19600000000, 19650000000, 19700000000, 19750000000, 19800000000, 19850000000, 19900000000, 19950000000, 20000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=0
+	$begin 'MatrixFiles'
+		M(VID=126, Ver=134, File='DV126_S7_V134.matrix')
+	$end 'MatrixFiles'
+	$begin 'Fields'
+		IDDblMap(137, 15000000000, 138, 15050000000, 139, 15100000000, 140, 15150000000, 141, 15200000000, 142, 15250000000, 143, 15300000000, 144, 15350000000, 145, 15400000000, 146, 15450000000, 147, 15500000000, 148, 15550000000, 149, 15600000000, 150, 15650000000, 151, 15700000000, 152, 15750000000, 153, 15800000000, 154, 15850000000, 155, 15900000000, 156, 15950000000, 157, 16000000000, 158, 16050000000, 159, 16100000000, 160, 16150000000, 161, 16200000000, 162, 16250000000, 163, 16300000000, 164, 16350000000, 165, 16400000000, 166, 16450000000, 167, 16500000000, 168, 16550000000, 169, 16600000000, 170, 16650000000, 171, 16700000000, 172, 16750000000, 173, 16800000000, 174, 16850000000, 175, 16900000000, 176, 16950000000, 177, 17000000000, 178, 17050000000, 179, 17100000000, 180, 17150000000, 181, 17200000000, 182, 17250000000, 183, 17300000000, 184, 17350000000, 185, 17400000000, 186, 17450000000, 187, 17500000000, 188, 17550000000, 189, 17600000000, 190, 17650000000, 191, 17700000000, 192, 17750000000, 193, 17800000000, 194, 17850000000, 195, 17900000000, 196, 17950000000, 197, 18000000000, 198, 18050000000, 199, 18100000000, 200, 18150000000, 201, 18200000000, 202, 18250000000, 203, 18300000000, 204, 18350000000, 205, 18400000000, 206, 18450000000, 207, 18500000000, 208, 18550000000, 209, 18600000000, 210, 18650000000, 211, 18700000000, 212, 18750000000, 213, 18800000000, 214, 18850000000, 215, 18900000000, 216, 18950000000, 217, 19000000000, 218, 19050000000, 219, 19100000000, 220, 19150000000, 221, 19200000000, 222, 19250000000, 223, 19300000000, 224, 19350000000, 225, 19400000000, 226, 19450000000, 227, 19500000000, 228, 19550000000, 229, 19600000000, 230, 19650000000, 231, 19700000000, 232, 19750000000, 233, 19800000000, 234, 19850000000, 235, 19900000000, 236, 19950000000, 237, 20000000000)
+		$begin 'DataMap'
+			VID=126
+			Ver=134
+			F(DblID=137, Dir='DV126_S7_V134_F137/')
+			F(DblID=138, Dir='DV126_S7_V134_F138/')
+			F(DblID=139, Dir='DV126_S7_V134_F139/')
+			F(DblID=140, Dir='DV126_S7_V134_F140/')
+			F(DblID=141, Dir='DV126_S7_V134_F141/')
+			F(DblID=142, Dir='DV126_S7_V134_F142/')
+			F(DblID=143, Dir='DV126_S7_V134_F143/')
+			F(DblID=144, Dir='DV126_S7_V134_F144/')
+			F(DblID=145, Dir='DV126_S7_V134_F145/')
+			F(DblID=146, Dir='DV126_S7_V134_F146/')
+			F(DblID=147, Dir='DV126_S7_V134_F147/')
+			F(DblID=148, Dir='DV126_S7_V134_F148/')
+			F(DblID=149, Dir='DV126_S7_V134_F149/')
+			F(DblID=150, Dir='DV126_S7_V134_F150/')
+			F(DblID=151, Dir='DV126_S7_V134_F151/')
+			F(DblID=152, Dir='DV126_S7_V134_F152/')
+			F(DblID=153, Dir='DV126_S7_V134_F153/')
+			F(DblID=154, Dir='DV126_S7_V134_F154/')
+			F(DblID=155, Dir='DV126_S7_V134_F155/')
+			F(DblID=156, Dir='DV126_S7_V134_F156/')
+			F(DblID=157, Dir='DV126_S7_V134_F157/')
+			F(DblID=158, Dir='DV126_S7_V134_F158/')
+			F(DblID=159, Dir='DV126_S7_V134_F159/')
+			F(DblID=160, Dir='DV126_S7_V134_F160/')
+			F(DblID=161, Dir='DV126_S7_V134_F161/')
+			F(DblID=162, Dir='DV126_S7_V134_F162/')
+			F(DblID=163, Dir='DV126_S7_V134_F163/')
+			F(DblID=164, Dir='DV126_S7_V134_F164/')
+			F(DblID=165, Dir='DV126_S7_V134_F165/')
+			F(DblID=166, Dir='DV126_S7_V134_F166/')
+			F(DblID=167, Dir='DV126_S7_V134_F167/')
+			F(DblID=168, Dir='DV126_S7_V134_F168/')
+			F(DblID=169, Dir='DV126_S7_V134_F169/')
+			F(DblID=170, Dir='DV126_S7_V134_F170/')
+			F(DblID=171, Dir='DV126_S7_V134_F171/')
+			F(DblID=172, Dir='DV126_S7_V134_F172/')
+			F(DblID=173, Dir='DV126_S7_V134_F173/')
+			F(DblID=174, Dir='DV126_S7_V134_F174/')
+			F(DblID=175, Dir='DV126_S7_V134_F175/')
+			F(DblID=176, Dir='DV126_S7_V134_F176/')
+			F(DblID=177, Dir='DV126_S7_V134_F177/')
+			F(DblID=178, Dir='DV126_S7_V134_F178/')
+			F(DblID=179, Dir='DV126_S7_V134_F179/')
+			F(DblID=180, Dir='DV126_S7_V134_F180/')
+			F(DblID=181, Dir='DV126_S7_V134_F181/')
+			F(DblID=182, Dir='DV126_S7_V134_F182/')
+			F(DblID=183, Dir='DV126_S7_V134_F183/')
+			F(DblID=184, Dir='DV126_S7_V134_F184/')
+			F(DblID=185, Dir='DV126_S7_V134_F185/')
+			F(DblID=186, Dir='DV126_S7_V134_F186/')
+			F(DblID=187, Dir='DV126_S7_V134_F187/')
+			F(DblID=188, Dir='DV126_S7_V134_F188/')
+			F(DblID=189, Dir='DV126_S7_V134_F189/')
+			F(DblID=190, Dir='DV126_S7_V134_F190/')
+			F(DblID=191, Dir='DV126_S7_V134_F191/')
+			F(DblID=192, Dir='DV126_S7_V134_F192/')
+			F(DblID=193, Dir='DV126_S7_V134_F193/')
+			F(DblID=194, Dir='DV126_S7_V134_F194/')
+			F(DblID=195, Dir='DV126_S7_V134_F195/')
+			F(DblID=196, Dir='DV126_S7_V134_F196/')
+			F(DblID=197, Dir='DV126_S7_V134_F197/')
+			F(DblID=198, Dir='DV126_S7_V134_F198/')
+			F(DblID=199, Dir='DV126_S7_V134_F199/')
+			F(DblID=200, Dir='DV126_S7_V134_F200/')
+			F(DblID=201, Dir='DV126_S7_V134_F201/')
+			F(DblID=202, Dir='DV126_S7_V134_F202/')
+			F(DblID=203, Dir='DV126_S7_V134_F203/')
+			F(DblID=204, Dir='DV126_S7_V134_F204/')
+			F(DblID=205, Dir='DV126_S7_V134_F205/')
+			F(DblID=206, Dir='DV126_S7_V134_F206/')
+			F(DblID=207, Dir='DV126_S7_V134_F207/')
+			F(DblID=208, Dir='DV126_S7_V134_F208/')
+			F(DblID=209, Dir='DV126_S7_V134_F209/')
+			F(DblID=210, Dir='DV126_S7_V134_F210/')
+			F(DblID=211, Dir='DV126_S7_V134_F211/')
+			F(DblID=212, Dir='DV126_S7_V134_F212/')
+			F(DblID=213, Dir='DV126_S7_V134_F213/')
+			F(DblID=214, Dir='DV126_S7_V134_F214/')
+			F(DblID=215, Dir='DV126_S7_V134_F215/')
+			F(DblID=216, Dir='DV126_S7_V134_F216/')
+			F(DblID=217, Dir='DV126_S7_V134_F217/')
+			F(DblID=218, Dir='DV126_S7_V134_F218/')
+			F(DblID=219, Dir='DV126_S7_V134_F219/')
+			F(DblID=220, Dir='DV126_S7_V134_F220/')
+			F(DblID=221, Dir='DV126_S7_V134_F221/')
+			F(DblID=222, Dir='DV126_S7_V134_F222/')
+			F(DblID=223, Dir='DV126_S7_V134_F223/')
+			F(DblID=224, Dir='DV126_S7_V134_F224/')
+			F(DblID=225, Dir='DV126_S7_V134_F225/')
+			F(DblID=226, Dir='DV126_S7_V134_F226/')
+			F(DblID=227, Dir='DV126_S7_V134_F227/')
+			F(DblID=228, Dir='DV126_S7_V134_F228/')
+			F(DblID=229, Dir='DV126_S7_V134_F229/')
+			F(DblID=230, Dir='DV126_S7_V134_F230/')
+			F(DblID=231, Dir='DV126_S7_V134_F231/')
+			F(DblID=232, Dir='DV126_S7_V134_F232/')
+			F(DblID=233, Dir='DV126_S7_V134_F233/')
+			F(DblID=234, Dir='DV126_S7_V134_F234/')
+			F(DblID=235, Dir='DV126_S7_V134_F235/')
+			F(DblID=236, Dir='DV126_S7_V134_F236/')
+			F(DblID=237, Dir='DV126_S7_V134_F237/')
+		$end 'DataMap'
+	$end 'Fields'
+$end 'SolutionBlock9'
+$begin 'SolutionBlock3'
+	SolutionName='Adaptive_1'
+	SolutionID=109
+	V=0
+	$begin 'States'
+		F(VID=126, Ver=0)
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(25000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+	$begin 'MatrixFiles'
+		M(VID=126, Ver=0, File='DV126_S109_V0.matrix')
+	$end 'MatrixFiles'
+$end 'SolutionBlock3'
+$begin 'SolutionBlock4'
+	SolutionName='LastAdaptive'
+	SolutionID=110
+	V=0
+	$begin 'States'
+		F(VID=126, Ver=0)
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(25000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+	$begin 'MatrixFiles'
+		M(VID=126, Ver=0, File='DV126_S110_V0.matrix')
+	$end 'MatrixFiles'
+	$begin 'Fields'
+		IDDblMap(127, 25000000000)
+		$begin 'DataMap'
+			VID=126
+			Ver=0
+			F(DblID=127, Dir='DV126_S110_V0_F127/')
+		$end 'DataMap'
+	$end 'Fields'
+$end 'SolutionBlock4'
+$begin 'SolutionBlock7'
+	SolutionName='Adaptive_2'
+	SolutionID=128
+	V=0
+	$begin 'States'
+		F(VID=126, Ver=0)
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(25000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+	$begin 'MatrixFiles'
+		M(VID=126, Ver=0, File='DV126_S128_V0.matrix')
+	$end 'MatrixFiles'
+$end 'SolutionBlock7'
+$begin 'SolutionBlock8'
+	SolutionName='Adaptive_3'
+	SolutionID=131
+	V=0
+	$begin 'States'
+		F(VID=126, Ver=0)
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(25000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+	$begin 'MatrixFiles'
+		M(VID=126, Ver=0, File='DV126_S131_V0.matrix')
+	$end 'MatrixFiles'
+$end 'SolutionBlock8'
+$begin 'SolutionBlock5'
+	SimSetupID=4
+	SimSetupName='Setup1'
+	VersionID=0
+	IsImported=false
+	IsTable=false
+	SolveSetupID=0
+	$begin 'CurrMeshes'
+		M(VID=126, Ver=0, Dir='DV126_S4_V0.cmesh/')
+	$end 'CurrMeshes'
+	$begin 'WaveAdapt'
+		WA(VID=126, Ver=0, A=1)
+	$end 'WaveAdapt'
+	$begin 'LastPassNumbers'
+		LP(VID=126, Ver=0, P=3)
+	$end 'LastPassNumbers'
+	$begin 'Profiles'
+		P(VID=126, Ver=0, File='DV126_S4_V0.profile')
+	$end 'Profiles'
+$end 'SolutionBlock5'
+$begin 'SolutionBlock6'
+	ConvSetupName='DrivenDeltaSConvNOV'
+	IsConverged=false
+	MaxPasses='3'
+	MinPasses='1'
+	ConvTarget='0.002'
+	ConvTargetConsecPasses='1'
+	ConvCurrentConsecPasses='0'
+	c(passno=1, numtets=1243)
+	c(passno=2, numtets=1487, magdeltas=0.9858765537189361)
+	c(passno=3, numtets=1723, magdeltas=0.04991850361223194)
+$end 'SolutionBlock6'
+$begin '$index$'
+	$begin '$index$'
+		SolutionBlock6(pos=11880, lin=269, lvl=0)
+		BlockMapName(pos=746, lin=18, lvl=0)
+		SolutionBlock9(pos=1522, lin=28, lvl=0)
+		SolutionBlock3(pos=9519, lin=157, lvl=0)
+		SolutionBlock4(pos=9955, lin=178, lvl=0)
+		SolutionBlock7(pos=10553, lin=207, lvl=0)
+		SolutionBlock8(pos=10989, lin=228, lvl=0)
+		SolutionBlock5(pos=11425, lin=249, lvl=0)
+		SolutionBlock1(pos=370, lin=1, lvl=0)
+		$base_index$(pos=0, lin=1, lvl=0)
+		$index$(pos=12231, lin=281, lvl=0)
+	$end '$index$'
+$end '$index$'

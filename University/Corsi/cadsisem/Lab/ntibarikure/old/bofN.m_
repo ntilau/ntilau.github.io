@@ -1,0 +1,105 @@
+clear
+
+NSegments=2;
+
+WGS1{1}.a=0.01905/2;
+WGS1{1}.b=0.009525/2;
+WGS1{1}.Nmodes = 12;
+WGS1{1}.l = 0.01;
+WGS1{1}.xo=0.01905/4;
+WGS1{1}.yo=-0.009525/4;
+
+WGS1{2}.a=0.01905;
+WGS1{2}.b=0.009525/2;
+WGS1{2}.Nmodes = 12;
+WGS1{2}.l = 0.01;
+WGS1{2}.xo=0;
+WGS1{2}.yo=0.009525/4;
+
+WGS2.a=0.01905;
+WGS2.b=0.009525;
+WGS2.Nmodes = 12;
+WGS2.l = 0.01;
+WGS2.xo=0;
+WGS2.yo=0;
+
+Symmetry.x=0;
+Symmetry.y=0;
+Symmetry.H=0;
+Symmetry.E=0;
+
+[ WGS1{1}, Error ] = OrderModes( WGS1{1}, Symmetry );
+[ WGS1{2}, Error ] = OrderModes( WGS1{2}, Symmetry );
+[ WGS2, Error ]    = OrderModes( WGS2, Symmetry );
+
+[ WGS1{1} ] = EigenModes( WGS1{1} );
+[ WGS1{2} ] = EigenModes( WGS1{2} );
+[ WGS2 ]    = EigenModes( WGS2 );
+
+[ WGS1{1} ] = NormCoeff( WGS1{1} );
+[ WGS1{2} ] = NormCoeff( WGS1{2} );
+[ WGS2 ]    = NormCoeff( WGS2 );
+
+
+% lambda = 299800000/10^10; % hope 10 GHz are enough to excite many modes...
+% k0 = 2*pi/lambda;
+
+
+FrequencySweep.start = 8*10^9;
+FrequencySweep.end   = 45*10^9;
+FrequencySweep.N     = 371;
+
+[ FrequencySweep, Error ] = FrequencyCheck( FrequencySweep );
+
+c = 299792458;
+for nf=1:FrequencySweep.N
+      
+    lambda = c/FrequencySweep.f(nf);
+    k0 = 2*pi/lambda;
+
+	[ WGS1{1} ] = WaveNumbers( WGS1{1}, k0 );
+	[ WGS1{2} ] = WaveNumbers( WGS1{2}, k0 );
+	[ WGS2 ]    = WaveNumbers( WGS2, k0 );
+
+	[ WGS1{1} ] = DelayMatrix( WGS1{1}, k0 );
+	[ WGS1{2} ] = DelayMatrix( WGS1{2}, k0 );
+	[ WGS2 ]    = DelayMatrix( WGS2, k0 );
+
+
+	S{nf}  = Nto1Step( WGS1, WGS2, k0, NSegments);
+
+end
+
+
+
+
+if (iscell(S))
+	for j=1:NSegments
+		figure;
+	    for i=1:FrequencySweep.N
+	        S11_h10(i) = S{i}{j}.S11(1,1); % 9 TE e 4 TM
+	        S11_h30(i) = S{i}{j}.S11(2,1);
+	        S11_e12(i) = S{i}{j}.S11(9+1,1);
+	        S11_e32(i) = S{i}{j}.S11(9+2,1);
+	        
+	        S21_h10(i) = S{i}{j}.S21(1,1); % 8 TE e 4 TM
+	        S21_h30(i) = S{i}{j}.S21(2,1);
+	        S21_e12(i) = S{i}{j}.S21(8+1,1);
+	        S21_e32(i) = S{i}{j}.S21(8+2,1);
+	        
+	        check(i) = abs(S{i}{j}.S11(1,1))^2 + abs(S{i}{j}.S21(1,1))^2;
+	    end
+
+	    plot(FrequencySweep.f/10^9,abs(S11_h10),FrequencySweep.f/10^9,abs(S21_h10),...
+	         FrequencySweep.f/10^9,abs(S11_h30),FrequencySweep.f/10^9,abs(S21_h30),...
+	         FrequencySweep.f/10^9,abs(S11_e12),FrequencySweep.f/10^9,abs(S21_e12),...
+	         FrequencySweep.f/10^9,abs(S11_e32),FrequencySweep.f/10^9,abs(S21_e32));
+
+	    legend('S_{11}[TE_{10}]','S_{21}[TE_{10}]',...
+	        'S_{11}[TE_{30}]','S_{21}[TE_{30}]',...
+	        'S_{11}[TM_{12}]','S_{21}[TM_{12}]',...
+	        'S_{11}[TM_{32}]','S_{21}[TM_{32}]');
+		
+	end
+end
+

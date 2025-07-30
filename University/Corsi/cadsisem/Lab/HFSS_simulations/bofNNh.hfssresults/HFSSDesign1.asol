@@ -1,0 +1,269 @@
+$begin '$base_index$'
+  $begin 'properties'
+    all_levels=000000000000
+    time(year=000000002008, month=000000000012, day=000000000004, hour=000000000008, min=000000000010, sec=000000000005)
+    version=000000000000
+  $end 'properties'
+  $begin '$base_index$'
+    $index$(pos=000000008364, lin=000000000242, lvl=000000000000)
+  $end '$base_index$'
+$end '$base_index$'
+$begin 'SolutionBlock1'
+	ProductName=''
+	CircuitName='HFSSDesign1'
+	VersionID=21
+	PostProcess=false
+	LossLess=true
+	NextUniqueID=60
+	MoveBackwards=false
+	$begin 'VariationIDs'
+		Map(V='', ID=43)
+	$end 'VariationIDs'
+	$begin 'LinkedDataList'
+	$end 'LinkedDataList'
+	$begin 'InitialMeshes'
+		M(VID=43, Ver=21, Dir='DV43_V21.imesh/')
+	$end 'InitialMeshes'
+$end 'SolutionBlock1'
+$begin 'BlockMapName'
+	FileHeader='SolutionBlock1'
+	'SolutionKey(SimSetup=27, Instance=\'\', Solution=-3, VersionID=0)'='SolutionBlock6'
+	'SolutionKey(SimSetup=27, Instance=\'SetupDefinition\', Solution=-1, VersionID=0)'='SolutionBlock2'
+	'SolutionKey(SimSetup=27, Instance=\'SolutionDefinition\', Solution=28, VersionID=0)'='SolutionBlock4'
+	'SolutionKey(SimSetup=27, Instance=\'SolutionDefinition\', Solution=29, VersionID=0)'='SolutionBlock5'
+	'SolutionKey(SimSetup=27, Instance=\'SolutionDefinition\', Solution=32, VersionID=0)'='SolutionBlock3'
+	'SolutionKey(SimSetup=27, Instance=\'SolutionDefinition\', Solution=45, VersionID=0)'='SolutionBlock7'
+	'SolutionKey(SimSetup=27, Instance=\'SolutionDefinition\', Solution=48, VersionID=0)'='SolutionBlock8'
+	'SolutionKey(SimSetup=27, Instance=\'SolutionDefinition\', Solution=51, VersionID=0)'='SolutionBlock9'
+	'SolutionKey(SimSetup=27, Instance=\'SolutionDefinition\', Solution=54, VersionID=0)'='SolutionBlock10'
+	'SolutionKey(SimSetup=27, Instance=\'SolutionDefinition\', Solution=57, VersionID=0)'='SolutionBlock11'
+$end 'BlockMapName'
+$begin 'SolutionBlock2'
+	SimSetupID=27
+	SimSetupName='Setup1'
+	VersionID=0
+	IsImported=false
+	IsTable=false
+	SolveSetupID=0
+	$begin 'CurrMeshes'
+		M(VID=43, Ver=0, Dir='DV43_S27_V0.cmesh/')
+	$end 'CurrMeshes'
+	$begin 'WaveAdapt'
+		WA(VID=43, Ver=0, A=1)
+	$end 'WaveAdapt'
+	$begin 'LastPassNumbers'
+		LP(VID=43, Ver=0, P=6)
+	$end 'LastPassNumbers'
+	$begin 'Profiles'
+		P(VID=43, Ver=0, File='DV43_S27_V0.profile')
+	$end 'Profiles'
+$end 'SolutionBlock2'
+$begin 'SolutionBlock4'
+	SolutionName='Adaptive_1'
+	SolutionID=28
+	V=0
+	$begin 'States'
+		F(VID=43, Ver=0)
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(25000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+	$begin 'MatrixFiles'
+		M(VID=43, Ver=0, File='DV43_S28_V0.matrix')
+	$end 'MatrixFiles'
+$end 'SolutionBlock4'
+$begin 'SolutionBlock5'
+	SolutionName='LastAdaptive'
+	SolutionID=29
+	V=0
+	$begin 'States'
+		F(VID=43, Ver=0)
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(25000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+	$begin 'MatrixFiles'
+		M(VID=43, Ver=0, File='DV43_S29_V0.matrix')
+	$end 'MatrixFiles'
+	$begin 'Fields'
+		IDDblMap(44, 25000000000)
+		$begin 'DataMap'
+			VID=43
+			Ver=0
+			F(DblID=44, Dir='DV43_S29_V0_F44/')
+		$end 'DataMap'
+	$end 'Fields'
+$end 'SolutionBlock5'
+$begin 'SolutionBlock6'
+	ConvSetupName='DrivenDeltaSConvNOV'
+	IsConverged=false
+	MaxPasses='6'
+	MinPasses='1'
+	ConvTarget='0.02'
+	ConvTargetConsecPasses='1'
+	ConvCurrentConsecPasses='0'
+	c(passno=1, numtets=2483)
+	c(passno=2, numtets=2900, magdeltas=1.346809929920813)
+	c(passno=3, numtets=3486, magdeltas=0.2115853492413705)
+	c(passno=4, numtets=4186, magdeltas=0.05189233233830962)
+	c(passno=5, numtets=5026, magdeltas=0.06539829868012011)
+	c(passno=6, numtets=6036, magdeltas=0.03183310044810907)
+$end 'SolutionBlock6'
+$begin 'SolutionBlock7'
+	SolutionName='Adaptive_2'
+	SolutionID=45
+	V=0
+	$begin 'States'
+		F(VID=43, Ver=0)
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(25000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+	$begin 'MatrixFiles'
+		M(VID=43, Ver=0, File='DV43_S45_V0.matrix')
+	$end 'MatrixFiles'
+$end 'SolutionBlock7'
+$begin 'SolutionBlock8'
+	SolutionName='Adaptive_3'
+	SolutionID=48
+	V=0
+	$begin 'States'
+		F(VID=43, Ver=0)
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(25000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+	$begin 'MatrixFiles'
+		M(VID=43, Ver=0, File='DV43_S48_V0.matrix')
+	$end 'MatrixFiles'
+$end 'SolutionBlock8'
+$begin 'SolutionBlock9'
+	SolutionName='Adaptive_4'
+	SolutionID=51
+	V=0
+	$begin 'States'
+		F(VID=43, Ver=0)
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(25000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+	$begin 'MatrixFiles'
+		M(VID=43, Ver=0, File='DV43_S51_V0.matrix')
+	$end 'MatrixFiles'
+$end 'SolutionBlock9'
+$begin 'SolutionBlock10'
+	SolutionName='Adaptive_5'
+	SolutionID=54
+	V=0
+	$begin 'States'
+		F(VID=43, Ver=0)
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(25000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+	$begin 'MatrixFiles'
+		M(VID=43, Ver=0, File='DV43_S54_V0.matrix')
+	$end 'MatrixFiles'
+$end 'SolutionBlock10'
+$begin 'SolutionBlock11'
+	SolutionName='Adaptive_6'
+	SolutionID=57
+	V=0
+	$begin 'States'
+		F(VID=43, Ver=0)
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(25000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+	$begin 'MatrixFiles'
+		M(VID=43, Ver=0, File='DV43_S57_V0.matrix')
+	$end 'MatrixFiles'
+$end 'SolutionBlock11'
+$begin 'SolutionBlock3'
+	SolutionName='Sweep1'
+	SolutionID=32
+	V=0
+	$begin 'States'
+		F(VID=43, Ver=0)
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(10000000000, 10100000000, 10200000000, 10300000000, 10400000000, 10500000000, 10600000000, 10700000000, 10800000000, 10900000000, 11000000000, 11100000000, 11200000000, 11300000000, 11400000000, 11500000000, 11600000000, 11700000000, 11800000000, 11900000000, 12000000000, 12100000000, 12200000000, 12300000000, 12400000000, 12500000000, 12600000000, 12700000000, 12800000000, 12900000000, 13000000000, 13100000000, 13200000000, 13300000000, 13400000000, 13500000000, 13600000000, 13700000000, 13800000000, 13900000000, 14000000000, 14100000000, 14200000000, 14300000000, 14400000000, 14500000000, 14600000000, 14700000000, 14800000000, 14900000000, 15000000000, 15100000000, 15200000000, 15300000000, 15400000000, 15500000000, 15600000000, 15700000000, 15800000000, 15900000000, 16000000000, 16100000000, 16200000000, 16300000000, 16400000000, 16500000000, 16600000000, 16700000000, 16800000000, 16900000000, 17000000000, 17100000000, 17200000000, 17300000000, 17400000000, 17500000000, 17600000000, 17700000000, 17800000000, 17900000000, 18000000000, 18100000000, 18200000000, 18300000000, 18400000000, 18500000000, 18600000000, 18700000000, 18800000000, 18900000000, 19000000000, 19100000000, 19200000000, 19300000000, 19400000000, 19500000000, 19600000000, 19700000000, 19800000000, 19900000000, 20000000000, 20100000000, 20200000000, 20300000000, 20400000000, 20500000000, 20600000000, 20700000000, 20800000000, 20900000000, 21000000000, 21100000000, 21200000000, 21300000000, 21400000000, 21500000000, 21600000000, 21700000000, 21800000000, 21900000000, 22000000000, 22100000000, 22200000000, 22300000000, 22400000000, 22500000000, 22600000000, 22700000000, 22800000000, 22900000000, 23000000000, 23100000000, 23200000000, 23300000000, 23400000000, 23500000000, 23600000000, 23700000000, 23800000000, 23900000000, 24000000000, 24100000000, 24200000000, 24300000000, 24400000000, 24500000000, 24600000000, 24700000000, 24800000000, 24900000000, 25000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=0
+	$begin 'MatrixFiles'
+		M(VID=43, Ver=0, File='DV43_S32_V0.matrix')
+	$end 'MatrixFiles'
+$end 'SolutionBlock3'
+$begin '$index$'
+	$begin '$index$'
+		BlockMapName(pos=745, lin=18, lvl=0)
+		SolutionBlock6(pos=3307, lin=101, lvl=0)
+		SolutionBlock4(pos=2289, lin=51, lvl=0)
+		SolutionBlock5(pos=2720, lin=72, lvl=0)
+		SolutionBlock3(pos=5988, lin=221, lvl=0)
+		SolutionBlock7(pos=3829, lin=116, lvl=0)
+		SolutionBlock8(pos=4260, lin=137, lvl=0)
+		SolutionBlock9(pos=4691, lin=158, lvl=0)
+		SolutionBlock10(pos=5122, lin=179, lvl=0)
+		SolutionBlock11(pos=5555, lin=200, lvl=0)
+		SolutionBlock2(pos=1837, lin=31, lvl=0)
+		SolutionBlock1(pos=370, lin=1, lvl=0)
+		$base_index$(pos=0, lin=1, lvl=0)
+		$index$(pos=8364, lin=242, lvl=0)
+	$end '$index$'
+$end '$index$'
