@@ -1,0 +1,515 @@
+%PDF-1.2 
+%‚„œ”
+ 
+10 0 obj
+<<
+/Length 11 0 R
+>>
+stream
+BT56.64 760.08  TD0 0 0 rg /F0 12  Tf0.0064  Tc -0.0101  Tw (Nome: __________________                        Cognome: __________________) Tj417.84 0  TD 0  Tc 0.024  Tw ( ) Tj-417.84 -13.92  TD ( ) Tj0 -13.68  TD ( ) Tj0 -13.92  TD 0.0011  Tc 0.0229  Tw (Il \223gioco del colore\224 per ) Tj125.52 0  TD /F1 12  Tf0.084  Tc 0  Tw (m) Tj10.08 0  TD /F0 12  Tf0.0089  Tc 0.0551  Tw ( giocatori \350 formulato nel modo seguente:) Tj220.8 0  TD 0  Tc 0.024  Tw ( ) Tj-356.4 -13.68  TD ( ) Tj0 -13.92  TD 0.0139  Tc 1.9301  Tw (i giocatori dispongono di un mazzo di) Tj0  Tc 0.264  Tw ( ) Tj214.8 0  TD /F1 12  Tf0  Tw (n=x) Tj19.68 0  TD 0.012  Tc (\267y) Tj9.36 0  TD /F0 12  Tf0.0374  Tc 1.8266  Tw ( carte, suddivise in) Tj0  Tc 0.024  Tw ( ) Tj110.88 0  TD /F1 12  Tf0  Tw (y) Tj6 0  TD /F0 12  Tf0.0152  Tc 1.9288  Tw ( colori differenti con) Tj0  Tc 0.024  Tw ( ) Tj115.44 0  TD /F1 12  Tf0  Tw (x) Tj5.76 0  TD /F0 12  Tf0.024  Tw ( ) Tj-481.92 -13.68  TD -0.0288  Tc 0.0528  Tw (carte per ogni col) Tj92.16 0  TD 0.0111  Tc 0.0129  Tw (ore. Si suppone ) Tj87.36 0  TD /F1 12  Tf0  Tc 0  Tw (n>x) Tj19.68 0  TD 0.0336  Tc (\267m+m.) Tj33.6 0  TD /F0 12  Tf0  Tc 0.024  Tw ( ) Tj-232.8 -13.92  TD 0.0242  Tc 1.4698  Tw (Il mazzo \350 posto al centro di un tavolo rotondo, intorno al quale sono seduti i giocatori.) Tj0  Tc -0.216  Tw ( ) Tj0 -13.68  TD 0.014  Tc 0.874  Tw (Inizialmente, ogni giocatore preleva x carte dal mazzo. A questo punto inizia il gioco, nel ) Tj0 -13.92  TD 0.0069  Tc 3.8571  Tw (quale ogni giocatore esegue una successione di ) Tj3.888  Tc 0  Tw (g) Tj293.52 0  TD 0.0066  Tc 3.8574  Tw (iocate. Ogni giocata consiste nel) Tj0  Tc 0.264  Tw ( ) Tj-293.52 -13.68  TD 0.0123  Tc 3.5932  Tw (prelevare la carta in testa al mazzo e nello scartare una carta scelta casualmente,) Tj0  Tc 0.024  Tw ( ) Tj0 -13.92  TD 0.0037  Tc 1.848  Tw (depositandola in testa al mazzo. I giocatori eseguono le giocate senza un ordine fisso,) Tj0  Tc 0.024  Tw ( ) Tj0 -13.68  TD 0.0213  Tc 0.0027  Tw (salvo che:) Tj54.24 0  TD 0  Tc 0.024  Tw ( ) Tj-54.24 -13.92  TD ( ) Tj35.28 -14.4  TD /F2 12  Tf0  Tw (\267) Tj5.52 0  TD 0.12  Tw ( ) Tj12.48 0  TD /F0 12  Tf0.0167  Tc 0.9673  Tw (il generico giocatore, dopo ogni gioca) Tj204.24 0  TD 0.0106  Tc 0.8362  Tw (ta, attende che almeno un altro giocatore ) Tj-204.24 -13.92  TD 0.0102  Tc -0.0342  Tw (abbia eseguito la sua giocata. ) Tj162.24 0  TD 0  Tc 0.024  Tw ( ) Tj-215.52 -13.68  TD ( ) Tj0 -13.92  TD -0.0053  Tc 0.1836  Tw (Il gioco termina, con la segnalazione del vincitore, quando un giocatore ha in mano ) Tj445.92 0  TD /F1 12  Tf0  Tc 0  Tw (x) Tj5.76 0  TD /F0 12  Tf-0.0072  Tc 0.0312  Tw ( carte ) Tj-451.68 -13.68  TD 0.0113  Tc 0.0127  Tw (dello stesso colore. ) Tj106.32 0  TD 0  Tc 0.024  Tw ( ) Tj-106.32 -13.92  TD ( ) Tj0 -13.68  TD 0.0128  Tc 1.8112  Tw (Definire in pseudo) Tj100.8 0  TD 0.084  Tc 0  Tw (-) Tj4.08 0  TD 0.0102  Tc 1.8938  Tw (codice il programma eseguito dal generico gioca) Tj269.28 0  TD -0.0071  Tc 1.9511  Tw (tore per un corretto) Tj0  Tc 0.024  Tw ( ) Tj-374.16 -13.68  TD 0.0062  Tc -0.0508  Tw (svolgimento del gioco, utilizzando variabili condivise e ) Tj289.68 0  TD /F3 12  Tf-0.042  Tc 0  Tw (semafori) Tj49.92 0  TD /F0 12  Tf0.024  Tc (. ) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) Tj-346.32 -13.92  TD ( ) Tj0 -13.92  TD ( ) Tj0 -13.68  TD 0.036  Tc 0  Tw (Traccia:) Tj42.96 0  TD 0  Tc 0.024  Tw ( ) Tj-42.96 -13.92  TD ( ) Tj0 -13.92  TD /F4 12  Tf-0.02  Tc 0  Tw (Giocatore) Tj48.48 -1.44  TD /F4 7.92  Tf-0.0418  Tc (i) Tj2.16 1.44  TD /F5 12  Tf0.024  Tc 0.096  Tw ( :) Tj6.48 0  TD 0  Tc 0.12  Tw ( ) Tj-57.12 -13.92  TD ( ) Tj0 -13.68  TD 0.0223  Tc 0  Tw (inizializza\(\);) Tj60.48 0  TD 0  Tc 0.12  Tw ( ) Tj-60.48 -12.24  TD /F0 10.08  Tf-0.02  Tc 0.0978  Tw (while\(TRUE\) {) Tj63.12 0  TD 0  Tc 0.0778  Tw ( ) Tj-63.12 -13.2  TD /F5 12  Tf-0.048  Tc 0.088  Tw (   ???) Tj24.72 0  TD 0  Tc 0.12  Tw ( ) Tj-24.72 -13.68  TD -0.0048  Tc 0.0768  Tw (   carta = prendi\(\);) Tj86.88 0  TD 0  Tc 0.12  Tw ( ) Tj-86.88 -13.92  TD -0.048  Tc 0.088  Tw (   ???) Tj24.72 0  TD 0  Tc 0.12  Tw ( ) Tj-24.72 -13.68  TD ( ) Tj0 -13.92  TD 0.002  Tc 0.038  Tw (   verifica_colore\(\);) Tj92.88 0  TD 0  Tc 0.12  Tw ( ) Tj-92.88 -13.68  TD ( ) Tj3.12 0  TD ( ) Tj-3.12 -13.92  TD -0.048  Tc 0.088  Tw (   ???) Tj24.72 0  TD 0  Tc 0.12  Tw ( ) Tj-24.72 -13.68  TD 0.0053  Tc 0.0347  Tw (   scarta\(\);) Tj48.24 0  TD 0  Tc 0.12  Tw ( ) Tj-48.24 -13.92  TD -0.048  Tc 0.088  Tw (   ???) Tj24.72 0  TD 0  Tc 0.12  Tw ( ) Tj-24.72 -13.68  TD 0  Tw (}) Tj5.76 0  TD 0.12  Tw ( ) TjET52.8 411.12 0.48 0.48 re f52.8 411.12 0.48 0.48 re f53.28 411.12 162.48 0.48 re f215.76 411.12 0.48 0.48 re f215.76 411.12 0.48 0.48 re f52.8 220.08 0.48 191.04 re f52.8 219.6 0.48 0.48 re f52.8 219.6 0.48 0.48 re f53.28 219.6 162.48 0.48 re f215.76 220.08 0.48 191.04 re f215.76 219.6 0.48 0.48 re f215.76 219.6 0.48 0.48 re fBT56.64 208.56  TD/F0 12  Tf0.024  Tw ( ) Tj0 -13.68  TD ( ) Tj0 -13.92  TD -0.0099  Tc -0.0461  Tw (Si pu\362 ipotizzare di) Tj101.52 0  TD 0.0128  Tc 0.0112  Tw ( disporre delle seguenti funzioni:) Tj172.32 0  TD 0  Tc 0.024  Tw ( ) Tj-273.84 -13.68  TD ( ) Tj14.16 -14.16  TD /F5 12  Tf0.084  Tc 0  Tw (-) Tj4.08 0  TD 0  Tc 0.12  Tw ( ) Tj13.92 0  TD /F6 12  Tf0  Tw (inizializza\(\):) Tj100.8 0  TD /F0 12  Tf0.012  Tc -0.068  Tw ( inizializza il giocatore con x carte;) Tj181.44 0  TD 0  Tc 0.024  Tw ( ) Tj-300.24 -14.88  TD /F5 12  Tf0.084  Tc 0  Tw (-) Tj4.08 0  TD 0  Tc 0.12  Tw ( ) Tj13.92 0  TD /F6 12  Tf0  Tw (prendi\(\):) Tj64.8 0  TD /F0 12  Tf0.0051  Tc -0.0411  Tw ( prende una carta in testa al mazzo e la restituisce al giocatore;) Tj336.24 0  TD 0  Tc 0.024  Tw ( ) Tj-419.04 -14.88  TD /F5 12  Tf0.084  Tc 0  Tw (-) Tj4.08 0  TD 0  Tc 0.12  Tw ( ) Tj13.92 0  TD /F6 12  Tf0  Tw (verifica_colore\(\):) Tj129.6 0  TD /F0 12  Tf0.0207  Tc 0.4833  Tw ( restituisce ) Tj62.88 0  TD /F1 12  Tf-0.009  Tc 0  Tw (true) Tj20.64 0  TD /F0 12  Tf-0.0024  Tc 0.8364  Tw ( se, con l\222ultima carta prelevata, il giocatore ) Tj-213.12 -14.64  TD 0.024  Tc 0.48  Tw (pu\362 vinc) Tj45.36 0  TD 0.012  Tc 0.4182  Tw (ere \(ha in mano tutte carte dello stesso colore pi\371 quella da scartare\), ) Tj378.96 0  TD /F1 12  Tf0.0192  Tc 0  Tw (false) Tj25.44 0  TD /F0 12  Tf0  Tc 0.024  Tw ( ) Tj-449.76 -13.68  TD 0.0502  Tc 0  Tw (altrimenti;) Tj52.32 0  TD 0  Tc 0.024  Tw ( ) Tj-70.32 -14.16  TD /F5 12  Tf0.084  Tc 0  Tw (-) Tj4.08 0  TD 0  Tc 0.12  Tw ( ) Tj13.92 0  TD /F6 12  Tf0  Tw (scarta\(\):) Tj64.8 0  TD /F0 12  Tf0.0062  Tc -0.0336  Tw ( sceglie una carta tra quelle del giocatore e la pone in testa al mazzo;) Tj368.16 0  TD /F6 12  Tf0  Tc 0  Tw ( ) Tj-450.96 -14.88  TD /F5 12  Tf0.084  Tc (-) Tj4.08 0  TD 0  Tc 0.12  Tw ( ) Tj13.92 0  TD /F6 12  Tf0  Tw (get_pid\(\): ) Tj79.2 0  TD /F0 12  Tf0.013  Tc -0.069  Tw (restituisce l\222identificatore del giocatore \(intero > 0\).) Tj268.08 0  TD /F6 12  Tf0  Tc 0  Tw (  ) Tj14.4 0  TD /F0 12  Tf0.024  Tw ( ) TjETendstream
+endobj
+11 0 obj
+7197
+endobj
+4 0 obj
+<<
+/Type /Page
+/Parent 5 0 R
+/Resources <<
+/Font 22 0 R
+/ProcSet 2 0 R
+>>
+/Contents 10 0 R
+>>
+endobj
+22 0 obj
+<<
+/F0 6 0 R
+/F1 8 0 R
+/F2 12 0 R
+/F3 14 0 R
+/F4 16 0 R
+/F5 18 0 R
+/F6 20 0 R
+>>
+endobj
+24 0 obj
+<<
+/Length 25 0 R
+>>
+stream
+BT56.64 758.4  TD0 0 0 rg /F3 13.92  Tf0.0739  Tc -0.1036  Tw (SISTEMI OPERA) Tj109.68 0  TD 0.0359  Tc -0.0176  Tw (TIVI / SISTEMI di ELABORAZIONE ) Tj229.44 0  TD -0.0595  Tc 0  Tw (\226) Tj7.68 0  TD 0  Tc -0.0298  Tw ( ) Tj3.84 0  TD ( ) Tj-350.64 -15.84  TD 0.0297  Tc 0.0605  Tw (soluzione test scritto del 26.06.2003) Tj238.08 0  TD 0  Tc -0.0298  Tw ( ) Tj-238.08 -31.2  TD 0.0247  Tc 0.1056  Tw (Variabili condivise e semafori) Tj196.56 0  TD 0  Tc -0.0298  Tw ( ) Tj-196.56 -15.36  TD /F5 10.08  Tf0.12  Tw ( ) Tj14.16 -13.68  TD /F5 12  Tf0.084  Tc 0  Tw (-) Tj4.08 0  TD 0  Tc 0.12  Tw ( ) Tj13.92 0  TD /F0 12  Tf0.0018  Tc -0.0018  Tw (mutex\(1\), semaforo di mutua esclusione per l\222accesso al mazzo di carte;) Tj384.24 0  TD 0  Tc 0.024  Tw ( ) Tj-402.24 -13.92  TD /F5 12  Tf0.084  Tc 0  Tw (-) Tj4.08 0  TD 0  Tc 0.12  Tw ( ) Tj13.92 0  TD /F0 12  Tf0.0171  Tc 1.8396  Tw (mossa\(0\), semaforo su cui si sospendono i giocatori che hanno appena eseguito) Tj0  Tc 0.024  Tw ( ) Tj0 -13.68  TD 0.048  Tc 0  Tw (un) Tj13.44 0  TD 0.0072  Tc -0.0632  Tw (a mossa nel caso nessun altro giocatore abbia preso una carta dal mazzo;) Tj395.28 0  TD 0  Tc 0.024  Tw ( ) Tj-426.72 -13.92  TD /F5 12  Tf0.084  Tc 0  Tw (-) Tj4.08 0  TD 0  Tc 0.12  Tw ( ) Tj13.92 0  TD /F0 12  Tf-0.0067  Tc 2.1507  Tw (waiting = 0, variabile condivisa. Indica il numero di giocatori attualmente pronti a) Tj0  Tc -0.216  Tw ( ) Tj0 -13.68  TD 0.0029  Tc -0.0689  Tw (prelevare una carta dal mazzo. \310 inizializzata a zero;) Tj281.04 0  TD 0  Tc 0.024  Tw ( ) Tj-299.04 -13.92  TD /F5 12  Tf0.084  Tc 0  Tw (-) Tj4.08 0  TD 0  Tc 0.12  Tw ( ) Tj13.92 0  TD /F0 12  Tf-0.0051  Tc 1.9491  Tw (ultimo = 0, variabile condivisa. Identifica) Tj221.28 0  TD -0.0174  Tc 1.9614  Tw (tore dell\222ultimo giocatore ad aver scartato) Tj0  Tc -0.216  Tw ( ) Tj-221.28 -13.68  TD 0.0147  Tc 0.0093  Tw (una carta;) Tj53.52 0  TD 0  Tc 0.024  Tw ( ) Tj-71.52 -13.92  TD /F5 12  Tf0.084  Tc 0  Tw (-) Tj4.08 0  TD 0  Tc 0.12  Tw ( ) Tj13.92 0  TD /F0 12  Tf-0.0026  Tc -0.017  Tw (fine = 0,  variabile condivisa. \310 assegnata con l\222identificatore del vincitore.) Tj391.44 0  TD 0  Tc 0.024  Tw ( ) Tj-423.6 -13.68  TD ( ) Tj0 -27.36  TD /F3 13.92  Tf0.0272  Tc 0.1831  Tw (Giocatore, ) Tj72.96 0  TD /F7 13.92  Tf-0.0298  Tc 0  Tw (i) Tj3.84 0  TD -0.0754  Tc (-) Tj4.8 0  TD 0.1142  Tc (esimo) Tj40.32 0  TD /F3 13.92  Tf0  Tc -0.0298  Tw ( ) Tj-121.92 -17.52  TD /F0 12  Tf0.0069  Tc 0.0171  Tw (boolean possibile_vincitore = false;) Tj186.72 0  TD 0  Tc 0.024  Tw ( ) Tj-186.72 -13.92  TD 0.0189  Tc 0  Tw (Inizializza\(\);) Tj63.6 0  TD 0  Tc 0.024  Tw ( ) Tj-63.6 -13.68  TD 0.039  Tc -0.135  Tw (while \(true\) {) Tj66.96 0  TD 0  Tc 0.024  Tw ( ) Tj-45.6 -13.92  TD -0.005  Tc 0  Tw (wait\(mutex\);) Tj65.28 0  TD 0  Tc 0.024  Tw ( ) Tj19.44 0  TD 0.0033  Tc -0.0593  Tw (// mutua esclusione p) Tj113.52 0  TD 0.0168  Tc -0.0888  Tw (er l\222accesso al mazzo di carte) Tj157.44 0  TD 0  Tc 0.024  Tw ( ) Tj-355.68 -13.68  TD 0.0087  Tc -0.1047  Tw (if \(fine>0\) {) Tj57.6 0  TD 0  Tc 0.024  Tw ( ) Tj27.12 0  TD -0.0025  Tc -0  Tw (// notifica al giocatore che un altro ha vinto ) Tj228.24 0  TD 0  Tc 0.024  Tw ( ) Tj-312.96 -13.92  TD ( ) Tj13.92 0  TD -0.0163  Tc 0  Tw (signal\(mutex\);) Tj75.12 0  TD 0  Tc 0.024  Tw ( ) Tj-89.04 -13.68  TD ( ) Tj13.92 0  TD 0.036  Tc 0  Tw (exit\(0\);) Tj36.72 0  TD 0  Tc 0.024  Tw ( ) Tj34.08 0  TD 0.0176  Tc -0.0621  Tw (// solo il vincitore esce con id >0) Tj169.92 0  TD 0  Tc 0.024  Tw ( ) Tj-254.64 -13.92  TD 0.072  Tc 0  Tw (}) Tj4.08 0  TD 0  Tc 0.024  Tw ( ) Tj-4.08 -13.68  TD 0.0104  Tc 0.0136  Tw (if \(ultimo==get_pid\(\)\) {) Tj118.08 0  TD 0  Tc 0.024  Tw ( ) Tj2.16 0  TD ( ) Tj35.28 0  TD 0.0192  Tc 0.0048  Tw (// il processo \350 stato l\222ultimo a scartare ) Tj207.6 0  TD 0  Tc 0.024  Tw ( ) Tj-363.12 -13.92  TD ( ) Tj13.92 0  TD 0.0264  Tc -0.0024  Tw (waiting ++;) Tj58.08 0  TD 0  Tc 0.024  Tw ( ) Tj12.72 0  TD 0.0212  Tc 0.0028  Tw (// il processo s) Tj76.8 0  TD 0.0093  Tc -0.0387  Tw (i sospende in attesa della mossa di un altro giocatore) Tj282.96 0  TD 0  Tc 0.024  Tw ( ) Tj-444.48 -13.68  TD ( ) Tj13.92 0  TD -0.0163  Tc 0  Tw (signal\(mutex\);) Tj75.12 0  TD 0  Tc 0.024  Tw ( ) Tj-75.12 -13.92  TD -0.007  Tc 0  Tw (wait\(mossa\);) Tj67.92 0  TD 0  Tc 0.024  Tw ( ) Tj-67.92 -13.68  TD -0.005  Tc 0  Tw (wait\(mutex\);) Tj65.28 0  TD 0  Tc 0.024  Tw ( ) Tj-65.28 -13.92  TD 0.048  Tc -0.024  Tw (waiting ) Tj40.8 0  TD 0.084  Tc 0  Tw (--) Tj8.16 0  TD 0.024  Tc (;) Tj3.36 0  TD 0  Tc 0.024  Tw ( ) Tj-66.24 -13.68  TD 0.072  Tc 0  Tw (}) Tj4.08 0  TD 0  Tc 0.024  Tw ( ) Tj-4.08 -13.92  TD 0.008  Tc 0.016  Tw (carta = prendi\(\);) Tj84.96 0  TD 0  Tc 0.024  Tw ( ) Tj35.28 0  TD 0.0087  Tc -0.0533  Tw (// prende la carta in testa al mazzo) Tj183.36 0  TD 0  Tc 0.024  Tw ( ) Tj-303.6 -13.68  TD -0.0163  Tc 0  Tw (signal\(mutex\);) Tj75.12 0  TD 0  Tc 0.024  Tw ( ) Tj-96.48 -13.92  TD ( ) Tj21.36 -13.68  TD 0.0054  Tc 0.0186  Tw (possibile_vincitore = verifica_colore\(\);) Tj200.4 0  TD 0  Tc 0.024  Tw ( ) Tj26.16 0  TD 0.024  Tc -0.096  Tw (// restituisce true se il giocato) Tj154.8 0  TD 0  Tc 0.024  Tw (re pu\362 vincere ) Tj-154.8 -13.92  TD 0.0111  Tc -0.0471  Tw (// con l\222ultima carta prelevata) Tj152.88 0  TD 0  Tc 0.024  Tw ( ) Tj-379.44 -13.68  TD -0.005  Tc 0  Tw (wait\(mutex\);) Tj65.28 0  TD 0  Tc 0.024  Tw ( ) Tj-65.28 -13.92  TD 0.0055  Tc -0.1015  Tw (if \(possibile_vincitore\) {) Tj122.88 0  TD 0  Tc 0.024  Tw ( ) Tj-122.88 -13.68  TD ( ) Tj13.92 0  TD 0.0196  Tc 0.0044  Tw (if \(fine==0\) ) Tj60.72 0  TD 0  Tc 0.024  Tw ( ) Tj10.08 0  TD ( ) Tj35.52 0  TD 0.0083  Tc -0.011  Tw (// \350 il vincitore, nessun altro processo ha finito ) Tj246 0  TD 0  Tc 0.024  Tw ( ) Tj-352.32 -13.92  TD 0  Tc 0.024  Tw (    fine = get_pid\(\);) Tj97.2 0  TD 0  Tc 0.024  Tw ( ) Tj-97.2 -13.68  TD 0.0173  Tc 0  Tw (scarta\(\);) Tj44.16 0  TD 0  Tc 0.024  Tw ( ) Tj-44.16 -13.92  TD -0.0163  Tc 0  Tw (signal\(mutex\);) Tj75.12 0  TD 0  Tc 0.024  Tw ( ) Tj-75.12 -13.68  TD 0.0305  Tc 0  Tw (exit\(fine\);) Tj49.44 0  TD 0  Tc 0.024  Tw ( ) Tj21.36 0  TD ( ) Tj35.52 0  TD 0.0097  Tc 0.0143  Tw (// esce notificando l\222identificatore del ) Tj196.32 0  TD 0.0093  Tc 0  Tw (giocatore) Tj49.2 0  TD 0  Tc 0.024  Tw ( ) Tj-365.76 -13.92  TD 0.072  Tc 0  Tw (}) Tj4.08 0  TD 0  Tc 0.024  Tw ( ) Tj-4.08 -13.68  TD 0.0173  Tc 0  Tw (scarta\(\);) Tj43.92 0  TD 0  Tc 0.024  Tw ( ) Tj5.52 0  TD ( ) Tj35.28 0  TD ( ) Tj35.52 0  TD 0.0099  Tc -0.0202  Tw (// il giocatore scarta una delle sue carte) Tj209.04 0  TD 0  Tc 0.024  Tw ( ) Tj-329.28 -13.92  TD 0.0176  Tc 0.0064  Tw (ultimo = get_pid\(\);) Tj96.48 0  TD 0  Tc 0.024  Tw ( ) Tj23.76 0  TD 0.0039  Tc 0.0201  Tw (// ultimo giocatore ad aver scartato) Tj184.32 0  TD 0  Tc 0.024  Tw ( ) Tj-304.56 -13.68  TD 0.0203  Tc 0.0037  Tw (if \(waiting>0\)) Tj68.4 0  TD 0  Tc 0.024  Tw ( ) Tj16.32 0  TD ( ) Tj35.52 0  TD -0.0113  Tc 0.0353  Tw (// risveglia eventuali giocatori sospesi) Tj198.24 0  TD 0  Tc 0.024  Tw ( ) Tj-318.48 -13.92  TD ( ) Tj13.92 0  TD -0.0009  Tc 0  Tw (signal\(mossa\);) Tj78 0  TD 0  Tc 0.024  Tw ( ) Tj-91.92 -13.68  TD -0.0163  Tc 0.0403  Tw (signal\(mutex\); ) Tj78.48 0  TD 0  Tc 0.024  Tw ( ) Tj-99.84 -13.92  TD 0.072  Tc 0  Tw (}) Tj4.08 0  TD 0  Tc 0.024  Tw ( ) Tj-4.08 -11.52  TD /F5 10.08  Tf0.12  Tw ( ) TjETendstream
+endobj
+25 0 obj
+7562
+endobj
+23 0 obj
+<<
+/Type /Page
+/Parent 5 0 R
+/Resources <<
+/Font <<
+/F0 6 0 R 
+/F3 14 0 R 
+/F5 18 0 R 
+/F7 26 0 R 
+>>
+/ProcSet 2 0 R
+>>
+/Contents 24 0 R
+>>
+endobj
+6 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/Name /F0
+/BaseFont /Arial
+/FirstChar 31
+/LastChar 255
+/Widths [ 750 278 278 355 556 556 889 667 191 333 333 389 584 278 333 278 
+278 556 556 556 556 556 556 556 556 556 556 278 278 584 584 584 
+556 1015 667 667 722 722 667 611 778 722 278 500 667 556 833 722 
+778 667 778 722 667 611 722 667 944 667 667 611 278 278 278 469 
+556 333 556 556 500 556 556 278 556 556 222 222 500 222 833 556 
+556 556 556 333 500 278 556 500 722 500 500 500 334 260 334 584 
+750 556 750 222 556 333 1000 556 556 333 1000 667 333 667 611 611 
+611 750 222 222 333 333 350 556 1000 333 1000 500 333 500 375 500 
+500 278 333 333 556 556 667 260 556 333 737 667 556 584 333 737 
+611 400 549 333 222 333 576 537 278 333 556 500 556 556 333 292 
+500 722 667 667 667 667 556 722 722 722 667 667 667 667 278 278 
+722 722 722 722 778 778 778 778 584 722 722 722 722 722 667 611 
+611 333 556 556 556 556 222 500 500 500 556 556 556 556 278 278 
+615 556 556 556 556 556 556 556 549 333 556 556 556 556 500 278 
+333 ]
+/Encoding /WinAnsiEncoding
+/FontDescriptor 7 0 R
+>>
+endobj
+7 0 obj
+<<
+/Type /FontDescriptor
+/FontName /Arial
+/Flags 32
+/FontBBox [ -250 -220 1224 920 ]
+/MissingWidth 760
+/StemV 80
+/StemH 80
+/ItalicAngle 0
+/CapHeight 920
+/XHeight 644
+/Ascent 920
+/Descent -220
+/Leading 180
+/MaxWidth 1020
+/AvgWidth 440
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/Name /F1
+/BaseFont /Arial,Italic
+/FirstChar 31
+/LastChar 255
+/Widths [ 750 278 278 355 556 556 889 667 191 333 333 389 584 278 333 278 
+278 556 556 556 556 556 556 556 556 556 556 278 278 584 584 584 
+556 1015 667 667 722 722 667 611 778 722 278 500 667 556 833 722 
+778 667 778 722 667 611 722 667 944 667 667 611 278 278 278 469 
+556 333 556 556 500 556 556 278 556 556 222 222 500 222 833 556 
+556 556 556 333 500 278 556 500 722 500 500 500 334 260 334 584 
+750 556 750 222 556 333 1000 556 556 333 1000 667 333 1000 750 750 
+750 750 222 222 333 333 350 556 1000 333 1000 500 333 944 750 750 
+667 278 333 556 556 556 556 260 556 333 737 370 556 584 333 737 
+552 400 549 333 333 333 576 537 278 333 333 365 556 834 834 834 
+611 667 667 667 667 667 667 1000 722 667 667 667 667 278 278 278 
+278 722 722 778 778 778 778 778 584 778 722 722 722 722 667 667 
+611 556 556 556 556 556 556 889 500 556 556 556 556 278 278 278 
+278 556 556 556 556 556 556 556 549 611 556 556 556 556 500 556 
+500 ]
+/Encoding /WinAnsiEncoding
+/FontDescriptor 9 0 R
+>>
+endobj
+9 0 obj
+<<
+/Type /FontDescriptor
+/FontName /Arial,Italic
+/Flags 96
+/FontBBox [ -250 -220 1200 920 ]
+/MissingWidth 760
+/StemV 80
+/StemH 80
+/ItalicAngle -11
+/CapHeight 920
+/XHeight 644
+/Ascent 920
+/Descent -220
+/Leading 180
+/MaxWidth 1000
+/AvgWidth 440
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/Name /F2
+/BaseFont /Symbol
+/FirstChar 31
+/LastChar 255
+/Widths [ 600 250 333 713 500 549 833 778 439 333 333 500 549 250 549 250 
+278 500 500 500 500 500 500 500 500 500 500 278 278 549 549 549 
+444 549 722 667 722 612 611 763 603 722 333 631 722 686 889 722 
+722 768 741 556 592 611 690 439 768 645 795 611 333 863 333 658 
+500 500 631 549 549 494 439 521 411 603 329 603 549 549 576 521 
+549 549 521 549 603 439 576 713 686 493 686 494 480 200 480 549 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 620 247 549 167 713 500 753 753 753 753 1042 987 603 987 
+603 400 549 411 549 549 713 494 460 549 549 549 549 1000 603 1000 
+658 823 686 795 987 768 768 823 768 768 713 713 713 713 713 713 
+713 768 713 790 790 890 823 549 250 713 603 603 1042 987 603 987 
+603 494 329 790 790 786 713 384 384 384 384 384 384 494 494 494 
+494 600 329 274 686 686 686 384 384 384 384 384 384 494 494 494 
+600 ]
+/FontDescriptor 13 0 R
+>>
+endobj
+13 0 obj
+<<
+/Type /FontDescriptor
+/FontName /Symbol
+/Flags 6
+/FontBBox [ -250 -220 1248 1000 ]
+/MissingWidth 600
+/StemV 109
+/StemH 109
+/ItalicAngle 0
+/CapHeight 1000
+/XHeight 700
+/Ascent 1000
+/Descent -220
+/Leading 220
+/MaxWidth 1040
+/AvgWidth 600
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/Name /F3
+/BaseFont /Arial,Bold
+/FirstChar 31
+/LastChar 255
+/Widths [ 750 278 333 474 556 556 889 722 238 333 333 389 584 278 333 278 
+278 556 556 556 556 556 556 556 556 556 556 333 333 584 584 584 
+611 975 722 722 722 722 667 611 778 722 278 556 722 611 833 722 
+778 667 778 722 667 611 722 667 944 667 667 611 333 278 333 584 
+556 333 556 611 556 611 556 333 611 611 278 278 556 278 889 611 
+611 611 611 389 556 333 611 556 778 556 556 500 389 280 389 584 
+750 556 750 278 556 500 1000 556 556 333 1000 667 333 1000 750 750 
+750 750 278 278 500 500 350 556 1000 333 1000 556 333 944 750 750 
+667 278 333 556 556 556 556 280 556 333 737 370 556 584 333 737 
+552 400 549 333 333 333 576 556 278 333 333 365 556 834 834 834 
+611 722 722 722 722 722 722 1000 722 667 667 667 667 278 278 278 
+278 722 722 778 778 778 778 778 584 778 722 722 722 722 667 667 
+611 556 556 556 556 556 556 889 556 556 556 556 556 278 278 278 
+278 611 611 611 611 611 611 611 549 611 611 611 611 611 556 611 
+556 ]
+/Encoding /WinAnsiEncoding
+/FontDescriptor 15 0 R
+>>
+endobj
+15 0 obj
+<<
+/Type /FontDescriptor
+/FontName /Arial,Bold
+/Flags 16416
+/FontBBox [ -250 -240 1248 940 ]
+/MissingWidth 760
+/StemV 153
+/StemH 153
+/ItalicAngle 0
+/CapHeight 940
+/XHeight 658
+/Ascent 940
+/Descent -240
+/Leading 220
+/MaxWidth 1040
+/AvgWidth 480
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/Name /F4
+/BaseFont /TimesNewRoman,Italic
+/FirstChar 31
+/LastChar 255
+/Widths [ 778 250 333 420 500 500 833 778 214 333 333 500 675 250 333 250 
+278 500 500 500 500 500 500 500 500 500 500 333 333 675 675 675 
+500 920 611 611 667 722 611 611 722 722 333 444 667 556 833 667 
+722 611 722 611 500 556 722 611 833 611 556 556 389 278 389 422 
+500 333 500 500 444 500 444 278 500 500 278 278 444 278 722 500 
+500 500 500 389 389 278 500 444 667 444 444 389 400 275 400 541 
+778 500 778 333 500 556 889 500 500 333 1000 500 333 944 778 778 
+778 778 333 333 556 556 350 500 889 333 980 389 333 667 778 778 
+556 250 389 500 500 500 500 275 500 333 760 276 500 675 333 760 
+500 400 549 300 300 333 576 523 250 333 300 310 500 750 750 750 
+500 611 611 611 611 611 611 889 667 611 611 611 611 333 333 333 
+333 722 667 722 722 722 722 722 675 722 722 722 722 722 556 611 
+500 500 500 500 500 500 500 667 444 444 444 444 444 278 278 278 
+278 500 500 500 500 500 500 500 549 500 500 500 500 500 444 500 
+444 ]
+/Encoding /WinAnsiEncoding
+/FontDescriptor 17 0 R
+>>
+endobj
+17 0 obj
+<<
+/Type /FontDescriptor
+/FontName /TimesNewRoman,Italic
+/Flags 98
+/FontBBox [ -250 -240 1200 900 ]
+/MissingWidth 780
+/StemV 73
+/StemH 73
+/ItalicAngle -11
+/CapHeight 900
+/XHeight 630
+/Ascent 900
+/Descent -240
+/Leading 180
+/MaxWidth 1000
+/AvgWidth 400
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/Name /F5
+/BaseFont /TimesNewRoman
+/FirstChar 31
+/LastChar 255
+/Widths [ 778 250 333 408 500 500 833 778 180 333 333 500 564 250 333 250 
+278 500 500 500 500 500 500 500 500 500 500 278 278 564 564 564 
+444 921 722 667 667 722 611 556 722 722 333 389 722 611 889 722 
+722 556 722 667 556 611 722 722 944 722 722 611 333 278 333 469 
+500 333 444 500 444 500 444 333 500 500 278 278 500 278 778 500 
+500 500 500 333 389 278 500 500 722 500 500 444 480 200 480 541 
+778 500 778 333 500 444 1000 500 500 333 1000 556 333 556 611 611 
+611 778 333 333 444 444 350 500 1000 333 980 389 333 389 427 444 
+444 250 333 333 611 500 722 200 500 333 760 556 500 564 333 760 
+611 400 549 333 278 333 576 453 250 333 444 389 500 611 333 406 
+444 667 722 722 722 722 611 667 667 667 611 611 611 611 333 333 
+722 722 722 722 722 722 722 722 564 667 722 722 722 722 722 611 
+500 333 444 444 444 444 278 444 444 444 444 444 444 444 278 278 
+646 500 500 500 500 500 500 500 549 333 500 500 500 500 500 278 
+333 ]
+/Encoding /WinAnsiEncoding
+/FontDescriptor 19 0 R
+>>
+endobj
+19 0 obj
+<<
+/Type /FontDescriptor
+/FontName /TimesNewRoman
+/Flags 34
+/FontBBox [ -250 -240 1200 900 ]
+/MissingWidth 780
+/StemV 73
+/StemH 73
+/ItalicAngle 0
+/CapHeight 900
+/XHeight 630
+/Ascent 900
+/Descent -240
+/Leading 180
+/MaxWidth 1000
+/AvgWidth 400
+>>
+endobj
+20 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/Name /F6
+/BaseFont /CourierNew
+/FirstChar 31
+/LastChar 255
+/Widths [ 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 ]
+/Encoding /WinAnsiEncoding
+/FontDescriptor 21 0 R
+>>
+endobj
+21 0 obj
+<<
+/Type /FontDescriptor
+/FontName /CourierNew
+/Flags 35
+/FontBBox [ -250 -280 720 780 ]
+/MissingWidth 600
+/StemV 109
+/StemH 109
+/ItalicAngle 0
+/CapHeight 780
+/XHeight 546
+/Ascent 780
+/Descent -280
+/Leading 60
+/MaxWidth 600
+/AvgWidth 600
+>>
+endobj
+26 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/Name /F7
+/BaseFont /Arial,BoldItalic
+/FirstChar 31
+/LastChar 255
+/Widths [ 750 278 333 474 556 556 889 722 238 333 333 389 584 278 333 278 
+278 556 556 556 556 556 556 556 556 556 556 333 333 584 584 584 
+611 975 722 722 722 722 667 611 778 722 278 556 722 611 833 722 
+778 667 778 722 667 611 722 667 944 667 667 611 333 278 333 584 
+556 333 556 611 556 611 556 333 611 611 278 278 556 278 889 611 
+611 611 611 389 556 333 611 556 778 556 556 500 389 280 389 584 
+750 556 750 278 556 500 1000 556 556 333 1000 667 333 1000 750 750 
+750 750 278 278 500 500 350 556 1000 333 1000 556 333 944 750 750 
+667 278 333 556 556 556 556 280 556 333 737 370 556 584 333 737 
+552 400 549 333 333 333 576 556 278 333 333 365 556 834 834 834 
+611 722 722 722 722 722 722 1000 722 667 667 667 667 278 278 278 
+278 722 722 778 778 778 778 778 584 778 722 722 722 722 667 667 
+611 556 556 556 556 556 556 889 556 556 556 556 556 278 278 278 
+278 611 611 611 611 611 611 611 549 611 611 611 611 611 556 611 
+556 ]
+/Encoding /WinAnsiEncoding
+/FontDescriptor 27 0 R
+>>
+endobj
+27 0 obj
+<<
+/Type /FontDescriptor
+/FontName /Arial,BoldItalic
+/Flags 16480
+/FontBBox [ -250 -224 1220 914 ]
+/MissingWidth 759
+/StemV 154
+/StemH 154
+/ItalicAngle -11
+/CapHeight 914
+/XHeight 639
+/Ascent 914
+/Descent -224
+/Leading 172
+/MaxWidth 1017
+/AvgWidth 483
+>>
+endobj
+2 0 obj
+[ /PDF /Text  ]
+endobj
+5 0 obj
+<<
+/Kids [4 0 R 23 0 R ]
+/Count 2
+/Type /Pages
+/MediaBox [ 0 0 595 842 ]
+>>
+endobj
+1 0 obj
+<<
+/Creator <FEFF004D006900630072006F0073006F0066007400200057006F007200640020>
+/CreationDate (D:20030701100848)
+/Title <FEFF0063006F006D007000690074006F002D0032003000300033002D00300036002D00320036002E005000440046>
+/Author <FEFF00610073007300660061006C0067>
+/Producer (Acrobat PDFWriter 4.0 for Windows)
+>>
+endobj
+3 0 obj
+<<
+/Pages 5 0 R
+/Type /Catalog
+/DefaultGray 28 0 R
+/DefaultRGB  29 0 R
+>>
+endobj
+28 0 obj
+[/CalGray
+<<
+/WhitePoint [0.9505 1 1.0891 ]
+/Gamma 0.2468 
+>>
+]
+endobj
+29 0 obj
+[/CalRGB
+<<
+/WhitePoint [0.9505 1 1.0891 ]
+/Gamma [0.2468 0.2468 0.2468 ]
+/Matrix [0.4361 0.2225 0.0139 0.3851 0.7169 0.0971 0.1431 0.0606 0.7141 ]
+>>
+]
+endobj
+xref
+0 30
+0000000000 65535 f
+0000026668 00000 n
+0000026535 00000 n
+0000026998 00000 n
+0000007303 00000 n
+0000026569 00000 n
+0000015350 00000 n
+0000016464 00000 n
+0000016735 00000 n
+0000017858 00000 n
+0000000021 00000 n
+0000007279 00000 n
+0000018138 00000 n
+0000019226 00000 n
+0000019503 00000 n
+0000020625 00000 n
+0000020907 00000 n
+0000022034 00000 n
+0000022323 00000 n
+0000023445 00000 n
+0000023725 00000 n
+0000024841 00000 n
+0000007423 00000 n
+0000015178 00000 n
+0000007531 00000 n
+0000015154 00000 n
+0000025117 00000 n
+0000026245 00000 n
+0000027095 00000 n
+0000027183 00000 n
+trailer
+<<
+/Size 30
+/Root 3 0 R
+/Info 1 0 R
+/ID [<a359772aedd27a55d2d4b86766023c92><a359772aedd27a55d2d4b86766023c92>]
+>>
+startxref
+27361
+%%EOF

@@ -1,0 +1,4 @@
+Total Time for Simulation = 292.656 seconds
+Time for Filling Matrix = 282.671 seconds
+Time for Factor Moment Matrix = 8.595 seconds
+Time for Solve MOM Matrix = 0.186 seconds

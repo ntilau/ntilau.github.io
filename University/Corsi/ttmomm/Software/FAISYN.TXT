@@ -1,0 +1,266 @@
+NOTE: Use Notepad to print this document        4/14/94
+
+1.0 INTRODUCTION:
+
+FAISYN is a low cost, effective alternative to expensive commer-
+cial filter synthesis packages.  The program has been used 
+successfully to design countless lumped element filters and 
+diplexers from 10's of KHz to 1.5GHz  and is the result of many 
+years experience in filter design.  Many designers know that 
+filter design is often an iterative process.  In the old days a 
+lot of tedious number grinding was required to arrive at an 
+optimal solution.  FAISYN eases the burden by allowing the 
+designer to quickly synthesize a variety of circuits that can 
+be simulated and compared using your favorite circuit simulator 
+( FAISYN currently supports PSPICE-TM Microsim, MMICAD-TM 
+Optotek and TOUCHSTONE-TM HP/EESOF circuit formats).
+
+NOTE: An evaluation version of PSPICE capable of running FAISYN 
+filter circuits is available at very low cost from Microsim Corp. 
+
+1.1 INSTALLATION:
+ Under DOS
+The best approach is to save the all the files contained in 
+FAISYN20.ZIP in a directory labeled FAISYN. Then type FAISYN at 
+the command prompt as in the examples that follow.
+
+Example:     
+		c:\FAISYN>FAISYN
+OR
+		C:\>FAISYN      --> Assuming the dir FAISYN is 
+				    in your path.
+
+ Under Windows
+FAISYN works just fine when run as a DOS application under 
+Windows.  Copy all the files from FAISYN20.ZIP into the directory 
+FAISYN.  In Windows, click on File-New to pop up the New 
+Program Object dialog box.  Click Program Item and then OK, this 
+causes the Program Item Properties dialog box to pop up.  Type 
+"FAISYN" in the Description Box, "c:\faisyn\faisyn.exe" in the 
+Command Line Box and "c:\faisyn" in the Working Directory box. 
+Click OK to finish.  
+
+Alternatively, the program my be started in a window by typing 
+c:\faisyn\faisyn.pif in the Command Line Box.  
+
+You may want to change the font size when running in a window 
+so you can see the entire menu.  This is done while running 
+FAISYN in the windowed mode and then clicking on the file draw 
+icon in the upper left corner of the window and the "Fonts" 
+submenu, etc (much easier than it sounds).
+
+1.2 RUNNING FAISYN FOR THE FIRST TIME:
+
+The best way to get a feel for how the program works is by select-
+ing all the default settings as you work your way through the 
+menus.  If you make a mistake, just keep on going, you will 
+get an opportunity to fix it on the next pass through the design. 
+
+FAISYN uses modern filter design theory to compute lumped element 
+low, high and bandpass filters.  All filters are based on 
+normalized low pass prototypes. The initial design menu will 
+prompt you for the termination resistances and the filter order.  
+Subsequent menus will prompt for the filter type, which can be 
+Butterworth, Chebyshev or user defined (more about that later...),
+and will identify design options when available.  
+
+A normalized low pass prototype will be displayed based on these 
+initial design parameters. At this point the user will choose to 
+transform the circuit into the lowpass, highpass or bandpass 
+domains.  Select "Start a new low pass prototype" at the 
+appropriate menu to begin a new design.
+
+The "Enter prototype from table" option under the desired response
+menu allows users to enter normalized "gn" values from the many 
+tables available in the literature.  This allows the user to 
+design more specialized responses (Gaussian etc.) without having 
+to go through the frequency transformation or impedance scaling by
+hand.
+
+2.0 REGISTRATION:
+
+There are many enhancements planned for the program, however the 
+rate at which these will be implemented will depend on the 
+response from the user community.  FAISYN is SHAREWARE and is not
+free.  The beauty of shareware is that it allows the user to try 
+the software for a period of time to determine if it is truly 
+useful before paying for it.  Registering the product gives me
+motivation to make improvements and allows me to cover some of
+the costs involved (software, books & hardware, etc).  So try it 
+for thirty days and let your conscience be your guide!  
+
+For those of you without a conscience (just kidding!) I have add-
+itional incentive.  For five dollars plus the registration fee of 
+$20.00 you can receive a set of application notes and a free 
+update to the windows version (in development) of FAISYN.  
+
+Note that program updates will be obtained from Bulletin boards, 
+friends or ShareWare distributors.  All registered users will be 
+notified when these occur and where they can be down loaded.
+
+
+
+2.1 "IN THE WORKS":
+
+Among the enhancements being planned are distributed filter 
+design capability.  In fact, the routines for edge coupled 
+band pass filters have been recently  been completed.  
+
+Another product FAISYN-MATCH is also "in the works". FAISYN-MATCH 
+aids in the design of broad band impedance matching networks and 
+has been used to design state of the art high dynamic range RF 
+and Microwave amplifiers. These are real world production 
+designs, both discrete and monolithic. Again, registered users 
+will be notified when this product is released.
+
+Comments and suggestions for future releases are welcome and 
+greatly appreciated.
+
+
+
+			 Kevin Faison
+			 Carriage House Engineering
+			
+
+
+
+
+3.0                     License Agreement
+			-----------------
+
+The use of FAISYN is subject to the following terms and condi-
+tions.
+
+FAISYN is copyrighted material. It is protected by the copy-
+right laws of the United States. You may not make any changes
+or modifications to FAISYN. You may not decompile, disassemble
+or otherwise reverse engineer the software in any way.
+
+You may use FAISYN on a trial basis provided you do not violate
+the protection afforded the licensed software by the copyright
+laws, and you agree to the terms of the license agreement. If 
+you continue to use FAISYN past a 30 day evaluation period you
+are obligated to purchase a license for its use.
+
+You may use FAISYN on a Local Area Network providing that a 
+license is obtained for the number of users that may concurrent-
+ly use the software.  Information on site licenses is available
+by calling the author.
+
+A license for the use of FAISYN (DOS version) can be obtained 
+by sending a $20.00 registration fee to: 
+			
+		Kevin Faison
+		Carriage House Engineering
+		16 West Pleasant Hill Rd.
+		Owings Mills, MD 21117
+		(410)356-7088
+ 
+	(No credit cards are accepted at this time)
+	(Please do not call after 7:00PM EST)
+
+The license fee paid for FAISYN is a one time fee.  Licensed 
+users may obtain and use future revisions of FAISYN (DOS 
+Versions only) by Carriage House Engineering without re-
+registration.  For a registration fee of $25.00 the user 
+will receive a set of filter application notes and a free 
+update to FAISYN (Windows version) when it becomes available.
+
+**********************************************************
+*    An order form is supplied in the file ORDER.FRM for *
+*    your convenience!                                   *
+**********************************************************
+
+Title to the licensed software is NOT transferred to the end 
+user.  The end user is granted an exclusive license to use the
+software on one computer or computer work station at any given 
+time.
+
+4.0                     Limited Warranty
+			----------------
+
+Carriage House Engineering does not warrant that the licensed 
+software will meet your requirements or that the operation of 
+the software will be uninterrupted or error free.  The warranty
+does not cover any media or documentation which has been 
+subjected to damage or abuse by you or others. The software 
+warranty does not cover any copy  of the licensed software which
+has been altered or changed in any way.
+
+ANY IMPLIED WARRANTIES INCLUDING ANY WARRANTIES OF MERCHANT-
+ABILITY OR FITNESS FOR A PARTICULAR PURPOSE ARE LIMITED TO THE
+TERM OF THE EXPRESS WARRANTIES. Some States do not allow limit-
+ations on how long an implied warranty lasts, so the above 
+limitation may not apply to you.
+
+The warranties set forth above are in lieu of any and all other
+express or implied warranties, whether oral, written, or implied,
+and the remedies set forth above are the sole and exclusive 
+remedies.
+
+Carriage House Engineering is not responsible for any problems 
+or damage caused by the licensed software that may result from 
+using the licensed software. This includes, but is not limited 
+to, computer hardware, computer software, operating systems, 
+and any computer or computing accessories. End user agrees to 
+hold Carriage House Engineering harmless for any problems 
+arising from the use of the software.
+
+Carriage House Engineering SHALL NOT IN ANY CASE BE LIABLE FOR 
+ANY SPECIAL, INCIDENTAL, CONSEQUENTIAL, INDIRECT OR OTHER SIMI-
+LAR DAMAGES ARISING FROM ANY BREACH OF THESE WARRANTIES EVEN IF 
+Carriage House Engineering OR ITS AGENTS OR DISTRIBUTORS HAVE 
+BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.  Some states 
+do not allow the exclusion or limitation of incidental or con-
+sequential damages, so the above limitation or exclusion may 
+not apply to you.
+
+In no case shall Carriage House Engineering's liability exceed 
+the license fees paid for the right to use the licensed software.
+
+
+5.0                     FAISYN Distribution
+			-------------------
+
+
+You are granted a limited license to copy FAISYN only for the 
+trial use of others subject to the terms of this software 
+license agreement described herein, and the conditions 
+described below are met:
+
+FAISYN MUST be copied in an unmodified form and MUST contain 
+the following files:
+			FAISYN.exe
+			FAISYN.txt
+			Order.frm
+
+No fee, charge or other compensation may be accepted or 
+requested by anyone without the express written permission
+of Carriage House Engineering.
+
+Public Domain Disk Vendors may not charge a fee for FAISYN 
+itself. However you may include FAISYN on a diskette for which
+you charge a nominal distribution fee. The purchaser of said
+diskette must be informed in advance that the fee paid to 
+acquire the diskette does NOT relieve said purchaser from 
+paying the Registration Fee for FAISYN if said purchaser uses
+FAISYN.
+
+Operators of electronic bulletin board systems (Sysops) may 
+post FAISYN for downloading by their users without written 
+permission only as long as the above conditions are met.  A
+fee may be charged for access to the bbs as long as no specific
+fee is charged for downloading FAISYN files without first 
+obtaining express written permission from Carriage House 
+Engineering to charge such a fee.
+
+Distributors of public domain and user supported software, 
+such as disk vending services, may not charge a fee for FAISYN
+itself. However you may include FAISYN on a diskette for which
+you charge a nominal distribution fee. The purchaser of said 
+diskette must be informed in advance that the fee paid to 
+acquire the diskette does NOT relieve said purchaser from 
+paying the Registration Fee for FAISYN.
+
+The above constitutes the license agreement for FAISYN.  It 
+supersedes any and all previous license agreements.

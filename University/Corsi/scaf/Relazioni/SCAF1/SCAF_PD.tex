@@ -1,0 +1,231 @@
+%
+%%%%%%%%%%%%%%%%%%% CONFIGURAZIONE
+\documentclass[11pt,oneside,a4paper,italian]{article}
+%\usepackage[scale = 0.75]{geometry}
+\usepackage[left=3cm,top=3cm,right=3cm,bottom=3cm]{geometry}
+%\usepackage[a4paper]{geometry}
+\usepackage{sectsty}
+\usepackage[adobe-utopia]{mathdesign}
+\usepackage{helvet}
+%\usepackage{amsmath,amssymb,amsfonts,textcomp}
+\usepackage{calc}
+\usepackage{amsmath}
+\usepackage[latin1]{inputenc}
+\usepackage[OT2,T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[pdftex]{graphicx,color}
+\graphicspath{{img/}}
+\DeclareGraphicsExtensions{.pdf}
+\usepackage{subfigure}
+\usepackage{hyperref}
+\usepackage[figure,table]{hypcap}
+\usepackage[hang, small, bf, margin=20pt, tableposition=top]{caption} %Per le didascalie 
+\definecolor{gray}{rgb}{.200,.250,.250}
+\definecolor{orange}{rgb}{1,0.5,0}
+
+\hypersetup{colorlinks=false, linkcolor=gray, urlcolor=gray, anchorcolor = gray, citecolor = gray, filecolor = gray, urlcolor =gray, pdftitle={SCAF : Power Detector}, pdfsubject = {ISM 2.4GHz Band Power Detector}, pdfkeywords = {matching, CAD, AWR, microwave, office, power, detector, ISM, 2.4}, pdfauthor = {Gonnelli Mirco, Tolomei Leonardo, Laurent Ntibarikure} , pdfcenterwindow=true, pdfdisplaydoctitle=true, pdfstartview=FitH, pdfcreator={}, bookmarksopen=false, bookmarksopenlevel=\maxdimen, CJKbookmarks=true, pdfpagemode=UseOutlines, colorlinks=true} % pdfpagemode=UseOutlines for bookmarks UseNone for nothing
+%\pagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOCUMENTO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\clearpage
+\selectlanguage{italian}
+\title{\textsc{\textbf{\Huge{Progetto di un Rivelatore di Potenza \\ con Diodo HSMS2850}}}}
+\author{Stefano Diamante, Mirco Gonnelli, Gabriele Giannini,\\ Laurent Ntibarikure, Leonardo Tolomei}
+\date{Marzo 2009}
+\maketitle
+
+\begin{abstract}
+Si presentano le fasi di progetto di un rivelatore di potenza operante in banda ISM 2.4 GHz. Le simulazioni vengono eseguite con il software Microwave Office dell'AWR, permettendo di prevedere accuratamente il comportamento del circuito progettato.
+\end{abstract}
+
+\tableofcontents
+\pagestyle{plain}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\section{Introduzione}
+
+\par I rivelatori di potenza sono dispositivi di largo impiego nell'ambito delle telecomunicazioni wireless. Questi permettono di rilevare la potenza di un segnale a radiofrequenze (RF) in modo da adattare, per esempio, la catena di ricezione alla potenza di segnale ricevuto. In effetti, il guadagno degli amplificatori a monte della catena di ricezione viene controllato in funzione della potenza ricevuta.
+
+\par Lo schema del rivelatore di potenza è illustrato nella seguente figura \ref{fig:RivSchem}.
+\begin{figure}[ht!]
+\centering
+\includegraphics[scale=0.4]{SchemaRivelatore}
+\caption{Schema circuitale del rivelatore di picco.}
+\label{fig:RivSchem}
+\end{figure}
+\par La rivelazione si basa sulla conversione, per le non linearità del diodo,  della potenza del segnale RF incidente sull'anodo del diodo in una componente continua (DC) sul condensatore collegato al catodo. L'entità di potenza trasferita in continua invece che alle armoniche superiori determina la sensibilità del rivelatore di potenza. Quest'ultima dipende dalle caratteristiche intrinseche del diodo. Il diodo che verrà utilizzato è l'HSMS2850 dell'Agilent. Trattasi di un diodo Schottky ``Zero Bias'', ovvero un diodo che non necessita di rete di polarizzazione, essendo la tensione di soglia nulla. Il produttore ne consiglia l'impiego per rilevare potenze al disotto di qualche {$\mu$}W (sotto i -20 dBm \cite{HSMS2850DataSheet}), range di potenze in cui la caratteristica di trasferimento (da potenza RF a tensione DC) del rivelatore è pressoché lineare.
+
+\section{Adattamento}
+
+\par L'adattamento tra vari punti di uno stesso circuito si rende necessario quando le frequenze in gioco sono tali da non poter più consentire l'approssimazione delle linee di collegamento a elementi adimensionali, ma è invece indispensabile trattarle come linee di trasmissione delle quali considerare sia la lunghezza elettrica equivalente nel range di frequenze interessate, sia l'impedenza caratteristica. 
+\par Il circuito del rivelatore richiede una rete di adattamento ai fini di massimizzare il trasferimento di potenza ($\mathrm{Z_{IN} = Z_{OUT}^{*}}$) ed allo stesso tempo minimizzare le riflessioni ($\mathrm{Z_{IN} = Z_{OUT}}$ tale che $\mathrm{\Gamma = 0}$) sul diodo. Entrambe le condizioni si ottengono trasformando ad un valore puramente resistivo ($\mathrm{Z_{IN}}$ e $\mathrm{Z_{OUT}}$ reali) le impedenze di uscita per il circuito a monte e quella d'ingresso per il circuito a valle. Per convenzione, nei circuiti RF odierni viene utilizzato il valore di 50 $\Omega$.
+\par Vi sono diverse tecniche di adattamento di impedenza : le reti a L, che impiegano componenti concentrati reattivi, gli stubs ed il trasformatore a $\lambda$/4, entrambi costituiti da tratti di linea di trasmissione opportunamente collegati. Verranno presentati due tipi di reti a L, con induttanza e capacità, ed un adattamento a singolo stub in microstriscie di 50 $\Omega$.
+\par L'adattamento è stato effettuato prima sul circuito equivalente del diodo  a costanti concentrate (lineare) e successivamente utilizzando il modello SPICE dello stesso (non lineare).
+
+\subsection{Circuito Lineare del Diodo}
+
+\par Il diodo HSMS2850 può essere approssimato col circuito a costanti concentrate fornito dal produttore \cite{HSMS2850DataSheet}, illustrato in figura \ref{fig:CircLineareDiodoProduttore} dove $\mathrm{L_P}$ e $\mathrm{C_P}$ corrispondo all'induttanza serie e la capacità parallela parassite del package SOT23.
+\begin{figure}[ht!]
+\begin{minipage}[b]{0.5\linewidth} % A minipage that covers half the page
+\centering
+\includegraphics[width=7cm]{EqCirc_HSMS2850}
+\caption{Modello equivalente del diodo fornito dal costruttore.}
+\label{fig:CircLineareDiodoProduttore}
+\end{minipage}
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+\includegraphics[width=7cm]{LinearDiode}
+\caption{Circuito \textsf{``LinearDiode''} ricostruito in Microwave Office per l'analisi di scattering.}
+\label{fig:MWOfficeLinearDiode}
+\end{minipage}
+\end{figure} Tale circuito è stato realizzato in Microwave Office come illustrato in figura \ref{fig:MWOfficeLinearDiode} per proseguire con la simulazione dei parametri di scattering, il circuito è stato connesso a una porta P1 modellante il punto di innesto di una linea di trasmissione con impedenza caratteristica di 50$\Omega$ come si può vedere in figura \ref{fig:ZinDiodo}.
+\begin{figure}[ht!]
+\centering
+\includegraphics[scale=0.3]{ZinDiodo}
+\caption{Valutazione dell'impedenza d'ingresso del diodo.}
+\label{fig:ZinDiodo}
+\end{figure}
+\par L'impedenza d'ingresso $\mathrm{Z_{IN}}$ del diodo a 2,45 GHz è di circa $18,9 + j 219,4$ $\Omega$, mostrata in figura \ref{fig:ImpedenzaDiodoLineare}. In seguito vengono presentate le reti di adattamento scelte tali da riportare, a 2,45 GHz, la $\mathrm{Z_{IN}}$ a 50 $\Omega$.
+\begin{figure}[ht!]
+\centering
+\includegraphics[scale=0.6]{ImpedenzaDiodoLineare}
+\caption{Smith card che indica il valore del parametro S11.}
+\label{fig:ImpedenzaDiodoLineare}
+\end{figure}
+
+\subsubsection{Adattamento con Rete a L : L serie e C parallelo}\label{par:LsCp}
+
+\par Il primo adattamento realizzato è una rete a L con induttanza serie, tale da portare il carico ohmico-capacitivo del diodo ad una impedenza ohmico-induttiva di conduttanza 0,02 S (muovendosi sul cerchio ad resistenza costante 18,9 $\Omega$ della carta di Smith), e una capacità parallela che porti infine (muovendosi sul cerchio a conduttanza costante 0,02 S) l'impedenza complessiva al valore puramente resistivo di 50 $\Omega$. I valori di induttanza e capacità sono stati individuati sfruttando l'opzione di 
+``tuning'' che offre il software, e permette di variare gradualmente con una barra a scorrimento tali parametri come illustrato in figura \ref{fig:LinearPD_LC_1}, velocizzando così la procedura di adattamento. Lo scorrimento implica, in tempo reale, uno spostamento del carico sulla carta di Smith e la sua traiettoria, per la rete di adattamento utilizzata, è quella illustrata in figura \ref{fig:LCMatchingProcedure}.
+\begin{figure}[ht!]
+\centering
+\includegraphics[scale=0.5]{LinearPD_LC_1}
+\caption{Rete di adattamento $\mathrm{L_S}$/$\mathrm{C_P}$ e finestra di tuning.}
+\label{fig:LinearPD_LC_1}
+\end{figure}
+\begin{figure}[ht!]
+\centering
+\includegraphics[scale=0.5]{LCMatchingProcedure}
+\caption{Traiettoria sulla carta di Smith del carico costituito dal diodo a fronte di variazioni delle induttanze e capacità della rete a L.}
+\label{fig:LCMatchingProcedure}
+\end{figure} 
+\par I valori ottenuti sono di 15,83 nH per l'induttanza serie e 1,66 pF per la capacità parallela.
+
+\subsubsection{Adattamento con Rete a L : L parallelo e C serie}
+
+\par La procedura di adattamento in questo caso è simile a quella presentata nel precedente paragrafo \ref{par:LsCp}. Varia leggermente la traiettoria in quanto ci si sposta inizialmente su un cerchio a conduttanza costante ed infine su quello ad resistenza costante 50 $\Omega$. Il circuito così realizzato è quello presentato in figura \ref{fig:LinearPD_LC_2}.
+\begin{figure}[ht!]
+\includegraphics[scale=0.5]{LinearPD_LC_2}
+\caption{Rete di adattamento $\mathrm{L_P}$/$\mathrm{C_S}$.}
+\label{fig:LinearPD_LC_2}
+\end{figure}
+\par I valori ottenuti sono circa di 8,9 nH per l'induttanza parallela e 0,18 pF per la capacità serie.
+
+\subsubsection{Adattamento a Singolo Stub in microstriscia}
+
+\par È possibile effettuare l'adattamento del carico in modo del tutto analogo a quanto descritto fino ad ora anche considerando line di trasmissione di impedenza caratteristica 50$\Omega$, nel nostro caso su un substrato di vetronite tipo FR4 con le seguenti caratteristiche:
+\begin{itemize}
+\item costante dielettrica relativa = 4.3,
+\item altezza substrato = 0.5 mm,
+\item spessore del conduttore in rame = 18 $\mu$m,
+\item tg $\gammaup$ = 0.014.
+\end{itemize}
+
+Si è quindi sostituito l'induttore e il condensatore con due tratti di linea L1 e L2, il primo in serie al diodo, il secondo in parallelo e chiuso in corto circuito. La determinazione della lunghezza delle suddette linee è stata svolta in modo analogo a quanto visto per trovare i valori dei componenti LC,  il parametro lasciato variabile è però in questo caso la lunghezza effettiva della linea.
+\par Facendo riferimento alla figura \ref{fig:LinearPD_uStrip}  per prima cosa abbiamo introdotto l'elemento MSUB per la modellizzazione del dielettrico, il passo successivo ha visto invece l'utilizzo del tool \mbox{\textquotedblleft TXLine\textquotedblright} mostrato in figura \ref{fig:TxLineTool} per la definizione della larghezza delle strip a partire dalle caratteristiche del substrato, della frequenza operativa ma soprattutto dell'impedenza caratteristica che questa deve mostrare. La larghezza è quindi risultata 954 um.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[scale=0.5]{LinearPD_uStrip}
+\caption{Rete di adattamento a stub in microstriscia di 50 $\Omega$.}
+\label{fig:LinearPD_uStrip}
+\end{figure}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[scale=0.8]{TxLineTool}
+\caption{Tool di calcolo della geometria della microstriscia di 50 $\Omega$.}
+\label{fig:TxLineTool}
+\end{figure}
+
+\par Inserito il valore delle larghezza W nei 2 tratti di linea, siamo passati al dimensionamento della loro lunghezza. Il primo tratto di linea identificato con TL1 nella figura \ref{fig:LinearPD_uStrip} rappresenta il collegamento tra il diodo e lo stub, e dovrà essere di lunghezza tale (12,7 mm) da portare il valore del parametro S11 nella curva a g=1 della carta di smith, naturalmente ci stiamo spostando in senso orario sulla curva a r costante.
+\par Lo stub è indicato con TL2 e variando la sua lunghezza modificheremo la reattanza a lui associata in modo annullare la parte reattiva del punto trovato precedentemente. La lunghezza che permette di far ciò, da noi ottenuta è 1,8 mm.
+\par Questo tipo di configurazione è stato realizzato anche con linee di trasmissione ideali ovvero prive di perdite.
+
+\subsubsection{Banda di funzionamento}
+
+\par A conclusione della prima parte dell'esperienza è stato effettuato uno sweep in frequenza, per verificare nei quattro casi la larghezza di banda dell'adattamento, per frequenze comprese tra i
+2,35 GHz ed i 2,55 Ghz.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[scale=0.55]{Banda}
+\caption{Banda delle quattro configurazioni analizzate.}
+\label{fig:Banda}
+\end{figure}
+\par I risultati delle misure sono riportati in figura \ref{fig:Banda}, e mostrano
+come la larghezza di banda dell'adattamento, intesa come l'intervallo di frequenze in
+cui il parametro S(1,1) della matrice di scattering è inferiore a -10dB, vari dai
+118MHz dell'adattamento con squadra LC fino ai 37MHz dell'adattamento con linee ideali. Le linee con perdite (microstrip) offrono prestazioni intermedie, con una larghezza di banda di circa 58MHz.
+\par Questi andamenti sono riconducibili al fatto che al variare della frequenza l'impedena equivalente del diodo lineare subirà una variazione a causa del comportamento non ideale dei componenti parassiti che lo rappresentano, inoltre anche le squadra LC che andiamo ad inserire per l'adattamento presenteranno comportamento variabile in frequenza. Per quanto riguarda l'adattamento con linee di trasmissione (nel nostro caso Stub), uno scostamento di frequenza può essere ricondotto ad uno scostamento della lunghezza d'onda $\lambda$, e quindi ad una variazione della costante di propagazione $\beta$, l'impedenza equivalente subirà quindi una variazione proporzionale a $\beta$\emph{l}, con \emph{l} lunghezza della linea di trasmissione.
+
+\subsection{Circuito Non Lineare del Diodo}
+\par La seconda parte dell'esercitazione ha previsto la sostituzione del circuito lineare equivalente del diodo con il modello SPICE dello stesso. Questa sostituzione si è resa necessaria in quanto, volendo realizzare un rivelatore di potenza ci dobbiamo basare sul comportamento non lineare del dispositivo attivo.
+\par In figura \ref{fig:schemDiodoNonLineare} è mostrano il diodo non lineare, l'induttore e la capacità (come nel caso lineare) tengono conto del package.
+
+\begin{figure}[hb!]
+\centering
+\includegraphics[scale=0.5]{schemDiodoNonLineare}
+\caption{Circuito equivalente del diodo non lineare.}
+\label{fig:schemDiodoNonLineare}
+\end{figure}
+
+\par L'elemento SDIODE di MWOffice è il modello SPICE del diodo HSMS2850 con i seguenti parametri: Bv=3.8V, CJ0=0.18pF, EG=0.69eV, IBV=3e-4A, IS=3e-6A, N=1.06, RS 25 Ohm, Vj=0.35 V, XTI=2, M=0.5.
+
+\par Il primo punto è stato verificare se la risposta per piccoli segnali fosse rimasta invariata rispetto al caso lineare, per far ciò è stato sufficiente simulare l'impedenza d'ingresso del nuovo circuito e confrontarla con la precedente, i due valori sono risultati identici, e quindi i metodi d'adattamento utilizzati precedentemente valgono anche per il circuito contenente il diodo non lineare.
+
+\section{Sensibilità Power Detector}
+\par Il circuito utilizzato per la valutare la tensione rilevata dal Power Detector al variare della potenza è mostrato in \ref{fig:RilevatoreNonLineareMlin}. La porta P1 rappresenta la sorgente di un segnale a singolo tono, con \mbox{\emph{f} =2,45GHz}, e permette lo sweep in potenza da -50dBm a 10dBm.
+\par La simulazione eseguita è di tipo Harmonic Balance e il valore di tenzione rilevata viene misurata hai capi di un condensatore da un semplice Voltmetro.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[scale=0.5]{RilevatoreNonLineareMlin1}
+\caption{Circuito utilizzato per la rilevazione di potenza}
+\label{fig:RilevatoreNonLineareMlin}
+\end{figure}
+
+\par Inserendo in un grafico i valori di tenzione in uscita dal diodo al variare della potenza, mostrati in \ref{fig:SensitivityDetector}, si nota un andamento pressoché lineare per piccoli segnali (minore di -30dBm). E' Perciò possibile, in queste condizioni, stimare la sensibilità del trasduttore semplicemente valutando il coefficiente angolare della retta V-P passante per due punti.
+\begin{equation}
+   \emph{Sensibilità}= \frac{Va-Vb}{Pa-Pb}
+\end{equation}
+\begin{itemize}
+   \item Va valore di tensione nel punto a. 
+	\item Vb valore di tensione nel punto b.	
+	\item Pa valore di potenza nel punto a.
+	\item Pb valore di potenza nel punto b.
+\end{itemize}
+\begin{equation}
+   \emph{SDiodo}= \frac{17,01-1,264}{\Bigl( 10^{\frac{-35}{10}}-10^{\frac{-45}{10}}\Bigr)10^{3}}=kk \frac{mV}{\mu W}
+\end{equation}
+\par Utilizzando linee reali otteniamo una sensibilità di....$\frac{mV}{\mu W}$ mentre nel caso di linee ideali $\frac{mV}{\mu W}$.
+
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[scale=0.5]{SensitivityDetector}
+\caption{Tensione rilevata dal Power Detector al variare della potenza.}
+\label{fig:SensitivityDetector}
+\end{figure}
+
+
+
+\newpage
+\begin{thebibliography}{9}
+\bibitem{HSMS2850DataSheet} Agilent Tecnologies, Technical Data, \emph{HSMS-2850 Series}.
+\end{thebibliography}
+
+\end{document}

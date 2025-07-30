@@ -1,0 +1,6 @@
+Total Time for Simulation = 11.578 seconds
+Time for Meshing Layer 2 E-Field Plane = 0.078 seconds
+Time for Calc Contribution of Layer 2 X-Directed Current on X directed E-Field = 0.937 seconds
+Time for Calc Contribution of Layer 2 Y-Directed Current on X directed E-Field = 0.719 seconds
+Time for Calc Contribution of Layer 2 X-Directed Current on Y directed E-Field = 9.141 seconds
+Time for Calc Contribution of Layer 2 Y-Directed Current on Y directed E-Field = 0.453 seconds
