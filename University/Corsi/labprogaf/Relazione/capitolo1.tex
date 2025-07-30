@@ -1,0 +1,345 @@
+\graphicspath{{img/lab1/}}
+\chapter{Tecniche di adattamento}
+
+%\section{Introduzione}
+
+\par Nel seguente capitolo vengono introdotte le comuni tecniche di adattamento di impedenza (\itt{impedance matching}) impiegate nei circuiti a microonde, discutendone quindi le prestazioni in termini di banda di adattamento. L'obbiettivo dell'adattamento è quello di massimizzare il trasferimento di potenza da un blocco a monte a quello a valle, minimizzando l'onda riflessa alle discontinuità di impedenza. Se, nell'intera banda del segnale, le perdite per riflessione sono sufficientemente trascurabili, viene massimizzato il rapporto segnale rumore a valle ed al contempo il segnale vi giunge privo di distorsioni. In figura \ref{fig:MatchingScheme} viene mostrato lo schema generico di adattamento di impedenza tra blocchi consecutivi.
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=12cm]{MatchingScheme}
+\caption{Schema di adattamento.}
+\label{fig:MatchingScheme}
+\end{figure}In genere $\mathrm{Z}_\mathrm{G}$, impedenza del generatore a monte, e $\mathrm{Z}_\mathrm{L}$, impedenza del carico (\itt{load}) a valle sono specificate e bisogna sintetizzare la rete di adattamento. La realizzazione dell'adattamento è un caso particolare di trasformazione di impedenza: $\mathrm{Z}_\mathrm{IN}$, impedenza complessiva della cascata \textsf{rete di adattamento/carico}, deve coincidere con il complesso coniugato dell'impedenza $\mathrm{Z}_\mathrm{G}$ in modo che tutta la potenza disponibile dal generatore venga trasferita al carico (condizione di massimo trasferimento di potenza).
+
+\par Le principali tecniche di adattamento d'impedenza utilizzate sono \cite{Rogers}: 
+\begin{enumerate}
+  \item la ``rete a L'', per la quale si impiegano opportuni componenti concentrati reattivi quali condensatori e induttori,
+  \item gli ``stubs'', tronchi di linea di trasmissione terminati in corto circuito o circuito aperto che presentano idealmente, come i precedenti componenti della rete a L, impedenze puramente reattive di valore determinato dalla loro lunghezza e impedenza di linea che possone essere poste in parallelo o in serie sulla linea di trasmissione da adattare,
+  \item il ``trasformatore a $\lambda / 4$'', tratto di linea ampio un quarto di lunghezza d'onda e con impedenza caratteristica tale da congiungere tratti di linea di impedenze diverse.
+\end{enumerate} Queste tipologie di adattamenti presentano diversi comportamenti in termini di banda, determinando per ogni caso specifico una diversa larghezza spettrale a -10 dB.
+\par Le prime esperienze sono state rivolte al problema dell'adattamento alla frequenza di 2 GHz di un carico di impedenza complessa $\mathrm{Z}_\mathrm{L} = 10 + j10 \ \Omega$ (carico ohmico-induttivo) ad un'impedenza $\mathrm{Z}_\mathrm{G} = 50 \ \Omega$, valore di riferimento nei circuiti RF. In effetti questo è il valore tipicamente scelto nei circuiti a microonde nella sintesi di linee di trasmissione e dispositivi passivi quali filtri, ibridi, divisori, ecc\footnote{I dispositivi attivi, per le loro impedenze d'ingresso e di uscita tipicamente complesse e dipendenti dalla polarizzazione, richiedono reti di adattamento a monte e a valle.}. Inizialmente si sono sfruttati componenti ideali privi di perdite, sia per gli adattamenti a costanti concentrate che distribuite. Successivamente sono stati utilizzati componenti reali, induttori e condensatori della \itt{Murata} per le reti a L e linee a microstriscia su substrati di vetronite per realizzare gli adattamenti con tratti di linea.
+
+\subsubsection*{Simulatore \itt{S-Parameter}}
+
+\par Per valutare $\mathrm{Z}_\mathrm{IN}$, e quindi dedurre il coefficiente di riflessione all'interfaccia corrispondente durante la sintesi della rete di adattamento, è stato utilizzato il simulatore lineare \itt{S-parameter} \cite{Sparams}. La simulazione S-parameter è un tipo di analisi AC ma per piccoli segnali, usata tipicamente per caratterizzare un componente passivo a RF o per stabilire le caratteristiche a piccolo segnale di un dispositivo attivo ad una specifica polarizzazione e temperatura. Se il circuito contiene elementi non lineari, il simulatore realizza prima una simulazione DC, quindi linearizza la loro caratteristica I-V intorno ai punti di polarizzazione, sfruttando per ogni dispositivo un modello lineare ben preciso. Il circuito lineare risultante viene analizzato come un dispositivo multi-porta, di cui si misurano i parametri di Scattering ($\mathrm{S}_\mathrm{ij}$ in generale, indicano il rapporto tra la porzione di onda riflessa alla porta i e quella incidente alla porta j), eccitando una porta per volta mentre le altre porte vengono chiuse su un carico adattato (su un'impedenza di riferimento, tipicamente 50 $\Omega$). Con questo accorgimento si ottiene la risposta del circuito attraverso i parametri S di tutte le porte, salvati poi in un \itt{dataset}. Trovati i parametri S, il simulatore permette anche di convertirli in parametri Z o Y, a seconda delle applicazioni di interesse. \`E possibile inoltre studiare il comportamento in frequenza di questi parametri, utili come nel nostro caso per realizzare un adattamento o studiare il comportamento di un filtro a microonde ad esempio. Inoltre questa analisi permette di simulare sia il ritardo di gruppo, utile per misurare la distorsione di fase negli amplificatori e nei filtri, che la cifra di rumore per un generico due porte. Nel caso di un circuito a N porte, la cifra di rumore viene misurata sempre su due porte stabilite dall'utente, mentre le altre vengono trattate come resistori per la simulazione del rumore.
+
+\section{Matching ideale}
+
+\par Il progetto di reti di adattamento è stato realizzato partendo dall'utilizzo di componenti di tipo ideale, questo, per poter poi osservare ed analizzare nel paragrafo \ref{sec:MR} i comportamenti di non idealità introdotti dai componenti reali. Il carico da adattare è di tipo complesso con impedenza $\mathrm{Z}_\mathrm{L} = 10 + j10 \ \Omega$. Tramite l'ambiente di sviluppo ADS è stato realizzato e successivamente simulato un modello circuitale ideale che potesse adattare il carico in questione. Nel primo caso abbiamo utilizzato una rete a L, quindi una a singolo stub ed infine un trasformatore a $\lambda / 4$; questi passi sono ampiamente descritti di seguito.
+
+\par Per analizzare l'adattamento del carico è stato creato un progetto inserendo in uno schematico il blocco dei parametri S e impostando la frequenza di lavoro a 2 GHz come illustrato nella seguente figura \ref{fig:ReteAdattADS}.
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=12cm]{ReteAdattADS}
+\caption{Rete di adattamento su ADS.}
+\label{fig:ReteAdattADS}
+\end{figure} I componenti \itt{Term} sono specifici dei parametri S e servono ad indicare al simulatore le interfacce alle quali si vogliono calcolare tali parametri.
+
+\subsection{Rete a L}
+
+\par L'adattamento è stato realizzato partendo da una rete ad L. Tali reti sono costituite da un condensatore C ed un induttore L messi uno in serie ed uno in parallelo al carico, formando così una sorta di L da cui la rete prende il nome. A seconda della disposizione di L e C si riesce ad adattare tutti i carichi passivi. Per analizzare la posizione del carico é stato utilizzato il circuito mostrato in figura \ref{fig:ReteAdattADS} cortocircuitando il blocco denominato ``rete di adattamento'', è stata quindi effettuata la simulazione e visualizzato il parametro $\mathrm{S}_\mathrm{11}$, S(1,1) in ADS, tramite carta di Smith (Vedi figura \ref{fig:RetiaL}).
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=15cm]{RetiaL}
+\caption{Carico 10 + j10 $\Omega$ su carta di Smith e configurazioni di reti ad L possibili.}
+\label{fig:RetiaL}
+\end{figure} \`E stato quindi possibile decidere le configurazioni idonee dei componenti L e C, ovvero: 
+\begin{enumerate}
+\item Induttanza serie connessa a condensatore in parallelo , ``ISCP'',
+\item Condensatore serie connesso ad induttanza parallelo, ``CSIP''.
+\end{enumerate}
+
+\subsubsection*{Induttanza serie e condensatore parallelo}
+
+\par Per il punto ISCP è stata posizionata l'induttanza in serie al circuito, e tramite uno \itt{sweep} del valore induttivo abbiamo portato il carico  sul cerchio a conduttanza costante (evidenziato in blu in figura \ref{fig:SweepLschem}) passante per il centro della carta di Smith. Il valore di induttanza trovato è di 0,8 nH, tale cifra è stata quindi sostituita nel circuito.
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=15cm]{SweepLschem}
+\caption{Sweep del valore dell'induttanza serie.}
+\label{fig:SweepLschem}
+\end{figure}
+
+\par Dal risultato così ottenuto siamo quindi passati all'inserimento della capacità parallelo che, determinando uno spostamento del carico lungo il cerchio a conduttanza costante, ha permesso l'adattamento perfetto. Il valore di capacità trovato è di 3,183 pF (Vedi figura \ref{fig:SweepCschem}).
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=15cm]{SweepCschem}
+\caption{Sweep del valore della capacità parallelo.}
+\label{fig:SweepCschem}
+\end{figure}
+
+\par Per analizzare il comportamento in frequenza della rete di adattamento è stato quindi fatto uno sweep tra 1 GHz e 3 Ghz visualizzando il parametro di riflessione S(1,1). La banda per cui possiamo considerare un buon adattamento è quella per cui la riflessione non supera i -10 dB, valore per cui il 90\% della potenza giunge al carico, e nel nostro caso risulta essere di poco meno di 1 GHz (vedi fig. \ref{fig:BandLCschem}). Si può inoltre notare la bontà dell'adattamento alla frequenza desiderata (2 GHz) in quanto per tale valore vediamo corrispondere il minimo della nostra funzione.
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=16cm]{BandLCschem}
+\caption{Banda adattamento ideale ad L ``ISCP''.}
+\label{fig:BandLCschem}
+\end{figure} 
+
+\subsubsection*{Condensatore serie ed induttanza parallelo}
+
+\par Passando al caso CSIP è stato seguito un procedimento analogo al precedente. Realizzato il circuito con il condensatore serie, tramite uno sweep è stato trovato il valore di C che portasse il carico sul cerchio ad conduttanza costante (dal punto Load al punto P1 in figura \ref{fig:CLSmith}), il valore risultante è di {2,652 pF}.
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=6cm]{CLSmith}
+\caption{Sweep di capacità serie e induttanza parallelo.}
+\label{fig:CLSmith}
+\end{figure}  Dal punto P1 tramite l'induttore di valore L = {1,99 nH} posto in parallelo abbiamo ottenuto un adattamento perfetto in P2; anche questo dato è stato ottenuto tramite uno sweep di valori.
+
+\par Una volta adattato il carico siamo passati a valutare la banda della rete, che risulta inferiore (Vedi in fig. \ref{fig:BandCLschem}) rispetto all'adattamento effettuato in precedenza. La banda è infatti di 627 MHz, circa i \nicefrac{2}{3} rispetto all'adattamento effettuato con induttore serie e capacità parallelo.
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=16cm]{BandCLschem}
+\caption{Banda adattamento ideale ad L ``CSIP''.}
+\label{fig:BandCLschem}
+\end{figure} 
+
+\par Successivamente sono state utilizzate le reti di adattamento ISCP e CSIP per adattare sempre un carico di impedenza 10 + j10 $\Omega$ modellato però non più da un componente Term, indipendente dalla frequenza, bensì dalla serie di una resistenza ed un'induttanza, quindi con impedenza dipendente dalla frequenza come illustrato in figura \ref{fig:FreqDep}. Sapendo che la resistenza introduce un carico puramente reale, e l'induttanza uno puramente immaginario, è bastato applicare le formule $\mathrm{Z}_\mathrm{R} = 10 \ \Omega$ e $\mathrm{Z}_\mathrm{L} = j\omega\mathrm{L} = j2{\pi}f\mathrm{L} = 10 \ \Omega$ per trovare i valori di R ed L appropriati. Il valore della resistenza è proprio di 10 $\Omega$, mentre il valore dell'induttanza è di {0.79 nH} tenuto conto della frequenza di lavoro di {2 GHz}. Realizzando un nuovo circuito con il nuovo carico abbiamo adattato prima con un condensatore parallelo connesso ad un'induttanza in serie. Inserendo l'induttanza, tramite uno sweep abbiamo trovato il valore che ha portato il carico sul cerchio a conduttanza costante, quindi, inserendo il condensatore abbiamo ottenuto perfetto adattamento. Successivamente è stata realizzata una rete di adattamento con un'induttanza parallelo connessa ad un condensatore serie. Con la medesima procedura, inserendo prima C e trovato il valore per portarci sul cerchio a conduttanza costante, inserendo quindi L, abbiamo ottenuto l'adattamento desiderato. I valori trovati delle induttanze e dei condensatori è identico a quello delle corrispondenti reti trovate in precedenza su carico indipendente dalla frequenza. Questo risultato è plausibile dato che l'impedenza complessa da adattare è la stessa, quindi, a parità di componenti e della loro disposizione, le reti di adattamento non possono che risultare identiche.
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=12cm]{FreqDep}
+\caption{Circuiti con carichi dipendenti dalla frequenza.}
+\label{fig:FreqDep}
+\end{figure}  Tramite uno sweep in frequenza del coefficiente di riflessione è stata quindi visualizzata la banda dei due nuovi casi modellati (Vedi figura \ref{fig:BandLCfinal}). Per mettere a confronto i risultati ottenuti è stato realizzato un grafico che mostrasse la risposta in frequenza delle quattro reti.
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=16cm]{BandLCfinal}
+\vspace{5mm}
+\begin{tabular}{|ccccc|} \hline
+Coefficiente di riflessione & Colore in figura & Tipologia di rete & Carico & Banda di adattamento \\ \hline
+{S(1,1)} & ciano & ISCP & Term &  985 MHz \\
+{S(3,3)} & {magenta} & {CSIP} &  {Term} &  {630 MHz} \\
+{S(5,5)} & {blu} & {ISCP} &  {R-L} &  {750MHz} \\
+{S(6,6)} & {rosso} & {CSIP} &  {R-L} &  {500MHz} \\ \hline
+\end{tabular}
+\caption{Confronto delle bande delle reti di adattamento.}
+\label{fig:BandLCfinal}
+\end{figure} 
+
+Da quanto si può osservare in figura \ref{fig:BandLCfinal} ed apprezzare in termini numerici nella tabella sottostante, le bande dell'adattamento di carichi R-L sono più strette dei rispettivi casi con carichi di tipo term (985 MHz vs 750 MHz per il caso ISCP e 630 MHz vs 500 MHz per il caso CSIP). Questo effetto è dovuto al fatto che mentre il componente Term mantiene costante il suo valore di impedenza al variare della frequenza, la serie di R ed L invece no; il disadattamento ha quindi una crescita più rapida in quest'ultimo caso poichè si aggiunge il contributo di un carico ad impedenza variabile.
+
+\subsection{Singolo Stub}
+
+\par Utilizzando sempre un componente Term per modellare il carico di 10 + j10 $\Omega$ abbiamo preso in considerazione un adattamento ideale tramite stubs. La configurazione adottata per la rete di adattamento è quella di uno stub in circuito aperto in serie ad un tratto di linea di trasmissione. Lo stub è stato modellato tramite il componente TLOC (\itt{Transmission Line Open-Circuited Stub}) e la linea di trasmissione dal componente TLIN (\itt{Transmission Line}), entrambi componenti ideali e con impedenza caratteristica 50 $\Omega$.
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=16cm]{StubIdSchem1}
+\caption{Sweep di lunghezza elettrica del componente TLIN.}
+\label{fig:StubIdSchem1}
+\end{figure} 
+
+\par Partendo dall'inserimento di TLIN, è stato effettuato uno sweep di lunghezza elettrica che ha portato il carico sul cerchio a conduttanza costante (figura \ref{fig:StubIdSchem1}), il valore della lunghezza così trovata è di 12 gradi elettrici. Fatto ciò, è stato inserito lo stub in cortocircuito TLOC, anche qui con uno sweep della lunghezza elettrica abbiamo portato il carico al centro della carta di Smith (figura \ref{fig:StubIdSchem2}).
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=16cm]{StubIdSchem2}
+\caption{Sweep di lunghezza elettrica del componente TLOC.}
+\label{fig:StubIdSchem2}
+\end{figure} 
+ 
+Impostando al componente TLOC la lunghezza di 61,53 gradi elettrici ottenuta dalla simulazione, è stato effettuato uno sweep in frequenza per osservare la banda della rete di adattamento. Da come si può osservare in figura \ref{fig:StubIdSchem} essa risulta essere di 510 MHz sempre considerando -10 dB come soglia di buon adattamento.
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=16cm]{StubIdSchem}
+\caption{Banda della rete di adattamento con stub ideale.}
+\label{fig:StubIdSchem}
+\end{figure}
+
+\subsection{\texorpdfstring{ Trasformatore a $\lambda / 4$}{ Trasformatore a Lambda Quarti}} \label{sec:Lambda4th}% $\lambda / 4$}
+
+\par Per l'adattamento con trasformatore a $\lambda / 4$ ideale, è stata realizzata una rete di adattamento composta dalla serie di due componenti TLIN impostati sulla frequenza di lavoro di 2 GHz. Il primo elemento, TL3, è stato inserito in serie alla rete e, tramite uno sweep della sua lunghezza elettrica, ha permesso di annullare la parte induttiva del carico portandolo quindi sulla retta ad impedenza reale (figura \ref{fig:Lambda4th1Schem}), nel punto P1 per il quale $\mathrm{Z}_\mathrm{IN} = 260,42 \ \Omega$.
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=16cm]{Lambda4th1Schem}
+\caption{Sweep della lunghezza elettrica di TL3.}
+\label{fig:Lambda4th1Schem}
+\end{figure}
+
+La lunghezza trovata di 78,25 gradi elettrici è stata impostata come parametro del componente TL3, quindi, abbiamo proceduto con l'inserimento serie del secondo componente TLIN ovvero TL4. Quest'ultimo, dovendo svolgere la funzione di trasformatore a $\lambda / 4$ è stato settato con lunghezza di 90 gradi elettrici. Il trasformatore a $\lambda / 4$ permette, al variare della sua impedenza caratteristica, di muovere il carico lungo l'asse ad impedenza reale. Tramite lo sweep dell'impedenza di TL4 è stato possibile trovare il valore $\mathrm{Z}_\mathrm{\lambda / 4}$ = 114,11 $\Omega$, tramite cui il carico risulta perfettamente adattato (figura \ref{fig:Lambda4th2Schem}). Il valore di $\mathrm{Z}_\mathrm{\lambda / 4}$ poteva essere calcolato mediante la relazione $\mathrm{Z}_\mathrm{\lambda / 4} = \sqrt{\mathrm{Z}_\mathrm{IN} \cdot \mathrm{Z}_\mathrm{OUT}} = \sqrt{ 50 \cdot 260,42 } \ \Omega$.
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=16cm]{Lambda4th2Schem}
+\caption{Sweep dell'impedenza di TL4.}
+\label{fig:Lambda4th2Schem}
+\end{figure}
+
+Il passo successivo è stato quello di valutare la banda della rete di adattamento mostrata in figura \ref{fig:Lambda4th1Band}. Come nei casi precedentemente illustrati questa operazione è stata effettuata tramite la visualizzazione del coefficiente di riflessione facendo variare la frequenza con una funzione di sweep.
+Da come si può verificare confrontando con i risultati precedentemente ottenuti (figure \ref{fig:BandLCfinal} e \ref{fig:StubIdSchem}) la banda di questa tipologia di rete è molto stretta.
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=12cm]{Lambda4th1Band}
+\caption{Banda della rete di adattamento a $\lambda / 4$.}
+\label{fig:Lambda4th1Band}
+\end{figure}
+
+%\newpage
+\section{Matching reale} \label{sec:MR}
+
+\par Successivamente all'analisi di reti di adattamento ideali siamo passati all'utilizzo di componenti reali utilizzando la libreria della Murata, produttore leader di dispositivi passivi realizzati su base ceramica \cite{Murat}, che comprende induttori e condensatori ad alte prestazioni (alte frequenze di risonanza). Le caratteristiche dell'analisi sono rimaste invariate per poter confrontare meglio i risultati finora ottenuti con quelli che procederemo qui di seguito ad ottenere. Quindi anche nelle prossime simulazioni verranno adattati carichi complessi di tipo induttivo del valore di 10 + j10 $\Omega$, e la frequenza di lavoro sarà di 2 GHz.
+
+\subsection{Rete a L}
+
+\par L'adattamento tramite rete a L con componenti Murata è stata suddivisa anche in questo caso in due parti: ISCP e CSIP.
+
+\subsubsection*{Induttanza serie e condensatore parallelo} \label{sec:LCMurata}
+
+\par Per il caso ISCP è stato preso come riferimento il modello circuitale dell'analogo caso ideale (Vedi fig. \ref{fig:BandLCschem}). L'induttanza serie trovata era di {0,8 nH}, è stata quindi modellata con il componente LQP03, del valore di esattamente {0,8 nH}. Anche il condensatore di valore {3,183 pF} è stato modellato con il componente GJM03 del valore di {3,2 pF} (Vedi fig. \ref{fig:LCMurata1}). 
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=16cm]{LCMurata1}
+\caption{Rete a L con componenti Murata.}
+\label{fig:LCMurata1}
+\end{figure}
+ 
+\par La scelta dei componenti è stata effettuata osservando che rispettassero i requisiti di frequenza necessari, ampiamente superati sia da L la cui banda è di {10 MHz - 6 GHz} che da C con banda {300 kHz - 20 GHz}. Dopo aver effettuato la simulazione, abbiamo osservato tramite carta di Smith che, pur essendo entrambi i componenti con valore nominale molto vicino se non addirittura identico a quello desiderato, il carico non è più perfettamente adattato. Questo fenomeno è dovuto al fatto che i componenti reali sono affetti da componenti parassiti, e ciò si ripercuote sul coefficiente di riflessione della rete di adattamento. Per poter ovviare a questo fenomeno è stato ricercato un modello di rete di adattamento reale più efficiente, impiegando dei componenti reali Murata di valore diverso ma prossimo a quello ideale. Studiando l'andamento del carico al variare dei componenti L e C è stata prevista e quindi verificata la migliore configurazione. Questa è modellata sempre dai componenti LQP03 e GJM03 visti in precedenza, ma con valori di induttanza e capacità diversi, rispettivamente 0,6 nH e 2,7 pF (Vedi fig. \ref{fig:LCMurata2}).
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=16cm]{LCMurata2}
+\caption{Rete ad L reale ottimizzata.}
+\label{fig:LCMurata2}
+\end{figure} 
+
+\par Il parametro S(13,13) visibile nell'immagine \ref{fig:LCMurata2} è il coefficiente di riflessione del circuito ottimizzato, quest'ultimo è nettamente più vicino al centro della carta di Smith rispetto al precedente, realizzando dunque un miglior adattamento per la frequenza di 2 GHz. Questo però non implica necessariamente una situazione migliore poiché talvolta un miglior adattamento alla frequenza di lavoro comporta un restringimento della banda della rete. Il passo successivo è stato quindi quello di verificare le risposte in frequenza di entrambi i circuiti analizzati.
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=12cm]{LCMurataBand}
+\caption{Confronto delle risposte in frequenza.}
+\label{fig:LCMurataBand}
+\end{figure} 
+
+Da come si può osservare in figura \ref{fig:LCMurataBand} in questo caso la soluzione trovata è veramente ottima, poiché oltre ad un migliore adattamento a 2 GHz abbiamo anche un incremento della banda che passa da {685 MHz} del caso precedente a {750 MHz} di quello attuale. La rete ottimizzata quindi, è la migliore sotto entrambi i punti di vista.
+
+\subsubsection*{Condensatore serie e induttanza parallelo}
+
+\par Per il caso CSIP è stato preso come riferimento il modello circuitale dell'analogo caso ideale (Vedi fig. \ref{fig:BandCLschem}). Anche in questo caso abbiamo realizzato un circuito sostituendo i componenti ideali con i rispettivi reali della libreria Murata. Il condensatore in serie al carico, di valore {2,652 pF} è stato modellato con il componente GJM03 del valore di {2,7 pF}. L'induttanza in parallelo trovata era di {1,99 nH}, è stata quindi modellata con il componente LQP03, del valore di {2 nH} (Vedi fig. \ref{fig:CLMurata1}). I componenti Murata utilizzati sono fondamentalmente gli stessi del punto \ref{sec:LCMurata} a differenza di qualche piccolo parametro ininfluente ai fini della nostra analisi.
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=16cm]{CLMurata1}
+\caption{Rete ad L con componenti Murata.}
+\label{fig:CLMurata1}
+\end{figure} 
+
+Anche in questo caso la posizione del carico sulla carta di Smith è ben lontano dal caso ideale, siamo quindi intervenuti per ottimizzare anche questa rete in modo da compensare le perdite dovute ai componenti reali. Dopo alcune prove, la soluzione ottimale è stata individuata utilizzando un condensatore del valore di {2,2 pF} e lasciando immutata l'induttanza ai suoi {2 nH}. Il circuito ottenuto, mostrato in figura \ref{fig:CLMurata2} fa notare come questa configurazione sia molto vicina a quella ideale.
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=16cm]{CLMurata2}
+\caption{Rete ad L reale ottimizzata.}
+\label{fig:CLMurata2}
+\end{figure}
+
+Tramite uno sweep della frequenza nel range {1 Ghz - 3 GHz} è stato possibile verificare le prestazioni del modello ottimizzato che presenta una attenuazione della riflessione a {2 GHz} (la nostra frequenza di lavoro) superiore ai {50 dB}. 
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=12cm]{CLMurataBand}
+\caption{Confronto delle risposte in frequenza.}
+\label{fig:CLMurataBand}
+\end{figure}
+
+La banda del circuito ottimizzato è inoltre centrata quasi perfettamente alla frequenza di nostro interesse.
+
+\subsection{Singolo Stub}
+
+\par Per l'adattamento del carico con singolo stub, sono stati utilizzati i modelli di linee di trasmissione in microstriscia riferiti ad un substrato ``MSub''. I componenti utilizzati sono: MLIN, modello di un tratto di linea in microstriscia, ed MLEF, tratto di linea in microstriscia in circuito aperto che tiene conto anche dell'\itt{end effect}, ovvero dello sfrangiamento del campo elettrico in prossimità della discontinuità del circuito aperto. É stato inoltre utilizzato il componente MTEE per modellare anche la discontinuità che si trova all'interfaccia dell'inserimento tra MLIN ed MLEF. Il substrato di riferimento, modellato dal componente MSUB presenta uno spessore h di 1600 $\mu$m, la costante dielettrica relativa $\epsilon_\mathrm{r}$ è di $4,36$, la permeabilità relativa $\mu_\mathrm{r}$ è pari a 1, la conducibilità $\sigma$ è di $5,957 \cdot 10^{7} \ S/m$, lo spessore del conduttore \itt{t} è di 32 $\mu$m, la tangente di perdita $\tan(\delta)$ è 0,0177 e la rugosità superficiale del conduttore (\itt{Rough}) è di 1 $\mu$m (Vedi fig. \ref{fig:LineCalcStub}).
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=16cm]{LineCalcStub}
+\caption{Utilizzo del tool LineCalc per trovare i parametri fisici.}
+\label{fig:LineCalcStub}
+\end{figure}
+
+Anche in questo caso come nel precedente, il componente in serie MLIN porta il carico sul cerchio a conduttanza costante; da quel punto poi, il tratto di linea in parallelo MLEF effettua l'adattamento. Per trovare i valori rispettivamente di MLIN ed MLEF abbiamo utilizzato il tool {LineCalc} (Vedi fig. \ref{fig:LineCalcStub}) che, dopo aver impostato i parametri del substrato, ci ha permesso di passare dai parametri elettrici della linea a quelli fisici. I parametri elettrici sono quelli trovati nel caso ideale. Il tratto di linea in serie aveva lunghezza elettrica di 12 gradi ed un'impedenza di 50 $\Omega$ e il tool ci ha quindi fornito la larghezza W = 3041 $\mu$m e la lunghezza L = 2743 $\mu$m della MLIN. Il tratto di linea in parallelo aveva invece una lunghezza di 61.53 gradi elettrici, che sono diventati 14063 $\mu$m di lunghezza (Vedi fig. \ref{fig:StubRe1}).
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=16cm]{StubRe1}
+\caption{Rete di adattamento con stub reale.}
+\label{fig:StubRe1}
+\end{figure}
+
+Anche in questo caso come negli altri, essendo un adattamento reale, il risultato ottenuto non coincide con un minimo del coefficiente di riflessione a 2 GHz. Tramite l'utilizzo della funzione di \itt{tuning} sulle lunghezze delle microstrisce siamo quindi andati a trovare i parametri fisici ottimali per la rete di adattamento che differiscono da quelli trovati con {LineCalc} poichè tengono in considerazione le perdite dovute al caso reale (fig. \ref{fig:StubRe2}).
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=16cm]{StubRe2}
+\caption{Rete di adattamento con stub reale ottimizzata.}
+\label{fig:StubRe2}
+\end{figure}
+
+Il risultato dell'operazione ha determinato una modifica sostanziale della lunghezza fisica del componente MLIN, portata da {2743 $\mu$m} a {1720 $\mu$m}, mentre MLEF è passato da {14063 $\mu$m} a {13800 $\mu$m}. Il notevole guadagno di questa operazione può essere facilmente osservato in figura \ref{fig:StubReBand} ove vengono mostrate le risposte in frequenza delle due reti; in blu si può notare come la rete ottimizzata abbia una banda di adattamento maggiore e più centrata alla frequenza di 2 GHz.
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=12cm]{StubReBand}
+\caption{Bande dell'adattamento reale con stub.}
+\label{fig:StubReBand}
+\end{figure}
+
+\subsection{\texorpdfstring{ Trasformatore a $\lambda / 4$}{ Trasformatore a Lambda Quarti}}
+
+\par Per realizzare il trasformatore a $\lambda / 4$ reale sono state utilizzate linee a microstriscia MLIN basate su un substrato modellato tramite il componente MSUB.
+ 
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=16cm]{LineCalcLambda4th}
+\caption{Utilizzo del tool LineCalc per trovare i parametri fisici.}
+\label{fig:LineCalcLambda4th}
+\end{figure}
+
+Il modello circuitale di riferimento è quello analizzato nel paragrafo \ref{sec:Lambda4th} in figura \ref{fig:Lambda4th1Band}, ovvero un tratto di linea lungo 78,25 gradi elettrici e di impedenza 50 $\Omega$ che rende il carico puramente reale, ed un tratto di linea lungo $\lambda / 4$ (90 gradi elettrici) di impedenza 114,11 $\Omega$ che completo l'adattamento portando il carico al centro della carta di Smith. Tutto questo è stato riportato al caso reale utilizzando due componenti di tipo MLIN, mediante l'uso del \itt{tool LineCalc} abbiamo calcolato i parametri fisici derivati da quelli elettrici a nostra conoscenza (Vedi fig. \ref{fig:LineCalcLambda4th}). Tali parametri sono quindi stati riportati al modello in microstriscia, introducendo il componente MSTEP che tiene conto degli effetti parassiti introdotti dalla discontinuità tra MLIN e il tratto a $\lambda / 4$ (Vedi fig. \ref{fig:Lambda4thRe}).
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=16cm]{Lambda4thRe}
+\caption{Rete di adattamento con trasformatore a $\lambda / 4$ reale.}
+\label{fig:Lambda4thRe}
+\end{figure}
+
+Siamo quindi passati a graficare la risposta in frequenza della rete modellata (Vedi fig. \ref{fig:Lambda4thReBand}).
+In quest'ultimo caso non si è reso necessario effettuare un'operazione di ottimizzazione in quanto il coefficiente di riflessione ottenuto è stato ritenuto sufficientemente buono per gli obiettivi di progetto. Inoltre la risposta in frequenza risulta essere abbastanza centrata e di poco migliorabile così come la banda. Possiamo notare che quest'ultima è la più stretta finora incontrata, ovvero {280 MHz}.
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=12cm]{Lambda4thReBand}
+\caption{Banda della rete di adattamento con trasformatore a $\lambda / 4$ reale.}
+\label{fig:Lambda4thReBand}
+\end{figure}
+
+Dalle varie risposte in frequenza fin qui analizzate possiamo notare come gli adattamenti reali non riescano ad arrivare ad una attenuazione della riflessione pari a quella delle reti ideali poiché i componenti reali introducono numerosi fattori parassiti che non permettono di ottenere gli stessi risultati.
+
+\newpage
+\section{Riepilogo grafico e tabulare dei risultati ottenuti}
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=16cm]{Bands}
+\begin{tabular}{|c c c c c c|}
+\hline
+{Coefficiente} & {Posizione} & {Tipologia} & {Colore} & {Rete di} & {Banda di } \\
+{di riflessione} & {grafico} & {di adattamento} & {} & {adattamento} & {adattamento} \\
+\hline
+{S(1,1)} & {Sinistra} & {Ideale} & {rosso} & {L (ISCP)} & {985 MHz} \\
+{S(3,3)} & {Sinistra} & {Ideale} & {blu} & {L (CSIP)} & {630 MHz}\\
+S(7,7) & Sinistra & Ideale & magenta & Stub & 510 MHz \\
+S(9,9) & Sinistra & Ideale & ciano & $\lambda / 4$ & 270 MHz \\
+S(13,13) & Destra & Reale (opt) & rosso & L (ISCP) & 750 MHz \\
+S(17,17) & Destra & Reale (opt) & blu & L (CSIP) & 510 MHz \\
+S(21,21) & Destra & Reale (opt) & magenta & Stub & 515 MHz \\
+S(23,23) & Destra & Reale & ciano & $\lambda / 4$ & 280 MHz \\
+\hline 
+\end{tabular}
+\caption{Risposte in frequenza delle reti di adattamento.}
+\label{fig:Bands}
+\end{figure}

@@ -1,0 +1,9 @@
+
+State Machine - |Pallet|Macchina_Pallet:inst|mm
+Name q0 q1 q2 
+Attesa 0 0 0 
+Alza 0 0 1 
+Avanza 0 1 0 
+Abbassa 0 1 1 
+Sfila 1 0 0 
+Riposizionamento 1 0 1 

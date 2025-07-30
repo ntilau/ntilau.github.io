@@ -1,0 +1,7 @@
+-z -q -c -m"./Debug/LAB.map" -o"./Debug/LAB.out" -x -i"c:/Programmi/ti/C5500/bios/lib" -i"c:/Programmi/ti/C5500/dsk5510/lib" -i"c:/Programmi/ti/c5500/rtdx/lib" -i"c:/Programmi/ti/c5500/cgtools/lib"
+"C:\HomeLocale\Elettronica dei Sistemi Digitali 2\ESD2 - dsp - SigmaDelta MedianFilter\Debug\ESD_Library.obj"
+"C:\HomeLocale\Elettronica dei Sistemi Digitali 2\ESD2 - dsp - SigmaDelta MedianFilter\Debug\fun_lab.obj"
+"C:\HomeLocale\Elettronica dei Sistemi Digitali 2\ESD2 - dsp - SigmaDelta MedianFilter\Debug\LAB_4.obj"
+"C:\Programmi\ti\c5500\cgtools\lib\rts55x.lib"
+"C:\Programmi\ti\c5500\dsk5510\lib\dsk5510bslx.lib"
+"C:\HomeLocale\Elettronica dei Sistemi Digitali 2\ESD2 - dsp - SigmaDelta MedianFilter\LAB_3.CMD"

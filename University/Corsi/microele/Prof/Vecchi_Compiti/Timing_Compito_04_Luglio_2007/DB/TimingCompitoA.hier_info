@@ -1,0 +1,8 @@
+|TimingCompitoA
+OUTPUT <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+CLOCK => inst2.CLK
+CLOCK => inst1.CLK
+INPUT => inst.IN0
+FAST_INPUT => inst1.DATAIN
+
+

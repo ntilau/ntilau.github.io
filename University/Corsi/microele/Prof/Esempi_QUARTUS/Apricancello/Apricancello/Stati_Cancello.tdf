@@ -1,0 +1,53 @@
+TITLE "STATICANCELLO";
+
+
+SUBDESIGN Stati_Cancello
+(
+	ch, fs, fa, fc, tm				: INPUT = GND;
+	
+	clk, reset						: INPUT = GND;
+	
+	ma, mc, et						: OUTPUT;
+	value[7..0]						: OUTPUT;
+)
+
+
+VARIABLE
+	mm	: MACHINE OF BITS (q1, q2, q3)
+	WITH STATES (CHIUSO, APERTURA, APERTO, CHIUSURA, PAUSA);
+	
+BEGIN
+
+	DEFAULTS
+		value[] = B"11111111";
+	END DEFAULTS;
+
+	mm.reset = reset;
+	mm.clk = clk;
+
+	TABLE
+		ch, fs, fa, fc, tm,	mm	=> mm,	ma, mc, et, value[7..0];
+
+		0, x, x, x, x, CHIUSO	=> CHIUSO	, 0, 0, 0, B"11111111";
+		1, x, x, x, x, CHIUSO	=> APERTURA	, 0, 0, 0, B"11111111";
+
+		x, x, 0, x, x, APERTURA => APERTURA	, 1, 0, 0, B"11111111";
+		x, x, 1, x, x, APERTURA => APERTO	, 1, 0, 0, B"11111111";
+
+		x, x, x, x, 0, APERTO	=> APERTO	, 0, 0, 1, B"00000111";
+		1, x, x, x, 1, APERTO	=> APERTO	, 0, 0, 0, B"11111111";
+		x, 1, x, x, 1, APERTO	=> APERTO	, 0, 0, 0, B"11111111";
+		0, 0, x, x, 1, APERTO	=> CHIUSURA	, 0, 0, 1, B"00000111";
+
+		x, 0, x, 0, x, CHIUSURA	=> CHIUSURA	, 0, 1, 0, B"11111111";
+		x, 1, x, x, x, CHIUSURA	=> PAUSA	, 0, 1, 0, B"11111111";
+		x, x, x, 1, x, CHIUSURA	=> PAUSA	, 0, 1, 0, B"11111111";
+
+		x, x, x, 1, 1, PAUSA	=> CHIUSO	, 0, 0, 1, B"00000011";
+		x, x, x, 0, 1, PAUSA	=> APERTURA	, 0, 0, 1, B"00000011";
+		x, x, x, x, 0, PAUSA	=> PAUSA	, 0, 0, 1, B"00000011";
+	END TABLE;
+
+END;
+
+

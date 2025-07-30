@@ -1,0 +1,99 @@
+TITLE "Il mio progetto";
+
+
+-- Definizione dei "PIN" del foglio corrente e nome relativo
+SUBDESIGN AHDL1
+(
+	A, B, C, D				: INPUT = VCC;
+	DB[7..0]				: INPUT = GND;
+	OE						: INPUT = GND;
+	CLOCK					: INPUT = GND;
+
+	TEST 					: BIDIR;	
+
+	OUT_A, OUT_B, OUT_C		: OUTPUT;
+	OUT_D					: OUTPUT;
+	OUT_E					: OUTPUT;
+	OUT_F					: OUTPUT;
+
+	PROVA[15..0]			: OUTPUT;
+)
+
+-- Sezione di definizione dei Nodi, Oggetti e Macchine a Stati
+VARIABLE
+
+	Nodo_Intermedio : NODE;
+	Nodo_tri_state : TRI_STATE_NODE;
+	FLIPFLOP : DFF;
+	
+
+-- Corpo (Architettura) del SUBDESIGN
+BEGIN
+
+	-- Utilizzo dell'oggetto FLIPFLOP di tipo DFF
+	FLIPFLOP.d = TEST;
+	FLIPFLOP.clk = CLOCK;
+	OUT_F = FLIPFLOP.q;
+
+
+
+	-- Utilizzo di un pin THREE STATE con buffer di uscita
+	-- NOTA : Il buffer di uscita TRI non viene definito nella sezione VARIABLE e usato direttamente
+	
+	Nodo_tri_state = TRI(FLIPFLOP.q, OE);
+	TEST = Nodo_tri_state;
+
+
+
+	-- Utilizzo del nodo intermedio e di una funzione logica AND
+	Nodo_Intermedio = A AND B;
+	OUT_A = Nodo_Intermedio;
+
+
+
+	-- Utilizzo del costrutto CASE IS WHEN
+	CASE DB[] IS
+		WHEN 00 =>
+			OUT_B = VCC;
+			OUT_C = GND;
+			PROVA[] = B"0000000011110000";
+
+		WHEN 10 =>
+			OUT_B = VCC;
+			OUT_C = VCC;
+			PROVA[] = 26;
+
+		WHEN OTHERS =>
+			OUT_B = GND;
+			OUT_C = VCC;
+			
+			PROVA[] = 456;
+
+	END CASE;
+
+
+
+	-- Utilizzo del costrutto IF THEN ELSE END IF
+	IF (DB[] >= 19) & (DB[] < 50) THEN
+		OUT_D = VCC;
+	ELSIF (DB[] < 19) THEN
+		OUT_D = GND;
+	ELSE
+		OUT_D = VCC;
+	END IF;
+
+
+
+	-- Utilizzo del costrutto TABLE
+	TABLE
+		C,	D		=> OUT_E;	-- Definizione degli ingressi e uscite della tabella
+
+		0,	0		=>	0;		-- Tabella
+		0,	1		=>	1;
+		1,	0		=>	1;
+		1,	1		=>	0;
+
+	END TABLE;
+
+END;
+

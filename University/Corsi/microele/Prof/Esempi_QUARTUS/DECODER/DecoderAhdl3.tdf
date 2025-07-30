@@ -1,0 +1,34 @@
+
+SUBDESIGN DecoderAHDL3
+(
+	IN0, IN1				: INPUT = GND;
+	OUT0, OUT1, OUT2, OUT3	:	OUTPUT;
+)
+
+BEGIN
+
+	CASE (IN0, IN1) IS
+		WHEN B"00" =>
+			OUT0 = VCC;
+			OUT1 = GND;
+			OUT2 = GND;
+			OUT3 = GND;
+		WHEN B"10" =>
+			OUT0 = GND;
+			OUT1 = VCC;
+			OUT2 = GND;
+			OUT3 = GND;
+		WHEN B"01" =>
+			OUT0 = GND;
+			OUT1 = GND;
+			OUT2 = VCC;
+			OUT3 = GND;
+		WHEN B"11" =>
+			OUT0 = GND;
+			OUT1 = GND;
+			OUT2 = GND;
+			OUT3 = VCC;
+	END CASE;
+
+
+END;

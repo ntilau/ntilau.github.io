@@ -1,0 +1,565 @@
+Simulator report for PLD-DDS
+Fri Apr 14 16:49:43 2006
+Version 5.1 Build 176 10/26/2005 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2005 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------+
+; Simulator Summary                               ;
++-----------------------------+-------------------+
+; Type                        ; Value             ;
++-----------------------------+-------------------+
+; Simulation Start Time       ; 0 ps              ;
+; Simulation End Time         ; 100.0 us          ;
+; Simulation Netlist Size     ; 253 nodes         ;
+; Simulation Coverage         ;      22.22 %      ;
+; Total Number of Transitions ; 15994             ;
+; Family                      ; MAX7000AE         ;
+; Device                      ; EPM7128AETC100-10 ;
++-----------------------------+-------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                        ;
++-----------------------------------------------------------------+---------+---------------+
+; Option                                                          ; Setting ; Default Value ;
++-----------------------------------------------------------------+---------+---------------+
+; Simulation mode                                                 ; Timing  ; Timing        ;
+; Start time                                                      ; 0 ns    ; 0 ns          ;
+; Add pins automatically to simulation output waveforms           ; Off     ; On            ;
+; Check outputs                                                   ; Off     ; Off           ;
+; Report simulation coverage                                      ; On      ; On            ;
+; Detect setup and hold time violations                           ; Off     ; Off           ;
+; Detect glitches                                                 ; Off     ; Off           ;
+; Automatically save/load simulation netlist                      ; Off     ; Off           ;
+; Disable timing delays in Timing Simulation                      ; Off     ; Off           ;
+; Generate Signal Activity File                                   ; Off     ; Off           ;
+; Group bus channels in simulation results                        ; Off     ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements ; On      ; On            ;
+; Overwrite Waveform Inputs With Simulation Outputs               ; On      ;               ;
++-----------------------------------------------------------------+---------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      22.22 % ;
+; Total nodes checked                                 ; 253          ;
+; Total output ports checked                          ; 207          ;
+; Total output ports with complete 1/0-value coverage ; 46           ;
+; Total output ports with no 1/0-value coverage       ; 160          ;
+; Total output ports with no 1-value coverage         ; 160          ;
+; Total output ports with no 0-value coverage         ; 161          ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                                                                                                                                                          ;
++-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+------------------+
+; Node Name                                                                                       ; Output Port Name                                                                                ; Output Port Type ;
++-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+------------------+
+; |PLD-DDS|CLK~4                                                                                  ; |PLD-DDS|CLK~4                                                                                  ; dataout          ;
+; |PLD-DDS|lpm_counter2:inst3|lpm_counter:lpm_counter_component|cmpconst:$00036|and_cascade[4]~34 ; |PLD-DDS|lpm_counter2:inst3|lpm_counter:lpm_counter_component|cmpconst:$00036|and_cascade[4]~34 ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[15]    ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[15]    ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|inst5                                                              ; |PLD-DDS|DAC-SERIALIZER:inst|inst5                                                              ; dataout          ;
+; |PLD-DDS|lpm_counter2:inst3|lpm_counter:lpm_counter_component|dffs[4]                           ; |PLD-DDS|lpm_counter2:inst3|lpm_counter:lpm_counter_component|dffs[4]                           ; dataout          ;
+; |PLD-DDS|lpm_counter2:inst3|lpm_counter:lpm_counter_component|dffs[3]                           ; |PLD-DDS|lpm_counter2:inst3|lpm_counter:lpm_counter_component|dffs[3]                           ; dataout          ;
+; |PLD-DDS|lpm_counter2:inst3|lpm_counter:lpm_counter_component|dffs[2]                           ; |PLD-DDS|lpm_counter2:inst3|lpm_counter:lpm_counter_component|dffs[2]                           ; dataout          ;
+; |PLD-DDS|lpm_counter2:inst3|lpm_counter:lpm_counter_component|dffs[1]                           ; |PLD-DDS|lpm_counter2:inst3|lpm_counter:lpm_counter_component|dffs[1]                           ; dataout          ;
+; |PLD-DDS|lpm_counter2:inst3|lpm_counter:lpm_counter_component|dffs[0]                           ; |PLD-DDS|lpm_counter2:inst3|lpm_counter:lpm_counter_component|dffs[0]                           ; dataout          ;
+; |PLD-DDS|inst4                                                                                  ; |PLD-DDS|inst4                                                                                  ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[14]    ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[14]    ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|inst2                                                              ; |PLD-DDS|DAC-SERIALIZER:inst|inst2                                                              ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_counter0:inst1|lpm_counter:lpm_counter_component|dffs[3]       ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_counter0:inst1|lpm_counter:lpm_counter_component|dffs[3]       ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_counter0:inst1|lpm_counter:lpm_counter_component|dffs[2]       ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_counter0:inst1|lpm_counter:lpm_counter_component|dffs[2]       ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_counter0:inst1|lpm_counter:lpm_counter_component|dffs[1]       ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_counter0:inst1|lpm_counter:lpm_counter_component|dffs[1]       ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_counter0:inst1|lpm_counter:lpm_counter_component|dffs[0]       ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_counter0:inst1|lpm_counter:lpm_counter_component|dffs[0]       ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[13]    ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[13]    ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[12]    ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[12]    ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[11]    ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[11]    ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[10]    ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[10]    ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[9]     ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[9]     ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[8]     ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[8]     ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[7]     ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[7]     ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[6]     ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[6]     ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[4]                          ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[4]                          ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[3]                          ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[3]                          ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[2]                          ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[2]                          ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[1]                          ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[1]                          ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[0]                          ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[0]                          ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[5]     ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[5]     ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[4]     ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[4]     ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[3]     ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[3]     ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[2]     ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[2]     ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[1]     ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[1]     ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[0]     ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[0]     ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|_~229       ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|_~229       ; pexpout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|_~233       ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|_~233       ; pexpout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|_~236       ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|_~236       ; pexpout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|_~241       ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|_~241       ; pexpout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|_~247       ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|_~247       ; pexpout          ;
+; |PLD-DDS|CLK                                                                                    ; |PLD-DDS|CLK                                                                                    ; dataout          ;
+; |PLD-DDS|DAC_DATA                                                                               ; |PLD-DDS|DAC_DATA                                                                               ; padio            ;
+; |PLD-DDS|DAC_CLOCK                                                                              ; |PLD-DDS|DAC_CLOCK                                                                              ; padio            ;
+; |PLD-DDS|DAC_FS                                                                                 ; |PLD-DDS|DAC_FS                                                                                 ; padio            ;
+; |PLD-DDS|COUT                                                                                   ; |PLD-DDS|COUT                                                                                   ; padio            ;
+; |PLD-DDS|CLK4                                                                                   ; |PLD-DDS|CLK4                                                                                   ; padio            ;
++-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                                                                                                                                                                           ;
++--------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------------+
+; Node Name                                                                                              ; Output Port Name                                                                                       ; Output Port Type ;
++--------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------------+
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~25               ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~25               ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~26               ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~26               ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~27               ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~27               ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~28               ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~28               ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~29               ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~29               ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~34               ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~34               ; dataout          ;
+; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[7]                                                 ; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[7]                                                 ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[3]~126   ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[3]~126   ; dataout          ;
+; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[3]                                                 ; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[3]                                                 ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[4]~139   ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[4]~139   ; dataout          ;
+; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[4]                                                 ; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[4]                                                 ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[6]~147   ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[6]~147   ; dataout          ;
+; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[6]                                                 ; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[6]                                                 ; dataout          ;
+; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[5]                                                 ; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[5]                                                 ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[20]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[20]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[23]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[23]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[22]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[22]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[21]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[21]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[19]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[19]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[18]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[18]                                ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[2]~162   ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[2]~162   ; dataout          ;
+; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[2]                                                 ; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[2]                                                 ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[17]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[17]                                ; dataout          ;
+; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[1]                                                 ; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[1]                                                 ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[16]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[16]                                ; dataout          ;
+; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[0]                                                 ; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[0]                                                 ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[15]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[15]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[14]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[14]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[13]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[13]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[12]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[12]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[11]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[11]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[10]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[10]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[9]                                 ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[9]                                 ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[8]                                 ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[8]                                 ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[7]                                 ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[7]                                 ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[6]                                 ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[6]                                 ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|_~208              ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|_~208              ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|_~209              ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|_~209              ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[4]~176   ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[4]~176   ; pexpout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[6]~178   ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[6]~178   ; pexpout          ;
+; |PLD-DDS|~GND~0                                                                                        ; |PLD-DDS|~GND~0                                                                                        ; dataout          ;
+; |PLD-DDS|~GND~1                                                                                        ; |PLD-DDS|~GND~1                                                                                        ; dataout          ;
+; |PLD-DDS|~GND~2                                                                                        ; |PLD-DDS|~GND~2                                                                                        ; dataout          ;
+; |PLD-DDS|~VCC~0                                                                                        ; |PLD-DDS|~VCC~0                                                                                        ; dataout          ;
+; |PLD-DDS|~GND~3                                                                                        ; |PLD-DDS|~GND~3                                                                                        ; dataout          ;
+; |PLD-DDS|~GND~4                                                                                        ; |PLD-DDS|~GND~4                                                                                        ; dataout          ;
+; |PLD-DDS|~GND~5                                                                                        ; |PLD-DDS|~GND~5                                                                                        ; dataout          ;
+; |PLD-DDS|~GND~6                                                                                        ; |PLD-DDS|~GND~6                                                                                        ; dataout          ;
+; |PLD-DDS|~GND~7                                                                                        ; |PLD-DDS|~GND~7                                                                                        ; dataout          ;
+; |PLD-DDS|~GND~8                                                                                        ; |PLD-DDS|~GND~8                                                                                        ; dataout          ;
+; |PLD-DDS|~GND~9                                                                                        ; |PLD-DDS|~GND~9                                                                                        ; dataout          ;
+; |PLD-DDS|~GND~10                                                                                       ; |PLD-DDS|~GND~10                                                                                       ; dataout          ;
+; |PLD-DDS|~GND~11                                                                                       ; |PLD-DDS|~GND~11                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~1                                                                                        ; |PLD-DDS|~VCC~1                                                                                        ; dataout          ;
+; |PLD-DDS|~VCC~2                                                                                        ; |PLD-DDS|~VCC~2                                                                                        ; dataout          ;
+; |PLD-DDS|~VCC~3                                                                                        ; |PLD-DDS|~VCC~3                                                                                        ; dataout          ;
+; |PLD-DDS|~VCC~4                                                                                        ; |PLD-DDS|~VCC~4                                                                                        ; dataout          ;
+; |PLD-DDS|~VCC~5                                                                                        ; |PLD-DDS|~VCC~5                                                                                        ; dataout          ;
+; |PLD-DDS|~VCC~6                                                                                        ; |PLD-DDS|~VCC~6                                                                                        ; dataout          ;
+; |PLD-DDS|~VCC~7                                                                                        ; |PLD-DDS|~VCC~7                                                                                        ; dataout          ;
+; |PLD-DDS|~VCC~8                                                                                        ; |PLD-DDS|~VCC~8                                                                                        ; dataout          ;
+; |PLD-DDS|~VCC~9                                                                                        ; |PLD-DDS|~VCC~9                                                                                        ; dataout          ;
+; |PLD-DDS|~VCC~10                                                                                       ; |PLD-DDS|~VCC~10                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~11                                                                                       ; |PLD-DDS|~VCC~11                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~12                                                                                       ; |PLD-DDS|~VCC~12                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~13                                                                                       ; |PLD-DDS|~VCC~13                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~14                                                                                       ; |PLD-DDS|~VCC~14                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~15                                                                                       ; |PLD-DDS|~VCC~15                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~16                                                                                       ; |PLD-DDS|~VCC~16                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~17                                                                                       ; |PLD-DDS|~VCC~17                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~18                                                                                       ; |PLD-DDS|~VCC~18                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~19                                                                                       ; |PLD-DDS|~VCC~19                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~20                                                                                       ; |PLD-DDS|~VCC~20                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~21                                                                                       ; |PLD-DDS|~VCC~21                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~22                                                                                       ; |PLD-DDS|~VCC~22                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~23                                                                                       ; |PLD-DDS|~VCC~23                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~24                                                                                       ; |PLD-DDS|~VCC~24                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~25                                                                                       ; |PLD-DDS|~VCC~25                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~26                                                                                       ; |PLD-DDS|~VCC~26                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~27                                                                                       ; |PLD-DDS|~VCC~27                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~28                                                                                       ; |PLD-DDS|~VCC~28                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~29                                                                                       ; |PLD-DDS|~VCC~29                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~30                                                                                       ; |PLD-DDS|~VCC~30                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~31                                                                                       ; |PLD-DDS|~VCC~31                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~32                                                                                       ; |PLD-DDS|~VCC~32                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~33                                                                                       ; |PLD-DDS|~VCC~33                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~34                                                                                       ; |PLD-DDS|~VCC~34                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~35                                                                                       ; |PLD-DDS|~VCC~35                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~36                                                                                       ; |PLD-DDS|~VCC~36                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~37                                                                                       ; |PLD-DDS|~VCC~37                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~38                                                                                       ; |PLD-DDS|~VCC~38                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~39                                                                                       ; |PLD-DDS|~VCC~39                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~40                                                                                       ; |PLD-DDS|~VCC~40                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~41                                                                                       ; |PLD-DDS|~VCC~41                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~42                                                                                       ; |PLD-DDS|~VCC~42                                                                                       ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|ps[6]~57sexp            ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|ps[6]~57sexp            ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|tot_cin_node[6]~11sexp2 ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|tot_cin_node[6]~11sexp2 ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|tot_cin_node[6]~11sexp3 ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|tot_cin_node[6]~11sexp3 ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|tot_cin_node[6]~11sexp4 ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|tot_cin_node[6]~11sexp4 ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|tot_cin_node[6]~11sexp5 ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|tot_cin_node[6]~11sexp5 ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[0]~43sexp1          ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[0]~43sexp1          ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[0]~43sexp2          ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[0]~43sexp2          ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[0]~43sexp3          ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[0]~43sexp3          ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[0]~43sexp4          ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[0]~43sexp4          ; dataout          ;
+; |PLD-DDS|RESET                                                                                         ; |PLD-DDS|RESET                                                                                         ; dataout          ;
+; |PLD-DDS|CLK_REG                                                                                       ; |PLD-DDS|CLK_REG                                                                                       ; padio            ;
+; |PLD-DDS|ADC_CS                                                                                        ; |PLD-DDS|ADC_CS                                                                                        ; padio            ;
+; |PLD-DDS|ADC_CLOCK                                                                                     ; |PLD-DDS|ADC_CLOCK                                                                                     ; padio            ;
+; |PLD-DDS|T1                                                                                            ; |PLD-DDS|T1                                                                                            ; padio            ;
+; |PLD-DDS|T2                                                                                            ; |PLD-DDS|T2                                                                                            ; padio            ;
+; |PLD-DDS|DISP_E                                                                                        ; |PLD-DDS|DISP_E                                                                                        ; padio            ;
+; |PLD-DDS|DISP_D                                                                                        ; |PLD-DDS|DISP_D                                                                                        ; padio            ;
+; |PLD-DDS|DISP_C                                                                                        ; |PLD-DDS|DISP_C                                                                                        ; padio            ;
+; |PLD-DDS|DISP_DP                                                                                       ; |PLD-DDS|DISP_DP                                                                                       ; padio            ;
+; |PLD-DDS|DISP_B                                                                                        ; |PLD-DDS|DISP_B                                                                                        ; padio            ;
+; |PLD-DDS|DISP_A                                                                                        ; |PLD-DDS|DISP_A                                                                                        ; padio            ;
+; |PLD-DDS|DISP_G                                                                                        ; |PLD-DDS|DISP_G                                                                                        ; padio            ;
+; |PLD-DDS|DISP_F                                                                                        ; |PLD-DDS|DISP_F                                                                                        ; padio            ;
+; |PLD-DDS|BUF_OE1                                                                                       ; |PLD-DDS|BUF_OE1                                                                                       ; padio            ;
+; |PLD-DDS|BUF_DIR                                                                                       ; |PLD-DDS|BUF_DIR                                                                                       ; padio            ;
+; |PLD-DDS|X_DS/CE2~output                                                                               ; |PLD-DDS|X_DS/CE2~output                                                                               ; padio            ;
+; |PLD-DDS|X_MSTROB/CE3~output                                                                           ; |PLD-DDS|X_MSTROB/CE3~output                                                                           ; padio            ;
+; |PLD-DDS|X_RDY~output                                                                                  ; |PLD-DDS|X_RDY~output                                                                                  ; padio            ;
+; |PLD-DDS|X_OE~output                                                                                   ; |PLD-DDS|X_OE~output                                                                                   ; padio            ;
+; |PLD-DDS|X_WE~output                                                                                   ; |PLD-DDS|X_WE~output                                                                                   ; padio            ;
+; |PLD-DDS|X_D0~output                                                                                   ; |PLD-DDS|X_D0~output                                                                                   ; padio            ;
+; |PLD-DDS|X_RE~output                                                                                   ; |PLD-DDS|X_RE~output                                                                                   ; padio            ;
+; |PLD-DDS|X_D1~output                                                                                   ; |PLD-DDS|X_D1~output                                                                                   ; padio            ;
+; |PLD-DDS|X_D2~output                                                                                   ; |PLD-DDS|X_D2~output                                                                                   ; padio            ;
+; |PLD-DDS|X_D3~output                                                                                   ; |PLD-DDS|X_D3~output                                                                                   ; padio            ;
+; |PLD-DDS|X_D4~output                                                                                   ; |PLD-DDS|X_D4~output                                                                                   ; padio            ;
+; |PLD-DDS|X_D5~output                                                                                   ; |PLD-DDS|X_D5~output                                                                                   ; padio            ;
+; |PLD-DDS|X_D6~output                                                                                   ; |PLD-DDS|X_D6~output                                                                                   ; padio            ;
+; |PLD-DDS|X_D7~output                                                                                   ; |PLD-DDS|X_D7~output                                                                                   ; padio            ;
+; |PLD-DDS|X_BE0~output                                                                                  ; |PLD-DDS|X_BE0~output                                                                                  ; padio            ;
+; |PLD-DDS|X_BE1~output                                                                                  ; |PLD-DDS|X_BE1~output                                                                                  ; padio            ;
+; |PLD-DDS|X_BE2~output                                                                                  ; |PLD-DDS|X_BE2~output                                                                                  ; padio            ;
+; |PLD-DDS|X_BE3~output                                                                                  ; |PLD-DDS|X_BE3~output                                                                                  ; padio            ;
+; |PLD-DDS|X_A0/A2~output                                                                                ; |PLD-DDS|X_A0/A2~output                                                                                ; padio            ;
+; |PLD-DDS|X_A1/A3~output                                                                                ; |PLD-DDS|X_A1/A3~output                                                                                ; padio            ;
+; |PLD-DDS|X_A2/A4~output                                                                                ; |PLD-DDS|X_A2/A4~output                                                                                ; padio            ;
+; |PLD-DDS|X_A3/A5~output                                                                                ; |PLD-DDS|X_A3/A5~output                                                                                ; padio            ;
+; |PLD-DDS|REG_OE~output                                                                                 ; |PLD-DDS|REG_OE~output                                                                                 ; padio            ;
+; |PLD-DDS|ISR_TCK~output                                                                                ; |PLD-DDS|ISR_TCK~output                                                                                ; padio            ;
+; |PLD-DDS|ISR_TDI~output                                                                                ; |PLD-DDS|ISR_TDI~output                                                                                ; padio            ;
+; |PLD-DDS|ISR_TDO~output                                                                                ; |PLD-DDS|ISR_TDO~output                                                                                ; padio            ;
+; |PLD-DDS|ISR_TMS~output                                                                                ; |PLD-DDS|ISR_TMS~output                                                                                ; padio            ;
+; |PLD-DDS|D0~output                                                                                     ; |PLD-DDS|D0~output                                                                                     ; padio            ;
+; |PLD-DDS|D1~output                                                                                     ; |PLD-DDS|D1~output                                                                                     ; padio            ;
+; |PLD-DDS|D2~output                                                                                     ; |PLD-DDS|D2~output                                                                                     ; padio            ;
+; |PLD-DDS|D3~output                                                                                     ; |PLD-DDS|D3~output                                                                                     ; padio            ;
+; |PLD-DDS|D4~output                                                                                     ; |PLD-DDS|D4~output                                                                                     ; padio            ;
+; |PLD-DDS|D5~output                                                                                     ; |PLD-DDS|D5~output                                                                                     ; padio            ;
+; |PLD-DDS|D6~output                                                                                     ; |PLD-DDS|D6~output                                                                                     ; padio            ;
+; |PLD-DDS|D7~output                                                                                     ; |PLD-DDS|D7~output                                                                                     ; padio            ;
+; |PLD-DDS|BNC_OUT~output                                                                                ; |PLD-DDS|BNC_OUT~output                                                                                ; padio            ;
+; |PLD-DDS|X_INT/1~output                                                                                ; |PLD-DDS|X_INT/1~output                                                                                ; padio            ;
+; |PLD-DDS|X_TOUT0~output                                                                                ; |PLD-DDS|X_TOUT0~output                                                                                ; padio            ;
+; |PLD-DDS|X_PS~output                                                                                   ; |PLD-DDS|X_PS~output                                                                                   ; padio            ;
+; |PLD-DDS|X_IS~output                                                                                   ; |PLD-DDS|X_IS~output                                                                                   ; padio            ;
++--------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                                                                                                                                                                           ;
++--------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------------+
+; Node Name                                                                                              ; Output Port Name                                                                                       ; Output Port Type ;
++--------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------------+
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~25               ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~25               ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~26               ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~26               ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~27               ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~27               ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~28               ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~28               ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~29               ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~29               ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~34               ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[2]~34               ; dataout          ;
+; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[7]                                                 ; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[7]                                                 ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[3]~126   ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[3]~126   ; dataout          ;
+; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[3]                                                 ; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[3]                                                 ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[4]~139   ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[4]~139   ; dataout          ;
+; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[4]                                                 ; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[4]                                                 ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[6]~147   ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[6]~147   ; dataout          ;
+; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[6]                                                 ; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[6]                                                 ; dataout          ;
+; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[5]                                                 ; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[5]                                                 ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[20]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[20]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[23]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[23]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[22]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[22]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[21]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[21]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[19]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[19]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[18]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[18]                                ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[2]~162   ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[2]~162   ; dataout          ;
+; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[2]                                                 ; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[2]                                                 ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[17]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[17]                                ; dataout          ;
+; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[1]                                                 ; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[1]                                                 ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[16]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[16]                                ; dataout          ;
+; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[0]                                                 ; |PLD-DDS|lpm_ff0:inst2|lpm_ff:lpm_ff_component|dffs[0]                                                 ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[15]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[15]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[14]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[14]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[13]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[13]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[12]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[12]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[11]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[11]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[10]                                ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[10]                                ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[9]                                 ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[9]                                 ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[8]                                 ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[8]                                 ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[7]                                 ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[7]                                 ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[6]                                 ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[6]                                 ; dataout          ;
+; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[5]                                 ; |PLD-DDS|lpm_counter3:inst15|lpm_counter:lpm_counter_component|dffs[5]                                 ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|_~208              ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|_~208              ; dataout          ;
+; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|_~209              ; |PLD-DDS|DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|_~209              ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[4]~176   ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[4]~176   ; pexpout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[6]~178   ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|unreg_res_node[6]~178   ; pexpout          ;
+; |PLD-DDS|~GND~0                                                                                        ; |PLD-DDS|~GND~0                                                                                        ; dataout          ;
+; |PLD-DDS|~GND~1                                                                                        ; |PLD-DDS|~GND~1                                                                                        ; dataout          ;
+; |PLD-DDS|~GND~2                                                                                        ; |PLD-DDS|~GND~2                                                                                        ; dataout          ;
+; |PLD-DDS|~VCC~0                                                                                        ; |PLD-DDS|~VCC~0                                                                                        ; dataout          ;
+; |PLD-DDS|~GND~3                                                                                        ; |PLD-DDS|~GND~3                                                                                        ; dataout          ;
+; |PLD-DDS|~GND~4                                                                                        ; |PLD-DDS|~GND~4                                                                                        ; dataout          ;
+; |PLD-DDS|~GND~5                                                                                        ; |PLD-DDS|~GND~5                                                                                        ; dataout          ;
+; |PLD-DDS|~GND~6                                                                                        ; |PLD-DDS|~GND~6                                                                                        ; dataout          ;
+; |PLD-DDS|~GND~7                                                                                        ; |PLD-DDS|~GND~7                                                                                        ; dataout          ;
+; |PLD-DDS|~GND~8                                                                                        ; |PLD-DDS|~GND~8                                                                                        ; dataout          ;
+; |PLD-DDS|~GND~9                                                                                        ; |PLD-DDS|~GND~9                                                                                        ; dataout          ;
+; |PLD-DDS|~GND~10                                                                                       ; |PLD-DDS|~GND~10                                                                                       ; dataout          ;
+; |PLD-DDS|~GND~11                                                                                       ; |PLD-DDS|~GND~11                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~1                                                                                        ; |PLD-DDS|~VCC~1                                                                                        ; dataout          ;
+; |PLD-DDS|~VCC~2                                                                                        ; |PLD-DDS|~VCC~2                                                                                        ; dataout          ;
+; |PLD-DDS|~VCC~3                                                                                        ; |PLD-DDS|~VCC~3                                                                                        ; dataout          ;
+; |PLD-DDS|~VCC~4                                                                                        ; |PLD-DDS|~VCC~4                                                                                        ; dataout          ;
+; |PLD-DDS|~VCC~5                                                                                        ; |PLD-DDS|~VCC~5                                                                                        ; dataout          ;
+; |PLD-DDS|~VCC~6                                                                                        ; |PLD-DDS|~VCC~6                                                                                        ; dataout          ;
+; |PLD-DDS|~VCC~7                                                                                        ; |PLD-DDS|~VCC~7                                                                                        ; dataout          ;
+; |PLD-DDS|~VCC~8                                                                                        ; |PLD-DDS|~VCC~8                                                                                        ; dataout          ;
+; |PLD-DDS|~VCC~9                                                                                        ; |PLD-DDS|~VCC~9                                                                                        ; dataout          ;
+; |PLD-DDS|~VCC~10                                                                                       ; |PLD-DDS|~VCC~10                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~11                                                                                       ; |PLD-DDS|~VCC~11                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~12                                                                                       ; |PLD-DDS|~VCC~12                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~13                                                                                       ; |PLD-DDS|~VCC~13                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~14                                                                                       ; |PLD-DDS|~VCC~14                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~15                                                                                       ; |PLD-DDS|~VCC~15                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~16                                                                                       ; |PLD-DDS|~VCC~16                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~17                                                                                       ; |PLD-DDS|~VCC~17                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~18                                                                                       ; |PLD-DDS|~VCC~18                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~19                                                                                       ; |PLD-DDS|~VCC~19                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~20                                                                                       ; |PLD-DDS|~VCC~20                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~21                                                                                       ; |PLD-DDS|~VCC~21                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~22                                                                                       ; |PLD-DDS|~VCC~22                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~23                                                                                       ; |PLD-DDS|~VCC~23                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~24                                                                                       ; |PLD-DDS|~VCC~24                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~25                                                                                       ; |PLD-DDS|~VCC~25                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~26                                                                                       ; |PLD-DDS|~VCC~26                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~27                                                                                       ; |PLD-DDS|~VCC~27                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~28                                                                                       ; |PLD-DDS|~VCC~28                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~29                                                                                       ; |PLD-DDS|~VCC~29                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~30                                                                                       ; |PLD-DDS|~VCC~30                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~31                                                                                       ; |PLD-DDS|~VCC~31                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~32                                                                                       ; |PLD-DDS|~VCC~32                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~33                                                                                       ; |PLD-DDS|~VCC~33                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~34                                                                                       ; |PLD-DDS|~VCC~34                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~35                                                                                       ; |PLD-DDS|~VCC~35                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~36                                                                                       ; |PLD-DDS|~VCC~36                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~37                                                                                       ; |PLD-DDS|~VCC~37                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~38                                                                                       ; |PLD-DDS|~VCC~38                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~39                                                                                       ; |PLD-DDS|~VCC~39                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~40                                                                                       ; |PLD-DDS|~VCC~40                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~41                                                                                       ; |PLD-DDS|~VCC~41                                                                                       ; dataout          ;
+; |PLD-DDS|~VCC~42                                                                                       ; |PLD-DDS|~VCC~42                                                                                       ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|ps[6]~57sexp            ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|ps[6]~57sexp            ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|tot_cin_node[6]~11sexp2 ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|tot_cin_node[6]~11sexp2 ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|tot_cin_node[6]~11sexp3 ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|tot_cin_node[6]~11sexp3 ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|tot_cin_node[6]~11sexp4 ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|tot_cin_node[6]~11sexp4 ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|tot_cin_node[6]~11sexp5 ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|tot_cin_node[6]~11sexp5 ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[0]~43sexp1          ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[0]~43sexp1          ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[0]~43sexp2          ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[0]~43sexp2          ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[0]~43sexp3          ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[0]~43sexp3          ; dataout          ;
+; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[0]~43sexp4          ; |PLD-DDS|lpm_add_sub0:inst1|lpm_add_sub:lpm_add_sub_component|addcore:adder[0]|p2c[0]~43sexp4          ; dataout          ;
+; |PLD-DDS|RESET                                                                                         ; |PLD-DDS|RESET                                                                                         ; dataout          ;
+; |PLD-DDS|CLK_REG                                                                                       ; |PLD-DDS|CLK_REG                                                                                       ; padio            ;
+; |PLD-DDS|ADC_CS                                                                                        ; |PLD-DDS|ADC_CS                                                                                        ; padio            ;
+; |PLD-DDS|ADC_CLOCK                                                                                     ; |PLD-DDS|ADC_CLOCK                                                                                     ; padio            ;
+; |PLD-DDS|T1                                                                                            ; |PLD-DDS|T1                                                                                            ; padio            ;
+; |PLD-DDS|T2                                                                                            ; |PLD-DDS|T2                                                                                            ; padio            ;
+; |PLD-DDS|DISP_E                                                                                        ; |PLD-DDS|DISP_E                                                                                        ; padio            ;
+; |PLD-DDS|DISP_D                                                                                        ; |PLD-DDS|DISP_D                                                                                        ; padio            ;
+; |PLD-DDS|DISP_C                                                                                        ; |PLD-DDS|DISP_C                                                                                        ; padio            ;
+; |PLD-DDS|DISP_DP                                                                                       ; |PLD-DDS|DISP_DP                                                                                       ; padio            ;
+; |PLD-DDS|DISP_B                                                                                        ; |PLD-DDS|DISP_B                                                                                        ; padio            ;
+; |PLD-DDS|DISP_A                                                                                        ; |PLD-DDS|DISP_A                                                                                        ; padio            ;
+; |PLD-DDS|DISP_G                                                                                        ; |PLD-DDS|DISP_G                                                                                        ; padio            ;
+; |PLD-DDS|DISP_F                                                                                        ; |PLD-DDS|DISP_F                                                                                        ; padio            ;
+; |PLD-DDS|BUF_OE1                                                                                       ; |PLD-DDS|BUF_OE1                                                                                       ; padio            ;
+; |PLD-DDS|BUF_DIR                                                                                       ; |PLD-DDS|BUF_DIR                                                                                       ; padio            ;
+; |PLD-DDS|X_DS/CE2~output                                                                               ; |PLD-DDS|X_DS/CE2~output                                                                               ; padio            ;
+; |PLD-DDS|X_MSTROB/CE3~output                                                                           ; |PLD-DDS|X_MSTROB/CE3~output                                                                           ; padio            ;
+; |PLD-DDS|X_RDY~output                                                                                  ; |PLD-DDS|X_RDY~output                                                                                  ; padio            ;
+; |PLD-DDS|X_OE~output                                                                                   ; |PLD-DDS|X_OE~output                                                                                   ; padio            ;
+; |PLD-DDS|X_WE~output                                                                                   ; |PLD-DDS|X_WE~output                                                                                   ; padio            ;
+; |PLD-DDS|X_D0~output                                                                                   ; |PLD-DDS|X_D0~output                                                                                   ; padio            ;
+; |PLD-DDS|X_RE~output                                                                                   ; |PLD-DDS|X_RE~output                                                                                   ; padio            ;
+; |PLD-DDS|X_D1~output                                                                                   ; |PLD-DDS|X_D1~output                                                                                   ; padio            ;
+; |PLD-DDS|X_D2~output                                                                                   ; |PLD-DDS|X_D2~output                                                                                   ; padio            ;
+; |PLD-DDS|X_D3~output                                                                                   ; |PLD-DDS|X_D3~output                                                                                   ; padio            ;
+; |PLD-DDS|X_D4~output                                                                                   ; |PLD-DDS|X_D4~output                                                                                   ; padio            ;
+; |PLD-DDS|X_D5~output                                                                                   ; |PLD-DDS|X_D5~output                                                                                   ; padio            ;
+; |PLD-DDS|X_D6~output                                                                                   ; |PLD-DDS|X_D6~output                                                                                   ; padio            ;
+; |PLD-DDS|X_D7~output                                                                                   ; |PLD-DDS|X_D7~output                                                                                   ; padio            ;
+; |PLD-DDS|X_BE0~output                                                                                  ; |PLD-DDS|X_BE0~output                                                                                  ; padio            ;
+; |PLD-DDS|X_BE1~output                                                                                  ; |PLD-DDS|X_BE1~output                                                                                  ; padio            ;
+; |PLD-DDS|X_BE2~output                                                                                  ; |PLD-DDS|X_BE2~output                                                                                  ; padio            ;
+; |PLD-DDS|X_BE3~output                                                                                  ; |PLD-DDS|X_BE3~output                                                                                  ; padio            ;
+; |PLD-DDS|X_A0/A2~output                                                                                ; |PLD-DDS|X_A0/A2~output                                                                                ; padio            ;
+; |PLD-DDS|X_A1/A3~output                                                                                ; |PLD-DDS|X_A1/A3~output                                                                                ; padio            ;
+; |PLD-DDS|X_A2/A4~output                                                                                ; |PLD-DDS|X_A2/A4~output                                                                                ; padio            ;
+; |PLD-DDS|X_A3/A5~output                                                                                ; |PLD-DDS|X_A3/A5~output                                                                                ; padio            ;
+; |PLD-DDS|REG_OE~output                                                                                 ; |PLD-DDS|REG_OE~output                                                                                 ; padio            ;
+; |PLD-DDS|ISR_TCK~output                                                                                ; |PLD-DDS|ISR_TCK~output                                                                                ; padio            ;
+; |PLD-DDS|ISR_TDI~output                                                                                ; |PLD-DDS|ISR_TDI~output                                                                                ; padio            ;
+; |PLD-DDS|ISR_TDO~output                                                                                ; |PLD-DDS|ISR_TDO~output                                                                                ; padio            ;
+; |PLD-DDS|ISR_TMS~output                                                                                ; |PLD-DDS|ISR_TMS~output                                                                                ; padio            ;
+; |PLD-DDS|D0~output                                                                                     ; |PLD-DDS|D0~output                                                                                     ; padio            ;
+; |PLD-DDS|D1~output                                                                                     ; |PLD-DDS|D1~output                                                                                     ; padio            ;
+; |PLD-DDS|D2~output                                                                                     ; |PLD-DDS|D2~output                                                                                     ; padio            ;
+; |PLD-DDS|D3~output                                                                                     ; |PLD-DDS|D3~output                                                                                     ; padio            ;
+; |PLD-DDS|D4~output                                                                                     ; |PLD-DDS|D4~output                                                                                     ; padio            ;
+; |PLD-DDS|D5~output                                                                                     ; |PLD-DDS|D5~output                                                                                     ; padio            ;
+; |PLD-DDS|D6~output                                                                                     ; |PLD-DDS|D6~output                                                                                     ; padio            ;
+; |PLD-DDS|D7~output                                                                                     ; |PLD-DDS|D7~output                                                                                     ; padio            ;
+; |PLD-DDS|BNC_OUT~output                                                                                ; |PLD-DDS|BNC_OUT~output                                                                                ; padio            ;
+; |PLD-DDS|X_INT/1~output                                                                                ; |PLD-DDS|X_INT/1~output                                                                                ; padio            ;
+; |PLD-DDS|X_TOUT0~output                                                                                ; |PLD-DDS|X_TOUT0~output                                                                                ; padio            ;
+; |PLD-DDS|X_PS~output                                                                                   ; |PLD-DDS|X_PS~output                                                                                   ; padio            ;
+; |PLD-DDS|X_IS~output                                                                                   ; |PLD-DDS|X_IS~output                                                                                   ; padio            ;
++--------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 5.1 Build 176 10/26/2005 SJ Web Edition
+    Info: Processing started: Fri Apr 14 16:49:41 2006
+Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off PLD-DDS -c PLD-DDS
+Info: Overwriting simulation input file with simulation results
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|ADC_DATA"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|SWITCH1"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|SWITCH2"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|SWITCH3"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|SWITCH4"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|BNC_IN"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|RESET"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_DS/CE2"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_MSTROB/CE3"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_RDY"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_OE"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_WE"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_D0"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_RE"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_D1"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_D2"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_D3"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_D4"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_D5"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_D6"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_D7"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_BE0"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_BE1"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_BE2"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_BE3"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_A0/A2"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_A1/A3"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_A2/A4"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_A3/A5"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|REG_OE"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|ISR_TCK"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|ISR_TDI"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|ISR_TDO"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|ISR_TMS"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|D0"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|D1"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|D2"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|D3"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|D4"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|D5"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|D6"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|D7"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|BNC_OUT"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_INT/1"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_TOUT0"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_PS"
+Warning: Can't find signal in vector source file for input pin "|PLD-DDS|X_IS"
+Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info: Simulation partitioned into 1 sub-simulations
+Info: Simulation coverage is      22.22 %
+Info: Number of transitions in simulation is 15994
+Info: Quartus II Simulator was successful. 0 errors, 47 warnings
+    Info: Processing ended: Fri Apr 14 16:49:43 2006
+    Info: Elapsed time: 00:00:02
+
+

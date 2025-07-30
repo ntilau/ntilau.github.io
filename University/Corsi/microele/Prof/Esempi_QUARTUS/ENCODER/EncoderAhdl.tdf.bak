@@ -1,0 +1,28 @@
+SUBDESIGN EncoderAhdl
+(
+	ToBeEncoded[15..0]				: INPUT = GND;
+	Encoded[3..0]					: OUTPUT;
+)
+
+BEGIN
+TABLE
+	ToBeEncoded				=> Encoded;
+
+	B"1xxxxxxxxxxxxxxx"		=>	B"1111";
+	B"01xxxxxxxxxxxxxx"		=>	B"1110";
+	B"001xxxxxxxxxxxxx"		=>	B"1101";
+	B"0001xxxxxxxxxxxx"		=>	B"1100";
+	B"00001xxxxxxxxxxx"		=>	B"1011";
+	B"000001xxxxxxxxxx"		=>	B"1010";
+	B"0000001xxxxxxxxx"		=>	B"1001";
+	B"00000001xxxxxxxx"		=>	B"1000";
+	B"000000001xxxxxxx"		=>	B"0111";
+	B"0000000001xxxxxx"		=>	B"0110";
+	B"00000000001xxxxx"		=>	B"0101";
+	B"000000000001xxxx"		=>	B"0100";
+	B"0000000000001xxx"		=>	B"0011";
+	B"00000000000001xx"		=>	B"0010";
+	B"000000000000001x"		=>	B"0001";
+	B"0000000000000001"		=>	B"0000";
+END TABLE;
+END;

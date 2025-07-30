@@ -1,0 +1,66 @@
+
+	EF - Experiment Framework
+
+Sommario----------------------------------------
+	1 - Requisiti di sistema
+	2 - Installazione
+	3 - Licenza
+
+1 ------------------------- Requisiti di Sistema
+
+  Un Mezzo di calcolo qualsiasi dotato di un
+  sistema operativo a piacere e del programma
+  Matlab (Mathworks Inc.) Versione 6
+
+  I codici sono stati testati con la release 12 e 13.
+
+2 -------------------------------- Installazione
+
+  Scompattare EF-#.#.#.zip In una directori a piacere
+  Verranno scompattati i file ef.m, ef.rc e una
+  directory API.
+
+  Procurarsi almeno un archivio
+
+  Ch##-<descrizione>-#.#.#.zip e scompattarlo
+  nella medesima directory. Verrà creata
+  una directory Ch##.
+
+3 ------------------------------------- Utilizzo
+
+  Lanciare Matlab, andare nella directory contenente
+  ef.m (cd /percorso/della/directory)
+
+  Lanciare ef.m con il comando
+
+  ef
+
+  Utilizzare i menù a tendina della finestra che appare.
+
+4 --------------------------------------- Licenza
+
+  Questo pacchetto è rilasciato sotto licenza GNU General Public License
+
+  Ogni File .zip dovrebbe contenere il file LICENSE.txt
+
+  Tale file è reperibile a
+
+  http://www.gnu.org/licenses/gpl.txt
+
+  Ogni singolo file contiene:
+
+% Copyright (C) 2001-2002-2003  Stefano Selleri
+%
+%This program is free software; you can redistribute it and/or
+%modify it under the terms of the GNU General Public License
+%as published by the Free Software Foundation; either version 2
+%of the License, or (at your option) any later version.
+%
+%This program is distributed in the hope that it will be useful,
+%but WITHOUT ANY WARRANTY; without even the implied warranty of
+%MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%GNU General Public License for more details.
+%
+%You should have received a copy of the GNU General Public License
+%along with this program; if not, write to the Free Software
+%Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.

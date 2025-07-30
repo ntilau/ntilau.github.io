@@ -1,0 +1,27 @@
+|TriState
+ena => comb~0.OE
+ena => comb~1.OE
+ena => comb~2.OE
+ena => comb~3.OE
+ena => comb~4.OE
+ena => comb~5.OE
+ena => comb~6.OE
+ena => comb~7.OE
+input[0] => comb~0.DATAIN
+input[1] => comb~1.DATAIN
+input[2] => comb~2.DATAIN
+input[3] => comb~3.DATAIN
+input[4] => comb~4.DATAIN
+input[5] => comb~5.DATAIN
+input[6] => comb~6.DATAIN
+input[7] => comb~7.DATAIN
+output[0] <= comb~0.DB_MAX_OUTPUT_PORT_TYPE
+output[1] <= comb~1.DB_MAX_OUTPUT_PORT_TYPE
+output[2] <= comb~2.DB_MAX_OUTPUT_PORT_TYPE
+output[3] <= comb~3.DB_MAX_OUTPUT_PORT_TYPE
+output[4] <= comb~4.DB_MAX_OUTPUT_PORT_TYPE
+output[5] <= comb~5.DB_MAX_OUTPUT_PORT_TYPE
+output[6] <= comb~6.DB_MAX_OUTPUT_PORT_TYPE
+output[7] <= comb~7.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,35 @@
+entity EncoderVHDL is
+	port
+	(
+		-- Input ports
+		ToBeEncoded	: in  	BIT_VECTOR(15 downto 0);
+		Encoded		: out  	INTEGER range 0 to 15
+	);
+end EncoderVHDL;
+
+architecture EncoderVHDL of EncoderVHDL is
+begin
+
+	process(ToBeEncoded) is
+		VARIABLE Temp : INTEGER := 0;
+	begin
+	
+		Temp := 0;
+
+		for Temp IN ToBeEncoded'RANGE LOOP
+			
+			if (ToBeEncoded(Temp) = '1') then
+				Encoded <= Temp;
+			end if;
+			
+			exit when (ToBeEncoded(Temp) = '1');
+
+		end loop;
+
+		if Temp = ToBeEncoded'low then
+			Encoded <= 10;
+		end if;
+
+	end process;
+
+end EncoderVHDL;

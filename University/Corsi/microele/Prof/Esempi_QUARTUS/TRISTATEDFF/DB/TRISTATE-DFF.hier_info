@@ -1,0 +1,17 @@
+|TRISTATEDFF
+IngressoTRI => Temp.DATAIN
+IngressoTRI => comb~0.DATAIN
+Enable => Temp.OE
+Enable => comb~0.OE
+UscitaTRI1 <= comb~0
+UscitaTRI2 <= TRISTATE~0
+IngressoFF => Temp2.DATAIN
+IngressoFF => UscitaFF1~reg0.DATAIN
+Clock => UscitaFF3~reg0.CLK
+Clock => Temp2.CLK
+Clock => UscitaFF1~reg0.CLK
+UscitaFF1 <= UscitaFF1~reg0.DB_MAX_OUTPUT_PORT_TYPE
+UscitaFF2 <= Temp2.DB_MAX_OUTPUT_PORT_TYPE
+UscitaFF3 <= UscitaFF3~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

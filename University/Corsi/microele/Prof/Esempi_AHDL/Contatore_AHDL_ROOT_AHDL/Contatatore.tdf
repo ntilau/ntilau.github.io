@@ -1,0 +1,25 @@
+TITLE "Contatore";
+
+INCLUDE "Counter.inc";
+
+SUBDESIGN Contatore
+(
+	CLOCK		: INPUT = GND;
+	ENA			: INPUT = GND;
+	RST			: INPUT = VCC;
+
+	VALUE[7..0]	: OUTPUT;
+)
+
+VARIABLE
+	PROVA : Counter;
+
+BEGIN
+
+	PROVA.CLOCK = CLOCK;
+	PROVA.ENA = ENA;
+	PROVA.RST = RST;
+
+	VALUE[] = PROVA.VALUE[];
+
+END;

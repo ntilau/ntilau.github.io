@@ -1,0 +1,896 @@
+-- Copyright (C) 1991-2005 Altera Corporation
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, Altera MegaCore Function License 
+-- Agreement, or other applicable license agreement, including, 
+-- without limitation, that your use is for the sole purpose of 
+-- programming logic devices manufactured by Altera and sold by 
+-- Altera or its authorized distributors.  Please refer to the 
+-- applicable agreement for further details.
+--A1L10 is CLK~4 at LC97
+A1L10_or_out = CLK;
+A1L10 = A1L10_or_out;
+
+
+--J1_dffs[15] is DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[15] at LC99
+J1_dffs[15]_p1_out = !B1_inst5 & !J1_dffs[14];
+J1_dffs[15]_or_out = J1_dffs[15]_p1_out;
+J1_dffs[15]_reg_input = !(J1_dffs[15]_or_out);
+J1_dffs[15] = DFFE(J1_dffs[15]_reg_input, GLOBAL(CLK), , , );
+
+
+--B1_inst5 is DAC-SERIALIZER:inst|inst5 at LC94
+B1_inst5_or_out = !B1_inst2;
+B1_inst5_reg_input = B1_inst5_or_out;
+B1_inst5_p4_out = K1_dffs[1] & K1_dffs[3] & K1_dffs[0] & K1_dffs[2];
+B1_inst5 = DFFE(B1_inst5_reg_input, GLOBAL(CLK), , !B1_inst5_p4_out, );
+
+
+--J1_dffs[14] is DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[14] at LC98
+J1_dffs[14]_p1_out = !B1_inst5 & J1_dffs[13];
+J1_dffs[14]_or_out = J1_dffs[14]_p1_out;
+J1_dffs[14]_reg_input = J1_dffs[14]_or_out;
+J1_dffs[14] = DFFE(J1_dffs[14]_reg_input, GLOBAL(CLK), , , );
+
+
+--B1_inst2 is DAC-SERIALIZER:inst|inst2 at LC96
+B1_inst2_or_out = VCC;
+B1_inst2_reg_input = B1_inst2_or_out;
+B1_inst2_p3_out = !K2_dffs[3] & !K2_dffs[1] & K2_dffs[0] & !K2_dffs[2] & K2_dffs[4];
+B1_inst2_p2_out = K1_dffs[1] & K1_dffs[3] & K1_dffs[0] & K1_dffs[2];
+B1_inst2 = DFFE(B1_inst2_reg_input, B1_inst2_p3_out, !B1_inst2_p2_out, , );
+
+
+--K1_dffs[3] is DAC-SERIALIZER:inst|lpm_counter0:inst1|lpm_counter:lpm_counter_component|dffs[3] at LC95
+K1_dffs[3]_p1_out = K1_dffs[2] & K1_dffs[1] & K1_dffs[0] & B1_inst8;
+K1_dffs[3]_p2_out = K1_dffs[2] & K1_dffs[1] & K1_dffs[0] & K1_dffs[3];
+K1_dffs[3]_or_out = K1_dffs[3]_p1_out # K1_dffs[3]_p2_out;
+K1_dffs[3]_reg_input = K1_dffs[3]_or_out;
+K1_dffs[3] = TFFE(K1_dffs[3]_reg_input, GLOBAL(CLK), , , );
+
+
+--K1_dffs[2] is DAC-SERIALIZER:inst|lpm_counter0:inst1|lpm_counter:lpm_counter_component|dffs[2] at LC92
+K1_dffs[2]_p1_out = K1_dffs[3] & K1_dffs[1] & K1_dffs[2] & K1_dffs[0];
+K1_dffs[2]_p2_out = K1_dffs[1] & K1_dffs[0] & B1_inst8;
+K1_dffs[2]_or_out = K1_dffs[2]_p1_out # K1_dffs[2]_p2_out;
+K1_dffs[2]_reg_input = K1_dffs[2]_or_out;
+K1_dffs[2] = TFFE(K1_dffs[2]_reg_input, GLOBAL(CLK), , , );
+
+
+--K1_dffs[1] is DAC-SERIALIZER:inst|lpm_counter0:inst1|lpm_counter:lpm_counter_component|dffs[1] at LC91
+K1_dffs[1]_p1_out = K1_dffs[3] & K1_dffs[2] & K1_dffs[0] & K1_dffs[1];
+K1_dffs[1]_p2_out = K1_dffs[0] & B1_inst8;
+K1_dffs[1]_or_out = K1_dffs[1]_p1_out # K1_dffs[1]_p2_out;
+K1_dffs[1]_reg_input = K1_dffs[1]_or_out;
+K1_dffs[1] = TFFE(K1_dffs[1]_reg_input, GLOBAL(CLK), , , );
+
+
+--K1_dffs[0] is DAC-SERIALIZER:inst|lpm_counter0:inst1|lpm_counter:lpm_counter_component|dffs[0] at LC90
+K1_dffs[0]_p1_out = K1_dffs[1] & K1_dffs[3] & K1_dffs[2] & K1_dffs[0];
+K1_dffs[0]_or_out = K1_dffs[0]_p1_out # B1_inst8;
+K1_dffs[0]_reg_input = K1_dffs[0]_or_out;
+K1_dffs[0] = TFFE(K1_dffs[0]_reg_input, GLOBAL(CLK), , , );
+
+
+--J1_dffs[13] is DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[13] at LC111
+J1_dffs[13]_p1_out = !B1_inst5 & J1_dffs[12];
+J1_dffs[13]_or_out = J1_dffs[13]_p1_out;
+J1_dffs[13]_reg_input = J1_dffs[13]_or_out;
+J1_dffs[13] = DFFE(J1_dffs[13]_reg_input, GLOBAL(CLK), , , );
+
+
+--K2_dffs[4] is lpm_counter2:inst3|lpm_counter:lpm_counter_component|dffs[4] at LC87
+K2_dffs[4]_p1_out = !K2_dffs[2] & !K2_dffs[1] & !K2_dffs[3] & K2_dffs[0] & K2_dffs[4];
+K2_dffs[4]_p2_out = K2_dffs[2] & K2_dffs[1] & K2_dffs[3] & K2_dffs[0];
+K2_dffs[4]_or_out = K2_dffs[4]_p1_out # K2_dffs[4]_p2_out;
+K2_dffs[4]_reg_input = K2_dffs[4]_or_out;
+K2_dffs[4] = TFFE(K2_dffs[4]_reg_input, GLOBAL(CLK), GLOBAL(RESET), , );
+
+
+--K2_dffs[3] is lpm_counter2:inst3|lpm_counter:lpm_counter_component|dffs[3] at LC86
+K2_dffs[3]_p1_out = K2_dffs[2] & K2_dffs[1] & K2_dffs[0];
+K2_dffs[3]_or_out = K2_dffs[3]_p1_out;
+K2_dffs[3]_reg_input = K2_dffs[3]_or_out;
+K2_dffs[3] = TFFE(K2_dffs[3]_reg_input, GLOBAL(CLK), GLOBAL(RESET), , );
+
+
+--K2_dffs[2] is lpm_counter2:inst3|lpm_counter:lpm_counter_component|dffs[2] at LC84
+K2_dffs[2]_p1_out = K2_dffs[1] & K2_dffs[0];
+K2_dffs[2]_or_out = K2_dffs[2]_p1_out;
+K2_dffs[2]_reg_input = K2_dffs[2]_or_out;
+K2_dffs[2] = TFFE(K2_dffs[2]_reg_input, GLOBAL(CLK), GLOBAL(RESET), , );
+
+
+--K2_dffs[1] is lpm_counter2:inst3|lpm_counter:lpm_counter_component|dffs[1] at LC83
+K2_dffs[1]_p1_out = !K2_dffs[3] & !K2_dffs[2] & K2_dffs[4] & !K2_dffs[1];
+K2_dffs[1]_or_out = K2_dffs[1]_p1_out # !K2_dffs[0];
+K2_dffs[1]_reg_input = !K2_dffs[1]_or_out;
+K2_dffs[1] = TFFE(K2_dffs[1]_reg_input, GLOBAL(CLK), GLOBAL(RESET), , );
+
+
+--K2_dffs[0] is lpm_counter2:inst3|lpm_counter:lpm_counter_component|dffs[0] at LC108
+K2_dffs[0]_reg_input = VCC;
+K2_dffs[0] = TFFE(K2_dffs[0]_reg_input, GLOBAL(CLK), GLOBAL(RESET), , );
+
+
+--B1_inst8 is DAC-SERIALIZER:inst|inst8 at LC82
+B1_inst8_or_out = !B1_inst5;
+B1_inst8_reg_input = B1_inst8_or_out;
+B1_inst8_p2_out = K1_dffs[1] & K1_dffs[3] & K1_dffs[0] & K1_dffs[2];
+B1_inst8 = DFFE(B1_inst8_reg_input, GLOBAL(CLK), !B1_inst8_p2_out, , );
+
+
+--J1_dffs[12] is DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[12] at LC106
+J1_dffs[12]_p1_out = !B1_inst5 & J1_dffs[11];
+J1_dffs[12]_or_out = J1_dffs[12]_p1_out;
+J1_dffs[12]_reg_input = J1_dffs[12]_or_out;
+J1_dffs[12] = DFFE(J1_dffs[12]_reg_input, GLOBAL(CLK), , , );
+
+
+--J1_dffs[11] is DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[11] at LC105
+J1_dffs[11]_p1_out = !B1_inst5 & !J1_dffs[10];
+J1_dffs[11]_or_out = J1_dffs[11]_p1_out;
+J1_dffs[11]_reg_input = !(J1_dffs[11]_or_out);
+J1_dffs[11] = DFFE(J1_dffs[11]_reg_input, GLOBAL(CLK), , , );
+
+
+--J1_dffs[10] is DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[10] at LC104
+J1_dffs[10]_p1_out = !B1_inst5 & J1_dffs[9];
+J1_dffs[10]_or_out = J1_dffs[10]_p1_out;
+J1_dffs[10]_reg_input = J1_dffs[10]_or_out;
+J1_dffs[10] = DFFE(J1_dffs[10]_reg_input, GLOBAL(CLK), , , );
+
+
+--J1_dffs[9] is DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[9] at LC103
+J1_dffs[9]_p1_out = !B1_inst5 & !J1_dffs[8];
+J1_dffs[9]_or_out = J1_dffs[9]_p1_out;
+J1_dffs[9]_reg_input = !(J1_dffs[9]_or_out);
+J1_dffs[9] = DFFE(J1_dffs[9]_reg_input, GLOBAL(CLK), , , );
+
+
+--J1_dffs[8] is DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[8] at LC102
+J1_dffs[8]_p1_out = !B1_inst5 & J1_dffs[7];
+J1_dffs[8]_or_out = J1_dffs[8]_p1_out;
+J1_dffs[8]_reg_input = J1_dffs[8]_or_out;
+J1_dffs[8] = DFFE(J1_dffs[8]_reg_input, GLOBAL(CLK), , , );
+
+
+--J1_dffs[7] is DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[7] at LC101
+J1_dffs[7]_p1_out = !B1_inst5 & !J1_dffs[6];
+J1_dffs[7]_or_out = J1_dffs[7]_p1_out;
+J1_dffs[7]_reg_input = !(J1_dffs[7]_or_out);
+J1_dffs[7] = DFFE(J1_dffs[7]_reg_input, GLOBAL(CLK), , , );
+
+
+--J1_dffs[6] is DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[6] at LC100
+J1_dffs[6]_p1_out = !B1_inst5 & J1_dffs[5];
+J1_dffs[6]_or_out = J1_dffs[6]_p1_out;
+J1_dffs[6]_reg_input = J1_dffs[6]_or_out;
+J1_dffs[6] = DFFE(J1_dffs[6]_reg_input, GLOBAL(CLK), , , );
+
+
+--J1_dffs[5] is DAC-SERIALIZER:inst|lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[5] at LC81
+J1_dffs[5]_or_out = B1_inst5;
+J1_dffs[5]_reg_input = J1_dffs[5]_or_out;
+J1_dffs[5] = DFFE(J1_dffs[5]_reg_input, GLOBAL(CLK), , , );
+
+
+--~GND~0 is ~GND~0 at LC126
+~GND~0_or_out = GND;
+~GND~0 = ~GND~0_or_out;
+
+
+--~GND~1 is ~GND~1 at LC93
+~GND~1_or_out = GND;
+~GND~1 = ~GND~1_or_out;
+
+
+--~GND~2 is ~GND~2 at LC89
+~GND~2_or_out = GND;
+~GND~2 = ~GND~2_or_out;
+
+
+--~VCC~0 is ~VCC~0 at LC85
+~VCC~0_or_out = GND;
+~VCC~0 = !(~VCC~0_or_out);
+
+
+--~GND~3 is ~GND~3 at LC88
+~GND~3_or_out = GND;
+~GND~3 = ~GND~3_or_out;
+
+
+--~GND~4 is ~GND~4 at LC77
+~GND~4_or_out = GND;
+~GND~4 = ~GND~4_or_out;
+
+
+--~GND~5 is ~GND~5 at LC75
+~GND~5_or_out = GND;
+~GND~5 = ~GND~5_or_out;
+
+
+--~GND~6 is ~GND~6 at LC73
+~GND~6_or_out = GND;
+~GND~6 = ~GND~6_or_out;
+
+
+--~GND~7 is ~GND~7 at LC72
+~GND~7_or_out = GND;
+~GND~7 = ~GND~7_or_out;
+
+
+--~GND~8 is ~GND~8 at LC70
+~GND~8_or_out = GND;
+~GND~8 = ~GND~8_or_out;
+
+
+--~GND~9 is ~GND~9 at LC69
+~GND~9_or_out = GND;
+~GND~9 = ~GND~9_or_out;
+
+
+--~GND~10 is ~GND~10 at LC67
+~GND~10_or_out = GND;
+~GND~10 = ~GND~10_or_out;
+
+
+--~GND~11 is ~GND~11 at LC65
+~GND~11_or_out = GND;
+~GND~11 = ~GND~11_or_out;
+
+
+--~VCC~1 is ~VCC~1 at LC125
+~VCC~1_or_out = GND;
+~VCC~1 = !(~VCC~1_or_out);
+
+
+--~VCC~2 is ~VCC~2 at LC123
+~VCC~2_or_out = GND;
+~VCC~2 = !(~VCC~2_or_out);
+
+
+--~VCC~3 is ~VCC~3 at LC29
+~VCC~3_or_out = GND;
+~VCC~3 = !(~VCC~3_or_out);
+
+
+--~VCC~4 is ~VCC~4 at LC25
+~VCC~4_or_out = GND;
+~VCC~4 = !(~VCC~4_or_out);
+
+
+--~VCC~5 is ~VCC~5 at LC24
+~VCC~5_or_out = GND;
+~VCC~5 = !(~VCC~5_or_out);
+
+
+--~VCC~6 is ~VCC~6 at LC22
+~VCC~6_or_out = GND;
+~VCC~6 = !(~VCC~6_or_out);
+
+
+--~VCC~7 is ~VCC~7 at LC21
+~VCC~7_or_out = GND;
+~VCC~7 = !(~VCC~7_or_out);
+
+
+--~VCC~8 is ~VCC~8 at LC19
+~VCC~8_or_out = GND;
+~VCC~8 = !(~VCC~8_or_out);
+
+
+--~VCC~9 is ~VCC~9 at LC17
+~VCC~9_or_out = GND;
+~VCC~9 = !(~VCC~9_or_out);
+
+
+--~VCC~10 is ~VCC~10 at LC46
+~VCC~10_or_out = GND;
+~VCC~10 = !(~VCC~10_or_out);
+
+
+--~VCC~11 is ~VCC~11 at LC45
+~VCC~11_or_out = GND;
+~VCC~11 = !(~VCC~11_or_out);
+
+
+--~VCC~12 is ~VCC~12 at LC43
+~VCC~12_or_out = GND;
+~VCC~12 = !(~VCC~12_or_out);
+
+
+--~VCC~13 is ~VCC~13 at LC41
+~VCC~13_or_out = GND;
+~VCC~13 = !(~VCC~13_or_out);
+
+
+--~VCC~14 is ~VCC~14 at LC40
+~VCC~14_or_out = GND;
+~VCC~14 = !(~VCC~14_or_out);
+
+
+--~VCC~15 is ~VCC~15 at LC37
+~VCC~15_or_out = GND;
+~VCC~15 = !(~VCC~15_or_out);
+
+
+--~VCC~16 is ~VCC~16 at LC33
+~VCC~16_or_out = GND;
+~VCC~16 = !(~VCC~16_or_out);
+
+
+--~VCC~17 is ~VCC~17 at LC61
+~VCC~17_or_out = GND;
+~VCC~17 = !(~VCC~17_or_out);
+
+
+--~VCC~18 is ~VCC~18 at LC59
+~VCC~18_or_out = GND;
+~VCC~18 = !(~VCC~18_or_out);
+
+
+--~VCC~19 is ~VCC~19 at LC57
+~VCC~19_or_out = GND;
+~VCC~19 = !(~VCC~19_or_out);
+
+
+--~VCC~20 is ~VCC~20 at LC56
+~VCC~20_or_out = GND;
+~VCC~20 = !(~VCC~20_or_out);
+
+
+--~VCC~21 is ~VCC~21 at LC54
+~VCC~21_or_out = GND;
+~VCC~21 = !(~VCC~21_or_out);
+
+
+--~VCC~22 is ~VCC~22 at LC53
+~VCC~22_or_out = GND;
+~VCC~22 = !(~VCC~22_or_out);
+
+
+--~VCC~23 is ~VCC~23 at LC51
+~VCC~23_or_out = GND;
+~VCC~23 = !(~VCC~23_or_out);
+
+
+--~VCC~24 is ~VCC~24 at LC49
+~VCC~24_or_out = GND;
+~VCC~24 = !(~VCC~24_or_out);
+
+
+--~VCC~25 is ~VCC~25 at LC5
+~VCC~25_or_out = GND;
+~VCC~25 = !(~VCC~25_or_out);
+
+
+--~VCC~26 is ~VCC~26 at LC110
+~VCC~26_or_out = GND;
+~VCC~26 = !(~VCC~26_or_out);
+
+
+--~VCC~27 is ~VCC~27 at LC107
+~VCC~27_or_out = GND;
+~VCC~27 = !(~VCC~27_or_out);
+
+
+--~VCC~28 is ~VCC~28 at LC1
+~VCC~28_or_out = GND;
+~VCC~28 = !(~VCC~28_or_out);
+
+
+--~VCC~29 is ~VCC~29 at LC3
+~VCC~29_or_out = GND;
+~VCC~29 = !(~VCC~29_or_out);
+
+
+--~VCC~30 is ~VCC~30 at LC6
+~VCC~30_or_out = GND;
+~VCC~30 = !(~VCC~30_or_out);
+
+
+--~VCC~31 is ~VCC~31 at LC8
+~VCC~31_or_out = GND;
+~VCC~31 = !(~VCC~31_or_out);
+
+
+--~VCC~32 is ~VCC~32 at LC9
+~VCC~32_or_out = GND;
+~VCC~32 = !(~VCC~32_or_out);
+
+
+--~VCC~33 is ~VCC~33 at LC11
+~VCC~33_or_out = GND;
+~VCC~33 = !(~VCC~33_or_out);
+
+
+--~VCC~34 is ~VCC~34 at LC13
+~VCC~34_or_out = GND;
+~VCC~34 = !(~VCC~34_or_out);
+
+
+--~VCC~35 is ~VCC~35 at LC14
+~VCC~35_or_out = GND;
+~VCC~35 = !(~VCC~35_or_out);
+
+
+--~VCC~36 is ~VCC~36 at LC16
+~VCC~36_or_out = GND;
+~VCC~36 = !(~VCC~36_or_out);
+
+
+--~VCC~37 is ~VCC~37 at LC128
+~VCC~37_or_out = GND;
+~VCC~37 = !(~VCC~37_or_out);
+
+
+--~VCC~38 is ~VCC~38 at LC121
+~VCC~38_or_out = GND;
+~VCC~38 = !(~VCC~38_or_out);
+
+
+--~VCC~39 is ~VCC~39 at LC113
+~VCC~39_or_out = GND;
+~VCC~39 = !(~VCC~39_or_out);
+
+
+--~VCC~40 is ~VCC~40 at LC109
+~VCC~40_or_out = GND;
+~VCC~40 = !(~VCC~40_or_out);
+
+
+--~VCC~41 is ~VCC~41 at LC120
+~VCC~41_or_out = GND;
+~VCC~41 = !(~VCC~41_or_out);
+
+
+--~VCC~42 is ~VCC~42 at LC115
+~VCC~42_or_out = GND;
+~VCC~42 = !(~VCC~42_or_out);
+
+
+--ADC_DATA is ADC_DATA at PIN_58
+--operation mode is input
+
+ADC_DATA = INPUT();
+
+
+--SWITCH1 is SWITCH1 at PIN_69
+--operation mode is input
+
+SWITCH1 = INPUT();
+
+
+--SWITCH2 is SWITCH2 at PIN_68
+--operation mode is input
+
+SWITCH2 = INPUT();
+
+
+--SWITCH3 is SWITCH3 at PIN_67
+--operation mode is input
+
+SWITCH3 = INPUT();
+
+
+--SWITCH4 is SWITCH4 at PIN_65
+--operation mode is input
+
+SWITCH4 = INPUT();
+
+
+--BNC_IN is BNC_IN at PIN_90
+--operation mode is input
+
+BNC_IN = INPUT();
+
+
+--CLK is CLK at PIN_87
+--operation mode is input
+
+CLK = INPUT();
+
+
+--RESET is RESET at PIN_89
+--operation mode is input
+
+RESET = INPUT();
+
+
+--CLK_REG is CLK_REG at PIN_84
+--operation mode is output
+
+CLK_REG = OUTPUT(~GND~0);
+
+
+--DAC_DATA is DAC_DATA at PIN_64
+--operation mode is output
+
+DAC_DATA = OUTPUT(J1_dffs[15]);
+
+
+--DAC_CLOCK is DAC_CLOCK at PIN_63
+--operation mode is output
+
+DAC_CLOCK = OUTPUT(A1L10);
+
+
+--DAC_FS is DAC_FS at PIN_61
+--operation mode is output
+
+DAC_FS = OUTPUT(B1_inst5);
+
+
+--ADC_CS is ADC_CS at PIN_60
+--operation mode is output
+
+ADC_CS = OUTPUT(~GND~1);
+
+
+--ADC_CLOCK is ADC_CLOCK at PIN_57
+--operation mode is output
+
+ADC_CLOCK = OUTPUT(~GND~2);
+
+
+--T1 is T1 at PIN_54
+--operation mode is output
+
+T1 = OUTPUT(~VCC~0);
+
+
+--T2 is T2 at PIN_56
+--operation mode is output
+
+T2 = OUTPUT(~GND~3);
+
+
+--DISP_E is DISP_E at PIN_48
+--operation mode is output
+
+DISP_E = OUTPUT(~GND~4);
+
+
+--DISP_D is DISP_D at PIN_47
+--operation mode is output
+
+DISP_D = OUTPUT(~GND~5);
+
+
+--DISP_C is DISP_C at PIN_46
+--operation mode is output
+
+DISP_C = OUTPUT(~GND~6);
+
+
+--DISP_DP is DISP_DP at PIN_45
+--operation mode is output
+
+DISP_DP = OUTPUT(~GND~7);
+
+
+--DISP_B is DISP_B at PIN_44
+--operation mode is output
+
+DISP_B = OUTPUT(~GND~8);
+
+
+--DISP_A is DISP_A at PIN_42
+--operation mode is output
+
+DISP_A = OUTPUT(~GND~9);
+
+
+--DISP_G is DISP_G at PIN_41
+--operation mode is output
+
+DISP_G = OUTPUT(~GND~10);
+
+
+--DISP_F is DISP_F at PIN_40
+--operation mode is output
+
+DISP_F = OUTPUT(~GND~11);
+
+
+--BUF_OE1 is BUF_OE1 at PIN_83
+--operation mode is output
+
+BUF_OE1 = OUTPUT(~VCC~1);
+
+
+--BUF_DIR is BUF_DIR at PIN_81
+--operation mode is output
+
+BUF_DIR = OUTPUT(~VCC~2);
+
+
+--X_DS/CE2 is X_DS/CE2 at PIN_6
+--operation mode is bidir
+
+X_DS/CE2_open_drain_out = OPNDRN(~VCC~3);
+X_DS/CE2 = BIDIR(X_DS/CE2_open_drain_out);
+
+
+--X_MSTROB/CE3 is X_MSTROB/CE3 at PIN_8
+--operation mode is bidir
+
+X_MSTROB/CE3_open_drain_out = OPNDRN(~VCC~4);
+X_MSTROB/CE3 = BIDIR(X_MSTROB/CE3_open_drain_out);
+
+
+--X_RDY is X_RDY at PIN_9
+--operation mode is bidir
+
+X_RDY_open_drain_out = OPNDRN(~VCC~5);
+X_RDY = BIDIR(X_RDY_open_drain_out);
+
+
+--X_OE is X_OE at PIN_10
+--operation mode is bidir
+
+X_OE_open_drain_out = OPNDRN(~VCC~6);
+X_OE = BIDIR(X_OE_open_drain_out);
+
+
+--X_WE is X_WE at PIN_12
+--operation mode is bidir
+
+X_WE_open_drain_out = OPNDRN(~VCC~7);
+X_WE = BIDIR(X_WE_open_drain_out);
+
+
+--X_D0 is X_D0 at PIN_13
+--operation mode is bidir
+
+X_D0_open_drain_out = OPNDRN(~VCC~8);
+X_D0 = BIDIR(X_D0_open_drain_out);
+
+
+--X_RE is X_RE at PIN_14
+--operation mode is bidir
+
+X_RE_open_drain_out = OPNDRN(~VCC~9);
+X_RE = BIDIR(X_RE_open_drain_out);
+
+
+--X_D1 is X_D1 at PIN_16
+--operation mode is bidir
+
+X_D1_open_drain_out = OPNDRN(~VCC~10);
+X_D1 = BIDIR(X_D1_open_drain_out);
+
+
+--X_D2 is X_D2 at PIN_17
+--operation mode is bidir
+
+X_D2_open_drain_out = OPNDRN(~VCC~11);
+X_D2 = BIDIR(X_D2_open_drain_out);
+
+
+--X_D3 is X_D3 at PIN_19
+--operation mode is bidir
+
+X_D3_open_drain_out = OPNDRN(~VCC~12);
+X_D3 = BIDIR(X_D3_open_drain_out);
+
+
+--X_D4 is X_D4 at PIN_20
+--operation mode is bidir
+
+X_D4_open_drain_out = OPNDRN(~VCC~13);
+X_D4 = BIDIR(X_D4_open_drain_out);
+
+
+--X_D5 is X_D5 at PIN_21
+--operation mode is bidir
+
+X_D5_open_drain_out = OPNDRN(~VCC~14);
+X_D5 = BIDIR(X_D5_open_drain_out);
+
+
+--X_D6 is X_D6 at PIN_23
+--operation mode is bidir
+
+X_D6_open_drain_out = OPNDRN(~VCC~15);
+X_D6 = BIDIR(X_D6_open_drain_out);
+
+
+--X_D7 is X_D7 at PIN_25
+--operation mode is bidir
+
+X_D7_open_drain_out = OPNDRN(~VCC~16);
+X_D7 = BIDIR(X_D7_open_drain_out);
+
+
+--X_BE0 is X_BE0 at PIN_29
+--operation mode is bidir
+
+X_BE0_open_drain_out = OPNDRN(~VCC~17);
+X_BE0 = BIDIR(X_BE0_open_drain_out);
+
+
+--X_BE1 is X_BE1 at PIN_30
+--operation mode is bidir
+
+X_BE1_open_drain_out = OPNDRN(~VCC~18);
+X_BE1 = BIDIR(X_BE1_open_drain_out);
+
+
+--X_BE2 is X_BE2 at PIN_31
+--operation mode is bidir
+
+X_BE2_open_drain_out = OPNDRN(~VCC~19);
+X_BE2 = BIDIR(X_BE2_open_drain_out);
+
+
+--X_BE3 is X_BE3 at PIN_32
+--operation mode is bidir
+
+X_BE3_open_drain_out = OPNDRN(~VCC~20);
+X_BE3 = BIDIR(X_BE3_open_drain_out);
+
+
+--X_A0/A2 is X_A0/A2 at PIN_33
+--operation mode is bidir
+
+X_A0/A2_open_drain_out = OPNDRN(~VCC~21);
+X_A0/A2 = BIDIR(X_A0/A2_open_drain_out);
+
+
+--X_A1/A3 is X_A1/A3 at PIN_35
+--operation mode is bidir
+
+X_A1/A3_open_drain_out = OPNDRN(~VCC~22);
+X_A1/A3 = BIDIR(X_A1/A3_open_drain_out);
+
+
+--X_A2/A4 is X_A2/A4 at PIN_36
+--operation mode is bidir
+
+X_A2/A4_open_drain_out = OPNDRN(~VCC~23);
+X_A2/A4 = BIDIR(X_A2/A4_open_drain_out);
+
+
+--X_A3/A5 is X_A3/A5 at PIN_37
+--operation mode is bidir
+
+X_A3/A5_open_drain_out = OPNDRN(~VCC~24);
+X_A3/A5 = BIDIR(X_A3/A5_open_drain_out);
+
+
+--REG_OE is REG_OE at PIN_100
+--operation mode is bidir
+
+REG_OE_tri_out = TRI(~VCC~25, VCC);
+REG_OE = BIDIR(REG_OE_tri_out);
+
+
+--ISR_TCK is ISR_TCK at PIN_72
+--operation mode is bidir
+
+ISR_TCK_open_drain_out = OPNDRN(~VCC~26);
+ISR_TCK = BIDIR(ISR_TCK_open_drain_out);
+
+
+--ISR_TDI is ISR_TDI at PIN_70
+--operation mode is bidir
+
+ISR_TDI_open_drain_out = OPNDRN(~VCC~27);
+ISR_TDI = BIDIR(ISR_TDI_open_drain_out);
+
+
+--ISR_TDO is ISR_TDO at PIN_2
+--operation mode is bidir
+
+ISR_TDO_open_drain_out = OPNDRN(~VCC~28);
+ISR_TDO = BIDIR(ISR_TDO_open_drain_out);
+
+
+--ISR_TMS is ISR_TMS at PIN_1
+--operation mode is bidir
+
+ISR_TMS_open_drain_out = OPNDRN(~VCC~29);
+ISR_TMS = BIDIR(ISR_TMS_open_drain_out);
+
+
+--D0 is D0 at PIN_99
+--operation mode is bidir
+
+D0_open_drain_out = OPNDRN(~VCC~30);
+D0 = BIDIR(D0_open_drain_out);
+
+
+--D1 is D1 at PIN_98
+--operation mode is bidir
+
+D1_open_drain_out = OPNDRN(~VCC~31);
+D1 = BIDIR(D1_open_drain_out);
+
+
+--D2 is D2 at PIN_97
+--operation mode is bidir
+
+D2_open_drain_out = OPNDRN(~VCC~32);
+D2 = BIDIR(D2_open_drain_out);
+
+
+--D3 is D3 at PIN_96
+--operation mode is bidir
+
+D3_open_drain_out = OPNDRN(~VCC~33);
+D3 = BIDIR(D3_open_drain_out);
+
+
+--D4 is D4 at PIN_94
+--operation mode is bidir
+
+D4_open_drain_out = OPNDRN(~VCC~34);
+D4 = BIDIR(D4_open_drain_out);
+
+
+--D5 is D5 at PIN_93
+--operation mode is bidir
+
+D5_open_drain_out = OPNDRN(~VCC~35);
+D5 = BIDIR(D5_open_drain_out);
+
+
+--D6 is D6 at PIN_92
+--operation mode is bidir
+
+D6_open_drain_out = OPNDRN(~VCC~36);
+D6 = BIDIR(D6_open_drain_out);
+
+
+--D7 is D7 at PIN_85
+--operation mode is bidir
+
+D7_open_drain_out = OPNDRN(~VCC~37);
+D7 = BIDIR(D7_open_drain_out);
+
+
+--BNC_OUT is BNC_OUT at PIN_80
+--operation mode is bidir
+
+BNC_OUT_open_drain_out = OPNDRN(~VCC~38);
+BNC_OUT = BIDIR(BNC_OUT_open_drain_out);
+
+
+--X_INT/1 is X_INT/1 at PIN_75
+--operation mode is bidir
+
+X_INT/1_open_drain_out = OPNDRN(~VCC~39);
+X_INT/1 = BIDIR(X_INT/1_open_drain_out);
+
+
+--X_TOUT0 is X_TOUT0 at PIN_71
+--operation mode is bidir
+
+X_TOUT0_open_drain_out = OPNDRN(~VCC~40);
+X_TOUT0 = BIDIR(X_TOUT0_open_drain_out);
+
+
+--X_PS is X_PS at PIN_79
+--operation mode is bidir
+
+X_PS_open_drain_out = OPNDRN(~VCC~41);
+X_PS = BIDIR(X_PS_open_drain_out);
+
+
+--X_IS is X_IS at PIN_76
+--operation mode is bidir
+
+X_IS_open_drain_out = OPNDRN(~VCC~42);
+X_IS = BIDIR(X_IS_open_drain_out);
+
+
+
+
+
+

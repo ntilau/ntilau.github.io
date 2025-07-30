@@ -1,0 +1,296 @@
+Simulator report for VHDLProcess
+Tue Jun 10 20:13:59 2008
+Quartus II Version 6.1 Build 201 11/27/2006 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------+
+; Simulator Summary                              ;
++-----------------------------+------------------+
+; Type                        ; Value            ;
++-----------------------------+------------------+
+; Simulation Start Time       ; 0 ps             ;
+; Simulation End Time         ; 1.0 us           ;
+; Simulation Netlist Size     ; 91 nodes         ;
+; Simulation Coverage         ;      50.00 %     ;
+; Total Number of Transitions ; 2103             ;
+; Simulation Breakpoints      ; 0                ;
+; Family                      ; MAX7000AE        ;
+; Device                      ; EPM7064AELC44-10 ;
++-----------------------------+------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                      ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Option                                                                                     ; Setting    ; Default Value ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Simulation mode                                                                            ; Timing     ; Timing        ;
+; Start time                                                                                 ; 0 ns       ; 0 ns          ;
+; Simulation results format                                                                  ; CVWF       ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On         ; On            ;
+; Check outputs                                                                              ; Off        ; Off           ;
+; Report simulation coverage                                                                 ; On         ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On         ; On            ;
+; Display missing 1-value coverage report                                                    ; On         ; On            ;
+; Display missing 0-value coverage report                                                    ; On         ; On            ;
+; Detect setup and hold time violations                                                      ; Off        ; Off           ;
+; Detect glitches                                                                            ; Off        ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off        ; Off           ;
+; Generate Signal Activity File                                                              ; Off        ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off        ; Off           ;
+; Group bus channels in simulation results                                                   ; Off        ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On         ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off        ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; On         ;               ;
+; Glitch Filtering                                                                           ; Off        ; Off           ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      50.00 % ;
+; Total nodes checked                                 ; 91           ;
+; Total output ports checked                          ; 90           ;
+; Total output ports with complete 1/0-value coverage ; 45           ;
+; Total output ports with no 1/0-value coverage       ; 43           ;
+; Total output ports with no 1-value coverage         ; 44           ;
+; Total output ports with no 0-value coverage         ; 44           ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                                                                                                                                ;
++------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+------------------+
+; Node Name                                                                          ; Output Port Name                                                                   ; Output Port Type ;
++------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+------------------+
+; |VHDLProcess|lpm_add_sub:Add3|addcore:adder|addcore:adder[0]|gs[1]~0               ; |VHDLProcess|lpm_add_sub:Add3|addcore:adder|addcore:adder[0]|gs[1]~0               ; dataout          ;
+; |VHDLProcess|Add2~394                                                              ; |VHDLProcess|Add2~394                                                              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add3|addcore:adder|addcore:adder[0]|ps[2]~93              ; |VHDLProcess|lpm_add_sub:Add3|addcore:adder|addcore:adder[0]|ps[2]~93              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add3|addcore:adder|addcore:adder[0]|gn[1]~100             ; |VHDLProcess|lpm_add_sub:Add3|addcore:adder|addcore:adder[0]|gn[1]~100             ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add6|addcore:adder|addcore:adder[0]|ps[3]~20              ; |VHDLProcess|lpm_add_sub:Add6|addcore:adder|addcore:adder[0]|ps[3]~20              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add6|addcore:adder|addcore:adder[0]|ps[3]~21              ; |VHDLProcess|lpm_add_sub:Add6|addcore:adder|addcore:adder[0]|ps[3]~21              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add6|addcore:adder|addcore:adder[0]|ps[3]~22              ; |VHDLProcess|lpm_add_sub:Add6|addcore:adder|addcore:adder[0]|ps[3]~22              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add6|addcore:adder|addcore:adder[0]|ps[3]~23              ; |VHDLProcess|lpm_add_sub:Add6|addcore:adder|addcore:adder[0]|ps[3]~23              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add6|addcore:adder|addcore:adder[0]|ps[3]~24              ; |VHDLProcess|lpm_add_sub:Add6|addcore:adder|addcore:adder[0]|ps[3]~24              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add6|addcore:adder|addcore:adder[0]|ps[3]~25              ; |VHDLProcess|lpm_add_sub:Add6|addcore:adder|addcore:adder[0]|ps[3]~25              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add6|addcore:adder|a_csnbuffer:result_node|sout_node[1]~7 ; |VHDLProcess|lpm_add_sub:Add6|addcore:adder|a_csnbuffer:result_node|sout_node[1]~7 ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[2]~8               ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[2]~8               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[2]~9               ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[2]~9               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[2]~10              ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[2]~10              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[2]~11              ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[2]~11              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[2]~13              ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[2]~13              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[3]~35              ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[3]~35              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[3]~36              ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[3]~36              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|ps[4]~27              ; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|ps[4]~27              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|ps[4]~28              ; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|ps[4]~28              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|a_csnbuffer:result_node|sout_node[1]~7 ; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|a_csnbuffer:result_node|sout_node[1]~7 ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|gc[2]~27              ; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|gc[2]~27              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|ps[2]~13              ; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|ps[2]~13              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|ps[3]~30              ; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|ps[3]~30              ; dataout          ;
+; |VHDLProcess|OUT3~reg0                                                             ; |VHDLProcess|OUT3~reg0                                                             ; dataout          ;
+; |VHDLProcess|LessThan0~92                                                          ; |VHDLProcess|LessThan0~92                                                          ; dataout          ;
+; |VHDLProcess|OUT2~reg0                                                             ; |VHDLProcess|OUT2~reg0                                                             ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add3|addcore:adder|addcore:adder[0]|gs[1]~7               ; |VHDLProcess|lpm_add_sub:Add3|addcore:adder|addcore:adder[0]|gs[1]~7               ; pexpout          ;
+; |VHDLProcess|Add2~401                                                              ; |VHDLProcess|Add2~401                                                              ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add3|addcore:adder|addcore:adder[0]|ps[2]~94              ; |VHDLProcess|lpm_add_sub:Add3|addcore:adder|addcore:adder[0]|ps[2]~94              ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add3|addcore:adder|addcore:adder[0]|gn[1]~107             ; |VHDLProcess|lpm_add_sub:Add3|addcore:adder|addcore:adder[0]|gn[1]~107             ; pexpout          ;
+; |VHDLProcess|LessThan0~104                                                         ; |VHDLProcess|LessThan0~104                                                         ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|ps[3]~24bal           ; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|ps[3]~24bal           ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|ps[2]~8bal            ; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|ps[2]~8bal            ; dataout          ;
+; |VHDLProcess|A                                                                     ; |VHDLProcess|A                                                                     ; dataout          ;
+; |VHDLProcess|Vettore[0]                                                            ; |VHDLProcess|Vettore[0]                                                            ; dataout          ;
+; |VHDLProcess|Vettore[1]                                                            ; |VHDLProcess|Vettore[1]                                                            ; dataout          ;
+; |VHDLProcess|Vettore[2]                                                            ; |VHDLProcess|Vettore[2]                                                            ; dataout          ;
+; |VHDLProcess|Vettore[3]                                                            ; |VHDLProcess|Vettore[3]                                                            ; dataout          ;
+; |VHDLProcess|Vettore[4]                                                            ; |VHDLProcess|Vettore[4]                                                            ; dataout          ;
+; |VHDLProcess|Vettore[5]                                                            ; |VHDLProcess|Vettore[5]                                                            ; dataout          ;
+; |VHDLProcess|OUT3                                                                  ; |VHDLProcess|OUT3                                                                  ; padio            ;
+; |VHDLProcess|OUT2                                                                  ; |VHDLProcess|OUT2                                                                  ; padio            ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[3]~64              ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[3]~64              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add6|addcore:adder|addcore:adder[0]|ps[3]~31              ; |VHDLProcess|lpm_add_sub:Add6|addcore:adder|addcore:adder[0]|ps[3]~31              ; dataout          ;
++------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                                                                                                                                     ;
++-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+------------------+
+; Node Name                                                                           ; Output Port Name                                                                    ; Output Port Type ;
++-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+------------------+
+; |VHDLProcess|OUT1~9                                                                 ; |VHDLProcess|OUT1~9                                                                 ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|gs[1]~0                ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|gs[1]~0                ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[2]~12               ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[2]~12               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[3]~34               ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[3]~34               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|gn[1]~14               ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|gn[1]~14               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|gc[2]~29               ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|gc[2]~29               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|ps[4]~30               ; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|ps[4]~30               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|ps[4]~32               ; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|ps[4]~32               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|gc[2]~26               ; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|gc[2]~26               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|gc[2]~33               ; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|gc[2]~33               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|gs[1]~0                ; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|gs[1]~0                ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|ps[3]~29               ; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|ps[3]~29               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|gn[1]~14               ; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|gn[1]~14               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|gc[2]~29               ; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|gc[2]~29               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add14|addcore:adder|addcore:adder[0]|ps[3]~25              ; |VHDLProcess|lpm_add_sub:Add14|addcore:adder|addcore:adder[0]|ps[3]~25              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add14|addcore:adder|addcore:adder[0]|gc[1]~25              ; |VHDLProcess|lpm_add_sub:Add14|addcore:adder|addcore:adder[0]|gc[1]~25              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add6|addcore:adder|a_csnbuffer:result_node|sout_node[1]~47 ; |VHDLProcess|lpm_add_sub:Add6|addcore:adder|a_csnbuffer:result_node|sout_node[1]~47 ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|gs[1]~7                ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|gs[1]~7                ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[2]~43               ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[2]~43               ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[3]~59               ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[3]~59               ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|gn[1]~21               ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|gn[1]~21               ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|ps[4]~39               ; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|ps[4]~39               ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|ps[4]~44               ; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|ps[4]~44               ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|a_csnbuffer:result_node|sout_node[1]~48 ; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|a_csnbuffer:result_node|sout_node[1]~48 ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|gc[2]~34               ; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|gc[2]~34               ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|gs[1]~7                ; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|gs[1]~7                ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|ps[2]~44               ; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|ps[2]~44               ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|ps[3]~50               ; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|ps[3]~50               ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|gn[1]~21               ; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|gn[1]~21               ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add14|addcore:adder|addcore:adder[0]|ps[3]~32              ; |VHDLProcess|lpm_add_sub:Add14|addcore:adder|addcore:adder[0]|ps[3]~32              ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add14|addcore:adder|addcore:adder[0]|ps[3]~37              ; |VHDLProcess|lpm_add_sub:Add14|addcore:adder|addcore:adder[0]|ps[3]~37              ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add14|addcore:adder|addcore:adder[0]|gc[1]~26              ; |VHDLProcess|lpm_add_sub:Add14|addcore:adder|addcore:adder[0]|gc[1]~26              ; pexpout          ;
+; |VHDLProcess|LessThan0~99                                                           ; |VHDLProcess|LessThan0~99                                                           ; pexpout          ;
+; |VHDLProcess|B                                                                      ; |VHDLProcess|B                                                                      ; dataout          ;
+; |VHDLProcess|Vettore[7]                                                             ; |VHDLProcess|Vettore[7]                                                             ; dataout          ;
+; |VHDLProcess|Vettore[8]                                                             ; |VHDLProcess|Vettore[8]                                                             ; dataout          ;
+; |VHDLProcess|Vettore[9]                                                             ; |VHDLProcess|Vettore[9]                                                             ; dataout          ;
+; |VHDLProcess|Vettore[10]                                                            ; |VHDLProcess|Vettore[10]                                                            ; dataout          ;
+; |VHDLProcess|Vettore[11]                                                            ; |VHDLProcess|Vettore[11]                                                            ; dataout          ;
+; |VHDLProcess|Vettore[12]                                                            ; |VHDLProcess|Vettore[12]                                                            ; dataout          ;
+; |VHDLProcess|Vettore[13]                                                            ; |VHDLProcess|Vettore[13]                                                            ; dataout          ;
+; |VHDLProcess|Vettore[14]                                                            ; |VHDLProcess|Vettore[14]                                                            ; dataout          ;
+; |VHDLProcess|Vettore[15]                                                            ; |VHDLProcess|Vettore[15]                                                            ; dataout          ;
+; |VHDLProcess|OUT1                                                                   ; |VHDLProcess|OUT1                                                                   ; padio            ;
++-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                                                                                                                                     ;
++-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+------------------+
+; Node Name                                                                           ; Output Port Name                                                                    ; Output Port Type ;
++-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+------------------+
+; |VHDLProcess|OUT1~9                                                                 ; |VHDLProcess|OUT1~9                                                                 ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|gs[1]~0                ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|gs[1]~0                ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[3]~34               ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[3]~34               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|gn[1]~14               ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|gn[1]~14               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|gc[2]~29               ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|gc[2]~29               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|ps[4]~30               ; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|ps[4]~30               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|ps[4]~32               ; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|ps[4]~32               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|gc[2]~26               ; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|gc[2]~26               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|gc[2]~33               ; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|gc[2]~33               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|gs[1]~0                ; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|gs[1]~0                ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|ps[3]~29               ; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|ps[3]~29               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|gn[1]~14               ; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|gn[1]~14               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|gc[2]~29               ; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|gc[2]~29               ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add14|addcore:adder|addcore:adder[0]|ps[3]~25              ; |VHDLProcess|lpm_add_sub:Add14|addcore:adder|addcore:adder[0]|ps[3]~25              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add14|addcore:adder|addcore:adder[0]|gc[1]~25              ; |VHDLProcess|lpm_add_sub:Add14|addcore:adder|addcore:adder[0]|gc[1]~25              ; dataout          ;
+; |VHDLProcess|lpm_add_sub:Add6|addcore:adder|a_csnbuffer:result_node|sout_node[1]~47 ; |VHDLProcess|lpm_add_sub:Add6|addcore:adder|a_csnbuffer:result_node|sout_node[1]~47 ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|gs[1]~7                ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|gs[1]~7                ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[2]~43               ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[2]~43               ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[3]~59               ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|ps[3]~59               ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|gn[1]~21               ; |VHDLProcess|lpm_add_sub:Add7|addcore:adder|addcore:adder[0]|gn[1]~21               ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|ps[4]~39               ; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|ps[4]~39               ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|ps[4]~44               ; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|ps[4]~44               ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|a_csnbuffer:result_node|sout_node[1]~48 ; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|a_csnbuffer:result_node|sout_node[1]~48 ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|gc[2]~34               ; |VHDLProcess|lpm_add_sub:Add8|addcore:adder|addcore:adder[0]|gc[2]~34               ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|gs[1]~7                ; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|gs[1]~7                ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|ps[2]~44               ; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|ps[2]~44               ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|ps[3]~50               ; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|ps[3]~50               ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|gn[1]~21               ; |VHDLProcess|lpm_add_sub:Add9|addcore:adder|addcore:adder[0]|gn[1]~21               ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add14|addcore:adder|addcore:adder[0]|ps[3]~32              ; |VHDLProcess|lpm_add_sub:Add14|addcore:adder|addcore:adder[0]|ps[3]~32              ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add14|addcore:adder|addcore:adder[0]|ps[3]~37              ; |VHDLProcess|lpm_add_sub:Add14|addcore:adder|addcore:adder[0]|ps[3]~37              ; pexpout          ;
+; |VHDLProcess|lpm_add_sub:Add14|addcore:adder|addcore:adder[0]|gc[1]~26              ; |VHDLProcess|lpm_add_sub:Add14|addcore:adder|addcore:adder[0]|gc[1]~26              ; pexpout          ;
+; |VHDLProcess|LessThan0~99                                                           ; |VHDLProcess|LessThan0~99                                                           ; pexpout          ;
+; |VHDLProcess|B                                                                      ; |VHDLProcess|B                                                                      ; dataout          ;
+; |VHDLProcess|Vettore[6]                                                             ; |VHDLProcess|Vettore[6]                                                             ; dataout          ;
+; |VHDLProcess|Vettore[7]                                                             ; |VHDLProcess|Vettore[7]                                                             ; dataout          ;
+; |VHDLProcess|Vettore[8]                                                             ; |VHDLProcess|Vettore[8]                                                             ; dataout          ;
+; |VHDLProcess|Vettore[9]                                                             ; |VHDLProcess|Vettore[9]                                                             ; dataout          ;
+; |VHDLProcess|Vettore[10]                                                            ; |VHDLProcess|Vettore[10]                                                            ; dataout          ;
+; |VHDLProcess|Vettore[11]                                                            ; |VHDLProcess|Vettore[11]                                                            ; dataout          ;
+; |VHDLProcess|Vettore[12]                                                            ; |VHDLProcess|Vettore[12]                                                            ; dataout          ;
+; |VHDLProcess|Vettore[13]                                                            ; |VHDLProcess|Vettore[13]                                                            ; dataout          ;
+; |VHDLProcess|Vettore[14]                                                            ; |VHDLProcess|Vettore[14]                                                            ; dataout          ;
+; |VHDLProcess|Vettore[15]                                                            ; |VHDLProcess|Vettore[15]                                                            ; dataout          ;
+; |VHDLProcess|OUT1                                                                   ; |VHDLProcess|OUT1                                                                   ; padio            ;
++-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 6.1 Build 201 11/27/2006 SJ Web Edition
+    Info: Processing started: Tue Jun 10 20:13:58 2008
+Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off VHDLProcess -c VHDLProcess
+Info: Using vector source file "C:/Documents and Settings/Matteo/Desktop/VHDL Process/VHDLProcess.vwf"
+Info: Overwriting simulation input file with simulation results
+    Info: A backup of VHDLProcess.vwf called VHDLProcess.sim_ori.vwf has been created in the db folder
+Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info: Simulation partitioned into 1 sub-simulations
+Info: Simulation coverage is      50.00 %
+Info: Number of transitions in simulation is 2103
+Info: Vector file VHDLProcess.vwf is saved in VWF text format. You can compress it into CVWF format in order to reduce file size. For more details please refer to the Quartus II Help.
+Info: Quartus II Simulator was successful. 0 errors, 0 warnings
+    Info: Allocated 84 megabytes of memory during processing
+    Info: Processing ended: Tue Jun 10 20:13:58 2008
+    Info: Elapsed time: 00:00:00
+
+

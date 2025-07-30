@@ -1,0 +1,40 @@
+|TriState_Buffer
+OUT0 <= inst7.DB_MAX_OUTPUT_PORT_TYPE
+BIDIR_OUT0 <= inst
+BIDIR_OUT0 <= inst2
+OUT1 <= inst5.DB_MAX_OUTPUT_PORT_TYPE
+BIDIR_OUT1 <= TRI_AHDL:inst1.Uscita
+OUT2 <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+BIDIR_OUT2 <= BufferTriState:inst4.Output
+IN0 => inst.DATAIN
+IN0 => TRI_AHDL:inst1.Ingresso0
+IN0 => BufferTriState:inst4.Input0
+OE0 => inst.OE
+OE0 => TRI_AHDL:inst1.Controllo0
+OE0 => BufferTriState:inst4.Controllo0
+IN1 => inst2.DATAIN
+IN1 => TRI_AHDL:inst1.Ingresso1
+IN1 => BufferTriState:inst4.Input1
+OE1 => inst2.OE
+OE1 => TRI_AHDL:inst1.Controllo1
+OE1 => BufferTriState:inst4.Controllo1
+
+
+|TriState_Buffer|TRI_AHDL:inst1
+Ingresso0 => MIOTRISTATE.DATAIN
+Ingresso1 => $00000.DATAIN
+Controllo0 => MIOTRISTATE.OE
+Controllo1 => $00000.OE
+Uscita <= MIOTRISTATE
+Uscita <= $00000
+
+
+|TriState_Buffer|BufferTriState:inst4
+Input0 => comb~1.DATAIN
+Input1 => comb~0.DATAIN
+Controllo0 => comb~1.OE
+Controllo1 => comb~0.OE
+Output <= comb~0
+Output <= comb~1
+
+

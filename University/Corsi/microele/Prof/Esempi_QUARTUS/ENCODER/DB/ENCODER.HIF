@@ -1,0 +1,135 @@
+Version 6.1 Build 201 11/27/2006 SJ Web Edition
+28
+2282
+OFF
+OFF
+OFF
+OFF
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Partition --
+-- End Partition --
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+Encoder
+# storage
+db|Encoder.(0).cnf
+db|Encoder.(0).cnf
+# case_insensitive
+# source_file
+Encoder.bdf
+c0a344561dd4b784975eeedc99a9fe21
+24
+# hierarchies {
+|
+}
+# end
+# entity
+EncoderAhdl
+# storage
+db|Encoder.(1).cnf
+db|Encoder.(1).cnf
+# case_insensitive
+# source_file
+EncoderAhdl.tdf
+129b49b06bfcccbcfd217fb152b77f6
+6
+# used_port {
+ToBeEncoded9
+-1
+3
+ToBeEncoded8
+-1
+3
+ToBeEncoded7
+-1
+3
+ToBeEncoded6
+-1
+3
+ToBeEncoded5
+-1
+3
+ToBeEncoded4
+-1
+3
+ToBeEncoded3
+-1
+3
+ToBeEncoded2
+-1
+3
+ToBeEncoded15
+-1
+3
+ToBeEncoded14
+-1
+3
+ToBeEncoded13
+-1
+3
+ToBeEncoded12
+-1
+3
+ToBeEncoded11
+-1
+3
+ToBeEncoded10
+-1
+3
+ToBeEncoded1
+-1
+3
+ToBeEncoded0
+-1
+3
+Encoded3
+-1
+3
+Encoded2
+-1
+3
+Encoded1
+-1
+3
+Encoded0
+-1
+3
+}
+# hierarchies {
+EncoderAhdl:inst
+}
+# end
+# entity
+EncoderVHDL
+# storage
+db|Encoder.(2).cnf
+db|Encoder.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+EncoderVhdl.vhd
+f99a67b35b64184e315328d87c9b04e
+4
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+EncoderVHDL:inst1
+}
+# end
+# complete
+

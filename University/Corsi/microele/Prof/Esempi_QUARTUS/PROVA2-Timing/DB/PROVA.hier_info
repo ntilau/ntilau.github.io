@@ -1,0 +1,7 @@
+|PROVA
+OUT_A <= inst1
+CLOCK => inst.CLK
+IN_A => inst4.IN1
+OE => inst1.OE
+
+

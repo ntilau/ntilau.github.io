@@ -1,0 +1,264 @@
+ -- Copyright (C) 1991-2006 Altera Corporation
+ -- Your use of Altera Corporation's design tools, logic functions 
+ -- and other software and tools, and its AMPP partner logic 
+ -- functions, and any output files any of the foregoing 
+ -- (including device programming or simulation files), and any 
+ -- associated documentation or information are expressly subject 
+ -- to the terms and conditions of the Altera Program License 
+ -- Subscription Agreement, Altera MegaCore Function License 
+ -- Agreement, or other applicable license agreement, including, 
+ -- without limitation, that your use is for the sole purpose of 
+ -- programming logic devices manufactured by Altera and sold by 
+ -- Altera or its authorized distributors.  Please refer to the 
+ -- applicable agreement for further details.
+ -- 
+ -- This is a Quartus II output file. It is for reporting purposes only, and is
+ -- not intended for use as a Quartus II input file. This file cannot be used
+ -- to make Quartus II pin assignments - for instructions on how to make pin
+ -- assignments, please see Quartus II help.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- NC            : No Connect. This pin has no internal connection to the device.
+ -- VCCINT        : Dedicated power pin, which MUST be connected to VCC  (3.3V).
+ -- VCCIO         : Dedicated power pin, which MUST be connected to VCC
+ --                 of its bank.
+ -- GND           : Dedicated ground pin. Dedicated GND pins MUST be connected to GND.
+ --					It can also be used to report unused dedicated pins. The connection
+ --					on the board for unused dedicated pins depends on whether this will
+ --					be used in a future design. One example is device migration. When
+ --					using device migration, refer to the device pin-tables. If it is a
+ --					GND pin in the pin table or if it will not be used in a future design
+ --					for another purpose the it MUST be connected to GND. If it is an unused
+ --					dedicated pin, then it can be connected to a valid signal on the board
+ --					(low, high, or toggling) if that signal is required for a different
+ --					revision of the design.
+ -- GND+          : Unused input pin. It can also be used to report unused dual-purpose pins.
+ --					This pin should be connected to GND. It may also be connected  to a
+ --					valid signal  on the board  (low, high, or toggling)  if that signal
+ --					is required for a different revision of the design.
+ -- GND*          : Unused  I/O  pin.   This pin can either be left unconnected or
+ --           	    connected to GND.  Connecting this pin to GND will improve the
+ --           	    device's immunity to noise.
+ -- RESERVED      : Unused I/O pin, which MUST be left unconnected.
+ -- RESERVED_INPUT    : Pin is tri-stated and should be connected to the board.
+ -- RESERVED_INPUT_WITH_WEAK_PULLUP    : Pin is tri-stated with internal weak pull-up resistor.
+ -- RESERVED_INPUT_WITH_BUS_HOLD       : Pin is tri-stated with bus-hold circuitry.
+ -- NON_MIGRATABLE: This pin cannot be migrated.
+ ---------------------------------------------------------------------------------
+
+Quartus II Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Web Edition
+CHIP  "ProvaVHDL"  ASSIGNED TO AN: EPM7512AEQC208-10
+
+Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
+-------------------------------------------------------------------------------------------------------------
+NumeroIN[20]                 : 1         : input  : LVTTL             :         :           : N              
+NumeroIN3[0]                 : 2         : input  : LVTTL             :         :           : N              
+NumeroIN[6]                  : 3         : input  : LVTTL             :         :           : N              
+ADDRESS[9]                   : 4         : input  : LVTTL             :         :           : N              
+VCCIO                        : 5         : power  :                   : 3.3V    :           :                
+NumeroIN3[19]                : 6         : input  : LVTTL             :         :           : N              
+NumeroIN[10]                 : 7         : input  : LVTTL             :         :           : N              
+NumeroIN[4]                  : 8         : input  : LVTTL             :         :           : N              
+ADDRESS[4]                   : 9         : input  : LVTTL             :         :           : N              
+ADDRESS[13]                  : 10        : input  : LVTTL             :         :           : N              
+NumeroIN3[20]                : 11        : input  : LVTTL             :         :           : N              
+NumeroIN[3]                  : 12        : input  : LVTTL             :         :           : N              
+NumeroIN2[5]                 : 13        : input  : LVTTL             :         :           : N              
+GND                          : 14        : gnd    :                   :         :           :                
+NumeroIN3[7]                 : 15        : input  : LVTTL             :         :           : N              
+ADDRESS[2]                   : 16        : input  : LVTTL             :         :           : N              
+NumeroIN[21]                 : 17        : input  : LVTTL             :         :           : N              
+NumeroIN[8]                  : 18        : input  : LVTTL             :         :           : N              
+NumeroIN3[11]                : 19        : input  : LVTTL             :         :           : N              
+NumeroIN3[13]                : 20        : input  : LVTTL             :         :           : N              
+NumeroIN[31]                 : 21        : input  : LVTTL             :         :           : N              
+ADDRESS[12]                  : 22        : input  : LVTTL             :         :           : N              
+VCCIO                        : 23        : power  :                   : 3.3V    :           :                
+NumeroIN[12]                 : 24        : input  : LVTTL             :         :           : N              
+NumeroIN[19]                 : 25        : input  : LVTTL             :         :           : N              
+NumeroIN[2]                  : 26        : input  : LVTTL             :         :           : N              
+B                            : 27        : input  : LVTTL             :         :           : N              
+ADDRESS[6]                   : 28        : input  : LVTTL             :         :           : N              
+NumeroIN[24]                 : 29        : input  : LVTTL             :         :           : N              
+TCK                          : 30        : input  : LVTTL             :         :           : N              
+NumeroIN3[10]                : 31        : input  : LVTTL             :         :           : N              
+GND                          : 32        : gnd    :                   :         :           :                
+NumeroIN3[5]                 : 33        : input  : LVTTL             :         :           : N              
+NumeroIN2[7]                 : 34        : input  : LVTTL             :         :           : N              
+GND*                         : 35        :        :                   :         :           :                
+NumeroIN3[17]                : 36        : input  : LVTTL             :         :           : N              
+NumeroIN[9]                  : 37        : input  : LVTTL             :         :           : N              
+NumeroIN[14]                 : 38        : input  : LVTTL             :         :           : N              
+NumeroIN3[14]                : 39        : input  : LVTTL             :         :           : N              
+ADDRESS[5]                   : 40        : input  : LVTTL             :         :           : N              
+VCCIO                        : 41        : power  :                   : 3.3V    :           :                
+GND*                         : 42        :        :                   :         :           :                
+NumeroIN[17]                 : 43        : input  : LVTTL             :         :           : N              
+NumeroIN[11]                 : 44        : input  : LVTTL             :         :           : N              
+NumeroIN3[3]                 : 45        : input  : LVTTL             :         :           : N              
+NumeroIN2[2]                 : 46        : input  : LVTTL             :         :           : N              
+NumeroIN[30]                 : 47        : input  : LVTTL             :         :           : N              
+GND*                         : 48        :        :                   :         :           :                
+NumeroIN3[24]                : 49        : input  : LVTTL             :         :           : N              
+GND                          : 50        : gnd    :                   :         :           :                
+GND                          : 51        : gnd    :                   :         :           :                
+NumeroIN[23]                 : 52        : input  : LVTTL             :         :           : N              
+NumeroIN3[12]                : 53        : input  : LVTTL             :         :           : N              
+NumeroIN[5]                  : 54        : input  : LVTTL             :         :           : N              
+NumeroIN2[1]                 : 55        : input  : LVTTL             :         :           : N              
+ADDRESS[15]                  : 56        : input  : LVTTL             :         :           : N              
+NumeroIN3[18]                : 57        : input  : LVTTL             :         :           : N              
+NumeroIN3[16]                : 58        : input  : LVTTL             :         :           : N              
+NumeroIN3[9]                 : 59        : input  : LVTTL             :         :           : N              
+NumeroIN2[6]                 : 60        : input  : LVTTL             :         :           : N              
+NumeroIN3[6]                 : 61        : input  : LVTTL             :         :           : N              
+GND*                         : 62        :        :                   :         :           :                
+VCCIO                        : 63        : power  :                   : 3.3V    :           :                
+NumeroIN3[25]                : 64        : input  : LVTTL             :         :           : N              
+NumeroIN3[23]                : 65        : input  : LVTTL             :         :           : N              
+NumeroIN3[31]                : 66        : input  : LVTTL             :         :           : N              
+NumeroIN2[0]                 : 67        : input  : LVTTL             :         :           : N              
+ADDRESS[7]                   : 68        : input  : LVTTL             :         :           : N              
+NumeroOUT[31]                : 69        : output : LVTTL             :         :           : N              
+NumeroOUT[30]                : 70        : output : LVTTL             :         :           : N              
+NumeroOUT[29]                : 71        : output : LVTTL             :         :           : N              
+GND                          : 72        : gnd    :                   :         :           :                
+NumeroOUT[28]                : 73        : output : LVTTL             :         :           : N              
+VCCINT                       : 74        : power  :                   : 3.3V    :           :                
+GND                          : 75        : gnd    :                   :         :           :                
+NumeroOUT[26]                : 76        : output : LVTTL             :         :           : N              
+NumeroOUT[27]                : 77        : output : LVTTL             :         :           : N              
+Uscita                       : 78        : output : LVTTL             :         :           : N              
+NumeroOUT[22]                : 79        : output : LVTTL             :         :           : N              
+NumeroOUT[23]                : 80        : output : LVTTL             :         :           : N              
+NumeroOUT[25]                : 81        : output : LVTTL             :         :           : N              
+GND                          : 82        : gnd    :                   :         :           :                
+VCCINT                       : 83        : power  :                   : 3.3V    :           :                
+NumeroOUT[6]                 : 84        : output : LVTTL             :         :           : N              
+VCCIO                        : 85        : power  :                   : 3.3V    :           :                
+ArrayOUT2[1]                 : 86        : output : LVTTL             :         :           : N              
+ArrayOUT2[3]                 : 87        : output : LVTTL             :         :           : N              
+NumeroOUT2[16]               : 88        : output : LVTTL             :         :           : N              
+NumeroOUT2[28]               : 89        : output : LVTTL             :         :           : N              
+NumeroOUT2[29]               : 90        : output : LVTTL             :         :           : N              
+NumeroOUT2[30]               : 91        : output : LVTTL             :         :           : N              
+NumeroOUT[5]                 : 92        : output : LVTTL             :         :           : N              
+NumeroOUT2[31]               : 93        : output : LVTTL             :         :           : N              
+GND                          : 94        : gnd    :                   :         :           :                
+NumeroOUT2[23]               : 95        : output : LVTTL             :         :           : N              
+NumeroOUT[3]                 : 96        : output : LVTTL             :         :           : N              
+NumeroOUT2[24]               : 97        : output : LVTTL             :         :           : N              
+NumeroOUT2[25]               : 98        : output : LVTTL             :         :           : N              
+NumeroOUT2[26]               : 99        : output : LVTTL             :         :           : N              
+NumeroOUT2[27]               : 100       : output : LVTTL             :         :           : N              
+NumeroOUT2[21]               : 101       : output : LVTTL             :         :           : N              
+NumeroOUT2[20]               : 102       : output : LVTTL             :         :           : N              
+NumeroOUT[17]                : 103       : output : LVTTL             :         :           : N              
+NumeroOUT2[22]               : 104       : output : LVTTL             :         :           : N              
+VCCIO                        : 105       : power  :                   : 3.3V    :           :                
+NumeroOUT[18]                : 106       : output : LVTTL             :         :           : N              
+VCCIO                        : 107       : power  :                   : 3.3V    :           :                
+NumeroOUT[8]                 : 108       : output : LVTTL             :         :           : N              
+ArrayOUT[2]                  : 109       : output : LVTTL             :         :           : N              
+ArrayOUT[0]                  : 110       : output : LVTTL             :         :           : N              
+ArrayOUT[3]                  : 111       : output : LVTTL             :         :           : N              
+ArrayOUT[1]                  : 112       : output : LVTTL             :         :           : N              
+ArrayOUT2[0]                 : 113       : output : LVTTL             :         :           : N              
+ArrayOUT2[2]                 : 114       : output : LVTTL             :         :           : N              
+NumeroOUT2[18]               : 115       : output : LVTTL             :         :           : N              
+GND                          : 116       : gnd    :                   :         :           :                
+NumeroOUT[0]                 : 117       : output : LVTTL             :         :           : N              
+NumeroOUT2[17]               : 118       : output : LVTTL             :         :           : N              
+NumeroOUT[4]                 : 119       : output : LVTTL             :         :           : N              
+NumeroOUT2[19]               : 120       : output : LVTTL             :         :           : N              
+NumeroOUT[7]                 : 121       : output : LVTTL             :         :           : N              
+NumeroOUT2[15]               : 122       : output : LVTTL             :         :           : N              
+NumeroOUT[11]                : 123       : output : LVTTL             :         :           : N              
+NumeroOUT[9]                 : 124       : output : LVTTL             :         :           : N              
+VCCIO                        : 125       : power  :                   : 3.3V    :           :                
+NumeroOUT[10]                : 126       : output : LVTTL             :         :           : N              
+TMS                          : 127       : input  : LVTTL             :         :           : N              
+NumeroOUT[12]                : 128       : output : LVTTL             :         :           : N              
+ADDRESS[0]                   : 129       : input  : LVTTL             :         :           : N              
+NumeroOUT[20]                : 130       : output : LVTTL             :         :           : N              
+NumeroOUT[21]                : 131       : output : LVTTL             :         :           : N              
+NumeroOUT[16]                : 132       : output : LVTTL             :         :           : N              
+NumeroIN3[27]                : 133       : input  : LVTTL             :         :           : N              
+GND                          : 134       : gnd    :                   :         :           :                
+ADDRESS[14]                  : 135       : input  : LVTTL             :         :           : N              
+NumeroIN3[15]                : 136       : input  : LVTTL             :         :           : N              
+NumeroIN3[30]                : 137       : input  : LVTTL             :         :           : N              
+NumeroOUT[2]                 : 138       : output : LVTTL             :         :           : N              
+NumeroOUT[1]                 : 139       : output : LVTTL             :         :           : N              
+NumeroIN[26]                 : 140       : input  : LVTTL             :         :           : N              
+ADDRESS[8]                   : 141       : input  : LVTTL             :         :           : N              
+NumeroOUT[13]                : 142       : output : LVTTL             :         :           : N              
+VCCIO                        : 143       : power  :                   : 3.3V    :           :                
+NumeroOUT[15]                : 144       : output : LVTTL             :         :           : N              
+NumeroIN3[22]                : 145       : input  : LVTTL             :         :           : N              
+NumeroOUT[14]                : 146       : output : LVTTL             :         :           : N              
+NumeroOUT2[11]               : 147       : output : LVTTL             :         :           : N              
+Uscita2                      : 148       : output : LVTTL             :         :           : N              
+NumeroOUT2[12]               : 149       : output : LVTTL             :         :           : N              
+NumeroOUT2[13]               : 150       : output : LVTTL             :         :           : N              
+NumeroOUT2[14]               : 151       : output : LVTTL             :         :           : N              
+GND                          : 152       : gnd    :                   :         :           :                
+ADDRESS[3]                   : 153       : input  : LVTTL             :         :           : N              
+NumeroOUT2[10]               : 154       : output : LVTTL             :         :           : N              
+NumeroIN[29]                 : 155       : input  : LVTTL             :         :           : N              
+NumeroIN[25]                 : 156       : input  : LVTTL             :         :           : N              
+NumeroIN[18]                 : 157       : input  : LVTTL             :         :           : N              
+GND                          : 158       : gnd    :                   :         :           :                
+NumeroOUT[24]                : 159       : output : LVTTL             :         :           : N              
+NumeroOUT2[8]                : 160       : output : LVTTL             :         :           : N              
+NumeroOUT2[9]                : 161       : output : LVTTL             :         :           : N              
+NumeroIN[16]                 : 162       : input  : LVTTL             :         :           : N              
+ADDRESS[11]                  : 163       : input  : LVTTL             :         :           : N              
+NumeroIN3[4]                 : 164       : input  : LVTTL             :         :           : N              
+VCCIO                        : 165       : power  :                   : 3.3V    :           :                
+NumeroOUT[19]                : 166       : output : LVTTL             :         :           : N              
+NumeroIN[0]                  : 167       : input  : LVTTL             :         :           : N              
+NumeroIN3[2]                 : 168       : input  : LVTTL             :         :           : N              
+NumeroOUT2[5]                : 169       : output : LVTTL             :         :           : N              
+NumeroOUT2[4]                : 170       : output : LVTTL             :         :           : N              
+NumeroOUT2[6]                : 171       : output : LVTTL             :         :           : N              
+NumeroOUT2[7]                : 172       : output : LVTTL             :         :           : N              
+NumeroOUT2[1]                : 173       : output : LVTTL             :         :           : N              
+GND                          : 174       : gnd    :                   :         :           :                
+NumeroOUT2[0]                : 175       : output : LVTTL             :         :           : N              
+TDI                          : 176       : input  : LVTTL             :         :           : N              
+NumeroOUT2[2]                : 177       : output : LVTTL             :         :           : N              
+NumeroOUT2[3]                : 178       : output : LVTTL             :         :           : N              
+VCCINT                       : 179       : power  :                   : 3.3V    :           :                
+GND                          : 180       : gnd    :                   :         :           :                
+NumeroIN[15]                 : 181       : input  : LVTTL             :         :           : N              
+ADDRESS[1]                   : 182       : input  : LVTTL             :         :           : N              
+ADDRESS[10]                  : 183       : input  : LVTTL             :         :           : N              
+GND+                         : 184       :        :                   :         :           :                
+GND                          : 185       : gnd    :                   :         :           :                
+VCCINT                       : 186       : power  :                   : 3.3V    :           :                
+NumeroIN[27]                 : 187       : input  : LVTTL             :         :           : N              
+NumeroIN[28]                 : 188       : input  : LVTTL             :         :           : N              
+TDO                          : 189       : output : LVTTL             :         :           : N              
+NumeroIN2[4]                 : 190       : input  : LVTTL             :         :           : N              
+VCCIO                        : 191       : power  :                   : 3.3V    :           :                
+GND*                         : 192       :        :                   :         :           :                
+NumeroIN3[28]                : 193       : input  : LVTTL             :         :           : N              
+NumeroIN[13]                 : 194       : input  : LVTTL             :         :           : N              
+A                            : 195       : input  : LVTTL             :         :           : N              
+GND*                         : 196       :        :                   :         :           :                
+NumeroIN3[21]                : 197       : input  : LVTTL             :         :           : N              
+NumeroIN3[1]                 : 198       : input  : LVTTL             :         :           : N              
+NumeroIN[22]                 : 199       : input  : LVTTL             :         :           : N              
+GND                          : 200       : gnd    :                   :         :           :                
+NumeroIN[7]                  : 201       : input  : LVTTL             :         :           : N              
+C                            : 202       : input  : LVTTL             :         :           : N              
+NumeroIN3[26]                : 203       : input  : LVTTL             :         :           : N              
+NumeroIN3[8]                 : 204       : input  : LVTTL             :         :           : N              
+NumeroIN3[29]                : 205       : input  : LVTTL             :         :           : N              
+NumeroIN2[3]                 : 206       : input  : LVTTL             :         :           : N              
+VCCIO                        : 207       : power  :                   : 3.3V    :           :                
+NumeroIN[1]                  : 208       : input  : LVTTL             :         :           : N              

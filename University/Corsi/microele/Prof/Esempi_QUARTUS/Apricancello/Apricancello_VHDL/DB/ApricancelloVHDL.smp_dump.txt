@@ -1,0 +1,8 @@
+
+State Machine - |ApricancelloVHDL|Stati_Cancello:inst|StatoCorrente
+Name StatoCorrente.state_bit_2 StatoCorrente.state_bit_1 StatoCorrente.state_bit_0 
+StatoCorrente.chiuso 0 0 0 
+StatoCorrente.apertura 0 0 1 
+StatoCorrente.aperto 1 0 0 
+StatoCorrente.chiusura 0 1 1 
+StatoCorrente.pausa 0 1 0 

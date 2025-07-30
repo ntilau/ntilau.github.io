@@ -1,0 +1,156 @@
+Version 6.1 Build 201 11/27/2006 SJ Web Edition
+35
+2282
+OFF
+OFF
+OFF
+OFF
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Partition --
+-- End Partition --
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+Apricancello
+# storage
+db|Apricancello.(0).cnf
+db|Apricancello.(0).cnf
+# case_insensitive
+# source_file
+Apricancello.bdf
+db4e7e9a5da78bbe19105b807ee73f64
+24
+# hierarchies {
+|
+}
+# end
+# entity
+Stati_Cancello
+# storage
+db|Apricancello.(1).cnf
+db|Apricancello.(1).cnf
+# case_insensitive
+# source_file
+Stati_Cancello.tdf
+b2b81b14f1fc7a84e73df6cfe5cfb88e
+6
+# used_port {
+value7
+-1
+3
+value6
+-1
+3
+value5
+-1
+3
+value4
+-1
+3
+value3
+-1
+3
+value2
+-1
+3
+value1
+-1
+3
+value0
+-1
+3
+tm
+-1
+3
+reset
+-1
+3
+mc
+-1
+3
+ma
+-1
+3
+fs
+-1
+3
+fc
+-1
+3
+fa
+-1
+3
+et
+-1
+3
+clk
+-1
+3
+ch
+-1
+3
+}
+# hierarchies {
+Stati_Cancello:inst
+}
+# end
+# entity
+Timer
+# storage
+db|Apricancello.(2).cnf
+db|Apricancello.(2).cnf
+# case_insensitive
+# source_file
+Timer.tdf
+bdcfa3b60c784a4d591919338b43fe4
+6
+# used_port {
+value7
+-1
+3
+value6
+-1
+3
+value5
+-1
+3
+value4
+-1
+3
+value3
+-1
+3
+value2
+-1
+3
+value1
+-1
+3
+value0
+-1
+3
+timeout
+-1
+3
+reset
+-1
+3
+clk
+-1
+3
+}
+# hierarchies {
+Timer:inst11
+}
+# end
+# complete
+

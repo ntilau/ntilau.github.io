@@ -1,0 +1,47 @@
+|RAM
+clk => memory.datain[6].CLK
+clk => memory.datain[5].CLK
+clk => memory.datain[4].CLK
+clk => memory.datain[3].CLK
+clk => memory.datain[2].CLK
+clk => memory.datain[1].CLK
+clk => memory.datain[0].CLK
+clk => memory.waddr[3].CLK
+clk => memory.waddr[2].CLK
+clk => memory.waddr[1].CLK
+clk => memory.waddr[0].CLK
+clk => memory.we.CLK
+clk => memory.datain[7].CLK
+clk => memory.CLK0
+wr_ena => memory.we.DATAIN
+wr_ena => comb~8.OE
+wr_ena => comb~9.OE
+wr_ena => comb~10.OE
+wr_ena => comb~11.OE
+wr_ena => comb~12.OE
+wr_ena => comb~13.OE
+wr_ena => comb~14.OE
+wr_ena => comb~15.OE
+wr_ena => memory.WE
+addr[0] => memory.waddr[0].DATAIN
+addr[0] => memory.WADDR
+addr[0] => memory.RADDR
+addr[1] => memory.waddr[1].DATAIN
+addr[1] => memory.WADDR1
+addr[1] => memory.RADDR1
+addr[2] => memory.waddr[2].DATAIN
+addr[2] => memory.WADDR2
+addr[2] => memory.RADDR2
+addr[3] => memory.waddr[3].DATAIN
+addr[3] => memory.WADDR3
+addr[3] => memory.RADDR3
+data[0] <= comb~8
+data[1] <= comb~9
+data[2] <= comb~10
+data[3] <= comb~11
+data[4] <= comb~12
+data[5] <= comb~13
+data[6] <= comb~14
+data[7] <= comb~15
+
+

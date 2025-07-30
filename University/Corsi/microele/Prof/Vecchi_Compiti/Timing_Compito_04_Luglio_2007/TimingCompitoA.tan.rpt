@@ -1,0 +1,191 @@
+Classic Timing Analyzer report for TimingCompitoA
+Tue Jul 03 10:31:55 2007
+Quartus II Version 6.1 Build 201 11/27/2006 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'CLOCK'
+  6. tsu
+  7. tco
+  8. th
+  9. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                              ;
++------------------------------+-------+---------------+----------------------------------+------------+--------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From       ; To     ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+------------+--------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 6.300 ns                         ; INPUT      ; inst2  ; --         ; CLOCK    ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 6.700 ns                         ; inst2      ; OUTPUT ; CLOCK      ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; 0.000 ns                         ; FAST_INPUT ; inst1  ; --         ; CLOCK    ; 0            ;
+; Clock Setup: 'CLOCK'         ; N/A   ; None          ; 103.09 MHz ( period = 9.700 ns ) ; inst1      ; inst2  ; CLOCK      ; CLOCK    ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;            ;        ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+------------+--------+------------+----------+--------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                             ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                ; Setting            ; From ; To ; Entity Name ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                           ; EPM7032AELC44-10   ;      ;    ;             ;
+; Timing Models                                         ; Final              ;      ;    ;             ;
+; Default hold multicycle                               ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains             ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                        ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                      ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                 ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements               ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                      ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                  ; Off                ;      ;    ;             ;
+; Number of source nodes to report per destination node ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                 ; 10                 ;      ;    ;             ;
+; Number of paths to report                             ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                          ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                            ; Off                ;      ;    ;             ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; CLOCK           ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'CLOCK'                                                                                                                                                 ;
++-------+----------------------------------+-------+-------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)             ; From  ; To    ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+----------------------------------+-------+-------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; inst1 ; inst2 ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
++-------+----------------------------------+-------+-------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++-------------------------------------------------------------------+
+; tsu                                                               ;
++-------+--------------+------------+------------+-------+----------+
+; Slack ; Required tsu ; Actual tsu ; From       ; To    ; To Clock ;
++-------+--------------+------------+------------+-------+----------+
+; N/A   ; None         ; 6.300 ns   ; INPUT      ; inst2 ; CLOCK    ;
+; N/A   ; None         ; 3.000 ns   ; FAST_INPUT ; inst1 ; CLOCK    ;
++-------+--------------+------------+------------+-------+----------+
+
+
++-----------------------------------------------------------------+
+; tco                                                             ;
++-------+--------------+------------+-------+--------+------------+
+; Slack ; Required tco ; Actual tco ; From  ; To     ; From Clock ;
++-------+--------------+------------+-------+--------+------------+
+; N/A   ; None         ; 6.700 ns   ; inst2 ; OUTPUT ; CLOCK      ;
++-------+--------------+------------+-------+--------+------------+
+
+
++-------------------------------------------------------------------------+
+; th                                                                      ;
++---------------+-------------+-----------+------------+-------+----------+
+; Minimum Slack ; Required th ; Actual th ; From       ; To    ; To Clock ;
++---------------+-------------+-----------+------------+-------+----------+
+; N/A           ; None        ; 0.000 ns  ; FAST_INPUT ; inst1 ; CLOCK    ;
+; N/A           ; None        ; -2.200 ns ; INPUT      ; inst2 ; CLOCK    ;
++---------------+-------------+-----------+------------+-------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 6.1 Build 201 11/27/2006 SJ Web Edition
+    Info: Processing started: Tue Jul 03 10:31:54 2007
+Info: Command: quartus_tan --read_settings_files=on --write_settings_files=off TimingCompitoA -c TimingCompitoA --speed=10
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: Timing Analysis does not support the analysis of latches as synchronous elements for the currently selected device family
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "CLOCK" is an undefined clock
+Info: Clock "CLOCK" has Internal fmax of 103.09 MHz between source register "inst1" and destination register "inst2" (period= 9.7 ns)
+    Info: + Longest register to register delay is 5.400 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC1; Fanout = 1; REG Node = 'inst1'
+        Info: 2: + IC(2.100 ns) + CELL(3.300 ns) = 5.400 ns; Loc. = LC2; Fanout = 1; REG Node = 'inst2'
+        Info: Total cell delay = 3.300 ns ( 61.11 % )
+        Info: Total interconnect delay = 2.100 ns ( 38.89 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "CLOCK" to destination register is 3.400 ns
+            Info: 1: + IC(0.000 ns) + CELL(2.100 ns) = 2.100 ns; Loc. = PIN_43; Fanout = 2; CLK Node = 'CLOCK'
+            Info: 2: + IC(0.000 ns) + CELL(1.300 ns) = 3.400 ns; Loc. = LC2; Fanout = 1; REG Node = 'inst2'
+            Info: Total cell delay = 3.400 ns ( 100.00 % )
+        Info: - Longest clock path from clock "CLOCK" to source register is 3.400 ns
+            Info: 1: + IC(0.000 ns) + CELL(2.100 ns) = 2.100 ns; Loc. = PIN_43; Fanout = 2; CLK Node = 'CLOCK'
+            Info: 2: + IC(0.000 ns) + CELL(1.300 ns) = 3.400 ns; Loc. = LC1; Fanout = 1; REG Node = 'inst1'
+            Info: Total cell delay = 3.400 ns ( 100.00 % )
+    Info: + Micro clock to output delay of source is 1.500 ns
+    Info: + Micro setup delay of destination is 2.800 ns
+Info: tsu for register "inst2" (data pin = "INPUT", clock pin = "CLOCK") is 6.300 ns
+    Info: + Longest pin to register delay is 6.900 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.500 ns) = 1.500 ns; Loc. = PIN_24; Fanout = 1; PIN Node = 'INPUT'
+        Info: 2: + IC(2.100 ns) + CELL(3.300 ns) = 6.900 ns; Loc. = LC2; Fanout = 1; REG Node = 'inst2'
+        Info: Total cell delay = 4.800 ns ( 69.57 % )
+        Info: Total interconnect delay = 2.100 ns ( 30.43 % )
+    Info: + Micro setup delay of destination is 2.800 ns
+    Info: - Shortest clock path from clock "CLOCK" to destination register is 3.400 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.100 ns) = 2.100 ns; Loc. = PIN_43; Fanout = 2; CLK Node = 'CLOCK'
+        Info: 2: + IC(0.000 ns) + CELL(1.300 ns) = 3.400 ns; Loc. = LC2; Fanout = 1; REG Node = 'inst2'
+        Info: Total cell delay = 3.400 ns ( 100.00 % )
+Info: tco from clock "CLOCK" to destination pin "OUTPUT" through register "inst2" is 6.700 ns
+    Info: + Longest clock path from clock "CLOCK" to source register is 3.400 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.100 ns) = 2.100 ns; Loc. = PIN_43; Fanout = 2; CLK Node = 'CLOCK'
+        Info: 2: + IC(0.000 ns) + CELL(1.300 ns) = 3.400 ns; Loc. = LC2; Fanout = 1; REG Node = 'inst2'
+        Info: Total cell delay = 3.400 ns ( 100.00 % )
+    Info: + Micro clock to output delay of source is 1.500 ns
+    Info: + Longest register to pin delay is 1.800 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC2; Fanout = 1; REG Node = 'inst2'
+        Info: 2: + IC(0.000 ns) + CELL(1.800 ns) = 1.800 ns; Loc. = PIN_5; Fanout = 0; PIN Node = 'OUTPUT'
+        Info: Total cell delay = 1.800 ns ( 100.00 % )
+Info: th for register "inst1" (data pin = "FAST_INPUT", clock pin = "CLOCK") is 0.000 ns
+    Info: + Longest clock path from clock "CLOCK" to destination register is 3.400 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.100 ns) = 2.100 ns; Loc. = PIN_43; Fanout = 2; CLK Node = 'CLOCK'
+        Info: 2: + IC(0.000 ns) + CELL(1.300 ns) = 3.400 ns; Loc. = LC1; Fanout = 1; REG Node = 'inst1'
+        Info: Total cell delay = 3.400 ns ( 100.00 % )
+    Info: + Micro hold delay of destination is 1.500 ns
+    Info: - Shortest pin to register delay is 4.900 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.500 ns) = 1.500 ns; Loc. = PIN_4; Fanout = 1; PIN Node = 'FAST_INPUT'
+        Info: 2: + IC(0.000 ns) + CELL(3.400 ns) = 4.900 ns; Loc. = LC1; Fanout = 1; REG Node = 'inst1'
+        Info: Total cell delay = 4.900 ns ( 100.00 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Allocated 95 megabytes of memory during processing
+    Info: Processing ended: Tue Jul 03 10:31:55 2007
+    Info: Elapsed time: 00:00:01
+
+

@@ -1,0 +1,238 @@
+\graphicspath{{img/lab3/}}
+\chapter{Transceiver FSK in banda ISM a 2.4 GHz}
+
+%\section{Introduzione}
+
+\par In questo capitolo viene presentata l'analisi di un sistema di ricetrasmissione wireless con una modulazione FSK (\textit{Frequency Shift Keying}), in banda ISM a 2.4 GHz. Le ISM (\itt{Industrial Scientific and Medical}) sono bande non licenziate ma regolamentate, originariamente dedicate ad applicazioni industriali, scientifiche e biomedicali che sfruttassero campi elettromagnetici a radiofrequenze per scopi diversi dalle telecomunicazioni. Oggigiorno vengono anche utilizzate da apparati di comunicazione a raggio corto o SRD (\itt{Short Range Devices}) quali il transceiver che verrà progettato. L'obiettivo della simulazione eseguita a livello di sistema per una catena di trasmissione unidirezionale è di ricavarne le prestazioni in termini di probabilità di errore o BER (\textit{Bit Error Rate}) al variare del rapporto segnale rumore o SNR (\textit{Signal to Noise Ratio}) in ingresso al ricevitore.
+
+\par In una prima parte verrà discussa la modulazione FSK e le sue caratteristiche principali. In seguito verrà presentata l'architettura del transceiver FSK implementata discutendone i blocchi costitutivi. Infine, verrà stimato l'andamento del BER al variare dell'SNR mediante un apposito circuito.
+
+\subsubsection*{Simulatore \textit{Circuit Envelope}}
+
+\par Il simulatore di cui faremo largo impiego nel progetto è il \itt{Circuit Envelope} di ADS \cite{Env}, adeguato per segnali modulati. L'Envelope utilizza l'Harmonic Balance per analizzare le variazioni spettrali di un segnale RF intorno alla sua portante ed alle sue armoniche specificate. In effetti, l'Envelope campiona ad istanti definiti dal progettista l'ampiezza e la fase delle righe spettrali generate da una simulazione Harmonic Balance, e ricostruisce quindi, dai campioni ottenuti dalle variazioni della riga alla frequenza portante, il segnale modulante. Dall'inviluppo complesso del segnale RF così dedotto, è possibile, tramite FFT (\itt{Fast Fourier Transform}) estrapolare lo spettro (densità spettrale di potenza) del segnale RF, con risoluzione frequenziale proporzionale al rapporto tra la frequenza di campionamento e il numero di campioni acquisiti\footnote{$\Delta f = \frac{F_s}{N}$, con $F_s$ frequenza di campionamento e $N$ numero di campioni acquisiti.}. Si possono quindi ottenere dallo spettro generato diversi parametri che caratterizzano le prestazioni del transceiver, quali l'\itt{Adjacent Channel Power Ratio} che fornisce una stima della potenza immessa nei canali adiacenti, il \itt{Noise Power Ratio}, in un sistema a multiplazione di frequenza, indice di ``riposo'' di un canale libero nel quale vengono a cadere prodotti di intermodulazione dei canali adiacenti, e ben altri parametri. Per quanto riguarda il nostro progetto dovremo verificare la conformità del trasmettitore alle norme europee sulla compatibilità elettromagnetica in banda ISM, specificate in termini di potenza totale irradiata. Inoltre la valutazione dell'SNR in ingresso al ricevitore verrà eseguita mediante integrazione dello spettro intorno alla portante.
+
+\section{Modulazione FSK}
+
+\par La modulazione FSK è una modulazione digitale che, come l'FM (\textit{Frequency Modulation}) in analogico, consiste nel far variare la frequenza della portante in proporzione al segnale modulante. Il segnale modulante, essendo digitale e quindi caratterizzato da due livelli discreti, sarà tale da produrre variazioni pressoché istantanee della frequenza della portante come illustrato in figura \ref{fig:timefsk}.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=8cm]{fsk}
+\caption{Modulazione FSK e andamento temporale dei segnali.}
+\label{fig:timefsk}
+\end{figure} Il segnale modulante è binario e un singolo bit rappresenta un tono in frequenza: questa modulazione viene detta \textit{Binary-FSK} (BFSK) ed è proprio il tipo di modulazione che verrà implementata. La modalità di sintesi del segnale RF di figura \ref{fig:timefsk}, che presenta una variazione di fase continua viene chiamata \textit{Continuous Phase FSK} o CPFSK\footnote{Come vedremo nel paragrafo \ref{sect:tx} questa si ottiene mediante un \textit{Voltage Controlled Oscillator}.\label{fn:VCOFSK}}. Essa si contrappone alla sintesi di due toni scorrelati commutati a seconda del livello del segnale modulante. Utilizzando più di una portante, si può estendere la BFSK ad una \textit{M-ary FSK}, aumentando così il \textit{throughput} dei dati. Questa soluzione è particolarmente complessa e spettralmente inefficiente. Si preferisce quindi, per aumentare il numero di bits per simbolo, utilizzare modulazioni M-PSK (\textit{M-ary Phase Shift Keying}) oppure ibride in ampiezza e fase quali le QAM (\textit{Quadrature Amplitude Modulation}) \cite{Haykin}.
+
+%\subsection{Specifiche di progetto}
+
+\par Vediamo in dettaglio le specifiche di modulazione del transceiver da progettare. Il segnale modulante è un \textit{bitstream} di 40 kbps. La portante è fissata a $f_{LO} = 2,44$ GHz. La deviazione di frequenza $\Delta f$ è stata scelta di 50 kHz, ottenendo cosi le frequenze $f_\mathit{space} = f_{LO} - \Delta f$ per il bit 0 e $f_\mathit{mark} = f_{LO} + \Delta f$ per il bit 1. L'indice di modulazione FSK è quindi di $\frac{2 \cdot 50 \mathrm{kHz}}{40 \mathrm{kpbs}} = 250$\%, largamente maggiore del 50\% necessario per una corretta demodulazione. Nella seguente figura \ref{fig:spettrofsk} viene illustrato lo spettro, evidenziando l'andamento tipico di una modulazione BFSK.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=11cm]{spettro}
+\caption{Spettro della modulazione FSK da implementare.}
+\label{fig:spettrofsk}
+\end{figure} La natura digitale del \textit{bitstream} fa sì che lo spettro complessivo sia dato da due \textsf{sinc} ($\mathrm{sinc(\mathit{f})} = \frac{\sin(\pi f)}{\pi f}$) con lobi principali larghi 80 kHz posti intorno alla frequenza portante ad una distanza proporzionale all'indice di modulazione.
+\par Il segnale in banda base è di tipo NRZ (\textit{Non Return to Zero}) e il 99\% della potenza è confinata entro $f_\mathrm{BB} = \frac{9,5}{T_b}$ dove $T_b$ è il tempo di bit che in tal caso è di $\frac{1}{40000} \mathrm{{Hz}^{-1}} = 25 \ {\mu}s$ \cite{Anderson}. Questo si traduce in una banda $f_\mathrm{BB}$ di 380 kHz, valore eccessivo per un sistema di ricetrasmissione RF a banda limitata (in rispondenza ad uno standard che limiti la larghezza dei canali e la potenza immessa nei canali adiacenti). Per effetto dell'\textit{upconversion} la banda a RF $f_\mathrm{RF}$ diverrebbe di $2 \cdot f_\mathrm{BB} = 760$ kHz per il solo tono di \textit{space} o \textit{mark}. Va quindi aggiunto lo scarto di 100 kHz per arrivare ad un valore complessivo di 860 kHz, traducendosi in un efficenza spettrale di soli $\frac{40 \mathrm{kbps}}{860 \mathrm{kHz}} \approx 5 \%$. Si ricorre quindi a tecniche di \textit{pulse shaping} mediante particolari filtraggi, ad esempio un filtro \textit{raised cosine}\footnote{I filtri \textit{raised cosine}, oltre a restringere la banda, minimizzano l'interferenza intersimbolica o ISI \cite{Razavi}.} (coseno rialzato) in modo che la banda utile (99\% della potenza) risulti di un valore adeguato ad una tecnica di modulazione FDM (\textit{Frequency Division Multiplexing}). Si può anche intuire che una compressione spettrale di un segnale presenta notevoli vantaggi nei confronti del rumore bianco AWGN (\textit{Additive White Gaussian Noise}) in ingresso al ricevitore, rumore che può essere ridotto mediante un filtraggio passa banda più stretto.
+
+\section{Architettura del transceiver}
+
+\par Vediamo adesso come è stato scelto di progettare il sistema di ricetrasmissione e quindi di valutarne le prestazione. Lo schema di simulazione viene illustrato in figura \ref{fig:schemasim}.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=16cm]{schema}
+\caption{Schema di simulazione del transceiver FSK.}
+\label{fig:schemasim}
+\end{figure} Un \itt{bitstream} modulato e traslato a radiofrequenze viene irradiato da un'antenna isotropica. La propagazione avviene in campo aperto in presenza del terreno. L'attenuazione geometrica e quella per riflessione sul terreno verranno considerate nel canale di trasmissione mediante un opportuna equazione dipendente dalla distanza relativa e l'altezza dal suolo delle antenne coinvolte. Immediatamente prima dell'antenna ricevente, anche essa di guadagno unitario, viene aggiunto al segnale captato rumore termico a 300~K (temperatura ambiente di circa 27 \textdegree{C}). Il \itt{font end} del ricevitore vedrà quindi un determinato SNR al variare della distanza, valore che influenzerà la corretta rivelazione del \itt{bitstream}. Il BER verrà misurato confrontando i \itt{bitstream}, quello ricevuto con quello trasmesso traslato del ritardo di propagazione tra i blocchi della catena di comunicazione. Uno sweep sulla distanza ci permetterà di ricostruire l'andamento del BER al variare dell'SNR.
+
+\subsection{Trasmettitore}\label{sect:tx}
+
+\par Il trasmettitore FSK esegue una conversione diretta a $f_\mathrm{RF}$ mediante un VCO (\textit{Voltage Controlled Oscillator}) che sintetizza un segnale RF con variazioni di fase continue\footnote{Questa tecnica di modulazione CPFSK si contrappone alla sintesi mediante due oscillatori a $f_\mathrm{space}$ e $f_\mathrm{mark}$ commutati dal segnale modulante. In questo caso il segnale RF sintetizzato presenta variazioni istantanee di fase che si ripercuotono sullo spettro allargandone la banda.}. In figura \ref{fig:tx} viene illustrato lo schema a blocchi del trasmettitore.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=16cm]{tx}
+\caption{Schema a blocchi del trasmettitore.}
+\label{fig:tx}
+\end{figure} Un generatore di treno d'impulsi pseudo-random sintetizza un bitstream NRZ di 40 kbps, con livelli di tensione bilanciati di 1 V. Il segnale così generato viene filtrato da un passa basso \textit{raised cosine} RC, che presenta una risposta impulsiva della forma \cite{Razavi}:
+\begin{equation}
+\label{eq:raisedcosine}
+p(t) = \mathrm{sinc} \left ( \frac{t}{T_b} \right ) \cdot \frac{\cos(\frac{\pi \alpha t}{T_b})}{1 - \frac{4 \alpha^2 t^2}{{T_b}^2}}
+\end{equation} dove $T_b$ è il tempo di bit e il coefficiente $\alpha$ è compreso tra 0 e 1 e viene detto fattore di \itt{rolloff}. In effetti, al crescere di $\alpha$ si ha un decadimento maggiore delle code del \textsf{sinc} della risposta impulsiva del filtro. Da un punto di vista spettrale, un aumento di $\alpha$ implica, scostandosi da 0, per cui si ha una finestra rettangolare, una minor ripidità in banda di transizione del filtro passa basso. Per questo motivo il fattore $\alpha$ viene anche chiamato \itt{eccesso di banda} e valori tipicamente utilizzati sono compresi tra 30\% e 40\% \cite{Anderson}. Nel nostro caso si è scelto un $\alpha$ di 35\% con una frequenza equivalente di bitstream raddoppiata ($f_\mathrm{equiv} = 80 \mathrm{kHz}$). La banda del filtro diventa quindi di $f_\mathrm{LPF} = \frac{(1+\alpha)}{2 T_\mathrm{equiv}} \approx 54 \mathrm{kHz}$. Lo spettro che si ottiene prima e dopo il filtraggio è illustrato in figura \ref{fig:TxRx_baseband}, illustrando il {rolloff} dello spettro del segnale filtrato con conseguente restringimento della banda utile.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=9cm]{TxRxbaseband}
+\caption{Spettro del bitstream in banda base, prima e dopo il filtraggio RC.}
+\label{fig:TxRx_baseband}
+\end{figure}
+
+\par Il blocco successivo del trasmettitore è il VCO. Esso è centrato a 2,44 GHz e presenta una sensibilità di 50 kHz/V in modo da ottenere la deviazione di frequenza di progetto (Figura \ref{fig:spettrofsk}). La potenza del segnale RF è di -10 dBm.
+
+\par Al VCO seguono un'amplificatore di potenza PA e un filtro passa banda Chebyshev tale da attenuare le armoniche della portante. Sia il VCO che il PA presentano non linearità tali da generare componenti spurie fuori banda non trascurabili.
+
+\par Per rispettare la direttiva europea 2004/108/EC sulla compatibilità elettromagnetica per SRD generici \cite{ERCREC}, è necessario che la potenza irradiata non superi un EIRP (\itt{Effective Isotropic Radiated Power}) di 10 dBm. L'EIRP è la potenza irradiata da un trasmettitore di riferimento provvisto di un'antenna isotropica tale da produrre il medesimo campo del trasmettitore considerato nella sua direzione di massima guadagno. Per il trasmettitore progettato è stato considerato l'impiego di un'antenna isotropica (antenna ideale di guadagno unitario). L'utilizzo di un'antenna reale significa sottoscalare il guadagno del PA di un valore pari al guadagno d'antenna\footnote{Con un dipolo, il guadagno di 2,15 dB verrebbe ad abassare la soglia specificata dalla norma a 7,85 dBm.}. Nella seguente figura si illustrano gli spettri dei segnali prima del PA e ai morsetti dell'antenna isotropica. Viene inoltre raffigurato lo spettro irradiato alla seconda armonica.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=15cm]{TxRxradiated}
+\caption{Spettro in trasmissione e valutazione dell'EIRP.}
+\label{fig:TxRx_radiated}
+\end{figure}
+
+\par Per integrare lo spettro è stata utilizzata la funzione \textsf{spec{\textunderscore}power(PSD, $f_\mathrm{min}$, $f_\mathrm{max}$)}, che prende in ingresso un array di valori in dBm/Hz di densità spettrale di potenza (PSD) e integrando nel range specificato restituisce la potenza in dBm. \`E stato applicato ai dati PSD in ingresso un filtraggio Kaiser all'FFT in modo da escludere un eventuale corruzione dell'informazione da campionamento incoerente da parte del simulatore Envelope. Il filtraggio digitale comporta un guadagno da prendere in considerazione nella valutazione della potenza, sottraendolo al valore restituito da \textsf{spec{\textunderscore}power}(). Il filtraggio Kaiser presenta un \itt{Normalized Equivalent Noise BandWidth} di 1,653\footnote{Valori del NENBW per varie finestre di pesaggio sono tabulati in corrispondenza della descrizione della funzione \href{http://edocs.soco.agilent.com/display/ads2009/spectrum+analyzer()}{\textsf{spectrum{\textunderscore}analyzer}()}.} \cite{MeasExp}, ossia un incremento di circa 2,18 dB rispetto ad una finestratura rettangolare (assenza di filtraggio). Come si può vedere in figura \ref{fig:TxRx_radiated}, il valore di $\mathsf{WindowGain} = 10 \ {\log}_{10}(1,653) \approx 2,18$dB viene sottratto alla potenza restituita dalla funzione di integrazione. Il valore di 9,982 dBm di EIRP viene raggiunto con un guadagno di PA di 20 dB.
+
+\subsection{Canale di comunicazione e rumore additivo}
+
+\par In questo paragrafo viene trattata, in primo luogo, la propagazione dell'onda elettromagnetica generata considerando come ambiente il campo aperto, ed in seguito, il rumore termico additivo intrinseco ai dispositivi elettronici dell'apparato ricevente. In figura \ref{fig:channelnoise} sono illustrati i blocchi che hanno permesso di implementare questa parte del sistema di ricetrasmissione.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=11cm]{channelnoise}
+\caption{Blocchi di modellizzazione della propagazione e del rumore termico.}
+\label{fig:channelnoise}
+\end{figure}
+
+\subsubsection{Propagazione in campo aperto}
+
+\par La propagazione del segnale irradiato è stata considerata in campo aperto (\itt{Open Field}), ossia includendo alla propagazione nello spazio libero gli effetti del terreno. Questa situazione è schematizzata in figura \ref{fig:path}.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=10cm]{path}
+\caption{Propagazione in campo aperto.}
+\label{fig:path}
+\end{figure} La propagazione è data da un cammino diretto $R_1$ ed uno riflesso sulla superficie del terreno $R_2$. L'analisi \cite{Dunlop} dello sfasamento tra le due onde che giungono al ricevitore permette di modellare le perdite di propagazione in campo aperto con la seguente equazione
+\begin{equation}
+L_\mathrm{OF} = - 10 \ {\log}_{10} \left ( \frac{h_t \cdot h_r}{R^2} \right )^2 \ \ [\mathrm{dB}]
+\end{equation} Nel caso in cui l'altezza dell'antenna in trasmissione $h_t$ sia la stessa di quella in ricezione $h_r$ l'equazione \ref{eq:losses} si riduce a
+\begin{equation}
+\label{eq:losses}
+L_\mathrm{OF} = - 40 \ {\log}_{10} \left ( \frac{h_r}{R} \right ) \ \ [\mathrm{dB}]
+\end{equation} Nel blocco di attenuazione di figura \ref{fig:channelnoise}, le perdite \textsf{Channel{\textunderscore}Loss} sono modellate con l'equazione \ref{eq:losses} e, per correggere l'entità delle perdite da quelle ulteriormente introdotte dallo \itt{splitter} a valle impiegato come combinatore, all'equazione vengono sottratti 3 dB. L'altezza è stata arbitrariamente impostata ad 1 m.
+
+\subsubsection{Rumore termico additivo}
+
+\par La densità spettrale di potenza di rumore termico in ingresso al ricevitore posto ad una temperatura T in Kelvin è $\mathrm{N}_\mathrm{DSP} = \mathrm{kT}$ dove $\mathrm{k} = 1,38 \cdot 10^{-23} \ [{\mathrm{J}}/{\mathrm{K}}]$ è la costante di Boltzmann. A 300 K (27{\textdegree}C), $\mathrm{N}_\mathrm{DSP}$ è di circa -174 dBm. Il generatore di rumore bianco di figura \ref{fig:channelnoise}, impostando opportunamente la tensione \textsf{V{\textunderscore}Noise}, dovrà presentare tale valore a valle dello splitter. 
+
+\par \textsf{V{\textunderscore}Noise} può essere determinata analiticamente mediante la formula \textsf{V{\textunderscore}Noise} $= \sqrt{4\mathrm{kTR}}$ \ [V/$\sqrt{\mathrm{Hz}}$] dove R è resistenza di uscita del generatore adattata allo splitter, quindi di 50 $\Omega$. Si ottiene quindi il valore di 910 pV/$\sqrt{\mathrm{Hz}}$, valore che dovrà essere incrementato di un fattore $\sqrt{2}$ per compensare l'attenuazione di 3 dB introdotta dallo splitter. Il valore da impostare è quindi di 1287 pV/$\sqrt{\mathrm{Hz}}$.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=12cm]{NoiseCalcSchem}
+\caption{Schema per la valutazione di \textsf{V{\textunderscore}Noise} mediante il simulatore Envelope.}
+\label{fig:NoiseCalcSchem}
+\end{figure} 
+\par Una strada alternativa a quella analitica è quella di sfruttare la funzione \textsf{spec{\textunderscore}power}() nel circuito di figura \ref{fig:NoiseCalcSchem} valutando la potenza di rumore $\mathrm{P}_\mathrm{n}$ a valle dello splitter. A $\mathrm{P}_\mathrm{n}$ è sufficiente sottrarre il guadagno di integrazione, dato da $10 \ {\log}_{10} \left ( f_\mathrm{max}-f_\mathrm{min} \right )$ per dedurre la densità spettrale di potenza di rumore $\mathrm{N}_\mathrm{DSP}$. In figura \ref{fig:NoiseCalc_3dBIL} è illustrato lo spettro del rumore generato da una sorgente di 1250 pV/$\sqrt{\mathrm{Hz}}$ e affiancato ad esso una tabella ottenuta per diversi valori di \textsf{V{\textunderscore}Noise}.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=14cm]{NoiseCalc3dBIL}
+\caption{Spettro del rumore a valle dello splitter per \textsf{V{\textunderscore}Noise} = 1250 pV/$\sqrt{\mathrm{Hz}}$ e valori di $\mathrm{N}_\mathrm{DSP}$ per uno sweep di \textsf{V{\textunderscore}Noise} da 600 a 1400 pV/$\sqrt{\mathrm{Hz}}$.}
+\label{fig:NoiseCalc_3dBIL}
+\end{figure}
+
+%\newpage
+\subsection{Ricevitore}
+
+\par Il ricevitore FSK implementato è analogo a quello che veniva utilizzato per i cercapersone (\itt{pagers}) del decennio scorso, dispositivi che hanno riscontrato un notevole interesse per la semplicità d'impiego ed il basso costo dell'infrastruttura.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=15cm]{Patent}
+\caption{Schema del ricevitore proposto da Ian A. W. Vance.}
+\label{fig:Pager}
+\end{figure}
+Lo schema illustrato in figura \ref{fig:Pager}, tratto da \cite{Vance}, è stato adattato alla nostra modulazione. Si tratta di un integrato in grado di effetuare una demodulazione FSK coerente, utilizzando la componente in fase come dati e quella in quadratura come clock di campionamento di un flip-flop per ricostruire il bitstream trasmesso. Vediamo in dettaglio lo schema a blocchi di figura \ref{fig:rx} che è stato implementato in ADS.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=17cm]{rx}
+\caption{Schema a blocchi del ricevitore.}
+\label{fig:rx}
+\end{figure} Il segnale captato dall'antenna isotropica del ricevitore viene amplificato da un LNA che presenta un'alta cifra di rumore $\mathrm{NF}_\marm{LNA}$ pari a 8 dB. Valori tipici di NF per LNA sono di 1 - 3 dB \cite{Razavi} e porre $\mathrm{NF}_\marm{LNA}$ ad un tale valore è giustificato dal fatto che i blocchi a valle sono considerati ideali, con NF = 0 dB. $\mathrm{NF}_\marm{LNA}$ diventa quindi la cifra di rumore dell'intero sistema\footnote{A titolo di esempio, un transceiver commerciale quale il CC2500 della Texas Instruments presenta un \itt{overall noise figure} di 16 dB.}. In figura \ref{fig:TxRxreceived} viene mostrato lo spettro del segnale ricevuto, prima e dopo l'amplificatore LNA. Un quantitativo non trascurabile di rumore è stato introdotto dal LNA: è possibile distinguere uno scarto maggiore tra i due spettri fuori dalla banda del segnale, laddove vi è prevalentemente rumore bianco.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=10cm]{TxRxreceived}
+\caption{Spettro captato e quello amplificato dal LNA.}
+\label{fig:TxRxreceived}
+\end{figure} Il guadagno del LNA è stato impostato a 13 dB. La catena di demodulazione prosegue con uno splitter a 3 dB, di cui una delle due porte di uscita viene seguita da uno sfasatore di 90\textdegree, in modo da ottenere le componenti in quadratura del segnale RF. Nel ricevitore di Vance (figura \ref{fig:Pager}), questi segnali (sfasati di 90\textdegree) si ottengono mediante un ibrido a 90\textdegree \ esterno al chip. I segnali di egual ampiezza così sfasati vengono quindi traslati in banda base da due mixer identici nei quali viene immesso il segnale di battimento a $f_\mathrm{LO} = f_\mathrm{RF}$ di 0 dBm. Seguono dei filtri bassa basso tali da attenuare fortemente il \itt{feedthrough} a $f_\mathrm{RF}$ e armoniche e permettere una forte amplificazione (40 dB) del solo segnale utile in banda base. Le componenti in fase I e in quadratura Q vengono ulteriormente amplificate e squadrate, e, avendo assunto una forma digitale, finiscono in ingresso ad un campionatore (\itt{Sample-and-Hold}), la prima come clock e la seconda come dati campionati. In questa fase della demodulazione interessano solamente i punti di attraversamento dello zero ai quali il campionatore è sensibile. Rispetto al ricevitore di Vance (figura \ref{fig:Pager}) i due segnali sono invertiti, ma ciò non compromette la rivelazione in quanto le componenti I e Q contengono la medesima informazione. In uscita del campionatore vi è il bitstream demodulato, idealmente privo di errori in assenza di rumore. I segnali I, Q e il bitstream sono illustrati in figura \ref{fig:TxRxdetected}.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=10cm]{TxRxdetected}
+\caption{Segnali I e Q in banda base e bitstream rilevato per una distanza R di 40m.}
+\label{fig:TxRxdetected}
+\end{figure}
+
+\section{Prestazioni del transceiver}
+
+\par Vogliamo adesso valutare le prestazioni del ricevitore, essendo la presenza di rumore tale da limitare la capacità di rivelazione del segnale ricevuto. In particolare, la simulazione verrà eseguita facendo aumentare la distanza relativa R tra trasmettitore e ricevitore in modo da ridurre il livello di segnale captato e quindi l'SNR riscontrato all'antenna del ricevitore. 
+\par Le prestazioni vengono tradotte in termini di BER valutato mediante il circuito di figura \ref{fig:BER}. Lo schema di demodulazione scelto fa sì che il bitstream ricevuto sia soggetto a \itt{jitter}. \`E quindi necessario effettuare un campionamento del bitsream ricevuto con un clock di 40 kHz, con fase iniziale opportuna, per ottenere una forma d'onda con tempo di bit costante identico a quello del bitstream trasmesso ($T_b = 25 \ {\mu}s$). Inoltre, per confrontare il bitstream così ottenuto con quello trasmesso è necessario traslare il segnale prodotto dal generatore di bitstream in trasmissione di un tempo pari al ritardo introdotto dai blocchi che costituiscono la catena di ricetrasmissione. Una cella di ritardo $\tau$ verrà impostata in modo che avvenga il sincronismo. La fase iniziale del clock e il ritardo $\tau$ verranno determinati graficamente, visualizzando le forme d'onda da sincronizzare.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=16cm]{BER}
+\caption{Schema a blocchi del contatore di errori.}
+\label{fig:BER}
+\end{figure}
+Una volta sincronizzati, i bitstream vengono sottratti mediante lo sfasamento di 180\textdegree \ del bitstream in trasmissione ritardato e combinando con uno splitter i due segnali. Ne risulta un azzeramento in uscita al combinatore soltanto qualora la rivelazione sia priva di errori, ed ogni bit errato viene rilevato da uno dei due contatori a valle, il primo qualora venga ricevuto un bit alto al posto di uno basso e viceversa per il secondo.
+
+\par Procediamo con la sincronizzazione dei bitstream, che verrà eseguita per un trasmettitore posto a 40 m dal ricevitore. 
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=14cm]{BERjitter}
+\caption{Jitter sul segnale demodulato.}
+\label{fig:BERjitter}
+\end{figure}
+In figura \ref{fig:BERjitter} si può notare il jitter sul segnale ricevuto, confrontandolo con quello trasmesso. Per cancellarlo si eseguirà un campionamento del bitstream ricevuto nei punti centrali dei bits, massimizzando così il margine all'errore.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=13cm]{BERsetupdeltaview}
+\caption{Segnali prima della sincronizzazione : $\tau$ e fase iniziale del clock di sincronismo nulli.}
+\label{fig:BERsetupdeltaview}
+\end{figure}
+La figura \ref{fig:BERsetupdeltaview} illustra le forme d'onda dei segnali da confrontare, ossia il bitstream in trasmissione e quello ricevuto campionato, e il clock di campionamento del bitstream ricevuto. \`E stato evidenziato il ritardo netto tra le forme d'onda di $28,75 \ {\mu}s$ ritardo che verrà compensato dalla cella $\tau$.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=13cm]{BERerratosincronismo}
+\caption{Segnali in ingresso allo splitter in assenza di sincronismo.}
+\label{fig:BERerratosincronismo}
+\end{figure}
+
+\par I segnali in ingresso allo splitter di somma in controfase sono illustrati in figura \ref{fig:BERerratosincronismo}. In assenza di sincronismo, il risultato in uscita dallo splitter è dato dalla somma di due livelli identici, raddoppiando quindi il livello. Il livello risultante è tale da superare la soglia di uno dei contatori che è stata impostata a {0,3~V}. Qualora i bit siano rilevati correttamente, la soglia di {0,3~V} risulta sufficientemente alta da rendere impercettibile ai contatori il rumore in uscita allo splitter di somma.
+
+\par La fase del clock di campionamento è stata ritardata di 90\textdegree, ovvero di $6,25 \ {\mu}s$, in modo che il fronte di salita centri il bit affetto da jitter. Il ritardo $\tau$ è stato quindi posto a $28,75 + 6,25 = 35 \ {\mu}s$. In figura \ref{fig:BERsetupcorrected} si mostrano i risultati di una tale configurazione, accertandone l'assenza di errori quindi il corretto funzionamento.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=12cm]{BERsetupcorrected}
+\caption{Segnali per la misura del BER a sincronismo raggiunto tra bitstream trasmesso e quello ricevuto.}
+\label{fig:BERsetupcorrected}
+\end{figure}
+
+%\newpage
+\subsection{BER vs SNR}
+
+\par Possiamo adesso eseguire uno sweep sulla distanza per ottenere molteplici valori di SNR, ai quali verranno associati i corrispondenti valori di BER. Lo sweep è stato impostato da 40 a 800 m con passi di 40 m. L'SNR viene calcolato con l'ausilio di \textsf{spec{\textunderscore}power()}, integrando in primo luogo lo spettro del segnale attenuato \textsf{SignalPower} (figura \ref{fig:channelnoise}) su $f_\mathrm{RF}$ $\pm 400$ kHz e sottraendone 3 dB per dedurre la potenza di segnale $\mathrm{P}_\mathrm{s}$ a valle dello splitter combinatore. L'integrazione si poteva effettuare entro $\pm 140$ kHz, porzione di spettro contenente la maggior parte della potenza di segnale ($\approx 98\%$) che può essere valutata mediante la \itt{formula di Carson} $\mathrm{B}_\mathrm{T} = 2 \ ( 2 \ \Delta f + 1 / T_b)$ \cite{Razavi}. In secondo luogo, l'integrazione dello spettro generato dalla sorgente di rumore \textsf{NoisePower}, scalata di 3 dB per lo stesso motivo precedente, ci permette di ricavare la potenza di rumore $\mathrm{P}_\mathrm{n}$. Entrambe le integrazioni sono eseguite su un medesimo numero di punti frequenziali, quelli per un range di 800 kHz, in modo che le potenze valutate siano proporzionate equamente. Essendo $\mathrm{P}_\mathrm{s}$ e $\mathrm{P}_\mathrm{n}$ valori in dBm, l'SNR si ricava dalla differenza $\mathrm{P}_\mathrm{s} - \mathrm{P}_\mathrm{n}$. Il BER si ottiene dal rapporto tra il numero di bit errati rilevati dai contatori e il numero di bit trasmessi. \`E stato scelto come riferimento per una corretta comunicazione un BER di 0,1\%, implicando la necessità di trasmettere almeno 1000 bits per raggiungere una precisione di $\nicefrac{1}{1000}$. Il generatore di bitstream (figura \ref{fig:tx}) è stato impostato in modo da produrre 1000 bits, sufficienti per una valutazione qualitativa dell'andamento del BER rispetto all'SNR con un lieve impegno computazionale. In figura \ref{fig:BERsimresults} vengono tabulati i risultati della simulazione. Segue un grafico (fig. \ref{fig:vsR}) che illustra gli andamenti del BER e dell'SNR al variare della distanza.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=16cm]{BERsimresults}
+\caption{Risultati della simulazione per la valutazione di BER e SNR al variare della distanza.}
+\label{fig:BERsimresults}
+\end{figure} Si noti che oltre i 280 m di distanza relativa tra ricevitore e trasmettitore il BER supera il valore di riferimento di $\leq 10^{-3}$, distanza alla quale l'SNR percepito è di circa 24,5 dB.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=10cm]{vsR}
+\caption{Grafici degli andamenti del BER e dell'SNR al variare della distanza.}
+\label{fig:vsR}
+\end{figure}
+
+
+% A questo punto possiamo determinare la sensibilità $S_i$ (\itt{Minimum Detectable Signal} o MDS) del ricevitore con l'equazione \cite{Razavi}
+%\begin{equation}
+%\label{eq:sensitivity}
+%S_i = - 174 + 10 \ {\log}_{10} \left ( \mathrm{B}_\mathrm{T} \right ) + NF + \mathrm{SNR}_\mathrm{MDS} \ \ \ \ [\mathrm{dBm}],
+%\end{equation} e considerando un canale $\mathrm{B}_\mathrm{T}$ di 800 kHz. Si ricava quindi il valore di $S_i = - 174 + 59 + 8 + 24 = -83 \ \mathrm{dBm}$ per un \itt{bitrate} di 40 kbps e un BER di $\leqslant 10^{-3}$. Si noti che questo valore è circa 5 dB al disopra di quello tabulato in fig. \ref{fig:BERsimresults} per R = 280 m.
+
+\par Dai risultati ottenuti è possibile costruire il grafico del BER rispetto all'SNR come quello presentato in figura \ref{fig:BERavgbervssnr}. I 20 punti ricavati dalla simulazione sono stati interpolati linearmente mediante la funzione \textsf{interpolate()}, ottenendo così un andamento smussato della curva BER vs SNR, in particolare per valori di SNR alti per i quali viene calcolato un BER nullo, l'accuratezza di 1 bit su 1000 non essendo più sufficiente. Viene inoltre evidenziata una curva che approssima l'andamento di tale curva.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=12cm]{BERavgbervssnr}
+\caption{BER vs SNR per una modulazione FSK a 40 kbps.}
+\label{fig:BERavgbervssnr}
+\end{figure}
+%\begin{figure}[ht!]
+%\centering
+%\includegraphics[width=15cm]{equation}
+%\caption{equation.}
+%\label{fig:equation}
+%\end{figure}

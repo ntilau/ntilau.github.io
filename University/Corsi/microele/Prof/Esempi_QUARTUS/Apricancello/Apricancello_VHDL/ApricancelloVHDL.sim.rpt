@@ -1,0 +1,214 @@
+Simulator report for ApricancelloVHDL
+Wed Jun 18 19:42:13 2008
+Quartus II Version 6.1 Build 201 11/27/2006 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------+
+; Simulator Summary                              ;
++-----------------------------+------------------+
+; Type                        ; Value            ;
++-----------------------------+------------------+
+; Simulation Start Time       ; 0 ps             ;
+; Simulation End Time         ; 1.0 us           ;
+; Simulation Netlist Size     ; 46 nodes         ;
+; Simulation Coverage         ;      76.74 %     ;
+; Total Number of Transitions ; 485              ;
+; Simulation Breakpoints      ; 0                ;
+; Family                      ; MAX7000AE        ;
+; Device                      ; EPM7032AELC44-10 ;
++-----------------------------+------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                      ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Option                                                                                     ; Setting    ; Default Value ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Simulation mode                                                                            ; Timing     ; Timing        ;
+; Start time                                                                                 ; 0 ns       ; 0 ns          ;
+; Simulation results format                                                                  ; CVWF       ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On         ; On            ;
+; Check outputs                                                                              ; Off        ; Off           ;
+; Report simulation coverage                                                                 ; On         ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On         ; On            ;
+; Display missing 1-value coverage report                                                    ; On         ; On            ;
+; Display missing 0-value coverage report                                                    ; On         ; On            ;
+; Detect setup and hold time violations                                                      ; Off        ; Off           ;
+; Detect glitches                                                                            ; Off        ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off        ; Off           ;
+; Generate Signal Activity File                                                              ; Off        ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off        ; Off           ;
+; Group bus channels in simulation results                                                   ; Off        ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On         ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off        ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; On         ;               ;
+; Glitch Filtering                                                                           ; Off        ; Off           ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      76.74 % ;
+; Total nodes checked                                 ; 46           ;
+; Total output ports checked                          ; 43           ;
+; Total output ports with complete 1/0-value coverage ; 33           ;
+; Total output ports with no 1/0-value coverage       ; 8            ;
+; Total output ports with no 1-value coverage         ; 9            ;
+; Total output ports with no 0-value coverage         ; 9            ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                                                                                                  ;
++---------------------------------------------------------------------+---------------------------------------------------------------------+------------------+
+; Node Name                                                           ; Output Port Name                                                    ; Output Port Type ;
++---------------------------------------------------------------------+---------------------------------------------------------------------+------------------+
+; |ApricancelloVHDL|Stati_Cancello:inst|et~36                         ; |ApricancelloVHDL|Stati_Cancello:inst|et~36                         ; dataout          ;
+; |ApricancelloVHDL|Timer:inst1|Temp[0]                               ; |ApricancelloVHDL|Timer:inst1|Temp[0]                               ; dataout          ;
+; |ApricancelloVHDL|Stati_Cancello:inst|et~38                         ; |ApricancelloVHDL|Stati_Cancello:inst|et~38                         ; dataout          ;
+; |ApricancelloVHDL|Stati_Cancello:inst|et~40                         ; |ApricancelloVHDL|Stati_Cancello:inst|et~40                         ; dataout          ;
+; |ApricancelloVHDL|Stati_Cancello:inst|et~44                         ; |ApricancelloVHDL|Stati_Cancello:inst|et~44                         ; dataout          ;
+; |ApricancelloVHDL|Stati_Cancello:inst|et~48                         ; |ApricancelloVHDL|Stati_Cancello:inst|et~48                         ; dataout          ;
+; |ApricancelloVHDL|Stati_Cancello:inst|et~52                         ; |ApricancelloVHDL|Stati_Cancello:inst|et~52                         ; dataout          ;
+; |ApricancelloVHDL|Stati_Cancello:inst|et~56                         ; |ApricancelloVHDL|Stati_Cancello:inst|et~56                         ; dataout          ;
+; |ApricancelloVHDL|Timer:inst1|Temp[2]                               ; |ApricancelloVHDL|Timer:inst1|Temp[2]                               ; dataout          ;
+; |ApricancelloVHDL|Timer:inst1|timeout                               ; |ApricancelloVHDL|Timer:inst1|timeout                               ; dataout          ;
+; |ApricancelloVHDL|Stati_Cancello:inst|StatoCorrente.state_bit_1     ; |ApricancelloVHDL|Stati_Cancello:inst|StatoCorrente.state_bit_1     ; dataout          ;
+; |ApricancelloVHDL|Stati_Cancello:inst|StatoCorrente.state_bit_0     ; |ApricancelloVHDL|Stati_Cancello:inst|StatoCorrente.state_bit_0     ; dataout          ;
+; |ApricancelloVHDL|Stati_Cancello:inst|StatoCorrente.apertura~15     ; |ApricancelloVHDL|Stati_Cancello:inst|StatoCorrente.apertura~15     ; dataout          ;
+; |ApricancelloVHDL|Stati_Cancello:inst|StatoCorrente.chiusura~19     ; |ApricancelloVHDL|Stati_Cancello:inst|StatoCorrente.chiusura~19     ; dataout          ;
+; |ApricancelloVHDL|Stati_Cancello:inst|StatoCorrente.pausa~22        ; |ApricancelloVHDL|Stati_Cancello:inst|StatoCorrente.pausa~22        ; dataout          ;
+; |ApricancelloVHDL|Timer:inst1|Temp~516                              ; |ApricancelloVHDL|Timer:inst1|Temp~516                              ; pexpout          ;
+; |ApricancelloVHDL|Timer:inst1|Equal0~261                            ; |ApricancelloVHDL|Timer:inst1|Equal0~261                            ; pexpout          ;
+; |ApricancelloVHDL|Stati_Cancello:inst|StatoCorrente.state_bit_0~144 ; |ApricancelloVHDL|Stati_Cancello:inst|StatoCorrente.state_bit_0~144 ; pexpout          ;
+; |ApricancelloVHDL|ch                                                ; |ApricancelloVHDL|ch                                                ; dataout          ;
+; |ApricancelloVHDL|fs                                                ; |ApricancelloVHDL|fs                                                ; dataout          ;
+; |ApricancelloVHDL|fa                                                ; |ApricancelloVHDL|fa                                                ; dataout          ;
+; |ApricancelloVHDL|clk                                               ; |ApricancelloVHDL|clk                                               ; dataout          ;
+; |ApricancelloVHDL|et                                                ; |ApricancelloVHDL|et                                                ; padio            ;
+; |ApricancelloVHDL|value[7]                                          ; |ApricancelloVHDL|value[7]                                          ; padio            ;
+; |ApricancelloVHDL|value[6]                                          ; |ApricancelloVHDL|value[6]                                          ; padio            ;
+; |ApricancelloVHDL|value[5]                                          ; |ApricancelloVHDL|value[5]                                          ; padio            ;
+; |ApricancelloVHDL|value[4]                                          ; |ApricancelloVHDL|value[4]                                          ; padio            ;
+; |ApricancelloVHDL|value[3]                                          ; |ApricancelloVHDL|value[3]                                          ; padio            ;
+; |ApricancelloVHDL|tm                                                ; |ApricancelloVHDL|tm                                                ; padio            ;
+; |ApricancelloVHDL|ma                                                ; |ApricancelloVHDL|ma                                                ; padio            ;
+; |ApricancelloVHDL|mc                                                ; |ApricancelloVHDL|mc                                                ; padio            ;
+; |ApricancelloVHDL|value[2]                                          ; |ApricancelloVHDL|value[2]                                          ; padio            ;
+; |ApricancelloVHDL|Stati_Cancello:inst|et~67                         ; |ApricancelloVHDL|Stati_Cancello:inst|et~67                         ; dataout          ;
++---------------------------------------------------------------------+---------------------------------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++--------------------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                                         ;
++---------------------------------------+---------------------------------------+------------------+
+; Node Name                             ; Output Port Name                      ; Output Port Type ;
++---------------------------------------+---------------------------------------+------------------+
+; |ApricancelloVHDL|Timer:inst1|Temp[4] ; |ApricancelloVHDL|Timer:inst1|Temp[4] ; dataout          ;
+; |ApricancelloVHDL|Timer:inst1|Temp[5] ; |ApricancelloVHDL|Timer:inst1|Temp[5] ; dataout          ;
+; |ApricancelloVHDL|Timer:inst1|Temp[6] ; |ApricancelloVHDL|Timer:inst1|Temp[6] ; dataout          ;
+; |ApricancelloVHDL|Timer:inst1|Temp[7] ; |ApricancelloVHDL|Timer:inst1|Temp[7] ; dataout          ;
+; |ApricancelloVHDL|~VCC~0              ; |ApricancelloVHDL|~VCC~0              ; dataout          ;
+; |ApricancelloVHDL|~VCC~1              ; |ApricancelloVHDL|~VCC~1              ; dataout          ;
+; |ApricancelloVHDL|reset               ; |ApricancelloVHDL|reset               ; dataout          ;
+; |ApricancelloVHDL|value[1]            ; |ApricancelloVHDL|value[1]            ; padio            ;
+; |ApricancelloVHDL|value[0]            ; |ApricancelloVHDL|value[0]            ; padio            ;
++---------------------------------------+---------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++--------------------------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                                         ;
++---------------------------------------+---------------------------------------+------------------+
+; Node Name                             ; Output Port Name                      ; Output Port Type ;
++---------------------------------------+---------------------------------------+------------------+
+; |ApricancelloVHDL|Timer:inst1|Temp[4] ; |ApricancelloVHDL|Timer:inst1|Temp[4] ; dataout          ;
+; |ApricancelloVHDL|Timer:inst1|Temp[5] ; |ApricancelloVHDL|Timer:inst1|Temp[5] ; dataout          ;
+; |ApricancelloVHDL|Timer:inst1|Temp[6] ; |ApricancelloVHDL|Timer:inst1|Temp[6] ; dataout          ;
+; |ApricancelloVHDL|Timer:inst1|Temp[7] ; |ApricancelloVHDL|Timer:inst1|Temp[7] ; dataout          ;
+; |ApricancelloVHDL|~VCC~0              ; |ApricancelloVHDL|~VCC~0              ; dataout          ;
+; |ApricancelloVHDL|~VCC~1              ; |ApricancelloVHDL|~VCC~1              ; dataout          ;
+; |ApricancelloVHDL|fc                  ; |ApricancelloVHDL|fc                  ; dataout          ;
+; |ApricancelloVHDL|value[1]            ; |ApricancelloVHDL|value[1]            ; padio            ;
+; |ApricancelloVHDL|value[0]            ; |ApricancelloVHDL|value[0]            ; padio            ;
++---------------------------------------+---------------------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 6.1 Build 201 11/27/2006 SJ Web Edition
+    Info: Processing started: Wed Jun 18 19:42:13 2008
+Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off ApricancelloVHDL -c ApricancelloVHDL
+Info: Using vector source file "C:/Documents and Settings/Matteo/Desktop/Apricancello VHDL/ApricancelloVHDL.vwf"
+Info: Overwriting simulation input file with simulation results
+    Info: A backup of ApricancelloVHDL.vwf called ApricancelloVHDL.sim_ori.vwf has been created in the db folder
+Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info: Simulation partitioned into 1 sub-simulations
+Info: Simulation coverage is      76.74 %
+Info: Number of transitions in simulation is 485
+Info: Vector file ApricancelloVHDL.vwf is saved in VWF text format. You can compress it into CVWF format in order to reduce file size. For more details please refer to the Quartus II Help.
+Info: Quartus II Simulator was successful. 0 errors, 0 warnings
+    Info: Allocated 83 megabytes of memory during processing
+    Info: Processing ended: Wed Jun 18 19:42:13 2008
+    Info: Elapsed time: 00:00:00
+
+

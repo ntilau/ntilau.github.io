@@ -1,0 +1,14 @@
+Fitter Status : Successful - Wed Jun 11 20:37:33 2008
+Quartus II Version : 6.1 Build 201 11/27/2006 SJ Web Edition
+Revision Name : TriState
+Top-level Entity Name : TriState
+Family : Stratix
+Device : EP1S10F484C5
+Timing Models : Final
+Total logic elements : 0 / 10,570 ( 0 % )
+Total pins : 17 / 336 ( 5 % )
+Total virtual pins : 0
+Total memory bits : 0 / 920,448 ( 0 % )
+DSP block 9-bit elements : 0 / 48 ( 0 % )
+Total PLLs : 0 / 6 ( 0 % )
+Total DLLs : 0 / 2 ( 0 % )

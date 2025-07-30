@@ -1,0 +1,34 @@
+TITLE "CONTATORE";
+
+SUBDESIGN Contatore
+(
+	clk			: INPUT;
+	reset		: INPUT;
+	value[7..0]	: INPUT;
+	
+	timeout		: OUTPUT;
+)
+
+VARIABLE
+	Count[7..0] : DFF;
+	t_out_temp	: NODE;
+	out_reg		: DFF;
+
+BEGIN
+
+	Count[].clk = clk;
+	Count[].clrn = !reset;
+
+	if Count[].q == value[] then
+		Count[].d = GND;
+		t_out_temp = VCC;
+	else
+		Count[].d = Count[].q + 1;
+	 	t_out_temp = GND;
+	end if;
+
+	out_reg.d = t_out_temp;
+	out_reg.clk = clk;
+	timeout = out_reg.q;
+
+END;

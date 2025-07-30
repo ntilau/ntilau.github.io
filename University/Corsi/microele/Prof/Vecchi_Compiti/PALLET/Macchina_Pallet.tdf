@@ -1,0 +1,58 @@
+TITLE "Macchina_Pallet";
+
+SUBDESIGN Macchina_Pallet
+(
+	s_up, s_fwd, f_pallet, s_rwd, s_down		: INPUT = GND;
+	start										: INPUT = GND;
+	full										: INPUT = GND;
+	caution										: INPUT = GND;
+	
+	clk, reset									: INPUT = GND;
+
+	m_up, m_down, m_fwd, m_rwd					: OUTPUT;
+	count_enable								: OUTPUT;
+
+)
+
+VARIABLE
+	mm	: 	MACHINE 
+			OF BITS (q0, q1, q2)
+			WITH STATES (Attesa, Alza, Avanza, Abbassa, Sfila, Riposizionamento);
+	
+	m_up_temp, m_down_temp, m_fwd_temp, m_rwd_temp : NODE;
+
+BEGIN
+
+	mm.clk = clk;
+	mm.reset = reset;
+	
+	
+	TABLE
+		mm,	s_up, s_fwd, f_pallet, s_rwd, s_down, start, full		=>  mm,	m_up_temp, m_fwd_temp, m_down_temp, m_rwd_temp, count_enable;
+
+		Attesa,				x, x, x, x, x, x, 1 =>	Attesa,				0, 0, 0, 0, 0;
+		Attesa,				x, x, x, x, x, 1, 0 =>	Alza,				0, 0, 0, 0, 0;
+
+		Alza,				0, x, x, x, x, x, x =>	Alza,				1, 0, 0, 0, 0;
+		Alza,				1, x, x, x, x, x, x =>	Avanza,				1, 0, 0, 0, 0;
+
+		Avanza,				x, 0, x, x, x, x, x =>	Avanza,				0, 1, 0, 0, 0;
+		Avanza,				x, 1, x, x, x, x, x =>	Abbassa,			0, 1, 0, 0, 0;
+		
+		Abbassa,			x, x, 0, x, x, x, x =>	Abbassa,			0, 0, 1, 0, 0;
+		Abbassa,			x, x, 1, x, x, x, x =>	Sfila,				0, 0, 1, 0, 0;
+
+		Sfila,				x, x, x, 0, x, x, x =>	Sfila,				0, 0, 0, 1, 1;
+		Sfila,				x, x, x, 1, x, x, x =>	Riposizionamento,	0, 0, 0, 1, 1;
+
+		Riposizionamento,	x, x, x, x, 0, x, x =>	Riposizionamento,	0, 0, 1, 0, 0;
+		Riposizionamento,	x, x, x, x, 1, x, x =>	Attesa,				0, 0, 1, 0, 0;
+
+	END TABLE;
+
+	m_up = m_up_temp AND !caution;
+	m_down = m_down_temp AND !caution;
+	m_fwd = m_fwd_temp AND !caution;
+	m_rwd = m_rwd_temp AND !caution;
+
+END;

@@ -1,0 +1,236 @@
+Analysis & Synthesis report for PLD-DDS
+Tue Jun 17 19:32:12 2008
+Quartus II Version 6.1 Build 201 11/27/2006 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                          ;
++-----------------------------+-----------------------------------------+
+; Analysis & Synthesis Status ; Successful - Tue Jun 17 19:32:12 2008   ;
+; Quartus II Version          ; 6.1 Build 201 11/27/2006 SJ Web Edition ;
+; Revision Name               ; PLD-DDS                                 ;
+; Top-level Entity Name       ; MAX7128                                 ;
+; Family                      ; MAX7000AE                               ;
+; Total macrocells            ; 58                                      ;
+; Total pins                  ; 66                                      ;
++-----------------------------+-----------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                            ;
++----------------------------------------------------------------------+-------------------+---------------+
+; Option                                                               ; Setting           ; Default Value ;
++----------------------------------------------------------------------+-------------------+---------------+
+; Device                                                               ; EPM7128AETC100-10 ;               ;
+; Top-level entity name                                                ; MAX7128           ; PLD-DDS       ;
+; Family name                                                          ; MAX7000AE         ; Stratix       ;
+; Optimization Technique -- MAX 7000B/7000AE/3000A/7000S/7000A         ; Area              ; Speed         ;
+; Use smart compilation                                                ; On                ; Off           ;
+; Create Debugging Nodes for IP Cores                                  ; Off               ; Off           ;
+; Preserve fewer node names                                            ; On                ; On            ;
+; Disable OpenCore Plus hardware evaluation                            ; Off               ; Off           ;
+; Verilog Version                                                      ; Verilog_2001      ; Verilog_2001  ;
+; VHDL Version                                                         ; VHDL93            ; VHDL93        ;
+; State Machine Processing                                             ; Auto              ; Auto          ;
+; Safe State Machine                                                   ; Off               ; Off           ;
+; Extract Verilog State Machines                                       ; On                ; On            ;
+; Extract VHDL State Machines                                          ; On                ; On            ;
+; Ignore Verilog initial constructs                                    ; Off               ; Off           ;
+; Add Pass-Through Logic to Inferred RAMs                              ; On                ; On            ;
+; NOT Gate Push-Back                                                   ; On                ; On            ;
+; Power-Up Don't Care                                                  ; On                ; On            ;
+; Remove Duplicate Registers                                           ; On                ; On            ;
+; Ignore CARRY Buffers                                                 ; Off               ; Off           ;
+; Ignore CASCADE Buffers                                               ; Off               ; Off           ;
+; Ignore GLOBAL Buffers                                                ; Off               ; Off           ;
+; Ignore ROW GLOBAL Buffers                                            ; Off               ; Off           ;
+; Ignore LCELL Buffers -- MAX 7000B/7000AE/3000A/7000S/7000A           ; Auto              ; Auto          ;
+; Ignore SOFT Buffers -- MAX 7000B/7000AE/3000A/7000S/7000A            ; Off               ; Off           ;
+; Limit AHDL Integers to 32 Bits                                       ; Off               ; Off           ;
+; Allow XOR Gate Usage                                                 ; On                ; On            ;
+; Auto Logic Cell Insertion                                            ; On                ; On            ;
+; Parallel Expander Chain Length -- MAX 7000B/7000AE/3000A/7000S/7000A ; 4                 ; 4             ;
+; Auto Parallel Expanders                                              ; On                ; On            ;
+; Auto Open-Drain Pins                                                 ; On                ; On            ;
+; Auto Resource Sharing                                                ; Off               ; Off           ;
+; Maximum Fan-in Per Macrocell -- MAX 7000B/7000AE/3000A/7000S/7000A   ; 100               ; 100           ;
+; Ignore translate_off and synthesis_off directives                    ; Off               ; Off           ;
+; Show Parameter Settings Tables in Synthesis Report                   ; On                ; On            ;
+; HDL message level                                                    ; Level2            ; Level2        ;
+; Suppress Register Optimization Related Messages                      ; Off               ; Off           ;
+; Number of Removed Registers Reported in Synthesis Report             ; 100               ; 100           ;
++----------------------------------------------------------------------+-------------------+---------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                        ;
++----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                        ;
++----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------+
+; CONV_BCDto7SEG.vhd               ; yes             ; User VHDL File                     ; C:/Documents and Settings/Matteo/Desktop/MAX7128/CONV_BCDto7SEG.vhd ;
+; MAX7128.bdf                      ; yes             ; User Block Diagram/Schematic File  ; C:/Documents and Settings/Matteo/Desktop/MAX7128/MAX7128.bdf        ;
++----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------+
+
+
++---------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary ;
++----------------------+----------------------+
+; Resource             ; Usage                ;
++----------------------+----------------------+
+; Logic cells          ; 58                   ;
+; Total registers      ; 0                    ;
+; I/O pins             ; 66                   ;
+; Maximum fan-out node ; ~GND~0               ;
+; Maximum fan-out      ; 1                    ;
+; Total fan-out        ; 58                   ;
+; Average fan-out      ; 0.47                 ;
++----------------------+----------------------+
+
+
++----------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                  ;
++----------------------------+------------+------+---------------------+
+; Compilation Hierarchy Node ; Macrocells ; Pins ; Full Hierarchy Name ;
++----------------------------+------------+------+---------------------+
+; |MAX7128                   ; 58         ; 66   ; |MAX7128            ;
++----------------------------+------------+------+---------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 6.1 Build 201 11/27/2006 SJ Web Edition
+    Info: Processing started: Tue Jun 17 19:32:10 2008
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MAX7128 -c PLD-DDS
+Info: Found 2 design units, including 1 entities, in source file CONV_BCDto7SEG.vhd
+    Info: Found design unit 1: CONV_BCDto7SEG-CONV_BCDto7SEG_arc
+    Info: Found entity 1: CONV_BCDto7SEG
+Info: Found 1 design units, including 1 entities, in source file MAX7128.bdf
+    Info: Found entity 1: MAX7128
+Info: Elaborating entity "MAX7128" for the top level hierarchy
+Warning: Pin "DAC_DATA" is missing source
+Warning: Pin "DAC_CLOCK" is missing source
+Warning: Pin "RESET" not connected
+Warning: Pin "CLK" not connected
+Warning: Pin "ADC_DATA" not connected
+Warning: Pin "SWITCH1" not connected
+Warning: Pin "SWITCH2" not connected
+Warning: Pin "SWITCH3" not connected
+Warning: Pin "SWITCH4" not connected
+Warning: Pin "BNC_IN" not connected
+Info: Elaborating entity "CONV_BCDto7SEG" for hierarchy "CONV_BCDto7SEG:inst"
+Warning: The bidir "X_DS/CE2" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_MSTROB/CE3" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_RDY" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_OE" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_WE" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_D0" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_RE" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_D1" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_D2" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_D3" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_D4" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_D5" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_D6" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_D7" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_BE0" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_BE1" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_BE2" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_BE3" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_A0/A2" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_A1/A3" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_A2/A4" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_A3/A5" has no source; inserted an always disabled tri-state buffer.
+Warning: Replaced VCC or GND feeding tri-state bus REG_OE~0 with an always-enabled tri-state buffer
+Warning: The bidir "ISR_TCK" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "ISR_TDI" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "ISR_TDO" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "ISR_TMS" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "D0" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "D1" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "D2" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "D3" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "D4" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "D5" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "D6" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "D7" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "BNC_OUT" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_INT/1" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_TOUT0" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_PS" has no source; inserted an always disabled tri-state buffer.
+Warning: The bidir "X_IS" has no source; inserted an always disabled tri-state buffer.
+Warning: TRI or OPNDRN buffers permanently enabled
+    Warning: Node "REG_OE~1"
+Warning: Output pins are stuck at VCC or GND
+    Warning: Pin "CLK_REG" stuck at GND
+    Warning: Pin "DAC_DATA" stuck at GND
+    Warning: Pin "DAC_CLOCK" stuck at GND
+    Warning: Pin "DAC_FS" stuck at VCC
+    Warning: Pin "ADC_CS" stuck at GND
+    Warning: Pin "ADC_CLOCK" stuck at GND
+    Warning: Pin "T1" stuck at GND
+    Warning: Pin "T2" stuck at VCC
+    Warning: Pin "DISP_E" stuck at VCC
+    Warning: Pin "DISP_D" stuck at GND
+    Warning: Pin "DISP_C" stuck at GND
+    Warning: Pin "DISP_DP" stuck at GND
+    Warning: Pin "DISP_B" stuck at GND
+    Warning: Pin "DISP_A" stuck at VCC
+    Warning: Pin "DISP_G" stuck at VCC
+    Warning: Pin "DISP_F" stuck at VCC
+    Warning: Pin "BUF_OE1" stuck at VCC
+    Warning: Pin "BUF_DIR" stuck at VCC
+Warning: Design contains 8 input pin(s) that do not drive logic
+    Warning: No output dependent on input pin "RESET"
+    Warning: No output dependent on input pin "CLK"
+    Warning: No output dependent on input pin "ADC_DATA"
+    Warning: No output dependent on input pin "SWITCH1"
+    Warning: No output dependent on input pin "SWITCH2"
+    Warning: No output dependent on input pin "SWITCH3"
+    Warning: No output dependent on input pin "SWITCH4"
+    Warning: No output dependent on input pin "BNC_IN"
+Info: Implemented 124 device resources after synthesis - the final resource count might be different
+    Info: Implemented 8 input pins
+    Info: Implemented 18 output pins
+    Info: Implemented 40 bidirectional pins
+    Info: Implemented 58 macrocells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 80 warnings
+    Info: Allocated 130 megabytes of memory during processing
+    Info: Processing ended: Tue Jun 17 19:32:12 2008
+    Info: Elapsed time: 00:00:02
+
+

@@ -1,0 +1,37 @@
+Version 6.1 Build 201 11/27/2006 SJ Web Edition
+28
+1499
+OFF
+OFF
+OFF
+OFF
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Partition --
+-- End Partition --
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+TimingCompitoB
+# storage
+db|TimingCompitoB.(0).cnf
+db|TimingCompitoB.(0).cnf
+# case_insensitive
+# source_file
+TimingCompitoB.bdf
+438497afe6505048167918f4c339298
+24
+# hierarchies {
+|
+}
+# end
+# complete
+

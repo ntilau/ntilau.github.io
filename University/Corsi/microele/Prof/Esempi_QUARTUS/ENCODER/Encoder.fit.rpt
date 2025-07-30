@@ -1,0 +1,371 @@
+Fitter report for Encoder
+Wed Jun 18 10:38:37 2008
+Quartus II Version 6.1 Build 201 11/27/2006 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Fitter Summary
+  3. Fitter Settings
+  4. Pin-Out File
+  5. Fitter Resource Usage Summary
+  6. Input Pins
+  7. Output Pins
+  8. All Package Pins
+  9. I/O Standard
+ 10. Dedicated Inputs I/O
+ 11. Output Pin Default Load For Reported TCO
+ 12. Fitter Resource Utilization by Entity
+ 13. Non-Global High Fan-Out Signals
+ 14. Interconnect Usage Summary
+ 15. LAB Macrocells
+ 16. Parallel Expander
+ 17. Logic Cell Interconnection
+ 18. Fitter Device Options
+ 19. Fitter Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------+
+; Fitter Summary                                                  ;
++-----------------------+-----------------------------------------+
+; Fitter Status         ; Successful - Wed Jun 18 10:38:37 2008   ;
+; Quartus II Version    ; 6.1 Build 201 11/27/2006 SJ Web Edition ;
+; Revision Name         ; Encoder                                 ;
+; Top-level Entity Name ; Encoder                                 ;
+; Family                ; MAX7000AE                               ;
+; Device                ; EPM7032AELC44-10                        ;
+; Timing Models         ; Final                                   ;
+; Total macrocells      ; 12 / 32 ( 38 % )                        ;
+; Total pins            ; 28 / 36 ( 78 % )                        ;
++-----------------------+-----------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Fitter Settings                                                       ;
++--------------------------------------------+----------+---------------+
+; Option                                     ; Setting  ; Default Value ;
++--------------------------------------------+----------+---------------+
+; Device                                     ; AUTO     ;               ;
+; Optimize IOC Register Placement for Timing ; On       ; On            ;
+; Limit to One Fitting Attempt               ; Off      ; Off           ;
+; Fitter Initial Placement Seed              ; 1        ; 1             ;
+; Slow Slew Rate                             ; Off      ; Off           ;
+; Fitter Effort                              ; Auto Fit ; Auto Fit      ;
+; Use smart compilation                      ; Off      ; Off           ;
++--------------------------------------------+----------+---------------+
+
+
++--------------+
+; Pin-Out File ;
++--------------+
+The pin-out file can be found in C:/Documents and Settings/Matteo/Desktop/Esempi QUARTUS/Enc/Encoder.pin.
+
+
++------------------------------------------------------+
+; Fitter Resource Usage Summary                        ;
++-----------------------------------+------------------+
+; Resource                          ; Usage            ;
++-----------------------------------+------------------+
+; Logic cells                       ; 12 / 32 ( 38 % ) ;
+; Registers                         ; 0 / 32 ( 0 % )   ;
+; Number of pterms used             ; 42               ;
+; User inserted logic elements      ; 0                ;
+; I/O pins                          ; 28 / 36 ( 78 % ) ;
+;     -- Clock pins                 ; 0 / 2 ( 0 % )    ;
+;     -- Dedicated input pins       ; 1 / 2 ( 50 % )   ;
+; Global signals                    ; 0                ;
+; Shareable expanders               ; 0 / 32 ( 0 % )   ;
+; Parallel expanders                ; 4 / 30 ( 13 % )  ;
+; Cells using turbo bit             ; 12 / 32 ( 38 % ) ;
+; Maximum fan-out node              ; ToBeEncoded[14]  ;
+; Maximum fan-out                   ; 12               ;
+; Highest non-global fan-out signal ; ToBeEncoded[14]  ;
+; Highest non-global fan-out        ; 12               ;
+; Total fan-out                     ; 124              ;
+; Average fan-out                   ; 3.10             ;
++-----------------------------------+------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Input Pins                                                                                                                                                            ;
++-----------------+-------+----------+-----+-----------------------+--------------------+--------+----------------+---------------+--------------+----------------------+
+; Name            ; Pin # ; I/O Bank ; LAB ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; I/O Standard ; Location assigned by ;
++-----------------+-------+----------+-----+-----------------------+--------------------+--------+----------------+---------------+--------------+----------------------+
+; ToBeEncoded[0]  ; 26    ; --       ; 2   ; 0                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; ToBeEncoded[10] ; 39    ; --       ; 2   ; 10                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; ToBeEncoded[11] ; 44    ; --       ; --  ; 9                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; ToBeEncoded[12] ; 36    ; --       ; 2   ; 10                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; ToBeEncoded[13] ; 9     ; --       ; 1   ; 8                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; ToBeEncoded[14] ; 33    ; --       ; 2   ; 12                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; ToBeEncoded[15] ; 21    ; --       ; 1   ; 10                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; ToBeEncoded[1]  ; 29    ; --       ; 2   ; 2                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; ToBeEncoded[2]  ; 18    ; --       ; 1   ; 4                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; ToBeEncoded[3]  ; 19    ; --       ; 1   ; 4                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; ToBeEncoded[4]  ; 25    ; --       ; 2   ; 6                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; ToBeEncoded[5]  ; 20    ; --       ; 1   ; 6                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; ToBeEncoded[6]  ; 24    ; --       ; 2   ; 7                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; ToBeEncoded[7]  ; 40    ; --       ; 2   ; 7                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; ToBeEncoded[8]  ; 34    ; --       ; 2   ; 9                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; ToBeEncoded[9]  ; 37    ; --       ; 2   ; 8                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
++-----------------+-------+----------+-----+-----------------------+--------------------+--------+----------------+---------------+--------------+----------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Output Pins                                                                                                                                                       ;
++------------+-------+----------+-----+-----------------+---------------+----------------+------------+---------------+--------------+----------------------+-------+
+; Name       ; Pin # ; I/O Bank ; LAB ; Output Register ; Power Up High ; Slow Slew Rate ; Open Drain ; TRI Primitive ; I/O Standard ; Location assigned by ; Load  ;
++------------+-------+----------+-----+-----------------+---------------+----------------+------------+---------------+--------------+----------------------+-------+
+; Enc[0]     ; 11    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; Enc[1]     ; 8     ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; Enc[2]     ; 16    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; Enc[3]     ; 17    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; Encoded[0] ; 14    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; Encoded[1] ; 5     ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; Encoded[2] ; 6     ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; Encoded[3] ; 12    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
++------------+-------+----------+-----+-----------------+---------------+----------------+------------+---------------+--------------+----------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; All Package Pins                                                                                       ;
++----------+------------+----------+-----------------+--------+--------------+---------+-----------------+
+; Location ; Pad Number ; I/O Bank ; Pin Name/Usage  ; Dir.   ; I/O Standard ; Voltage ; User Assignment ;
++----------+------------+----------+-----------------+--------+--------------+---------+-----------------+
+; 1        ; 0          ; --       ; GND+            ;        ;              ;         ;                 ;
+; 2        ; 1          ; --       ; GND+            ;        ;              ;         ;                 ;
+; 3        ; 2          ; --       ; VCCINT          ; power  ;              ; 3.3V    ;                 ;
+; 4        ; 3          ; --       ; GND*            ;        ;              ;         ;                 ;
+; 5        ; 4          ; --       ; Encoded[1]      ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 6        ; 5          ; --       ; Encoded[2]      ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 7        ; 6          ; --       ; TDI             ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 8        ; 7          ; --       ; Enc[1]          ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 9        ; 8          ; --       ; ToBeEncoded[13] ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 10       ; 9          ; --       ; GND             ; gnd    ;              ;         ;                 ;
+; 11       ; 10         ; --       ; Enc[0]          ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 12       ; 11         ; --       ; Encoded[3]      ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 13       ; 12         ; --       ; TMS             ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 14       ; 13         ; --       ; Encoded[0]      ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 15       ; 14         ; --       ; VCCIO           ; power  ;              ; 3.3V    ;                 ;
+; 16       ; 15         ; --       ; Enc[2]          ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 17       ; 16         ; --       ; Enc[3]          ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 18       ; 17         ; --       ; ToBeEncoded[2]  ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 19       ; 18         ; --       ; ToBeEncoded[3]  ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 20       ; 19         ; --       ; ToBeEncoded[5]  ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 21       ; 20         ; --       ; ToBeEncoded[15] ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 22       ; 21         ; --       ; GND             ; gnd    ;              ;         ;                 ;
+; 23       ; 22         ; --       ; VCCINT          ; power  ;              ; 3.3V    ;                 ;
+; 24       ; 23         ; --       ; ToBeEncoded[6]  ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 25       ; 24         ; --       ; ToBeEncoded[4]  ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 26       ; 25         ; --       ; ToBeEncoded[0]  ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 27       ; 26         ; --       ; GND*            ;        ;              ;         ;                 ;
+; 28       ; 27         ; --       ; GND*            ;        ;              ;         ;                 ;
+; 29       ; 28         ; --       ; ToBeEncoded[1]  ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 30       ; 29         ; --       ; GND             ; gnd    ;              ;         ;                 ;
+; 31       ; 30         ; --       ; GND*            ;        ;              ;         ;                 ;
+; 32       ; 31         ; --       ; TCK             ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 33       ; 32         ; --       ; ToBeEncoded[14] ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 34       ; 33         ; --       ; ToBeEncoded[8]  ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 35       ; 34         ; --       ; VCCIO           ; power  ;              ; 3.3V    ;                 ;
+; 36       ; 35         ; --       ; ToBeEncoded[12] ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 37       ; 36         ; --       ; ToBeEncoded[9]  ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 38       ; 37         ; --       ; TDO             ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 39       ; 38         ; --       ; ToBeEncoded[10] ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 40       ; 39         ; --       ; ToBeEncoded[7]  ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 41       ; 40         ; --       ; GND*            ;        ;              ;         ;                 ;
+; 42       ; 41         ; --       ; GND             ; gnd    ;              ;         ;                 ;
+; 43       ; 42         ; --       ; GND+            ;        ;              ;         ;                 ;
+; 44       ; 43         ; --       ; ToBeEncoded[11] ; input  ; 3.3-V LVTTL  ;         ; N               ;
++----------+------------+----------+-----------------+--------+--------------+---------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; I/O Standard                                                                                     ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+; I/O Standard ; Input Vref ; Dedicated Input Pins ; Pins in I/O Bank1 ; Pins in I/O Bank2 ; Total ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+; 3.3-V LVTTL  ; -          ; 1                    ; 0                 ; 0                 ; 1     ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+
+
++-------------------------------------------------------------------------------+
+; Dedicated Inputs I/O                                                          ;
++-----------------+-------+-------+-------+--------------+------------+---------+
+; Name            ; Pin # ; Type  ; VCCIO ; I/O Standard ; Input Vref ; Current ;
++-----------------+-------+-------+-------+--------------+------------+---------+
+; ToBeEncoded[11] ; 44    ; Input ; --    ; 3.3-V LVTTL  ; -          ; 0 mA    ;
++-----------------+-------+-------+-------+--------------+------------+---------+
+
+
++-----------------------------------------------+
+; Output Pin Default Load For Reported TCO      ;
++--------------+-------+------------------------+
+; I/O Standard ; Load  ; Termination Resistance ;
++--------------+-------+------------------------+
+; 3.3-V LVTTL  ; 10 pF ; Not Available          ;
+; 3.3-V LVCMOS ; 10 pF ; Not Available          ;
+; 3.3-V PCI    ; 10 pF ; 25 Ohm (Parallel)      ;
+; 2.5 V        ; 10 pF ; Not Available          ;
++--------------+-------+------------------------+
+Note: User assignments will override these defaults. The user specified values are listed in the Output Pins and Bidir Pins tables.
+
+
++-----------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                       ;
++----------------------------+------------+------+----------------------------+
+; Compilation Hierarchy Node ; Macrocells ; Pins ; Full Hierarchy Name        ;
++----------------------------+------------+------+----------------------------+
+; |Encoder                   ; 12         ; 28   ; |Encoder                   ;
+;    |EncoderAhdl:inst|      ; 6          ; 0    ; |Encoder|EncoderAhdl:inst  ;
+;    |EncoderVHDL:inst1|     ; 6          ; 0    ; |Encoder|EncoderVHDL:inst1 ;
++----------------------------+------------+------+----------------------------+
+
+
++-------------------------------------------+
+; Non-Global High Fan-Out Signals           ;
++---------------------------------+---------+
+; Name                            ; Fan-Out ;
++---------------------------------+---------+
+; ToBeEncoded[14]                 ; 12      ;
+; ToBeEncoded[10]                 ; 10      ;
+; ToBeEncoded[12]                 ; 10      ;
+; ToBeEncoded[15]                 ; 10      ;
+; ToBeEncoded[8]                  ; 9       ;
+; ToBeEncoded[11]                 ; 9       ;
+; ToBeEncoded[9]                  ; 8       ;
+; ToBeEncoded[13]                 ; 8       ;
+; ToBeEncoded[6]                  ; 7       ;
+; ToBeEncoded[7]                  ; 7       ;
+; ToBeEncoded[4]                  ; 6       ;
+; ToBeEncoded[5]                  ; 6       ;
+; ToBeEncoded[2]                  ; 4       ;
+; ToBeEncoded[3]                  ; 4       ;
+; ToBeEncoded[1]                  ; 2       ;
+; EncoderVHDL:inst1|Temp2[0]~1348 ; 1       ;
+; EncoderAhdl:inst|Encoded[0]~499 ; 1       ;
+; EncoderAhdl:inst|Encoded[1]~496 ; 1       ;
+; EncoderVHDL:inst1|Temp2[1]~1345 ; 1       ;
+; EncoderVHDL:inst1|Temp2[0]~1344 ; 1       ;
+; EncoderAhdl:inst|Encoded[0]~495 ; 1       ;
+; EncoderAhdl:inst|Encoded[1]~488 ; 1       ;
+; EncoderVHDL:inst1|Temp2[1]~1337 ; 1       ;
+; EncoderVHDL:inst1|Temp2[2]~1330 ; 1       ;
+; EncoderAhdl:inst|Encoded[2]~481 ; 1       ;
+; EncoderVHDL:inst1|Temp2[2]~1323 ; 1       ;
+; EncoderAhdl:inst|Encoded[2]~478 ; 1       ;
++---------------------------------+---------+
+
+
++-----------------------------------------------+
+; Interconnect Usage Summary                    ;
++----------------------------+------------------+
+; Interconnect Resource Type ; Usage            ;
++----------------------------+------------------+
+; Output enables             ; 0 / 6 ( 0 % )    ;
+; PIA buffers                ; 15 / 72 ( 21 % ) ;
++----------------------------+------------------+
+
+
++----------------------------------------------------------------------+
+; LAB Macrocells                                                       ;
++----------------------------------------+-----------------------------+
+; Number of Macrocells  (Average = 6.00) ; Number of LABs  (Total = 1) ;
++----------------------------------------+-----------------------------+
+; 0                                      ; 1                           ;
+; 1                                      ; 0                           ;
+; 2                                      ; 0                           ;
+; 3                                      ; 0                           ;
+; 4                                      ; 0                           ;
+; 5                                      ; 0                           ;
+; 6                                      ; 0                           ;
+; 7                                      ; 0                           ;
+; 8                                      ; 0                           ;
+; 9                                      ; 0                           ;
+; 10                                     ; 0                           ;
+; 11                                     ; 0                           ;
+; 12                                     ; 1                           ;
++----------------------------------------+-----------------------------+
+
+
++---------------------------------------------------------+
+; Parallel Expander                                       ;
++--------------------------+------------------------------+
+; Parallel Expander Length ; Number of Parallel Expanders ;
++--------------------------+------------------------------+
+; 0                        ; 0                            ;
+; 1                        ; 4                            ;
++--------------------------+------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Logic Cell Interconnection                                                                                                                                                                                                                                                               ;
++-----+------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------+
+; LAB ; Logic Cell ; Input                                                                                                                                                                                                                               ; Output                          ;
++-----+------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------+
+;  A  ; LC12       ; ToBeEncoded[12], ToBeEncoded[13], ToBeEncoded[14], ToBeEncoded[15], ToBeEncoded[11], ToBeEncoded[10], ToBeEncoded[9], ToBeEncoded[8]                                                                                                ; Enc[3]                          ;
+;  A  ; LC3        ; ToBeEncoded[6], ToBeEncoded[7], ToBeEncoded[4], ToBeEncoded[12], ToBeEncoded[13], ToBeEncoded[14], ToBeEncoded[15], ToBeEncoded[5], ToBeEncoded[11], ToBeEncoded[10], ToBeEncoded[9], ToBeEncoded[8]                                ; Encoded[2]                      ;
+;  A  ; LC8        ; ToBeEncoded[12], ToBeEncoded[13], ToBeEncoded[14], ToBeEncoded[15], ToBeEncoded[11], ToBeEncoded[10], ToBeEncoded[9], ToBeEncoded[8]                                                                                                ; Encoded[3]                      ;
+;  A  ; LC11       ; ToBeEncoded[6], ToBeEncoded[7], ToBeEncoded[4], ToBeEncoded[12], ToBeEncoded[13], ToBeEncoded[14], ToBeEncoded[15], ToBeEncoded[5], ToBeEncoded[11], ToBeEncoded[10], ToBeEncoded[9], ToBeEncoded[8]                                ; Enc[2]                          ;
+;  A  ; LC2        ; EncoderVHDL:inst1|Temp2[1]~1345, ToBeEncoded[6], ToBeEncoded[7], ToBeEncoded[11], ToBeEncoded[10], ToBeEncoded[5], ToBeEncoded[14], ToBeEncoded[15], ToBeEncoded[9], ToBeEncoded[8], ToBeEncoded[12], ToBeEncoded[13]               ; Encoded[1]                      ;
+;  A  ; LC5        ; EncoderAhdl:inst|Encoded[1]~496, ToBeEncoded[9], ToBeEncoded[11], ToBeEncoded[14], ToBeEncoded[10], ToBeEncoded[15], ToBeEncoded[8], ToBeEncoded[2], ToBeEncoded[7], ToBeEncoded[6], ToBeEncoded[3], ToBeEncoded[4], ToBeEncoded[5] ; Enc[1]                          ;
+;  A  ; LC7        ; EncoderAhdl:inst|Encoded[0]~499, ToBeEncoded[14], ToBeEncoded[12], ToBeEncoded[10], ToBeEncoded[8], ToBeEncoded[6], ToBeEncoded[4], ToBeEncoded[3], ToBeEncoded[13], ToBeEncoded[9], ToBeEncoded[5], ToBeEncoded[1], ToBeEncoded[2] ; Enc[0]                          ;
+;  A  ; LC10       ; EncoderVHDL:inst1|Temp2[0]~1348, ToBeEncoded[9], ToBeEncoded[14], ToBeEncoded[12], ToBeEncoded[10], ToBeEncoded[7], ToBeEncoded[8], ToBeEncoded[5], ToBeEncoded[6], ToBeEncoded[3], ToBeEncoded[4], ToBeEncoded[2], ToBeEncoded[1]  ; Encoded[0]                      ;
+;  A  ; LC1        ; ToBeEncoded[3], ToBeEncoded[6], ToBeEncoded[7], ToBeEncoded[11], ToBeEncoded[10], ToBeEncoded[14], ToBeEncoded[15], ToBeEncoded[2], ToBeEncoded[4]                                                                                  ; EncoderVHDL:inst1|Temp2[1]~1337 ;
+;  A  ; LC4        ; ToBeEncoded[12], ToBeEncoded[14], ToBeEncoded[15], ToBeEncoded[13]                                                                                                                                                                  ; EncoderAhdl:inst|Encoded[1]~488 ;
+;  A  ; LC6        ; ToBeEncoded[15], ToBeEncoded[14], ToBeEncoded[12], ToBeEncoded[11], ToBeEncoded[10], ToBeEncoded[8], ToBeEncoded[7]                                                                                                                 ; EncoderAhdl:inst|Encoded[0]~495 ;
+;  A  ; LC9        ; ToBeEncoded[15], ToBeEncoded[13], ToBeEncoded[14], ToBeEncoded[11], ToBeEncoded[12]                                                                                                                                                 ; EncoderVHDL:inst1|Temp2[0]~1344 ;
++-----+------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Fitter Device Options                                                   ;
++----------------------------------------------+--------------------------+
+; Option                                       ; Setting                  ;
++----------------------------------------------+--------------------------+
+; Enable user-supplied start-up clock (CLKUSR) ; Off                      ;
+; Enable device-wide reset (DEV_CLRn)          ; Off                      ;
+; Enable device-wide output enable (DEV_OE)    ; Off                      ;
+; Enable INIT_DONE output                      ; Off                      ;
+; Configuration scheme                         ; Passive Serial           ;
+; Reserve all unused pins                      ; As output driving ground ;
+; Security bit                                 ; Off                      ;
+; Base pin-out file on sameframe device        ; Off                      ;
++----------------------------------------------+--------------------------+
+
+
++-----------------+
+; Fitter Messages ;
++-----------------+
+Info: *******************************************************************
+Info: Running Quartus II Fitter
+    Info: Version 6.1 Build 201 11/27/2006 SJ Web Edition
+    Info: Processing started: Wed Jun 18 10:38:36 2008
+Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off Encoder -c Encoder
+Info: Automatically selected device EPM7032AELC44-10 for design Encoder
+Info: Quartus II Fitter was successful. 0 errors, 0 warnings
+    Info: Allocated 124 megabytes of memory during processing
+    Info: Processing ended: Wed Jun 18 10:38:37 2008
+    Info: Elapsed time: 00:00:01
+
+

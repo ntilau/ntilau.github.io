@@ -1,0 +1,197 @@
+Version 6.1 Build 201 11/27/2006 SJ Web Edition
+28
+2282
+OFF
+OFF
+OFF
+OFF
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Partition --
+-- End Partition --
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+DecoderGrafico
+# storage
+db|Decoder.(1).cnf
+db|Decoder.(1).cnf
+# case_insensitive
+# source_file
+DecoderGrafico.bdf
+7c29db5a8229b492a35d23c4b87c73a0
+24
+# hierarchies {
+DecoderGrafico:inst
+}
+# end
+# entity
+DecoderAHDL1
+# storage
+db|Decoder.(2).cnf
+db|Decoder.(2).cnf
+# case_insensitive
+# source_file
+DecoderAhdl1.tdf
+4a586ba5ad895913d813a89ffaa4ab2
+6
+# used_port {
+OUT3
+-1
+3
+OUT2
+-1
+3
+OUT1
+-1
+3
+OUT0
+-1
+3
+IN1
+-1
+3
+IN0
+-1
+3
+}
+# hierarchies {
+DecoderAHDL1:inst1
+}
+# end
+# entity
+DecoderAHDL2
+# storage
+db|Decoder.(3).cnf
+db|Decoder.(3).cnf
+# case_insensitive
+# source_file
+DecoderAhdl2.tdf
+a46a645bf1f7a6f97da7796c1b3dfcdb
+6
+# used_port {
+OUT3
+-1
+3
+OUT2
+-1
+3
+OUT1
+-1
+3
+OUT0
+-1
+3
+IN1
+-1
+3
+IN0
+-1
+3
+}
+# hierarchies {
+DecoderAHDL2:inst2
+}
+# end
+# entity
+DecoderAHDL3
+# storage
+db|Decoder.(4).cnf
+db|Decoder.(4).cnf
+# case_insensitive
+# source_file
+DecoderAhdl3.tdf
+997612733ceaaedafc442b9ed849ce39
+6
+# used_port {
+OUT3
+-1
+3
+OUT2
+-1
+3
+OUT1
+-1
+3
+OUT0
+-1
+3
+IN1
+-1
+3
+IN0
+-1
+3
+}
+# hierarchies {
+DecoderAHDL3:inst3
+}
+# end
+# entity
+Decoder
+# storage
+db|Decoder.(0).cnf
+db|Decoder.(0).cnf
+# case_insensitive
+# source_file
+Decoder.bdf
+8b23e3dda023aea2a87d55fecb4ee3
+24
+# hierarchies {
+|
+}
+# end
+# entity
+Decoder0
+# storage
+db|Decoder.(5).cnf
+db|Decoder.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+DecoderVhdl.vhd
+7973b6a97ceb410f6ebf173a726d5a2
+4
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+Decoder0:inst4
+}
+# end
+# entity
+Decoder1
+# storage
+db|Decoder.(6).cnf
+db|Decoder.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+DecoderVhdl.vhd
+7973b6a97ceb410f6ebf173a726d5a2
+4
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+Decoder1:inst5
+}
+# end
+# complete
+

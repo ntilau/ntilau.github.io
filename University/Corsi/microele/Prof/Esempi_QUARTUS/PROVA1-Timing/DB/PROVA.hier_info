@@ -1,0 +1,8 @@
+|PROVA
+pin_name <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+pin_name3 => inst7.IN1
+pin_name4 => inst8.CLK
+pin_name6 => inst8.ENA
+pin_name5 => inst6.DATAIN
+
+

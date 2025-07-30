@@ -1,0 +1,7 @@
+
+State Machine - |Bevande|mm
+Name mm.state_bit_1 mm.state_bit_0 
+ATTESA_MONETA 0 0 
+ATTESA_SCELTA 0 1 
+APERTURA_1 1 0 
+APERTURA_2 1 1 

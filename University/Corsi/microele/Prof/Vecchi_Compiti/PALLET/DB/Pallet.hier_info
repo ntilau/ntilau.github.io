@@ -1,0 +1,33 @@
+|Pallet
+m_up <= Macchina_Pallet:inst.m_up
+s_up => Macchina_Pallet:inst.s_up
+s_fwd => Macchina_Pallet:inst.s_fwd
+f_pallet => Macchina_Pallet:inst.f_pallet
+s_rwd => Macchina_Pallet:inst.s_rwd
+s_down => Macchina_Pallet:inst.s_down
+start => Macchina_Pallet:inst.start
+reset => Contatore:inst11.reset
+reset => Macchina_Pallet:inst.reset
+caution => Macchina_Pallet:inst.caution
+clk => Macchina_Pallet:inst.clk
+m_down <= Macchina_Pallet:inst.m_down
+m_fwd <= Macchina_Pallet:inst.m_fwd
+m_rwd <= Macchina_Pallet:inst.m_rwd
+count_enable <= Macchina_Pallet:inst.count_enable
+count_enable12 <= Contatore:inst11.full
+
+
+|Pallet|Macchina_Pallet:inst
+clk => mm~0.IN1
+reset => mm~2.IN1
+count_enable <= count_enable~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Pallet|Contatore:inst11
+clk => Count[3].CLK
+clk => Count[2].CLK
+clk => Count[1].CLK
+clk => Count[0].CLK
+full <= full~1.DB_MAX_OUTPUT_PORT_TYPE
+
+

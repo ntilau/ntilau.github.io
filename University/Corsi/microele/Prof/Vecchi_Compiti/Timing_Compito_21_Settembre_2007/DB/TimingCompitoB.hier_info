@@ -1,0 +1,18 @@
+|TimingCompitoB
+OUTPUT <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+CLOCK => inst2.CLK
+CLOCK => inst3.IN1
+INPUT10 => inst14.IN0
+INPUT12 => inst14.IN1
+INPUT11 => inst14.IN2
+INPUT13 => inst14.IN3
+INPUT15 => inst14.IN4
+INPUT14 => inst14.IN5
+INPUT16 => inst14.IN6
+INPUT17 => inst7.DATAIN
+B => inst25.IN1
+A => inst24.IN0
+ENABLE => inst3.IN0
+FAST_INPUT => inst1.DATAIN
+
+

@@ -1,0 +1,7 @@
+
+State Machine - |Semaforo|Semaforo_Stati:inst|Macchina
+Name Macchina.state_bit_1 Macchina.state_bit_0 
+Macchina.red 0 0 
+Macchina.yel_a 0 1 
+Macchina.yel_b 1 0 
+Macchina.green 1 1 

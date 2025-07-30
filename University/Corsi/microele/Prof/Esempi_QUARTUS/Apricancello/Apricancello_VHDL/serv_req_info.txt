@@ -1,0 +1,26 @@
+<internal_error>
+	<executable>quartus.exe</executable>
+	<sub_system>ERR</sub_system>
+	<callstack>Stack Trace:
+Ordinal2371 + 0x64 (MFC71)
+AFC_TREE_VIEW::OnWndMsg + 0x27 (GCL_AFC)
+Ordinal6275 + 0x21 (MFC71)
+Ordinal1028 + 0x7C (MFC71)
+Ordinal1209 + 0x3A (MFC71)
+Ordinal1209 + 0x78 (MFC71)
+GetDC + 0x6C (USER32)
+GetDC + 0x14E (USER32)
+DefWindowProcW + 0x183 (USER32)
+DefWindowProcW + 0x1CF (USER32)
+KiUserCallbackDispatcher + 0x12 (ntdll)
+Ordinal1106 + 0x17 (MFC71)
+
+End-trace
+</callstack>
+	<error>Current editor: WED, RPW, RPW, TED, GED, TED</error>
+	<date>Wed Jun 18 19:40:32 2008</date>
+	<version>Quartus II Version 6.1 Build 201 11/27/2006 SJ Web Edition</version>
+	<full_error>Fatal error detected: Access Violation
+Current editor: WED, RPW, RPW, TED, GED, TED
+Quartus II Version 6.1 Build 201 11/27/2006 SJ Web Edition </full_error>
+</internal_error>

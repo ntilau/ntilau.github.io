@@ -1,0 +1,9 @@
+Fitter Status : Failed - Wed Jun 11 20:45:20 2008
+Quartus II Version : 6.1 Build 201 11/27/2006 SJ Web Edition
+Revision Name : VHDL_FuncProc
+Top-level Entity Name : VHDL_FuncProc
+Family : MAX7000AE
+Device : EPM7512AEBC256-10
+Timing Models : Final
+Total macrocells : 461 / 512 ( 90 % )
+Total pins : 196 / 212 ( 92 % )

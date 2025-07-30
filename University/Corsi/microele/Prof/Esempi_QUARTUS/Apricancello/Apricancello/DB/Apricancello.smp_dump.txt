@@ -1,0 +1,8 @@
+
+State Machine - |Apricancello|Stati_Cancello:inst|mm
+Name PAUSA CHIUSURA APERTO APERTURA CHIUSO 
+CHIUSO 0 0 0 0 1 
+APERTURA 0 0 0 1 0 
+APERTO 0 0 1 0 0 
+CHIUSURA 0 1 0 0 0 
+PAUSA 1 0 0 0 0 

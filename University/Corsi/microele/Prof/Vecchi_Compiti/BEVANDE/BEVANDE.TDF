@@ -1,0 +1,61 @@
+TITLE "Bevande";
+
+
+SUBDESIGN Bevande
+(
+	CLOCK 		: INPUT;
+	RESET		: INPUT;
+	
+	FOTOCELLULA	: INPUT;
+	MONETA		: INPUT;
+	
+	GUSTO_1, GUSTO_2	: INPUT;
+	
+	SARACINESCA_1, SARACINESCA_2	: OUTPUT;
+)
+
+VARIABLE
+
+mm	: MACHINE 
+	WITH STATES (ATTESA_MONETA, ATTESA_SCELTA, APERTURA_1, APERTURA_2);
+
+BEGIN
+
+	mm.reset = RESET;
+	mm.clk = CLOCK;
+
+	TABLE
+		mm,				MONETA,		GUSTO_1, 	GUSTO_2, 	FOTOCELLULA		=> mm;
+
+		ATTESA_MONETA,	0,			x,			x,			x				=> ATTESA_MONETA;
+		ATTESA_MONETA,	1,			x,			x,			x				=> ATTESA_SCELTA;
+
+		ATTESA_SCELTA,	x,			0,			0,			x				=> ATTESA_SCELTA;
+		ATTESA_SCELTA,	x,			1,			1,			x				=> ATTESA_SCELTA;
+		ATTESA_SCELTA,	x,			1,			0,			x				=> APERTURA_1;
+		ATTESA_SCELTA,	x,			0,			1,			x				=> APERTURA_2;
+
+		APERTURA_1,		x,			x,			x,			0				=> APERTURA_1;
+		APERTURA_1,		x,			x,			x,			1				=> ATTESA_MONETA;
+
+		APERTURA_2,		x,			x,			x,			0				=> APERTURA_2;
+		APERTURA_2,		x,			x,			x,			1				=> ATTESA_MONETA;
+	END TABLE;
+
+
+	CASE mm IS
+		WHEN ATTESA_MONETA =>
+			SARACINESCA_1 = GND;
+			SARACINESCA_2 = GND;
+		WHEN ATTESA_SCELTA =>
+			SARACINESCA_1 = GND;
+			SARACINESCA_2 = GND;
+		WHEN APERTURA_1 =>
+			SARACINESCA_1 = VCC;
+			SARACINESCA_2 = GND;
+		WHEN APERTURA_2 =>
+			SARACINESCA_1 = GND;
+			SARACINESCA_2 = VCC;
+	END CASE;
+
+END;

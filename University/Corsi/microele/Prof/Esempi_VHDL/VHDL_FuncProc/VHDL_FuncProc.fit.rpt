@@ -1,0 +1,1313 @@
+Fitter report for VHDL_FuncProc
+Wed Jun 11 20:45:20 2008
+Quartus II Version 6.1 Build 201 11/27/2006 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Fitter Summary
+  3. Fitter Settings
+  4. Fitter Resource Usage Summary
+  5. Input Pins
+  6. Output Pins
+  7. I/O Bank Usage
+  8. All Package Pins
+  9. Output Pin Default Load For Reported TCO
+ 10. Fitter Resource Utilization by Entity
+ 11. Non-Global High Fan-Out Signals
+ 12. Parallel Expander
+ 13. Fitter Device Options
+ 14. Fitter Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------+
+; Fitter Summary                                                  ;
++-----------------------+-----------------------------------------+
+; Fitter Status         ; Failed - Wed Jun 11 20:45:20 2008       ;
+; Quartus II Version    ; 6.1 Build 201 11/27/2006 SJ Web Edition ;
+; Revision Name         ; VHDL_FuncProc                           ;
+; Top-level Entity Name ; VHDL_FuncProc                           ;
+; Family                ; MAX7000AE                               ;
+; Device                ; EPM7512AEBC256-10                       ;
+; Timing Models         ; Final                                   ;
+; Total macrocells      ; 461 / 512 ( 90 % )                      ;
+; Total pins            ; 196 / 212 ( 92 % )                      ;
++-----------------------+-----------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Fitter Settings                                                       ;
++--------------------------------------------+----------+---------------+
+; Option                                     ; Setting  ; Default Value ;
++--------------------------------------------+----------+---------------+
+; Device                                     ; AUTO     ;               ;
+; Optimize IOC Register Placement for Timing ; On       ; On            ;
+; Limit to One Fitting Attempt               ; Off      ; Off           ;
+; Fitter Initial Placement Seed              ; 1        ; 1             ;
+; Slow Slew Rate                             ; Off      ; Off           ;
+; Fitter Effort                              ; Auto Fit ; Auto Fit      ;
+; Use smart compilation                      ; Off      ; Off           ;
++--------------------------------------------+----------+---------------+
+
+
++--------------------------------------------------------+
+; Fitter Resource Usage Summary                          ;
++-----------------------------------+--------------------+
+; Resource                          ; Usage              ;
++-----------------------------------+--------------------+
+; Logic cells                       ; 461 / 512 ( 90 % ) ;
+; Registers                         ; 0 / 512 ( 0 % )    ;
+; Number of pterms used             ; 1760               ;
+; User inserted logic elements      ; 0                  ;
+; I/O pins                          ; 196 / 212 ( 92 % ) ;
+;     -- Clock pins                 ; 0 / 2 ( 0 % )      ;
+;     -- Dedicated input pins       ; 0 / 2 ( 0 % )      ;
+; Global signals                    ; 0                  ;
+; Shareable expanders               ; 68 / 512 ( 13 % )  ;
+; Parallel expanders                ; 247 / 480 ( 51 % ) ;
+; Cells using turbo bit             ; 461 / 512 ( 90 % ) ;
+; Maximum fan-out node              ; LessThan0~959      ;
+; Maximum fan-out                   ; 208                ;
+; Highest non-global fan-out signal ; LessThan0~959      ;
+; Highest non-global fan-out        ; 208                ;
+; Total fan-out                     ; 6308               ;
+; Average fan-out                   ; 8.70               ;
++-----------------------------------+--------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Input Pins                                                                                                                                                   ;
++---------+------------+----------+-----------------------+--------------------+--------+----------------+---------------+--------------+----------------------+
+; Name    ; Pin #      ; I/O Bank ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; I/O Standard ; Location assigned by ;
++---------+------------+----------+-----------------------+--------------------+--------+----------------+---------------+--------------+----------------------+
+; IN1[0]  ; Unassigned ; --       ; 54                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[10] ; Unassigned ; --       ; 45                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[11] ; Unassigned ; --       ; 41                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[12] ; Unassigned ; --       ; 40                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[13] ; Unassigned ; --       ; 37                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[14] ; Unassigned ; --       ; 34                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[15] ; Unassigned ; --       ; 29                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[16] ; Unassigned ; --       ; 38                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[17] ; Unassigned ; --       ; 37                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[18] ; Unassigned ; --       ; 33                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[19] ; Unassigned ; --       ; 29                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[1]  ; Unassigned ; --       ; 55                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[20] ; Unassigned ; --       ; 30                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[21] ; Unassigned ; --       ; 27                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[22] ; Unassigned ; --       ; 26                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[23] ; Unassigned ; --       ; 81                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[24] ; Unassigned ; --       ; 85                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[25] ; Unassigned ; --       ; 84                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[26] ; Unassigned ; --       ; 82                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[27] ; Unassigned ; --       ; 79                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[28] ; Unassigned ; --       ; 78                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[29] ; Unassigned ; --       ; 77                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[2]  ; Unassigned ; --       ; 53                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[30] ; Unassigned ; --       ; 75                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[31] ; Unassigned ; --       ; 3                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[3]  ; Unassigned ; --       ; 50                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[4]  ; Unassigned ; --       ; 47                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[5]  ; Unassigned ; --       ; 43                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[6]  ; Unassigned ; --       ; 43                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[7]  ; Unassigned ; --       ; 38                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[8]  ; Unassigned ; --       ; 51                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN1[9]  ; Unassigned ; --       ; 49                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[0]  ; Unassigned ; --       ; 22                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[10] ; Unassigned ; --       ; 23                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[11] ; Unassigned ; --       ; 20                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[12] ; Unassigned ; --       ; 20                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[13] ; Unassigned ; --       ; 19                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[14] ; Unassigned ; --       ; 17                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[15] ; Unassigned ; --       ; 13                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[16] ; Unassigned ; --       ; 21                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[17] ; Unassigned ; --       ; 23                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[18] ; Unassigned ; --       ; 20                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[19] ; Unassigned ; --       ; 17                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[1]  ; Unassigned ; --       ; 23                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[20] ; Unassigned ; --       ; 18                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[21] ; Unassigned ; --       ; 17                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[22] ; Unassigned ; --       ; 15                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[23] ; Unassigned ; --       ; 70                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[24] ; Unassigned ; --       ; 77                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[25] ; Unassigned ; --       ; 77                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[26] ; Unassigned ; --       ; 76                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[27] ; Unassigned ; --       ; 74                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[28] ; Unassigned ; --       ; 74                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[29] ; Unassigned ; --       ; 74                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[2]  ; Unassigned ; --       ; 23                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[30] ; Unassigned ; --       ; 72                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[31] ; Unassigned ; --       ; 2                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[3]  ; Unassigned ; --       ; 21                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[4]  ; Unassigned ; --       ; 19                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[5]  ; Unassigned ; --       ; 16                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[6]  ; Unassigned ; --       ; 17                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[7]  ; Unassigned ; --       ; 13                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[8]  ; Unassigned ; --       ; 27                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; IN2[9]  ; Unassigned ; --       ; 26                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
++---------+------------+----------+-----------------------+--------------------+--------+----------------+---------------+--------------+----------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Output Pins                                                                                                                                                     ;
++-----------+------------+----------+-----------------+---------------+----------------+------------+---------------+--------------+----------------------+-------+
+; Name      ; Pin #      ; I/O Bank ; Output Register ; Power Up High ; Slow Slew Rate ; Open Drain ; TRI Primitive ; I/O Standard ; Location assigned by ; Load  ;
++-----------+------------+----------+-----------------+---------------+----------------+------------+---------------+--------------+----------------------+-------+
+; OUT_A[0]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[10] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[11] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[12] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[13] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[14] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[15] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[16] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[17] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[18] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[19] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[1]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[20] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[21] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[22] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[23] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[24] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[25] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[26] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[27] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[28] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[29] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[2]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[30] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[31] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[3]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[4]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[5]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[6]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[7]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[8]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_A[9]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[0]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[10] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[11] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[12] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[13] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[14] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[15] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[16] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[17] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[18] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[19] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[1]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[20] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[21] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[22] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[23] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[24] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[25] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[26] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[27] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[28] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[29] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[2]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[30] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[31] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[3]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[4]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[5]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[6]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[7]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[8]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B[9]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[0]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[10] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[11] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[12] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[13] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[14] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[15] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[16] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[17] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[18] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[19] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[1]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[20] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[21] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[22] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[23] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[24] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[25] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[26] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[27] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[28] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[29] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[2]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[30] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[31] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[3]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[4]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[5]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[6]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[7]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[8]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C[9]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[0]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[10] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[11] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[12] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[13] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[14] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[15] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[16] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[17] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[18] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[19] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[1]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[20] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[21] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[22] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[23] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[24] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[25] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[26] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[27] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[28] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[29] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[2]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[30] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[31] ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[3]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[4]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[5]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[6]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[7]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[8]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D[9]  ; Unassigned ; --       ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
++-----------+------------+----------+-----------------+---------------+----------------+------------+---------------+--------------+----------------------+-------+
+
+
++-------------------------------------------------+
+; I/O Bank Usage                                  ;
++----------+-------+---------------+--------------+
+; I/O Bank ; Usage ; VCCIO Voltage ; VREF Voltage ;
++----------+-------+---------------+--------------+
+; Unknown  ; 192   ; --            ;              ;
++----------+-------+---------------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; All Package Pins                                                                                      ;
++----------+------------+----------+----------------+--------+--------------+---------+-----------------+
+; Location ; Pad Number ; I/O Bank ; Pin Name/Usage ; Dir.   ; I/O Standard ; Voltage ; User Assignment ;
++----------+------------+----------+----------------+--------+--------------+---------+-----------------+
+; A1       ; 229        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; A2       ; 26         ; --       ; TDI            ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; A3       ; 27         ; --       ; GND*           ;        ;              ;         ;                 ;
+; A4       ; 29         ; --       ; GND*           ;        ;              ;         ;                 ;
+; A5       ; 34         ; --       ; GND*           ;        ;              ;         ;                 ;
+; A6       ; 37         ; --       ; GND*           ;        ;              ;         ;                 ;
+; A7       ; 40         ; --       ; GND*           ;        ;              ;         ;                 ;
+; A8       ; 44         ; --       ; GND*           ;        ;              ;         ;                 ;
+; A9       ; 48         ; --       ; GND*           ;        ;              ;         ;                 ;
+; A10      ; 52         ; --       ; GND*           ;        ;              ;         ;                 ;
+; A11      ; 53         ; --       ; GND*           ;        ;              ;         ;                 ;
+; A12      ; 57         ; --       ; GND*           ;        ;              ;         ;                 ;
+; A13      ; 61         ; --       ; GND*           ;        ;              ;         ;                 ;
+; A14      ; 65         ; --       ; GND*           ;        ;              ;         ;                 ;
+; A15      ; 68         ; --       ; GND*           ;        ;              ;         ;                 ;
+; A16      ; 69         ; --       ; GND*           ;        ;              ;         ;                 ;
+; A17      ; 72         ; --       ; GND*           ;        ;              ;         ;                 ;
+; A18      ; 77         ; --       ; GND*           ;        ;              ;         ;                 ;
+; A19      ; 79         ; --       ; GND*           ;        ;              ;         ;                 ;
+; A20      ; 80         ; --       ; GND*           ;        ;              ;         ;                 ;
+; B1       ; 23         ; --       ; GND*           ;        ;              ;         ;                 ;
+; B2       ; 230        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; B3       ; 25         ; --       ; GND*           ;        ;              ;         ;                 ;
+; B4       ; 28         ; --       ; GND*           ;        ;              ;         ;                 ;
+; B5       ; 32         ; --       ; GND*           ;        ;              ;         ;                 ;
+; B6       ; 35         ; --       ; GND*           ;        ;              ;         ;                 ;
+; B7       ; 39         ; --       ; GND*           ;        ;              ;         ;                 ;
+; B8       ; 43         ; --       ; GND*           ;        ;              ;         ;                 ;
+; B9       ; 47         ; --       ; GND*           ;        ;              ;         ;                 ;
+; B10      ; 51         ; --       ; GND*           ;        ;              ;         ;                 ;
+; B11      ; 54         ; --       ; GND*           ;        ;              ;         ;                 ;
+; B12      ; 58         ; --       ; TMS            ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; B13      ; 62         ; --       ; GND*           ;        ;              ;         ;                 ;
+; B14      ; 66         ; --       ; GND*           ;        ;              ;         ;                 ;
+; B15      ; 71         ; --       ; GND*           ;        ;              ;         ;                 ;
+; B16      ; 74         ; --       ; GND*           ;        ;              ;         ;                 ;
+; B17      ; 78         ; --       ; GND*           ;        ;              ;         ;                 ;
+; B18      ; 81         ; --       ; GND*           ;        ;              ;         ;                 ;
+; B19      ; 235        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; B20      ; 236        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; C1       ; 22         ; --       ; GND*           ;        ;              ;         ;                 ;
+; C2       ; 24         ; --       ; GND*           ;        ;              ;         ;                 ;
+; C3       ; 231        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; C4       ; 215        ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; C5       ; 31         ; --       ; GND*           ;        ;              ;         ;                 ;
+; C6       ; 33         ; --       ; GND*           ;        ;              ;         ;                 ;
+; C7       ; 38         ; --       ; GND*           ;        ;              ;         ;                 ;
+; C8       ; 42         ; --       ; GND*           ;        ;              ;         ;                 ;
+; C9       ; 46         ; --       ; GND*           ;        ;              ;         ;                 ;
+; C10      ; 49         ; --       ; GND*           ;        ;              ;         ;                 ;
+; C11      ; 55         ; --       ; GND*           ;        ;              ;         ;                 ;
+; C12      ; 59         ; --       ; GND*           ;        ;              ;         ;                 ;
+; C13      ; 63         ; --       ; GND*           ;        ;              ;         ;                 ;
+; C14      ; 67         ; --       ; GND*           ;        ;              ;         ;                 ;
+; C15      ; 73         ; --       ; GND*           ;        ;              ;         ;                 ;
+; C16      ; 75         ; --       ; GND*           ;        ;              ;         ;                 ;
+; C17      ; 217        ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; C18      ; 234        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; C19      ; 82         ; --       ; GND*           ;        ;              ;         ;                 ;
+; C20      ; 83         ; --       ; GND*           ;        ;              ;         ;                 ;
+; D1       ; 20         ; --       ; GND*           ;        ;              ;         ;                 ;
+; D2       ; 21         ; --       ; GND*           ;        ;              ;         ;                 ;
+; D3       ; 213        ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; D4       ; 232        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; D5       ; 214        ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; D6       ; 30         ; --       ; GND*           ;        ;              ;         ;                 ;
+; D7       ; 36         ; --       ; GND*           ;        ;              ;         ;                 ;
+; D8       ; 41         ; --       ; GND*           ;        ;              ;         ;                 ;
+; D9       ; 45         ; --       ; GND*           ;        ;              ;         ;                 ;
+; D10      ; 50         ; --       ; GND*           ;        ;              ;         ;                 ;
+; D11      ; 56         ; --       ; GND*           ;        ;              ;         ;                 ;
+; D12      ; 60         ; --       ; GND*           ;        ;              ;         ;                 ;
+; D13      ; 64         ; --       ; GND*           ;        ;              ;         ;                 ;
+; D14      ; 70         ; --       ; GND*           ;        ;              ;         ;                 ;
+; D15      ; 76         ; --       ; GND*           ;        ;              ;         ;                 ;
+; D16      ; 216        ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; D17      ; 233        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; D18      ; 219        ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; D19      ; 84         ; --       ; GND*           ;        ;              ;         ;                 ;
+; D20      ; 85         ; --       ; GND*           ;        ;              ;         ;                 ;
+; E1       ; 15         ; --       ; GND*           ;        ;              ;         ;                 ;
+; E2       ; 17         ; --       ; GND*           ;        ;              ;         ;                 ;
+; E3       ; 18         ; --       ; GND*           ;        ;              ;         ;                 ;
+; E4       ; 212        ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; E17      ; 218        ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; E18      ; 86         ; --       ; GND*           ;        ;              ;         ;                 ;
+; E19      ; 88         ; --       ; GND*           ;        ;              ;         ;                 ;
+; E20      ; 90         ; --       ; GND*           ;        ;              ;         ;                 ;
+; F1       ; 12         ; --       ; GND*           ;        ;              ;         ;                 ;
+; F2       ; 14         ; --       ; GND*           ;        ;              ;         ;                 ;
+; F3       ; 16         ; --       ; GND*           ;        ;              ;         ;                 ;
+; F4       ; 19         ; --       ; GND*           ;        ;              ;         ;                 ;
+; F17      ; 87         ; --       ; GND*           ;        ;              ;         ;                 ;
+; F18      ; 89         ; --       ; GND*           ;        ;              ;         ;                 ;
+; F19      ; 91         ; --       ; GND*           ;        ;              ;         ;                 ;
+; F20      ; 93         ; --       ; GND*           ;        ;              ;         ;                 ;
+; G1       ; 9          ; --       ; GND*           ;        ;              ;         ;                 ;
+; G2       ; 10         ; --       ; GND*           ;        ;              ;         ;                 ;
+; G3       ; 11         ; --       ; GND*           ;        ;              ;         ;                 ;
+; G4       ; 13         ; --       ; GND*           ;        ;              ;         ;                 ;
+; G17      ; 92         ; --       ; GND*           ;        ;              ;         ;                 ;
+; G18      ; 94         ; --       ; GND*           ;        ;              ;         ;                 ;
+; G19      ; 95         ; --       ; GND*           ;        ;              ;         ;                 ;
+; G20      ; 96         ; --       ; GND*           ;        ;              ;         ;                 ;
+; H1       ; 5          ; --       ; GND*           ;        ;              ;         ;                 ;
+; H2       ; 6          ; --       ; GND*           ;        ;              ;         ;                 ;
+; H3       ; 7          ; --       ; GND*           ;        ;              ;         ;                 ;
+; H4       ; 8          ; --       ; GND*           ;        ;              ;         ;                 ;
+; H17      ; 97         ; --       ; GND*           ;        ;              ;         ;                 ;
+; H18      ; 98         ; --       ; GND*           ;        ;              ;         ;                 ;
+; H19      ; 99         ; --       ; GND*           ;        ;              ;         ;                 ;
+; H20      ; 100        ; --       ; GND*           ;        ;              ;         ;                 ;
+; J1       ; 246        ; --       ; VCCINT         ; power  ;              ; 3.3V    ;                 ;
+; J2       ; 2          ; --       ; GND*           ;        ;              ;         ;                 ;
+; J3       ; 3          ; --       ; GND*           ;        ;              ;         ;                 ;
+; J4       ; 4          ; --       ; GND*           ;        ;              ;         ;                 ;
+; J17      ; 101        ; --       ; GND*           ;        ;              ;         ;                 ;
+; J18      ; 102        ; --       ; GND*           ;        ;              ;         ;                 ;
+; J19      ; 248        ; --       ; VCCINT         ; power  ;              ; 3.3V    ;                 ;
+; J20      ; 253        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; K1       ; 211        ; --       ; GND+           ;        ;              ;         ;                 ;
+; K2       ; 0          ; --       ; GND+           ;        ;              ;         ;                 ;
+; K3       ; 1          ; --       ; GND+           ;        ;              ;         ;                 ;
+; K4       ; 251        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; K17      ; 103        ; --       ; GND*           ;        ;              ;         ;                 ;
+; K18      ; 254        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; K19      ; 104        ; --       ; GND*           ;        ;              ;         ;                 ;
+; K20      ; 105        ; --       ; GND*           ;        ;              ;         ;                 ;
+; L1       ; 210        ; --       ; GND+           ;        ;              ;         ;                 ;
+; L2       ; 252        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; L3       ; 209        ; --       ; GND*           ;        ;              ;         ;                 ;
+; L4       ; 247        ; --       ; VCCINT         ; power  ;              ; 3.3V    ;                 ;
+; L17      ; 255        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; L18      ; 108        ; --       ; GND*           ;        ;              ;         ;                 ;
+; L19      ; 107        ; --       ; GND*           ;        ;              ;         ;                 ;
+; L20      ; 106        ; --       ; GND*           ;        ;              ;         ;                 ;
+; M1       ; 208        ; --       ; GND*           ;        ;              ;         ;                 ;
+; M2       ; 207        ; --       ; GND*           ;        ;              ;         ;                 ;
+; M3       ; 206        ; --       ; GND*           ;        ;              ;         ;                 ;
+; M4       ; 205        ; --       ; GND*           ;        ;              ;         ;                 ;
+; M17      ; 110        ; --       ; GND*           ;        ;              ;         ;                 ;
+; M18      ; 109        ; --       ; GND*           ;        ;              ;         ;                 ;
+; M19      ; 249        ; --       ; VCCINT         ; power  ;              ; 3.3V    ;                 ;
+; M20      ; 250        ; --       ; VCCINT         ; power  ;              ; 3.3V    ;                 ;
+; N1       ; 204        ; --       ; GND*           ;        ;              ;         ;                 ;
+; N2       ; 203        ; --       ; GND*           ;        ;              ;         ;                 ;
+; N3       ; 202        ; --       ; GND*           ;        ;              ;         ;                 ;
+; N4       ; 201        ; --       ; GND*           ;        ;              ;         ;                 ;
+; N17      ; 114        ; --       ; GND*           ;        ;              ;         ;                 ;
+; N18      ; 113        ; --       ; GND*           ;        ;              ;         ;                 ;
+; N19      ; 112        ; --       ; GND*           ;        ;              ;         ;                 ;
+; N20      ; 111        ; --       ; GND*           ;        ;              ;         ;                 ;
+; P1       ; 200        ; --       ; GND*           ;        ;              ;         ;                 ;
+; P2       ; 199        ; --       ; GND*           ;        ;              ;         ;                 ;
+; P3       ; 198        ; --       ; GND*           ;        ;              ;         ;                 ;
+; P4       ; 196        ; --       ; GND*           ;        ;              ;         ;                 ;
+; P17      ; 119        ; --       ; GND*           ;        ;              ;         ;                 ;
+; P18      ; 117        ; --       ; GND*           ;        ;              ;         ;                 ;
+; P19      ; 116        ; --       ; GND*           ;        ;              ;         ;                 ;
+; P20      ; 115        ; --       ; GND*           ;        ;              ;         ;                 ;
+; R1       ; 197        ; --       ; GND*           ;        ;              ;         ;                 ;
+; R2       ; 195        ; --       ; GND*           ;        ;              ;         ;                 ;
+; R3       ; 193        ; --       ; GND*           ;        ;              ;         ;                 ;
+; R4       ; 191        ; --       ; GND*           ;        ;              ;         ;                 ;
+; R17      ; 125        ; --       ; GND*           ;        ;              ;         ;                 ;
+; R18      ; 122        ; --       ; GND*           ;        ;              ;         ;                 ;
+; R19      ; 120        ; --       ; GND*           ;        ;              ;         ;                 ;
+; R20      ; 118        ; --       ; GND*           ;        ;              ;         ;                 ;
+; T1       ; 194        ; --       ; GND*           ;        ;              ;         ;                 ;
+; T2       ; 192        ; --       ; GND*           ;        ;              ;         ;                 ;
+; T3       ; 190        ; --       ; GND*           ;        ;              ;         ;                 ;
+; T4       ; 226        ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; T17      ; 220        ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; T18      ; 124        ; --       ; GND*           ;        ;              ;         ;                 ;
+; T19      ; 123        ; --       ; GND*           ;        ;              ;         ;                 ;
+; T20      ; 121        ; --       ; GND*           ;        ;              ;         ;                 ;
+; U1       ; 189        ; --       ; GND*           ;        ;              ;         ;                 ;
+; U2       ; 188        ; --       ; GND*           ;        ;              ;         ;                 ;
+; U3       ; 227        ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; U4       ; 242        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; U5       ; 224        ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; U6       ; 180        ; --       ; GND*           ;        ;              ;         ;                 ;
+; U7       ; 174        ; --       ; GND*           ;        ;              ;         ;                 ;
+; U8       ; 169        ; --       ; GND*           ;        ;              ;         ;                 ;
+; U9       ; 165        ; --       ; GND*           ;        ;              ;         ;                 ;
+; U10      ; 161        ; --       ; GND*           ;        ;              ;         ;                 ;
+; U11      ; 155        ; --       ; GND*           ;        ;              ;         ;                 ;
+; U12      ; 150        ; --       ; GND*           ;        ;              ;         ;                 ;
+; U13      ; 146        ; --       ; GND*           ;        ;              ;         ;                 ;
+; U14      ; 141        ; --       ; GND*           ;        ;              ;         ;                 ;
+; U15      ; 135        ; --       ; GND*           ;        ;              ;         ;                 ;
+; U16      ; 222        ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; U17      ; 237        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; U18      ; 221        ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; U19      ; 127        ; --       ; GND*           ;        ;              ;         ;                 ;
+; U20      ; 126        ; --       ; GND*           ;        ;              ;         ;                 ;
+; V1       ; 187        ; --       ; GND*           ;        ;              ;         ;                 ;
+; V2       ; 228        ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; V3       ; 243        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; V4       ; 225        ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; V5       ; 179        ; --       ; GND*           ;        ;              ;         ;                 ;
+; V6       ; 177        ; --       ; GND*           ;        ;              ;         ;                 ;
+; V7       ; 172        ; --       ; GND*           ;        ;              ;         ;                 ;
+; V8       ; 168        ; --       ; GND*           ;        ;              ;         ;                 ;
+; V9       ; 164        ; --       ; GND*           ;        ;              ;         ;                 ;
+; V10      ; 160        ; --       ; GND*           ;        ;              ;         ;                 ;
+; V11      ; 154        ; --       ; GND*           ;        ;              ;         ;                 ;
+; V12      ; 151        ; --       ; TCK            ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; V13      ; 147        ; --       ; GND*           ;        ;              ;         ;                 ;
+; V14      ; 143        ; --       ; GND*           ;        ;              ;         ;                 ;
+; V15      ; 138        ; --       ; GND*           ;        ;              ;         ;                 ;
+; V16      ; 136        ; --       ; GND*           ;        ;              ;         ;                 ;
+; V17      ; 223        ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; V18      ; 238        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; V19      ; 239        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; V20      ; 128        ; --       ; GND*           ;        ;              ;         ;                 ;
+; W1       ; 186        ; --       ; GND*           ;        ;              ;         ;                 ;
+; W2       ; 244        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; W3       ; 185        ; --       ; GND*           ;        ;              ;         ;                 ;
+; W4       ; 182        ; --       ; GND*           ;        ;              ;         ;                 ;
+; W5       ; 178        ; --       ; GND*           ;        ;              ;         ;                 ;
+; W6       ; 175        ; --       ; GND*           ;        ;              ;         ;                 ;
+; W7       ; 171        ; --       ; GND*           ;        ;              ;         ;                 ;
+; W8       ; 167        ; --       ; GND*           ;        ;              ;         ;                 ;
+; W9       ; 163        ; --       ; GND*           ;        ;              ;         ;                 ;
+; W10      ; 159        ; --       ; GND*           ;        ;              ;         ;                 ;
+; W11      ; 156        ; --       ; GND*           ;        ;              ;         ;                 ;
+; W12      ; 152        ; --       ; GND*           ;        ;              ;         ;                 ;
+; W13      ; 148        ; --       ; GND*           ;        ;              ;         ;                 ;
+; W14      ; 144        ; --       ; GND*           ;        ;              ;         ;                 ;
+; W15      ; 140        ; --       ; GND*           ;        ;              ;         ;                 ;
+; W16      ; 137        ; --       ; GND*           ;        ;              ;         ;                 ;
+; W17      ; 133        ; --       ; GND*           ;        ;              ;         ;                 ;
+; W18      ; 130        ; --       ; GND*           ;        ;              ;         ;                 ;
+; W19      ; 240        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; W20      ; 129        ; --       ; GND*           ;        ;              ;         ;                 ;
+; Y1       ; 245        ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; Y2       ; 184        ; --       ; TDO            ; output ; 3.3-V LVTTL  ;         ; N               ;
+; Y3       ; 183        ; --       ; GND*           ;        ;              ;         ;                 ;
+; Y4       ; 181        ; --       ; GND*           ;        ;              ;         ;                 ;
+; Y5       ; 176        ; --       ; GND*           ;        ;              ;         ;                 ;
+; Y6       ; 173        ; --       ; GND*           ;        ;              ;         ;                 ;
+; Y7       ; 170        ; --       ; GND*           ;        ;              ;         ;                 ;
+; Y8       ; 166        ; --       ; GND*           ;        ;              ;         ;                 ;
+; Y9       ; 162        ; --       ; GND*           ;        ;              ;         ;                 ;
+; Y10      ; 158        ; --       ; GND*           ;        ;              ;         ;                 ;
+; Y11      ; 157        ; --       ; GND*           ;        ;              ;         ;                 ;
+; Y12      ; 153        ; --       ; GND*           ;        ;              ;         ;                 ;
+; Y13      ; 149        ; --       ; GND*           ;        ;              ;         ;                 ;
+; Y14      ; 145        ; --       ; GND*           ;        ;              ;         ;                 ;
+; Y15      ; 142        ; --       ; GND*           ;        ;              ;         ;                 ;
+; Y16      ; 139        ; --       ; GND*           ;        ;              ;         ;                 ;
+; Y17      ; 134        ; --       ; GND*           ;        ;              ;         ;                 ;
+; Y18      ; 132        ; --       ; GND*           ;        ;              ;         ;                 ;
+; Y19      ; 131        ; --       ; GND*           ;        ;              ;         ;                 ;
+; Y20      ; 241        ; --       ; GND            ; gnd    ;              ;         ;                 ;
++----------+------------+----------+----------------+--------+--------------+---------+-----------------+
+
+
++-----------------------------------------------+
+; Output Pin Default Load For Reported TCO      ;
++--------------+-------+------------------------+
+; I/O Standard ; Load  ; Termination Resistance ;
++--------------+-------+------------------------+
+; 3.3-V LVTTL  ; 10 pF ; Not Available          ;
+; 3.3-V LVCMOS ; 10 pF ; Not Available          ;
+; 3.3-V PCI    ; 10 pF ; 25 Ohm (Parallel)      ;
+; 2.5 V        ; 10 pF ; Not Available          ;
++--------------+-------+------------------------+
+Note: User assignments will override these defaults. The user specified values are listed in the Output Pins and Bidir Pins tables.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                                             ;
++------------------------------------+------------+------+--------------------------------------------------------------------------+
+; Compilation Hierarchy Node         ; Macrocells ; Pins ; Full Hierarchy Name                                                      ;
++------------------------------------+------------+------+--------------------------------------------------------------------------+
+; |VHDL_FuncProc                     ; 461        ; 196  ; |VHDL_FuncProc                                                           ;
+;    |lpm_add_sub:Add0|              ; 131        ; 0    ; |VHDL_FuncProc|lpm_add_sub:Add0                                          ;
+;       |addcore:adder[0]|           ; 26         ; 0    ; |VHDL_FuncProc|lpm_add_sub:Add0|addcore:adder[0]                         ;
+;          |a_csnbuffer:result_node| ; 19         ; 0    ; |VHDL_FuncProc|lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node ;
+;       |addcore:adder[1]|           ; 33         ; 0    ; |VHDL_FuncProc|lpm_add_sub:Add0|addcore:adder[1]                         ;
+;          |a_csnbuffer:result_node| ; 18         ; 0    ; |VHDL_FuncProc|lpm_add_sub:Add0|addcore:adder[1]|a_csnbuffer:result_node ;
+;       |addcore:adder[2]|           ; 37         ; 0    ; |VHDL_FuncProc|lpm_add_sub:Add0|addcore:adder[2]                         ;
+;          |a_csnbuffer:result_node| ; 21         ; 0    ; |VHDL_FuncProc|lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node ;
+;       |addcore:adder[3]|           ; 35         ; 0    ; |VHDL_FuncProc|lpm_add_sub:Add0|addcore:adder[3]                         ;
+;          |a_csnbuffer:result_node| ; 27         ; 0    ; |VHDL_FuncProc|lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node ;
+;    |lpm_add_sub:Add1|              ; 31         ; 0    ; |VHDL_FuncProc|lpm_add_sub:Add1                                          ;
+;       |addcore:adder[0]|           ; 7          ; 0    ; |VHDL_FuncProc|lpm_add_sub:Add1|addcore:adder[0]                         ;
+;          |a_csnbuffer:result_node| ; 7          ; 0    ; |VHDL_FuncProc|lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node ;
+;       |addcore:adder[1]|           ; 8          ; 0    ; |VHDL_FuncProc|lpm_add_sub:Add1|addcore:adder[1]                         ;
+;          |a_csnbuffer:result_node| ; 8          ; 0    ; |VHDL_FuncProc|lpm_add_sub:Add1|addcore:adder[1]|a_csnbuffer:result_node ;
+;       |addcore:adder[2]|           ; 8          ; 0    ; |VHDL_FuncProc|lpm_add_sub:Add1|addcore:adder[2]                         ;
+;          |a_csnbuffer:result_node| ; 8          ; 0    ; |VHDL_FuncProc|lpm_add_sub:Add1|addcore:adder[2]|a_csnbuffer:result_node ;
+;       |addcore:adder[3]|           ; 8          ; 0    ; |VHDL_FuncProc|lpm_add_sub:Add1|addcore:adder[3]                         ;
+;          |a_csnbuffer:result_node| ; 8          ; 0    ; |VHDL_FuncProc|lpm_add_sub:Add1|addcore:adder[3]|a_csnbuffer:result_node ;
++------------------------------------+------------+------+--------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Non-Global High Fan-Out Signals                                                      ;
++----------------------------------------------------------------------------+---------+
+; Name                                                                       ; Fan-Out ;
++----------------------------------------------------------------------------+---------+
+; LessThan0~959                                                              ; 208     ;
+; lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[6]~87  ; 205     ;
+; lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[5]~78  ; 205     ;
+; lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[2]~63  ; 205     ;
+; lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[4]~54  ; 205     ;
+; lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[3]~43  ; 205     ;
+; LessThan0~971                                                              ; 186     ;
+; LessThan0~989                                                              ; 185     ;
+; LessThan0~977                                                              ; 185     ;
+; lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[1]~34  ; 165     ;
+; LessThan0~963                                                              ; 163     ;
+; LessThan0~983                                                              ; 146     ;
+; LessThan0~995                                                              ; 141     ;
+; LessThan0~988sexp                                                          ; 102     ;
+; IN1[24]                                                                    ; 85      ;
+; IN1[25]                                                                    ; 84      ;
+; IN1[26]                                                                    ; 82      ;
+; IN1[23]                                                                    ; 81      ;
+; IN1[27]                                                                    ; 79      ;
+; IN1[28]                                                                    ; 78      ;
+; IN2[25]                                                                    ; 77      ;
+; IN2[24]                                                                    ; 77      ;
+; IN1[29]                                                                    ; 77      ;
+; IN2[26]                                                                    ; 76      ;
+; IN1[30]                                                                    ; 75      ;
+; IN2[29]                                                                    ; 74      ;
+; IN2[28]                                                                    ; 74      ;
+; IN2[27]                                                                    ; 74      ;
+; IN2[30]                                                                    ; 72      ;
+; IN2[23]                                                                    ; 70      ;
+; lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[7]~147 ; 63      ;
+; LessThan0~1121                                                             ; 62      ;
+; IN1[1]                                                                     ; 55      ;
+; IN1[0]                                                                     ; 54      ;
+; IN1[2]                                                                     ; 53      ;
+; IN1[8]                                                                     ; 51      ;
+; IN1[3]                                                                     ; 50      ;
+; IN1[9]                                                                     ; 49      ;
+; IN1[4]                                                                     ; 47      ;
+; IN1[10]                                                                    ; 45      ;
+; IN1[6]                                                                     ; 43      ;
+; IN1[5]                                                                     ; 43      ;
+; IN1[11]                                                                    ; 41      ;
+; IN1[12]                                                                    ; 40      ;
+; IN1[16]                                                                    ; 38      ;
+; IN1[7]                                                                     ; 38      ;
+; IN1[17]                                                                    ; 37      ;
+; IN1[13]                                                                    ; 37      ;
+; IN1[14]                                                                    ; 34      ;
+; IN1[18]                                                                    ; 33      ;
++----------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Parallel Expander                                       ;
++--------------------------+------------------------------+
+; Parallel Expander Length ; Number of Parallel Expanders ;
++--------------------------+------------------------------+
+; 0                        ; 0                            ;
+; 1                        ; 23                           ;
+; 2                        ; 16                           ;
+; 3                        ; 64                           ;
++--------------------------+------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Fitter Device Options                                                   ;
++----------------------------------------------+--------------------------+
+; Option                                       ; Setting                  ;
++----------------------------------------------+--------------------------+
+; Enable user-supplied start-up clock (CLKUSR) ; Off                      ;
+; Enable device-wide reset (DEV_CLRn)          ; Off                      ;
+; Enable device-wide output enable (DEV_OE)    ; Off                      ;
+; Enable INIT_DONE output                      ; Off                      ;
+; Configuration scheme                         ; Passive Serial           ;
+; Reserve all unused pins                      ; As output driving ground ;
+; Security bit                                 ; Off                      ;
+; Base pin-out file on sameframe device        ; Off                      ;
++----------------------------------------------+--------------------------+
+
+
++-----------------+
+; Fitter Messages ;
++-----------------+
+Info: *******************************************************************
+Info: Running Quartus II Fitter
+    Info: Version 6.1 Build 201 11/27/2006 SJ Web Edition
+    Info: Processing started: Wed Jun 11 20:44:56 2008
+Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off VHDL_FuncProc -c VHDL_FuncProc
+Info: Automatically selected device EPM7512AEBC256-10 for design VHDL_FuncProc
+Info: Fitting design with smaller device may be possible, but smaller device must be specified
+Error: Can't pack LABs
+Error: Can't place node "OUT_C[31]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[31]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "IN1[0]~223" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 85
+Error: Can't place node "OUT_B[0]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|prop_node[3]~100" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 188
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|prop_node[2]~105" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 188
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|prop_node[1]~110" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 188
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|prop_node[0]~115" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 188
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|prop_node[3]~100" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 188
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|prop_node[2]~105" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 188
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|prop_node[1]~110" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 188
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|prop_node[0]~115" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 188
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|prop_node[3]~77" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 188
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[1]~22" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_B[1]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|genr_node[3]~91" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 189
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|genr_node[2]~95" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 189
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|genr_node[1]~99" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 189
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|genr_node[0]~103" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 189
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|genr_node[3]~88" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 189
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|genr_node[3]~88" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 189
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node|sout_node[0]~21" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[2]~26" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[0]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[2]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|g2cp[1]~17" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 178
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|g2cp[1]~17" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 178
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|g2cp[1]~17" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 178
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node|sout_node[1]~34" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[3]~38" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[1]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[3]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|g2cp[2]~23" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 178
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|gcp[2]~12" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 179
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|g2cp[2]~23" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 178
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|gcp[2]~12" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 179
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|g2cp[2]~23" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 178
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|gcp[2]~12" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 179
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|g2cp[2]~23" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 178
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node|sout_node[2]~39" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[4]~46" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[1]|a_csnbuffer:result_node|sout_node[0]~24" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[2]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[4]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[8]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[5]~54" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[1]|a_csnbuffer:result_node|sout_node[1]~32" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[2]|a_csnbuffer:result_node|sout_node[0]~24" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_B[5]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[9]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[16]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|g4~17" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 177
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|g4~17" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 177
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|g4~17" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 177
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[6]~62" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[1]|a_csnbuffer:result_node|sout_node[2]~40" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[2]|a_csnbuffer:result_node|sout_node[1]~32" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[3]|a_csnbuffer:result_node|sout_node[0]~24" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_B[6]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[10]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[17]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[24]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node|sout_node[3]~65" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~66" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[1]|a_csnbuffer:result_node|sout_node[3]~48" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[2]|a_csnbuffer:result_node|sout_node[2]~40" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[3]|a_csnbuffer:result_node|sout_node[1]~32" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[3]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[7]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[11]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[18]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[25]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|bg_out~39" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 644
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[1]|a_csnbuffer:result_node|sout_node[4]~56" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[2]|a_csnbuffer:result_node|sout_node[3]~48" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[3]|a_csnbuffer:result_node|sout_node[2]~40" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_B[12]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[19]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[26]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node|sout_node[4]~90" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[1]|a_csnbuffer:result_node|sout_node[5]~64" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[2]|a_csnbuffer:result_node|sout_node[4]~56" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[3]|a_csnbuffer:result_node|sout_node[3]~48" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[4]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[13]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[20]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[27]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node|sout_node[5]~97" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|bg_out~48" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 644
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[1]|a_csnbuffer:result_node|sout_node[6]~72" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[2]|a_csnbuffer:result_node|sout_node[5]~64" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[3]|a_csnbuffer:result_node|sout_node[4]~56" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_B[14]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[21]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[28]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node|sout_node[6]~111" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node|sout_node[5]~118" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|a_csnbuffer:result_node|sout_node[0]~25" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[1]|a_csnbuffer:result_node|sout_node[7]~76" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[2]|a_csnbuffer:result_node|sout_node[6]~72" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[3]|a_csnbuffer:result_node|sout_node[5]~64" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[5]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_A[8]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[15]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[22]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[29]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|p2c[2]~35" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 174
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node|sout_node[6]~125" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[2]|a_csnbuffer:result_node|sout_node[7]~76" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[3]|a_csnbuffer:result_node|sout_node[6]~72" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[6]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[23]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[30]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~127" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|a_csnbuffer:result_node|sout_node[1]~46" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[0]~27" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add1|addcore:adder[3]|a_csnbuffer:result_node|sout_node[7]~76" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[7]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_A[9]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_A[16]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_B[31]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|a_csnbuffer:result_node|sout_node[3]~70" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[11]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|a_csnbuffer:result_node|sout_node[2]~77" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|a_csnbuffer:result_node|sout_node[4]~84" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[1]~52" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[10]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_A[12]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_A[17]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[3]~77" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[19]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|a_csnbuffer:result_node|sout_node[5]~109" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[2]~84" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[4]~103" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[13]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_A[18]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_A[20]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|a_csnbuffer:result_node|sout_node[6]~125" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[14]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[6]~121" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|a_csnbuffer:result_node|sout_node[7]~132" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[5]~140" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[15]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_A[21]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[7]~149" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[6]~156" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[22]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[7]~158" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[0]~27" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[23]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_A[24]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[1]~36" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[3]~45" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[1]~52" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[25]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[4]~56" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[2]~65" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[3]~72" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[27]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[2]~74" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[4]~76" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[26]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_A[28]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[5]~80" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[6]~89" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[5]~96" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[29]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[7]~100" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[6]~107" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[30]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[7]~109" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "OUT_A[31]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "LessThan0~959" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~963" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~971" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~977" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~983" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~989" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~995" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1000" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1001" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1006" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1007" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1012" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1013" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1018" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1019" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1024" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1025" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1030" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1031" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1036" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1037" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1042" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1043" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1048" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1049" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1054" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1055" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1060" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1061" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1066" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1067" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1072" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1073" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1078" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1079" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1084" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1085" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1090" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1091" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1096" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1097" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1111" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1112" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1121" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "min~222" of type max_mcell
+Error: Can't place node "min~228" of type max_mcell
+Error: Can't place node "min~234" of type max_mcell
+Error: Can't place node "min~240" of type max_mcell
+Error: Can't place node "min~246" of type max_mcell
+Error: Can't place node "min~252" of type max_mcell
+Error: Can't place node "min~258" of type max_mcell
+Error: Can't place node "min~264" of type max_mcell
+Error: Can't place node "min~270" of type max_mcell
+Error: Can't place node "min~276" of type max_mcell
+Error: Can't place node "min~282" of type max_mcell
+Error: Can't place node "min~288" of type max_mcell
+Error: Can't place node "min~294" of type max_mcell
+Error: Can't place node "min~300" of type max_mcell
+Error: Can't place node "min~306" of type max_mcell
+Error: Can't place node "min~312" of type max_mcell
+Error: Can't place node "min~318" of type max_mcell
+Error: Can't place node "min~324" of type max_mcell
+Error: Can't place node "min~330" of type max_mcell
+Error: Can't place node "min~336" of type max_mcell
+Error: Can't place node "min~342" of type max_mcell
+Error: Can't place node "min~348" of type max_mcell
+Error: Can't place node "min~354" of type max_mcell
+Error: Can't place node "min~360" of type max_mcell
+Error: Can't place node "min~366" of type max_mcell
+Error: Can't place node "min~372" of type max_mcell
+Error: Can't place node "min~378" of type max_mcell
+Error: Can't place node "min~384" of type max_mcell
+Error: Can't place node "min~390" of type max_mcell
+Error: Can't place node "min~396" of type max_mcell
+Error: Can't place node "min~402" of type max_mcell
+Error: Can't place node "max~222" of type max_mcell
+Error: Can't place node "max~228" of type max_mcell
+Error: Can't place node "max~234" of type max_mcell
+Error: Can't place node "max~240" of type max_mcell
+Error: Can't place node "max~246" of type max_mcell
+Error: Can't place node "max~252" of type max_mcell
+Error: Can't place node "max~258" of type max_mcell
+Error: Can't place node "max~264" of type max_mcell
+Error: Can't place node "max~270" of type max_mcell
+Error: Can't place node "max~276" of type max_mcell
+Error: Can't place node "max~282" of type max_mcell
+Error: Can't place node "max~288" of type max_mcell
+Error: Can't place node "max~294" of type max_mcell
+Error: Can't place node "max~300" of type max_mcell
+Error: Can't place node "max~306" of type max_mcell
+Error: Can't place node "max~312" of type max_mcell
+Error: Can't place node "max~318" of type max_mcell
+Error: Can't place node "max~324" of type max_mcell
+Error: Can't place node "max~330" of type max_mcell
+Error: Can't place node "max~336" of type max_mcell
+Error: Can't place node "max~342" of type max_mcell
+Error: Can't place node "max~348" of type max_mcell
+Error: Can't place node "max~354" of type max_mcell
+Error: Can't place node "max~360" of type max_mcell
+Error: Can't place node "max~366" of type max_mcell
+Error: Can't place node "max~372" of type max_mcell
+Error: Can't place node "max~378" of type max_mcell
+Error: Can't place node "max~384" of type max_mcell
+Error: Can't place node "max~390" of type max_mcell
+Error: Can't place node "max~396" of type max_mcell
+Error: Can't place node "max~402" of type max_mcell
+Error: Can't place node "OUT_C[0]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[1]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[2]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[3]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[4]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[5]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[6]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[7]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[8]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[9]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[10]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[11]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[12]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[13]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[14]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[15]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[16]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[17]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[18]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[19]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[20]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[21]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[22]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[23]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[24]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[25]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[26]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[27]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[28]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[29]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_C[30]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[0]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[1]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[2]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[3]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[4]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[5]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[6]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[7]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[8]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[9]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[10]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[11]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[12]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[13]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[14]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[15]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[16]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[17]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[18]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[19]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[20]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[21]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[22]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[23]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[24]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[25]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[26]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[27]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[28]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[29]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "OUT_D[30]" of type max_io File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 86
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|g2cp[2]~24" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 178
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|gcp[2]~13" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 179
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|g2cp[2]~24" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 178
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|gcp[2]~13" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 179
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|g2cp[2]~24" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 178
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|gcp[2]~13" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 179
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|g2cp[2]~24" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 178
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node|sout_node[2]~144" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node|sout_node[2]~149" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|g4~24" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 177
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|g4~30" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 177
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|g4~24" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 177
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|g4~30" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 177
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|g4~24" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 177
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|g4~30" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 177
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node|sout_node[3]~159" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node|sout_node[3]~162" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|bg_out~40" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 644
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node|sout_node[4]~168" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node|sout_node[4]~170" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node|sout_node[4]~176" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node|sout_node[5]~182" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|bg_out~49" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/addcore.tdf Line: 644
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node|sout_node[6]~184" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|a_csnbuffer:result_node|sout_node[1]~139" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|a_csnbuffer:result_node|sout_node[3]~142" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|a_csnbuffer:result_node|sout_node[2]~147" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|a_csnbuffer:result_node|sout_node[4]~152" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[1]~164" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[1]~168" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[3]~179" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[3]~185" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|a_csnbuffer:result_node|sout_node[5]~158" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|a_csnbuffer:result_node|sout_node[5]~161" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[2]~191" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[2]~197" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[4]~207" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|a_csnbuffer:result_node|sout_node[6]~167" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|a_csnbuffer:result_node|sout_node[6]~171" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[6]~216" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|a_csnbuffer:result_node|sout_node[7]~177" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[1]|a_csnbuffer:result_node|sout_node[7]~182" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[5]~219" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[5]~225" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node|sout_node[7]~231" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[0]~116" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[1]~121" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[3]~127" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[4]~133" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[2]~139" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[2]~141" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[5]~147" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[5]~149" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[6]~155" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[6]~157" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[7]~163" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node|sout_node[7]~165" of type max_mcell File: c:/altera/61/quartus/libraries/megafunctions/a_csnbuffer.tdf Line: 42
+Error: Can't place node "LessThan0~1122" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1124" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1128" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "LessThan0~1134" of type max_mcell File: C:/Documents and Settings/Matteo/Desktop/VHDL_FuncProc/VHDL_FuncProc.vhd Line: 109
+Error: Can't place node "min~403" of type max_mcell
+Error: Can't place node "min~406" of type max_mcell
+Error: Can't place node "min~412" of type max_mcell
+Error: Can't place node "min~418" of type max_mcell
+Error: Can't place node "min~421" of type max_mcell
+Error: Can't place node "min~427" of type max_mcell
+Error: Can't place node "min~433" of type max_mcell
+Error: Can't place node "min~436" of type max_mcell
+Error: Can't place node "min~442" of type max_mcell
+Error: Can't place node "min~448" of type max_mcell
+Error: Can't place node "min~451" of type max_mcell
+Error: Can't place node "min~457" of type max_mcell
+Error: Can't place node "min~463" of type max_mcell
+Error: Can't place node "min~466" of type max_mcell
+Error: Can't place node "min~472" of type max_mcell
+Error: Can't place node "min~478" of type max_mcell
+Error: Can't place node "min~481" of type max_mcell
+Error: Can't place node "min~487" of type max_mcell
+Error: Can't place node "min~493" of type max_mcell
+Error: Can't place node "min~496" of type max_mcell
+Error: Can't place node "min~502" of type max_mcell
+Error: Can't place node "min~508" of type max_mcell
+Error: Can't place node "min~511" of type max_mcell
+Error: Can't place node "min~517" of type max_mcell
+Error: Can't place node "min~523" of type max_mcell
+Error: Can't place node "min~526" of type max_mcell
+Error: Can't place node "min~532" of type max_mcell
+Error: Can't place node "min~538" of type max_mcell
+Error: Can't place node "min~541" of type max_mcell
+Error: Can't place node "min~547" of type max_mcell
+Error: Can't place node "min~553" of type max_mcell
+Error: Can't place node "min~556" of type max_mcell
+Error: Can't place node "min~562" of type max_mcell
+Error: Can't place node "min~568" of type max_mcell
+Error: Can't place node "min~571" of type max_mcell
+Error: Can't place node "min~577" of type max_mcell
+Error: Can't place node "min~583" of type max_mcell
+Error: Can't place node "min~586" of type max_mcell
+Error: Can't place node "min~592" of type max_mcell
+Error: Can't place node "min~598" of type max_mcell
+Error: Can't place node "min~601" of type max_mcell
+Error: Can't place node "min~607" of type max_mcell
+Error: Can't place node "min~613" of type max_mcell
+Error: Can't place node "min~616" of type max_mcell
+Error: Can't place node "min~622" of type max_mcell
+Error: Can't place node "min~628" of type max_mcell
+Error: Can't place node "min~631" of type max_mcell
+Error: Can't place node "min~637" of type max_mcell
+Error: Can't place node "min~643" of type max_mcell
+Error: Can't place node "min~646" of type max_mcell
+Error: Can't place node "min~652" of type max_mcell
+Error: Can't place node "min~658" of type max_mcell
+Error: Can't place node "min~661" of type max_mcell
+Error: Can't place node "min~667" of type max_mcell
+Error: Can't place node "min~673" of type max_mcell
+Error: Can't place node "min~676" of type max_mcell
+Error: Can't place node "min~682" of type max_mcell
+Error: Can't place node "min~688" of type max_mcell
+Error: Can't place node "min~691" of type max_mcell
+Error: Can't place node "min~697" of type max_mcell
+Error: Can't place node "min~703" of type max_mcell
+Error: Can't place node "min~706" of type max_mcell
+Error: Can't place node "min~712" of type max_mcell
+Error: Can't place node "min~718" of type max_mcell
+Error: Can't place node "min~721" of type max_mcell
+Error: Can't place node "min~727" of type max_mcell
+Error: Can't place node "min~733" of type max_mcell
+Error: Can't place node "min~736" of type max_mcell
+Error: Can't place node "min~742" of type max_mcell
+Error: Can't place node "min~748" of type max_mcell
+Error: Can't place node "min~751" of type max_mcell
+Error: Can't place node "min~757" of type max_mcell
+Error: Can't place node "min~763" of type max_mcell
+Error: Can't place node "min~766" of type max_mcell
+Error: Can't place node "min~772" of type max_mcell
+Error: Can't place node "min~778" of type max_mcell
+Error: Can't place node "min~781" of type max_mcell
+Error: Can't place node "min~787" of type max_mcell
+Error: Can't place node "min~793" of type max_mcell
+Error: Can't place node "min~796" of type max_mcell
+Error: Can't place node "min~802" of type max_mcell
+Error: Can't place node "min~808" of type max_mcell
+Error: Can't place node "min~811" of type max_mcell
+Error: Can't place node "min~817" of type max_mcell
+Error: Can't place node "min~823" of type max_mcell
+Error: Can't place node "min~826" of type max_mcell
+Error: Can't place node "min~832" of type max_mcell
+Error: Can't place node "min~838" of type max_mcell
+Error: Can't place node "min~841" of type max_mcell
+Error: Can't place node "min~847" of type max_mcell
+Error: Can't place node "min~853" of type max_mcell
+Error: Can't place node "min~856" of type max_mcell
+Error: Can't place node "min~862" of type max_mcell
+Error: Can't place node "max~403" of type max_mcell
+Error: Can't place node "max~406" of type max_mcell
+Error: Can't place node "max~412" of type max_mcell
+Error: Can't place node "max~418" of type max_mcell
+Error: Can't place node "max~421" of type max_mcell
+Error: Can't place node "max~427" of type max_mcell
+Error: Can't place node "max~433" of type max_mcell
+Error: Can't place node "max~436" of type max_mcell
+Error: Can't place node "max~442" of type max_mcell
+Error: Can't place node "max~448" of type max_mcell
+Error: Can't place node "max~451" of type max_mcell
+Error: Can't place node "max~457" of type max_mcell
+Error: Can't place node "max~463" of type max_mcell
+Error: Can't place node "max~466" of type max_mcell
+Error: Can't place node "max~472" of type max_mcell
+Error: Can't place node "max~478" of type max_mcell
+Error: Can't place node "max~481" of type max_mcell
+Error: Can't place node "max~487" of type max_mcell
+Error: Can't place node "max~493" of type max_mcell
+Error: Can't place node "max~496" of type max_mcell
+Error: Can't place node "max~502" of type max_mcell
+Error: Can't place node "max~508" of type max_mcell
+Error: Can't place node "max~511" of type max_mcell
+Error: Can't place node "max~517" of type max_mcell
+Error: Can't place node "max~523" of type max_mcell
+Error: Can't place node "max~526" of type max_mcell
+Error: Can't place node "max~532" of type max_mcell
+Error: Can't place node "max~538" of type max_mcell
+Error: Can't place node "max~541" of type max_mcell
+Error: Can't place node "max~547" of type max_mcell
+Error: Can't place node "max~553" of type max_mcell
+Error: Can't place node "max~556" of type max_mcell
+Error: Can't place node "max~562" of type max_mcell
+Error: Can't place node "max~568" of type max_mcell
+Error: Can't place node "max~571" of type max_mcell
+Error: Can't place node "max~577" of type max_mcell
+Error: Can't place node "max~583" of type max_mcell
+Error: Can't place node "max~586" of type max_mcell
+Error: Can't place node "max~592" of type max_mcell
+Error: Can't place node "max~598" of type max_mcell
+Error: Can't place node "max~601" of type max_mcell
+Error: Can't place node "max~607" of type max_mcell
+Error: Can't place node "max~613" of type max_mcell
+Error: Can't place node "max~616" of type max_mcell
+Error: Can't place node "max~622" of type max_mcell
+Error: Can't place node "max~628" of type max_mcell
+Error: Can't place node "max~631" of type max_mcell
+Error: Can't place node "max~637" of type max_mcell
+Error: Can't place node "max~643" of type max_mcell
+Error: Can't place node "max~646" of type max_mcell
+Error: Can't place node "max~652" of type max_mcell
+Error: Can't place node "max~658" of type max_mcell
+Error: Can't place node "max~661" of type max_mcell
+Error: Can't place node "max~667" of type max_mcell
+Error: Can't place node "max~673" of type max_mcell
+Error: Can't place node "max~676" of type max_mcell
+Error: Can't place node "max~682" of type max_mcell
+Error: Can't place node "max~688" of type max_mcell
+Error: Can't place node "max~691" of type max_mcell
+Error: Can't place node "max~697" of type max_mcell
+Error: Can't place node "max~703" of type max_mcell
+Error: Can't place node "max~706" of type max_mcell
+Error: Can't place node "max~712" of type max_mcell
+Error: Can't place node "max~718" of type max_mcell
+Error: Can't place node "max~721" of type max_mcell
+Error: Can't place node "max~727" of type max_mcell
+Error: Can't place node "max~733" of type max_mcell
+Error: Can't place node "max~736" of type max_mcell
+Error: Can't place node "max~742" of type max_mcell
+Error: Can't place node "max~748" of type max_mcell
+Error: Can't place node "max~751" of type max_mcell
+Error: Can't place node "max~757" of type max_mcell
+Error: Can't place node "max~763" of type max_mcell
+Error: Can't place node "max~766" of type max_mcell
+Error: Can't place node "max~772" of type max_mcell
+Error: Can't place node "max~778" of type max_mcell
+Error: Can't place node "max~781" of type max_mcell
+Error: Can't place node "max~787" of type max_mcell
+Error: Can't place node "max~793" of type max_mcell
+Error: Can't place node "max~796" of type max_mcell
+Error: Can't place node "max~802" of type max_mcell
+Error: Can't place node "max~808" of type max_mcell
+Error: Can't place node "max~811" of type max_mcell
+Error: Can't place node "max~817" of type max_mcell
+Error: Can't place node "max~823" of type max_mcell
+Error: Can't place node "max~826" of type max_mcell
+Error: Can't place node "max~832" of type max_mcell
+Error: Can't place node "max~838" of type max_mcell
+Error: Can't place node "max~841" of type max_mcell
+Error: Can't place node "max~847" of type max_mcell
+Error: Can't place node "max~853" of type max_mcell
+Error: Can't place node "max~856" of type max_mcell
+Error: Can't place node "max~862" of type max_mcell
+Error: Can't place node "~GND~0" of type max_mcell
+Error: Can't place node "~GND~1" of type max_mcell
+Error: Can't find fit
+Error: Quartus II Fitter was unsuccessful. 591 errors, 0 warnings
+    Info: Allocated 129 megabytes of memory during processing
+    Error: Processing ended: Wed Jun 11 20:45:20 2008
+    Error: Elapsed time: 00:00:24
+
+

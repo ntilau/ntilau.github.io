@@ -1,0 +1,19 @@
+
+SUBDESIGN DecoderAHDL2
+(
+	IN0, IN1				: INPUT = GND;
+	OUT0, OUT1, OUT2, OUT3	:	OUTPUT;
+)
+
+BEGIN
+
+	TABLE
+		IN0,	IN1		=> 		OUT0, 	OUT1,	OUT2,	OUT3;
+
+		0,	0			=>		1,		0,		0,		0;
+		1,	0			=>		0,		1,		0,		0;
+		0,	1			=>		0,		0,		1,		0;
+		1,	1			=>		0,		0,		0,		1;
+	END TABLE;
+
+END;

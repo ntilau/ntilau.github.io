@@ -1,0 +1,7 @@
+
+State Machine - |Semaforo|Semaforo_Stati:inst|mm
+Name q1 q2 
+red 0 0 
+yel_a 0 1 
+yel_b 1 1 
+green 1 0 

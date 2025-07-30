@@ -1,0 +1,402 @@
+Fitter report for Semaforo
+Mon May 26 20:08:10 2008
+Quartus II Version 6.1 Build 201 11/27/2006 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Fitter Summary
+  3. Fitter Settings
+  4. Pin-Out File
+  5. Fitter Resource Usage Summary
+  6. Input Pins
+  7. Output Pins
+  8. All Package Pins
+  9. I/O Standard
+ 10. Dedicated Inputs I/O
+ 11. Output Pin Default Load For Reported TCO
+ 12. Fitter Resource Utilization by Entity
+ 13. Control Signals
+ 14. Global & Other Fast Signals
+ 15. Non-Global High Fan-Out Signals
+ 16. Interconnect Usage Summary
+ 17. LAB Macrocells
+ 18. Parallel Expander
+ 19. Logic Cell Interconnection
+ 20. Fitter Device Options
+ 21. Fitter Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------+
+; Fitter Summary                                                  ;
++-----------------------+-----------------------------------------+
+; Fitter Status         ; Successful - Mon May 26 20:08:10 2008   ;
+; Quartus II Version    ; 6.1 Build 201 11/27/2006 SJ Web Edition ;
+; Revision Name         ; Semaforo                                ;
+; Top-level Entity Name ; Semaforo                                ;
+; Family                ; MAX7000AE                               ;
+; Device                ; EPM7032AELC44-10                        ;
+; Timing Models         ; Final                                   ;
+; Total macrocells      ; 25 / 32 ( 78 % )                        ;
+; Total pins            ; 21 / 36 ( 58 % )                        ;
++-----------------------+-----------------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Fitter Settings                                                           ;
++--------------------------------------------+--------------+---------------+
+; Option                                     ; Setting      ; Default Value ;
++--------------------------------------------+--------------+---------------+
+; Device                                     ; AUTO         ;               ;
+; Fitter Effort                              ; Standard Fit ; Auto Fit      ;
+; Optimize IOC Register Placement for Timing ; On           ; On            ;
+; Limit to One Fitting Attempt               ; Off          ; Off           ;
+; Fitter Initial Placement Seed              ; 1            ; 1             ;
+; Slow Slew Rate                             ; Off          ; Off           ;
+; Use smart compilation                      ; Off          ; Off           ;
++--------------------------------------------+--------------+---------------+
+
+
++--------------+
+; Pin-Out File ;
++--------------+
+The pin-out file can be found in C:/Documents and Settings/Matteo/Desktop/AHDL/Semaforo/Semaforo.pin.
+
+
++------------------------------------------------------+
+; Fitter Resource Usage Summary                        ;
++-----------------------------------+------------------+
+; Resource                          ; Usage            ;
++-----------------------------------+------------------+
+; Logic cells                       ; 25 / 32 ( 78 % ) ;
+; Registers                         ; 15 / 32 ( 47 % ) ;
+; Number of pterms used             ; 40               ;
+; User inserted logic elements      ; 0                ;
+; I/O pins                          ; 21 / 36 ( 58 % ) ;
+;     -- Clock pins                 ; 1 / 2 ( 50 % )   ;
+;     -- Dedicated input pins       ; 0 / 2 ( 0 % )    ;
+; Global signals                    ; 1                ;
+; Shareable expanders               ; 0 / 32 ( 0 % )   ;
+; Parallel expanders                ; 1 / 30 ( 3 % )   ;
+; Cells using turbo bit             ; 25 / 32 ( 78 % ) ;
+; Maximum fan-out node              ; CLOCK            ;
+; Maximum fan-out                   ; 15               ;
+; Highest non-global fan-out signal ; RESET            ;
+; Highest non-global fan-out        ; 14               ;
+; Total fan-out                     ; 111              ;
+; Average fan-out                   ; 2.41             ;
++-----------------------------------+------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Input Pins                                                                                                                                                  ;
++-------+-------+----------+-----+-----------------------+--------------------+--------+----------------+---------------+--------------+----------------------+
+; Name  ; Pin # ; I/O Bank ; LAB ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; I/O Standard ; Location assigned by ;
++-------+-------+----------+-----+-----------------------+--------------------+--------+----------------+---------------+--------------+----------------------+
+; CLOCK ; 43    ; --       ; --  ; 15                    ; 0                  ; yes    ; no             ; yes           ; 3.3-V LVTTL  ; Fitter               ;
+; RESET ; 21    ; --       ; 1   ; 14                    ; 0                  ; no     ; no             ; yes           ; 3.3-V LVTTL  ; Fitter               ;
++-------+-------+----------+-----+-----------------------+--------------------+--------+----------------+---------------+--------------+----------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Output Pins                                                                                                                                                     ;
++----------+-------+----------+-----+-----------------+---------------+----------------+------------+---------------+--------------+----------------------+-------+
+; Name     ; Pin # ; I/O Bank ; LAB ; Output Register ; Power Up High ; Slow Slew Rate ; Open Drain ; TRI Primitive ; I/O Standard ; Location assigned by ; Load  ;
++----------+-------+----------+-----+-----------------+---------------+----------------+------------+---------------+--------------+----------------------+-------+
+; GIALLO_A ; 9     ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; GIALLO_B ; 11    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; ROSSO_A  ; 12    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; ROSSO_B  ; 36    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; TIMEOUT  ; 6     ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; VALUE[0] ; 39    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; VALUE[1] ; 40    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; VALUE[2] ; 8     ; --       ; 1   ; no              ; yes           ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; VALUE[3] ; 41    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; VALUE[4] ; 29    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; VALUE[5] ; 31    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; VALUE[6] ; 33    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; VALUE[7] ; 34    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; VERDE_A  ; 14    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; VERDE_B  ; 37    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
++----------+-------+----------+-----+-----------------+---------------+----------------+------------+---------------+--------------+----------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; All Package Pins                                                                                      ;
++----------+------------+----------+----------------+--------+--------------+---------+-----------------+
+; Location ; Pad Number ; I/O Bank ; Pin Name/Usage ; Dir.   ; I/O Standard ; Voltage ; User Assignment ;
++----------+------------+----------+----------------+--------+--------------+---------+-----------------+
+; 1        ; 0          ; --       ; GND+           ;        ;              ;         ;                 ;
+; 2        ; 1          ; --       ; GND+           ;        ;              ;         ;                 ;
+; 3        ; 2          ; --       ; VCCINT         ; power  ;              ; 3.3V    ;                 ;
+; 4        ; 3          ; --       ; GND*           ;        ;              ;         ;                 ;
+; 5        ; 4          ; --       ; GND*           ;        ;              ;         ;                 ;
+; 6        ; 5          ; --       ; TIMEOUT        ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 7        ; 6          ; --       ; TDI            ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 8        ; 7          ; --       ; VALUE[2]       ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 9        ; 8          ; --       ; GIALLO_A       ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 10       ; 9          ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; 11       ; 10         ; --       ; GIALLO_B       ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 12       ; 11         ; --       ; ROSSO_A        ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 13       ; 12         ; --       ; TMS            ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 14       ; 13         ; --       ; VERDE_A        ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 15       ; 14         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; 16       ; 15         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 17       ; 16         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 18       ; 17         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 19       ; 18         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 20       ; 19         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 21       ; 20         ; --       ; RESET          ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 22       ; 21         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; 23       ; 22         ; --       ; VCCINT         ; power  ;              ; 3.3V    ;                 ;
+; 24       ; 23         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 25       ; 24         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 26       ; 25         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 27       ; 26         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 28       ; 27         ; --       ; GND*           ;        ;              ;         ;                 ;
+; 29       ; 28         ; --       ; VALUE[4]       ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 30       ; 29         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; 31       ; 30         ; --       ; VALUE[5]       ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 32       ; 31         ; --       ; TCK            ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 33       ; 32         ; --       ; VALUE[6]       ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 34       ; 33         ; --       ; VALUE[7]       ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 35       ; 34         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; 36       ; 35         ; --       ; ROSSO_B        ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 37       ; 36         ; --       ; VERDE_B        ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 38       ; 37         ; --       ; TDO            ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 39       ; 38         ; --       ; VALUE[0]       ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 40       ; 39         ; --       ; VALUE[1]       ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 41       ; 40         ; --       ; VALUE[3]       ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 42       ; 41         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; 43       ; 42         ; --       ; CLOCK          ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 44       ; 43         ; --       ; GND+           ;        ;              ;         ;                 ;
++----------+------------+----------+----------------+--------+--------------+---------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; I/O Standard                                                                                     ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+; I/O Standard ; Input Vref ; Dedicated Input Pins ; Pins in I/O Bank1 ; Pins in I/O Bank2 ; Total ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+; 3.3-V LVTTL  ; -          ; 1                    ; 0                 ; 0                 ; 1     ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+
+
++---------------------------------------------------------------------+
+; Dedicated Inputs I/O                                                ;
++-------+-------+-------+-------+--------------+------------+---------+
+; Name  ; Pin # ; Type  ; VCCIO ; I/O Standard ; Input Vref ; Current ;
++-------+-------+-------+-------+--------------+------------+---------+
+; CLOCK ; 43    ; Input ; --    ; 3.3-V LVTTL  ; -          ; 0 mA    ;
++-------+-------+-------+-------+--------------+------------+---------+
+
+
++-----------------------------------------------+
+; Output Pin Default Load For Reported TCO      ;
++--------------+-------+------------------------+
+; I/O Standard ; Load  ; Termination Resistance ;
++--------------+-------+------------------------+
+; 3.3-V LVTTL  ; 10 pF ; Not Available          ;
+; 3.3-V LVCMOS ; 10 pF ; Not Available          ;
+; 3.3-V PCI    ; 10 pF ; 25 Ohm (Parallel)      ;
+; 2.5 V        ; 10 pF ; Not Available          ;
++--------------+-------+------------------------+
+Note: User assignments will override these defaults. The user specified values are listed in the Output Pins and Bidir Pins tables.
+
+
++---------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                   ;
++---------------------------------+------------+------+---------------------------------------------------+
+; Compilation Hierarchy Node      ; Macrocells ; Pins ; Full Hierarchy Name                               ;
++---------------------------------+------------+------+---------------------------------------------------+
+; |Semaforo                       ; 25         ; 21   ; |Semaforo                                         ;
+;    |Contatore:inst6|            ; 10         ; 0    ; |Semaforo|Contatore:inst6                         ;
+;       |lpm_counter:Count_rtl_0| ; 9          ; 0    ; |Semaforo|Contatore:inst6|lpm_counter:Count_rtl_0 ;
+;    |Semaforo_Stati:inst|        ; 8          ; 0    ; |Semaforo|Semaforo_Stati:inst                     ;
++---------------------------------+------------+------+---------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                      ;
++-------+----------+---------+----------------------+--------+----------------------+------------------+
+; Name  ; Location ; Fan-Out ; Usage                ; Global ; Global Resource Used ; Global Line Name ;
++-------+----------+---------+----------------------+--------+----------------------+------------------+
+; CLOCK ; PIN_43   ; 15      ; Clock                ; yes    ; On                   ; --               ;
+; RESET ; PIN_21   ; 14      ; Async. clear, Preset ; no     ; --                   ; --               ;
++-------+----------+---------+----------------------+--------+----------------------+------------------+
+
+
++----------------------------------------------------------------------+
+; Global & Other Fast Signals                                          ;
++-------+----------+---------+----------------------+------------------+
+; Name  ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ;
++-------+----------+---------+----------------------+------------------+
+; CLOCK ; PIN_43   ; 15      ; On                   ; --               ;
++-------+----------+---------+----------------------+------------------+
+
+
++---------------------------------------------------------------+
+; Non-Global High Fan-Out Signals                               ;
++-----------------------------------------------------+---------+
+; Name                                                ; Fan-Out ;
++-----------------------------------------------------+---------+
+; RESET                                               ; 14      ;
+; Semaforo_Stati:inst|q2                              ; 9       ;
+; Contatore:inst6|lpm_counter:Count_rtl_0|dffs[0]     ; 9       ;
+; Contatore:inst6|lpm_counter:Count_rtl_0|dffs[2]     ; 8       ;
+; Contatore:inst6|lpm_counter:Count_rtl_0|dffs[1]     ; 8       ;
+; Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3]     ; 7       ;
+; Contatore:inst6|lpm_counter:Count_rtl_0|dffs[4]     ; 6       ;
+; Contatore:inst6|lpm_counter:Count_rtl_0|dffs[5]     ; 5       ;
+; Semaforo_Stati:inst|q1                              ; 4       ;
+; Contatore:inst6|lpm_counter:Count_rtl_0|dffs[6]     ; 4       ;
+; Contatore:inst6|out_reg                             ; 3       ;
+; Contatore:inst6|lpm_counter:Count_rtl_0|dffs[7]     ; 3       ;
+; Semaforo_Stati:inst|green_a_reg                     ; 2       ;
+; Semaforo_Stati:inst|red_a_reg                       ; 2       ;
+; ~VCC~1                                              ; 1       ;
+; ~VCC~0                                              ; 1       ;
+; ~GND~4                                              ; 1       ;
+; ~GND~3                                              ; 1       ;
+; ~GND~2                                              ; 1       ;
+; ~GND~1                                              ; 1       ;
+; ~GND~0                                              ; 1       ;
+; Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3]~259 ; 1       ;
+; Semaforo_Stati:inst|green_a_reg~3                   ; 1       ;
+; Semaforo_Stati:inst|red_a_reg~3                     ; 1       ;
+; Semaforo_Stati:inst|yellow_b_reg                    ; 1       ;
+; Semaforo_Stati:inst|yellow_a_reg                    ; 1       ;
++-----------------------------------------------------+---------+
+
+
++-----------------------------------------------+
+; Interconnect Usage Summary                    ;
++----------------------------+------------------+
+; Interconnect Resource Type ; Usage            ;
++----------------------------+------------------+
+; Output enables             ; 0 / 6 ( 0 % )    ;
+; PIA buffers                ; 14 / 72 ( 19 % ) ;
++----------------------------+------------------+
+
+
++-----------------------------------------------------------------------+
+; LAB Macrocells                                                        ;
++-----------------------------------------+-----------------------------+
+; Number of Macrocells  (Average = 12.50) ; Number of LABs  (Total = 2) ;
++-----------------------------------------+-----------------------------+
+; 0                                       ; 0                           ;
+; 1                                       ; 0                           ;
+; 2                                       ; 0                           ;
+; 3                                       ; 0                           ;
+; 4                                       ; 0                           ;
+; 5                                       ; 0                           ;
+; 6                                       ; 0                           ;
+; 7                                       ; 0                           ;
+; 8                                       ; 0                           ;
+; 9                                       ; 1                           ;
+; 10                                      ; 0                           ;
+; 11                                      ; 0                           ;
+; 12                                      ; 0                           ;
+; 13                                      ; 0                           ;
+; 14                                      ; 0                           ;
+; 15                                      ; 0                           ;
+; 16                                      ; 1                           ;
++-----------------------------------------+-----------------------------+
+
+
++---------------------------------------------------------+
+; Parallel Expander                                       ;
++--------------------------+------------------------------+
+; Parallel Expander Length ; Number of Parallel Expanders ;
++--------------------------+------------------------------+
+; 0                        ; 0                            ;
+; 1                        ; 1                            ;
++--------------------------+------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Logic Cell Interconnection                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++-----+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; LAB ; Logic Cell ; Input                                                                                                                                                                                                                                                                                                                                                                                                                                        ; Output                                                                                                                                                                                                                                                                                                                                                                                                                              ;
++-----+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+;  A  ; LC4        ; CLOCK, RESET                                                                                                                                                                                                                                                                                                                                                                                                                                 ; Contatore:inst6|lpm_counter:Count_rtl_0|dffs[1], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[2], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[4], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[5], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[6], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[7], Contatore:inst6|out_reg, Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3]~259 ;
+;  A  ; LC15       ; CLOCK, Contatore:inst6|lpm_counter:Count_rtl_0|dffs[0], RESET                                                                                                                                                                                                                                                                                                                                                                                ; Contatore:inst6|lpm_counter:Count_rtl_0|dffs[2], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[4], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[5], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[6], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[7], Contatore:inst6|out_reg, Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3]~259                                                  ;
+;  A  ; LC14       ; CLOCK, Contatore:inst6|lpm_counter:Count_rtl_0|dffs[7], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[6], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[5], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[4], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3], Semaforo_Stati:inst|q2, Contatore:inst6|lpm_counter:Count_rtl_0|dffs[1], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[0], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[2], RESET ; Contatore:inst6|lpm_counter:Count_rtl_0|dffs[2], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[4], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[5], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[6], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[7], Contatore:inst6|out_reg, Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3]~259                                                  ;
+;  A  ; LC2        ; CLOCK, Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3]~259, Contatore:inst6|lpm_counter:Count_rtl_0|dffs[2], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[1], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[0], RESET                                                                                                                                                                        ; Contatore:inst6|lpm_counter:Count_rtl_0|dffs[2], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[4], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[5], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[6], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[7], Contatore:inst6|out_reg                                                                                                       ;
+;  A  ; LC12       ; CLOCK, Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[2], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[1], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[0], RESET                                                                                                                                                                                                                             ; Contatore:inst6|lpm_counter:Count_rtl_0|dffs[2], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[5], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[6], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[7], Contatore:inst6|out_reg, Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3]~259                                                                                                                                                    ;
+;  A  ; LC13       ; CLOCK, Contatore:inst6|lpm_counter:Count_rtl_0|dffs[4], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[2], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[1], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[0], RESET                                                                                                                                                                            ; Contatore:inst6|lpm_counter:Count_rtl_0|dffs[2], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[6], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[7], Contatore:inst6|out_reg, Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3]~259                                                                                                                                                                                                     ;
+;  A  ; LC11       ; CLOCK, Contatore:inst6|lpm_counter:Count_rtl_0|dffs[5], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[4], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[2], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[1], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[0], RESET                                                                                                                           ; Contatore:inst6|lpm_counter:Count_rtl_0|dffs[2], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[7], Contatore:inst6|out_reg, Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3]~259                                                                                                                                                                                                                                                      ;
+;  A  ; LC9        ; CLOCK, Contatore:inst6|lpm_counter:Count_rtl_0|dffs[6], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[5], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[4], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[2], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[1], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[0], RESET                                                                          ; Contatore:inst6|lpm_counter:Count_rtl_0|dffs[2], Contatore:inst6|out_reg, Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3]~259                                                                                                                                                                                                                                                                                                       ;
+;  A  ; LC3        ; CLOCK, Contatore:inst6|lpm_counter:Count_rtl_0|dffs[7], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[6], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[5], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[4], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3], Semaforo_Stati:inst|q2, Contatore:inst6|lpm_counter:Count_rtl_0|dffs[2], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[1], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[0]        ; TIMEOUT, Semaforo_Stati:inst|q2, Semaforo_Stati:inst|q1                                                                                                                                                                                                                                                                                                                                                                             ;
+;  A  ; LC5        ; CLOCK, Contatore:inst6|out_reg, RESET                                                                                                                                                                                                                                                                                                                                                                                                        ; Contatore:inst6|lpm_counter:Count_rtl_0|dffs[2], Contatore:inst6|out_reg, VALUE[2], Semaforo_Stati:inst|q1, Semaforo_Stati:inst|yellow_a_reg, Semaforo_Stati:inst|yellow_b_reg, Semaforo_Stati:inst|red_a_reg, Semaforo_Stati:inst|green_a_reg, Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3]~259                                                                                                                                 ;
+;  A  ; LC16       ; CLOCK, Contatore:inst6|out_reg, Semaforo_Stati:inst|q2, RESET                                                                                                                                                                                                                                                                                                                                                                                ; Semaforo_Stati:inst|yellow_a_reg, Semaforo_Stati:inst|yellow_b_reg, Semaforo_Stati:inst|red_a_reg, Semaforo_Stati:inst|green_a_reg                                                                                                                                                                                                                                                                                                  ;
+;  A  ; LC6        ; CLOCK, Semaforo_Stati:inst|q2, Semaforo_Stati:inst|q1, RESET                                                                                                                                                                                                                                                                                                                                                                                 ; GIALLO_A                                                                                                                                                                                                                                                                                                                                                                                                                            ;
+;  A  ; LC7        ; CLOCK, Semaforo_Stati:inst|q2, Semaforo_Stati:inst|q1, RESET                                                                                                                                                                                                                                                                                                                                                                                 ; GIALLO_B                                                                                                                                                                                                                                                                                                                                                                                                                            ;
+;  A  ; LC8        ; CLOCK, Semaforo_Stati:inst|q2, Semaforo_Stati:inst|q1, RESET                                                                                                                                                                                                                                                                                                                                                                                 ; ROSSO_A, Semaforo_Stati:inst|red_a_reg~3                                                                                                                                                                                                                                                                                                                                                                                            ;
+;  A  ; LC10       ; CLOCK, Semaforo_Stati:inst|q2, Semaforo_Stati:inst|q1, RESET                                                                                                                                                                                                                                                                                                                                                                                 ; VERDE_A, Semaforo_Stati:inst|green_a_reg~3                                                                                                                                                                                                                                                                                                                                                                                          ;
+;  A  ; LC1        ; Contatore:inst6|lpm_counter:Count_rtl_0|dffs[7], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[6], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[5], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[4], Semaforo_Stati:inst|q2, Contatore:inst6|lpm_counter:Count_rtl_0|dffs[2], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[1], Contatore:inst6|lpm_counter:Count_rtl_0|dffs[0]                                                                ; Contatore:inst6|lpm_counter:Count_rtl_0|dffs[3]                                                                                                                                                                                                                                                                                                                                                                                     ;
+;  B  ; LC21       ; Semaforo_Stati:inst|red_a_reg                                                                                                                                                                                                                                                                                                                                                                                                                ; VERDE_B                                                                                                                                                                                                                                                                                                                                                                                                                             ;
+;  B  ; LC22       ; Semaforo_Stati:inst|green_a_reg                                                                                                                                                                                                                                                                                                                                                                                                              ; ROSSO_B                                                                                                                                                                                                                                                                                                                                                                                                                             ;
+;  B  ; LC23       ;                                                                                                                                                                                                                                                                                                                                                                                                                                              ; VALUE[7]                                                                                                                                                                                                                                                                                                                                                                                                                            ;
+;  B  ; LC24       ;                                                                                                                                                                                                                                                                                                                                                                                                                                              ; VALUE[6]                                                                                                                                                                                                                                                                                                                                                                                                                            ;
+;  B  ; LC26       ;                                                                                                                                                                                                                                                                                                                                                                                                                                              ; VALUE[5]                                                                                                                                                                                                                                                                                                                                                                                                                            ;
+;  B  ; LC27       ;                                                                                                                                                                                                                                                                                                                                                                                                                                              ; VALUE[4]                                                                                                                                                                                                                                                                                                                                                                                                                            ;
+;  B  ; LC17       ;                                                                                                                                                                                                                                                                                                                                                                                                                                              ; VALUE[3]                                                                                                                                                                                                                                                                                                                                                                                                                            ;
+;  B  ; LC18       ;                                                                                                                                                                                                                                                                                                                                                                                                                                              ; VALUE[1]                                                                                                                                                                                                                                                                                                                                                                                                                            ;
+;  B  ; LC19       ;                                                                                                                                                                                                                                                                                                                                                                                                                                              ; VALUE[0]                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++-----+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Fitter Device Options                                                   ;
++----------------------------------------------+--------------------------+
+; Option                                       ; Setting                  ;
++----------------------------------------------+--------------------------+
+; Enable user-supplied start-up clock (CLKUSR) ; Off                      ;
+; Enable device-wide reset (DEV_CLRn)          ; Off                      ;
+; Enable device-wide output enable (DEV_OE)    ; Off                      ;
+; Enable INIT_DONE output                      ; Off                      ;
+; Configuration scheme                         ; Passive Serial           ;
+; Reserve all unused pins                      ; As output driving ground ;
+; Security bit                                 ; Off                      ;
+; Base pin-out file on sameframe device        ; Off                      ;
++----------------------------------------------+--------------------------+
+
+
++-----------------+
+; Fitter Messages ;
++-----------------+
+Info: *******************************************************************
+Info: Running Quartus II Fitter
+    Info: Version 6.1 Build 201 11/27/2006 SJ Web Edition
+    Info: Processing started: Mon May 26 20:08:09 2008
+Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off Semaforo -c Semaforo
+Info: Automatically selected device EPM7032AELC44-10 for design Semaforo
+Info: Quartus II Fitter was successful. 0 errors, 0 warnings
+    Info: Allocated 124 megabytes of memory during processing
+    Info: Processing ended: Mon May 26 20:08:10 2008
+    Info: Elapsed time: 00:00:01
+
+

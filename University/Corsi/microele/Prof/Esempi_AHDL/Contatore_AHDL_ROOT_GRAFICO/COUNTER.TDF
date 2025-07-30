@@ -1,0 +1,26 @@
+TITLE "Counter";
+
+CONSTANT WIDTH = 7;
+
+
+SUBDESIGN Counter
+(
+	CLOCK		: INPUT = GND;
+	ENA			: INPUT = GND;
+	RST			: INPUT = VCC;
+
+	VALUE[WIDTH..0]	: OUTPUT;
+)
+
+VARIABLE
+	REG[WIDTH..0] : DFFE;
+	
+
+BEGIN
+	REG[].clk = CLOCK;		-- Collego la linea di clock a tutti i flip-flop del registro
+	REG[].d = REG[].q + 1;	-- Collego l'uscita dei flip-flop all'ingresso dopo aver aggiunto il valore 1
+	REG[].ena = ENA;		-- Collego la linea di enable a tutti i flip-flop del registro
+	REG[].clrn = !RST;		-- Collego la linea di reset a tutti i flip-flop del registro
+	
+	VALUE[] = REG[].q;
+END;

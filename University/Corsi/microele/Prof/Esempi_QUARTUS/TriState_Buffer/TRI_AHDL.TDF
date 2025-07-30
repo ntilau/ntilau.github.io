@@ -1,0 +1,24 @@
+SUBDESIGN TRI_AHDL
+(
+	Ingresso0, Ingresso1			: INPUT = gnd;
+	Controllo0, Controllo1			: INPUT;
+	
+	Uscita							: BIDIR;
+)
+
+VARIABLE
+
+	MIOTRISTATE : TRI;
+	TEMP : TRI_STATE_NODE;
+
+BEGIN
+
+	MIOTRISTATE.oe = Controllo0;
+	MIOTRISTATE.in = Ingresso0;
+	TEMP = MIOTRISTATE.out;
+	
+	TEMP = TRI(Ingresso1, Controllo1);
+	
+	Uscita = TEMP;
+
+END;

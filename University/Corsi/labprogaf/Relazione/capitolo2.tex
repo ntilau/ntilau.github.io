@@ -1,0 +1,449 @@
+\graphicspath{{img/lab2/}}
+\chapter{Rivelatore di potenza}
+
+\par Prima di progettare la struttura vera e propria di un transceiver, in questo secondo capitolo siamo andati a analizzare un altro dispositivo, ormai presente all'interno della maggior parte dei transceiver commerciali, ovvero il power detector, o signal detector. Come suggerisce il nome, questo circuito è in grado di rilevare un segnale in termini di potenza, traducendone il livello di potenza in uno di tensione sufficientemente alto da poter essere trattato. In questo modo, rilevando il valore di potenza del segnale sull'antenna è possibile regolare direttamente i guadagni degli amplificatori di tutta la catena di ricezione, attraverso un circuito di controllo automatico del guadagno (\itt{Automatic Gain Control}, AGC). Questo dispositivo è in grado di variare l'amplificazione del segnale ricevuto affinché resti il più costante possibile passando per i vari blocchi della catena di ricezione, evitando una distorsione del segnale. Gli AGC sono integrati non solo nei telefoni cellulari ma anche nei microchip degli impianti video.
+
+\par Tornando al power detector, anch'esso è presente in forma integrata nei sistemi di telecomunicazioni moderni e viene progettato per lavorare a tutte le frequenze di interesse degli standard di comunicazione emergenti (WLAN, UWB, GSM, UMTS, Bluetooth e il WiMAX). Trattandosi di un dispositivo piuttosto versatile possiede svariate applicazioni, anche in campi meno
+``pubblicizzati''. Sfruttando infatti il principio che sta alla base del signal detector, cioè la rivelazione di segnali a delle particolari frequenze di interesse, viene utilizzato nel campo della sicurezza e della privacy, ad esempio per rilevare la presenza di cellulari (fig. \ref{fig:signaldetector}), microspie o telecamere wireless nascoste. Altra applicazione suggestiva è il cosiddetto \itt{phone cell jammer}, dispositivo in grado di generare disturbi su un dato apparecchio telefonico mobile una volta individuato proprio attraverso il power detector (fig. \ref{fig:cellphonejammer}).
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=12cm]{signaldetector}
+\caption{Signal Detector.}
+\label{fig:signaldetector}
+\end{figure}
+
+ 
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=12cm]{cellphonejammer}
+\caption{Cell Phone Jammer.}
+\label{fig:cellphonejammer}
+\end{figure}
+
+%\newpage
+
+\section{Scopo e descrizione dell'esperienza}
+
+A parte queste applicazioni più particolari, lo scopo della nostra esercitazione è stato la progettazione di un circuito power detector base, per la sola frequenza di lavoro di 868 MHz, il cui schema a blocchi fondamentali è rappresentato in figura \ref{fig:schema}. La rilevazione del segnale è a soglia : un comparatore genera un livello alto in uscita qualora la potenza del segnale RF abbia superato un determinato livello.
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=16cm]{schema}
+\caption{Schema a blocchi del power detector.}
+\label{fig:schema}
+\end{figure}
+
+\section{Il diodo HSMS2855: caratteristiche tecniche e curve corrente-tensione}
+
+\par Come si nota dalla figura \ref{fig:schema} abbiamo una rete di adattamento prima del circuito vero e proprio, il cui cuore, l'elemento fondamentale, è il diodo HSMS serie 285x della Agilent Technologies, in particolare il modello 2855, caratterizzato da un contenitore SOT-143 a montaggio superficiale, al cui interno è presente una coppia di diodi paralleli separati tra loro (\itt{unconnected pair}, fig. \ref{fig:sot143}) . 
+ 
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[scale=1]{sot143}
+\caption{Package SOT 143 della coppia di diodi HSMS2855.}
+\label{fig:sot143}
+\end{figure}
+
+\par La scelta dei due diodi è dettata da ragioni di simmetria e bilanciamento dell'intero circuito, così come accadrà per la rete di polarizzazione a 4 resistori descritta in seguito. La famiglia di diodi {Schottky} \itt{zero bias} (cioè con polarizzazione intorno all'origine) HSMS-285x è stata progettata e ottimizzata per applicazioni nel campo dei piccoli segnali ($\mathrm{P}_\mathrm{IN}$ < -20 dBm) e per frequenze inferiori ad 1,5~GHz \cite{HSMS}. Essendo diodi rilevatori zero bias, sono ideali per applicazioni RF/ID e RF Tag, prive di alimentazione primaria; inoltre forniscono un'elevata sensibilità di rivelazione (oltre 50 mV/$\mu$W a 915 MHz). Le configurazioni stesse dei package disponibili non sono lasciate al caso e, attraverso opportune tecniche di fabbricazione, garantiscono il più alto grado possibile di matching fra i due diodi realizzati all'interno dello stesso package, uno dei requisiti fondamentali per l'intera struttura da progettare. Ovviamente il datasheet, oltre alle caratteristiche tecniche fornisce anche tutti i parametri SPICE da utilizzare per implementare il modello non lineare del diodo in qualsiasi simulatore commerciale. Nel nostro caso, il diodo HSMS285x è un prodotto della Agilent Technologies, il cui modello è già inserito nelle librerie presenti su ADS. In figura \ref{fig:IVcaratt} viene illustrata la caratteristica corrente-tensione (I-V) dei diodi ed il circuito che ne ha permesso l'analisi.
+
+% nella prima parte dell'esercitazione quindi siamo andati a verificare che il comportamento del componente fornito dal software coincidesse con i valori tabulati sul datasheet, ovvero 150 $\mu$A a 100 mV. Effettivamente, (fig. 5) i valori simulati sono proprio quelli desiderati.
+ 
+\begin{figure}[ht!]
+%\centering % \hspace{2cm}
+\begin{minipage}[b]{0.5\linewidth} % A minipage that covers half the page
+\centering
+\includegraphics[width=8cm]{IVcarattschem}
+
+\end{minipage}
+\hspace{0.5cm} % To get a little bit of space between the figures
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+\includegraphics[width=7cm]{IVcaratt} 
+%\caption{En liten bild till}
+\end{minipage}
+\caption{Caratteristica I-V.}
+\label{fig:IVcaratt}
+\end{figure}
+
+\subsubsection*{Simulatore \itt{DC}}
+
+\par Per ottenere il grafico di figura \ref{fig:IVcaratt}, non abbiamo fatto altro che studiare il punto di lavoro del nostro \itt{device under test} (DUT) attraverso un'analisi di tipo DC \cite{DC}, alla base di ogni simulazione analogica e a radiofrequenza. Il simulatore segue tutta una serie di passi: inizialmente esegue un controllo della topologia del circuito prima dell'analisi vera e propria del punto di lavoro in continua. Il simulatore permette anche, come nel nostro caso, di variare uno o più parametri (attraverso un \itt{parameter sweep}), in modo da rappresentare le curve I-V di dispositivi non lineari quali diodi o transistor ad esempio. Il controllo della topologia del circuito permette di trovare ed eliminare gli errori più comuni e banali (ad esempio la presenza di nodi degeneri) che porterebbero a errori ben più gravi nel corso della simulazione (riportati poi nella finestra \itt{Simulation/Synthesis Messages}). Invece durante l'analisi DC, il simulatore calcola la risposta di un dato circuito ad un particolare stimolo, convertendo, a partire da opportune ipotesi, un sistema di equazioni differenziali ordinarie non lineari in un sistema di equazioni algebriche non lineari, e risolvendole poi numericamente. 
+\par Il punto cruciale su cui si basano questi CAD si trova proprio in questo complicato passaggio di equazioni: ogni simulatore infatti converte le equazioni differenziali in equazioni algebriche in modo diverso dagli altri e utilizza un particolare metodo numerico per la risoluzione delle equazioni algebriche ottenute. In questo modo nascono la maggior parte delle simulazioni già elencate per ADS, ovvero la \itt{DC}, la \itt{AC}, la \itt{S-parameter}, la \itt{Transient}, l'\itt{Harmonic Balance} e la \itt{Circuit Envelope}. Le tecniche numeriche di simulazione si appoggiano su svariati processi di iterazione per ottenere la convergenza matematica verso un punto di equilibrio nelle equazioni algebriche non lineari che descrivono il circuito. Una volta raggiunto il punto di equilibrio entro certi valori di tolleranza, si ottiene una soluzione; questo implica che talvolta, come ci è capitato nel corso delle esercitazioni, il simulatore non riesce a convergere e a fornire una soluzione. Questo può essere dovuto sia alla scelta non opportuna del metodo di convergenza, sia a dei vincoli sulle tolleranze di default troppo stringenti. %; sta a noi decidere in che modo privilegiare un aspetto o l'altro. Alcune delle tecniche di convergenza più importanti sono l'algoritmo Newton-Raphson, il source-level sweeping, l'arc-length continuation, il Gmin relaxation, e l'analisi pseudo-transient. Come già accennato è possibile cambiare diversi parametri sulla tolleranza, rendendoli meno vincolanti per ottenere la convergenza del simulatore a discapito di un risultato meno accurato (Current relative tolerance (\textsf{I{\textunderscore}RelTol}), Voltage relative tolerance (V{\textunderscore}RelTol), Current absolute tolerance (I{\textunderscore}AbsTol), Voltage absolute tolerance (V{\textunderscore}AbsTol)). Da notare che le equazioni utilizzate per controllare la convergenza sono applicate a tutti i tipi di analisi, non solo alla DC, come vedremo meglio in seguito.
+
+
+\section{Descrizione del circuito di rivelazione} \label{sec:CircRiv}
+
+\par Una volta verificate le curve I-V del diodo, abbiamo realizzato lo schematico del power detector (vedi fig. \ref{fig:rete100}), lasciando da parte per ora la rete di adattamento già presente in figura \ref{fig:schema}. Inizialmente abbiamo cercato di ottimizzare il circuito in modo da rilevare un livello di potenza il più basso possibile; solo in seguito aggiungeremo la rete di adattamento più opportuna in grado di diminuire ulteriormente la soglia di rilevazione.
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=15cm]{rete100}
+\caption{Schema elettrico del power detector.}
+\label{fig:rete100}
+\end{figure}
+Il circuito di figura \ref{fig:rete100} è caratterizzato da una rete di polarizzazione simmetrica a 4 resistori, a due a due identici ($\mathrm{R}_1 = \mathrm{R}_3$ e $\mathrm{R}_2 = \mathrm{R}_4$), configurazione in grado di regolare la soglia di rilevazione del dispositivo. In effetti, le resistenze $\mathrm{R}_1$ e $\mathrm{R}_3$ determinano la corrente di polarizzazione dei diodi Schottky, essendo le resistenze $\mathrm{R}_2$ e $\mathrm{R}_4$ di valore ad esse trascurabile: la limitazione della corrente di polarizzazione è quindi principalmente dovuta alle resistenze $\mathrm{R}_1$ e $\mathrm{R}_3$. Lo scopo delle resistenze $\mathrm{R}_2$ e $\mathrm{R}_4$ è quello di mantenere, in assenza di segnale RF da rivelare, l'uscita del comparatore a livello basso. Vista la simmetria della rete di resistenze e dei diodi \itt{matched}, le tensioni ai nodi A e A', così come in B e B', sono pressoché identiche ($V_\mathrm{A} \cong V_\mathrm{A'}$ e ${V_\mathrm{D}}_1 = V_\mathrm{B} \cong {V_\mathrm{D}}_2 = V_\mathrm{B'}$, gli scostamenti sono dovuti alle tolleranze costruttive dei componenti) e la tensione differenziale $V_\mathrm{DIFF} = V_\mathrm{IN1+} - V_\mathrm{IN1-} = V_\mathrm{A} - V_\mathrm{B'} \cong V_\mathrm{A} - V_\mathrm{B} \cong V_\mathrm{A'} - V_\mathrm{B'}$ viene quindi impostata, nota la corrente che scorre nei rami di polarizzazione ($I_\mathrm{1} \cong \frac{V_\mathrm{DC} - {V_\mathrm{D}}_1}{\mathrm{R}_1} \cong I_\mathrm{2}$), dal valore delle resistenze $\mathrm{R}_2$ e $\mathrm{R}_4$ ($V_\mathrm{DIFF} \cong \mathrm{R}_2 \cdot I_1 \cong \mathrm{R}_4 \cdot I_2$). Visto il verso delle correnti di polarizzazione, la caduta sulle resistenze $\mathrm{R}_2$ e $\mathrm{R}_4$ è positiva, mantenendo quindi $V_\mathrm{DIFF}$ negativa per un livello basso in uscita. 
+A fronte di un segnale RF sinusoidale (tono a 868 MHz), il diodo $\mathrm{D}_1$ entra in conduzione per la sola semionda positiva presentando il comportamento di un cortocircuito e limitando quindi la tensione al nodo B, mentre la semionda negativa rimane pressoché inalterata ai capi del diodo. \`E proprio questo meccanismo di distorsione del segnale RF che permette al comparatore di percepire una $V_\mathrm{DIFF}$ positiva : via via che la potenza aumenta, il valor medio (componente DC) del segnale al nodo B tende a valori negativi, di ampiezza sempre maggiore (fig. \ref{fig:distorsione}).
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=10cm]{distorsione}
+\caption{Tensione ai capi del diodo $\mathrm{D}_1$ ($V_\mathrm{B}$).}
+\label{fig:distorsione}
+\end{figure}
+Ad un determinato livello di potenza in ingresso, la tensione al nodo A, seguendo l'andamento del nodo B, eguaglierà la tensione in B', portando poi a livello alto l'uscita del comparatore per un livello di potenza leggermente superiore. I condensatori $\mathrm{C}_1$ e $\mathrm{C}_2$ servono essenzialmente a cortocircuitare il segnale RF e le sue armoniche prodotte dalla caratteristica non lineare del diodo, mantenendo le tensioni ai nodi A e A' costanti. Inoltre, l'effetto passa basso (con costante di tempo di scarica di $\mathrm{C}_\mathrm{1}$ $\approx \ \mathrm{R}_2 \cdot \mathrm{C}_1$) che introducono questi condensatori regola il tempo di risposta del power detector a fronte di un'impulso di potenza rilevabile, implicando una durata minima dell'impulso per poter essere effettivamente rilevato.
+\par La precedente descrizione del power detector introduce il procedimento adottato per studiare il circuito col programma ADS: prima infatti abbiamo realizzato uno sweep in potenza per ricavare la soglia di attivazione del comparatore ed infine abbiamo studiato il circuito al transitorio per vedere quanto velocemente potesse scaricarsi il condensatore $\mathrm{C}_1$ per portare a livello alto l'uscita del comparatore.
+
+%\newpage
+\section{Scelta della rete di polarizzazione} \label{sec:retpol}
+
+\par Innanzitutto siamo andati a dimensionare opportunamente i quattro resistori per ricavare una rete di polarizzazione con una corrente sui rami simmetrici di circa 100 $\mu$A, per polarizzare il diodo al valore indicato dal datasheet e abbiamo ottenuto i valori mostrati in figura \ref{fig:rete1002}. 
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=15cm]{rete1002}
+\caption{Rete di polarizzazione dei diodi a 100 $\mu$A.}
+\label{fig:rete1002}
+\end{figure}
+Per visualizzare i valori di corrente e tensione e controllare se davvero coincidevano con quelli ottenuti dai calcoli, abbiamo sfruttato il comando \textsf{annotate DC simulation}, dopo aver eseguito la simulazione DC. Poi abbiamo effettuato appunto uno sweep in potenza da -50 a 10 dBm col generatore a singolo tono, andando a rappresentare in un grafico la variazione delle tensioni sui due morsetti del comparatore al variare della potenza in ingresso, per ricavare il valore di soglia in potenza. Stesso procedimento è stato effettuato anche per altri due valori di corrente di polarizzazione, rispettivamente 50 $\mu$A e 150 $\mu$A. Questi ulteriori tentativi sono stati realizzati per cercare la corrente di polarizzazione che garantisse la sensibilità migliore, ed i dati trovati sono stati raccolti nella tabella \ref{tab:retpol}.
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|c|ccccccccc|}
+\hline
+\ & $\mathrm{I}_1$ [$\mu$A] & $\mathrm{I}_2$ [$\mu$A] & $\mathrm{V-}$ [mV] & $\mathrm{V+}$ [mV] & $\mathrm{R}_1$ [k$\Omega$] & $\mathrm{R}_2$ [$\Omega$] & $\mathrm{R}_3$ [k$\Omega$] & $\mathrm{R}_4$ [$\Omega$] & Soglia [dBm] \\ \hline % \hline
+50 $\mu$A & 48,6 & 48,6 & 81,1 & 78,7 & 60 & 50 & 60 & 50 & -25 \\
+100 $\mu$A & 96,7 & 96,7 & 100 & 97,8 & 30 & 25 & 30 & 25 & -21 \\
+150 $\mu$A & 144 & 144 & 112 & 110 & 20 & 15 & 20 & 15 & -18 \\ \hline
+\end{tabular}
+\label{tab:retpol}
+\caption{Reti di polarizzazione e variazione della soglia di rilevazione.}
+\end{table}
+
+Come si può notare la sensibilità migliore, pari a -25 dBm, (vedi fig. \ref{fig:retpol}) si ottiene con una corrente di polarizzazione di 50 $\mu$A, inferiore a quella fornita dal datasheet; abbiamo quindi proseguito su questa strada per migliorare ulteriormente la sensibilità variando la rete di polarizzazione per ottenere correnti inferiori a 50 $\mu$A.
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=15cm]{retpol}
+\caption{Sweep in potenza per la rete di polarizzazione a 50 $\mu$A.}
+\label{fig:retpol}
+\end{figure}
+
+Prima di passare al punto successivo però torniamo un attimo indietro per spiegare come abbiamo ottenuto il grafico di fig. \ref{fig:retpol}. Effettivamente tutti i valori di soglia ed il grafico stesso sono stati ricavati applicando un altro tipo di simulazione molto importante, la cosiddetta \itt{Harmonic Balance}.
+
+%\newpage
+\subsubsection*{Simulatore \itt{Harmonic Balance}}
+
+\par Harmonic Balance è una tecnica di analisi molto accurata che opera direttamente nel dominio della frequenza, risultando molto più veloce di un'analisi completa di tipo \itt{Transient}. L'Harmonic Balance è la scelta naturale per studiare problemi a radiofrequenza e a microonde, sia perché lavora in frequenza ma anche perché permette di ottenere rapidamente parametri fondamentali quali i punti di intercetta del terzo ordine, la distorsione armonica totale (THD) e le componenti di distorsione relative ai prodotti di intermodulazione, oltre a supportare un'analisi del rumore di tipo non-lineare. Questo metodo di analisi assume come stimolo di ingresso alcune sinusoidi e la soluzione non è altro che una serie di queste sinusoidi comprendente sia le frequenze di ingresso che quelle relative alle altre armoniche significative ed ai termini di \itt{mixing}. Nel simulatore, il circuito viene rappresentato come un sistema di N equazioni differenziali ordinarie non lineari, dove N rappresenta la grandezza del circuito (numero di nodi e rami). Le sorgenti e le forme d'onda delle soluzioni sono approssimate attraverso i coefficienti di una serie di Fourier troncata. Un circuito con una solo sorgente di ingresso, come il nostro circuito, necessita di una simulazione Harmonic Balance a singolo tono, la cui soluzione avrà una forma del tipo :
+
+\begin{equation}
+v(t) = \mathit{Re} \left \{ \sum_{k = 0}^{K}  V_k e^{j2{\pi}kft} \right \} 
+\end{equation}
+
+Dove f è la frequenza fondamentale della sorgente, i $V_k$ sono i coefficienti di Fourier complessi calcolati dal simulatore (in tensione) e K determina il numero di armoniche utilizzate per la serie troncata ed è appunto chiamato \itt{ordine}. L'ordine deve essere abbastanza elevato in modo da garantire l'accuratezza della soluzione; tipicamente sono sufficienti tre armoniche per la maggior parte dei circuiti lineari, sette per quelli mediamente non lineari fino ad arrivare alle centinaia di armoniche per quelli fortemente non lineari caratterizzati ad esempio da fronti ripidi e \itt{spike}.
+Nel caso più generale di sorgenti multiple avremo ovviamente come soluzione una serie multidimensionale, in cui ogni serie sarà riferita ad un diverso tono:
+
+\begin{equation}
+v(t) = \mathit{Re} \left \{ \sum_{k_1 = 0}^{K_1} \sum_{k_2 = 0}^{K_2} \cdots \sum_{k_n = 0}^{K_n} V_{k_1, k_2 \cdots k_n} e^{j2{\pi}(k_1 f_1 + \cdots + k_n f_n)t} \right \} 
+\end{equation}
+ 
+
+In questo caso è possibile regolare anche il parametro \textsf{MaxOrder}, relativo all'ordine massimo di termini mixed che vengono inclusi nella simulazione. I prodotti di mixing, o di intermodulazione, sono la combinazione di due o più frequenze fondamentali o delle loro successive armoniche; maggiore è il numero di sorgenti in gioco nel circuito da testare, più rapidamente crescono questi termini, che devono essere limitati per non appesantire troppo la simulazione.
+La rappresentazione della soluzione tramite la serie di Fourier troncata trasforma il sistema di N equazioni differenziali non lineari in un sistema di N*M equazioni algebriche non lineari nel dominio della frequenza, dove M è il numero totale di frequenze inclusa la fondamentale, le loro armoniche e i prodotti di intermodulazione. Questo sistema di equazioni viene risolto attraverso il cosiddetto \itt{metodo di Newton} implementato nel risolutore \itt{non lineare} dell'HB. Il metodo di Newton consente di arrivare ad una soluzione attraverso iterazioni successive partendo da un passo iniziale ottenuto da una soluzione in continua del circuito.
+\par Il sistema di equazioni algebriche non lineari è una rappresentazione nel dominio della frequenza della legge di Kirchhoff ai nodi (KCL), secondo la quale la somma delle correnti entranti in un nodo deve essere uguale alla somma delle correnti uscenti dal nodo stesso. La differenza tra questi due valori ad ogni iterazione del metodo di Newton è nota come \itt{residuo KCL}. Il risolutore non lineare di Newton (così come l'intera simulazione HB) riesce a convergere solo quando questo residuo è inferiore ad un valore di tolleranza che è possibile settare anche manualmente, variando di fatto l'accuratezza della simulazione. \`E possibile comunque sfruttare anche una soluzione di tipo Transient come passo iniziale, grazie alla \itt{Transient Assisted Harmonic Balance} (TAHB, automatica, può essere abilitata tra i parametri dell'HB). Questa simulazione garantisce uno \itt{starting point} molto più accurato della DC e quindi un residuo KCL finale inferiore, per questo è molto sfruttata per analizzare sistemi fortemente non lineari e contenenti forme d'onda a fronti ripidi, come i divisori. Il metodo di Newton genera un problema matriciale (sistema lineare di equazioni) ad ogni iterazione; questa matrice è jacobiana. In particolare è possibile scegliere non solo il numero massimo di iterazioni (\textsf{MaxIters}, per diminuire i requisiti di memoria),ma anche tre tipi di risolutori non lineari diversi, attraverso il parametro \textsf{ConvMode}. Mentre il risolutore \itt{Basic} abilita il metodo standard di Newton, per circuiti fortemente non lineari è possibile selezionare il risolutore \itt{Advanced}, molto più robusto; comunque di default viene settato il risolutore \itt{Auto} che combina le capacità dei due precedenti. La matrice jacobiana ottenuta dal metodo di Newton viene poi fattorizzata grazie ad uno dei due possibili risolutori \itt{lineari} dell'HB: il \itt{Direct} ed il \itt{Krylov}. Mentre il primo utilizza metodi diretti di fattorizzazione della matrice (come l'eliminazione Gaussiana) per invertire la Jacobiana, il secondo sfrutta un metodo più sofisticato e risulta adatto a circuiti più complessi, essendo più veloce e meno dispendioso a livello di memoria richiesta (ma meno robusto). Come default per la fattorizzazione viene però impostato un \itt{Auto Select Solver}, in grado di scegliere automaticamente il risolutore più adatto in base alla memoria RAM disponibile. 
+\par Uno dei problemi affrontati durante l'esercitazione è stato appunto quello della convergenza non garantita a priori della nostra simulazione, come finora spiegato; è stato necessario dunque trovare dei possibili accorgimenti suggeriti dalla guida stessa del programma, per far operare correttamente la simulazione. Innanzitutto impostando l'ordine minimo richiesto per l'HB, cioè quattro armoniche, secondo le specifiche. Inoltre, poiché in HB i dispositivi non lineari vengono sovracampionati nel dominio del tempo, prima di passare al dominio della frequenza tramite FFT (\itt{Fast Fourier Transform}), può essere utile aumentare il parametro \textsf{Fundamental Oversample} per riuscire a campionare con maggiore precisione le forme d'onda del dispositivo. In questo modo non viene incrementato il numero di armoniche, ma solo la dimensione della FFT usata nell'HB, affinché il circuito possa convergere più facilmente. Come ultima risorsa, abbiamo anche provato ad utilizzare il risolutore interno di tipo Krylov rispetto al Direct, settando opportunamente il \itt{preconditioner}, uno strumento in grado di alzare il tasso di convergenza, garantendo anche un risparmio sulla memoria. Di seguito in fig. \ref{fig:SchemHB} viene mostrato lo schema di funzionamento del simulatore HB.
+ 
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=15cm]{SchemHB}
+\caption{Schema di funzionamento del simulatore HB.}
+\label{fig:SchemHB}
+\end{figure}
+
+Dopo quanto detto andiamo a mostrare il settaggio dei nostri parametri per la HB e il generatore a singolo tono, con potenza variabile da -50 a 10 dBm, utilizzato per l'intera simulazione (vedi fig. \ref{fig:HBsim}).
+ 
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=10cm]{HBsim}
+\caption{Setup dei parametri della simulazione HB.}
+\label{fig:HBsim}
+\end{figure}
+
+\section{Valore di soglia ottimale}
+
+\par Descritta la simulazione HB, passiamo ora al punto successivo, o per meglio dire l'obbiettivo da raggiungere, cioè, fissata una certa differenza di potenziale ai terminali del comparatore cercare di ottenere una soglia di rivelazione più bassa possibile. La tensione in ingresso al comparatore scelta è di circa 2 mV, valore che garantisce una bassa sensibilità al rumore e ad eventuali tolleranze dei componenti. Per riuscire nell'intento siamo andati a variare opportunamente i valori dei 4 resistori di polarizzazione (mantenendo sempre la simmetria dei rami), fino a ottenere una soglia di circa -33 dBm con questi valori(fig. \ref{fig:-33dBm}).
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=14cm]{-33dBm}
+\begin{tabular}{|ccccccccc|}
+\hline
+$\mathrm{I}_1$ [nA] & $\mathrm{I}_2$ [nA] & $\mathrm{V-}$ [mV] & $\mathrm{V+}$ [mV] & $\mathrm{R}_1$ [M$\Omega$] & $\mathrm{R}_2$ [k$\Omega$] & $\mathrm{R}_3$ [M$\Omega$] & $\mathrm{R}_4$ [k$\Omega$] & Soglia [dBm] \\ \hline % \hline
+99,9 & 99,9 & 2,69 & 0,894 & 30 & 18 & 30 & 18 & -32,9 \\ \hline
+\end{tabular}
+\label{fig:-33dBm}
+\caption{Determinazione della soglia per la rete di polarizzazione ottimale.}
+\end{figure}
+
+%\begin{table}
+%\centering
+
+%\label{tab:polott}
+%\caption{Rete di polarizzazione ottimale.}
+%\end{table}
+
+Osservando la fig. \ref{fig:-33dBm} si nota un comportamento diverso da quello atteso per quanto riguarda la tensione al morsetto positivo (curva blu). La tensione di soglia sul secondo diodo dovrebbe risultare costante, essendo quest'ultimo disaccoppiato dal primo diodo; in realtà la tensione diminuisce pian piano all'aumentare della potenza RF in ingresso. Questo è dovuto ad un accoppiamento indesiderato fra i diodi proprio a RF, per cui parte della tensione ``trasuda'' dal primo al secondo diodo.
+
+\section{Rete di adattamento}
+
+\par Una volta ottimizzato il dispositivo in modo da ottenere una sensibilità molto bassa, andiamo a introdurre la rete di adattamento, in grado di garantire un ulteriore guadagno in sensibilità di almeno 10 dB. Sfruttando la simulazione \itt{S-parameter}, già descritta nella prima esercitazione, andiamo a trovare l'impedenza (normalizzata a 50 $\Omega$) da adattare, il cui valore è pari a Z = 1,392 - j11,614 come mostrato in fig. \ref{fig:AdattImp}, assieme alle possibili reti di adattamento.
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=15cm]{AdattImp}
+\caption{Impedenza da adattare e possibili reti a L.}
+\label{fig:AdattImp}
+\end{figure}
+
+\newpage
+A questo punto quindi siamo partiti realizzando le reti LC, sfruttando inizialmente componenti ideali (tab. \ref{tab:adatt1}) e poi quelli reali (tab. \ref{tab:adatt2}) forniti dalla librerie Murata precedentemente installate come \itt{add-on}.
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Rete di adattamento & Valori dei componenti & Soglia di rivelazione \\ \hline % \hline
+\begin{tabular}{c} \includegraphics[width=5cm]{LC1id} \\ \end{tabular} &
+\begin{tabular}{c} L = 49,5 nH \\ C = 0,372 pF \\ \end{tabular} &
+\begin{tabular}{c} -46,99 dBm \\ \end{tabular} \\ \hline
+\begin{tabular}{c} \includegraphics[width=5cm]{LC2id} \\ \end{tabular} &
+\begin{tabular}{c} C = 0,0567 pF \\ L = 90,375 nH \\ \end{tabular} &
+\begin{tabular}{c} -46,99 dBm \\ \end{tabular} \\ \hline
+\end{tabular}
+\label{tab:adatt1}
+\caption{Reti di adattamento a L con componenti ideali.}
+\end{table}
+
+
+I componenti Murata si basano su modelli matematici (ottenuti per \itt{fitting} su risultati empirici) in grado di tener conto anche del comportamento in frequenza dei componenti parassiti presenti in ogni elemento fisico; per questo motivo i valori trovati risultano diversi da quelli ideali ed anche il punto di adattamento sarà diverso dallo Z = 1 + j0 dei due casi precedenti (per questo viene mostrato il suo valore nella tabella \ref{tab:adatt2}).
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Rete di adattamento & Valori dei componenti & Soglia di rivelazione \\ \hline % \hline
+\begin{tabular}{c} \includegraphics[width=7cm]{LC1re} \\ \end{tabular} &
+\begin{tabular}{c} L = 47 nH \\ C = 0,4 pF \\ Z = 1,143 + j0,277 \\ \end{tabular} &
+\begin{tabular}{c} -45,89 dBm \\ \end{tabular} \\ \hline
+\begin{tabular}{c} \includegraphics[width=7cm]{LC2re} \\ \end{tabular} &
+\begin{tabular}{c} C = 0,1 pF \\ L = 75 nH \\ Z = 0,919 - j0,152 \\ \end{tabular} &
+\begin{tabular}{c} -46,34 dBm \\ \end{tabular} \\ \hline
+\end{tabular}
+\label{tab:adatt2}
+\caption{Reti di adattamento a L con componenti reali.}
+\end{table}
+
+\newpage
+Oltre alla rete ad L, abbiamo provato a realizzare anche un
+adattamento a singolo componente, con un induttore serie, visto che il valore dell'impedenza da
+adattare è molto vicino al cerchio a resistenza costante unitaria. In tabella \ref{tab:adatt3} sono indicati i valori utilizzati
+rispettivamente per il caso ideale e reale; in questo caso non raggiungiamo un perfetto
+adattamento, ma la soglia di rivelazione è comunque molto vicina al valore limite trovato nei casi
+ideali (-46,99 dBm) ed inoltre utilizziamo un singolo componente riducendo lo spazio occupato ed il
+costo.
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Rete di adattamento & Valori dei componenti & Soglia di rivelazione \\ \hline % \hline
+\begin{tabular}{c} \includegraphics[width=5cm]{Lid} \\ \end{tabular} &
+\begin{tabular}{c} L = 106,5 nH \\ Z = 1,392 + j0,003 \\ \end{tabular} &
+\begin{tabular}{c} -46,89 dBm \\ \end{tabular} \\ \hline
+\begin{tabular}{c} \includegraphics[width=5cm]{Lre} \\ \end{tabular} &
+\begin{tabular}{c} L = 100 nH \\ Z = 1,570 + j0,294  \\ \end{tabular} &
+\begin{tabular}{c} -46,19 dBm \\ \end{tabular} \\ \hline
+\end{tabular}
+\label{tab:adatt3}
+\caption{Reti di adattamento a singolo componente.}
+\end{table}
+
+Una volta ricavati gli adattamenti a costanti concentrate siamo passati alle linee di trasmissione
+ideali (tab. \ref{tab:adatt4}), con degli stub serie e parallelo e due esempi di trasformatori a $\lambda / 4$. I
+risultati ottenuti per gli ultimi due casi sono stati quelli più interessanti, che ci hanno consentito di
+scartare direttamente l'ipotesi di una realizzazione in microstrisce di queste configurazioni ideali a
+$\lambda / 4$. Infatti i valori di impedenza che è possibile ottenere fisicamente con le microstrisce variano nel
+range tra 20 e 200 $\Omega$ circa. Il limite superiore è dato dalla difficoltà realizzativa, in quanto valori
+superiori a 200 $\Omega$ implicano una larghezza di pista troppo piccola tale da enfatizzare gli effetti parassiti per
+lo sfrangiamento del campo, mentre valori di impedenza inferiori a 20 $\Omega$ comportano una larghezza molto elevata con notevole diminuzione della frequenza di cut-off dei modi superiori.
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Rete di adattamento & Valori dei componenti & Soglia di rivelazione \\ \hline % \hline
+\begin{tabular}{c} \includegraphics[width=5cm]{TL1} \\ \end{tabular} &
+\begin{tabular}{c} TLS \\ Z = 50 $\Omega$ \\ E = 90,89\textdegree \\ $f = 868$ MHz \\ \\ 
+TLP \\ Z = 50 $\Omega$ \\ E = 174,2\textdegree \\ $f = 868$ MHz \\ \end{tabular} &
+\begin{tabular}{c} -46,99 dBm \\ \end{tabular} \\ \hline
+
+\begin{tabular}{c} \includegraphics[width=5cm]{TL2} \\ \end{tabular} &
+\begin{tabular}{c} TLS1 \\ Z = 50 $\Omega$ \\ E = 85,15\textdegree \\ $f = 868$ MHz \\ \\ 
+TLS2 \\ Z = 5,03 $\Omega$ \\ E = 90\textdegree \\ $f = 868$ MHz \\ \end{tabular} &
+\begin{tabular}{c} -46,99 dBm \\ \end{tabular} \\ \hline
+
+\begin{tabular}{c} \includegraphics[width=5cm]{TL3} \\ \end{tabular} &
+\begin{tabular}{c} TLS1 \\ Z = 50 $\Omega$ \\ E = 175,15\textdegree \\ $f = 868$ MHz \\ \\ 
+TLS2 \\ Z = 497,6 $\Omega$ \\ E = 90\textdegree \\ $f = 868$ MHz \\ \end{tabular} &
+\begin{tabular}{c} -46,99 dBm \\ \end{tabular} \\ \hline
+
+\end{tabular}
+\label{tab:adatt4}
+\caption{Reti di adattamento con linee ideali.}
+\end{table}
+
+Per quanto riguarda il primo caso di adattamenti della tab. \ref{tab:adatt4}, siamo passati alla realizzazione in
+microstriscia con un substrato di tipo FR4 (caratteristiche in fig. \ref{fig:MSub}) sfruttando sempre il tool
+\itt{LineCalc} e aggiustando poi i valori tramite uno sweep in frequenza, per ottenere i valori della tab. \ref{tab:adatt5}.
+%(Vuoi anche un commento sulle lunghezze degli stub rispetto alla lunghezza d’onda a 868 MHz?Commento anche su la soglia di rivelazione non tanto buona rispetto agli altri casi per via delle perdite?)
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=2.5cm]{MSub}
+\caption{Caratterizzazione del substrato.}
+\label{fig:MSub}
+\end{figure}
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Rete di adattamento & Valori dei componenti & Soglia di rivelazione \\ \hline % \hline
+\begin{tabular}{c} \includegraphics[width=5cm]{ML} \\ \end{tabular} &
+\begin{tabular}{c} MLS \\ W = 1503,6 $\mu$m \\ L = 52450 $\mu$m \\ \\ 
+MLP \\ W = 1503,6 $\mu$m \\ L = 88380 $\mu$m \\ \end{tabular} &
+\begin{tabular}{c} -39.47 dBm \\ \end{tabular} \\ \hline
+
+\end{tabular}
+\label{tab:adatt5}
+\caption{Reti di adattamento con microstrisce.}
+\end{table}
+
+\newpage
+Infine abbiamo studiato tre casi di adattamenti ``ibridi'', con microstrisce e componenti Murata (tab. \ref{tab:adatt6}); rispettivamente nel primo esempio un tratto di linea in serie e una rete LC (L serie e C shunt); poi
+una versione semplificata con un solo componente concentrato rispetto a prima e per ultimo caso
+uno stub in circuito aperto (comprensivo di effetti di sfrangiamento del campo) seguito da una
+induttanza serie.
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Rete di adattamento & Valori dei componenti & Soglia di rivelazione \\ \hline % \hline
+
+\begin{tabular}{c} \includegraphics[width=7cm]{Ib1} \\ \end{tabular} &
+\begin{tabular}{c} MLS \\ W = 1500 $\mu$m \\ L = 630 $\mu$m \\ 
+\\ L = 82 nH \\ C = 1,1 pF \\ Z = 1,173 - j0,056 \\ \end{tabular} &
+\begin{tabular}{c} -46.19 dBm \\ \end{tabular} \\ \hline
+
+\begin{tabular}{c} \includegraphics[width=7cm]{Ib2} \\ \end{tabular} &
+\begin{tabular}{c} MLS \\ W = 1500 $\mu$m \\ L = 507 $\mu$m \\ 
+\\ L = 82 nH \\ Z = 1,140 - j0,035 \\ \end{tabular} &
+\begin{tabular}{c} -46.29 dBm \\ \end{tabular} \\ \hline
+
+\begin{tabular}{c} \includegraphics[width=7cm]{Ib3} \\ \end{tabular} &
+\begin{tabular}{c} MLEF \\ W = 1500 $\mu$m \\ L = 240 $\mu$m \\ 
+\\ L = 82 nH \\ Z = 1,108 + j0,117 \\ \end{tabular} &
+\begin{tabular}{c} -46.29 dBm \\ \end{tabular} \\ \hline
+
+\end{tabular}
+\label{tab:adatt6}
+\caption{Reti di adattamento ibride.}
+\end{table}
+
+Alla fine è stata scelta la rete reale di tab. \ref{tab:adatt3} perché garantisce un'ottima soglia di rivelazione minimizzando le dimensioni fisiche del circuito. Questa configurazione potrebbe servire come modello per una realizzazione in laboratorio del power detector, vista la disponibilità di componenti LQW18.
+
+\section{Risposta transitoria}
+
+\par Nell'ultima parte dell'esercitazione siamo andati a studiare il comportamento del circuito, non più a regime come nelle simulazioni DC e HB, ma al transitorio per studiare la scarica del condensatore $\mathrm{C}_1$ al variare del suo valore e l'effetto che esso produce sul circuito. Per farlo abbiamo utilizzato un nuovo tipo di simulatore, il \itt{Transient/Convolution}.
+
+\subsubsection*{Simulatore \itt{Transient/Convolution}}
+
+\par Mentre l'analisi attraverso i parametri S, vista nella parte precedente relativa agli adattamenti,
+linearizza il circuito e opera nel dominio della frequenza, l'analisi \itt{Transient/Convolution} \cite{TrConv} simula le
+performance del circuito nel dominio del tempo. Inoltre include tutte le proprietà non lineari dei
+componenti e all'aumentare della complessità del circuito può richiedere una quantità significativa
+di tempo per essere completata e generare un'elevatissima quantità di dati, come ci è capitato di
+verificare nel corso dell'esercitazione.
+I simulatori Transient e Convolution sono simili allo SPICE nel loro modo di operare, in quanto vanno
+a risolvere un insieme di equazioni integro-differenziali che esprime la dipendenza dal tempo delle
+correnti e tensioni del DUT. Il risultato è un'analisi non lineare in funzione del tempo. La differenza
+principale tra le opzioni Transient e Convolution si trova nella caratterizzazione degli elementi
+distribuiti e dipendenti dalla frequenza presenti nel circuito.
+
+\par L'analisi Transient viene effettuata completamente nel dominio del tempo, e perciò non è in grado di
+stimare il comportamento in frequenza di elementi distribuiti come le microstrisce, le linee a striscia, ecc. Quindi tali elementi devono essere rappresentati da modelli semplificati, indipendenti dalla
+frequenza come ad esempio elementi a costanti concentrate equivalenti, linee di trasmissione con
+perdite ma prive di dispersione, ecc. 
+
+\par L'analisi Convolution invece rappresenta tutti gli elementi distribuiti nel dominio della frequenza e
+quindi riesce a studiarne il comportamento al variare della frequenza, molto utile per la
+caratterizzazione della maggior parte degli elementi distribuiti a RF e microonde, in quanto non
+sempre è possibile ottenere l'esatto equivalente nel dominio del tempo per questi elementi. La
+Convolution converte le informazioni nel dominio della frequenza provenienti da tutti gli elementi
+distribuiti nel dominio del tempo, ottenendo sostanzialmente la risposta impulsiva di tali elementi. I
+segnali di ingresso nel dominio del tempo applicati ai terminali degli elementi vengono convoluti
+con la loro risposta impulsiva per ottenere il segnale di uscita (sistema LTI). Gli elementi, anche
+non lineari, già dotati di precisi modelli equivalenti a costanti concentrate vengono invece
+interamente caratterizzati nel dominio del tempo senza bisogno della risposta impulsiva.
+
+\par Il simulatore, una volta impostato il range temporale di interesse, le tolleranze e il limite massimo di
+iterazioni, procede con un'analisi DC per determinare le condizioni iniziali.
+L'importante è impostare correttamente il parametro \textsf{MinTimeStep}, che dovrà essere inferiore al più
+veloce tempo di salita (rise time) presente nel circuito.
+Intanto all'interno del simulatore viene generata una \itt{table breakpoint} per tenere traccia dei
+dispositivi dipendenti dalla frequenza e dei dati accumulati. In particolare la tabella contiene anche
+una lista ordinata di tutti i punti di transizione delle sorgenti indipendenti del DUT, che
+normalmente non coincidono con il \textsf{TimeStep} calcolato dal programma. In questo modo durante la
+simulazione, quando il prossimo punto temporale è abbastanza vicino ad uno dei breakpoint, il
+passo temporale viene automaticamente aggiustato per farlo coincidere con quest'ultimo. In seguito il simulatore tenta di risolvere il sistema di equazioni attraverso un'integrazione numerica e un numero finito di iterazioni col metodo \itt{Newton-Rapshon}. Se il numero di iterazioni supera il limite imposto da \textsf{Max Iterations per time point}, allora il \textsf{TimeStep} viene diminuito di un fattore pari al coefficiente di integrazione \textsf{Mu} diviso per 8. A questo punto se il nuovo passo temporale è accettabile si procede oltre, altrimenti in caso di coefficiente di
+integrazione pari a zero, viene usato il \itt{Backward-Euler} come metodo numerico di integrazione. In
+seguito per la convergenza viene calcolato l'errore locale di troncamento (\textsf{Local Truncation Error},
+LTE) con il metodo di integrazione trapezoidale. Nel caso di mancata convergenza per circuiti più
+complessi è possibile sfruttare anche il metodo di \itt{Gear}. Dalla
+stima dell'LTE viene trovato l'intervallo del \textsf{TimeStep} ed in seguito l'errore viene confrontato coi
+limiti imposti dalle tolleranze; se l'errore è ammissibile i risultati vengono salvati e l'analisi
+continua col punto successivo, altrimenti si ripete tutto il procedimento con un passo più piccolo.
+Spesso per evitare errori nella simulazione è necessario controllare il comportamento in frequenza
+di alcuni componenti (quali induttori, condensatori, ecc.) ed i modelli che sfruttano, talvolta non adatti
+alla simulazione in corso. Inoltre per aumentare la velocità della simulazione e risolvere problemi di
+convergenza (a discapito dell'accuratezza, come è stato nel nostro caso), bisogna diminuire, rispetto
+ai valori di default, le tolleranze relative e assolute per le correnti e le tensioni, e soprattutto il
+parametro \textsf{ChargeTol} per la tolleranza adottata nel calcolo dell'LTE. Infatti ogni aumento
+dell'ordine di grandezza porta all'incirca ad un numero di punti temporali triplicato, aumentando
+vertiginosamente il tempo totale di simulazione e la quantità di dati generati.
+Il settaggio dei parametri per la nostra simulazione e rappresentato in fig. \ref{fig:Transient}.
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=4cm]{Transient}
+\caption{Impostazione della simulazione Transient.}
+\label{fig:Transient}
+\end{figure}
+
+Una volta descritta e impostata la simulazione Transient/Convolution, abbiamo
+visualizzato (fig. \ref{fig:transientout} ) la risposta transitoria del circuito tra 0 e 100 $\mu$s a -30 dBm (16 dBm sopra la soglia) di potenza erogata dal generatore, e impostando i seguenti valori di capacità : 10, 32, 100, 320 e 1000 pF. Scegliendo opportunamente il valore di capacità, si determina la durata minima dell'impulso di potenza, quella corrispondente ad una variazione da livello basso ad alto dell'uscita del comparatore.
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=12cm]{transientout}
+\caption{Risposta del comparatore ad un impulso di -30 dBm al variare della capacità.}
+\label{fig:transientout}
+\end{figure}
+
+Come si vede dalla figura \ref{fig:transientC}, all'aumentare del valore di capacità, la scarica del condensatore diventa più lenta, raggiungendo comunque il medesimo valore di tensione a regime al nodo A. Si noti come viene risaltato l'effetto di \itt{feedthrough} (trasudamento) del segnale al diminuire del valore della capacità. 
+
+\begin{figure}[ht!]
+\centering % \hspace{2cm}
+\includegraphics[width=16cm]{transientC}
+\caption{Scarica del condensatore $\mathrm{C}_1$ per più valori di capacità ed effetto trasudamento.}
+\label{fig:transientC}
+\end{figure}

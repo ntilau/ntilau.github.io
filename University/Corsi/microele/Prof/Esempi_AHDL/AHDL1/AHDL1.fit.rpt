@@ -1,0 +1,483 @@
+Fitter report for AHDL1
+Mon May 26 19:13:24 2008
+Quartus II Version 6.1 Build 201 11/27/2006 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Fitter Summary
+  3. Fitter Settings
+  4. Pin-Out File
+  5. Fitter Resource Usage Summary
+  6. Input Pins
+  7. Output Pins
+  8. Bidir Pins
+  9. All Package Pins
+ 10. I/O Standard
+ 11. Dedicated Inputs I/O
+ 12. Output Pin Default Load For Reported TCO
+ 13. Fitter Resource Utilization by Entity
+ 14. Control Signals
+ 15. Global & Other Fast Signals
+ 16. Non-Global High Fan-Out Signals
+ 17. Interconnect Usage Summary
+ 18. LAB Macrocells
+ 19. Logic Cell Interconnection
+ 20. Fitter Device Options
+ 21. Fitter Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------+
+; Fitter Summary                                                  ;
++-----------------------+-----------------------------------------+
+; Fitter Status         ; Successful - Mon May 26 19:13:24 2008   ;
+; Quartus II Version    ; 6.1 Build 201 11/27/2006 SJ Web Edition ;
+; Revision Name         ; AHDL1                                   ;
+; Top-level Entity Name ; AHDL1                                   ;
+; Family                ; MAX7000AE                               ;
+; Device                ; EPM7064AEFC100-10                       ;
+; Timing Models         ; Final                                   ;
+; Total macrocells      ; 23 / 64 ( 36 % )                        ;
+; Total pins            ; 41 / 68 ( 60 % )                        ;
++-----------------------+-----------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Fitter Settings                                                       ;
++--------------------------------------------+----------+---------------+
+; Option                                     ; Setting  ; Default Value ;
++--------------------------------------------+----------+---------------+
+; Device                                     ; AUTO     ;               ;
+; Optimize IOC Register Placement for Timing ; On       ; On            ;
+; Limit to One Fitting Attempt               ; Off      ; Off           ;
+; Fitter Initial Placement Seed              ; 1        ; 1             ;
+; Slow Slew Rate                             ; Off      ; Off           ;
+; Fitter Effort                              ; Auto Fit ; Auto Fit      ;
+; Use smart compilation                      ; Off      ; Off           ;
++--------------------------------------------+----------+---------------+
+
+
++--------------+
+; Pin-Out File ;
++--------------+
+The pin-out file can be found in C:/Documents and Settings/Matteo/Desktop/AHDL/AHDL1/AHDL1.pin.
+
+
++------------------------------------------------------+
+; Fitter Resource Usage Summary                        ;
++-----------------------------------+------------------+
+; Resource                          ; Usage            ;
++-----------------------------------+------------------+
+; Logic cells                       ; 23 / 64 ( 36 % ) ;
+; Registers                         ; 1 / 64 ( 2 % )   ;
+; Number of pterms used             ; 20               ;
+; User inserted logic elements      ; 0                ;
+; I/O pins                          ; 41 / 68 ( 60 % ) ;
+;     -- Clock pins                 ; 1 / 2 ( 50 % )   ;
+;     -- Dedicated input pins       ; 1 / 2 ( 50 % )   ;
+; Global signals                    ; 2                ;
+; Shareable expanders               ; 0 / 64 ( 0 % )   ;
+; Parallel expanders                ; 0 / 60 ( 0 % )   ;
+; Cells using turbo bit             ; 23 / 64 ( 36 % ) ;
+; Maximum fan-out node              ; DB[0]            ;
+; Maximum fan-out                   ; 10               ;
+; Highest non-global fan-out signal ; DB[0]            ;
+; Highest non-global fan-out        ; 10               ;
+; Total fan-out                     ; 111              ;
+; Average fan-out                   ; 1.73             ;
++-----------------------------------+------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Input Pins                                                                                                                                                  ;
++-------+-------+----------+-----+-----------------------+--------------------+--------+----------------+---------------+--------------+----------------------+
+; Name  ; Pin # ; I/O Bank ; LAB ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; I/O Standard ; Location assigned by ;
++-------+-------+----------+-----+-----------------------+--------------------+--------+----------------+---------------+--------------+----------------------+
+; A     ; C6    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; B     ; G3    ; --       ; 2   ; 1                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; C     ; F1    ; --       ; 2   ; 1                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; CLOCK ; A6    ; --       ; --  ; 1                     ; 0                  ; yes    ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; D     ; F10   ; --       ; 3   ; 1                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; DB[0] ; H7    ; --       ; 3   ; 10                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; DB[1] ; F9    ; --       ; 3   ; 10                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; DB[2] ; G9    ; --       ; 3   ; 10                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; DB[3] ; G10   ; --       ; 3   ; 10                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; DB[4] ; G1    ; --       ; 2   ; 10                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; DB[5] ; C7    ; --       ; 4   ; 10                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; DB[6] ; D10   ; --       ; 4   ; 10                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; DB[7] ; B7    ; --       ; 4   ; 10                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; OE    ; B6    ; --       ; --  ; 1                     ; 0                  ; yes    ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
++-------+-------+----------+-----+-----------------------+--------------------+--------+----------------+---------------+--------------+----------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Output Pins                                                                                                                                                      ;
++-----------+-------+----------+-----+-----------------+---------------+----------------+------------+---------------+--------------+----------------------+-------+
+; Name      ; Pin # ; I/O Bank ; LAB ; Output Register ; Power Up High ; Slow Slew Rate ; Open Drain ; TRI Primitive ; I/O Standard ; Location assigned by ; Load  ;
++-----------+-------+----------+-----+-----------------+---------------+----------------+------------+---------------+--------------+----------------------+-------+
+; OUT_A     ; J5    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_B     ; E1    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_C     ; D1    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_D     ; D2    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_E     ; H5    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; OUT_F     ; K4    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; PROVA[0]  ; B3    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; PROVA[10] ; C4    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; PROVA[11] ; C5    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; PROVA[12] ; J4    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; PROVA[13] ; H4    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; PROVA[14] ; J3    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; PROVA[15] ; K3    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; PROVA[1]  ; E2    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; PROVA[2]  ; A4    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; PROVA[3]  ; A2    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; PROVA[4]  ; B2    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; PROVA[5]  ; F4    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; PROVA[6]  ; D3    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; PROVA[7]  ; A3    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; PROVA[8]  ; C2    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; PROVA[9]  ; B4    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
++-----------+-------+----------+-----+-----------------+---------------+----------------+------------+---------------+--------------+----------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Bidir Pins                                                                                                                                                                                                         ;
++------+-------+----------+-----+-----------------------+--------------------+--------+----------------+-----------------+---------------+----------------+------------+--------------+----------------------+-------+
+; Name ; Pin # ; I/O Bank ; LAB ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Output Register ; Power Up High ; Slow Slew Rate ; Open Drain ; I/O Standard ; Location assigned by ; Load  ;
++------+-------+----------+-----+-----------------------+--------------------+--------+----------------+-----------------+---------------+----------------+------------+--------------+----------------------+-------+
+; TEST ; K5    ; --       ; 2   ; 1                     ; 0                  ; no     ; no             ; no              ; no            ; no             ; no         ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
++------+-------+----------+-----+-----------------------+--------------------+--------+----------------+-----------------+---------------+----------------+------------+--------------+----------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; All Package Pins                                                                                      ;
++----------+------------+----------+----------------+--------+--------------+---------+-----------------+
+; Location ; Pad Number ; I/O Bank ; Pin Name/Usage ; Dir.   ; I/O Standard ; Voltage ; User Assignment ;
++----------+------------+----------+----------------+--------+--------------+---------+-----------------+
+; A1       ; 13         ; --       ; TDI            ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; A2       ; 10         ; --       ; PROVA[3]       ; output ; 3.3-V LVTTL  ;         ; N               ;
+; A3       ; 9          ; --       ; PROVA[7]       ; output ; 3.3-V LVTTL  ;         ; N               ;
+; A4       ; 7          ; --       ; PROVA[2]       ; output ; 3.3-V LVTTL  ;         ; N               ;
+; A5       ; 1          ; --       ; GND+           ;        ;              ;         ;                 ;
+; A6       ; 82         ; --       ; CLOCK          ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; A7       ; 76         ; --       ; GND*           ;        ;              ;         ;                 ;
+; A8       ; 74         ; --       ; GND*           ;        ;              ;         ;                 ;
+; A9       ; 73         ; --       ; GND*           ;        ;              ;         ;                 ;
+; A10      ; 70         ; --       ; TDO            ; output ; 3.3-V LVTTL  ;         ; N               ;
+; B1       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; B2       ; 11         ; --       ; PROVA[4]       ; output ; 3.3-V LVTTL  ;         ; N               ;
+; B3       ; 8          ; --       ; PROVA[0]       ; output ; 3.3-V LVTTL  ;         ; N               ;
+; B4       ; 5          ; --       ; PROVA[9]       ; output ; 3.3-V LVTTL  ;         ; N               ;
+; B5       ; 0          ; --       ; GND+           ;        ;              ;         ;                 ;
+; B6       ; 83         ; --       ; OE             ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; B7       ; 78         ; --       ; DB[7]          ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; B8       ; 75         ; --       ; GND*           ;        ;              ;         ;                 ;
+; B9       ; 72         ; --       ; GND*           ;        ;              ;         ;                 ;
+; B10      ;            ;          ; NC             ;        ;              ;         ;                 ;
+; C1       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; C2       ; 14         ; --       ; PROVA[8]       ; output ; 3.3-V LVTTL  ;         ; N               ;
+; C3       ; 6          ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; C4       ; 4          ; --       ; PROVA[10]      ; output ; 3.3-V LVTTL  ;         ; N               ;
+; C5       ; 3          ; --       ; PROVA[11]      ; output ; 3.3-V LVTTL  ;         ; N               ;
+; C6       ; 80         ; --       ; A              ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; C7       ; 79         ; --       ; DB[5]          ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; C8       ; 25         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; C9       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; C10      ;            ;          ; NC             ;        ;              ;         ;                 ;
+; D1       ; 16         ; --       ; OUT_C          ; output ; 3.3-V LVTTL  ;         ; N               ;
+; D2       ; 17         ; --       ; OUT_D          ; output ; 3.3-V LVTTL  ;         ; N               ;
+; D3       ; 15         ; --       ; PROVA[6]       ; output ; 3.3-V LVTTL  ;         ; N               ;
+; D4       ; 12         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; D5       ; 2          ; --       ; VCCINT         ; power  ;              ; 3.3V    ;                 ;
+; D6       ; 41         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; D7       ; 31         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; D8       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; D9       ; 68         ; --       ; GND*           ;        ;              ;         ;                 ;
+; D10      ; 69         ; --       ; DB[6]          ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; E1       ; 19         ; --       ; OUT_B          ; output ; 3.3-V LVTTL  ;         ; N               ;
+; E2       ; 20         ; --       ; PROVA[1]       ; output ; 3.3-V LVTTL  ;         ; N               ;
+; E3       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; E4       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; E5       ; 18         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; E6       ; 37         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; E7       ; 67         ; --       ; GND*           ;        ;              ;         ;                 ;
+; E8       ; 66         ; --       ; GND*           ;        ;              ;         ;                 ;
+; E9       ; 63         ; --       ; GND*           ;        ;              ;         ;                 ;
+; E10      ; 64         ; --       ; GND*           ;        ;              ;         ;                 ;
+; F1       ; 23         ; --       ; C              ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; F2       ; 24         ; --       ; GND*           ;        ;              ;         ;                 ;
+; F3       ; 22         ; --       ; TMS            ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; F4       ; 21         ; --       ; PROVA[5]       ; output ; 3.3-V LVTTL  ;         ; N               ;
+; F5       ; 52         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; F6       ; 58         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; F7       ; 62         ; --       ; GND*           ;        ;              ;         ;                 ;
+; F8       ; 61         ; --       ; TCK            ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; F9       ; 59         ; --       ; DB[1]          ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; F10      ; 60         ; --       ; D              ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; G1       ; 27         ; --       ; DB[4]          ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; G2       ; 28         ; --       ; GND*           ;        ;              ;         ;                 ;
+; G3       ; 26         ; --       ; B              ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; G4       ; 46         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; G5       ; 81         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; G6       ; 42         ; --       ; VCCINT         ; power  ;              ; 3.3V    ;                 ;
+; G7       ; 77         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; G8       ; 57         ; --       ; GND*           ;        ;              ;         ;                 ;
+; G9       ; 55         ; --       ; DB[2]          ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; G10      ; 56         ; --       ; DB[3]          ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; H1       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; H2       ; 29         ; --       ; GND*           ;        ;              ;         ;                 ;
+; H3       ; 65         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; H4       ; 34         ; --       ; PROVA[13]      ; output ; 3.3-V LVTTL  ;         ; N               ;
+; H5       ; 38         ; --       ; OUT_E          ; output ; 3.3-V LVTTL  ;         ; N               ;
+; H6       ; 45         ; --       ; GND*           ;        ;              ;         ;                 ;
+; H7       ; 49         ; --       ; DB[0]          ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; H8       ; 71         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; H9       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; H10      ;            ;          ; NC             ;        ;              ;         ;                 ;
+; J1       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; J2       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; J3       ; 33         ; --       ; PROVA[14]      ; output ; 3.3-V LVTTL  ;         ; N               ;
+; J4       ; 35         ; --       ; PROVA[12]      ; output ; 3.3-V LVTTL  ;         ; N               ;
+; J5       ; 39         ; --       ; OUT_A          ; output ; 3.3-V LVTTL  ;         ; N               ;
+; J6       ; 44         ; --       ; GND*           ;        ;              ;         ;                 ;
+; J7       ; 48         ; --       ; GND*           ;        ;              ;         ;                 ;
+; J8       ; 50         ; --       ; GND*           ;        ;              ;         ;                 ;
+; J9       ; 54         ; --       ; GND*           ;        ;              ;         ;                 ;
+; J10      ;            ;          ; NC             ;        ;              ;         ;                 ;
+; K1       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; K2       ; 30         ; --       ; GND*           ;        ;              ;         ;                 ;
+; K3       ; 32         ; --       ; PROVA[15]      ; output ; 3.3-V LVTTL  ;         ; N               ;
+; K4       ; 36         ; --       ; OUT_F          ; output ; 3.3-V LVTTL  ;         ; N               ;
+; K5       ; 40         ; --       ; TEST           ; bidir  ; 3.3-V LVTTL  ;         ; N               ;
+; K6       ; 43         ; --       ; GND*           ;        ;              ;         ;                 ;
+; K7       ; 47         ; --       ; GND*           ;        ;              ;         ;                 ;
+; K8       ; 51         ; --       ; GND*           ;        ;              ;         ;                 ;
+; K9       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; K10      ; 53         ; --       ; GND*           ;        ;              ;         ;                 ;
++----------+------------+----------+----------------+--------+--------------+---------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; I/O Standard                                                                                     ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+; I/O Standard ; Input Vref ; Dedicated Input Pins ; Pins in I/O Bank1 ; Pins in I/O Bank2 ; Total ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+; 3.3-V LVTTL  ; -          ; 2                    ; 0                 ; 0                 ; 2     ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+
+
++---------------------------------------------------------------------+
+; Dedicated Inputs I/O                                                ;
++-------+-------+-------+-------+--------------+------------+---------+
+; Name  ; Pin # ; Type  ; VCCIO ; I/O Standard ; Input Vref ; Current ;
++-------+-------+-------+-------+--------------+------------+---------+
+; CLOCK ; A6    ; Input ; --    ; 3.3-V LVTTL  ; -          ; 0 mA    ;
+; OE    ; B6    ; Input ; --    ; 3.3-V LVTTL  ; -          ; 0 mA    ;
++-------+-------+-------+-------+--------------+------------+---------+
+
+
++-----------------------------------------------+
+; Output Pin Default Load For Reported TCO      ;
++--------------+-------+------------------------+
+; I/O Standard ; Load  ; Termination Resistance ;
++--------------+-------+------------------------+
+; 3.3-V LVTTL  ; 10 pF ; Not Available          ;
+; 3.3-V LVCMOS ; 10 pF ; Not Available          ;
+; 3.3-V PCI    ; 10 pF ; 25 Ohm (Parallel)      ;
+; 2.5 V        ; 10 pF ; Not Available          ;
++--------------+-------+------------------------+
+Note: User assignments will override these defaults. The user specified values are listed in the Output Pins and Bidir Pins tables.
+
+
++----------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                ;
++----------------------------+------------+------+---------------------+
+; Compilation Hierarchy Node ; Macrocells ; Pins ; Full Hierarchy Name ;
++----------------------------+------------+------+---------------------+
+; |AHDL1                     ; 23         ; 41   ; |AHDL1              ;
++----------------------------+------------+------+---------------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Control Signals                                                                               ;
++-------+----------+---------+---------------+--------+----------------------+------------------+
+; Name  ; Location ; Fan-Out ; Usage         ; Global ; Global Resource Used ; Global Line Name ;
++-------+----------+---------+---------------+--------+----------------------+------------------+
+; CLOCK ; PIN_A6   ; 1       ; Clock         ; yes    ; On                   ; --               ;
+; OE    ; PIN_B6   ; 1       ; Output enable ; yes    ; On                   ; --               ;
++-------+----------+---------+---------------+--------+----------------------+------------------+
+
+
++----------------------------------------------------------------------+
+; Global & Other Fast Signals                                          ;
++-------+----------+---------+----------------------+------------------+
+; Name  ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ;
++-------+----------+---------+----------------------+------------------+
+; CLOCK ; PIN_A6   ; 1       ; On                   ; --               ;
+; OE    ; PIN_B6   ; 1       ; On                   ; --               ;
++-------+----------+---------+----------------------+------------------+
+
+
++---------------------------------+
+; Non-Global High Fan-Out Signals ;
++-------------------+-------------+
+; Name              ; Fan-Out     ;
++-------------------+-------------+
+; DB[7]             ; 10          ;
+; DB[6]             ; 10          ;
+; DB[5]             ; 10          ;
+; DB[4]             ; 10          ;
+; DB[3]             ; 10          ;
+; DB[2]             ; 10          ;
+; DB[1]             ; 10          ;
+; DB[0]             ; 10          ;
+; FLIPFLOP          ; 2           ;
+; TEST~0            ; 1           ;
+; D                 ; 1           ;
+; C                 ; 1           ;
+; B                 ; 1           ;
+; A                 ; 1           ;
+; ~GND~8            ; 1           ;
+; ~GND~7            ; 1           ;
+; ~GND~6            ; 1           ;
+; ~GND~5            ; 1           ;
+; ~GND~4            ; 1           ;
+; ~GND~3            ; 1           ;
+; ~GND~2            ; 1           ;
+; ~GND~1            ; 1           ;
+; ~GND~0            ; 1           ;
+; PROVA[6]~32       ; 1           ;
+; OUT_C~19          ; 1           ;
+; OUT_B~100         ; 1           ;
+; OUT_B~96          ; 1           ;
+; PROVA[6]~29       ; 1           ;
+; OUT_C~16          ; 1           ;
+; OUT_D~10          ; 1           ;
+; OUT_B~93          ; 1           ;
+; OUT_B~90          ; 1           ;
+; OUT_B~88          ; 1           ;
+; OUT_E~8           ; 1           ;
+; Nodo_Intermedio~8 ; 1           ;
+; FLIPFLOP~2        ; 1           ;
++-------------------+-------------+
+
+
++------------------------------------------------+
+; Interconnect Usage Summary                     ;
++----------------------------+-------------------+
+; Interconnect Resource Type ; Usage             ;
++----------------------------+-------------------+
+; Output enables             ; 1 / 6 ( 17 % )    ;
+; PIA buffers                ; 14 / 144 ( 10 % ) ;
++----------------------------+-------------------+
+
+
++----------------------------------------------------------------------+
+; LAB Macrocells                                                       ;
++----------------------------------------+-----------------------------+
+; Number of Macrocells  (Average = 5.75) ; Number of LABs  (Total = 2) ;
++----------------------------------------+-----------------------------+
+; 0                                      ; 2                           ;
+; 1                                      ; 0                           ;
+; 2                                      ; 0                           ;
+; 3                                      ; 0                           ;
+; 4                                      ; 0                           ;
+; 5                                      ; 0                           ;
+; 6                                      ; 0                           ;
+; 7                                      ; 0                           ;
+; 8                                      ; 1                           ;
+; 9                                      ; 0                           ;
+; 10                                     ; 0                           ;
+; 11                                     ; 0                           ;
+; 12                                     ; 0                           ;
+; 13                                     ; 0                           ;
+; 14                                     ; 0                           ;
+; 15                                     ; 1                           ;
++----------------------------------------+-----------------------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Logic Cell Interconnection                                                                    ;
++-----+------------+--------------------------------------------------------+-------------------+
+; LAB ; Logic Cell ; Input                                                  ; Output            ;
++-----+------------+--------------------------------------------------------+-------------------+
+;  A  ; LC1        ; DB[3], DB[1], DB[4], DB[2], DB[0], DB[7], DB[6], DB[5] ; PROVA[5]          ;
+;  A  ; LC2        ; DB[3], DB[1], DB[4], DB[2], DB[0], DB[7], DB[6], DB[5] ; PROVA[1]          ;
+;  A  ; LC3        ; DB[3], DB[1], DB[4], DB[2], DB[0], DB[7], DB[6], DB[5] ; OUT_B             ;
+;  A  ; LC4        ; DB[3], DB[2], DB[1], DB[7], DB[6], DB[5], DB[0], DB[4] ; OUT_D             ;
+;  A  ; LC5        ; DB[3], DB[1], DB[4], DB[2], DB[0], DB[7], DB[6], DB[5] ; OUT_C             ;
+;  A  ; LC6        ; DB[1], DB[3], DB[4], DB[2], DB[0], DB[7], DB[6], DB[5] ; PROVA[6]          ;
+;  A  ; LC7        ; DB[3], DB[1], DB[4], DB[2], DB[0], DB[7], DB[6], DB[5] ; PROVA[8]          ;
+;  A  ; LC9        ; DB[3], DB[1], DB[4], DB[2], DB[0], DB[7], DB[6], DB[5] ; PROVA[4]          ;
+;  A  ; LC10       ; DB[3], DB[1], DB[4], DB[2], DB[0], DB[7], DB[6], DB[5] ; PROVA[3]          ;
+;  A  ; LC11       ; DB[1], DB[3], DB[4], DB[2], DB[0], DB[7], DB[6], DB[5] ; PROVA[7]          ;
+;  A  ; LC12       ;                                                        ; PROVA[0]          ;
+;  A  ; LC13       ;                                                        ; PROVA[2]          ;
+;  A  ; LC14       ;                                                        ; PROVA[9]          ;
+;  A  ; LC15       ;                                                        ; PROVA[10]         ;
+;  A  ; LC16       ;                                                        ; PROVA[11]         ;
+;  B  ; LC17       ; FLIPFLOP                                               ; TEST              ;
+;  B  ; LC18       ; A, B                                                   ; OUT_A             ;
+;  B  ; LC19       ; D, C                                                   ; OUT_E             ;
+;  B  ; LC20       ; CLOCK, TEST                                            ; FLIPFLOP~2, OUT_F ;
+;  B  ; LC21       ;                                                        ; PROVA[12]         ;
+;  B  ; LC22       ;                                                        ; PROVA[13]         ;
+;  B  ; LC23       ;                                                        ; PROVA[14]         ;
+;  B  ; LC24       ;                                                        ; PROVA[15]         ;
++-----+------------+--------------------------------------------------------+-------------------+
+
+
++-------------------------------------------------------------------------+
+; Fitter Device Options                                                   ;
++----------------------------------------------+--------------------------+
+; Option                                       ; Setting                  ;
++----------------------------------------------+--------------------------+
+; Enable user-supplied start-up clock (CLKUSR) ; Off                      ;
+; Enable device-wide reset (DEV_CLRn)          ; Off                      ;
+; Enable device-wide output enable (DEV_OE)    ; Off                      ;
+; Enable INIT_DONE output                      ; Off                      ;
+; Configuration scheme                         ; Passive Serial           ;
+; Reserve all unused pins                      ; As output driving ground ;
+; Security bit                                 ; Off                      ;
+; Base pin-out file on sameframe device        ; Off                      ;
++----------------------------------------------+--------------------------+
+
+
++-----------------+
+; Fitter Messages ;
++-----------------+
+Info: *******************************************************************
+Info: Running Quartus II Fitter
+    Info: Version 6.1 Build 201 11/27/2006 SJ Web Edition
+    Info: Processing started: Mon May 26 19:13:23 2008
+Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off AHDL1 -c AHDL1
+Info: Automatically selected device EPM7064AEFC100-10 for design AHDL1
+Info: Fitting design with smaller device may be possible, but smaller device must be specified
+Info: Quartus II Fitter was successful. 0 errors, 0 warnings
+    Info: Allocated 124 megabytes of memory during processing
+    Info: Processing ended: Mon May 26 19:13:24 2008
+    Info: Elapsed time: 00:00:01
+
+
