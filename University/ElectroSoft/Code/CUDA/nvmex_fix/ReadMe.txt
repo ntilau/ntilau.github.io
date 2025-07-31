@@ -1,1 +1,0 @@
-Remember to check the environment variables to the CUDA_LIB_PATH: %CUDA_PATH% must be explicit

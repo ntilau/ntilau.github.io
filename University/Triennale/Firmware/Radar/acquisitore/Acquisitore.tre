@@ -1,8 +1,0 @@
-ÀÄAcquisitore
-   ÃÄmain  0/192  Ram=0
-   ³  ÃÄ??0??
-   ³  ÃÄDataTX  0/60  Ram=5
-   ³  ÀÄ@delay_ms1  0/48  Ram=1
-   ÀÄLeggi_RS232  0/132  Ram=1
-      ÃÄDigPot  0/22  Ram=1
-      ÀÄ@delay_ms1  0/48  Ram=1
