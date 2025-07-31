@@ -1,0 +1,13 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\beamer@sectionintoc {1}{Motivazioni}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Analisi numerica di array fasati di grandi dimensioni}{2}{0}{1}
+\beamer@subsectionintoc {1}{2}{Modello di radiazione e riduzione della complessit\`{a}}{11}{0}{1}
+\beamer@sectionintoc {2}{Modello di radiazione per array fasati}{13}{0}{2}
+\beamer@subsectionintoc {2}{1}{Tecnica degli elementi finiti}{13}{0}{2}
+\beamer@subsectionintoc {2}{2}{Trasformazione da campi vicini a campi lontani}{21}{0}{2}
+\beamer@subsectionintoc {2}{3}{Sistema lineare tempo-invariante}{24}{0}{2}
+\beamer@subsectionintoc {2}{4}{Riduzione della complessit\`{a}}{32}{0}{2}
+\beamer@sectionintoc {3}{Esempio numerico e conclusioni}{37}{0}{3}
+\beamer@subsectionintoc {3}{1}{Array di 3x5 antenne a patch}{37}{0}{3}
+\beamer@subsectionintoc {3}{2}{Conclusioni}{49}{0}{3}
