@@ -1,0 +1,267 @@
+%PDF-1.2 
+%‚„œ”
+ 
+12 0 obj
+<<
+/Length 13 0 R
+>>
+stream
+BT56.64 758.4  TD0 0 0 rg /F0 13.92  Tf0.0557  Tc -0.0854  Tw (SISTEMI OPERATIVI IIN/IEL/IDT) Tj209.04 0  TD 0  Tc -0.0298  Tw ( ) Tj-209.04 -15.84  TD 0.0325  Tc 0.0337  Tw (INFORMATICA INDUSTRIALE E SISTEMI OPERATIVI IDI) Tj369.84 0  TD 0  Tc -0.0298  Tw ( ) Tj-369.84 -19.2  TD 0.0153  Tc 0.135  Tw (prova scritta preliminare del 17.07.2003) Tj261.12 0  TD 0  Tc -0.0298  Tw ( ) Tj-261.12 -15.36  TD /F1 10.08  Tf0.12  Tw ( ) Tj0 -13.68  TD /F2 12  Tf0.0064  Tc -0.0101  Tw (Nome: __________________                        Cognome: __________________) Tj417.84 0  TD 0  Tc 0.024  Tw ( ) Tj-417.84 -13.92  TD ( ) Tj0 -13.68  TD ( ) Tj0 -13.92  TD 0.0179  Tc 0.7261  Tw (Sia dato un sistema che dispone di tre tipi di risorse RA,) Tj306.48 0  TD 0.0125  Tc 0.6115  Tw ( RB, ed RC, rispettivamente con ) Tj-306.48 -13.68  TD 0.0209  Tc 2.3551  Tw (10, 3, e 5 istanze ciascuna. Ad un certo istante ) Tj2.424  Tc 0  Tw (t) Tj280.08 -1.44  TD /F2 7.92  Tf-0.0835  Tc (0) Tj4.32 1.44  TD /F2 12  Tf0.0081  Tc 2.4159  Tw (, sul sistema sono in esecuzione 4) Tj0  Tc 0.024  Tw ( ) Tj-284.4 -13.92  TD 0.0114  Tc 0.2244  Tw (processi P1, P2, P3, e P4. La massima richiesta di risorse per ciascun processo e lo stato ) Tj0 -13.68  TD 0  Tc -0.0246  Tw (di allocazione delle risorse all\222istante t) Tj200.88 -1.44  TD /F2 7.92  Tf-0.0835  Tc 0  Tw (0) Tj4.32 1.44  TD /F2 12  Tf0.12  Tc 0.024  Tw ( \350 s) Tj19.2 0  TD 0.0048  Tc 0.0192  Tw (intetizzato dalle tabelle riportate qui di seguito:) Tj246.48 0  TD 0  Tc 0.024  Tw ( ) Tj-470.88 -13.92  TD ( ) Tj0 -11.52  TD /F1 10.08  Tf-0.025  Tc -0.015  Tw (Massima richiesta di risorse) Tj112.08 0  TD 0  Tc 0.12  Tw ( ) Tj-111.84 -11.76  TD ( ) Tj120.24 -2.16  TD /F2 12  Tf-0.054  Tc 0  Tw (RA) Tj16.56 0  TD 0  Tc 0.024  Tw ( ) Tj103.92 0  TD -0.054  Tc 0  Tw (RB) Tj16.56 0  TD 0  Tc 0.024  Tw ( ) Tj103.68 0  TD -0.024  Tc 0  Tw (RC) Tj17.28 0  TD 0  Tc 0.024  Tw ( ) TjET56.64 583.2 0.24 0.24 re f56.64 583.2 0.24 0.24 re f56.88 583.2 120 0.24 re f176.88 583.2 0.24 0.24 re f177.12 583.2 120.24 0.24 re f297.36 583.2 0.24 0.24 re f297.6 583.2 120 0.24 re f417.6 583.2 0.24 0.24 re f417.84 583.2 120.24 0.24 re f538.08 583.2 0.24 0.24 re f538.08 583.2 0.24 0.24 re f56.64 569.52 0.24 13.68 re f176.88 569.52 0.24 13.68 re f297.36 569.52 0.24 13.68 re f417.6 569.52 0.24 13.68 re f538.08 569.52 0.24 13.68 re fBT56.88 558.24  TD-0.138  Tc 0  Tw (P1) Tj14.64 0  TD 0  Tc 0.024  Tw ( ) Tj105.6 0  TD 0.048  Tc 0  Tw (3) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) Tj113.76 0  TD 0.048  Tc 0  Tw (2) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) Tj113.52 0  TD 0.048  Tc 0  Tw (2) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) TjET56.64 569.28 0.24 0.24 re f56.88 569.28 120 0.24 re f176.88 569.28 0.24 0.24 re f177.12 569.28 120.24 0.24 re f297.36 569.28 0.24 0.24 re f297.6 569.28 120 0.24 re f417.6 569.28 0.24 0.24 re f417.84 569.28 120.24 0.24 re f538.08 569.28 0.24 0.24 re f56.64 555.6 0.24 13.68 re f176.88 555.6 0.24 13.68 re f297.36 555.6 0.24 13.68 re f417.6 555.6 0.24 13.68 re f538.08 555.6 0.24 13.68 re fBT56.88 544.32  TD-0.138  Tc 0  Tw (P2) Tj14.64 0  TD 0  Tc 0.024  Tw ( ) Tj105.6 0  TD 0.048  Tc 0  Tw (6) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) Tj113.76 0  TD 0.048  Tc 0  Tw (1) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) Tj113.52 0  TD 0.048  Tc 0  Tw (4) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) TjET56.64 555.36 0.24 0.24 re f56.88 555.36 120 0.24 re f176.88 555.36 0.24 0.24 re f177.12 555.36 120.24 0.24 re f297.36 555.36 0.24 0.24 re f297.6 555.36 120 0.24 re f417.6 555.36 0.24 0.24 re f417.84 555.36 120.24 0.24 re f538.08 555.36 0.24 0.24 re f56.64 541.68 0.24 13.68 re f176.88 541.68 0.24 13.68 re f297.36 541.68 0.24 13.68 re f417.6 541.68 0.24 13.68 re f538.08 541.68 0.24 13.68 re fBT56.88 530.4  TD-0.138  Tc 0  Tw (P3) Tj14.64 0  TD 0  Tc 0.024  Tw ( ) Tj105.6 0  TD 0.048  Tc 0  Tw (4) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) Tj113.76 0  TD 0.048  Tc 0  Tw (1) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) Tj113.52 0  TD 0.048  Tc 0  Tw (4) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) TjET56.64 541.44 0.24 0.24 re f56.88 541.44 120 0.24 re f176.88 541.44 0.24 0.24 re f177.12 541.44 120.24 0.24 re f297.36 541.44 0.24 0.24 re f297.6 541.44 120 0.24 re f417.6 541.44 0.24 0.24 re f417.84 541.44 120.24 0.24 re f538.08 541.44 0.24 0.24 re f56.64 527.76 0.24 13.68 re f176.88 527.76 0.24 13.68 re f297.36 527.76 0.24 13.68 re f417.6 527.76 0.24 13.68 re f538.08 527.76 0.24 13.68 re fBT56.88 516.48  TD-0.138  Tc 0  Tw (P4) Tj14.64 0  TD 0  Tc 0.024  Tw ( ) Tj105.6 0  TD 0.048  Tc 0  Tw (1) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) Tj113.76 0  TD 0.048  Tc 0  Tw (1) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) Tj113.52 0  TD 0.048  Tc 0  Tw (1) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) TjET56.64 527.52 0.24 0.24 re f56.88 527.52 120 0.24 re f176.88 527.52 0.24 0.24 re f177.12 527.52 120.24 0.24 re f297.36 527.52 0.24 0.24 re f297.6 527.52 120 0.24 re f417.6 527.52 0.24 0.24 re f417.84 527.52 120.24 0.24 re f538.08 527.52 0.24 0.24 re f56.64 514.08 0.24 13.44 re f56.64 513.84 0.24 0.24 re f56.64 513.84 0.24 0.24 re f56.88 513.84 120 0.24 re f176.88 514.08 0.24 13.44 re f176.88 513.84 0.24 0.24 re f177.12 513.84 120.24 0.24 re f297.36 514.08 0.24 13.44 re f297.36 513.84 0.24 0.24 re f297.6 513.84 120 0.24 re f417.6 514.08 0.24 13.44 re f417.6 513.84 0.24 0.24 re f417.84 513.84 120.24 0.24 re f538.08 514.08 0.24 13.44 re f538.08 513.84 0.24 0.24 re f538.08 513.84 0.24 0.24 re fBT56.64 502.8  TD( ) Tj0 -11.76  TD /F1 10.08  Tf-0.0418  Tc 0.0018  Tw (Allocazione risorse ai processi) Tj122.4 0  TD 0  Tc 0.12  Tw ( ) Tj-122.16 -11.76  TD ( ) Tj120.24 -2.16  TD /F2 12  Tf-0.054  Tc 0  Tw (RA) Tj16.56 0  TD 0  Tc 0.024  Tw ( ) Tj103.92 0  TD -0.054  Tc 0  Tw (RB) Tj16.56 0  TD 0  Tc 0.024  Tw ( ) Tj103.68 0  TD -0.024  Tc 0  Tw (RC) Tj17.28 0  TD 0  Tc 0.024  Tw ( ) TjET56.64 488.16 0.24 0.24 re f56.64 488.16 0.24 0.24 re f56.88 488.16 120 0.24 re f176.88 488.16 0.24 0.24 re f177.12 488.16 120.24 0.24 re f297.36 488.16 0.24 0.24 re f297.6 488.16 120 0.24 re f417.6 488.16 0.24 0.24 re f417.84 488.16 120.24 0.24 re f538.08 488.16 0.24 0.24 re f538.08 488.16 0.24 0.24 re f56.64 474.48 0.24 13.68 re f176.88 474.48 0.24 13.68 re f297.36 474.48 0.24 13.68 re f417.6 474.48 0.24 13.68 re f538.08 474.48 0.24 13.68 re fBT56.88 463.2  TD-0.138  Tc 0  Tw (P1) Tj14.64 0  TD 0  Tc 0.024  Tw ( ) Tj105.6 0  TD 0.048  Tc 0  Tw (1) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) Tj113.76 0  TD 0.048  Tc 0  Tw (0) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) Tj113.52 0  TD 0.048  Tc 0  Tw (0) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) TjET56.64 474.24 0.24 0.24 re f56.88 474.24 120 0.24 re f176.88 474.24 0.24 0.24 re f177.12 474.24 120.24 0.24 re f297.36 474.24 0.24 0.24 re f297.6 474.24 120 0.24 re f417.6 474.24 0.24 0.24 re f417.84 474.24 120.24 0.24 re f538.08 474.24 0.24 0.24 re f56.64 460.8 0.24 13.44 re f176.88 460.8 0.24 13.44 re f297.36 460.8 0.24 13.44 re f417.6 460.8 0.24 13.44 re f538.08 460.8 0.24 13.44 re fBT56.88 449.52  TD-0.138  Tc 0  Tw (P2) Tj14.64 0  TD 0  Tc 0.024  Tw ( ) Tj105.6 0  TD 0.048  Tc 0  Tw (6) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) Tj113.76 0  TD 0.048  Tc 0  Tw (1) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) Tj113.52 0  TD 0.048  Tc 0  Tw (2) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) TjET56.64 460.56 0.24 0.24 re f56.88 460.56 120 0.24 re f176.88 460.56 0.24 0.24 re f177.12 460.56 120.24 0.24 re f297.36 460.56 0.24 0.24 re f297.6 460.56 120 0.24 re f417.6 460.56 0.24 0.24 re f417.84 460.56 120.24 0.24 re f538.08 460.56 0.24 0.24 re f56.64 446.88 0.24 13.68 re f176.88 446.88 0.24 13.68 re f297.36 446.88 0.24 13.68 re f417.6 446.88 0.24 13.68 re f538.08 446.88 0.24 13.68 re fBT56.88 435.6  TD-0.138  Tc 0  Tw (P3) Tj14.64 0  TD 0  Tc 0.024  Tw ( ) Tj105.6 0  TD 0.048  Tc 0  Tw (2) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) Tj113.76 0  TD 0.048  Tc 0  Tw (1) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) Tj113.52 0  TD 0.048  Tc 0  Tw (1) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) TjET56.64 446.64 0.24 0.24 re f56.88 446.64 120 0.24 re f176.88 446.64 0.24 0.24 re f177.12 446.64 120.24 0.24 re f297.36 446.64 0.24 0.24 re f297.6 446.64 120 0.24 re f417.6 446.64 0.24 0.24 re f417.84 446.64 120.24 0.24 re f538.08 446.64 0.24 0.24 re f56.64 432.96 0.24 13.68 re f176.88 432.96 0.24 13.68 re f297.36 432.96 0.24 13.68 re f417.6 432.96 0.24 13.68 re f538.08 432.96 0.24 13.68 re fBT56.88 421.68  TD-0.138  Tc 0  Tw (P4) Tj14.64 0  TD 0  Tc 0.024  Tw ( ) Tj105.6 0  TD 0.048  Tc 0  Tw (0) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) Tj113.76 0  TD 0.048  Tc 0  Tw (0) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) Tj113.52 0  TD 0.048  Tc 0  Tw (0) Tj6.72 0  TD 0  Tc 0.024  Tw ( ) TjET56.64 432.72 0.24 0.24 re f56.88 432.72 120 0.24 re f176.88 432.72 0.24 0.24 re f177.12 432.72 120.24 0.24 re f297.36 432.72 0.24 0.24 re f297.6 432.72 120 0.24 re f417.6 432.72 0.24 0.24 re f417.84 432.72 120.24 0.24 re f538.08 432.72 0.24 0.24 re f56.64 419.04 0.24 13.68 re f56.64 418.8 0.24 0.24 re f56.64 418.8 0.24 0.24 re f56.88 418.8 120 0.24 re f176.88 419.04 0.24 13.68 re f176.88 418.8 0.24 0.24 re f177.12 418.8 120.24 0.24 re f297.36 419.04 0.24 13.68 re f297.36 418.8 0.24 0.24 re f297.6 418.8 120 0.24 re f417.6 419.04 0.24 13.68 re f417.6 418.8 0.24 0.24 re f417.84 418.8 120.24 0.24 re f538.08 419.04 0.24 13.68 re f538.08 418.8 0.24 0.24 re f538.08 418.8 0.24 0.24 re fBT56.64 407.76  TD( ) Tj0 -13.68  TD 0.019  Tc 0  Tw (Nell\222ordine,) Tj60.24 0  TD 0  Tc 0.024  Tw ( ) Tj-60.24 -13.92  TD ( ) Tj18 -13.68  TD 0.036  Tc 0  Tw (1.) Tj10.08 0  TD 0.0198  Tc -0.0558  Tw (si verifichi se il siste) Tj105.6 0  TD 0.0032  Tc -0.0192  Tw (ma si trova in uno stato sicuro;) Tj162.72 0  TD 0  Tc 0.024  Tw ( ) Tj-278.4 -13.92  TD 0.036  Tc 0  Tw (2.) Tj10.08 0  TD 0.0042  Tc 1.6344  Tw (applicando l\222algoritmo del banchiere, si determini se le richieste indicate di seguito) Tj0  Tc 0.024  Tw ( ) Tj7.92 -13.68  TD 0.0039  Tc 2.8263  Tw (danno luogo ad uno stato sicuro e, in caso affermativo, si indichi la sequenza) Tj0  Tc 0.024  Tw ( ) Tj0 -13.92  TD 0.0257  Tc 0  Tw (sicura:) Tj35.52 0  TD 0  Tc 0.024  Tw ( ) Tj-17.52 -13.68  TD 0.036  Tc 0  Tw (a.) Tj10.08 0  TD 0.0123  Tc -0.0483  Tw (richiesta da parte di P2 di un\222istanza della riso) Tj244.08 0  TD 0.019  Tc 0.005  Tw (rsa di tipo RC;) Tj76.32 0  TD 0  Tc 0.024  Tw ( ) Tj-330.48 -13.92  TD 0.036  Tc 0  Tw (b.) Tj10.08 0  TD 0.0093  Tc -0.0289  Tw (richiesta da parte di P1 di un\222istanza della risorsa di tipo RC;) Tj320.4 0  TD 0  Tc 0.024  Tw ( ) Tj-330.48 -13.68  TD 0.012  Tc 0  Tw (c.) Tj9.36 0  TD 0.0143  Tc -0.0503  Tw (richiesta da parte di P3 di tre istanze della risorsa di tipo RA;) Tj321.12 0  TD 0  Tc 0.024  Tw ( ) Tj-330.48 -13.92  TD 0.036  Tc 0  Tw (d.) Tj10.08 0  TD 0.0095  Tc -0.0455  Tw (richiesta da parte di P1 di due istanze della risorsa di tipo RB;) Tj326.88 0  TD 0  Tc 0.024  Tw ( ) Tj-372.96 -13.68  TD 0.036  Tc 0  Tw (3.) Tj10.08 0  TD 0.0067  Tc 5.1773  Tw (indicare se sarebbe possibile risolvere i ) Tj5.04  Tc 0  Tw (s) Tj250.08 0  TD 0.009  Tc 5.295  Tw (opraelencati punti 2.a) Tj125.28 0  TD 0.084  Tc 0  Tw (-) Tj4.08 0  TD -0.0251  Tc 5.3291  Tw (2.d mediante) Tj0  Tc -0.216  Tw ( ) Tj-371.52 -13.92  TD 0.0059  Tc -0.0162  Tw (l\222algoritmo del grafo di allocazione. Si giustifichi l\222affermazione.) Tj332.4 0  TD 0  Tc 0.024  Tw ( ) TjETendstream
+endobj
+13 0 obj
+11519
+endobj
+4 0 obj
+<<
+/Type /Page
+/Parent 5 0 R
+/Resources <<
+/Font <<
+/F0 6 0 R 
+/F1 8 0 R 
+/F2 10 0 R 
+>>
+/ProcSet 2 0 R
+>>
+/Contents 12 0 R
+>>
+endobj
+15 0 obj
+<<
+/Length 16 0 R
+>>
+stream
+BT56.64 758.64  TD0 0 0 rg /F0 13.92  Tf0.0134  Tc 0  Tw (soluzione) Tj64.32 0  TD 0  Tc -0.0298  Tw ( ) Tj-64.32 -15.6  TD /F1 10.08  Tf0.12  Tw ( ) Tj0 -13.68  TD /F2 12  Tf0.036  Tc 0  Tw (1.) Tj10.08 0  TD 0.0026  Tc 0.0064  Tw (Il sistema si trova in uno stato sicuro; una possibile sequenza sicura \350 <P2, P1, P3, P4>) Tj466.56 0  TD 0  Tc 0.024  Tw ( ) Tj-476.64 -13.68  TD 0.036  Tc 0  Tw (2.) Tj10.08 0  TD 0  Tc 0.024  Tw ( ) Tj4.08 -13.92  TD -0.0038  Tc -0.0065  Tw (a\) la richiesta pu\362 essere soddisfatta; una poss) Tj250.8 0  TD 0.0048  Tc 0.0535  Tw (ibile sequenza sicura \350 <P2, P1, P3, ) Tj-250.8 -13.68  TD -0.015  Tc 0  Tw (P4>;) Tj24.96 0  TD 0  Tc 0.024  Tw ( ) Tj-24.96 -13.92  TD 0.006  Tc -0.014  Tw (b\) la richiesta non pu\362 essere soddisfatta perch\351 non mantiene il sistema in uno stato ) Tj0 -13.68  TD 0.0257  Tc 0  Tw (sicuro;) Tj35.52 0  TD 0  Tc 0.024  Tw ( ) Tj-35.52 -13.92  TD 0.0128  Tc -0.0574  Tw (c\) la richiesta non pu\362 essere soddisfatta perch\351 supera la massima richiesta di risorse ) Tj0 -13.68  TD 0.009  Tc -0.065  Tw (di tipo RA consentita per il p) Tj149.52 0  TD -0.0024  Tc 0.0264  Tw (rocesso P1;) Tj63.36 0  TD 0  Tc 0.024  Tw ( ) Tj-212.88 -13.92  TD 0.0076  Tc -0.0476  Tw (d\) la richiesta non pu\362 essere soddisfatta perch\351 non sono disponibili due istanze di tipo ) Tj0 -13.68  TD -0.028  Tc 0  Tw (RB.) Tj19.92 0  TD 0  Tc 0.024  Tw ( ) Tj-34.08 -13.92  TD 0.036  Tc 0  Tw (3.) Tj10.08 0  TD 0.0071  Tc -0.0174  Tw (L'algoritmo del grafo di allocazione non pu\362 essere applicato in questo caso, perch\351 la ) Tj4.08 -13.68  TD -0.0026  Tc 0.0026  Tw (sua applicazione e' consentita solo nel caso di una singola i) Tj316.8 0  TD -0.0109  Tc 0.0349  Tw (stanza per ogni risorsa.) Tj124.56 0  TD 0  Tc 0.024  Tw ( ) Tj-455.52 -13.92  TD ( ) TjETendstream
+endobj
+16 0 obj
+1863
+endobj
+14 0 obj
+<<
+/Type /Page
+/Parent 5 0 R
+/Resources <<
+/Font <<
+/F0 6 0 R 
+/F1 8 0 R 
+/F2 10 0 R 
+>>
+/ProcSet 2 0 R
+>>
+/Contents 15 0 R
+>>
+endobj
+6 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/Name /F0
+/BaseFont /Arial,Bold
+/FirstChar 31
+/LastChar 255
+/Widths [ 750 278 333 474 556 556 889 722 238 333 333 389 584 278 333 278 
+278 556 556 556 556 556 556 556 556 556 556 333 333 584 584 584 
+611 975 722 722 722 722 667 611 778 722 278 556 722 611 833 722 
+778 667 778 722 667 611 722 667 944 667 667 611 333 278 333 584 
+556 333 556 611 556 611 556 333 611 611 278 278 556 278 889 611 
+611 611 611 389 556 333 611 556 778 556 556 500 389 280 389 584 
+750 556 750 278 556 500 1000 556 556 333 1000 667 333 1000 750 750 
+750 750 278 278 500 500 350 556 1000 333 1000 556 333 944 750 750 
+667 278 333 556 556 556 556 280 556 333 737 370 556 584 333 737 
+552 400 549 333 333 333 576 556 278 333 333 365 556 834 834 834 
+611 722 722 722 722 722 722 1000 722 667 667 667 667 278 278 278 
+278 722 722 778 778 778 778 778 584 778 722 722 722 722 667 667 
+611 556 556 556 556 556 556 889 556 556 556 556 556 278 278 278 
+278 611 611 611 611 611 611 611 549 611 611 611 611 611 556 611 
+556 ]
+/Encoding /WinAnsiEncoding
+/FontDescriptor 7 0 R
+>>
+endobj
+7 0 obj
+<<
+/Type /FontDescriptor
+/FontName /Arial,Bold
+/Flags 16416
+/FontBBox [ -250 -241 1241 914 ]
+/MissingWidth 759
+/StemV 154
+/StemH 154
+/ItalicAngle 0
+/CapHeight 914
+/XHeight 639
+/Ascent 914
+/Descent -241
+/Leading 189
+/MaxWidth 1034
+/AvgWidth 483
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/Name /F1
+/BaseFont /TimesNewRoman
+/FirstChar 31
+/LastChar 255
+/Widths [ 778 250 333 408 500 500 833 778 180 333 333 500 564 250 333 250 
+278 500 500 500 500 500 500 500 500 500 500 278 278 564 564 564 
+444 921 722 667 667 722 611 556 722 722 333 389 722 611 889 722 
+722 556 722 667 556 611 722 722 944 722 722 611 333 278 333 469 
+500 333 444 500 444 500 444 333 500 500 278 278 500 278 778 500 
+500 500 500 333 389 278 500 500 722 500 500 444 480 200 480 541 
+778 500 778 333 500 444 1000 500 500 333 1000 556 333 556 611 611 
+611 778 333 333 444 444 350 500 1000 333 980 389 333 389 427 444 
+444 250 333 333 611 500 722 200 500 333 760 556 500 564 333 760 
+611 400 549 333 278 333 576 453 250 333 444 389 500 611 333 406 
+444 667 722 722 722 722 611 667 667 667 611 611 611 611 333 333 
+722 722 722 722 722 722 722 722 564 667 722 722 722 722 722 611 
+500 333 444 444 444 444 278 444 444 444 444 444 444 444 278 278 
+646 500 500 500 500 500 500 500 549 333 500 500 500 500 500 278 
+333 ]
+/Encoding /WinAnsiEncoding
+/FontDescriptor 9 0 R
+>>
+endobj
+9 0 obj
+<<
+/Type /FontDescriptor
+/FontName /TimesNewRoman
+/Flags 34
+/FontBBox [ -250 -238 1200 905 ]
+/MissingWidth 786
+/StemV 73
+/StemH 73
+/ItalicAngle 0
+/CapHeight 905
+/XHeight 633
+/Ascent 905
+/Descent -238
+/Leading 191
+/MaxWidth 1000
+/AvgWidth 405
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/Name /F2
+/BaseFont /Arial
+/FirstChar 31
+/LastChar 255
+/Widths [ 750 278 278 355 556 556 889 667 191 333 333 389 584 278 333 278 
+278 556 556 556 556 556 556 556 556 556 556 278 278 584 584 584 
+556 1015 667 667 722 722 667 611 778 722 278 500 667 556 833 722 
+778 667 778 722 667 611 722 667 944 667 667 611 278 278 278 469 
+556 333 556 556 500 556 556 278 556 556 222 222 500 222 833 556 
+556 556 556 333 500 278 556 500 722 500 500 500 334 260 334 584 
+750 556 750 222 556 333 1000 556 556 333 1000 667 333 667 611 611 
+611 750 222 222 333 333 350 556 1000 333 1000 500 333 500 375 500 
+500 278 333 333 556 556 667 260 556 333 737 667 556 584 333 737 
+611 400 549 333 222 333 576 537 278 333 556 500 556 556 333 292 
+500 722 667 667 667 667 556 722 722 722 667 667 667 667 278 278 
+722 722 722 722 778 778 778 778 584 722 722 722 722 722 667 611 
+611 333 556 556 556 556 222 500 500 500 556 556 556 556 278 278 
+615 556 556 556 556 556 556 556 549 333 556 556 556 556 500 278 
+333 ]
+/Encoding /WinAnsiEncoding
+/FontDescriptor 11 0 R
+>>
+endobj
+11 0 obj
+<<
+/Type /FontDescriptor
+/FontName /Arial
+/Flags 32
+/FontBBox [ -250 -220 1224 920 ]
+/MissingWidth 760
+/StemV 80
+/StemH 80
+/ItalicAngle 0
+/CapHeight 920
+/XHeight 644
+/Ascent 920
+/Descent -220
+/Leading 180
+/MaxWidth 1020
+/AvgWidth 440
+>>
+endobj
+2 0 obj
+[ /PDF /Text  ]
+endobj
+5 0 obj
+<<
+/Kids [4 0 R 14 0 R ]
+/Count 2
+/Type /Pages
+/MediaBox [ 0 0 595 842 ]
+>>
+endobj
+1 0 obj
+<<
+/Creator <FEFF004D006900630072006F0073006F0066007400200057006F007200640020>
+/CreationDate (D:20030721085328)
+/Title <FEFF0063006F006D007000690074006F002D0032003000300033002D00300037002D00310037002E005000440046>
+/Author <FEFF00610073007300660061006C0067>
+/Producer (Acrobat PDFWriter 4.0 for Windows)
+>>
+endobj
+3 0 obj
+<<
+/Pages 5 0 R
+/Type /Catalog
+/DefaultGray 17 0 R
+/DefaultRGB  18 0 R
+>>
+endobj
+17 0 obj
+[/CalGray
+<<
+/WhitePoint [0.9505 1 1.0891 ]
+/Gamma 0.2468 
+>>
+]
+endobj
+18 0 obj
+[/CalRGB
+<<
+/WhitePoint [0.9505 1 1.0891 ]
+/Gamma [0.2468 0.2468 0.2468 ]
+/Matrix [0.4361 0.2225 0.0139 0.3851 0.7169 0.0971 0.1431 0.0606 0.7141 ]
+>>
+]
+endobj
+xref
+0 19
+0000000000 65535 f
+0000018210 00000 n
+0000018077 00000 n
+0000018540 00000 n
+0000011626 00000 n
+0000018111 00000 n
+0000013889 00000 n
+0000015009 00000 n
+0000015290 00000 n
+0000016410 00000 n
+0000016689 00000 n
+0000017805 00000 n
+0000000021 00000 n
+0000011601 00000 n
+0000013731 00000 n
+0000011783 00000 n
+0000013707 00000 n
+0000018637 00000 n
+0000018725 00000 n
+trailer
+<<
+/Size 19
+/Root 3 0 R
+/Info 1 0 R
+/ID [<26a7dbc055cbc7366a4f3fef31991f01><26a7dbc055cbc7366a4f3fef31991f01>]
+>>
+startxref
+18903
+%%EOF

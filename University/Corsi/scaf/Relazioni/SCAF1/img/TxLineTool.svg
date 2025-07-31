@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="657"
+   height="388"
+   id="svg3683"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   version="1.0"
+   sodipodi:docname="TxLineTool.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs3685">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective3691" />
+    <inkscape:perspective
+       id="perspective3700"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.6194825"
+     inkscape:cx="497.52603"
+     inkscape:cy="223.00471"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false" />
+  <metadata
+     id="metadata3688">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(5.6428571,-538.36218)">
+    <image
+       y="538.36218"
+       x="-5.6428571"
+       id="image3702"
+       height="388"
+       width="657"
+       sodipodi:absref="C:\Documents and Settings\Lorenzo\Desktop\SCAF\Relazioni\PowerDetector\img\pastedpic_03022009_005654.png"
+       xlink:href="pastedpic_03022009_005654.png" />
+    <rect
+       style="fill:none;stroke:#0b0eb8;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3706"
+       width="99.414452"
+       height="16.671993"
+       x="15.43703"
+       y="66.909775"
+       transform="translate(-5.6428571,538.36218)" />
+    <rect
+       style="fill:none;stroke:#0b0eb8;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3708"
+       width="121.9525"
+       height="16.980659"
+       x="13.275846"
+       y="177.74765"
+       transform="translate(-5.6428571,538.36218)" />
+    <rect
+       style="fill:none;stroke:#0b0eb8;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3710"
+       width="114.23402"
+       height="18.524435"
+       x="368.63629"
+       y="175.58647"
+       transform="translate(-5.6428571,538.36218)"
+       ry="0" />
+    <rect
+       style="fill:none;stroke:#0b891d;stroke-width:1.87696838;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3712"
+       width="234.76587"
+       height="22.96983"
+       x="403.06821"
+       y="761.43317" />
+  </g>
+</svg>

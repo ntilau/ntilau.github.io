@@ -1,0 +1,214 @@
+%%%%%%%%%%%%%%%%%%% CONFIGURAZIONE
+\documentclass[11pt,oneside,a4paper,italian]{article}
+%\usepackage[scale = 0.75]{geometry}
+\usepackage[left=3cm,top=3cm,right=3cm,bottom=3cm]{geometry}
+%\usepackage[a4paper]{geometry}
+\usepackage{sectsty}
+\usepackage[adobe-utopia]{mathdesign}
+\usepackage{helvet}
+%\usepackage{amsmath,amssymb,amsfonts,textcomp}
+\usepackage{calc}
+\usepackage{amsmath}
+\usepackage[latin1]{inputenc}
+\usepackage[OT2,T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[pdftex]{graphicx,color}
+\graphicspath{{img/}}
+\DeclareGraphicsExtensions{.pdf}
+\usepackage{subfigure}
+\usepackage[backref]{hyperref}
+\usepackage{indentfirst}
+\usepackage{nicefrac}
+\usepackage[figure,table]{hypcap}
+\usepackage[hang, small, bf, margin=20pt, tableposition=top]{caption}
+\definecolor{gray}{rgb}{.122,.286,.490}
+\hypersetup{colorlinks=true, linkcolor=gray, urlcolor=gray, anchorcolor = gray, citecolor = gray, filecolor = gray, urlcolor = gray, pdftitle={TeoTecMoM : Patch Antenna}, pdfsubject = {ISM 2.45GHz Band Patch Antenna}, pdfkeywords = {CAD, AWR, microwave, office, patch, antenna, ISM}, pdfauthor = {Gabriele Giannini, Alberto Landini, Cristian Luison, Laurent Ntibarikure} , pdfcenterwindow=true, pdfdisplaydoctitle=true, pdfstartview=FitH, pdfproducer={Laurent Ntibarikure}, bookmarksopen=true, bookmarksopenlevel=\maxdimen, CJKbookmarks=true, pdfpagemode=UseOutlines, colorlinks=true, linktocpage=true} % pdfpagemode=UseOutlines for bookmarks UseNone for nothing
+%\pagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOCUMENTO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\clearpage
+\selectlanguage{italian}
+\title{ \textbf{\textsc{\small{Teoria e Tecnica delle Microonde e delle Onde Millimetriche}} \\ 
+\vspace{-3mm} \textsc{\small{Relazione di Laboratorio}}} \\ 
+\vspace{5mm} \textsc{\textbf{\Huge{Progetto di un'Antenna a Patch }}} }
+\author{Gabriele Giannini, Alberto Landini, Cristian Luison, Laurent Ntibarikure}
+\date{Giugno 2009}
+\maketitle
+
+\begin{abstract}
+\par Si presenta il progetto di un'antenna a patch rettangolare con alimentazione a probe per la banda ISM a 2,45 GHz. Le dimensioni del patch e la posizione del probe vengono inizialmente valutate utilizzando il modello a linea di trasmissione,  appoggiandosi quindi al simulatore lineare di Microwave Office dell'AWR. In seguito, il progetto viene ottimizzato utilizzando il simulatore 2.5D \textit{EMSight}, regolando opportunamente le dimensioni del patch, la sezione e la posizione del probe. Si ricavano quindi le prestazioni dell'antenna in termini di banda di adattamento e i diagrammi di radiazione.
+% Il progetto è stato infine esteso alla realizzazione di un'antenna a patch quadrato con polarizzazione circolare, sia con due alimentazioni che con una. Ne sono quindi state confrontate le prestazioni.
+\end{abstract}
+
+\tableofcontents
+\pagestyle{plain}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\section{Introduzione}
+
+\par Le antenne a patch sono antenne planari realizzate con una deposizione metallica su di un substrato dielettrico con piano di massa. Queste antenne presentano notevoli vantaggi quali il basso profilo, conformabile a qualsiasi tipo di struttura di supporto, la semplicità realizzativa delle tecniche impiegate per i circuiti stampati e quindi un basso costo, una versatilità in termini di diagrammi di radiazione e la possibilità di sintonizzare la banda di lavoro mediante caricamenti modulabili elettronicamente.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=12cm]{Patch1}
+\caption{Struttura di un'antenna a patch.}
+\label{fig:Patch1}
+\end{figure}
+\par In figura \ref{fig:Patch1} viene illustrata la struttura generica di un'antenna a patch. Il substrato, alto \textit{h}, è caratterizzato da una determinata costante dielettrica ${\epsilon}_\mathrm{r}$. La metallizzazione superiore, ossia il patch, è lungo \textit{L} e largo \textit{W}, mentre la metallizzazione inferiore che costituisce il piano di massa deve essere di dimensioni sufficientemente maggiori rispetto al patch, in modo da non perturbare il campo elettrico che presenta, in prossimità dei bordi del patch, uno sfrangiamento non trascurabile.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=12cm]{SchemaPatch}
+\caption{Sezione dell'antenna a patch.}
+\label{fig:SchemaPatch}
+\end{figure}
+
+\par Eccitando la struttura con una corrente a radiofrequenza tramite il foro metallizzato o \textit{via} (fig. \ref{fig:SchemaPatch}), le correnti che scorrono sulle metallizzazioni danno luogo ad una determinata distribuzione del campo elettromagnetico corrispondente alla sovrapposizione di modi di cavità. In particolare, il modo fondamentale si ha quando il lato \textit{L} del patch eguaglia $\lambda_\mathrm{g} / 2$, con $\lambda_\mathrm{g}$ la lunghezza d'onda guidata in tale struttura planare disomogenea. In effetti, trascurando gli sfrangiamenti del campo elettrico ai bordi del patch, è possibile richiudere con pareti magnetiche perfette (PMC) la porzione di dielettrico individuata dai bordi del patch, al disotto di esso. Il primo modo che potrà sostenersi è il $\mathrm{TM}_{10}$, tale per cui il campo elettrico tangente alle pareti è massimo. In realtà, i campi di sfrangiamento alle estremità non possono essere trascurati, ma è possibile definire una struttura equivalente di dimensioni maggiori, per la quale non vi siano campi sfrangiati e l'applicazione di pareti magnetiche sia ammissibile. Questo si traduce in dimensioni fisiche del patch minori, ed in particolare il lato \textit{L} di risonanza per il modo $\mathrm{TM}_{10}$ sarà minore di $\lambda_\mathrm{g} / 2$. Il principio di equivalenza ci consente infine di assimilare il campo elettrico tangente $\mathbf{E}_\mathrm{t}$ sulle pareti PMC a delle correnti magnetiche $\mathbf{M} = - \hat{n} \times \mathbf{E}_\mathrm{t} \ $, $\hat{n}$ versore entrante nella cavità individuata dalle quatro pareti PMC e dai piani conduttori, il patch ed il piano di massa. Sono proprio queste correnti ad irradiare e a fare di una semplice metallizzazione su circuito stampato un ottima antenna. 
+
+\section{Antenna a patch in polarizzazione lineare}
+
+\par Le specifiche di progetto dell'antenna a patch sono un rapporto tra i lati della metallizzazione superiore $\nicefrac{L}{W}$ di $\nicefrac{4}{3}$ e una frequenza operativa di 2,45 GHz. Inoltre, le caratteristiche del substrato specificate sono la costante dielettrica $\epsilon_\mathrm{r} = 3,38$, una tangente di perdita $\tan \delta = 0,0012 \ $, uno spessore del substrato \textit{h} = 1,8 mm e quello della metallizzazione di 35 $\mu$m.
+
+\subsection{Modello a linea di trasmissione} \label{sec:MLT}
+
+\par Il progetto di un'antenna a patch richiede l'impiego di modelli più meno accurati, che permettano di valutare, in prima approssimazione, le caratteristiche geometriche della struttura. \`E stato scelto il modello a linea di trasmissione per individuare, date le caratteristiche del substrato, la lunghezza \textit{L} del patch rettangolare che ne assicurasse la risonanza nella banda di lavoro, ossia tale per cui la lunghezza elettrica equivalente corrispondesse a 180\textdegree. In effetti, col modello a linea di trasmissione, il patch viene visto come una microstriscia, di impedenza molto bassa per la sua larghezza \textit{W} paragonabile con la lunghezza d'onda guidata $\lambda_\mathrm{g}$, in cui si sostiene un'onda stazionaria. Questa microstriscia è schematizzabile con una linea di trasmissione come mostrato in figura \ref{fig:Patch2}.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=10cm]{Patch2}
+\caption{Modello a linea di trasmissione.}
+\label{fig:Patch2} 
+\end{figure} Alle sue estremità, ove la tensione di linea è massima mentre la corrente è minima, vi sono poste delle impedenze ohmico-capacitive, la cui parte reale tiene conto degli effetti radiativi mentre quella immaginaria degli sfrangiamenti del campo elettrico. \`E interessante notare che questo modello tiene conto della riadiazione per campi diretti nella sola direzione \textsf{x} di fig. \ref{fig:SchemaPatch}. Inoltre, non vengono considerati eventuali accoppiamenti tra le correnti magnetiche equivalenti. La posizione del probe viene scelta in modo che l'impedenza di linea equivalga a quella del cavo coassiale di alimentazione ossia 50 $\Omega$ : vi sono due punti, simmetricamente rispetto alla mezzeria della linea di trasmissione, in cui il rapporto tra tensione e corrente di linea è proprio di 50 $\Omega$.
+
+\par Valutiamo adesso l'impedenza della linea di trasmissione. Con il tool TXLine incluso in Microwave office è stato possibile ricavare l'impedenza di una linea lunga 180\textdegree elettrici a 2,45 GHz. Partendo dalle dimensioni $L = \frac{c}{ 2 f \sqrt{\epsilon_\mathrm{r}}}  \approx 33,301 \ \mu$m e $W = \nicefrac{3}{4} \ L $, si eseguono iterativamente analisi e sintesi mantenendo i vincoli di progetto di 180\textdegree per di lunghezza elettrica e un rapporto \textit{L}/\textit{W} di 4/3 fino a raggiungere l'invarianza dei valori (fig. \ref{fig:TXLine}). Si noti che la lunghezza \textit{L} ricavata non considera gli sfrangiamenti a fine linea, non essendo inclusi nel modello di calcolo di TXLine.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=15cm]{TXLine}
+\caption{Valutazione dell'impedenza di linea.}
+\label{fig:TXLine} 
+\end{figure}
+
+\par \`E stato poi costruito, con i valori ottenuti, il modello a linea di trasmissione di figura \ref{fig:PatchLineModelTLIN}. Il campo sfrangiato alle estremità della linea viene modellato riducendo la lunghezza fisica $L = 34475 \ \mu$m  della linea (180\textdegree equivalenti) di un $\Delta L$ calcolato mediante l'equazione \cite{Milligan}
+\begin{equation}
+\Delta L = 0,412 h \frac{(\epsilon_\mathrm{eff} + 0,3)(\nicefrac{W}{h} + 0,262)}{(\epsilon_\mathrm{eff} - 0,258)(\nicefrac{W}{h} + 0,813)}
+\end{equation}  dove $\epsilon_\mathrm{eff}$ è data da
+\begin{equation}
+\epsilon_\mathrm{eff} = \frac{\epsilon_\mathrm{r} + 1}{2} + \frac{\epsilon_\mathrm{r} - 1}{ 2 \sqrt{1 + 10 \ \nicefrac{h}{W}}}
+\end{equation}
+mentre la conduttanza di radiazione $G_{11}$ è data dall'equazione
+\begin{equation}
+G_{11} = \frac{W}{120 \lambda_0} \left [ 1 - \frac{\pi^2}{6} (\frac{h}{\lambda_0})^2 \right]
+\end{equation}
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=15cm]{PatchLineModelTLIN}
+\caption{Modello a linea di trasmissione implementato in Microwave Office.}
+\label{fig:PatchLineModelTLIN} 
+\end{figure} 
+
+Con l'ausilio del tuning sulla lunghezza fisica \textit{L} della linea di trasmissione e sulla posizione del probe è stato possibile ottimizzare la risposta in frequenza dell'antenna così modellata : variando \textit{L} la frequenza di risonanza viene centrata a 2,45 GHz mentre la posizione del probe, variando l'impedenza d'ingresso, ne minimizza le perdite di riflessione ($20 \log_{10}(\mathrm{S}_{11})$) o \textit{return losses} (fig. \ref{fig:ReturnLossTLIN}).
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=12cm]{ReturnLossTLIN}
+\caption{Perdite di disadattamento a dimensioni ottimizzate al variare della frequenza di eccitazione.}
+\label{fig:ReturnLossTLIN} 
+\end{figure}
+
+Le dimensioni finali del patch sono di $L = \frac{171,1}{180} \ 34475 = 32770,4 \ \mu$m e $W = 25856,2 \ \mu$m, costituendo un rapporto di 1,27 prossimo al 1,33 di progetto, mentre il probe viene posizionato a $L_1 = \frac{60,77}{171,1} \ 32770,4 = 11639,14 \ \mu$m da una delle estremità della linea. Mantenere un rapporto $\nicefrac{L}{W}$ diverso da 1 è necessario per evitare di eccitare modi degeneri nella struttura e quindi radiazioni contemporanea dai quattro lati del patch, condizione che viene sfruttata per ottenere una polarizzazione circolare. La banda di adattamento a -10 dB è di 60,8 MHz.
+
+\subsection{Simulazione 2.5D dell'antenna a patch}
+
+\par Il passo successivo del progetto dell'antenna a patch è stato di implementare il suo \textit{layout} per effettuarne una simulazione 2.5D con EMSight. Le dimensioni ricavate nella sezione precedente \ref{sec:MLT} sono state utilizzate per costruire il layout elettromagnetico, considerando però le metallizzazioni come conduttori elettrici perfetti (PEC) quindi infinitamente sottili. \`E stato costruito un box di 10 cm di lato e di 4,18 cm di altezza, lasciando quindi uno strato superiore di aria di 4 cm con condizioni al contorno superiori di approssimazione di campo aperto. Il passo di discretizzazione della struttura è stato inizialmente di 400 $\mu$m, costringendoci ad adattare le dimensioni del patch al grigliato : $L = 34400 \ \mu$m  e $W = 25600 \ \mu$m. La posizione del probe inizialmente di 11600 $\mu$m dal bordo. Il patch è stato opportunamente centrato nel box in modo da mantenere la simmetria della struttura analizzata. Il modello così costruito è illustrato in figura \ref{fig:Layout2}, mentre in figura \ref{fig:Layout4} viene enfatizzata la posizione del probe.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=14cm]{Layout2}
+\caption{Modello elettromagnetico dell'antenna a patch.}
+\label{fig:Layout2}
+\end{figure}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=12cm]{Layout4}
+\caption{Vista inferiore dell'antenna a patch e probe di alimentazione.}
+\label{fig:Layout4}
+\end{figure}
+
+\par Vengono eseguite una serie di simulazioni ridimensionando inizialmente il patch in modo da centrare i 2,45 GHz e poi spostando il probe per minimizzare il coefficiente di riflessione. Inoltre la dimensione del grigliato è stata ridotta a 200 $\mu$m. Le dimesioni finali dell'antenna sono di $L = 34200 \ \mu$m  e $W = 24000 \ \mu$m mentre il probe viene posizionato a 13400 $\mu$m dal bordo.
+
+\newpage
+
+\subsection{Banda di adattamento}
+
+\par La banda di adattamento a -10 dB ottenuta è di 16,3 MHz come illustrato in figura \ref{fig:ReturnLossAll}. Questo valore è decisamente inferiore ai 60,8 MHz stimati inizialmente col modello a linea di trasmissione, denotando l'alto Q (fattore di qualità) della cavità.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=12cm]{ReturnLossAll}
+\caption{Impedenza d'ingresso dell'antenna.}
+\label{fig:ReturnLossAll} 
+\end{figure}
+
+\par Come si può vedere dalla figura \ref{fig:Impedance}, l'impedenza di ingresso del patch a 2,45 GHz è di 48,3 + j 0,532 $\Omega$, valore che consente di limitare le perdite di riflessione a -34,83 dB.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=12cm]{Impedance}
+\caption{Impedenza d'ingresso dell'antenna.}
+\label{fig:Impedance} 
+\end{figure}
+
+\newpage
+
+\subsection{Diagrammi di radiazione}
+
+\par Analizziamo infine i diagrammi di radiazione dell'antenna a patch a 2,45 GHz. Nelle figure \ref{fig:RadiationEplane} e \ref{fig:RadiationHplane} vengono illustrati i \textit{pattern} di radiazione dell'antenna, il primo valutato sul piano E ossia sul piano \textsf{XZ} per il sistema di riferimento utilizzato mentre il secondo sul piano H, ovvero il piano \textsf{YZ}. Per il primo diagramma, la componente copolare corrisponde ad $\mathrm{E}_\theta$ mentre per il secondo è $\mathrm{E}_\phi$, la polarizzazione lineare essendo ottenuta nella direzione \textsf{x}.
+
+\begin{figure}[ht!]
+\begin{minipage}[b]{0.5\linewidth} % A minipage that covers half the page
+\centering
+\includegraphics[width=7cm]{RadiationEplane}
+\caption{Pattern di radiazione nel piano E.}
+\label{fig:RadiationEplane}
+\end{minipage}
+\hspace{1cm}
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+\includegraphics[width=7cm]{RadiationHplane}
+\caption{Pattern di radiazione nel piano H.}
+\label{fig:RadiationHplane}
+\end{minipage}
+\end{figure}
+
+\par Il guadagno dell'antenna, valutato nella direzione di massima radiazione, è di 9,385 dB. Il fascio a metà potenza (\textit{Half Power BeamWidth}) è di circa 60\textdegree. Si può vedere dai grafici che nel piano E non vi è alcuna componente crosspolare del campo, ossia la componente $\mathrm{E}_\phi$ è nulla, la polarizzazione dell'antenna essendo lineare. Nel piano H invece vi è contributo crosspolare $\mathrm{E}_\theta$ per grandi $\theta$, ma questa rimane al disotto di -20 dB. La generazione di campo $\mathrm{E}_\theta$ in direzione trasversale del patch (\textsf{y}) è attribuibile alla radiazione da parte dei lati corti (\textit{W}): come si può vedere in figura \ref{fig:LayoutCenterFreq}, l'intensità del campo su questi lati, in particolare ai vertici del patch rettangolare, non è del tutto trascurabile.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=12cm]{LayoutCenterFreq1}
+\caption{Intensità del campo elettrico sulla superficie dell'antenna a patch.}
+\label{fig:LayoutCenterFreq} 
+\end{figure}
+
+\section{}
+
+\section{Conclusione}
+
+\par \`E stata progettata un'antenna a patch in polarizzazione lineare per la banda ISM a 2,45 GHz con alimentazione a probe coassiale. Il modello a linea di trasmissione ha permesso di ricavare i parametri geometrici iniziali per una simulazione 2.5D della struttura radiante. A parametri ottimizzati sono state ricavate le prestazioni in termini di banda di adattamento ottenendo il valore di 16,3 MHz (0,7 \%). Sono stati inoltre ricavati i diagrammi di radiazione per tale antenna, verificando la polarizzazione lineare e deducendone un guadagno di circa 9,4 dB ed un fascio a metà potenza di circa 60\textdegree.
+
+\phantomsection
+\addcontentsline{toc}{section}{Riferimenti bibliografici}
+%\section*{Riferimenti bibliografici}
+%\phantomsection
+\begin{thebibliography}{120}
+
+\bibitem{Milligan} T. Milligan, \emph{Modern Antenna Design}, $2^\mathrm{a}$ edizione, IEEE Press - Wiley Interscience, 2005.
+
+
+\end{thebibliography}
+%\newpage
+%\hbox{}
+
+\end{document}
