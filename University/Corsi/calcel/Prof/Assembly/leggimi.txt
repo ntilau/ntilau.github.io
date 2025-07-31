@@ -1,0 +1,80 @@
+Ing. I. Bruno - istruzioni di massima
+per usare l'ambiente Turbo Assembler
+
+
+il file tasm.zip quando viene unzippato
+crea la directory gia' riportata nel cd, tasm, 
+contenente l'ambiente Turbo Assembler. La directory tasm
+contiene le sottodirectory bin, include, lib ...
+
+NON ci sono file di installazione tipo setup.exe
+o cose del genere. Per far funzionare l'assemblatore
+e' sufficiente richiamare il programma di assemblaggio
+e il linker da una opportuna finestra dos di Windows
+con gli opportuni parametri.
+
+Ad esempio:
+
+copiate la directory tasm con tutte le sottodirectory
+su C:\ (va bene anche un altro drive, qui assumeremo C)
+
+richiamate una shell dos
+Avvio->Programmi->Prompt dei comandi
+
+settate il path:
+C:\>set path=%path%;c:\tasm\bin
+
+(potrebbe essere set path=c:\tasm\bin, dipende dal vostro computer)
+
+questo lo dovete fare ogni volta che iniziate una sessione di lavoro,
+ovvero che accendete il computer. E' sconsigliato modificare file
+tipo autoexec.bat e config.sys, lasciateli dove stanno e non toccateli.
+
+A partire da un file sorgente in linguaggio assembly .asm, 
+scritto con qualsiasi text editor,
+ad esempio anche il notepad di Windows, chiamate l' assemblatore
+
+C:\>tasm /l/zi filename.asm
+
+questo crea un modulo oggetto .obj, l'opzione /l fa creare un .lst che serve
+per informazione e la /zi fa inserire delle informazioni di debug nel
+modulo oggetto.
+
+Per linkare
+
+C:\>tlink /v filename
+
+l'opzione /v fa inserire nell'applicazione delle informazioni
+di debug. Il risultato dell'attivita' del linker e' un file
+eseguibile filename.exe che potete invocare con
+
+C:\>filename
+
+
+Per entrare in modalita' di debug, che e' la vera attivita' didattica
+digitate
+
+C:\>td filename
+
+il programma viene eseguito in modalita' debug e potete
+avere una fotografia dello stato della CPU e dei registri e
+dei flag in ogni momento.
+Potete eseguire una istruzione alla volta vedendo come
+cambiano via via i registri con F7 e vedere lo stato della CPU
+con opportuna selezione da menu o con Alt-V, C.
+
+Se volete potete creare un file batch per automatizzare
+parte dei comandi detti prima:
+
+@echo off
+if exist %1.obj del %1.obj
+if exist %1.lst del %1.lst
+tasm /l/zi %1
+tlink /v %1
+:end echo on
+
+salvate questo script in un file build.bat (ad esempio)
+nella directory di lavoro tasm/bin
+per costruire l'eseguibile a questo punto e' sufficiente fare
+C:/>build filename 
+

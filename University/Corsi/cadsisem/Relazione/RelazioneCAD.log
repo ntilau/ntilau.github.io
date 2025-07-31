@@ -1,0 +1,919 @@
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.2.5)  5 FEB 2009 23:25
+entering extended mode
+**RelazioneCAD.tex
+(RelazioneCAD.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8l> and hyphenation patterns for english, italian, loaded.
+("C:\Programmi\MiKTeX 2.7\tex\latex\base\article.cls"
+Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
+("C:\Programmi\MiKTeX 2.7\tex\latex\base\size11.clo"
+File: size11.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Programmi\MiKTeX 2.7\tex\latex\geometry\geometry.sty"
+Package: geometry 2008/11/13 v4.1 Page Geometry
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Programmi\MiKTeX 2.7\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2007/12/12 v1.6 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in pdf mode detected.
+)
+("C:\Programmi\MiKTeX 2.7\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2008/11/04 v1.4 Switches for detecting VTeX and its modes (HO)
+Package ifvtex Info: VTeX not detected.
+)
+\Gm@cnth=\count87
+\Gm@cntv=\count88
+\c@Gm@tempcnt=\count89
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@dimlist=\toks15
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\geometry\geometry.cfg"))
+("C:\Programmi\MiKTeX 2.7\tex\latex\sectsty\sectsty.sty"
+Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
+les
+)
+("C:\Programmi\MiKTeX 2.7\tex\latex\mathdesign\mathdesign.sty"
+Package: mathdesign 2006/01/29 v1.55 Math Design Project
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\base\ifthen.sty"
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Programmi\MiKTeX 2.7\tex\latex\mathdesign\mdput\mdput.cfg")
+("C:\Programmi\MiKTeX 2.7\tex\latex\mathdesign\mdput\mdput.sty"
+Package: mdput 2006/01/29 v1.55 adobe utopia + mdput (Math Design Project)
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\mathdesign\mdfont.def"
+File: mdfont.def 2006/01/29 v1.55 (Math Design Project)
+)
+("C:\Programmi\MiKTeX 2.7\tex\latex\mathdesign\mdsffont.def"
+File: mdsffont.def 2006/01/29 v1.55 (Math Design Project)
+)
+("C:\Programmi\MiKTeX 2.7\tex\latex\mathdesign\mdttfont.def"
+File: mdttfont.def 2006/01/29 v1.55 (Math Design Project)
+)
+\symmdcal=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mdcal' in version `bold'
+(Font)                  OMS/mdput/m/n --> OMS/mdput/b/n on input line 89.
+\symmdscr=\mathgroup5
+LaTeX Font Info:    Overwriting symbol font `mdscr' in version `bold'
+(Font)                  OMS/mdput/m/n --> OMS/mdput/b/n on input line 95.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/xmdeuf/m/n --> U/xmdeuf/b/n on input line 102.
+LaTeX Font Info:    Try loading font information for OT1+mdput on input line 11
+1.
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\mathdesign\mdput\ot1mdput.fd"
+File: ot1mdput.fd 2006/01/29 Fontinst v1.928 font definitions for OT1/mdput.
+)
+LaTeX Font Info:    Font shape `OT1/mdput/m/n' will be
+(Font)              scaled to size 10.07397pt on input line 111.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/mdput/m/n on input line 114.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/mdput/m/it on input line 115.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/mdput/m/n on input line 116.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/mdput/m/n on input line 117.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/mdput/b/n on input line 119.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/mdput/b/it on input line 120.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/mdput/b/n on input line 121.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/mdput/b/n on input line 122.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/mdput/m/n --> OT1/mdput/m/n on input line 124.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/mdput/b/n on input line 125.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/mdput/m/it on input line 126.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 127.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 128.
+LaTeX Font Info:    Overwriting math alphabet `\mathcal' in version `normal'
+(Font)                  OMS/mdput/m/n --> OMS/mdput/m/n on input line 132.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
+(Font)                  OT1/mdput/b/n --> OT1/mdput/b/n on input line 137.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/mdput/b/n on input line 138.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/mdput/b/it on input line 139.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/b/n on input line 140.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 141.
+LaTeX Font Info:    Redeclaring math accent \widetilde on input line 153.
+LaTeX Font Info:    Redeclaring math accent \widehat on input line 154.
+\symlettersupright=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `lettersupright' in version `bold'
+(Font)                  OML/mdput/m/n --> OML/mdput/b/n on input line 190.
+LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 193.
+\symmathdesignA=\mathgroup7
+LaTeX Font Info:    Overwriting symbol font `mathdesignA' in version `bold'
+(Font)                  MDA/mdput/m/n --> MDA/mdput/b/n on input line 382.
+\@emptytoks=\toks16
+LaTeX Font Info:    Redeclaring math accent \widetilde on input line 421.
+LaTeX Font Info:    Redeclaring math accent \widehat on input line 422.
+\symmathdesignB=\mathgroup8
+LaTeX Font Info:    Overwriting symbol font `mathdesignB' in version `bold'
+(Font)                  MDB/mdput/m/n --> MDB/mdput/b/n on input line 685.
+)
+("C:\Programmi\MiKTeX 2.7\tex\latex\base\fontenc.sty"
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\base\t1enc.def"
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+)
+LaTeX Font Info:    Try loading font information for T1+mdput on input line 100
+.
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\mathdesign\mdput\t1mdput.fd"
+File: t1mdput.fd 2006/01/29 Fontinst v1.928 font definitions for T1/mdput.
+)
+LaTeX Font Info:    Font shape `T1/mdput/m/n' will be
+(Font)              scaled to size 10.07397pt on input line 100.
+))
+("C:\Programmi\MiKTeX 2.7\tex\latex\psnfss\helvet.sty"
+Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
+)
+("C:\Programmi\MiKTeX 2.7\tex\latex\tools\calc.sty"
+Package: calc 2005/08/06 v4.2 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count90
+\calc@Bcount=\count91
+\calc@Adimen=\dimen107
+\calc@Bdimen=\dimen108
+\calc@Askip=\skip43
+\calc@Bskip=\skip44
+LaTeX Info: Redefining \setlength on input line 75.
+LaTeX Info: Redefining \addtolength on input line 76.
+\calc@Ccount=\count92
+\calc@Cskip=\skip45
+)
+("C:\Programmi\MiKTeX 2.7\tex\latex\amsmath\amsmath.sty"
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip46
+
+For additional information on amsmath, use the `?' option.
+("C:\Programmi\MiKTeX 2.7\tex\latex\amsmath\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\amsmath\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks17
+\ex@=\dimen109
+))
+("C:\Programmi\MiKTeX 2.7\tex\latex\amsmath\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen110
+)
+("C:\Programmi\MiKTeX 2.7\tex\latex\amsmath\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count93
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count94
+\leftroot@=\count95
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count96
+\DOTSCASE@=\count97
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen111
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count98
+\c@MaxMatrixCols=\count99
+\dotsspace@=\muskip10
+\c@parentequation=\count100
+\dspbrk@lvl=\count101
+\tag@help=\toks18
+\row@=\count102
+\column@=\count103
+\maxfields@=\count104
+\andhelp@=\toks19
+\eqnshift@=\dimen112
+\alignsep@=\dimen113
+\tagshift@=\dimen114
+\tagwidth@=\dimen115
+\totwidth@=\dimen116
+\lineht@=\dimen117
+\@envbody=\toks20
+\multlinegap=\skip47
+\multlinetaggap=\skip48
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+("C:\Programmi\MiKTeX 2.7\tex\latex\base\inputenc.sty"
+Package: inputenc 2006/05/05 v1.1b Input encoding file
+\inpenc@prehook=\toks22
+\inpenc@posthook=\toks23
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\base\latin1.def"
+File: latin1.def 2006/05/05 v1.1b Input encoding file
+))
+("C:\Programmi\MiKTeX 2.7\tex\generic\babel\babel.sty"
+Package: babel 2008/07/06 v3.8l The Babel package
+
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Programmi\MiKTeX 2.7\tex\latex\00miktex\bblopts.cfg"
+File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
+)
+("C:\Programmi\MiKTeX 2.7\tex\generic\babel\italian.ldf"
+Language: italian 2008/03/14 v1.2t Italian support from the babel system
+
+("C:\Programmi\MiKTeX 2.7\tex\generic\babel\babel.def"
+File: babel.def 2008/07/06 v3.8l Babel common definitions
+\babel@savecnt=\count105
+\U@D=\dimen118
+)
+Package babel Info: Making " an active character on input line 94.
+))
+("C:\Programmi\MiKTeX 2.7\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\graphics\graphics.sty"
+Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Programmi\MiKTeX 2.7\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 90.
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2008/09/08 v0.04l Graphics/color for pdfTeX
+\Gread@gobject=\count106
+))
+\Gin@req@height=\dimen119
+\Gin@req@width=\dimen120
+)
+("C:\Programmi\MiKTeX 2.7\tex\latex\graphics\color.sty"
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+("C:\Programmi\MiKTeX 2.7\tex\latex\subfigure\subfigure.sty"
+Package: subfigure 2002/07/30 v2.1.4 subfigure package
+\subfigtopskip=\skip49
+\subfigcapskip=\skip50
+\subfigcaptopadj=\dimen121
+\subfigbottomskip=\skip51
+\subfigcapmargin=\dimen122
+\subfiglabelskip=\skip52
+\c@subfigure=\count107
+\c@lofdepth=\count108
+\c@subtable=\count109
+\c@lotdepth=\count110
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+("C:\Programmi\MiKTeX 2.7\tex\latex\subfigure\subfigure.cfg")
+\subfig@top=\skip53
+\subfig@bottom=\skip54
+)
+("C:\Programmi\MiKTeX 2.7\tex\latex\hyperref\hyperref.sty"
+Package: hyperref 2008/11/18 v6.78m Hypertext links for LaTeX
+
+("C:\Programmi\MiKTeX 2.7\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2008/09/18 v0.4 Provides ifxetex conditional
+)
+("C:\Programmi\MiKTeX 2.7\tex\latex\oberdiek\hycolor.sty"
+Package: hycolor 2008/09/08 v1.4 Code for color options of hyperref/bookmark (H
+O)
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\oberdiek\xcolor-patch.sty"
+Package: xcolor-patch 2008/09/08 xcolor patch
+))
+\@linkdim=\dimen123
+\Hy@linkcounter=\count111
+\Hy@pagecounter=\count112
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\hyperref\pd1enc.def"
+File: pd1enc.def 2008/11/18 v6.78m Hyperref: PDFDocEncoding definition (HO)
+)
+("C:\Programmi\MiKTeX 2.7\tex\generic\oberdiek\etexcmds.sty"
+Package: etexcmds 2007/12/12 v1.2 Prefix for e-TeX command names (HO)
+
+("C:\Programmi\MiKTeX 2.7\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2007/09/09 v1.2 Providing info/warning/message (HO)
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)
+("C:\Programmi\MiKTeX 2.7\tex\latex\00miktex\hyperref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+("C:\Programmi\MiKTeX 2.7\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2007/10/18 v3.0 Keyval support for LaTeX options (HO)
+)
+Package hyperref Info: Hyper figures OFF on input line 2907.
+Package hyperref Info: Link nesting OFF on input line 2912.
+Package hyperref Info: Hyper index ON on input line 2915.
+Package hyperref Info: Plain pages OFF on input line 2922.
+Package hyperref Info: Backreferencing OFF on input line 2927.
+
+Implicit mode ON; LaTeX internals redefined
+Package hyperref Info: Bookmarks ON on input line 3117.
+("C:\Programmi\MiKTeX 2.7\tex\latex\ltxmisc\url.sty"
+\Urlmuskip=\muskip11
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 3351.
+
+("C:\Programmi\MiKTeX 2.7\tex\generic\oberdiek\bitset.sty"
+Package: bitset 2007/09/28 v1.0 Data type bit set (HO)
+
+("C:\Programmi\MiKTeX 2.7\tex\generic\oberdiek\intcalc.sty"
+Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
+)
+("C:\Programmi\MiKTeX 2.7\tex\generic\oberdiek\bigintcalc.sty"
+Package: bigintcalc 2007/11/11 v1.1 Expandable big integer calculations (HO)
+
+("C:\Programmi\MiKTeX 2.7\tex\generic\oberdiek\pdftexcmds.sty"
+Package: pdftexcmds 2007/12/12 v0.3 LuaTeX support for pdfTeX utility functions
+ (HO)
+Package pdftexcmds Info: LuaTeX not detected on input line 139.
+)))
+("C:\Programmi\MiKTeX 2.7\tex\generic\oberdiek\kvsetkeys.sty"
+Package: kvsetkeys 2007/09/29 v1.3 Key value parser with default handler suppor
+t (HO)
+)
+\Fld@menulength=\count113
+\Field@Width=\dimen124
+\Fld@charsize=\dimen125
+\Field@toks=\toks24
+Package hyperref Info: Hyper figures OFF on input line 4268.
+Package hyperref Info: Link nesting OFF on input line 4273.
+Package hyperref Info: Hyper index ON on input line 4276.
+Package hyperref Info: backreferencing OFF on input line 4283.
+Package hyperref Info: Link coloring OFF on input line 4288.
+Package hyperref Info: Link coloring with OCG OFF on input line 4293.
+Package hyperref Info: PDF/A mode OFF on input line 4298.
+
+("C:\Programmi\MiKTeX 2.7\tex\generic\oberdiek\atbegshi.sty"
+Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
+)
+\Hy@abspage=\count114
+\c@Item=\count115
+\c@Hfootnote=\count116
+)
+*hyperref using default driver hpdftex*
+("C:\Programmi\MiKTeX 2.7\tex\latex\hyperref\hpdftex.def"
+File: hpdftex.def 2008/11/18 v6.78m Hyperref driver for pdfTeX
+\Fld@listcount=\count117
+)
+("C:\Programmi\MiKTeX 2.7\tex\latex\oberdiek\hypcap.sty"
+Package: hypcap 2008/09/08 v1.10 Adjusting anchors of captions (HO)
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 23.
+Package hyperref Info: Option `pdfcenterwindow' set `true' on input line 23.
+Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 23.
+
+Package hyperref Info: Option `CJKbookmarks' set `true' on input line 23.
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\caption\caption.sty"
+Package: caption 2008/08/24 v3.1j Customizing captions (AR)
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\caption\caption3.sty"
+Package: caption3 2008/08/24 v3.1j caption3 kernel (AR)
+\captionmargin=\dimen126
+\captionmargin@=\dimen127
+\captionwidth=\dimen128
+\caption@indent=\dimen129
+\caption@parindent=\dimen130
+\caption@hangindent=\dimen131
+)
+\c@ContinuedFloat=\count118
+Package caption Info: hyperref package is loaded.
+Package caption Info: hypcap package is loaded.
+Package caption Info: subfigure package is loaded.
+) (RelazioneCAD.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 45.
+LaTeX Font Info:    Try loading font information for MDA+cmr on input line 45.
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\mathdesign\mdacmr.fd"
+File: mdacmr.fd 
+)
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for MDB/cmr/m/n on input line 45.
+LaTeX Font Info:    Try loading font information for MDB+cmr on input line 45.
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\mathdesign\mdbcmr.fd"
+File: mdbcmr.fd 
+)
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+
+*geometry auto-detecting driver*
+*geometry detected driver: pdftex*
+-------------------- Geometry parameters
+paper: a4paper
+landscape: --
+twocolumn: --
+twoside: true
+asymmetric: --
+h-parts: 71.13188pt, 455.24411pt, 71.13188pt
+v-parts: 56.9055pt, 717.00946pt, 71.13188pt
+hmarginratio: --
+vmarginratio: --
+lines: --
+heightrounded: --
+bindingoffset: 0.0pt
+truedimen: --
+includehead: --
+includefoot: --
+includemp: --
+driver: pdftex
+-------------------- Page layout dimensions and switches
+\paperwidth  597.50787pt
+\paperheight 845.04684pt
+\textwidth  455.24411pt
+\textheight 717.00946pt
+\oddsidemargin  -1.1381pt
+\evensidemargin -1.1381pt
+\topmargin  -52.36449pt
+\headheight 12.0pt
+\headsep    25.0pt
+\footskip   30.0pt
+\marginparwidth 103.0pt
+\marginparsep   10.0pt
+\columnsep  10.0pt
+\skip\footins  10.0pt plus 4.0pt minus 2.0pt
+\hoffset 0.0pt
+\voffset 0.0pt
+\mag 1000
+\@twosidetrue \@mparswitchtrue 
+(1in=72.27pt, 1cm=28.45pt)
+-----------------------
+("C:\Programmi\MiKTeX 2.7\tex\context\base\supp-pdf.tex"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count119
+\scratchdimen=\dimen132
+\scratchbox=\box28
+\nofMPsegments=\count120
+\nofMParguments=\count121
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count122
+\MPscratchDim=\dimen133
+\MPnumerator=\count123
+\everyMPtoPDFconversion=\toks26
+)
+Package hyperref Info: Link coloring ON on input line 45.
+ ("C:\Programmi\MiKTeX 2.7\tex\latex\hyperref\nameref.sty"
+Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\oberdiek\refcount.sty"
+Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
+)
+\c@section@level=\count124
+)
+LaTeX Info: Redefining \ref on input line 45.
+LaTeX Info: Redefining \pageref on input line 45.
+ (RelazioneCAD.out) (RelazioneCAD.out)
+\@outlinefile=\write3
+\AtBeginShipoutBox=\box29
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Font shape `T1/mdput/m/n' will be
+(Font)              scaled to size 15.89755pt on input line 52.
+LaTeX Font Info:    Font shape `T1/mdput/m/fsc' will be
+(Font)              scaled to size 15.89755pt on input line 52.
+LaTeX Font Info:    Font shape `T1/mdput/bx/fsc' in size <17.28> not available
+(Font)              Font shape `T1/mdput/b/fsc' tried instead on input line 52.
+
+LaTeX Font Info:    Font shape `T1/mdput/b/fsc' will be
+(Font)              scaled to size 15.89755pt on input line 52.
+LaTeX Font Info:    Font shape `T1/mdput/m/n' will be
+(Font)              scaled to size 11.03998pt on input line 52.
+LaTeX Font Info:    Font shape `OT1/mdput/m/n' will be
+(Font)              scaled to size 11.03998pt on input line 52.
+LaTeX Font Info:    Font shape `OT1/mdput/m/n' will be
+(Font)              scaled to size 7.35999pt on input line 52.
+LaTeX Font Info:    Font shape `OT1/mdput/m/n' will be
+(Font)              scaled to size 5.51999pt on input line 52.
+LaTeX Font Info:    Try loading font information for OML+mdput on input line 52
+.
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\mathdesign\mdput\omlmdput.fd"
+File: omlmdput.fd 2006/01/29 Fontinst v1.928 font definitions for OML/mdput.
+)
+LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
+(Font)              scaled to size 11.03998pt on input line 52.
+LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
+(Font)              scaled to size 7.35999pt on input line 52.
+LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
+(Font)              scaled to size 5.51999pt on input line 52.
+LaTeX Font Info:    Try loading font information for OMS+mdput on input line 52
+.
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\mathdesign\mdput\omsmdput.fd"
+File: omsmdput.fd 2006/01/29 Fontinst v1.928 font definitions for OMS/mdput.
+)
+LaTeX Font Info:    Font shape `OMS/mdput/m/n' will be
+(Font)              scaled to size 11.03998pt on input line 52.
+LaTeX Font Info:    Font shape `OMS/mdput/m/n' will be
+(Font)              scaled to size 7.35999pt on input line 52.
+LaTeX Font Info:    Font shape `OMS/mdput/m/n' will be
+(Font)              scaled to size 5.51999pt on input line 52.
+LaTeX Font Info:    Try loading font information for OMX+mdput on input line 52
+.
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\mathdesign\mdput\omxmdput.fd"
+File: omxmdput.fd 2006/01/29 Fontinst v1.928 font definitions for OMX/mdput.
+)
+LaTeX Font Info:    Font shape `OMX/mdput/m/n' will be
+(Font)              scaled to size 11.03998pt on input line 52.
+LaTeX Font Info:    Font shape `OMX/mdput/m/n' will be
+(Font)              scaled to size 7.35999pt on input line 52.
+LaTeX Font Info:    Font shape `OMX/mdput/m/n' will be
+(Font)              scaled to size 5.51999pt on input line 52.
+LaTeX Font Info:    Font shape `OML/mdput/m/n' will be
+(Font)              scaled to size 11.03998pt on input line 52.
+LaTeX Font Info:    Font shape `OML/mdput/m/n' will be
+(Font)              scaled to size 7.35999pt on input line 52.
+LaTeX Font Info:    Font shape `OML/mdput/m/n' will be
+(Font)              scaled to size 5.51999pt on input line 52.
+LaTeX Font Info:    Try loading font information for MDA+mdput on input line 52
+.
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\mathdesign\mdput\mdamdput.fd"
+File: mdamdput.fd 2006/01/29 Fontinst v1.928 font definitions for MDA/mdput.
+)
+LaTeX Font Info:    Font shape `MDA/mdput/m/n' will be
+(Font)              scaled to size 11.03998pt on input line 52.
+LaTeX Font Info:    Font shape `MDA/mdput/m/n' will be
+(Font)              scaled to size 7.35999pt on input line 52.
+LaTeX Font Info:    Font shape `MDA/mdput/m/n' will be
+(Font)              scaled to size 5.51999pt on input line 52.
+LaTeX Font Info:    Try loading font information for MDB+mdput on input line 52
+.
+
+("C:\Programmi\MiKTeX 2.7\tex\latex\mathdesign\mdput\mdbmdput.fd"
+File: mdbmdput.fd 2006/01/29 Fontinst v1.928 font definitions for MDB/mdput.
+)
+LaTeX Font Info:    Font shape `MDB/mdput/m/n' will be
+(Font)              scaled to size 11.03998pt on input line 52.
+LaTeX Font Info:    Font shape `MDB/mdput/m/n' will be
+(Font)              scaled to size 7.35999pt on input line 52.
+LaTeX Font Info:    Font shape `MDB/mdput/m/n' will be
+(Font)              scaled to size 5.51999pt on input line 52.
+LaTeX Font Info:    Font shape `T1/mdput/m/n' will be
+(Font)              scaled to size 13.24796pt on input line 52.
+LaTeX Font Info:    Font shape `T1/mdput/m/n' will be
+(Font)              scaled to size 9.19998pt on input line 53.
+LaTeX Font Info:    Font shape `T1/mdput/bx/n' in size <10> not available
+(Font)              Font shape `T1/mdput/b/n' tried instead on input line 53.
+LaTeX Font Info:    Font shape `T1/mdput/b/n' will be
+(Font)              scaled to size 9.19998pt on input line 53.
+LaTeX Font Info:    Font shape `T1/mdput/m/it' will be
+(Font)              scaled to size 9.19998pt on input line 54.
+LaTeX Font Info:    Font shape `T1/mdput/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/mdput/b/n' tried instead on input line 57.
+LaTeX Font Info:    Font shape `T1/mdput/b/n' will be
+(Font)              scaled to size 13.24796pt on input line 57.
+
+(RelazioneCAD.toc
+LaTeX Font Info:    Font shape `T1/mdput/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/mdput/b/n' tried instead on input line 3.
+LaTeX Font Info:    Font shape `T1/mdput/b/n' will be
+(Font)              scaled to size 10.07397pt on input line 3.
+LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
+(Font)              scaled to size 10.07397pt on input line 5.
+LaTeX Font Info:    Font shape `OMS/mdput/m/n' will be
+(Font)              scaled to size 10.07397pt on input line 5.
+LaTeX Font Info:    Font shape `OMX/mdput/m/n' will be
+(Font)              scaled to size 10.07397pt on input line 5.
+LaTeX Font Info:    Font shape `OML/mdput/m/n' will be
+(Font)              scaled to size 10.07397pt on input line 5.
+LaTeX Font Info:    Font shape `MDA/mdput/m/n' will be
+(Font)              scaled to size 10.07397pt on input line 5.
+LaTeX Font Info:    Font shape `MDB/mdput/m/n' will be
+(Font)              scaled to size 10.07397pt on input line 5.
+)
+\tf@toc=\write4
+LaTeX Font Info:    Font shape `T1/mdput/m/it' will be
+(Font)              scaled to size 10.07397pt on input line 63.
+ [1
+
+
+{C:/Documents and Settings/All Users/Dati applicazioni/MiKTeX/2.7/pdftex/config
+/pdftex.map}]
+LaTeX Font Info:    Font shape `T1/mdput/m/n' will be
+(Font)              scaled to size 7.35999pt on input line 69.
+LaTeX Font Info:    Font shape `T1/mdput/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 69.
+LaTeX Font Info:    Font shape `OT1/mdput/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 69.
+LaTeX Font Info:    Font shape `OT1/mdput/m/n' will be
+(Font)              scaled to size 4.59999pt on input line 69.
+LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
+(Font)              scaled to size 8.27998pt on input line 69.
+LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
+(Font)              scaled to size 4.59999pt on input line 69.
+LaTeX Font Info:    Font shape `OMS/mdput/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 69.
+LaTeX Font Info:    Font shape `OMS/mdput/m/n' will be
+(Font)              scaled to size 4.59999pt on input line 69.
+LaTeX Font Info:    Font shape `OMX/mdput/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 69.
+LaTeX Font Info:    Font shape `OMX/mdput/m/n' will be
+(Font)              scaled to size 4.59999pt on input line 69.
+LaTeX Font Info:    Font shape `OML/mdput/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 69.
+LaTeX Font Info:    Font shape `OML/mdput/m/n' will be
+(Font)              scaled to size 4.59999pt on input line 69.
+LaTeX Font Info:    Font shape `MDA/mdput/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 69.
+LaTeX Font Info:    Font shape `MDA/mdput/m/n' will be
+(Font)              scaled to size 4.59999pt on input line 69.
+LaTeX Font Info:    Font shape `MDB/mdput/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 69.
+LaTeX Font Info:    Font shape `MDB/mdput/m/n' will be
+(Font)              scaled to size 4.59999pt on input line 69.
+LaTeX Font Info:    Font shape `T1/mdput/m/n' will be
+(Font)              scaled to size 5.51999pt on input line 69.
+LaTeX Font Info:    Font shape `T1/mdput/bx/n' in size <12> not available
+(Font)              Font shape `T1/mdput/b/n' tried instead on input line 78.
+LaTeX Font Info:    Font shape `T1/mdput/b/n' will be
+(Font)              scaled to size 11.03998pt on input line 78.
+LaTeX Font Info:    Font shape `OT1/mdput/b/n' will be
+(Font)              scaled to size 10.07397pt on input line 87.
+LaTeX Font Info:    Font shape `OT1/mdput/b/n' will be
+(Font)              scaled to size 7.35999pt on input line 87.
+LaTeX Font Info:    Font shape `OT1/mdput/b/n' will be
+(Font)              scaled to size 5.51999pt on input line 87.
+
+<img/WR.pdf, id=78, 163.61125pt x 207.77625pt>
+File: img/WR.pdf Graphic file (type pdf)
+ <use img/WR.pdf>
+LaTeX Font Info:    Font shape `OT1/mdput/m/n' will be
+(Font)              scaled to size 9.19998pt on input line 97.
+LaTeX Font Info:    Font shape `OT1/mdput/m/n' will be
+(Font)              scaled to size 6.43999pt on input line 97.
+LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
+(Font)              scaled to size 9.19998pt on input line 97.
+LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
+(Font)              scaled to size 6.43999pt on input line 97.
+LaTeX Font Info:    Font shape `OMS/mdput/m/n' will be
+(Font)              scaled to size 9.19998pt on input line 97.
+LaTeX Font Info:    Font shape `OMS/mdput/m/n' will be
+(Font)              scaled to size 6.43999pt on input line 97.
+LaTeX Font Info:    Font shape `OMX/mdput/m/n' will be
+(Font)              scaled to size 9.19998pt on input line 97.
+LaTeX Font Info:    Font shape `OMX/mdput/m/n' will be
+(Font)              scaled to size 6.43999pt on input line 97.
+LaTeX Font Info:    Font shape `OT1/mdput/b/n' will be
+(Font)              scaled to size 9.19998pt on input line 97.
+LaTeX Font Info:    Font shape `OT1/mdput/b/n' will be
+(Font)              scaled to size 6.43999pt on input line 97.
+LaTeX Font Info:    Font shape `OT1/mdput/b/n' will be
+(Font)              scaled to size 4.59999pt on input line 97.
+LaTeX Font Info:    Font shape `OML/mdput/m/n' will be
+(Font)              scaled to size 9.19998pt on input line 97.
+LaTeX Font Info:    Font shape `OML/mdput/m/n' will be
+(Font)              scaled to size 6.43999pt on input line 97.
+LaTeX Font Info:    Font shape `MDA/mdput/m/n' will be
+(Font)              scaled to size 9.19998pt on input line 97.
+LaTeX Font Info:    Font shape `MDA/mdput/m/n' will be
+(Font)              scaled to size 6.43999pt on input line 97.
+LaTeX Font Info:    Font shape `MDB/mdput/m/n' will be
+(Font)              scaled to size 9.19998pt on input line 97.
+LaTeX Font Info:    Font shape `MDB/mdput/m/n' will be
+(Font)              scaled to size 6.43999pt on input line 97.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[2] <img/gradino.pdf, id=99, 187.70125pt x 188.705pt>
+File: img/gradino.pdf Graphic file (type pdf)
+ <use img/gradino.pdf>
+LaTeX Font Info:    Font shape `OT1/mdput/b/n' will be
+(Font)              scaled to size 8.27998pt on input line 124.
+
+[3 <img/WR.pdf>] [4 <img/gradino.pdf>]
+<img/bofNN.pdf, id=128, 257.96375pt x 270.00874pt>
+File: img/bofNN.pdf Graphic file (type pdf)
+ <use img/bofNN.pdf> [5]
+LaTeX Font Info:    Font shape `OT1/mdput/m/it' will be
+(Font)              scaled to size 10.07397pt on input line 176.
+LaTeX Font Info:    Font shape `OT1/mdput/m/it' will be
+(Font)              scaled to size 7.35999pt on input line 176.
+LaTeX Font Info:    Font shape `OT1/mdput/m/it' will be
+(Font)              scaled to size 5.51999pt on input line 176.
+
+<img/SNto1.pdf, id=144, 284.06125pt x 150.5625pt>
+File: img/SNto1.pdf Graphic file (type pdf)
+ <use img/SNto1.pdf>
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10.95> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 187.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 9.43889pt on input line 187.
+
+<img/bofNNh.pdf, id=145, 333.245pt x 245.91875pt>
+File: img/bofNNh.pdf Graphic file (type pdf)
+ <use img/bofNNh.pdf> [6 <img/bofNN.pdf> <img/SNto1.pdf>]
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 9.43889pt on input line 201.
+
+<img/SchemabofNNh1.pdf, id=163, 543.02875pt x 117.43875pt>
+File: img/SchemabofNNh1.pdf Graphic file (type pdf)
+
+<use img/SchemabofNNh1.pdf> [7 <img/bofNNh.pdf> <img/SchemabofNNh1.pdf>]
+<img/bofNNhResults.pdf, id=183, 421.575pt x 317.185pt>
+File: img/bofNNhResults.pdf Graphic file (type pdf)
+
+<use img/bofNNhResults.pdf>
+LaTeX Font Info:    Font shape `OT1/mdput/m/it' will be
+(Font)              scaled to size 9.19998pt on input line 233.
+LaTeX Font Info:    Font shape `OT1/mdput/m/it' will be
+(Font)              scaled to size 6.43999pt on input line 233.
+LaTeX Font Info:    Font shape `OT1/mdput/m/it' will be
+(Font)              scaled to size 4.59999pt on input line 233.
+ [8]
+<img/Hildebrand.pdf, id=197, 260.975pt x 474.77374pt>
+File: img/Hildebrand.pdf Graphic file (type pdf)
+ <use img/Hildebrand.pdf>
+[9 <img/bofNNhResults.pdf> <img/Hildebrand.pdf>]
+LaTeX Font Info:    Font shape `OT1/mdput/m/it' will be
+(Font)              scaled to size 8.27998pt on input line 271.
+
+Underfull \hbox (badness 1314) in paragraph at lines 271--271
+[][][]\T1/mdput/m/n/9 Per ban-da si in-ten-de lo spet-tro per il qua-le un di-s
+po-si-ti-vo pre-ser-va, en-tro cer-te tol-le-ran-ze, le ca-rat-te-ri-sti-che
+ []
+
+<img/Riblet.pdf, id=213, 469.755pt x 464.73625pt>
+File: img/Riblet.pdf Graphic file (type pdf)
+ <use img/Riblet.pdf>
+<img/HildPaperStruct.pdf, id=216, 470.75874pt x 313.17pt>
+File: img/HildPaperStruct.pdf Graphic file (type pdf)
+
+<use img/HildPaperStruct.pdf>
+Overfull \hbox (7.75674pt too wide) in paragraph at lines 283--284
+ [][] 
+ []
+
+
+Overfull \hbox (6.31087pt too wide) in paragraph at lines 274--287
+[][]   [] 
+ []
+
+<img/HildebrandExploded.pdf, id=221, 396.48125pt x 128.48pt>
+File: img/HildebrandExploded.pdf Graphic file (type pdf)
+
+<use img/HildebrandExploded.pdf> [10 <img/Riblet.pdf> <img/HildPaperStruct.pdf>
+] [11 <img/HildebrandExploded.pdf>]
+<img/HildebrandExploded1.pdf, id=246, 153.57375pt x 346.29375pt>
+File: img/HildebrandExploded1.pdf Graphic file (type pdf)
+
+<use img/HildebrandExploded1.pdf>
+Underfull \hbox (badness 7397) in paragraph at lines 330--330
+[][]|\T1/mdput/m/n/10 Strut-tu-ra det-ta-glia-ta del-l'ac-cop-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 330--330
+\T1/mdput/m/n/10 ot-te-nu-ta con la di-chia-ra-zio-ne
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 330--330
+\T1/mdput/m/n/10 espli-ci-ta di una con-nes-sio-ne
+ []
+
+<img/HildebrandExploded2.pdf, id=247, 179.67125pt x 326.21875pt>
+File: img/HildebrandExploded2.pdf Graphic file (type pdf)
+
+<use img/HildebrandExploded2.pdf>
+Underfull \hbox (badness 7397) in paragraph at lines 336--336
+[][]|\T1/mdput/m/n/10 Strut-tu-ra det-ta-glia-ta del-l'ac-cop-
+ []
+
+
+Overfull \hbox (1.73271pt too wide) in paragraph at lines 327--339
+[][] [] 
+ []
+
+[12 <img/HildebrandExploded1.pdf> <img/HildebrandExploded2.pdf>]
+<img/FlowDiag.pdf, id=265, 505.89pt x 677.53125pt>
+File: img/FlowDiag.pdf Graphic file (type pdf)
+ <use img/FlowDiag.pdf>
+[13 <img/FlowDiag.pdf>] <img/HybridResults.pdf, id=276, 421.575pt x 317.185pt>
+File: img/HybridResults.pdf Graphic file (type pdf)
+
+<use img/HybridResults.pdf>
+<img/HildPaperTrans.pdf, id=277, 469.755pt x 308.15125pt>
+File: img/HildPaperTrans.pdf Graphic file (type pdf)
+
+<use img/HildPaperTrans.pdf>
+Overfull \hbox (1.73271pt too wide) in paragraph at lines 362--374
+[][] [] 
+ []
+
+<img/ReflectionCoeff.pdf, id=280, 421.575pt x 317.185pt>
+File: img/ReflectionCoeff.pdf Graphic file (type pdf)
+
+<use img/ReflectionCoeff.pdf>
+<img/HildPaperRefl.pdf, id=281, 469.755pt x 310.15875pt>
+File: img/HildPaperRefl.pdf Graphic file (type pdf)
+
+<use img/HildPaperRefl.pdf>
+Overfull \hbox (6.31087pt too wide) in paragraph at lines 378--391
+[][]   [] 
+ []
+
+<img/IQResults.pdf, id=284, 421.575pt x 317.185pt>
+File: img/IQResults.pdf Graphic file (type pdf)
+ <use img/IQResults.pdf>
+<img/HildPaperPhase.pdf, id=285, 469.755pt x 283.0575pt>
+File: img/HildPaperPhase.pdf Graphic file (type pdf)
+
+<use img/HildPaperPhase.pdf>
+Overfull \hbox (6.31087pt too wide) in paragraph at lines 395--408
+[][]   [] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [14 <img/HybridResults.pdf> <img/HildPaperTrans.pdf> <img/ReflectionCoeff.pdf>
+ <img/HildPaperRefl.pdf>] [15 <img/IQResults.pdf> <img/HildPaperPhase.pdf>]
+(RelazioneCAD.aux) ) 
+Here is how much of TeX's memory you used:
+ 8288 strings out of 95338
+ 116484 string characters out of 1184358
+ 197376 words of memory out of 1500000
+ 11195 multiletter control sequences out of 110000
+ 201793 words of font info for 161 fonts, out of 3000000 for 5000
+ 14 hyphenation exceptions out of 8191
+ 36i,20n,38p,1372b,642s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Programmi/MiKTeX 2.7/fonts/enc/dvips/fontname/8r.enc}{C
+:/Programmi/MiKTeX 2.7/fonts/enc/dvips/fontname/texnansi.enc}<C:/Programmi/MiKT
+eX 2.7/fonts/type1/mathdesign/mdput/md-utb7t.pfb><C:/Programmi/MiKTeX 2.7/fonts
+/type1/mathdesign/mdput/md-utr7t.pfb><C:/Programmi/MiKTeX 2.7/fonts/type1/mathd
+esign/mdput/md-utr7v.pfb><C:/Programmi/MiKTeX 2.7/fonts/type1/mathdesign/mdput/
+md-utr7y.pfb><C:/Programmi/MiKTeX 2.7/fonts/type1/mathdesign/mdput/md-utr8t.pfb
+><C:/Programmi/MiKTeX 2.7/fonts/type1/mathdesign/mdput/md-utri7m.pfb><C:/Progra
+mmi/MiKTeX 2.7/fonts/type1/mathdesign/mdput/md-utrma.pfb><C:/Programmi/MiKTeX 2
+.7/fonts/type1/adobe/utopia/putb8a.pfb><C:/Programmi/MiKTeX 2.7/fonts/type1/ado
+be/utopia/putr8a.pfb><C:/Programmi/MiKTeX 2.7/fonts/type1/adobe/utopia/putri8a.
+pfb><C:/Programmi/MiKTeX 2.7/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Programmi/
+MiKTeX 2.7/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on RelazioneCAD.pdf (15 pages, 829419 bytes).
+PDF statistics:
+ 373 PDF objects out of 1000 (max. 8388607)
+ 76 named destinations out of 1000 (max. 131072)
+ 219 words of extra memory for PDF output out of 10000 (max. 10000000)
+

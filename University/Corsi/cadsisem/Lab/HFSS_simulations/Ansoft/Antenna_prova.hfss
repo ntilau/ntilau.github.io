@@ -1,0 +1,2296 @@
+$begin 'AnsoftProject'
+	Created='Thu May 01 15:31:45 2008'
+	Product='HFSS'
+	NextUniqueID=0
+	MoveBackwards=false
+	$begin 'Desktop'
+		Version(10, 0)
+		InfrastructureVersion(1, 0)
+	$end 'Desktop'
+	$begin 'Datasets'
+		NextUniqueID=0
+		MoveBackwards=false
+		$begin 'DatasetDefinitions'
+		$end 'DatasetDefinitions'
+	$end 'Datasets'
+	$begin 'Definitions'
+		$begin 'Folders'
+			Definitions(1104, 10000, 1, 1, 0, false, false)
+			Materials(1104, 9500, 9, 2, 1, false, false)
+		$end 'Folders'
+		$begin 'Materials'
+			$begin 'vacuum'
+				CoordinateSystemType='Cartesian'
+				$begin 'AttachedData'
+				$end 'AttachedData'
+				permittivity='1'
+				ModTime=1209647571
+				Library='Materials'
+				LibLocation='SysLibrary '
+			$end 'vacuum'
+			$begin 'copper'
+				CoordinateSystemType='Cartesian'
+				$begin 'AttachedData'
+				$end 'AttachedData'
+				permeability='0.999991'
+				conductivity='58000000'
+				ModTime=1209648705
+				Library='Materials'
+				LibLocation='SysLibrary '
+			$end 'copper'
+		$end 'Materials'
+		$begin 'Scripts'
+		$end 'Scripts'
+	$end 'Definitions'
+	$begin 'HFSSEnvironment'
+		Version(1, 0)
+	$end 'HFSSEnvironment'
+	$begin 'geometry3deditor'
+		Version(1, 0)
+	$end 'geometry3deditor'
+	DesignIDServer=2
+	MoveBackwards=false
+	$begin 'HFSSModel'
+		Name='HFSSDesign1'
+		DesignID=0
+		SolutionType='DrivenModal'
+		MaterialDensity=1
+		MassOfTissue=1
+		$begin 'ModelSetup'
+			$begin 'Editor3D Doc Preferences'
+				'Plane Background'=true
+				BackgroundColor1=16777215
+				BackgroundColor2=0
+				'Need Lights'=true
+				'Ambient Light'=8355711
+				'Num Lights'=2
+				Light0[4: 8355711, 0.200000002980232, 0.400000005960464, 1]
+				Light1[4: 8355711, -0.200000002980232, -0.400000005960464, -1]
+			$end 'Editor3D Doc Preferences'
+			SnapMode=31
+			GroupByMaterial=true
+			$begin 'GeometryCore'
+				BlockVersionID=2
+				NativeKernel='ACIS'
+				Units='mm'
+				InstanceID=-1
+				$begin 'GeometryOperations'
+					BlockVersionID=2
+					$begin 'AnsoftRangedIDServerManager'
+						$begin 'AnsoftRangedIDServer'
+							IDServerObjectTypeID=0
+							IDServerRangeMin=0
+							IDServerRangeMax=2146483647
+							NextUniqueID=101
+							MoveBackwards=false
+						$end 'AnsoftRangedIDServer'
+						$begin 'AnsoftRangedIDServer'
+							IDServerObjectTypeID=1
+							IDServerRangeMin=2146483648
+							IDServerRangeMax=2146485647
+							NextUniqueID=2146483654
+							MoveBackwards=false
+						$end 'AnsoftRangedIDServer'
+					$end 'AnsoftRangedIDServerManager'
+					StartBackGroundFaceID=2146483648
+					$begin 'CoordinateSystems'
+					$end 'CoordinateSystems'
+					$begin 'ToplevelParts'
+						$begin 'GeometryPart'
+							$begin 'Attributes'
+								Name='Box1'
+								Flags=''
+								Color='(132 132 193)'
+								Transparency=0
+								PartCoordinateSystem=1
+								MaterialName='copper'
+								SolveInside=false
+							$end 'Attributes'
+							$begin 'Operations'
+								$begin 'Operation'
+									OperationType='Box'
+									ID=54
+									ReferenceCoordSystemID=1
+									$begin 'BoxParameters'
+										CoordinateSystemID=-1
+										XPosition='-2mm'
+										YPosition='-1mm'
+										ZPosition='0mm'
+										XSize='4.2mm'
+										YSize='3mm'
+										ZSize='0.2mm'
+									$end 'BoxParameters'
+									ParentPartID=55
+									$begin 'OperationIdentity'
+										$begin 'Topology'
+											NumLumps=1
+											NumShells=1
+											NumFaces=6
+											NumWires=0
+											NumLoops=6
+											NumCoedges=24
+											NumEdges=12
+											NumVertices=8
+										$end 'Topology'
+										BodyID=55
+										StartFaceID=56
+										StartEdgeID=62
+										StartVertexID=74
+										NumNewFaces=6
+										NumNewEdges=12
+										NumNewVertices=8
+										FaceNameAndIDMap()
+										EdgeNameAndIDMap()
+										VertexNameAndIDMap()
+									$end 'OperationIdentity'
+								$end 'Operation'
+								$begin 'Operation'
+									OperationType='DetachFaces'
+									ID=86
+									$begin 'DetachFacesToParameters'
+										CoordinateSystemID=-1
+										LocalOpPart=55
+										FacesToDetach[1: 59]
+									$end 'DetachFacesToParameters'
+									ParentPartID=55
+									$begin 'OperationIdentity'
+										$begin 'Topology'
+											NumLumps=1
+											NumShells=1
+											NumFaces=5
+											NumWires=0
+											NumLoops=5
+											NumCoedges=20
+											NumEdges=12
+											NumVertices=8
+										$end 'Topology'
+										BodyID=-1
+										StartFaceID=-1
+										StartEdgeID=-1
+										StartVertexID=-1
+										NumNewFaces=0
+										NumNewEdges=0
+										NumNewVertices=0
+										FaceNameAndIDMap()
+										EdgeNameAndIDMap()
+										VertexNameAndIDMap()
+										$begin 'GeomTopolBasedOperationIdentityHelper'
+											$begin 'NewFaces'
+											$end 'NewFaces'
+											$begin 'NewEdges'
+											$end 'NewEdges'
+											$begin 'NewVertices'
+											$end 'NewVertices'
+										$end 'GeomTopolBasedOperationIdentityHelper'
+									$end 'OperationIdentity'
+									ParentOperationID=54
+									DetachFacesFromOpnIDs[1: 87]
+								$end 'Operation'
+							$end 'Operations'
+						$end 'GeometryPart'
+						$begin 'GeometryPart'
+							$begin 'Attributes'
+								Name='Detach1'
+								Flags=''
+								Color='(132 132 193)'
+								Transparency=0
+								PartCoordinateSystem=1
+								MaterialName='copper'
+								SolveInside=false
+							$end 'Attributes'
+							$begin 'Operations'
+								$begin 'Operation'
+									OperationType='DetachFacesFrom'
+									ID=87
+									$begin 'DetachFacesFromParameters'
+										CoordinateSystemID=-1
+										WhichFace=0
+									$end 'DetachFacesFromParameters'
+									ParentPartID=88
+									$begin 'OperationIdentity'
+										$begin 'Topology'
+											NumLumps=1
+											NumShells=1
+											NumFaces=1
+											NumWires=0
+											NumLoops=1
+											NumCoedges=4
+											NumEdges=4
+											NumVertices=4
+										$end 'Topology'
+										BodyID=88
+										StartFaceID=89
+										StartEdgeID=90
+										StartVertexID=94
+										NumNewFaces=1
+										NumNewEdges=4
+										NumNewVertices=4
+										FaceNameAndIDMap()
+										EdgeNameAndIDMap()
+										VertexNameAndIDMap()
+									$end 'OperationIdentity'
+									DetachToOpnId=86
+								$end 'Operation'
+							$end 'Operations'
+						$end 'GeometryPart'
+						$begin 'GeometryPart'
+							$begin 'Attributes'
+								Name='Sphere1'
+								Flags=''
+								Color='(132 132 193)'
+								Transparency=0
+								PartCoordinateSystem=1
+								MaterialName='vacuum'
+								SolveInside=true
+							$end 'Attributes'
+							$begin 'Operations'
+								$begin 'Operation'
+									OperationType='Sphere'
+									ID=98
+									ReferenceCoordSystemID=1
+									$begin 'SphereParameters'
+										CoordinateSystemID=-1
+										XCenter='0mm'
+										YCenter='0mm'
+										ZCenter='0mm'
+										Radius='3.68781778291716mm'
+									$end 'SphereParameters'
+									ParentPartID=99
+									$begin 'OperationIdentity'
+										$begin 'Topology'
+											NumLumps=1
+											NumShells=1
+											NumFaces=1
+											NumWires=0
+											NumLoops=0
+											NumCoedges=0
+											NumEdges=0
+											NumVertices=0
+										$end 'Topology'
+										BodyID=99
+										StartFaceID=100
+										StartEdgeID=-1
+										StartVertexID=-1
+										NumNewFaces=1
+										NumNewEdges=0
+										NumNewVertices=0
+										FaceNameAndIDMap()
+										EdgeNameAndIDMap()
+										VertexNameAndIDMap()
+									$end 'OperationIdentity'
+								$end 'Operation'
+							$end 'Operations'
+						$end 'GeometryPart'
+					$end 'ToplevelParts'
+					$begin 'OperandParts'
+					$end 'OperandParts'
+					$begin 'Planes'
+					$end 'Planes'
+					$begin 'Points'
+					$end 'Points'
+					$begin 'GeometryEntityLists'
+					$end 'GeometryEntityLists'
+				$end 'GeometryOperations'
+				$begin 'GeometryDependencies'
+					$begin 'DependencyInformation'
+						NumParents=1
+						DependencyObject('GeometryBodyOperation', 54)
+						DependencyObject('CoordinateSystem', 1)
+					$end 'DependencyInformation'
+					$begin 'DependencyInformation'
+						NumParents=1
+						DependencyObject('GeometryBodyOperation', 86)
+						DependencyObject('GeometryBodyOperation', 54)
+					$end 'DependencyInformation'
+					$begin 'DependencyInformation'
+						NumParents=2
+						DependencyObject('GeometryBodyOperation', 87)
+						DependencyObject('GeometryBodyOperation', 86)
+						DependencyObject('GeometryBodyOperation', 54)
+					$end 'DependencyInformation'
+					$begin 'DependencyInformation'
+						NumParents=1
+						DependencyObject('GeometryBodyOperation', 98)
+						DependencyObject('CoordinateSystem', 1)
+					$end 'DependencyInformation'
+				$end 'GeometryDependencies'
+			$end 'GeometryCore'
+		$end 'ModelSetup'
+		$begin 'BoundarySetup'
+			$begin 'GlobalBoundData'
+				PortImpedance='1'
+				GlobalMaterialEnv='vacuum'
+			$end 'GlobalBoundData'
+			$begin 'Boundaries'
+				NextUniqueID=8
+				MoveBackwards=false
+				$begin 'Rad1'
+					ID=7
+					BoundType='Radiation'
+					IsIncidentField=false
+					IsEnforcedField=false
+					IsFssReference=false
+					IsForPML=false
+					Objects(99)
+				$end 'Rad1'
+				$begin 'LumpPort1'
+					ID=6
+					BoundType='Lumped Port'
+					$begin 'Modes'
+						$begin 'Mode1'
+							ModeNum=1
+							UseIntLine=true
+							$begin 'IntLine'
+								$begin 'GeometryPosition'
+									IsAttachedToEntity=true
+									EntityID=91
+									PositionType='OnEdge'
+									UParam=0.533333333333333
+									VParam=0
+									XPosition='0'
+									YPosition='0'
+									ZPosition='0'
+								$end 'GeometryPosition'
+								$begin 'GeometryPosition'
+									IsAttachedToEntity=true
+									EntityID=93
+									PositionType='OnEdge'
+									UParam=0.466666666666667
+									VParam=0
+									XPosition='0'
+									YPosition='0'
+									ZPosition='0'
+								$end 'GeometryPosition'
+							$end 'IntLine'
+							CharImp='Zpi'
+							RenormImp='50Ohm'
+						$end 'Mode1'
+					$end 'Modes'
+					FullResistance='50Ohm'
+					FullReactance='0Ohm'
+					Faces(89)
+				$end 'LumpPort1'
+			$end 'Boundaries'
+			$begin 'ProductSpecificData'
+				$begin 'PMLData'
+					$begin 'PMLGroups'
+					$end 'PMLGroups'
+				$end 'PMLData'
+				$begin 'SortOrder'
+					Port[1: -1]
+				$end 'SortOrder'
+			$end 'ProductSpecificData'
+		$end 'BoundarySetup'
+		$begin 'MeshSetup'
+			$begin 'MeshOperations'
+				NextUniqueID=1
+				MoveBackwards=false
+				$begin 'SkinDepth1'
+					Type='SkinDepthBased'
+					ID=0
+					Objects(55)
+					RestrictElem=true
+					NumMaxElem='1000'
+					SkinDepth='1mm'
+					SurfTriMaxLength='0.84mm'
+					NumLayers='2'
+				$end 'SkinDepth1'
+			$end 'MeshOperations'
+		$end 'MeshSetup'
+		$begin 'AnalysisSetup'
+			$begin 'SolveSetups'
+				NextUniqueID=1
+				MoveBackwards=false
+				$begin 'Setup1'
+					ID=0
+					SetupType='HfssDriven'
+					Frequency='0.868GHz'
+					PortsOnly=false
+					MaxDeltaS=0.02
+					UseMatrixConv=false
+					MaximumPasses=6
+					MinimumPasses=1
+					MinimumConvergedPasses=1
+					PercentRefinement=20
+					ReducedSolutionBasis=false
+					DoLambdaRefine=true
+					DoMaterialLambda=true
+					Target=0.3333
+					UseConvOutputVariable=false
+					IsEnabled=true
+					ExternalMesh=false
+					UseMaxTetIncrease=false
+					MaxTetIncrease=100000
+					PortAccuracy=2
+					UseABCOnPort=false
+					SetPortMinMaxTri=false
+					PortMinTri=100
+					PortMaxTri=500
+					$begin 'Sweeps'
+						NextUniqueID=0
+						MoveBackwards=false
+					$end 'Sweeps'
+				$end 'Setup1'
+			$end 'SolveSetups'
+		$end 'AnalysisSetup'
+		$begin 'Optimetrics'
+			$begin 'OptimetricsSetups'
+				NextUniqueID=0
+				MoveBackwards=false
+			$end 'OptimetricsSetups'
+		$end 'Optimetrics'
+		$begin 'Solutions'
+			FieldType='NoIncidentWave'
+			SourceEntry(ID=6, Index=0, Terminal=false, Terminated=false, Magnitude='1W', Phase='0deg')
+		$end 'Solutions'
+		$begin 'PortFieldDisplay'
+			$begin 'PortFieldDisplay'
+				ScaleFactor=5
+				Solution='Setup1 : LastAdaptive'
+				Frequency='0.868GHz'
+				ColorR=255
+				ColorG=1
+				ColorB=1
+			$end 'PortFieldDisplay'
+		$end 'PortFieldDisplay'
+		$begin 'FieldsReporter'
+			$begin 'FieldsCalculator'
+				Line_Discretization=1000
+			$end 'FieldsCalculator'
+			$begin 'PlotDefaults'
+				Default_SolutionId=18
+				Default_PlotFolder='Automatic'
+				Default_Freq='0.868GHz'
+				Default_Phase='0deg'
+			$end 'PlotDefaults'
+			$begin 'FieldsPlotManagerID'
+				NextUniqueID=1
+				MoveBackwards=false
+				NumQuantityType=1
+				$begin 'QuantityFolder_1'
+					PlotFolder='E Field'
+					'Real time mode'=true
+					$begin 'ColorMapSettings'
+						ColorMapType='Spectrum'
+						SpectrumType='Rainbow'
+						UniformColor(127, 255, 255)
+						RampColor(255, 127, 127)
+					$end 'ColorMapSettings'
+					$begin 'Scale3DSettings'
+						m_nLevels=15
+						m_autoScale=true
+						minvalue=2.79808473587036
+						maxvalue=22.6195411682129
+						log=false
+						IntrinsicMin=2.79808473587036
+						IntrinsicMax=22.6195411682129
+					$end 'Scale3DSettings'
+					$begin 'Marker3DSettings'
+						MarkerType=9
+						MarkerMapSize=true
+						MarkerMapColor=false
+						MarkerSize=0.25
+					$end 'Marker3DSettings'
+					$begin 'Arrow3DSettings'
+						ArrowType=1
+						ArrowMapSize=true
+						ArrowMapColor=true
+						ShowArrowTail=true
+						ArrowSize=0.25
+					$end 'Arrow3DSettings'
+				$end 'QuantityFolder_1'
+				NumPlots=1
+				$begin 'PlotDefinition_1'
+					PlotName='Mag_E1'
+					PlotDefinitionId=0
+					SolutionId=18
+					QuantityId=2
+					PlotFolder='E Field'
+					UserSpecifyName=0
+					UserSpecifyFolder=0
+					IntrinsicVar='Freq=\'0.868GHz\' Phase=\'0deg\''
+					FieldPlotGeometry(1, 64, 0, 1, 99)
+					FilterIds(1, 99)
+					$begin 'PlotOnVolumeSettings'
+						PlotIsoSurface=false
+						CloudDensity=0.5
+						PointSize=1
+						$begin 'Arrow3DSpacingSettings'
+							ArrowUniform=true
+							ArrowSpacing=0.31937438249588
+							MinArrowSpacing=0.255499511957169
+							MaxArrowSpacing=0.383249282836914
+						$end 'Arrow3DSpacingSettings'
+					$end 'PlotOnVolumeSettings'
+				$end 'PlotDefinition_1'
+			$end 'FieldsPlotManagerID'
+		$end 'FieldsReporter'
+		$begin 'RadField'
+			$begin 'FarFieldSetups'
+				NextUniqueID=2
+				MoveBackwards=false
+				$begin 'Infinite Sphere1'
+					Type='Infinite Sphere'
+					ID=1
+					UseCustomRadiationSurface=false
+					ThetaStart='0deg'
+					ThetaStop='180deg'
+					ThetaStep='10deg'
+					PhiStart='0deg'
+					PhiStop='360deg'
+					PhiStep='10deg'
+					UseLocalCS=false
+				$end 'Infinite Sphere1'
+			$end 'FarFieldSetups'
+			$begin 'ArraySetup'
+				UseOption='NoArray'
+				$begin 'RegularArray'
+					NumUCells='10'
+					NumVCells='10'
+					CellUDist='10mm'
+					CellVDist='10mm'
+					UDirnX='1'
+					UDirnY='0'
+					UDirnZ='0'
+					VDirnX='0'
+					VDirnY='1'
+					VDirnZ='0'
+					FirstCellPosX='0mm'
+					FirstCellPosY='0mm'
+					FirstCellPosZ='0mm'
+					UseScanAngle=true
+					ScanAnglePhi='45deg'
+					ScanAngleTheta='45deg'
+					UDirnPhaseShift='0deg'
+					VDirnPhaseShift='0deg'
+				$end 'RegularArray'
+				$begin 'CustomArray'
+					NumCells=0
+					$begin 'Cell'
+					$end 'Cell'
+				$end 'CustomArray'
+			$end 'ArraySetup'
+			$begin 'NearFieldSetups'
+				NextUniqueID=2
+				MoveBackwards=false
+			$end 'NearFieldSetups'
+		$end 'RadField'
+		$begin 'SolutionManager'
+			$begin 'SimSetup'
+				TypeName='BaseSetup'
+				ID=16
+				Name='Setup1'
+				$begin 'Solution'
+					ID=17
+					Name='Adaptive_1'
+					$begin 'SimDataExtractor'
+						$begin 'Sweeps'
+							$begin 'Sweep'
+								Variable='Pass'
+								Column='1;2;3;4;5;6'
+								Units=''
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='Freq'
+								Column='0.868GHz'
+								Units='GHz'
+							$end 'Sweep'
+							$begin 'PostprocessSweep'
+								Variable='NormalizedDistance'
+								RegularSweep=1
+								Units=''
+								Minimum=0
+								Maximum=1
+								Increment=0.01
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phi'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Theta'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phase'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+						$end 'Sweeps'
+						IsPortOnly=false
+					$end 'SimDataExtractor'
+				$end 'Solution'
+				$begin 'Solution'
+					ID=18
+					Name='LastAdaptive'
+					$begin 'SimDataExtractor'
+						SimValue('S(LumpPort1,LumpPort1)', 2, 90, false, 0, 0, 2, 0, true, false, -1, 1, 0, 1, 1)
+						SimValue('rETotal', 1, 67, false, 0, 0, 2, 0, false, false, 1, 1, 0, 1, 1)
+						SimValue('GainTotal', 1, 90, true, 0, 0, 2, 0, false, false, 1, 1, 0, 1, 1)
+						SimValue('Z(LumpPort1,LumpPort1)', 2, 90, false, 0, 0, 2, 0, true, false, -1, 1, 0, 1, 1)
+						SimValue('VSWR(LumpPort1)', 1, 90, false, 0, 0, 2, 0, true, false, -1, 1, 0, 1, 1)
+						SimValue('S(LumpPort1,LumpPort1)', 2, 90, false, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1)
+						$begin 'Sweeps'
+							$begin 'Sweep'
+								Variable='Freq'
+								Column='0.868GHz'
+								Units='GHz'
+							$end 'Sweep'
+							$begin 'PostprocessSweep'
+								Variable='NormalizedDistance'
+								RegularSweep=1
+								Units=''
+								Minimum=0
+								Maximum=1
+								Increment=0.01
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phi'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Theta'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phase'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+						$end 'Sweeps'
+						$begin 'SolutionPointSets'
+							NextUniqueID=4
+							MoveBackwards=false
+							$begin 'SolutionPointSet'
+								ID=0
+								name='LastAdaptive:SolutionPointSet 1'
+								CurrentIndex=4
+								SolutionVersion=284
+								SimValueContext(0, 0, 2, 0, true, false, -1, 1, 0, 1, 1)
+								$begin 'SubSweeps'
+									$begin 'Freq'
+										All=true
+										Indices()
+										$begin 'SweepBase'
+											Variable='Freq'
+											Column='0.868GHz'
+											Units='GHz'
+										$end 'SweepBase'
+									$end 'Freq'
+								$end 'SubSweeps'
+								$begin 'Traces'
+									$begin 'Trace2D'
+										name='Design 0:Solution 18:Pointset 0:Trace2D 1'
+										X(Desc='Freq', CatID=1, FuncID=0, IsInteger=false, Units='GHz', X='Freq')
+										Y(Desc='S(LumpPort1,LumpPort1)', CatID=3, FuncID=11, IsInteger=false, Units='', Y='dB(S(LumpPort1,LumpPort1))')
+									$end 'Trace2D'
+									$begin 'Trace2D'
+										name='Design 0:Solution 18:Pointset 0:Trace2D 2'
+										X(Desc='Freq', CatID=1, FuncID=0, IsInteger=false, Units='GHz', X='Freq')
+										Y(Desc='Z(LumpPort1,LumpPort1)', CatID=5, FuncID=82, IsInteger=false, Units='deg', Y='ang_deg(Z(LumpPort1,LumpPort1))')
+									$end 'Trace2D'
+									$begin 'Trace3D'
+										name='Design 0:Solution 18:Pointset 0:Trace3D 3'
+										X(Desc='Freq', CatID=1, FuncID=0, IsInteger=false, Units='GHz', X='Freq')
+										Y(Desc='Freq', CatID=1, FuncID=0, IsInteger=false, Units='GHz', Y='Freq')
+										Z(Desc='VSWR(LumpPort1)', CatID=44, FuncID=0, IsInteger=false, Units='', Z='VSWR(LumpPort1)')
+									$end 'Trace3D'
+								$end 'Traces'
+							$end 'SolutionPointSet'
+							$begin 'SolutionPointSet'
+								ID=1
+								name='LastAdaptive:SolutionPointSet 2'
+								CurrentIndex=3
+								SolutionVersion=284
+								SimValueContext(0, 0, 2, 0, false, false, 1, 1, 0, 1, 1)
+								$begin 'SubSweeps'
+									$begin 'Phi'
+										All=true
+										Indices()
+										$begin 'SweepBase'
+											Variable='Phi'
+											RegularSweep=1
+											Units='deg'
+											Minimum=0
+											Maximum=6.28318530717959
+											Increment=0.174532925199433
+											CreateIndexedSubsweepFlag=true
+										$end 'SweepBase'
+									$end 'Phi'
+									$begin 'Theta'
+										All=true
+										Indices()
+										$begin 'SweepBase'
+											Variable='Theta'
+											RegularSweep=1
+											Units='deg'
+											Minimum=0
+											Maximum=3.14159265358979
+											Increment=0.174532925199433
+											CreateIndexedSubsweepFlag=true
+										$end 'SweepBase'
+									$end 'Theta'
+									$begin 'Freq'
+										All=false
+										Indices(0)
+										$begin 'SweepBase'
+											Variable='Freq'
+											Column='0.868GHz'
+											Units='GHz'
+										$end 'SweepBase'
+									$end 'Freq'
+								$end 'SubSweeps'
+								$begin 'Traces'
+									$begin 'Trace3D'
+										name='Design 0:Solution 18:Pointset 1:Trace3D 1'
+										X(Desc='Phi', CatID=1, FuncID=0, IsInteger=false, Units='deg', X='Phi')
+										Y(Desc='Theta', CatID=1, FuncID=0, IsInteger=false, Units='deg', Y='Theta')
+										Z(Desc='rETotal', CatID=58, FuncID=0, IsInteger=false, Units='mV', Z='rETotal')
+									$end 'Trace3D'
+									$begin 'Trace3D'
+										name='Design 0:Solution 18:Pointset 1:Trace3D 2'
+										X(Desc='Phi', CatID=1, FuncID=0, IsInteger=false, Units='deg', X='Phi')
+										Y(Desc='Theta', CatID=1, FuncID=0, IsInteger=false, Units='deg', Y='Theta')
+										Z(Desc='GainTotal', CatID=28, FuncID=0, IsInteger=false, Units='', Z='GainTotal')
+									$end 'Trace3D'
+								$end 'Traces'
+							$end 'SolutionPointSet'
+							$begin 'SolutionPointSet'
+								ID=2
+								name='LastAdaptive:SolutionPointSet 3'
+								CurrentIndex=2
+								SolutionVersion=284
+								SimValueContext(0, 0, 2, 0, false, false, 1, 1, 0, 1, 1)
+								$begin 'SubSweeps'
+									$begin 'Theta'
+										All=true
+										Indices()
+										$begin 'SweepBase'
+											Variable='Theta'
+											RegularSweep=1
+											Units='deg'
+											Minimum=0
+											Maximum=3.14159265358979
+											Increment=0.174532925199433
+											CreateIndexedSubsweepFlag=true
+										$end 'SweepBase'
+									$end 'Theta'
+									$begin 'Phi'
+										All=true
+										Indices()
+										$begin 'SweepBase'
+											Variable='Phi'
+											RegularSweep=1
+											Units='deg'
+											Minimum=0
+											Maximum=6.28318530717959
+											Increment=0.174532925199433
+											CreateIndexedSubsweepFlag=true
+										$end 'SweepBase'
+									$end 'Phi'
+									$begin 'Freq'
+										All=false
+										Indices(0)
+										$begin 'SweepBase'
+											Variable='Freq'
+											Column='0.868GHz'
+											Units='GHz'
+										$end 'SweepBase'
+									$end 'Freq'
+								$end 'SubSweeps'
+								$begin 'Traces'
+									$begin 'Trace3D'
+										name='Design 0:Solution 18:Pointset 2:Trace3D 1'
+										X(Desc='Theta', CatID=1, FuncID=0, IsInteger=false, Units='deg', X='Theta')
+										Y(Desc='Phi', CatID=1, FuncID=0, IsInteger=false, Units='deg', Y='Phi')
+										Z(Desc='GainTotal', CatID=28, FuncID=0, IsInteger=false, Units='', Z='GainTotal')
+									$end 'Trace3D'
+								$end 'Traces'
+							$end 'SolutionPointSet'
+							$begin 'SolutionPointSet'
+								ID=3
+								name='LastAdaptive:SolutionPointSet 4'
+								CurrentIndex=2
+								SolutionVersion=284
+								SimValueContext(0, 0, 2, 0, false, false, -1, 1, 0, 1, 1)
+								$begin 'SubSweeps'
+									$begin 'Freq'
+										All=true
+										Indices()
+										$begin 'SweepBase'
+											Variable='Freq'
+											Column='0.868GHz'
+											Units='GHz'
+										$end 'SweepBase'
+									$end 'Freq'
+								$end 'SubSweeps'
+								$begin 'Traces'
+									$begin 'Trace2D'
+										name='Design 0:Solution 18:Pointset 3:Trace2D 1'
+										X(Desc='Freq', CatID=1, FuncID=0, IsInteger=false, Units='GHz', X='Freq')
+										Y(Desc='S(LumpPort1,LumpPort1)', CatID=3, FuncID=0, IsInteger=false, Units='', Y='S(LumpPort1,LumpPort1)')
+									$end 'Trace2D'
+								$end 'Traces'
+							$end 'SolutionPointSet'
+						$end 'SolutionPointSets'
+						IsPortOnly=false
+					$end 'SimDataExtractor'
+				$end 'Solution'
+				$begin 'Solution'
+					ID=32
+					Name='Adaptive_2'
+					$begin 'SimDataExtractor'
+						$begin 'Sweeps'
+							$begin 'Sweep'
+								Variable='Pass'
+								Column='1;2;3;4;5;6'
+								Units=''
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='Freq'
+								Column='0.868GHz'
+								Units='GHz'
+							$end 'Sweep'
+							$begin 'PostprocessSweep'
+								Variable='NormalizedDistance'
+								RegularSweep=1
+								Units=''
+								Minimum=0
+								Maximum=1
+								Increment=0.01
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phi'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Theta'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phase'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+						$end 'Sweeps'
+						IsPortOnly=false
+					$end 'SimDataExtractor'
+				$end 'Solution'
+				$begin 'Solution'
+					ID=35
+					Name='Adaptive_3'
+					$begin 'SimDataExtractor'
+						$begin 'Sweeps'
+							$begin 'Sweep'
+								Variable='Pass'
+								Column='1;2;3;4;5;6'
+								Units=''
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='Freq'
+								Column='1GHz'
+								Units='GHz'
+							$end 'Sweep'
+							$begin 'PostprocessSweep'
+								Variable='NormalizedDistance'
+								RegularSweep=1
+								Units=''
+								Minimum=0
+								Maximum=1
+								Increment=0.01
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phi'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Theta'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phase'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+						$end 'Sweeps'
+						IsPortOnly=false
+					$end 'SimDataExtractor'
+				$end 'Solution'
+				$begin 'Solution'
+					ID=38
+					Name='Adaptive_4'
+					$begin 'SimDataExtractor'
+						$begin 'Sweeps'
+							$begin 'Sweep'
+								Variable='Pass'
+								Column='1;2;3;4;5;6'
+								Units=''
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='Freq'
+								Column='1GHz'
+								Units='GHz'
+							$end 'Sweep'
+							$begin 'PostprocessSweep'
+								Variable='NormalizedDistance'
+								RegularSweep=1
+								Units=''
+								Minimum=0
+								Maximum=1
+								Increment=0.01
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phi'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Theta'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phase'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+						$end 'Sweeps'
+						IsPortOnly=false
+					$end 'SimDataExtractor'
+				$end 'Solution'
+				$begin 'Solution'
+					ID=41
+					Name='Adaptive_5'
+					$begin 'SimDataExtractor'
+						$begin 'Sweeps'
+							$begin 'Sweep'
+								Variable='Pass'
+								Column='1;2;3;4;5;6'
+								Units=''
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='Freq'
+								Column='1GHz'
+								Units='GHz'
+							$end 'Sweep'
+							$begin 'PostprocessSweep'
+								Variable='NormalizedDistance'
+								RegularSweep=1
+								Units=''
+								Minimum=0
+								Maximum=1
+								Increment=0.01
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phi'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Theta'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phase'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+						$end 'Sweeps'
+						IsPortOnly=false
+					$end 'SimDataExtractor'
+				$end 'Solution'
+				$begin 'Solution'
+					ID=44
+					Name='Adaptive_6'
+					$begin 'SimDataExtractor'
+						$begin 'Sweeps'
+							$begin 'Sweep'
+								Variable='Pass'
+								Column='1;2;3;4;5;6'
+								Units=''
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='Freq'
+								Column='1GHz'
+								Units='GHz'
+							$end 'Sweep'
+							$begin 'PostprocessSweep'
+								Variable='NormalizedDistance'
+								RegularSweep=1
+								Units=''
+								Minimum=0
+								Maximum=1
+								Increment=0.01
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phi'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Theta'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+							$begin 'PostprocessSweep'
+								Variable='Phase'
+								RegularSweep=1
+								Units='deg'
+								Minimum=0
+								Maximum=6.28318530717959
+								Increment=0.0872664625997165
+								CreateIndexedSubsweepFlag=false
+							$end 'PostprocessSweep'
+						$end 'Sweeps'
+						IsPortOnly=false
+					$end 'SimDataExtractor'
+				$end 'Solution'
+			$end 'SimSetup'
+			$begin 'Version ID Map'
+				V=283
+				$begin 'Setup'
+					N='Setup1'
+					V=283
+					Soln(N='Adaptive_1', V=284)
+					Soln(N='LastAdaptive', V=284)
+					Soln(N='Adaptive_2', V=284)
+					Soln(N='Adaptive_3', V=284)
+					Soln(N='Adaptive_4', V=284)
+					Soln(N='Adaptive_5', V=284)
+					Soln(N='Adaptive_6', V=284)
+				$end 'Setup'
+			$end 'Version ID Map'
+			$begin 'ID Map'
+				$begin 'Setup'
+					N='Setup1'
+					I=16
+					Soln(N='Adaptive_1', I=17)
+					Soln(N='LastAdaptive', I=18)
+					Soln(N='Adaptive_2', I=32)
+					Soln(N='Adaptive_3', I=35)
+					Soln(N='Adaptive_4', I=38)
+					Soln(N='Adaptive_5', I=41)
+					Soln(N='Adaptive_6', I=44)
+				$end 'Setup'
+			$end 'ID Map'
+		$end 'SolutionManager'
+		Notes=$begin_cdata$		$end_cdata$
+		$begin 'AnimationSetups'
+		$end 'AnimationSetups'
+	$end 'HFSSModel'
+	$begin 'DataInstances'
+		$begin 'Instance'
+			DesignEditor='HFSSDesign1'
+			$begin 'HfssDesignInstance'
+				DesignInstanceID=1
+				$begin 'WindowPosition'
+					$begin 'EditorWindow'
+						'3D Modeler'(Editor3d(View(WindowPos(3, -1, -1, -4, -30, 0, 0, 714, 355), OrientationMatrix(-0.146607473492622, 0.0506827831268311, -0.0640760585665703, 0, -0.0703720226883888, -0.0114770894870162, 0.151934787631035, 0, 0.0415005683898926, 0.159586161375046, 0.0312771536409855, 0, 1.0957302265524e-007, -6.43270595901413e-007, 87.1417846679688, 1, 0, -1.30799984931946, 1.30799984931946, -0.99999988079071, 0.99999988079071, -92.5019760131836, -81.7815933227539), Drawings[5: 'SkinDepth1', 'Detach1', 'Box1', 'Sphere1', 'Mag_E1'], 'View Data'('Render Mode'=1))))
+					$end 'EditorWindow'
+					$begin 'ReportWindow'
+						'XY Plot 1'(Report2D())
+						'3D Polar Plot 1'(Editor3d())
+						'3D Cartesian Plot 1'(Editor3d())
+						'XY Plot 2'(Report2D())
+						'3D Cartesian Plot 2'(Editor3d())
+						'Smith Plot 1'(Report2D())
+					$end 'ReportWindow'
+				$end 'WindowPosition'
+				$begin 'Reports'
+					$begin 'Report2D'
+						name='XY Plot 1'
+						ReportType=0
+						DisplayType=1
+						Title=''
+						Domain=''
+						$begin 'Graph2Ds'
+							$begin 'Graph2D'
+								TraceName='Design 0:Solution 18:Pointset 0:Trace2D 1'
+								Type='Continuous'
+								Axis='Y1'
+							$end 'Graph2D'
+						$end 'Graph2Ds'
+						$begin 'PlotInfo'
+							PlotType='XYPlot'
+							Frozen=false
+							MarkDirty=false
+							Subtitle=''
+							Filename='HFSSDesign1'
+							CircuitTitle='<Design>'
+							Title='XY Plot 1'
+							DateLabel='<01 May 2008>'
+							TimeLabel='<17:04:51>'
+							Name='Ansoft Corporation'
+							DefaultTitle=false
+							Arrows=false
+							ZoomMode=false
+							ZoomType=1
+							UserSelectedTrace=-1
+							Rho=0
+							RhoMin=0
+							MarkerType='NoMarker'
+							MarkerScale='Mag-Phase'
+							UserSelectedMarkerPoint=0
+							SymbolDisplay=true
+							SymbolInterval=15
+							$begin 'Axis'
+								$begin 'Axis0'
+									AxisType='XAxis'
+									AxisIndex=0
+									AxisScale='Linear'
+									AxisName='Freq'
+									AxisLabel='DEFAULT'
+									AxisMax=975000000
+									AxisMin=775000000
+									AxisMajorDivision=8
+									AxisMinorDivision=5
+									AxisManualRescale=false
+									AxisAutoUnits=true
+									AxisSide='Left'
+									$begin 'Units'
+										UnitFieldWidth=5
+										UnitPrecision=2
+										ScientificNotation=false
+										FullUnitType='MHz'
+									$end 'Units'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'Axis0'
+								$begin 'Axis1'
+									AxisType='YAxis'
+									AxisIndex=1
+									AxisScale='Linear'
+									AxisName='dB(S(LumpPort1,LumpPort1)) [db] '
+									AxisLabel='DEFAULT'
+									AxisMax=-4e-005
+									AxisMin=-5e-005
+									AxisMajorDivision=5
+									AxisMinorDivision=4
+									AxisManualRescale=false
+									AxisAutoUnits=true
+									AxisSide='Left'
+									$begin 'Units'
+										UnitFieldWidth=7
+										UnitPrecision=6
+										ScientificNotation=false
+										FullUnitType=''
+									$end 'Units'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'Axis1'
+							$end 'Axis'
+							DisplayMinorGrid=true
+							InitialGrid=1
+							DisplayGridLabel=true
+							DisplayTraceLabel=false
+							$begin 'Trace'
+								$begin 'TraceInfo0'
+									TraceType='Continuous'
+									AutoTraceTitle=''
+									UserTraceTitle=''
+									UseAutoTraceTitle=true
+									$begin 'Attribute'
+										Color=16711680
+										ColorOdd=0
+										LineWidth=10
+										LineStyle=0
+										FillStyle=600
+										Visible=false
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TraceInfo0'
+							$end 'Trace'
+							$begin 'AllAttributes'
+								BackGroundColor=16777215
+								ContrastColor=16777215
+								$begin 'TitleAttr'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=168
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TitleAttr'
+								$begin 'MajorGridAttr'
+									$begin 'Attribute'
+										Color=8421504
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=110
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'MajorGridAttr'
+								$begin 'MinorGridAttr'
+									$begin 'Attribute'
+										Color=12632256
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=110
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'MinorGridAttr'
+							$end 'AllAttributes'
+						$end 'PlotInfo'
+					$end 'Report2D'
+					$begin 'Report3D'
+						name='3D Polar Plot 1'
+						hasWindowBeenOpened=false
+						ReportType=3
+						DisplayType=7
+						$begin 'Graph3Ds'
+							$begin 'Graph3D'
+								TraceName='Design 0:Solution 18:Pointset 1:Trace3D 1'
+								GraphName='Trace_1'
+								$begin 'Design 0:Solution 18:Pointset 1:Trace3D 1_Sets'
+									Name='Trace_1'
+									IsoValType='Tone'
+									TraceType='Surface'
+									SmoothShade=true
+									Filled=true
+									Transparency=0
+									AddGrid=false
+									MapColor=false
+									CurveLineStyle=4
+									CurveLineWidth=5
+									CurveMarkStyle=9
+									CurveMarkSize=5
+									GridColor(102, 102, 102)
+									$begin 'OutlineID'
+										AddOutLine=false
+										Width=4
+										Style='Solid'
+										'Outline color'(191, 191, 191)
+									$end 'OutlineID'
+								$end 'Design 0:Solution 18:Pointset 1:Trace3D 1_Sets'
+							$end 'Graph3D'
+							$begin 'Graph3D'
+								TraceName='Design 0:Solution 18:Pointset 1:Trace3D 2'
+								GraphName='Trace_1'
+								$begin 'Design 0:Solution 18:Pointset 1:Trace3D 2_Sets'
+									Name='Trace_1'
+									IsoValType='Tone'
+									TraceType='Surface'
+									SmoothShade=true
+									Filled=true
+									Transparency=0
+									AddGrid=false
+									MapColor=false
+									CurveLineStyle=4
+									CurveLineWidth=5
+									CurveMarkStyle=9
+									CurveMarkSize=5
+									GridColor(102, 102, 102)
+									$begin 'OutlineID'
+										AddOutLine=false
+										Width=4
+										Style='Solid'
+										'Outline color'(191, 191, 191)
+									$end 'OutlineID'
+								$end 'Design 0:Solution 18:Pointset 1:Trace3D 2_Sets'
+							$end 'Graph3D'
+						$end 'Graph3Ds'
+						$begin 'PolarReport3DSettings'
+							'Real time mode'=true
+							$begin 'ColorMapSettings'
+								ColorMapType='Spectrum'
+								SpectrumType='Rainbow'
+								UniformColor(127, 255, 255)
+								RampColor(255, 127, 127)
+							$end 'ColorMapSettings'
+							$begin 'LabelsSettings'
+								ShowTitle=false
+								TitleText='Antenna_prova: rETotal versus Phi and Theta (05/01/08)'
+								ShowAxes=true
+								X_Label='Phi'
+								Y_Label='Theta'
+								Z_Label='rETotal'
+							$end 'LabelsSettings'
+							$begin 'Scale3DSettings'
+								m_nLevels=15
+								m_autoScale=true
+								minvalue=3.5269720457185e-008
+								maxvalue=0.00189590040352403
+								log=false
+								IntrinsicMin=3.5269720457185e-008
+								IntrinsicMax=0.00189590040352403
+							$end 'Scale3DSettings'
+							$begin 'zAxes'
+								MajorTicksNum=11
+								MinorTicksNum=5
+								DisplayMajor=true
+								DisplayMinor=false
+							$end 'zAxes'
+						$end 'PolarReport3DSettings'
+					$end 'Report3D'
+					$begin 'Report3D'
+						name='3D Cartesian Plot 1'
+						hasWindowBeenOpened=false
+						ReportType=3
+						DisplayType=6
+						$begin 'Graph3Ds'
+							$begin 'Graph3D'
+								TraceName='Design 0:Solution 18:Pointset 2:Trace3D 1'
+								GraphName='Trace_1'
+								$begin 'Design 0:Solution 18:Pointset 2:Trace3D 1_Sets'
+									Name='Trace_1'
+									IsoValType='Tone'
+									TraceType='Surface'
+									SmoothShade=true
+									Filled=true
+									Transparency=0
+									AddGrid=false
+									MapColor=false
+									CurveLineStyle=4
+									CurveLineWidth=5
+									CurveMarkStyle=9
+									CurveMarkSize=5
+									GridColor(102, 102, 102)
+									$begin 'OutlineID'
+										AddOutLine=false
+										Width=4
+										Style='Solid'
+										'Outline color'(191, 191, 191)
+									$end 'OutlineID'
+								$end 'Design 0:Solution 18:Pointset 2:Trace3D 1_Sets'
+							$end 'Graph3D'
+						$end 'Graph3Ds'
+						$begin 'CartReport3DSettings'
+							'Real time mode'=true
+							$begin 'ColorMapSettings'
+								ColorMapType='Spectrum'
+								SpectrumType='Rainbow'
+								UniformColor(127, 255, 255)
+								RampColor(255, 127, 127)
+							$end 'ColorMapSettings'
+							$begin 'LabelsSettings'
+								ShowTitle=false
+								TitleText='Antenna_prova: GainTotal versus Theta and Phi (05/01/08)'
+								ShowAxes=true
+								X_Label='Theta'
+								Y_Label='Phi'
+								Z_Label='GainTotal'
+							$end 'LabelsSettings'
+							$begin 'Scale3DSettings'
+								m_nLevels=15
+								m_autoScale=true
+								minvalue=3.5269720457185e-008
+								maxvalue=0.00189590040352403
+								log=false
+								IntrinsicMin=3.5269720457185e-008
+								IntrinsicMax=0.00189590040352403
+							$end 'Scale3DSettings'
+							$begin 'xLevels'
+								m_nLevels=15
+								m_autoScale=true
+								minvalue=0
+								maxvalue=3.14159265358979
+								log=false
+								IntrinsicMin=0
+								IntrinsicMax=3.14159265358979
+							$end 'xLevels'
+							$begin 'yLevels'
+								m_nLevels=15
+								m_autoScale=true
+								minvalue=0
+								maxvalue=6.28318530717959
+								log=false
+								IntrinsicMin=0
+								IntrinsicMax=6.28318530717959
+							$end 'yLevels'
+							$begin 'xAxes'
+								MajorTicksNum=11
+								MinorTicksNum=5
+								DisplayMajor=true
+								DisplayMinor=false
+							$end 'xAxes'
+							$begin 'yAxes'
+								MajorTicksNum=11
+								MinorTicksNum=5
+								DisplayMajor=true
+								DisplayMinor=false
+							$end 'yAxes'
+							$begin 'zAxes'
+								MajorTicksNum=11
+								MinorTicksNum=5
+								DisplayMajor=true
+								DisplayMinor=false
+							$end 'zAxes'
+						$end 'CartReport3DSettings'
+					$end 'Report3D'
+					$begin 'Report2D'
+						name='XY Plot 2'
+						ReportType=0
+						DisplayType=1
+						Title=''
+						Domain=''
+						$begin 'Graph2Ds'
+							$begin 'Graph2D'
+								TraceName='Design 0:Solution 18:Pointset 0:Trace2D 2'
+								Type='Continuous'
+								Axis='Y1'
+							$end 'Graph2D'
+						$end 'Graph2Ds'
+						$begin 'PlotInfo'
+							PlotType='XYPlot'
+							Frozen=false
+							MarkDirty=false
+							Subtitle=''
+							Filename='HFSSDesign1'
+							CircuitTitle='<Design>'
+							Title='XY Plot 2'
+							DateLabel='<01 May 2008>'
+							TimeLabel='<17:04:46>'
+							Name='Ansoft Corporation'
+							DefaultTitle=false
+							Arrows=false
+							ZoomMode=false
+							ZoomType=1
+							UserSelectedTrace=-1
+							Rho=0
+							RhoMin=0
+							MarkerType='NoMarker'
+							MarkerScale='Mag-Phase'
+							UserSelectedMarkerPoint=0
+							SymbolDisplay=true
+							SymbolInterval=15
+							$begin 'Axis'
+								$begin 'Axis0'
+									AxisType='XAxis'
+									AxisIndex=0
+									AxisScale='Linear'
+									AxisName='Freq'
+									AxisLabel='DEFAULT'
+									AxisMax=975000000
+									AxisMin=775000000
+									AxisMajorDivision=8
+									AxisMinorDivision=5
+									AxisManualRescale=false
+									AxisAutoUnits=true
+									AxisSide='Left'
+									$begin 'Units'
+										UnitFieldWidth=5
+										UnitPrecision=2
+										ScientificNotation=false
+										FullUnitType='MHz'
+									$end 'Units'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'Axis0'
+								$begin 'Axis1'
+									AxisType='YAxis'
+									AxisIndex=1
+									AxisScale='Linear'
+									AxisName='ang_deg(Z(LumpPort1,LumpPort1))'
+									AxisLabel='DEFAULT'
+									AxisMax=-1.39626
+									AxisMin=-1.74533
+									AxisMajorDivision=4
+									AxisMinorDivision=5
+									AxisManualRescale=false
+									AxisAutoUnits=true
+									AxisSide='Left'
+									$begin 'Units'
+										UnitFieldWidth=4
+										UnitPrecision=2
+										ScientificNotation=false
+										FullUnitType='deg'
+									$end 'Units'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'Axis1'
+							$end 'Axis'
+							DisplayMinorGrid=true
+							InitialGrid=1
+							DisplayGridLabel=true
+							DisplayTraceLabel=false
+							$begin 'Trace'
+								$begin 'TraceInfo0'
+									TraceType='Continuous'
+									AutoTraceTitle=''
+									UserTraceTitle=''
+									UseAutoTraceTitle=true
+									$begin 'Attribute'
+										Color=16711680
+										ColorOdd=0
+										LineWidth=10
+										LineStyle=0
+										FillStyle=600
+										Visible=false
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TraceInfo0'
+							$end 'Trace'
+							$begin 'AllAttributes'
+								BackGroundColor=16777215
+								ContrastColor=16777215
+								$begin 'TitleAttr'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=168
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TitleAttr'
+								$begin 'MajorGridAttr'
+									$begin 'Attribute'
+										Color=8421504
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=110
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'MajorGridAttr'
+								$begin 'MinorGridAttr'
+									$begin 'Attribute'
+										Color=12632256
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=110
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'MinorGridAttr'
+							$end 'AllAttributes'
+						$end 'PlotInfo'
+					$end 'Report2D'
+					$begin 'Report3D'
+						name='3D Cartesian Plot 2'
+						hasWindowBeenOpened=false
+						ReportType=0
+						DisplayType=6
+						$begin 'Graph3Ds'
+							$begin 'Graph3D'
+								TraceName='Design 0:Solution 18:Pointset 0:Trace3D 3'
+								GraphName='Trace_1'
+								$begin 'Design 0:Solution 18:Pointset 0:Trace3D 3_Sets'
+									Name='Trace_1'
+									IsoValType='Tone'
+									TraceType='Point'
+									SmoothShade=true
+									Filled=true
+									Transparency=0
+									AddGrid=false
+									MapColor=false
+									CurveLineStyle=4
+									CurveLineWidth=5
+									CurveMarkStyle=9
+									CurveMarkSize=5
+									GridColor(102, 102, 102)
+									$begin 'OutlineID'
+										AddOutLine=false
+										Width=4
+										Style='Solid'
+										'Outline color'(191, 191, 191)
+									$end 'OutlineID'
+								$end 'Design 0:Solution 18:Pointset 0:Trace3D 3_Sets'
+							$end 'Graph3D'
+						$end 'Graph3Ds'
+						$begin 'CartReport3DSettings'
+							'Real time mode'=true
+							$begin 'ColorMapSettings'
+								ColorMapType='Spectrum'
+								SpectrumType='Rainbow'
+								UniformColor(127, 255, 255)
+								RampColor(255, 127, 127)
+							$end 'ColorMapSettings'
+							$begin 'LabelsSettings'
+								ShowTitle=false
+								TitleText='Antenna_prova: VSWR(LumpPort1) versus Freq and Freq (05/01/08)'
+								ShowAxes=true
+								X_Label='Freq'
+								Y_Label='Freq'
+								Z_Label='VSWR(LumpPort1)'
+							$end 'LabelsSettings'
+							$begin 'Scale3DSettings'
+								m_nLevels=15
+								m_autoScale=true
+								minvalue=100000
+								maxvalue=250000
+								log=false
+								IntrinsicMin=100000
+								IntrinsicMax=250000
+							$end 'Scale3DSettings'
+							$begin 'xLevels'
+								m_nLevels=15
+								m_autoScale=true
+								minvalue=434000000
+								maxvalue=1085000000
+								log=false
+								IntrinsicMin=434000000
+								IntrinsicMax=1085000000
+							$end 'xLevels'
+							$begin 'yLevels'
+								m_nLevels=15
+								m_autoScale=true
+								minvalue=434000000
+								maxvalue=1085000000
+								log=false
+								IntrinsicMin=434000000
+								IntrinsicMax=1085000000
+							$end 'yLevels'
+							$begin 'xAxes'
+								MajorTicksNum=11
+								MinorTicksNum=5
+								DisplayMajor=true
+								DisplayMinor=false
+							$end 'xAxes'
+							$begin 'yAxes'
+								MajorTicksNum=11
+								MinorTicksNum=5
+								DisplayMajor=true
+								DisplayMinor=false
+							$end 'yAxes'
+							$begin 'zAxes'
+								MajorTicksNum=11
+								MinorTicksNum=5
+								DisplayMajor=true
+								DisplayMinor=false
+							$end 'zAxes'
+						$end 'CartReport3DSettings'
+					$end 'Report3D'
+					$begin 'Report2D'
+						name='Smith Plot 1'
+						ReportType=0
+						DisplayType=5
+						Title=''
+						Domain=''
+						$begin 'Graph2Ds'
+							$begin 'Graph2D'
+								TraceName='Design 0:Solution 18:Pointset 3:Trace2D 1'
+								Type='Continuous'
+								Axis='Y1'
+							$end 'Graph2D'
+						$end 'Graph2Ds'
+						$begin 'PlotInfo'
+							PlotType='SmithPlot'
+							Frozen=false
+							MarkDirty=false
+							Subtitle=''
+							Filename='HFSSDesign1'
+							CircuitTitle='<Design>'
+							Title='Smith Plot 1'
+							DateLabel='<01 May 2008>'
+							TimeLabel='<17:04:44>'
+							Name='Ansoft Corporation'
+							DefaultTitle=false
+							Arrows=false
+							ZoomMode=false
+							ZoomType=2
+							UserSelectedTrace=-1
+							Rho=1
+							RhoMin=0
+							MarkerType='NoMarker'
+							MarkerScale='Mag-Phase'
+							UserSelectedMarkerPoint=0
+							SymbolDisplay=true
+							SymbolInterval=15
+							$begin 'Axis'
+								$begin 'Axis0'
+									AxisType='XAxis'
+									AxisIndex=0
+									AxisScale='Linear'
+									AxisName='Freq'
+									AxisLabel='DEFAULT'
+									AxisMax=0
+									AxisMin=0
+									AxisMajorDivision=5
+									AxisMinorDivision=5
+									AxisManualRescale=false
+									AxisAutoUnits=true
+									AxisSide='Left'
+									$begin 'Units'
+										UnitFieldWidth=4
+										UnitPrecision=2
+										ScientificNotation=false
+										FullUnitType='MHz'
+									$end 'Units'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=10
+										LineStyle=0
+										FillStyle=600
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'Axis0'
+								$begin 'Axis1'
+									AxisType='YAxis'
+									AxisIndex=1
+									AxisScale='Linear'
+									AxisName='S(LumpPort1,LumpPort1)'
+									AxisLabel='DEFAULT'
+									AxisMax=0
+									AxisMin=0
+									AxisMajorDivision=0
+									AxisMinorDivision=0
+									AxisManualRescale=false
+									AxisAutoUnits=true
+									AxisSide='Left'
+									$begin 'Units'
+										UnitFieldWidth=4
+										UnitPrecision=2
+										ScientificNotation=false
+										FullUnitType=''
+									$end 'Units'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=10
+										LineStyle=0
+										FillStyle=600
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'Axis1'
+							$end 'Axis'
+							DisplayMinorGrid=true
+							InitialGrid=1
+							DisplayGridLabel=true
+							DisplayTraceLabel=false
+							$begin 'Trace'
+								$begin 'TraceInfo0'
+									TraceType='Continuous'
+									AutoTraceTitle=''
+									UserTraceTitle=''
+									UseAutoTraceTitle=false
+									$begin 'Attribute'
+										Color=255
+										ColorOdd=0
+										LineWidth=10
+										LineStyle=0
+										FillStyle=600
+										Visible=false
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TraceInfo0'
+							$end 'Trace'
+							$begin 'AllAttributes'
+								BackGroundColor=16777215
+								ContrastColor=16777215
+								$begin 'TitleAttr'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=168
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TitleAttr'
+								$begin 'MajorGridAttr'
+									$begin 'Attribute'
+										Color=8421504
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=110
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'MajorGridAttr'
+								$begin 'MinorGridAttr'
+									$begin 'Attribute'
+										Color=12632256
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=110
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'MinorGridAttr'
+								$begin 'RhoAxisAttr'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=10
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'RhoAxisAttr'
+								$begin 'CircAxisAttr'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'CircAxisAttr'
+								$begin 'CircularGridsAttr'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+									$begin 'Attribute'
+										Color=12130560
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+									$begin 'Attribute'
+										Color=12130560
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+									$begin 'Attribute'
+										Color=12130560
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+									$begin 'Attribute'
+										Color=12130560
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'CircularGridsAttr'
+							$end 'AllAttributes'
+						$end 'PlotInfo'
+					$end 'Report2D'
+				$end 'Reports'
+			$end 'HfssDesignInstance'
+		$end 'Instance'
+	$end 'DataInstances'
+$end 'AnsoftProject'

@@ -1,0 +1,652 @@
+$begin 'AnsoftProject'
+  Created='Tue Feb 11 10:42:54 2003'
+  Product='HFSS'
+  NextUniqueID=0
+  $begin 'Desktop'
+    Version(1, 0)
+  $end 'Desktop'
+  $begin 'DesignMgrEnvironment'
+    CompInstCounter=1
+    GPortCounter=0
+    NetworkDataCounter=0
+    NetCounter=0
+  $end 'DesignMgrEnvironment'
+  $begin 'Datasets'
+    NextUniqueID=0
+    $begin 'DatasetDefinitions'
+    $end 'DatasetDefinitions'
+  $end 'Datasets'
+  $begin 'Definitions'
+    $begin 'Folders'
+      Definitions(7338, 10000, 1, 1, 0, false, false)
+      Materials(7338, 9001, 9, 3, 1, false, false)
+    $end 'Folders'
+    $begin 'Materials'
+      $begin 'vacuum'
+        permittivity='1'
+        ModTime=1044978173
+        Library='Materials'
+        LibLocation='SysLibrary '
+      $end 'vacuum'
+      $begin 'air'
+        permittivity='1.0006'
+        permeability='1.0000004'
+        ModTime=1044978173
+        Library='Materials'
+        LibLocation='SysLibrary '
+      $end 'air'
+    $end 'Materials'
+    $begin 'Symbols'
+    $end 'Symbols'
+    $begin 'Footprints'
+    $end 'Footprints'
+    $begin 'Padstacks'
+    $end 'Padstacks'
+    $begin 'DefInfo'
+      HFSSModel1(4294967295, 0, '', 1044978173, '', '', '', '', '', '', '', '', '', 'Project')
+    $end 'DefInfo'
+    $begin 'Compdefs'
+      $begin 'HFSSModel1'
+        Refbase='U'
+        NumParts=1
+        $begin 'SimModels'
+        $end 'SimModels'
+        $begin 'Properties'
+          TextProp('Representation', 'SD', '', 'HFSSModel1')
+          TextProp('Owner', 'SD', '', 'Hfss')
+        $end 'Properties'
+      $end 'HFSSModel1'
+    $end 'Compdefs'
+  $end 'Definitions'
+  $begin 'HFSSEnvironment'
+    Version(1, 0)
+  $end 'HFSSEnvironment'
+  $begin 'geometry3deditor'
+    Version(1, 0)
+  $end 'geometry3deditor'
+  $begin 'HFSSModel'
+    Name='HFSSModel1'
+    SolutionType='Eigenmode'
+    MaterialDensity=1
+    MassOfTissue=1
+    $begin 'ModelSetup'
+      $begin 'Editor3D Doc Preferences'
+        'Plane Background'=true
+        BackgroundColor1=16777215
+        BackgroundColor2=0
+        'Need Lights'=true
+        'Ambient Light'=8355711
+        'Num Lights'=2
+        Light0[4: 8355711, 0.200000002980232, 0.400000005960464, 1]
+        Light1[4: 8355711, -0.200000002980232, -0.400000005960464, -1]
+      $end 'Editor3D Doc Preferences'
+      SnapMode=31
+      $begin 'GeometryCore'
+        NativeKernel='ACIS'
+        Units='mm'
+        InstanceID=-1
+        $begin 'GeometryOperations'
+          NextUniqueID=31
+          $begin 'CoordinateSystems'
+          $end 'CoordinateSystems'
+          $begin 'ToplevelParts'
+            $begin 'GeometryPart'
+              $begin 'Attributes'
+                Name='cavity'
+                Flags=''
+                Color='(228 97 100)'
+                Transparency=0.400000005960464
+                PartCoordinateSystem=1
+                MaterialName='air'
+                SolveInside=true
+              $end 'Attributes'
+              $begin 'Operations'
+                $begin 'Operation'
+                  OperationType='Cylinder'
+                  ID=5
+                  ReferenceCoordSystemID=1
+                  $begin 'CylinderParameters'
+                    XCenter='0'
+                    YCenter='0'
+                    ZCenter='0'
+                    Radius='42.29mm'
+                    Height='22.792mm'
+                    WhichAxis='Z'
+                  $end 'CylinderParameters'
+                  ParentPartID=6
+                  $begin 'OperationIdentity'
+                    $begin 'Topology'
+                      NumLumps=1
+                      NumShells=1
+                      NumFaces=3
+                      NumWires=0
+                      NumLoops=4
+                      NumCoedges=4
+                      NumEdges=2
+                      NumVertices=2
+                    $end 'Topology'
+                    BodyID=6
+                    StartFaceID=7
+                    StartEdgeID=10
+                    StartVertexID=12
+                    NumNewFaces=3
+                    NumNewEdges=2
+                    NumNewVertices=2
+                  $end 'OperationIdentity'
+                $end 'Operation'
+                $begin 'Operation'
+                  OperationType='Substract'
+                  ID=23
+                  $begin 'SubtractParameters'
+                    KeepOriginals=false
+                    BlankPart=6
+                    NumToolParts=1
+                    ToolParts(15)
+                  $end 'SubtractParameters'
+                  ParentPartID=6
+                  $begin 'OperationIdentity'
+                    $begin 'Topology'
+                      NumLumps=1
+                      NumShells=1
+                      NumFaces=5
+                      NumWires=0
+                      NumLoops=8
+                      NumCoedges=8
+                      NumEdges=4
+                      NumVertices=4
+                    $end 'Topology'
+                    BodyID=-1
+                    StartFaceID=24
+                    StartEdgeID=26
+                    StartVertexID=28
+                    NumNewFaces=2
+                    NumNewEdges=2
+                    NumNewVertices=2
+                  $end 'OperationIdentity'
+                  BlankOperation=5
+                  NumToolOperations=1
+                  ToolOperations(14)
+                $end 'Operation'
+              $end 'Operations'
+            $end 'GeometryPart'
+          $end 'ToplevelParts'
+          $begin 'OperandParts'
+            $begin 'GeometryPart'
+              $begin 'Attributes'
+                Name='Cylinder1'
+                Flags=''
+                Color='(132 132 193)'
+                Transparency=0.400000005960464
+                PartCoordinateSystem=1
+                MaterialName='vacuum'
+                SolveInside=true
+              $end 'Attributes'
+              $begin 'Operations'
+                $begin 'Operation'
+                  OperationType='Cylinder'
+                  ID=14
+                  ReferenceCoordSystemID=1
+                  $begin 'CylinderParameters'
+                    XCenter='0mm'
+                    YCenter='0mm'
+                    ZCenter='22.792mm'
+                    Radius='6.004mm'
+                    Height='-14.834mm'
+                    WhichAxis='Z'
+                  $end 'CylinderParameters'
+                  ParentPartID=15
+                  $begin 'OperationIdentity'
+                    $begin 'Topology'
+                      NumLumps=1
+                      NumShells=1
+                      NumFaces=3
+                      NumWires=0
+                      NumLoops=4
+                      NumCoedges=4
+                      NumEdges=2
+                      NumVertices=2
+                    $end 'Topology'
+                    BodyID=15
+                    StartFaceID=16
+                    StartEdgeID=19
+                    StartVertexID=21
+                    NumNewFaces=3
+                    NumNewEdges=2
+                    NumNewVertices=2
+                  $end 'OperationIdentity'
+                $end 'Operation'
+              $end 'Operations'
+            $end 'GeometryPart'
+          $end 'OperandParts'
+          $begin 'Planes'
+            $begin 'GeometryPlane'
+              $begin 'Attributes'
+                Name='Plane1'
+                Color='(132 132 193)'
+              $end 'Attributes'
+              $begin 'Operation'
+                OperationType='Plane'
+                ID=30
+                ReferenceCoordSystemID=1
+                $begin 'PlaneParameters'
+                  PlaneBaseX='0mm'
+                  PlaneBaseY='0mm'
+                  PlaneBaseZ='0mm'
+                  PlaneNormalX='0mm'
+                  PlaneNormalY='20mm'
+                  PlaneNormalZ='0mm'
+                $end 'PlaneParameters'
+                ParentPartID=-1
+              $end 'Operation'
+            $end 'GeometryPlane'
+          $end 'Planes'
+          $begin 'Points'
+          $end 'Points'
+          $begin 'GeometryEntityLists'
+          $end 'GeometryEntityLists'
+        $end 'GeometryOperations'
+        $begin 'GeometryDependencies'
+          $begin 'DependencyInformation'
+            NumParents=1
+            DependencyObject('GeometryBodyOperation', 5)
+            DependencyObject('CoordinateSystem', 1)
+          $end 'DependencyInformation'
+          $begin 'DependencyInformation'
+            NumParents=2
+            DependencyObject('GeometryBodyOperation', 23)
+            DependencyObject('GeometryBodyOperation', 5)
+            DependencyObject('GeometryBodyOperation', 14)
+          $end 'DependencyInformation'
+          $begin 'DependencyInformation'
+            NumParents=1
+            DependencyObject('GeometryBodyOperation', 14)
+            DependencyObject('CoordinateSystem', 1)
+          $end 'DependencyInformation'
+          $begin 'DependencyInformation'
+            NumParents=1
+            DependencyObject('GeometryOperation', 30)
+            DependencyObject('CoordinateSystem', 1)
+          $end 'DependencyInformation'
+        $end 'GeometryDependencies'
+      $end 'GeometryCore'
+    $end 'ModelSetup'
+    $begin 'BoundarySetup'
+      $begin 'GlobalBoundData'
+        PortImpedance='1'
+      $end 'GlobalBoundData'
+      $begin 'ProductSpecificData'
+        $begin 'PMLData'
+          $begin 'PMLGroups'
+          $end 'PMLGroups'
+        $end 'PMLData'
+      $end 'ProductSpecificData'
+      $begin 'Boundaries'
+        NextUniqueID=0
+      $end 'Boundaries'
+    $end 'BoundarySetup'
+    $begin 'MeshSetup'
+      $begin 'MeshOperations'
+        NextUniqueID=0
+      $end 'MeshOperations'
+    $end 'MeshSetup'
+    $begin 'AnalysisSetup'
+      $begin 'SolveSetups'
+        NextUniqueID=1
+        $begin 'Setup1'
+          ID=0
+          SetupType='HfssEigen'
+          MinimumFrequency='1GHz'
+          NumModes=1
+          MaxDeltaFreq=0.1
+          ConvergeOnRealFreq=false
+          MaximumPasses=10
+          MinimumPasses=1
+          MinimumConvergedPasses=1
+          PercentRefinement=20
+          ReducedSolutionBasis=false
+          DoLambdaRefine=true
+          DoMaterialLambda=true
+          Target=0.25
+        $end 'Setup1'
+      $end 'SolveSetups'
+    $end 'AnalysisSetup'
+    $begin 'Optimetrics'
+      $begin 'OptimetricsSetups'
+        NextUniqueID=0
+      $end 'OptimetricsSetups'
+    $end 'Optimetrics'
+    $begin 'Solutions'
+      FieldType='NoIncidentWave'
+      Entry(ID=-10, Index=0, Terminal=false, Terminated=false, Magnitude=1, Phase=0)
+    $end 'Solutions'
+    $begin 'PortFieldDisplay'
+    $end 'PortFieldDisplay'
+    $begin 'FieldsReporter'
+      $begin 'FieldsCalculator'
+        Line_Discretization=1000
+      $end 'FieldsCalculator'
+      $begin 'FieldsPlotManagerID'
+        NextUniqueID=2
+        NumQuantityType=2
+        $begin 'QuantityFolder_1'
+          QuantityType='E Field1'
+          'Real time mode'=true
+          $begin 'ColorMapSettings'
+            ColorMapType='Spectrum'
+            SpectrumType='Rainbow'
+            UniformColor(127, 255, 255)
+            RampColor(255, 127, 127)
+          $end 'ColorMapSettings'
+          $begin 'LabelsSettings'
+            ShowTitle=false
+            TitleText=''
+            ShowAxes=true
+            X_Label='X'
+            Y_Label='Y'
+            Z_Label='Z'
+          $end 'LabelsSettings'
+          $begin 'Scale3DSettings'
+            m_nLevels=15
+            m_autoScale=true
+            minvalue=6.1842260947742e-006
+            maxvalue=0.0663850754499435
+            log=false
+            IntrinsicMin=6.1842260947742e-006
+            IntrinsicMax=0.0663850754499435
+          $end 'Scale3DSettings'
+          $begin 'Marker3DSettings'
+            MarkerType=9
+            MarkerMapSize=true
+            MarkerMapColor=false
+            MarkerSize=0.25
+          $end 'Marker3DSettings'
+          $begin 'Arrow3DSettings'
+            ArrowType=1
+            ArrowMapSize=true
+            ArrowMapColor=true
+            ShowArrowTail=true
+            ArrowSize=0.25
+          $end 'Arrow3DSettings'
+        $end 'QuantityFolder_1'
+        $begin 'QuantityFolder_2'
+          QuantityType='E Field2'
+          'Real time mode'=true
+          $begin 'ColorMapSettings'
+            ColorMapType='Spectrum'
+            SpectrumType='Rainbow'
+            UniformColor(127, 255, 255)
+            RampColor(255, 127, 127)
+          $end 'ColorMapSettings'
+          $begin 'LabelsSettings'
+            ShowTitle=false
+            TitleText=''
+            ShowAxes=true
+            X_Label='X'
+            Y_Label='Y'
+            Z_Label='Z'
+          $end 'LabelsSettings'
+          $begin 'Scale3DSettings'
+            m_nLevels=15
+            m_autoScale=true
+            minvalue=0.000188707344932482
+            maxvalue=0.715350747108459
+            log=false
+            IntrinsicMin=0.000188707344932482
+            IntrinsicMax=0.715350747108459
+          $end 'Scale3DSettings'
+          $begin 'Marker3DSettings'
+            MarkerType=9
+            MarkerMapSize=true
+            MarkerMapColor=false
+            MarkerSize=0.25
+          $end 'Marker3DSettings'
+          $begin 'Arrow3DSettings'
+            ArrowType=1
+            ArrowMapSize=true
+            ArrowMapColor=true
+            ShowArrowTail=true
+            ArrowSize=0.25
+          $end 'Arrow3DSettings'
+        $end 'QuantityFolder_2'
+        NumPlots=2
+        $begin 'PlotDefinition_1'
+          PlotName='Mag_E1'
+          PlotDefinitionId=0
+          SolutionId=27
+          QuantityId=2
+          QuantityType='E Field1'
+          UserSpecifyName=0
+          UserSpecifyFolder=0
+          IntrinsicVar='Phase=\'0deg\''
+          FieldPlotGeometry(1, 128, 2, 1, 9)
+          FilterIds(0)
+          $begin 'PlotOnSurfaceSettings'
+            Filled=false
+            IsoValType='Tone'
+            SmoothShade=true
+            AddGrid=false
+            MapTransparency=true
+            Transparency=0
+            ArrowUniform=true
+            ArrowSpacing=0.100000001490116
+            GridColor(255, 255, 255)
+          $end 'PlotOnSurfaceSettings'
+        $end 'PlotDefinition_1'
+        $begin 'PlotDefinition_2'
+          PlotName='Vector_E1'
+          PlotDefinitionId=1
+          SolutionId=27
+          QuantityId=10
+          QuantityType='E Field2'
+          UserSpecifyName=0
+          UserSpecifyFolder=0
+          IntrinsicVar='Phase=\'0deg\''
+          FieldPlotGeometry(1, 128, 0, 1, -2)
+          FilterIds(0)
+          $begin 'PlotOnSurfaceSettings'
+            Filled=false
+            IsoValType='Tone'
+            SmoothShade=true
+            AddGrid=false
+            MapTransparency=true
+            Transparency=0
+            ArrowUniform=true
+            ArrowSpacing=0.100000001490116
+            GridColor(255, 255, 255)
+          $end 'PlotOnSurfaceSettings'
+        $end 'PlotDefinition_2'
+      $end 'FieldsPlotManagerID'
+    $end 'FieldsReporter'
+    $begin 'RadField'
+    $end 'RadField'
+    $begin 'SolutionManager'
+      $begin 'SimSetup'
+        TypeName=''
+        ID=5
+        Name='Setup1'
+        $begin 'Solution'
+          ID=7
+          Name='Adaptive_1'
+          $begin 'SimDataExtractor'
+            IsPortOnly=false
+          $end 'SimDataExtractor'
+        $end 'Solution'
+        $begin 'Solution'
+          ID=9
+          Name='Adaptive_2'
+          $begin 'SimDataExtractor'
+            IsPortOnly=false
+          $end 'SimDataExtractor'
+        $end 'Solution'
+        $begin 'Solution'
+          ID=11
+          Name='Adaptive_3'
+          $begin 'SimDataExtractor'
+            IsPortOnly=false
+          $end 'SimDataExtractor'
+        $end 'Solution'
+        $begin 'Solution'
+          ID=13
+          Name='Adaptive_4'
+          $begin 'SimDataExtractor'
+            IsPortOnly=false
+          $end 'SimDataExtractor'
+        $end 'Solution'
+        $begin 'Solution'
+          ID=15
+          Name='Adaptive_5'
+          $begin 'SimDataExtractor'
+            IsPortOnly=false
+          $end 'SimDataExtractor'
+        $end 'Solution'
+        $begin 'Solution'
+          ID=17
+          Name='Adaptive_6'
+          $begin 'SimDataExtractor'
+            IsPortOnly=false
+          $end 'SimDataExtractor'
+        $end 'Solution'
+        $begin 'Solution'
+          ID=19
+          Name='Adaptive_7'
+          $begin 'SimDataExtractor'
+            IsPortOnly=false
+          $end 'SimDataExtractor'
+        $end 'Solution'
+        $begin 'Solution'
+          ID=21
+          Name='Adaptive_8'
+          $begin 'SimDataExtractor'
+            IsPortOnly=false
+          $end 'SimDataExtractor'
+        $end 'Solution'
+        $begin 'Solution'
+          ID=23
+          Name='Adaptive_9'
+          $begin 'SimDataExtractor'
+            IsPortOnly=false
+          $end 'SimDataExtractor'
+        $end 'Solution'
+        $begin 'Solution'
+          ID=25
+          Name='Adaptive_10'
+          $begin 'SimDataExtractor'
+            IsPortOnly=false
+          $end 'SimDataExtractor'
+        $end 'Solution'
+        $begin 'Solution'
+          ID=27
+          Name='LastAdaptive'
+          $begin 'SimDataExtractor'
+            $begin 'Sweeps'
+              $begin 'PostprocessSweep'
+                Variable='NormalizedDistance'
+                RegularSweep=1
+                Units=''
+                Minimum=0
+                Maximum=1
+                Increment=0.01
+              $end 'PostprocessSweep'
+              $begin 'PostprocessSweep'
+                Variable='Phi'
+                RegularSweep=1
+                Units='deg'
+                Minimum=0
+                Maximum=6.28318530717959
+                Increment=0.0872664625997165
+              $end 'PostprocessSweep'
+              $begin 'PostprocessSweep'
+                Variable='Theta'
+                RegularSweep=1
+                Units='deg'
+                Minimum=0
+                Maximum=6.28318530717959
+                Increment=0.0872664625997165
+              $end 'PostprocessSweep'
+              $begin 'PostprocessSweep'
+                Variable='Phase'
+                RegularSweep=1
+                Units='deg'
+                Minimum=0
+                Maximum=6.28318530717959
+                Increment=0.0872664625997165
+              $end 'PostprocessSweep'
+            $end 'Sweeps'
+            IsPortOnly=false
+          $end 'SimDataExtractor'
+        $end 'Solution'
+      $end 'SimSetup'
+      $begin 'Version ID Map'
+        V=4
+        $begin 'Setup'
+          N='Setup1'
+          V=0
+          Soln(N='Adaptive_1', V=0)
+          Soln(N='Adaptive_2', V=0)
+          Soln(N='Adaptive_3', V=0)
+          Soln(N='Adaptive_4', V=0)
+          Soln(N='Adaptive_5', V=0)
+          Soln(N='Adaptive_6', V=0)
+          Soln(N='Adaptive_7', V=0)
+          Soln(N='Adaptive_8', V=0)
+          Soln(N='Adaptive_9', V=0)
+          Soln(N='Adaptive_10', V=0)
+          Soln(N='LastAdaptive', V=0)
+        $end 'Setup'
+      $end 'Version ID Map'
+      $begin 'ID Map'
+        $begin 'Setup'
+          N='Setup1'
+          I=5
+          Soln(N='Adaptive_1', I=7)
+          Soln(N='Adaptive_2', I=9)
+          Soln(N='Adaptive_3', I=11)
+          Soln(N='Adaptive_4', I=13)
+          Soln(N='Adaptive_5', I=15)
+          Soln(N='Adaptive_6', I=17)
+          Soln(N='Adaptive_7', I=19)
+          Soln(N='Adaptive_8', I=21)
+          Soln(N='Adaptive_9', I=23)
+          Soln(N='Adaptive_10', I=25)
+          Soln(N='LastAdaptive', I=27)
+        $end 'Setup'
+      $end 'ID Map'
+    $end 'SolutionManager'
+    Notes=$begin_cdata$    $end_cdata$
+    $begin 'AnimationSetups'
+    $end 'AnimationSetups'
+  $end 'HFSSModel'
+  $begin 'DataInstances'
+    DesignEditor='TopLevel'
+    RefMap('U', 1)
+    Refdes('0', 'U1')
+    $begin 'CompInstances'
+      $begin 'Compinst'
+        ID='0'
+        Status='Status'
+        CompName='HFSSModel1'
+        AutoGenerated=false
+        AutoGeneratedName=''
+        GatesInUse()
+        $begin 'Properties'
+          TextProp('ID', 'SRID', '', '0')
+        $end 'Properties'
+      $end 'Compinst'
+    $end 'CompInstances'
+    $begin 'Instance'
+      DesignEditor='HFSSModel1'
+      ID='0'
+      $begin 'HfssDesignInstance'
+        $begin 'WindowPosition'
+          $begin 'EditorWindow'
+            '3D Modeler'(Editor3d(View(WindowPos(3, -1, -1, -4, -23, 0, 0, 642, 369), OrientationMatrix(-0.00744559010490775, -0.0119395051151514, 0.0188780166208744, 0, 0.022336769849062, -0.00397983472794294, 0.00629267143085599, 0, 0, 0.0198991764336824, 0.0125853456556797, 0, 1.9073486328125e-006, -0.226771011948586, -125.732536315918, 1, 0, -1.45052635669708, 1.45052635669708, -1, 1, 4.80000019073486, 246.378189086914), Drawings[1: 'cavity'])))
+          $end 'EditorWindow'
+          $begin 'ReportWindow'
+          $end 'ReportWindow'
+        $end 'WindowPosition'
+        $begin 'Reports'
+        $end 'Reports'
+      $end 'HfssDesignInstance'
+    $end 'Instance'
+  $end 'DataInstances'
+$end 'AnsoftProject'
