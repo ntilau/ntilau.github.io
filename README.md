@@ -1,3 +1,3 @@
-# ntilau.github.io 
+# Personal website 
 
 [CurriculumVitae](CV/LaurentNtibarikureResume.pdf)
