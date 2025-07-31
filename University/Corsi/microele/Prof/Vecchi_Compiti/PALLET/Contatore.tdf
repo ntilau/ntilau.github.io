@@ -1,0 +1,24 @@
+TITLE "Contatore";
+
+SUBDESIGN Contatore
+(
+	clk, reset		: INPUT = GND;
+	full			: OUTPUT;
+)
+
+VARIABLE
+	Count[3..0]	: DFF;
+	
+BEGIN
+	Count[].clk = clk;
+	Count[].clrn = !reset;
+	
+	Count[].d = Count[].q + 1;
+	
+	if Count[].q == 5 then
+		full = VCC;
+	else
+		full = GND;
+	end;
+
+END;

@@ -1,0 +1,11 @@
+-----------------------------  LAB_3.PJT - Debug  -----------------------------
+"c:\Programmi\ti\c5500\cgtools\bin\cl55" -g -k -q -fr"C:/HomeLocale/ESD2 - dsp - TestAnelloChiuso/Debug" -d"_DEBUG" -ml -@"Debug.lkf" "ESD_Library.c"
+
+"c:\Programmi\ti\c5500\cgtools\bin\cl55" -g -k -q -fr"C:/HomeLocale/ESD2 - dsp - TestAnelloChiuso/Debug" -d"_DEBUG" -ml -@"Debug.lkf" "fun_lab.asm"
+
+"c:\Programmi\ti\c5500\cgtools\bin\cl55" -g -k -q -fr"C:/HomeLocale/ESD2 - dsp - TestAnelloChiuso/Debug" -d"_DEBUG" -ml -@"Debug.lkf" "LAB_3.C"
+
+"c:\Programmi\ti\c5500\cgtools\bin\cl55" -@"Debug.lkf"
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

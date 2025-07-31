@@ -1,0 +1,9 @@
+Fitter Status : Successful - Tue Jun 10 20:13:25 2008
+Quartus II Version : 6.1 Build 201 11/27/2006 SJ Web Edition
+Revision Name : VHDLProcess
+Top-level Entity Name : VHDLProcess
+Family : MAX7000AE
+Device : EPM7064AELC44-10
+Timing Models : Final
+Total macrocells : 48 / 64 ( 75 % )
+Total pins : 26 / 36 ( 72 % )

@@ -1,0 +1,41 @@
+|Contatore
+VALUE[0] <= Counter:inst.VALUE[0]
+VALUE[1] <= Counter:inst.VALUE[1]
+VALUE[2] <= Counter:inst.VALUE[2]
+VALUE[3] <= Counter:inst.VALUE[3]
+VALUE[4] <= Counter:inst.VALUE[4]
+VALUE[5] <= Counter:inst.VALUE[5]
+VALUE[6] <= Counter:inst.VALUE[6]
+VALUE[7] <= Counter:inst.VALUE[7]
+CLOCK => Counter:inst.CLOCK
+ENA => Counter:inst.ENA
+RST => Counter:inst.RST
+
+
+|Contatore|Counter:inst
+CLOCK => REG[7].CLK
+CLOCK => REG[6].CLK
+CLOCK => REG[5].CLK
+CLOCK => REG[4].CLK
+CLOCK => REG[3].CLK
+CLOCK => REG[2].CLK
+CLOCK => REG[1].CLK
+CLOCK => REG[0].CLK
+ENA => REG[7].ENA
+ENA => REG[6].ENA
+ENA => REG[5].ENA
+ENA => REG[4].ENA
+ENA => REG[3].ENA
+ENA => REG[2].ENA
+ENA => REG[1].ENA
+ENA => REG[0].ENA
+VALUE[0] <= REG[0].DB_MAX_OUTPUT_PORT_TYPE
+VALUE[1] <= REG[1].DB_MAX_OUTPUT_PORT_TYPE
+VALUE[2] <= REG[2].DB_MAX_OUTPUT_PORT_TYPE
+VALUE[3] <= REG[3].DB_MAX_OUTPUT_PORT_TYPE
+VALUE[4] <= REG[4].DB_MAX_OUTPUT_PORT_TYPE
+VALUE[5] <= REG[5].DB_MAX_OUTPUT_PORT_TYPE
+VALUE[6] <= REG[6].DB_MAX_OUTPUT_PORT_TYPE
+VALUE[7] <= REG[7].DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,87 @@
+|ApricancelloVHDL
+ma <= Stati_Cancello:inst.ma
+ch => Stati_Cancello:inst.ch
+fs => Stati_Cancello:inst.fs
+fa => Stati_Cancello:inst.fa
+fc => Stati_Cancello:inst.fc
+clk => Timer:inst1.clk
+clk => Stati_Cancello:inst.clk
+reset => Stati_Cancello:inst.reset
+mc <= Stati_Cancello:inst.mc
+et <= Stati_Cancello:inst.et
+tm <= Timer:inst1.timeout
+value[0] <= Stati_Cancello:inst.value[0]
+value[1] <= Stati_Cancello:inst.value[1]
+value[2] <= Stati_Cancello:inst.value[2]
+value[3] <= Stati_Cancello:inst.value[3]
+value[4] <= Stati_Cancello:inst.value[4]
+value[5] <= Stati_Cancello:inst.value[5]
+value[6] <= Stati_Cancello:inst.value[6]
+value[7] <= Stati_Cancello:inst.value[7]
+
+
+|ApricancelloVHDL|Stati_Cancello:inst
+ch => StatoCorrente~0.OUTPUTSELECT
+ch => StatoCorrente~1.OUTPUTSELECT
+ch => StatoCorrente~2.OUTPUTSELECT
+ch => StatoCorrente~3.OUTPUTSELECT
+ch => StatoCorrente~4.OUTPUTSELECT
+ch => process0~0.IN0
+fs => process0~1.IN0
+fs => process0~4.IN0
+fa => StatoCorrente~5.OUTPUTSELECT
+fa => StatoCorrente~6.OUTPUTSELECT
+fa => StatoCorrente~7.OUTPUTSELECT
+fa => StatoCorrente~8.OUTPUTSELECT
+fa => StatoCorrente~9.OUTPUTSELECT
+fc => process0~4.IN1
+fc => process0~5.IN0
+fc => process0~6.IN0
+tm => process0~3.IN1
+tm => process0~5.IN1
+tm => process0~7.IN1
+clk => StatoCorrente~30.IN1
+reset => StatoCorrente~31.IN1
+ma <= ma~0.DB_MAX_OUTPUT_PORT_TYPE
+mc <= mc~0.DB_MAX_OUTPUT_PORT_TYPE
+et <= et~1.DB_MAX_OUTPUT_PORT_TYPE
+value[0] <= <VCC>
+value[1] <= <VCC>
+value[2] <= value~5.DB_MAX_OUTPUT_PORT_TYPE
+value[3] <= value~4.DB_MAX_OUTPUT_PORT_TYPE
+value[4] <= value~3.DB_MAX_OUTPUT_PORT_TYPE
+value[5] <= value~2.DB_MAX_OUTPUT_PORT_TYPE
+value[6] <= value~1.DB_MAX_OUTPUT_PORT_TYPE
+value[7] <= value~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ApricancelloVHDL|Timer:inst1
+clk => timeout~reg0.CLK
+clk => Temp[0].CLK
+clk => Temp[1].CLK
+clk => Temp[2].CLK
+clk => Temp[3].CLK
+clk => Temp[4].CLK
+clk => Temp[5].CLK
+clk => Temp[6].CLK
+clk => Temp[7].CLK
+reset => timeout~reg0.ACLR
+reset => Temp[0].ACLR
+reset => Temp[1].ACLR
+reset => Temp[2].ACLR
+reset => Temp[3].ACLR
+reset => Temp[4].ACLR
+reset => Temp[5].ACLR
+reset => Temp[6].ACLR
+reset => Temp[7].ACLR
+value[0] => Equal0.IN7
+value[1] => Equal0.IN6
+value[2] => Equal0.IN5
+value[3] => Equal0.IN4
+value[4] => Equal0.IN3
+value[5] => Equal0.IN2
+value[6] => Equal0.IN1
+value[7] => Equal0.IN0
+timeout <= timeout~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

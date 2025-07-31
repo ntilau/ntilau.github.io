@@ -1,0 +1,21 @@
+Esercizi tipo per la prova di programmazione:
+
+1. Implementare una classe Lista generica (tramite Template)
+in aggiunta implementare:
+1.1 il costruttore di copia/assegnazione
+1.2 l'operatore di somma (somma degli elementi di posizione identica)
+1.3 l'operatore di confronto di egualianza/maggioranza 
+1.4 l'inversione di una lista
+1.5 un metodo di cancellazione che, dato un array di valori, elimini tutti i nodi con chiave nell'array
+1.6 l'inserzione di una seconda lista in un punto arbitrario
+
+2. Implementare una classe Albero con un numero arbitrario di figli
+in aggiunta implementare:
+2.1 il costruttore di copia/assegnazione
+2.2 l'operatore di confronto di egualianza per la struttura/struttura+chiave
+2.3 stampa del contenuto dei nodi e della loro profondita'
+2.4 stampa del contenuto dei nodi e della lista dei nodi dominati
+2.4 applicazione di una funzione cumulativa arbitraria (ad esempio somma) su tutti i nodi (implica una visita dell'albero)
+2.5 l'operatore somma fra due alberi di eguale struttura: il risultato deve essere un albero di eguale struttura con chiave su ogni nodo pari alla somma delle chiavi dei nodi omologhi
+2.6 distanza fra due nodi A,B ovvero la somma del numero di archi fra l'antenato piu' prossimo ad entrambi i nodi ed i nodi A e B 
+2.7 un metodo che cambia la radice dell'albero cambiando opportunamente le relazioni padre-figlio dei nodi

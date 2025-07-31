@@ -1,0 +1,51 @@
+|Apricancello
+ma <= Stati_Cancello:inst.ma
+ch => Stati_Cancello:inst.ch
+fs => Stati_Cancello:inst.fs
+fa => Stati_Cancello:inst.fa
+fc => Stati_Cancello:inst.fc
+clk => Timer:inst11.clk
+clk => Stati_Cancello:inst.clk
+reset => Stati_Cancello:inst.reset
+mc <= Stati_Cancello:inst.mc
+et <= Stati_Cancello:inst.et
+tm <= Timer:inst11.timeout
+value[0] <= Stati_Cancello:inst.value[0]
+value[1] <= Stati_Cancello:inst.value[1]
+value[2] <= Stati_Cancello:inst.value[2]
+value[3] <= Stati_Cancello:inst.value[3]
+value[4] <= Stati_Cancello:inst.value[4]
+value[5] <= Stati_Cancello:inst.value[5]
+value[6] <= Stati_Cancello:inst.value[6]
+value[7] <= Stati_Cancello:inst.value[7]
+
+
+|Apricancello|Stati_Cancello:inst
+clk => mm~0.IN1
+reset => mm~2.IN1
+ma <= ma~0.DB_MAX_OUTPUT_PORT_TYPE
+mc <= mc~0.DB_MAX_OUTPUT_PORT_TYPE
+et <= et~0.DB_MAX_OUTPUT_PORT_TYPE
+value[0] <= value[0]~7.DB_MAX_OUTPUT_PORT_TYPE
+value[1] <= value[1]~6.DB_MAX_OUTPUT_PORT_TYPE
+value[2] <= value[2]~5.DB_MAX_OUTPUT_PORT_TYPE
+value[3] <= value[3]~4.DB_MAX_OUTPUT_PORT_TYPE
+value[4] <= value[4]~3.DB_MAX_OUTPUT_PORT_TYPE
+value[5] <= value[5]~2.DB_MAX_OUTPUT_PORT_TYPE
+value[6] <= value[6]~1.DB_MAX_OUTPUT_PORT_TYPE
+value[7] <= value[7]~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Apricancello|Timer:inst11
+clk => Count[7].CLK
+clk => Count[6].CLK
+clk => Count[5].CLK
+clk => Count[4].CLK
+clk => Count[3].CLK
+clk => Count[2].CLK
+clk => Count[1].CLK
+clk => Count[0].CLK
+clk => out_reg.CLK
+timeout <= out_reg.DB_MAX_OUTPUT_PORT_TYPE
+
+

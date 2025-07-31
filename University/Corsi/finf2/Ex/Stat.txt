@@ -1,0 +1,22 @@
+[Project]
+FileName=C:\Documents and Settings\Fabrizio\Documenti\Work\Universita\Insegnamento\Ingegneria\2004-2005\Lezioni\Esercitazione\Stat\Stat.dev
+Name=Stat
+Use_gpp=1
+UnitCount=3
+ResFiles=C:\Documents and Settings\Fabrizio\Documenti\Work\Universita\Insegnamento\Ingegneria\2004-2005\Lezioni\Esercitazione\Stat\rsrc.rc
+NoConsole=0
+IsDll=0
+Icon=C:\Documents and Settings\Fabrizio\Documenti\ThirdPartPrograms\C++DEV\Icon\Mainicon.ico
+
+[Unit1]
+FileName=C:\Documents and Settings\Fabrizio\Documenti\Work\Universita\Insegnamento\Ingegneria\2004-2005\Lezioni\Esercitazione\Stat\header.h
+FileTime=862615809
+
+[Unit2]
+FileName=C:\Documents and Settings\Fabrizio\Documenti\Work\Universita\Insegnamento\Ingegneria\2004-2005\Lezioni\Esercitazione\Stat\class.cpp
+FileTime=862617806
+
+[Unit3]
+FileName=C:\Documents and Settings\Fabrizio\Documenti\Work\Universita\Insegnamento\Ingegneria\2004-2005\Lezioni\Esercitazione\Stat\main.cpp
+FileTime=862617826
+

@@ -1,0 +1,63 @@
+|Decoder
+x[0] <= Decoder_VHDL:inst.Output[0]
+x[1] <= Decoder_VHDL:inst.Output[1]
+x[2] <= Decoder_VHDL:inst.Output[2]
+x[3] <= Decoder_VHDL:inst.Output[3]
+x[4] <= Decoder_VHDL:inst.Output[4]
+x[5] <= Decoder_VHDL:inst.Output[5]
+x[6] <= Decoder_VHDL:inst.Output[6]
+x[7] <= Decoder_VHDL:inst.Output[7]
+x[8] <= Decoder_VHDL:inst.Output[8]
+x[9] <= Decoder_VHDL:inst.Output[9]
+x[10] <= Decoder_VHDL:inst.Output[10]
+x[11] <= Decoder_VHDL:inst.Output[11]
+x[12] <= Decoder_VHDL:inst.Output[12]
+x[13] <= Decoder_VHDL:inst.Output[13]
+x[14] <= Decoder_VHDL:inst.Output[14]
+x[15] <= Decoder_VHDL:inst.Output[15]
+ena => Decoder_VHDL:inst.Enable
+sel[0] => Decoder_VHDL:inst.Input[0]
+sel[1] => Decoder_VHDL:inst.Input[1]
+sel[2] => Decoder_VHDL:inst.Input[2]
+sel[3] => Decoder_VHDL:inst.Input[3]
+
+
+|Decoder|Decoder_VHDL:inst
+Enable => temp1[15].OUTPUTSELECT
+Enable => temp1[14].OUTPUTSELECT
+Enable => temp1[13].OUTPUTSELECT
+Enable => temp1[12].OUTPUTSELECT
+Enable => temp1[11].OUTPUTSELECT
+Enable => temp1[10].OUTPUTSELECT
+Enable => temp1[9].OUTPUTSELECT
+Enable => temp1[8].OUTPUTSELECT
+Enable => temp1[7].OUTPUTSELECT
+Enable => temp1[6].OUTPUTSELECT
+Enable => temp1[5].OUTPUTSELECT
+Enable => temp1[4].OUTPUTSELECT
+Enable => temp1[3].OUTPUTSELECT
+Enable => temp1[2].OUTPUTSELECT
+Enable => temp1[1].OUTPUTSELECT
+Enable => temp1[0].OUTPUTSELECT
+Input[0] => Decoder0.IN3
+Input[1] => Decoder0.IN2
+Input[2] => Decoder0.IN1
+Input[3] => Decoder0.IN0
+Output[0] <= temp1[0].DB_MAX_OUTPUT_PORT_TYPE
+Output[1] <= temp1[1].DB_MAX_OUTPUT_PORT_TYPE
+Output[2] <= temp1[2].DB_MAX_OUTPUT_PORT_TYPE
+Output[3] <= temp1[3].DB_MAX_OUTPUT_PORT_TYPE
+Output[4] <= temp1[4].DB_MAX_OUTPUT_PORT_TYPE
+Output[5] <= temp1[5].DB_MAX_OUTPUT_PORT_TYPE
+Output[6] <= temp1[6].DB_MAX_OUTPUT_PORT_TYPE
+Output[7] <= temp1[7].DB_MAX_OUTPUT_PORT_TYPE
+Output[8] <= temp1[8].DB_MAX_OUTPUT_PORT_TYPE
+Output[9] <= temp1[9].DB_MAX_OUTPUT_PORT_TYPE
+Output[10] <= temp1[10].DB_MAX_OUTPUT_PORT_TYPE
+Output[11] <= temp1[11].DB_MAX_OUTPUT_PORT_TYPE
+Output[12] <= temp1[12].DB_MAX_OUTPUT_PORT_TYPE
+Output[13] <= temp1[13].DB_MAX_OUTPUT_PORT_TYPE
+Output[14] <= temp1[14].DB_MAX_OUTPUT_PORT_TYPE
+Output[15] <= temp1[15].DB_MAX_OUTPUT_PORT_TYPE
+
+

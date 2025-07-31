@@ -1,0 +1,7 @@
+-----------------------------  LAB_4.PJT - Debug  -----------------------------
+"c:\Programmi\ti\c5500\cgtools\bin\cl55" -g -k -q -fr"C:/HomeLocale/Elettronica dei Sistemi Digitali 2/ESD2 - dsp - SigmaDelta MedianFilter/Debug" -d"_DEBUG" -ml -@"Debug.lkf" "LAB_4.C"
+
+"c:\Programmi\ti\c5500\cgtools\bin\cl55" -@"Debug.lkf"
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

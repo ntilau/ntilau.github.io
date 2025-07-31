@@ -1,0 +1,364 @@
+Analysis & Synthesis report for ProvaVHDL
+Mon Jun 09 13:11:07 2008
+Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. User-Specified and Inferred Latches
+  8. Parameter Settings for User Entity Instance: Top-level Entity: |ProvaVHDL
+  9. Parameter Settings for Inferred Entity Instance: lpm_add_sub:Add0
+ 10. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                               ;
++-----------------------------+----------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Mon Jun 09 13:11:07 2008        ;
+; Quartus II Version          ; 6.0 Build 202 06/20/2006 SP 1 SJ Web Edition ;
+; Revision Name               ; ProvaVHDL                                    ;
+; Top-level Entity Name       ; ProvaVHDL                                    ;
+; Family                      ; MAX7000AE                                    ;
+; Total macrocells            ; 217                                          ;
+; Total pins                  ; 165                                          ;
++-----------------------------+----------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                       ;
++----------------------------------------------------------------------+--------------+---------------+
+; Option                                                               ; Setting      ; Default Value ;
++----------------------------------------------------------------------+--------------+---------------+
+; Top-level entity name                                                ; ProvaVHDL    ; ProvaVHDL     ;
+; Family name                                                          ; MAX7000AE    ; Stratix       ;
+; Use smart compilation                                                ; Off          ; Off           ;
+; Create Debugging Nodes for IP Cores                                  ; Off          ; Off           ;
+; Preserve fewer node names                                            ; On           ; On            ;
+; Disable OpenCore Plus hardware evaluation                            ; Off          ; Off           ;
+; Verilog Version                                                      ; Verilog_2001 ; Verilog_2001  ;
+; VHDL Version                                                         ; VHDL93       ; VHDL93        ;
+; State Machine Processing                                             ; Auto         ; Auto          ;
+; Extract Verilog State Machines                                       ; On           ; On            ;
+; Extract VHDL State Machines                                          ; On           ; On            ;
+; Add Pass-Through Logic to Inferred RAMs                              ; On           ; On            ;
+; NOT Gate Push-Back                                                   ; On           ; On            ;
+; Power-Up Don't Care                                                  ; On           ; On            ;
+; Remove Redundant Logic Cells                                         ; Off          ; Off           ;
+; Remove Duplicate Registers                                           ; On           ; On            ;
+; Ignore CARRY Buffers                                                 ; Off          ; Off           ;
+; Ignore CASCADE Buffers                                               ; Off          ; Off           ;
+; Ignore GLOBAL Buffers                                                ; Off          ; Off           ;
+; Ignore ROW GLOBAL Buffers                                            ; Off          ; Off           ;
+; Ignore LCELL Buffers -- MAX 7000B/7000AE/3000A/7000S/7000A           ; Auto         ; Auto          ;
+; Ignore SOFT Buffers -- MAX 7000B/7000AE/3000A/7000S/7000A            ; Off          ; Off           ;
+; Limit AHDL Integers to 32 Bits                                       ; Off          ; Off           ;
+; Optimization Technique -- MAX 7000B/7000AE/3000A/7000S/7000A         ; Speed        ; Speed         ;
+; Allow XOR Gate Usage                                                 ; On           ; On            ;
+; Auto Logic Cell Insertion                                            ; On           ; On            ;
+; Parallel Expander Chain Length -- MAX 7000B/7000AE/3000A/7000S/7000A ; 4            ; 4             ;
+; Auto Parallel Expanders                                              ; On           ; On            ;
+; Auto Open-Drain Pins                                                 ; On           ; On            ;
+; Remove Duplicate Logic                                               ; On           ; On            ;
+; Auto Resource Sharing                                                ; Off          ; Off           ;
+; Maximum Fan-in Per Macrocell -- MAX 7000B/7000AE/3000A/7000S/7000A   ; 100          ; 100           ;
+; Ignore translate_off and translate_on Synthesis Directives           ; Off          ; Off           ;
+; Show Parameter Settings Tables in Synthesis Report                   ; On           ; On            ;
+; HDL message level                                                    ; Level2       ; Level2        ;
++----------------------------------------------------------------------+--------------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                       ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                          ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+
+; ProvaVHDL.vhd                    ; yes             ; User VHDL File  ; C:/Documents and Settings/administrator.LAB-DIDATTICO/Desktop/ProvaVHDL/ProvaVHDL.vhd ;
+; lpm_add_sub.tdf                  ; yes             ; Megafunction    ; c:/programmi/altera/quartus60/libraries/megafunctions/lpm_add_sub.tdf                 ;
+; addcore.inc                      ; yes             ; Other           ; c:/programmi/altera/quartus60/libraries/megafunctions/addcore.inc                     ;
+; look_add.inc                     ; yes             ; Other           ; c:/programmi/altera/quartus60/libraries/megafunctions/look_add.inc                    ;
+; bypassff.inc                     ; yes             ; Other           ; c:/programmi/altera/quartus60/libraries/megafunctions/bypassff.inc                    ;
+; altshift.inc                     ; yes             ; Other           ; c:/programmi/altera/quartus60/libraries/megafunctions/altshift.inc                    ;
+; alt_stratix_add_sub.inc          ; yes             ; Other           ; c:/programmi/altera/quartus60/libraries/megafunctions/alt_stratix_add_sub.inc         ;
+; alt_mercury_add_sub.inc          ; yes             ; Other           ; c:/programmi/altera/quartus60/libraries/megafunctions/alt_mercury_add_sub.inc         ;
+; aglobal60.inc                    ; yes             ; Other           ; c:/programmi/altera/quartus60/libraries/megafunctions/aglobal60.inc                   ;
+; addcore.tdf                      ; yes             ; Megafunction    ; c:/programmi/altera/quartus60/libraries/megafunctions/addcore.tdf                     ;
+; a_csnbuffer.inc                  ; yes             ; Other           ; c:/programmi/altera/quartus60/libraries/megafunctions/a_csnbuffer.inc                 ;
+; a_csnbuffer.tdf                  ; yes             ; Megafunction    ; c:/programmi/altera/quartus60/libraries/megafunctions/a_csnbuffer.tdf                 ;
+; look_add.tdf                     ; yes             ; Megafunction    ; c:/programmi/altera/quartus60/libraries/megafunctions/look_add.tdf                    ;
+; altshift.tdf                     ; yes             ; Megafunction    ; c:/programmi/altera/quartus60/libraries/megafunctions/altshift.tdf                    ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                              ;
++----------------------+---------------------------------------------------+
+; Resource             ; Usage                                             ;
++----------------------+---------------------------------------------------+
+; Logic cells          ; 217                                               ;
+; Total registers      ; 0                                                 ;
+; I/O pins             ; 165                                               ;
+; Shareable expanders  ; 77                                                ;
+; Parallel expanders   ; 63                                                ;
+; Maximum fan-out node ; lpm_add_sub:Add0|addcore:adder[0]|genr_node[3]~88 ;
+; Maximum fan-out      ; 35                                                ;
+; Total fan-out        ; 1703                                              ;
+; Average fan-out      ; 3.71                                              ;
++----------------------+---------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                           ;
++------------------------------------+------------+------+----------------------------------------------------------------------+
+; Compilation Hierarchy Node         ; Macrocells ; Pins ; Full Hierarchy Name                                                  ;
++------------------------------------+------------+------+----------------------------------------------------------------------+
+; |ProvaVHDL                         ; 217        ; 165  ; |ProvaVHDL                                                           ;
+;    |lpm_add_sub:Add0|              ; 132        ; 0    ; |ProvaVHDL|lpm_add_sub:Add0                                          ;
+;       |addcore:adder[0]|           ; 26         ; 0    ; |ProvaVHDL|lpm_add_sub:Add0|addcore:adder[0]                         ;
+;          |a_csnbuffer:result_node| ; 19         ; 0    ; |ProvaVHDL|lpm_add_sub:Add0|addcore:adder[0]|a_csnbuffer:result_node ;
+;       |addcore:adder[1]|           ; 33         ; 0    ; |ProvaVHDL|lpm_add_sub:Add0|addcore:adder[1]                         ;
+;          |a_csnbuffer:result_node| ; 18         ; 0    ; |ProvaVHDL|lpm_add_sub:Add0|addcore:adder[1]|a_csnbuffer:result_node ;
+;       |addcore:adder[2]|           ; 38         ; 0    ; |ProvaVHDL|lpm_add_sub:Add0|addcore:adder[2]                         ;
+;          |a_csnbuffer:result_node| ; 22         ; 0    ; |ProvaVHDL|lpm_add_sub:Add0|addcore:adder[2]|a_csnbuffer:result_node ;
+;       |addcore:adder[3]|           ; 35         ; 0    ; |ProvaVHDL|lpm_add_sub:Add0|addcore:adder[3]                         ;
+;          |a_csnbuffer:result_node| ; 27         ; 0    ; |ProvaVHDL|lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node ;
++------------------------------------+------------+------+----------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; ArrayOUT2[0]$latch                                 ; WideNor0            ; yes                    ;
+; ArrayOUT2[1]$latch                                 ; WideNor0            ; yes                    ;
+; ArrayOUT2[2]$latch                                 ; WideNor0            ; yes                    ;
+; ArrayOUT2[3]$latch                                 ; WideNor0            ; yes                    ;
+; Number of user-specified and inferred latches = 4  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |ProvaVHDL ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larghezza      ; 8     ; Integer                                          ;
+; carry          ; '0'   ; Enumerated                                       ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_add_sub:Add0 ;
++------------------------+-------------+----------------------------+
+; Parameter Name         ; Value       ; Type                       ;
++------------------------+-------------+----------------------------+
+; LPM_WIDTH              ; 32          ; Untyped                    ;
+; LPM_REPRESENTATION     ; UNSIGNED    ; Untyped                    ;
+; LPM_DIRECTION          ; ADD         ; Untyped                    ;
+; ONE_INPUT_IS_CONSTANT  ; NO          ; Untyped                    ;
+; LPM_PIPELINE           ; 0           ; Untyped                    ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                    ;
+; REGISTERED_AT_END      ; 0           ; Untyped                    ;
+; OPTIMIZE_FOR_SPEED     ; 9           ; Untyped                    ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                    ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                    ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH         ;
+; DEVICE_FAMILY          ; MAX7000AE   ; Untyped                    ;
+; USE_WYS                ; OFF         ; Untyped                    ;
+; STYLE                  ; FAST        ; Untyped                    ;
+; CBXI_PARAMETER         ; add_sub_7oh ; Untyped                    ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY               ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE               ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE             ;
++------------------------+-------------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Web Edition
+    Info: Processing started: Mon Jun 09 13:10:53 2008
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ProvaVHDL -c ProvaVHDL
+Info: Found 2 design units, including 1 entities, in source file ProvaVHDL.vhd
+    Info: Found design unit 1: ProvaVHDL-a
+    Info: Found entity 1: ProvaVHDL
+Info: Elaborating entity "ProvaVHDL" for the top level hierarchy
+Warning (10034): Output port "NumeroOUT2[31]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[30]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[29]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[28]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[27]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[26]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[25]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[24]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[23]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[22]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[21]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[20]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[19]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[18]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[17]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[16]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[15]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[14]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[13]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[12]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[11]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[10]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[9]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[8]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[7]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[6]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[5]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[4]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[3]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[2]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[1]" at ProvaVHDL.vhd(21) has no driver
+Warning (10034): Output port "NumeroOUT2[0]" at ProvaVHDL.vhd(21) has no driver
+Info (10041): Verilog HDL or VHDL info at ProvaVHDL.vhd(50): inferred latch for "ArrayOUT2[0]"
+Info (10041): Verilog HDL or VHDL info at ProvaVHDL.vhd(50): inferred latch for "ArrayOUT2[1]"
+Info (10041): Verilog HDL or VHDL info at ProvaVHDL.vhd(50): inferred latch for "ArrayOUT2[2]"
+Info (10041): Verilog HDL or VHDL info at ProvaVHDL.vhd(50): inferred latch for "ArrayOUT2[3]"
+Info: Found 1 design units, including 1 entities, in source file ../../../../programmi/altera/quartus60/libraries/megafunctions/lpm_add_sub.tdf
+    Info: Found entity 1: lpm_add_sub
+Info: Elaborated megafunction instantiation "lpm_add_sub:Add0"
+Info: Found 1 design units, including 1 entities, in source file ../../../../programmi/altera/quartus60/libraries/megafunctions/addcore.tdf
+    Info: Found entity 1: addcore
+Info: Elaborated megafunction instantiation "lpm_add_sub:Add0|addcore:adder[3]", which is child of megafunction instantiation "lpm_add_sub:Add0"
+Info: Instantiated megafunction "lpm_add_sub:Add0" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "32"
+    Info: Parameter "LPM_DIRECTION" = "ADD"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "ONE_INPUT_IS_CONSTANT" = "NO"
+Info: Found 1 design units, including 1 entities, in source file ../../../../programmi/altera/quartus60/libraries/megafunctions/a_csnbuffer.tdf
+    Info: Found entity 1: a_csnbuffer
+Info: Elaborated megafunction instantiation "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:oflow_node", which is child of megafunction instantiation "lpm_add_sub:Add0"
+Info: Instantiated megafunction "lpm_add_sub:Add0" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "32"
+    Info: Parameter "LPM_DIRECTION" = "ADD"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "ONE_INPUT_IS_CONSTANT" = "NO"
+Info: Elaborated megafunction instantiation "lpm_add_sub:Add0|addcore:adder[3]|a_csnbuffer:result_node", which is child of megafunction instantiation "lpm_add_sub:Add0"
+Info: Instantiated megafunction "lpm_add_sub:Add0" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "32"
+    Info: Parameter "LPM_DIRECTION" = "ADD"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "ONE_INPUT_IS_CONSTANT" = "NO"
+Info: Found 1 design units, including 1 entities, in source file ../../../../programmi/altera/quartus60/libraries/megafunctions/look_add.tdf
+    Info: Found entity 1: look_add
+Info: Elaborated megafunction instantiation "lpm_add_sub:Add0|look_add:look_ahead_unit", which is child of megafunction instantiation "lpm_add_sub:Add0"
+Info: Instantiated megafunction "lpm_add_sub:Add0" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "32"
+    Info: Parameter "LPM_DIRECTION" = "ADD"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "ONE_INPUT_IS_CONSTANT" = "NO"
+Info: Found 1 design units, including 1 entities, in source file ../../../../programmi/altera/quartus60/libraries/megafunctions/altshift.tdf
+    Info: Found entity 1: altshift
+Info: Elaborated megafunction instantiation "lpm_add_sub:Add0|altshift:result_ext_latency_ffs", which is child of megafunction instantiation "lpm_add_sub:Add0"
+Info: Instantiated megafunction "lpm_add_sub:Add0" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "32"
+    Info: Parameter "LPM_DIRECTION" = "ADD"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "ONE_INPUT_IS_CONSTANT" = "NO"
+Info: Elaborated megafunction instantiation "lpm_add_sub:Add0|altshift:carry_ext_latency_ffs", which is child of megafunction instantiation "lpm_add_sub:Add0"
+Info: Instantiated megafunction "lpm_add_sub:Add0" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "32"
+    Info: Parameter "LPM_DIRECTION" = "ADD"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "ONE_INPUT_IS_CONSTANT" = "NO"
+Info: Ignored 32 buffer(s)
+    Info: Ignored 32 SOFT buffer(s)
+Warning: Output pins are stuck at VCC or GND
+    Warning: Pin "NumeroOUT2[0]" stuck at GND
+    Warning: Pin "NumeroOUT2[1]" stuck at GND
+    Warning: Pin "NumeroOUT2[2]" stuck at GND
+    Warning: Pin "NumeroOUT2[3]" stuck at GND
+    Warning: Pin "NumeroOUT2[4]" stuck at GND
+    Warning: Pin "NumeroOUT2[5]" stuck at GND
+    Warning: Pin "NumeroOUT2[6]" stuck at GND
+    Warning: Pin "NumeroOUT2[7]" stuck at GND
+    Warning: Pin "NumeroOUT2[8]" stuck at GND
+    Warning: Pin "NumeroOUT2[9]" stuck at GND
+    Warning: Pin "NumeroOUT2[10]" stuck at GND
+    Warning: Pin "NumeroOUT2[11]" stuck at GND
+    Warning: Pin "NumeroOUT2[12]" stuck at GND
+    Warning: Pin "NumeroOUT2[13]" stuck at GND
+    Warning: Pin "NumeroOUT2[14]" stuck at GND
+    Warning: Pin "NumeroOUT2[15]" stuck at GND
+    Warning: Pin "NumeroOUT2[16]" stuck at GND
+    Warning: Pin "NumeroOUT2[17]" stuck at GND
+    Warning: Pin "NumeroOUT2[18]" stuck at GND
+    Warning: Pin "NumeroOUT2[19]" stuck at GND
+    Warning: Pin "NumeroOUT2[20]" stuck at GND
+    Warning: Pin "NumeroOUT2[21]" stuck at GND
+    Warning: Pin "NumeroOUT2[22]" stuck at GND
+    Warning: Pin "NumeroOUT2[23]" stuck at GND
+    Warning: Pin "NumeroOUT2[24]" stuck at GND
+    Warning: Pin "NumeroOUT2[25]" stuck at GND
+    Warning: Pin "NumeroOUT2[26]" stuck at GND
+    Warning: Pin "NumeroOUT2[27]" stuck at GND
+    Warning: Pin "NumeroOUT2[28]" stuck at GND
+    Warning: Pin "NumeroOUT2[29]" stuck at GND
+    Warning: Pin "NumeroOUT2[30]" stuck at GND
+    Warning: Pin "NumeroOUT2[31]" stuck at GND
+Warning: Design contains 17 input pin(s) that do not drive logic
+    Warning: No output dependent on input pin "C"
+    Warning: No output dependent on input pin "ADDRESS[0]"
+    Warning: No output dependent on input pin "ADDRESS[1]"
+    Warning: No output dependent on input pin "ADDRESS[2]"
+    Warning: No output dependent on input pin "ADDRESS[3]"
+    Warning: No output dependent on input pin "ADDRESS[4]"
+    Warning: No output dependent on input pin "ADDRESS[5]"
+    Warning: No output dependent on input pin "ADDRESS[6]"
+    Warning: No output dependent on input pin "ADDRESS[7]"
+    Warning: No output dependent on input pin "ADDRESS[8]"
+    Warning: No output dependent on input pin "ADDRESS[9]"
+    Warning: No output dependent on input pin "ADDRESS[10]"
+    Warning: No output dependent on input pin "ADDRESS[11]"
+    Warning: No output dependent on input pin "ADDRESS[12]"
+    Warning: No output dependent on input pin "ADDRESS[13]"
+    Warning: No output dependent on input pin "ADDRESS[14]"
+    Warning: No output dependent on input pin "ADDRESS[15]"
+Info: Implemented 459 device resources after synthesis - the final resource count might be different
+    Info: Implemented 91 input pins
+    Info: Implemented 74 output pins
+    Info: Implemented 217 macrocells
+    Info: Implemented 77 shareable expanders
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 83 warnings
+    Info: Processing ended: Mon Jun 09 13:11:07 2008
+    Info: Elapsed time: 00:00:15
+
+

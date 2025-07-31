@@ -1,0 +1,9 @@
+Fitter Status : Successful - Fri Jun 06 16:02:23 2008
+Quartus II Version : 6.1 Build 201 11/27/2006 SJ Web Edition
+Revision Name : Decoder
+Top-level Entity Name : Decoder
+Family : MAX7000AE
+Device : EPM7032AELC44-4
+Timing Models : Final
+Total macrocells : 16 / 32 ( 50 % )
+Total pins : 25 / 36 ( 69 % )

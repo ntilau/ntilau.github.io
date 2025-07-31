@@ -1,0 +1,12 @@
+<internal_error>
+	<executable>quartus.exe</executable>
+	<sub_system>PJM</sub_system>
+	<file>./pjm_dock_bar.cpp</file>
+	<line>241</line>
+	<error>view_popup != NULL</error>
+	<date>Fri Apr 14 14:52:10 2006</date>
+	<version>Quartus II Version 5.1 Build 176 10/26/2005 SJ Web Edition</version>
+	<full_error>Internal Error: Sub-system: PJM, File: ./pjm_dock_bar.cpp, Line: 241
+view_popup != NULL
+Quartus II Version 5.1 Build 176 10/26/2005 SJ Web Edition </full_error>
+</internal_error>

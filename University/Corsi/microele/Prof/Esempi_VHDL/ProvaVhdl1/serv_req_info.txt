@@ -1,0 +1,83 @@
+<internal_error>
+	<executable>quartus.exe</executable>
+	<sub_system>CFG</sub_system>
+	<file>q:\quartus\gcl\cfg\./cfg_registry_key.cpp</file>
+	<line>1927</line>
+	<error>disposition == REG_CREATED_NEW_KEY</error>
+	<date>Wed Jun 11 11:25:07 2008</date>
+	<version>Quartus II Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Web Edition</version>
+	<full_error>Internal Error: Sub-system: CFG, File: q:\quartus\gcl\cfg\./cfg_registry_key.cpp, Line: 1927
+disposition == REG_CREATED_NEW_KEY
+Quartus II Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Web Edition </full_error>
+</internal_error>
+<internal_error>
+	<executable>quartus.exe</executable>
+	<sub_system>ERR</sub_system>
+	<callstack>Stack Trace:
+02a40518: ADB_CMD_TRACKER_LIST::operator=() + 0x110e (ace_adb)
+02a7f306: ADB_CDB_INTERFACE_BODY_IMPL::initialize_from_eco_file() + 0x32 (ace_adb)
+7c14976c: Ordinal1733() + 0x197 (MFC71)
+1000899d: AFC_CONTROL_BAR::OnWndMsg() + 0x28 (GCL_AFC)
+7c16e0b0: Ordinal6275() + 0x22 (MFC71)
+7c17339d: Ordinal6269() + 0x46 (MFC71)
+7c16e14f: Ordinal1028() + 0x7d (MFC71)
+7c16e1b8: Ordinal1209() + 0x3b (MFC71)
+7c16e1f6: Ordinal1209() + 0x79 (MFC71)
+7e398734: GetDC() + 0x6d (USER32)
+7e398816: GetDC() + 0x14f (USER32)
+7e39b89b: GetParent() + 0x16c (USER32)
+7e3af3cc: SendMessageA() + 0x49 (USER32)
+7c15271f: Ordinal1631() + 0x1b0 (MFC71)
+7c155819: Ordinal5658() + 0x69 (MFC71)
+1000f9a9: AFC_NOTIFY_MGR::do_broadcast() + 0x53 (GCL_AFC)
+100109f3: AFC_NOTIFY_MGR::broadcast_notify() + 0x56 (GCL_AFC)
+0041a780: Pjm_Init() + 0xf2e4 (quartus)
+004292dc: Pjm_Init() + 0x1de40 (quartus)
+008211e6: NTF_NOTIFY_TARGET::on_ntf_notify() + 0x1c (CCL_NTF)
+100109f3: AFC_NOTIFY_MGR::broadcast_notify() + 0x56 (GCL_AFC)
+0042cd54: Pjm_Init() + 0x218b8 (quartus)
+0041a352: Pjm_Init() + 0xeeb6 (quartus)
+7c1746cc: Ordinal5713() + 0x37 (MFC71)
+7c171915: Ordinal4261() + 0xbc (MFC71)
+10012458: AFC_APP::OnCmdMsg() + 0x68 (GCL_AFC)
+7c171e1a: Ordinal4265() + 0x8e (MFC71)
+
+End-trace
+</callstack>
+	<error>Fatal error detected: Access Violation</error>
+	<date>Wed Jun 11 11:28:44 2008</date>
+	<version>Quartus II Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Web Edition</version>
+	<full_error>Fatal error detected: Access Violation
+Stack Trace:
+02a40518: ADB_CMD_TRACKER_LIST::operator=() + 0x110e (ace_adb)
+02a7f306: ADB_CDB_INTERFACE_BODY_IMPL::initialize_from_eco_file() + 0x32 (ace_adb)
+7c14976c: Ordinal1733() + 0x197 (MFC71)
+1000899d: AFC_CONTROL_BAR::OnWndMsg() + 0x28 (GCL_AFC)
+7c16e0b0: Ordinal6275() + 0x22 (MFC71)
+7c17339d: Ordinal6269() + 0x46 (MFC71)
+7c16e14f: Ordinal1028() + 0x7d (MFC71)
+7c16e1b8: Ordinal1209() + 0x3b (MFC71)
+7c16e1f6: Ordinal1209() + 0x79 (MFC71)
+7e398734: GetDC() + 0x6d (USER32)
+7e398816: GetDC() + 0x14f (USER32)
+7e39b89b: GetParent() + 0x16c (USER32)
+7e3af3cc: SendMessageA() + 0x49 (USER32)
+7c15271f: Ordinal1631() + 0x1b0 (MFC71)
+7c155819: Ordinal5658() + 0x69 (MFC71)
+1000f9a9: AFC_NOTIFY_MGR::do_broadcast() + 0x53 (GCL_AFC)
+100109f3: AFC_NOTIFY_MGR::broadcast_notify() + 0x56 (GCL_AFC)
+0041a780: Pjm_Init() + 0xf2e4 (quartus)
+004292dc: Pjm_Init() + 0x1de40 (quartus)
+008211e6: NTF_NOTIFY_TARGET::on_ntf_notify() + 0x1c (CCL_NTF)
+100109f3: AFC_NOTIFY_MGR::broadcast_notify() + 0x56 (GCL_AFC)
+0042cd54: Pjm_Init() + 0x218b8 (quartus)
+0041a352: Pjm_Init() + 0xeeb6 (quartus)
+7c1746cc: Ordinal5713() + 0x37 (MFC71)
+7c171915: Ordinal4261() + 0xbc (MFC71)
+10012458: AFC_APP::OnCmdMsg() + 0x68 (GCL_AFC)
+7c171e1a: Ordinal4265() + 0x8e (MFC71)
+
+End-trace
+
+Quartus II Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Web Edition </full_error>
+</internal_error>

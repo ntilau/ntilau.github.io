@@ -1,0 +1,45 @@
+Version 6.1 Build 201 11/27/2006 SJ Web Edition
+28
+2282
+OFF
+OFF
+OFF
+OFF
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Partition --
+-- End Partition --
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+Ritardi
+# storage
+db|Ritardi.(0).cnf
+db|Ritardi.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+Ritardi.vhd
+ae6670b7f4cf61e4796011cd3b9fcca7
+4
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+|
+}
+# end
+# complete
+

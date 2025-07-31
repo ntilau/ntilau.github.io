@@ -1,0 +1,19 @@
+Circuit: * C:\Documents and Settings\Lorenzo\Desktop\Elettronica Industriale\Esercitazioni\lab1\pilota motore.asc
+
+Direct Newton iteration for .op point succeeded.
+Date: Sun Jun 24 23:05:02 2007
+Total elapsed time: 0.016 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 1203
+traniter = 1194
+tranpoints = 452
+accept = 400
+rejected = 52
+trancuriters = 0
+matrix size = 13
+fillins = 0
+solver = Normal
+

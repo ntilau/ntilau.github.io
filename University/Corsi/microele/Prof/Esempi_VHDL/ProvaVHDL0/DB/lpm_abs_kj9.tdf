@@ -1,0 +1,44 @@
+--lpm_abs CARRY_CHAIN="MANUAL" DEVICE_FAMILY="MAX7000AE" IGNORE_CARRY_BUFFERS="OFF" LPM_WIDTH=32 data result
+--VERSION_BEGIN 6.0 cbx_cycloneii 2006:02:07:15:19:20:SJ cbx_lpm_abs 2006:01:02:19:20:00:SJ cbx_lpm_add_sub 2006:01:09:11:17:20:SJ cbx_mgl 2006:05:17:10:06:16:SJ cbx_stratix 2006:05:17:09:28:32:SJ cbx_stratixii 2006:03:03:09:35:36:SJ cbx_util_mgl 2006:01:09:10:46:36:SJ  VERSION_END
+
+
+--  Copyright (C) 1991-2006 Altera Corporation
+--  Your use of Altera Corporation's design tools, logic functions 
+--  and other software and tools, and its AMPP partner logic 
+--  functions, and any output files any of the foregoing 
+--  (including device programming or simulation files), and any 
+--  associated documentation or information are expressly subject 
+--  to the terms and conditions of the Altera Program License 
+--  Subscription Agreement, Altera MegaCore Function License 
+--  Agreement, or other applicable license agreement, including, 
+--  without limitation, that your use is for the sole purpose of 
+--  programming logic devices manufactured by Altera and sold by 
+--  Altera or its authorized distributors.  Please refer to the 
+--  applicable agreement for further details.
+
+
+FUNCTION add_sub_r8c (cin, dataa[31..0], datab[31..0])
+RETURNS ( result[31..0]);
+
+--synthesis_resources = lut 33 
+SUBDESIGN lpm_abs_kj9
+( 
+	data[31..0]	:	input;
+	overflow	:	output;
+	result[31..0]	:	output;
+) 
+VARIABLE 
+	adder : add_sub_r8c;
+	gnd_wire	: WIRE;
+	result_tmp[31..0]	: WIRE;
+
+BEGIN 
+	adder.cin = data[31..31];
+	adder.dataa[] = (data[] $ data[31..31]);
+	adder.datab[] = ( gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire, gnd_wire);
+	gnd_wire = B"0";
+	overflow = (result_tmp[31..31] & data[31..31]);
+	result[] = result_tmp[];
+	result_tmp[] = adder.result[];
+END;
+--VALID FILE

@@ -1,0 +1,15 @@
+ENTITY MIA_AND IS
+	PORT
+	(
+		A, B		: IN	BIT;
+		C			: OUT	BIT
+	);
+END MIA_AND;
+
+
+ARCHITECTURE MIA_AND OF MIA_AND IS
+BEGIN
+
+	C <= A and B;
+	
+END MIA_AND;

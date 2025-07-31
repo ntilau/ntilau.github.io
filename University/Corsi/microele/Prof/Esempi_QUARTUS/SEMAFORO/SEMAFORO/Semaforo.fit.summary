@@ -1,0 +1,9 @@
+Fitter Status : Successful - Mon May 26 20:08:10 2008
+Quartus II Version : 6.1 Build 201 11/27/2006 SJ Web Edition
+Revision Name : Semaforo
+Top-level Entity Name : Semaforo
+Family : MAX7000AE
+Device : EPM7032AELC44-10
+Timing Models : Final
+Total macrocells : 25 / 32 ( 78 % )
+Total pins : 21 / 36 ( 58 % )

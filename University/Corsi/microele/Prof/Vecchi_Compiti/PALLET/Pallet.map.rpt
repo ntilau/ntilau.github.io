@@ -1,0 +1,240 @@
+Analysis & Synthesis report for Pallet
+Wed Jul 04 00:36:36 2007
+Quartus II Version 6.1 Build 201 11/27/2006 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. State Machine - |Pallet|Macchina_Pallet:inst|mm
+  8. Parameter Settings for Inferred Entity Instance: Contatore:inst11|lpm_counter:Count_rtl_0
+  9. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                          ;
++-----------------------------+-----------------------------------------+
+; Analysis & Synthesis Status ; Successful - Wed Jul 04 00:36:36 2007   ;
+; Quartus II Version          ; 6.1 Build 201 11/27/2006 SJ Web Edition ;
+; Revision Name               ; Pallet                                  ;
+; Top-level Entity Name       ; Pallet                                  ;
+; Family                      ; MAX7000AE                               ;
+; Total macrocells            ; 14                                      ;
+; Total pins                  ; 15                                      ;
++-----------------------------+-----------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                           ;
++----------------------------------------------------------------------+------------------+---------------+
+; Option                                                               ; Setting          ; Default Value ;
++----------------------------------------------------------------------+------------------+---------------+
+; Device                                                               ; EPM7032AELC44-10 ;               ;
+; Top-level entity name                                                ; Pallet           ; Pallet        ;
+; Family name                                                          ; MAX7000AE        ; Stratix       ;
+; Create Debugging Nodes for IP Cores                                  ; Off              ; Off           ;
+; Preserve fewer node names                                            ; On               ; On            ;
+; Disable OpenCore Plus hardware evaluation                            ; Off              ; Off           ;
+; Verilog Version                                                      ; Verilog_2001     ; Verilog_2001  ;
+; VHDL Version                                                         ; VHDL93           ; VHDL93        ;
+; State Machine Processing                                             ; Auto             ; Auto          ;
+; Safe State Machine                                                   ; Off              ; Off           ;
+; Extract Verilog State Machines                                       ; On               ; On            ;
+; Extract VHDL State Machines                                          ; On               ; On            ;
+; Ignore Verilog initial constructs                                    ; Off              ; Off           ;
+; Add Pass-Through Logic to Inferred RAMs                              ; On               ; On            ;
+; NOT Gate Push-Back                                                   ; On               ; On            ;
+; Power-Up Don't Care                                                  ; On               ; On            ;
+; Remove Duplicate Registers                                           ; On               ; On            ;
+; Ignore CARRY Buffers                                                 ; Off              ; Off           ;
+; Ignore CASCADE Buffers                                               ; Off              ; Off           ;
+; Ignore GLOBAL Buffers                                                ; Off              ; Off           ;
+; Ignore ROW GLOBAL Buffers                                            ; Off              ; Off           ;
+; Ignore LCELL Buffers -- MAX 7000B/7000AE/3000A/7000S/7000A           ; Auto             ; Auto          ;
+; Ignore SOFT Buffers -- MAX 7000B/7000AE/3000A/7000S/7000A            ; Off              ; Off           ;
+; Limit AHDL Integers to 32 Bits                                       ; Off              ; Off           ;
+; Optimization Technique -- MAX 7000B/7000AE/3000A/7000S/7000A         ; Speed            ; Speed         ;
+; Allow XOR Gate Usage                                                 ; On               ; On            ;
+; Auto Logic Cell Insertion                                            ; On               ; On            ;
+; Parallel Expander Chain Length -- MAX 7000B/7000AE/3000A/7000S/7000A ; 4                ; 4             ;
+; Auto Parallel Expanders                                              ; On               ; On            ;
+; Auto Open-Drain Pins                                                 ; On               ; On            ;
+; Auto Resource Sharing                                                ; Off              ; Off           ;
+; Maximum Fan-in Per Macrocell -- MAX 7000B/7000AE/3000A/7000S/7000A   ; 100              ; 100           ;
+; Ignore translate_off and synthesis_off directives                    ; Off              ; Off           ;
+; Show Parameter Settings Tables in Synthesis Report                   ; On               ; On            ;
+; HDL message level                                                    ; Level2           ; Level2        ;
+; Suppress Register Optimization Related Messages                      ; Off              ; Off           ;
+; Number of Removed Registers Reported in Synthesis Report             ; 100              ; 100           ;
+; Use smart compilation                                                ; Off              ; Off           ;
++----------------------------------------------------------------------+------------------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                         ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                         ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------+
+; Pallet.bdf                       ; yes             ; User Block Diagram/Schematic File  ; C:/Documents and Settings/Matteo/Desktop/Microelettronica/Pallet/Pallet.bdf          ;
+; Macchina_Pallet.tdf              ; yes             ; User AHDL File                     ; C:/Documents and Settings/Matteo/Desktop/Microelettronica/Pallet/Macchina_Pallet.tdf ;
+; Contatore.tdf                    ; yes             ; User AHDL File                     ; C:/Documents and Settings/Matteo/Desktop/Microelettronica/Pallet/Contatore.tdf       ;
+; lpm_counter.tdf                  ; yes             ; Megafunction                       ; c:/altera/61/quartus/libraries/megafunctions/lpm_counter.tdf                         ;
+; lpm_constant.inc                 ; yes             ; Megafunction                       ; c:/altera/61/quartus/libraries/megafunctions/lpm_constant.inc                        ;
+; lpm_decode.inc                   ; yes             ; Megafunction                       ; c:/altera/61/quartus/libraries/megafunctions/lpm_decode.inc                          ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                       ; c:/altera/61/quartus/libraries/megafunctions/lpm_add_sub.inc                         ;
+; cmpconst.inc                     ; yes             ; Megafunction                       ; c:/altera/61/quartus/libraries/megafunctions/cmpconst.inc                            ;
+; lpm_compare.inc                  ; yes             ; Megafunction                       ; c:/altera/61/quartus/libraries/megafunctions/lpm_compare.inc                         ;
+; lpm_counter.inc                  ; yes             ; Megafunction                       ; c:/altera/61/quartus/libraries/megafunctions/lpm_counter.inc                         ;
+; dffeea.inc                       ; yes             ; Megafunction                       ; c:/altera/61/quartus/libraries/megafunctions/dffeea.inc                              ;
+; alt_synch_counter.inc            ; yes             ; Megafunction                       ; c:/altera/61/quartus/libraries/megafunctions/alt_synch_counter.inc                   ;
+; alt_synch_counter_f.inc          ; yes             ; Megafunction                       ; c:/altera/61/quartus/libraries/megafunctions/alt_synch_counter_f.inc                 ;
+; alt_counter_f10ke.inc            ; yes             ; Megafunction                       ; c:/altera/61/quartus/libraries/megafunctions/alt_counter_f10ke.inc                   ;
+; alt_counter_stratix.inc          ; yes             ; Megafunction                       ; c:/altera/61/quartus/libraries/megafunctions/alt_counter_stratix.inc                 ;
+; aglobal61.inc                    ; yes             ; Megafunction                       ; c:/altera/61/quartus/libraries/megafunctions/aglobal61.inc                           ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------+
+
+
++------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary    ;
++----------------------+-------------------------+
+; Resource             ; Usage                   ;
++----------------------+-------------------------+
+; Logic cells          ; 14                      ;
+; Total registers      ; 7                       ;
+; I/O pins             ; 15                      ;
+; Parallel expanders   ; 1                       ;
+; Maximum fan-out node ; Macchina_Pallet:inst|q2 ;
+; Maximum fan-out      ; 13                      ;
+; Total fan-out        ; 79                      ;
+; Average fan-out      ; 2.72                    ;
++----------------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                    ;
++---------------------------------+------------+------+--------------------------------------------------+
+; Compilation Hierarchy Node      ; Macrocells ; Pins ; Full Hierarchy Name                              ;
++---------------------------------+------------+------+--------------------------------------------------+
+; |Pallet                         ; 14         ; 15   ; |Pallet                                          ;
+;    |Contatore:inst11|           ; 5          ; 0    ; |Pallet|Contatore:inst11                         ;
+;       |lpm_counter:Count_rtl_0| ; 4          ; 0    ; |Pallet|Contatore:inst11|lpm_counter:Count_rtl_0 ;
+;    |Macchina_Pallet:inst|       ; 9          ; 0    ; |Pallet|Macchina_Pallet:inst                     ;
++---------------------------------+------------+------+--------------------------------------------------+
+
+
+Encoding Type:  Minimal Bits
++-------------------------------------------------+
+; State Machine - |Pallet|Macchina_Pallet:inst|mm ;
++------------------+----+----+--------------------+
+; Name             ; q0 ; q1 ; q2                 ;
++------------------+----+----+--------------------+
+; Attesa           ; 0  ; 0  ; 0                  ;
+; Alza             ; 0  ; 0  ; 1                  ;
+; Avanza           ; 0  ; 1  ; 0                  ;
+; Abbassa          ; 0  ; 1  ; 1                  ;
+; Sfila            ; 1  ; 0  ; 0                  ;
+; Riposizionamento ; 1  ; 0  ; 1                  ;
++------------------+----+----+--------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Contatore:inst11|lpm_counter:Count_rtl_0 ;
++------------------------+-------------------+----------------------------------------------+
+; Parameter Name         ; Value             ; Type                                         ;
++------------------------+-------------------+----------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON                ; AUTO_CARRY                                   ;
+; IGNORE_CARRY_BUFFERS   ; OFF               ; IGNORE_CARRY                                 ;
+; AUTO_CASCADE_CHAINS    ; ON                ; AUTO_CASCADE                                 ;
+; IGNORE_CASCADE_BUFFERS ; OFF               ; IGNORE_CASCADE                               ;
+; LPM_WIDTH              ; 4                 ; Untyped                                      ;
+; LPM_DIRECTION          ; UP                ; Untyped                                      ;
+; LPM_MODULUS            ; 0                 ; Untyped                                      ;
+; LPM_AVALUE             ; UNUSED            ; Untyped                                      ;
+; LPM_SVALUE             ; UNUSED            ; Untyped                                      ;
+; LPM_PORT_UPDOWN        ; PORT_CONNECTIVITY ; Untyped                                      ;
+; DEVICE_FAMILY          ; MAX7000AE         ; Untyped                                      ;
+; CARRY_CHAIN            ; MANUAL            ; Untyped                                      ;
+; CARRY_CHAIN_LENGTH     ; 48                ; CARRY_CHAIN_LENGTH                           ;
+; NOT_GATE_PUSH_BACK     ; ON                ; NOT_GATE_PUSH_BACK                           ;
+; CARRY_CNT_EN           ; SMART             ; Untyped                                      ;
+; LABWIDE_SCLR           ; ON                ; Untyped                                      ;
+; USE_NEW_VERSION        ; TRUE              ; Untyped                                      ;
+; CBXI_PARAMETER         ; NOTHING           ; Untyped                                      ;
++------------------------+-------------------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 6.1 Build 201 11/27/2006 SJ Web Edition
+    Info: Processing started: Wed Jul 04 00:36:34 2007
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Pallet -c Pallet
+Info: Found 1 design units, including 1 entities, in source file Pallet.bdf
+    Info: Found entity 1: Pallet
+Info: Found 1 design units, including 1 entities, in source file Macchina_Pallet.tdf
+    Info: Found entity 1: Macchina_Pallet
+Warning: Replaced illegal text "END" with replacement text "END IF"
+Info: Found 1 design units, including 1 entities, in source file Contatore.tdf
+    Info: Found entity 1: Contatore
+Info: Elaborating entity "Pallet" for the top level hierarchy
+Info: Elaborating entity "Macchina_Pallet" for hierarchy "Macchina_Pallet:inst"
+Info: Elaborating entity "Contatore" for hierarchy "Contatore:inst11"
+Info: Inferred 1 megafunctions from design logic
+    Info: Inferred lpm_counter megafunction (LPM_WIDTH=4) from the following logic: "Contatore:inst11|Count[0]~1"
+Info: Found 1 design units, including 1 entities, in source file ../../../../../altera/61/quartus/libraries/megafunctions/lpm_counter.tdf
+    Info: Found entity 1: lpm_counter
+Info: Elaborated megafunction instantiation "Contatore:inst11|lpm_counter:Count_rtl_0"
+Info: State machine "|Pallet|Macchina_Pallet:inst|mm" contains 6 states and 3 state bits
+Info: Selected Auto state machine encoding method for state machine "|Pallet|Macchina_Pallet:inst|mm"
+Info: Encoding result for state machine "|Pallet|Macchina_Pallet:inst|mm"
+    Info: Completed encoding using 3 state bits
+        Info: Encoded state bit "Macchina_Pallet:inst|q0"
+        Info: Encoded state bit "Macchina_Pallet:inst|q1"
+        Info: Encoded state bit "Macchina_Pallet:inst|q2"
+    Info: State "|Pallet|Macchina_Pallet:inst|Attesa" uses code string "000"
+    Info: State "|Pallet|Macchina_Pallet:inst|Alza" uses code string "001"
+    Info: State "|Pallet|Macchina_Pallet:inst|Avanza" uses code string "010"
+    Info: State "|Pallet|Macchina_Pallet:inst|Abbassa" uses code string "011"
+    Info: State "|Pallet|Macchina_Pallet:inst|Sfila" uses code string "100"
+    Info: State "|Pallet|Macchina_Pallet:inst|Riposizionamento" uses code string "101"
+Info: Promoted pin-driven signal(s) to global signal
+    Info: Promoted clock signal driven by pin "clk" to global clock signal
+Info: Implemented 29 device resources after synthesis - the final resource count might be different
+    Info: Implemented 9 input pins
+    Info: Implemented 6 output pins
+    Info: Implemented 14 macrocells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Allocated 118 megabytes of memory during processing
+    Info: Processing ended: Wed Jul 04 00:36:36 2007
+    Info: Elapsed time: 00:00:02
+
+

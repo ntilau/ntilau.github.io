@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="VHDL_FuncProc">
+		<CBX_INST_ENTRY INSTANCE_NAME="|VHDL_FuncProc|lpm_add_sub:Add0" CBX_FILE_NAME="add_sub_7oh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|VHDL_FuncProc|lpm_add_sub:Add1" CBX_FILE_NAME="add_sub_rrh.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

@@ -1,0 +1,90 @@
+Version 6.1 Build 201 11/27/2006 SJ Web Edition
+28
+2282
+OFF
+OFF
+OFF
+OFF
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Partition --
+-- End Partition --
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+Decoder_VHDL
+# storage
+db|Decoder.(1).cnf
+db|Decoder.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+Decoder_VHDL.vhd
+3ce6686bb4a9b29b8327f73dea0c849
+4
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+}
+# user_parameter {
+in_width
+3
+PARAMETER_UNKNOWN
+USR
+}
+# end
+# entity
+Decoder
+# storage
+db|Decoder.(0).cnf
+db|Decoder.(0).cnf
+# case_insensitive
+# source_file
+Decoder.bdf
+b2a498a87b3046e1698d137e1a6fd0d1
+24
+# hierarchies {
+|
+}
+# end
+# entity
+Decoder_VHDL
+# storage
+db|Decoder.(2).cnf
+db|Decoder.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+Decoder_VHDL.vhd
+3ce6686bb4a9b29b8327f73dea0c849
+4
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+}
+# user_parameter {
+in_width
+4
+PARAMETER_UNKNOWN
+USR
+}
+# hierarchies {
+Decoder_VHDL:inst
+}
+# end
+# complete
+

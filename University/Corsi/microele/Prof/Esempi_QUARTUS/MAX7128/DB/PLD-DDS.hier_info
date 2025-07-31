@@ -1,0 +1,68 @@
+|MAX7128
+CLK_REG <= <GND>
+DAC_DATA <= <GND>
+DAC_CLOCK <= <GND>
+DAC_FS <= <VCC>
+ADC_CS <= <GND>
+ADC_CLOCK <= <GND>
+T1 <= <GND>
+T2 <= <VCC>
+DISP_E <= DISP[2].DB_MAX_OUTPUT_PORT_TYPE
+DISP_D <= DISP[3].DB_MAX_OUTPUT_PORT_TYPE
+DISP_C <= DISP[4].DB_MAX_OUTPUT_PORT_TYPE
+DISP_DP <= <GND>
+DISP_B <= DISP[5].DB_MAX_OUTPUT_PORT_TYPE
+DISP_A <= DISP[6].DB_MAX_OUTPUT_PORT_TYPE
+DISP_G <= DISP[0].DB_MAX_OUTPUT_PORT_TYPE
+DISP_F <= DISP[1].DB_MAX_OUTPUT_PORT_TYPE
+BUF_OE1 <= <VCC>
+BUF_DIR <= <VCC>
+REG_OE <= <VCC>
+RESET => ~NO_FANOUT~
+CLK => ~NO_FANOUT~
+ADC_DATA => ~NO_FANOUT~
+SWITCH1 => ~NO_FANOUT~
+SWITCH2 => ~NO_FANOUT~
+SWITCH3 => ~NO_FANOUT~
+SWITCH4 => ~NO_FANOUT~
+BNC_IN => ~NO_FANOUT~
+
+
+|MAX7128|CONV_BCDto7SEG:inst
+DataIn[0] => Mux0.IN19
+DataIn[0] => Mux1.IN19
+DataIn[0] => Mux2.IN19
+DataIn[0] => Mux3.IN19
+DataIn[0] => Mux4.IN19
+DataIn[0] => Mux5.IN19
+DataIn[0] => Mux6.IN19
+DataIn[1] => Mux0.IN18
+DataIn[1] => Mux1.IN18
+DataIn[1] => Mux2.IN18
+DataIn[1] => Mux3.IN18
+DataIn[1] => Mux4.IN18
+DataIn[1] => Mux5.IN18
+DataIn[1] => Mux6.IN18
+DataIn[2] => Mux0.IN17
+DataIn[2] => Mux1.IN17
+DataIn[2] => Mux2.IN17
+DataIn[2] => Mux3.IN17
+DataIn[2] => Mux4.IN17
+DataIn[2] => Mux5.IN17
+DataIn[2] => Mux6.IN17
+DataIn[3] => Mux0.IN16
+DataIn[3] => Mux1.IN16
+DataIn[3] => Mux2.IN16
+DataIn[3] => Mux3.IN16
+DataIn[3] => Mux4.IN16
+DataIn[3] => Mux5.IN16
+DataIn[3] => Mux6.IN16
+DataOut[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+DataOut[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+DataOut[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+DataOut[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+DataOut[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+DataOut[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+DataOut[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

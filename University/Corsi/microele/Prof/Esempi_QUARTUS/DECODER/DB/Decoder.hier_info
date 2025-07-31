@@ -1,0 +1,97 @@
+|Decoder
+OUT0 <= DecoderGrafico:inst.OUT0
+IN0 => DecoderGrafico:inst.IN0
+IN0 => DecoderAHDL1:inst1.IN0
+IN0 => DecoderAHDL2:inst2.IN0
+IN0 => DecoderAHDL3:inst3.IN0
+IN0 => Decoder0:inst4.IN0
+IN0 => Decoder1:inst5.INPUT[0]
+IN1 => DecoderGrafico:inst.IN1
+IN1 => DecoderAHDL1:inst1.IN1
+IN1 => DecoderAHDL2:inst2.IN1
+IN1 => DecoderAHDL3:inst3.IN1
+IN1 => Decoder0:inst4.IN1
+IN1 => Decoder1:inst5.INPUT[1]
+OUT1 <= DecoderGrafico:inst.OUT1
+OUT2 <= DecoderGrafico:inst.OUT2
+OUT3 <= DecoderGrafico:inst.OUT3
+OUT4 <= DecoderAHDL1:inst1.OUT0
+OUT5 <= DecoderAHDL1:inst1.OUT1
+OUT6 <= DecoderAHDL1:inst1.OUT2
+OUT7 <= DecoderAHDL1:inst1.OUT3
+OUT8 <= DecoderAHDL2:inst2.OUT0
+OUT9 <= DecoderAHDL2:inst2.OUT1
+OUT10 <= DecoderAHDL2:inst2.OUT2
+OUT11 <= DecoderAHDL2:inst2.OUT3
+OUT12 <= DecoderAHDL3:inst3.OUT0
+OUT13 <= DecoderAHDL3:inst3.OUT1
+OUT14 <= DecoderAHDL3:inst3.OUT2
+OUT15 <= DecoderAHDL3:inst3.OUT3
+OUT16 <= Decoder0:inst4.OUT0
+OUT17 <= Decoder0:inst4.OUT1
+OUT18 <= Decoder0:inst4.OUT2
+OUT19 <= Decoder0:inst4.OUT3
+OUTPUT[0] <= Decoder1:inst5.OUTPUT[0]
+OUTPUT[1] <= Decoder1:inst5.OUTPUT[1]
+OUTPUT[2] <= Decoder1:inst5.OUTPUT[2]
+OUTPUT[3] <= Decoder1:inst5.OUTPUT[3]
+
+
+|Decoder|DecoderGrafico:inst
+OUT0 <= inst.DB_MAX_OUTPUT_PORT_TYPE
+IN0 => inst4.IN0
+IN0 => inst1.IN0
+IN0 => inst3.IN0
+IN1 => inst5.IN0
+IN1 => inst2.IN1
+IN1 => inst3.IN1
+OUT1 <= inst1.DB_MAX_OUTPUT_PORT_TYPE
+OUT2 <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+OUT3 <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Decoder|DecoderAHDL1:inst1
+
+
+|Decoder|DecoderAHDL2:inst2
+OUT0 <= OUT0~1.DB_MAX_OUTPUT_PORT_TYPE
+OUT1 <= OUT1~1.DB_MAX_OUTPUT_PORT_TYPE
+OUT2 <= OUT2~0.DB_MAX_OUTPUT_PORT_TYPE
+OUT3 <= OUT3~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Decoder|DecoderAHDL3:inst3
+OUT0 <= OUT0~1.DB_MAX_OUTPUT_PORT_TYPE
+OUT1 <= OUT1~1.DB_MAX_OUTPUT_PORT_TYPE
+OUT2 <= OUT2~0.DB_MAX_OUTPUT_PORT_TYPE
+OUT3 <= OUT3~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Decoder|Decoder0:inst4
+IN0 => OUT0~0.IN0
+IN0 => OUT1~0.IN1
+IN0 => OUT3~0.IN0
+IN1 => OUT0~1.IN0
+IN1 => OUT2~0.IN1
+IN1 => OUT3~0.IN1
+OUT0 <= OUT0~3.DB_MAX_OUTPUT_PORT_TYPE
+OUT1 <= OUT1~1.DB_MAX_OUTPUT_PORT_TYPE
+OUT2 <= OUT2~1.DB_MAX_OUTPUT_PORT_TYPE
+OUT3 <= OUT3~1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Decoder|Decoder1:inst5
+INPUT[1] => Equal0.IN3
+INPUT[1] => Equal1.IN3
+INPUT[1] => Equal2.IN3
+INPUT[1] => Equal3.IN3
+INPUT[0] => Equal0.IN2
+INPUT[0] => Equal1.IN2
+INPUT[0] => Equal2.IN2
+INPUT[0] => Equal3.IN2
+OUTPUT[3] <= OUTPUT[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[2] <= OUTPUT[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[1] <= OUTPUT[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[0] <= OUTPUT[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,59 @@
+Version 6.1 Build 201 11/27/2006 SJ Web Edition
+28
+1527
+OFF
+OFF
+OFF
+OFF
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Partition --
+-- End Partition --
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+CONV_BCDto7SEG
+# storage
+db|PLD-DDS.(1).cnf
+db|PLD-DDS.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+CONV_BCDto7SEG.vhd
+81d5e82cb431a4f1b3f999ed11a447a2
+4
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+CONV_BCDto7SEG:inst
+}
+# end
+# entity
+MAX7128
+# storage
+db|PLD-DDS.(0).cnf
+db|PLD-DDS.(0).cnf
+# case_insensitive
+# source_file
+MAX7128.bdf
+e97944cf9427fcdb52fc8699fd78bc9c
+24
+# hierarchies {
+|
+}
+# end
+# complete
+

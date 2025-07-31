@@ -1,0 +1,40 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectName="LAB"
+ProjectDir="C:\Documents and Settings\Lorenzo\Desktop\ELESDIG2___LAB\ESD2 - dsp - SigmaDelta FIRFilter\"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="..\..\..\Programmi\ti\c5500\cgtools\lib\rts55x.lib"
+Source="..\..\..\Programmi\ti\c5500\dsk5510\lib\dsk5510bslx.lib"
+Source="ESD_Library.c"
+Source="fun_lab.asm"
+Source="LAB_4.C"
+Source="LAB_3.CMD"
+
+["Compiler" Settings: "Debug"]
+Options=-g -k -q -fr"C:\Documents and Settings\Lorenzo\Desktop\ELESDIG2___LAB\ESD2 - dsp - SigmaDelta FIRFilter\Debug" -d"_DEBUG" -ml
+
+["Compiler" Settings: "Release"]
+Options=-q -o2 -fr"C:\Documents and Settings\Lorenzo\Desktop\ELESDIG2___LAB\ESD2 - dsp - SigmaDelta FIRFilter\Release"
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v55
+
+["DspBiosBuilder" Settings: "Release"]
+Options=-v55
+
+["Linker" Settings: "Debug"]
+Options=-q -c -m".\Debug\LAB.map" -o".\Debug\LAB.out" -x
+
+["Linker" Settings: "Release"]
+Options=-q -c -m".\Release\LAB.map" -o".\Release\LAB.out" -x
+

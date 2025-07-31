@@ -1,0 +1,214 @@
+******************************************************************************
+         TMS320C55x COFF Linker PC Version 2.54                
+******************************************************************************
+>> Linked Wed May 21 14:15:22 2008
+
+OUTPUT FILE NAME:   <./Debug/LAB.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 0001056b
+
+
+MEMORY CONFIGURATION
+
+                  name            origin    length      used    attr    fill
+                                 (bytes)   (bytes)    (bytes)
+         ----------------------  --------  ---------  --------  ----  --------
+         IVECT                   00000100   00000100  00000096  RWIX
+         DATA                    00001000   0000efff  00000802  RWIX
+         PROG                    00010000   0000ffff  00000622  RWIX
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+intvect      0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.bss         0   [ 00000100 ]  00000080          *   0000004b   UNINITIALIZED
+                 [ 00000100 ]  00000080          *   00000046   rts55x.lib : exit.obj (.bss)
+                 [ 0000018c ]  000000c6          *   00000004              : _lock.obj (.bss)
+                 [ 00000194 ]  000000ca          *   00000001   dsk5510bslx.lib : dsk5510_led.obj (.bss)
+
+.bbs         0   [ 00001000 ]  00000800          *   00000000   UNINITIALIZED
+
+.const       0   [ 00001000 ]  00000800          *   00000000   UNINITIALIZED
+
+.pinit       0   [ 00001000 ]  00000800          *   00000000   
+
+.vectors     0   [ 00001000 ]  00000800          *   00000000   UNINITIALIZED
+
+.data        0   [ 00001000 ]  00000800          *   00000000   UNINITIALIZED
+
+.sysmem      0   [ 00001000 ]  00000800          *   00000000   UNINITIALIZED
+
+.cio         0   [ 00001000 ]  00000800          *   00000000   UNINITIALIZED
+
+.switch      0   [ 00001000 ]  00000800          *   00000000   UNINITIALIZED
+
+.ioport      0   [ 00001000 ]  00000800          *   00000000   UNINITIALIZED
+
+.stack       0   [ 00001000 ]  00000800          *   000001f4   UNINITIALIZED
+
+.sysstack 
+*            0   [ 000013e8 ]  000009f4          *   000001f4   UNINITIALIZED
+
+.cinit       0   [ 000017d0 ]  00000be8          *   00000019   
+                 [ 000017d0 ]  00000be8          *   0000000e   rts55x.lib : exit.obj (.cinit)
+                 [ 000017ec ]  00000bf6          *   0000000a              : _lock.obj (.cinit)
+                 [ 00001800 ]  00000c00          *   00000001   --HOLE-- [fill = 0]
+
+.text        0     00010000  [ 00008000 ] 00000622          *   
+                   00010000  [ 00008000 ] 000002ea          *   ESD_Library.obj (.text)
+                   000102ea  [ 00008175 ] 00000002          *   --HOLE-- [fill = 20]
+                   000102ec  [ 00008176 ] 000000b4          *   dsk5510bslx.lib : dsk5510_led.obj (.text)
+                   000103a0  [ 000081d0 ] 00000037          *                   : dsk5510.obj (.text)
+                   000103d7  [ 000081eb+] 00000001          *   --HOLE-- [fill = 20]
+                   000103d8  [ 000081ec ] 00000030          *                   : dsk5510_dip.obj (.text)
+                   00010408  [ 00008204 ] 00000026          *   LAB_3.obj (.text)
+                   0001042e  [ 00008217 ] 00000002          *   --HOLE-- [fill = 20]
+                   00010430  [ 00008218 ] 00000022          *   dsk5510bslx.lib : dsk5510_mem.obj (.text)
+                   00010452  [ 00008229 ] 000000ae          *   rts55x.lib : exit.obj (.text)
+                   00010500  [ 00008280 ] 0000006b          *              : autoinit.obj (.text)
+                   0001056b  [ 000082b5+] 00000048          *              : boot.obj (.text)
+                   000105b3  [ 000082d9+] 0000003c          *              : idiv.obj (.text)
+                   000105ef  [ 000082f7+] 00000019          *   fun_lab.obj (.text)
+                   00010608  [ 00008304 ] 00000012          *   rts55x.lib : _lock.obj (.text)
+                   0001061a  [ 0000830d ] 00000007          *              : exit.obj (.text:CIO_breakpoint)
+                   00010621  [ 00008310+] 00000001          *   --HOLE-- [fill = 20]
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+            00000080    .bss
+            00000800    .data
+00010000                .text
+0001061b                C$$EXIT
+000105b3                I$$DIV
+000105d2                I$$MOD
+00010602                _DATA_OUT
+000103dc                _DSK5510_DIP_get
+000103d8                _DSK5510_DIP_init
+000102ec                _DSK5510_LED_init
+00010304                _DSK5510_LED_off
+00010338                _DSK5510_LED_on
+0001036c                _DSK5510_LED_toggle
+000103a0                _DSK5510_init
+00010430                _DSK5510_mget
+00010440                _DSK5510_mset
+000103a4                _DSK5510_rget
+000103bc                _DSK5510_rset
+00010238                _FiltroFirC
+000105f9                _READ_GPIO_4
+00010000                _SetMckFreq
+00010104                _SetRdAccessTiming
+0001008c                _SetWrAccessTiming
+000101ec                _TIMER_SET
+0001021c                _TimerSync
+000105ef                _WRITE_XF
+000003e8                __STACK_SIZE
+000003e8                __SYSSTACK_SIZE
+            00000080    ___bss__
+            00000be8    ___cinit__
+            00000800    ___data__
+            00000800    ___edata__
+            000000cb    ___end__
+00010622                ___etext__
+ffffffff                ___pinit__
+00010000                ___text__
+            000000c2    __cleanup_ptr
+000105b3                __divi
+            000000c4    __dtors_ptr
+            000000c6    __lock
+00010608                __nop
+0001060a                __register_lock
+00010612                __register_unlock
+000105d2                __remi
+            00000800    __stack
+            000009f4    __sysstack
+            000000c8    __unlock
+0001061a                _abort
+000104ae                _atexit
+00010500                _auto_init
+0001056b                _c_int00
+00010452                _exit
+00010408                _main
+000101ac                _myDelay
+0001017c                _myInitDskBoard
+            00000be8    cinit
+            00000800    edata
+            000000cb    end
+00010622                etext
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+            00000080    ___bss__
+            00000080    .bss
+            000000c2    __cleanup_ptr
+            000000c4    __dtors_ptr
+            000000c6    __lock
+            000000c8    __unlock
+            000000cb    end
+            000000cb    ___end__
+000003e8                __SYSSTACK_SIZE
+000003e8                __STACK_SIZE
+            00000800    ___data__
+            00000800    .data
+            00000800    ___edata__
+            00000800    __stack
+            00000800    edata
+            000009f4    __sysstack
+            00000be8    cinit
+            00000be8    ___cinit__
+00010000                _SetMckFreq
+00010000                .text
+00010000                ___text__
+0001008c                _SetWrAccessTiming
+00010104                _SetRdAccessTiming
+0001017c                _myInitDskBoard
+000101ac                _myDelay
+000101ec                _TIMER_SET
+0001021c                _TimerSync
+00010238                _FiltroFirC
+000102ec                _DSK5510_LED_init
+00010304                _DSK5510_LED_off
+00010338                _DSK5510_LED_on
+0001036c                _DSK5510_LED_toggle
+000103a0                _DSK5510_init
+000103a4                _DSK5510_rget
+000103bc                _DSK5510_rset
+000103d8                _DSK5510_DIP_init
+000103dc                _DSK5510_DIP_get
+00010408                _main
+00010430                _DSK5510_mget
+00010440                _DSK5510_mset
+00010452                _exit
+000104ae                _atexit
+00010500                _auto_init
+0001056b                _c_int00
+000105b3                I$$DIV
+000105b3                __divi
+000105d2                __remi
+000105d2                I$$MOD
+000105ef                _WRITE_XF
+000105f9                _READ_GPIO_4
+00010602                _DATA_OUT
+00010608                __nop
+0001060a                __register_lock
+00010612                __register_unlock
+0001061a                _abort
+0001061b                C$$EXIT
+00010622                etext
+00010622                ___etext__
+ffffffff                pinit
+ffffffff                ___pinit__
+
+[60 symbols]

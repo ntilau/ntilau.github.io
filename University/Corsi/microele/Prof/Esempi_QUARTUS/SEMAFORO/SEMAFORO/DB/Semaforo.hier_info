@@ -1,0 +1,60 @@
+|Semaforo
+ROSSO_A <= Semaforo_Stati:inst.red_a
+CLOCK => Semaforo_Stati:inst.clk
+CLOCK => Contatore:inst6.clk
+RESET => Semaforo_Stati:inst.reset
+RESET => Contatore:inst6.reset
+GIALLO_A <= Semaforo_Stati:inst.yellow_a
+VERDE_A <= Semaforo_Stati:inst.green_a
+ROSSO_B <= Semaforo_Stati:inst.red_b
+GIALLO_B <= Semaforo_Stati:inst.yellow_b
+VERDE_B <= Semaforo_Stati:inst.green_b
+TIMEOUT <= Contatore:inst6.timeout
+VALUE[0] <= Semaforo_Stati:inst.value[0]
+VALUE[1] <= Semaforo_Stati:inst.value[1]
+VALUE[2] <= Semaforo_Stati:inst.value[2]
+VALUE[3] <= Semaforo_Stati:inst.value[3]
+VALUE[4] <= Semaforo_Stati:inst.value[4]
+VALUE[5] <= Semaforo_Stati:inst.value[5]
+VALUE[6] <= Semaforo_Stati:inst.value[6]
+VALUE[7] <= Semaforo_Stati:inst.value[7]
+
+
+|Semaforo|Semaforo_Stati:inst
+clk => red_a_reg.CLK
+clk => red_b_reg.CLK
+clk => yellow_a_reg.CLK
+clk => yellow_b_reg.CLK
+clk => green_a_reg.CLK
+clk => green_b_reg.CLK
+clk => mm~0.IN1
+reset => mm~2.IN1
+red_a <= red_a_reg.DB_MAX_OUTPUT_PORT_TYPE
+yellow_a <= yellow_a_reg.DB_MAX_OUTPUT_PORT_TYPE
+green_a <= green_a_reg.DB_MAX_OUTPUT_PORT_TYPE
+red_b <= red_b_reg.DB_MAX_OUTPUT_PORT_TYPE
+yellow_b <= yellow_b_reg.DB_MAX_OUTPUT_PORT_TYPE
+green_b <= green_b_reg.DB_MAX_OUTPUT_PORT_TYPE
+value[0] <= value[0]~7.DB_MAX_OUTPUT_PORT_TYPE
+value[1] <= value[1]~6.DB_MAX_OUTPUT_PORT_TYPE
+value[2] <= value[2]~5.DB_MAX_OUTPUT_PORT_TYPE
+value[3] <= value[3]~4.DB_MAX_OUTPUT_PORT_TYPE
+value[4] <= value[4]~3.DB_MAX_OUTPUT_PORT_TYPE
+value[5] <= value[5]~2.DB_MAX_OUTPUT_PORT_TYPE
+value[6] <= value[6]~1.DB_MAX_OUTPUT_PORT_TYPE
+value[7] <= value[7]~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Semaforo|Contatore:inst6
+clk => Count[7].CLK
+clk => Count[6].CLK
+clk => Count[5].CLK
+clk => Count[4].CLK
+clk => Count[3].CLK
+clk => Count[2].CLK
+clk => Count[1].CLK
+clk => Count[0].CLK
+clk => out_reg.CLK
+timeout <= out_reg.DB_MAX_OUTPUT_PORT_TYPE
+
+

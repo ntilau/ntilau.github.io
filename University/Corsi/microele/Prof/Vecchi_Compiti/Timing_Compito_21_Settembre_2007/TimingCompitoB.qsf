@@ -1,0 +1,53 @@
+# Copyright (C) 1991-2006 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+
+
+# The default values for assignments are stored in the file
+#		TimingCompitoB_assignment_defaults.qdf
+# If this file doesn't exist, and for assignments not listed, see file
+#		assignment_defaults.qdf
+
+# Altera recommends that you do not modify this file. This
+# file is updated automatically by the Quartus II software
+# and any changes you make may be lost or overwritten.
+
+
+set_global_assignment -name DEVICE "EPM7032AELC44-10"
+set_global_assignment -name FAMILY MAX7000AE
+set_global_assignment -name TOP_LEVEL_ENTITY TimingCompitoB
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 6.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "22:43:01  JULY 02, 2007"
+set_global_assignment -name LAST_QUARTUS_VERSION 6.1
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to FAST_INPUT
+set_global_assignment -name BDF_FILE TimingCompitoB.bdf
+set_global_assignment -name OPTIMIZE_HOLD_TIMING OFF
+set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
+set_global_assignment -name INCREMENTAL_COMPILATION OFF
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 10
+set_global_assignment -name MAX7000_OPTIMIZATION_TECHNIQUE AREA
+set_global_assignment -name AUTO_PARALLEL_EXPANDERS OFF
+set_global_assignment -name ALLOW_XOR_GATE_USAGE ON
+set_global_assignment -name ALLOW_POWER_UP_DONT_CARE OFF
+set_global_assignment -name AUTO_GLOBAL_OE_MAX ON
+set_global_assignment -name MAX_AUTO_GLOBAL_REGISTER_CONTROLS ON
+set_global_assignment -name AUTO_LCELL_INSERTION OFF
+set_global_assignment -name AUTO_RESOURCE_SHARING ON
+set_instance_assignment -name TSU_REQUIREMENT "10.3 ns" -from CLOCK -to INPUT10
+set_instance_assignment -name TSU_REQUIREMENT "10.3 ns" -from CLOCK -to INPUT11
+set_instance_assignment -name TSU_REQUIREMENT "10.3 ns" -from CLOCK -to INPUT12
+set_instance_assignment -name TSU_REQUIREMENT "10.3 ns" -from CLOCK -to INPUT13
+set_instance_assignment -name TSU_REQUIREMENT "10.3 ns" -from CLOCK -to INPUT14
+set_instance_assignment -name TSU_REQUIREMENT "10.3 ns" -from CLOCK -to INPUT15
+set_instance_assignment -name TSU_REQUIREMENT "10.3 ns" -from CLOCK -to INPUT16
+set_instance_assignment -name TSU_REQUIREMENT "10.3 ns" -from CLOCK -to INPUT17

@@ -1,0 +1,195 @@
+Classic Timing Analyzer report for Semaforo
+Tue Jul 01 00:06:24 2008
+Quartus II Version 7.2 Build 207 03/18/2008 Service Pack 3 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'CLOCK'
+  6. tco
+  7. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2007 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                             ;
++------------------------------+-------+---------------+----------------------------------+--------------------------+-------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                     ; To                      ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+--------------------------+-------------------------+------------+----------+--------------+
+; Worst-case tco               ; N/A   ; None          ; 6.700 ns                         ; Contatore:inst1|timeout  ; TIMEOUT                 ; CLOCK      ; --       ; 0            ;
+; Clock Setup: 'CLOCK'         ; N/A   ; None          ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[4] ; Contatore:inst1|timeout ; CLOCK      ; CLOCK    ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                          ;                         ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+--------------------------+-------------------------+------------+----------+--------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                      ;
++----------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                         ; Setting            ; From ; To ; Entity Name ;
++----------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                    ; EPM7032AELC44-10   ;      ;    ;             ;
+; Timing Models                                                  ; Final              ;      ;    ;             ;
+; Default hold multicycle                                        ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                      ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                         ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                 ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                               ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                          ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                        ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                               ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                           ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                  ; Off                ;      ;    ;             ;
+; Number of source nodes to report per destination node          ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                          ; 10                 ;      ;    ;             ;
+; Number of paths to report                                      ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                   ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                         ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                     ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                   ; Off                ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis ; Off                ;      ;    ;             ;
++----------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; CLOCK           ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'CLOCK'                                                                                                                                                                                       ;
++-------+----------------------------------+--------------------------+--------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)             ; From                     ; To                       ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+----------------------------------+--------------------------+--------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[0] ; Contatore:inst1|Count[0] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[0] ; Contatore:inst1|Count[1] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[1] ; Contatore:inst1|Count[1] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[0] ; Contatore:inst1|Count[2] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[1] ; Contatore:inst1|Count[2] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[2] ; Contatore:inst1|Count[2] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[0] ; Contatore:inst1|Count[3] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[1] ; Contatore:inst1|Count[3] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[2] ; Contatore:inst1|Count[3] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[3] ; Contatore:inst1|Count[3] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[7] ; Contatore:inst1|Count[3] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[6] ; Contatore:inst1|Count[3] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[5] ; Contatore:inst1|Count[3] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[4] ; Contatore:inst1|Count[3] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[0] ; Contatore:inst1|Count[7] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[1] ; Contatore:inst1|Count[7] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[2] ; Contatore:inst1|Count[7] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[3] ; Contatore:inst1|Count[7] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[7] ; Contatore:inst1|Count[7] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[6] ; Contatore:inst1|Count[7] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[5] ; Contatore:inst1|Count[7] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[4] ; Contatore:inst1|Count[7] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[0] ; Contatore:inst1|Count[6] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[1] ; Contatore:inst1|Count[6] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[2] ; Contatore:inst1|Count[6] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[3] ; Contatore:inst1|Count[6] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[6] ; Contatore:inst1|Count[6] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[5] ; Contatore:inst1|Count[6] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[4] ; Contatore:inst1|Count[6] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[0] ; Contatore:inst1|Count[5] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[1] ; Contatore:inst1|Count[5] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[2] ; Contatore:inst1|Count[5] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[3] ; Contatore:inst1|Count[5] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[5] ; Contatore:inst1|Count[5] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[4] ; Contatore:inst1|Count[5] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[0] ; Contatore:inst1|Count[4] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[1] ; Contatore:inst1|Count[4] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[2] ; Contatore:inst1|Count[4] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[3] ; Contatore:inst1|Count[4] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[4] ; Contatore:inst1|Count[4] ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[0] ; Contatore:inst1|timeout  ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[1] ; Contatore:inst1|timeout  ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[2] ; Contatore:inst1|timeout  ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[3] ; Contatore:inst1|timeout  ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[7] ; Contatore:inst1|timeout  ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[6] ; Contatore:inst1|timeout  ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[5] ; Contatore:inst1|timeout  ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst1|Count[4] ; Contatore:inst1|timeout  ; CLOCK      ; CLOCK    ; None                        ; None                      ; 5.400 ns                ;
++-------+----------------------------------+--------------------------+--------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++------------------------------------------------------------------------------------+
+; tco                                                                                ;
++-------+--------------+------------+-------------------------+---------+------------+
+; Slack ; Required tco ; Actual tco ; From                    ; To      ; From Clock ;
++-------+--------------+------------+-------------------------+---------+------------+
+; N/A   ; None         ; 6.700 ns   ; Contatore:inst1|timeout ; TIMEOUT ; CLOCK      ;
++-------+--------------+------------+-------------------------+---------+------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 7.2 Build 207 03/18/2008 Service Pack 3 SJ Web Edition
+    Info: Processing started: Tue Jul 01 00:06:24 2008
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off Semaforo -c Semaforo
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: Timing Analysis does not support the analysis of latches as synchronous elements for the currently selected device family
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "CLOCK" is an undefined clock
+Info: Clock "CLOCK" has Internal fmax of 103.09 MHz between source register "Contatore:inst1|Count[0]" and destination register "Contatore:inst1|Count[0]" (period= 9.7 ns)
+    Info: + Longest register to register delay is 5.400 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC11; Fanout = 9; REG Node = 'Contatore:inst1|Count[0]'
+        Info: 2: + IC(0.000 ns) + CELL(5.400 ns) = 5.400 ns; Loc. = LC11; Fanout = 9; REG Node = 'Contatore:inst1|Count[0]'
+        Info: Total cell delay = 5.400 ns ( 100.00 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "CLOCK" to destination register is 3.400 ns
+            Info: 1: + IC(0.000 ns) + CELL(2.100 ns) = 2.100 ns; Loc. = PIN_43; Fanout = 9; CLK Node = 'CLOCK'
+            Info: 2: + IC(0.000 ns) + CELL(1.300 ns) = 3.400 ns; Loc. = LC11; Fanout = 9; REG Node = 'Contatore:inst1|Count[0]'
+            Info: Total cell delay = 3.400 ns ( 100.00 % )
+        Info: - Longest clock path from clock "CLOCK" to source register is 3.400 ns
+            Info: 1: + IC(0.000 ns) + CELL(2.100 ns) = 2.100 ns; Loc. = PIN_43; Fanout = 9; CLK Node = 'CLOCK'
+            Info: 2: + IC(0.000 ns) + CELL(1.300 ns) = 3.400 ns; Loc. = LC11; Fanout = 9; REG Node = 'Contatore:inst1|Count[0]'
+            Info: Total cell delay = 3.400 ns ( 100.00 % )
+    Info: + Micro clock to output delay of source is 1.500 ns
+    Info: + Micro setup delay of destination is 2.800 ns
+Info: tco from clock "CLOCK" to destination pin "TIMEOUT" through register "Contatore:inst1|timeout" is 6.700 ns
+    Info: + Longest clock path from clock "CLOCK" to source register is 3.400 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.100 ns) = 2.100 ns; Loc. = PIN_43; Fanout = 9; CLK Node = 'CLOCK'
+        Info: 2: + IC(0.000 ns) + CELL(1.300 ns) = 3.400 ns; Loc. = LC2; Fanout = 1; REG Node = 'Contatore:inst1|timeout'
+        Info: Total cell delay = 3.400 ns ( 100.00 % )
+    Info: + Micro clock to output delay of source is 1.500 ns
+    Info: + Longest register to pin delay is 1.800 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC2; Fanout = 1; REG Node = 'Contatore:inst1|timeout'
+        Info: 2: + IC(0.000 ns) + CELL(1.800 ns) = 1.800 ns; Loc. = PIN_5; Fanout = 0; PIN Node = 'TIMEOUT'
+        Info: Total cell delay = 1.800 ns ( 100.00 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Allocated 133 megabytes of memory during processing
+    Info: Processing ended: Tue Jul 01 00:06:24 2008
+    Info: Elapsed time: 00:00:00
+
+

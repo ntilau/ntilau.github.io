@@ -1,0 +1,29 @@
+Circuit: * C:\Documents and Settings\Lorenzo\Desktop\Lab 6\Draft2.asc
+
+u1:c3: increased Cpar to 5e-016
+Direct Newton iteration for .op point succeeded.
+Heightened Def Con from 0.201392 to 0.201392
+Heightened Def Con from 0.389221 ++++++++++++++++++++++++to 0.389221
+Heightened Def Con from 0.681264 to 0.681264
+Heightened Def Con from 0.709218 ++++++++++++++++++++++++to 0.709218
+Heightened Def Con from 0.861383 to 0.861383
+Heightened Def Con from 0.921386 to 0.921386
+Heightened Def Con from 1.22139 to 1.22139
+Heightened Def Con from 1.22924 ++++++++++++++++++++++++to 1.22924
+Heightened Def Con from 1.42138 to 1.42138
+Date: Sun Dec 03 14:36:51 2006
+Total elapsed time: 4.500 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 350966
+traniter = 350948
+tranpoints = 56465
+accept = 41495
+rejected = 15051
+trancuriters = 0
+matrix size = 10
+fillins = 4
+solver = Normal
+

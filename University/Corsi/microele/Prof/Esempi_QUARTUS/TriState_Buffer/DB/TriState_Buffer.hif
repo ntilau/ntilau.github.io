@@ -1,0 +1,90 @@
+Version 6.1 Build 201 11/27/2006 SJ Web Edition
+28
+2282
+OFF
+OFF
+OFF
+OFF
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Partition --
+-- End Partition --
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+TRI_AHDL
+# storage
+db|TriState_Buffer.(1).cnf
+db|TriState_Buffer.(1).cnf
+# case_insensitive
+# source_file
+TRI_AHDL.tdf
+8d6875e4d9cfb9cb53f588222feaae
+6
+# used_port {
+Uscita
+-1
+3
+Ingresso1
+-1
+3
+Ingresso0
+-1
+3
+Controllo1
+-1
+3
+Controllo0
+-1
+3
+}
+# hierarchies {
+TRI_AHDL:inst1
+}
+# end
+# entity
+TriState_Buffer
+# storage
+db|TriState_Buffer.(0).cnf
+db|TriState_Buffer.(0).cnf
+# case_insensitive
+# source_file
+TriState_Buffer.bdf
+ab1448a3af3c0956d96276a8ec5eb9c
+24
+# hierarchies {
+|
+}
+# end
+# entity
+BufferTriState
+# storage
+db|TriState_Buffer.(2).cnf
+db|TriState_Buffer.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+VHDL_TRI.vhd
+e9c93724d9626f350d0fbdd29adf3f
+4
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+BufferTriState:inst4
+}
+# end
+# complete
+

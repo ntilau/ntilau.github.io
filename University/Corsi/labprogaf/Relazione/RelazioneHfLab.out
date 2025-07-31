@@ -1,0 +1,31 @@
+\BOOKMARK [0][-]{titolo.0}{Titolo}{}
+\BOOKMARK [0][-]{section*.1}{Indice}{}
+\BOOKMARK [0][-]{section*.2}{Introduzione}{}
+\BOOKMARK [0][-]{chapter.1}{1 Tecniche di adattamento}{}
+\BOOKMARK [1][-]{section.1.1}{1.1 Matching ideale}{chapter.1}
+\BOOKMARK [2][-]{subsection.1.1.1}{1.1.1 Rete a L}{section.1.1}
+\BOOKMARK [2][-]{subsection.1.1.2}{1.1.2 Singolo Stub}{section.1.1}
+\BOOKMARK [2][-]{subsection.1.1.3}{1.1.3 \040Trasformatore a Lambda Quarti}{section.1.1}
+\BOOKMARK [1][-]{section.1.2}{1.2 Matching reale}{chapter.1}
+\BOOKMARK [2][-]{subsection.1.2.1}{1.2.1 Rete a L}{section.1.2}
+\BOOKMARK [2][-]{subsection.1.2.2}{1.2.2 Singolo Stub}{section.1.2}
+\BOOKMARK [2][-]{subsection.1.2.3}{1.2.3 \040Trasformatore a Lambda Quarti}{section.1.2}
+\BOOKMARK [1][-]{section.1.3}{1.3 Riepilogo grafico e tabulare dei risultati ottenuti}{chapter.1}
+\BOOKMARK [0][-]{chapter.2}{2 Rivelatore di potenza}{}
+\BOOKMARK [1][-]{section.2.1}{2.1 Scopo e descrizione dell'esperienza}{chapter.2}
+\BOOKMARK [1][-]{section.2.2}{2.2 Il diodo HSMS2855: caratteristiche tecniche e curve corrente-tensione}{chapter.2}
+\BOOKMARK [1][-]{section.2.3}{2.3 Descrizione del circuito di rivelazione}{chapter.2}
+\BOOKMARK [1][-]{section.2.4}{2.4 Scelta della rete di polarizzazione}{chapter.2}
+\BOOKMARK [1][-]{section.2.5}{2.5 Valore di soglia ottimale}{chapter.2}
+\BOOKMARK [1][-]{section.2.6}{2.6 Rete di adattamento}{chapter.2}
+\BOOKMARK [1][-]{section.2.7}{2.7 Risposta transitoria}{chapter.2}
+\BOOKMARK [0][-]{chapter.3}{3 Transceiver FSK in banda ISM a 2.4 GHz}{}
+\BOOKMARK [1][-]{section.3.1}{3.1 Modulazione FSK}{chapter.3}
+\BOOKMARK [1][-]{section.3.2}{3.2 Architettura del transceiver}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.2.1}{3.2.1 Trasmettitore}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.2}{3.2.2 Canale di comunicazione e rumore additivo}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.3}{3.2.3 Ricevitore}{section.3.2}
+\BOOKMARK [1][-]{section.3.3}{3.3 Prestazioni del transceiver}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.3.1}{3.3.1 BER vs SNR}{section.3.3}
+\BOOKMARK [0][-]{section*.13}{Conclusione}{}
+\BOOKMARK [0][-]{section*.15}{Bibliografia}{}

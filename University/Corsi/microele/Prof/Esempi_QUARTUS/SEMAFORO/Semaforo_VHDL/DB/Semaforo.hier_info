@@ -1,0 +1,92 @@
+|Semaforo
+ROSSO_A <= Semaforo_Stati:inst.red_a
+CLOCK => Semaforo_Stati:inst.clk
+CLOCK => Contatore:inst1.clk
+RESET => Semaforo_Stati:inst.reset
+RESET => Contatore:inst1.reset
+GIALLO_A <= Semaforo_Stati:inst.yellow_a
+VERDE_A <= Semaforo_Stati:inst.green_a
+ROSSO_B <= Semaforo_Stati:inst.red_b
+GIALLO_B <= Semaforo_Stati:inst.yellow_b
+VERDE_B <= Semaforo_Stati:inst.green_b
+TIMEOUT <= Contatore:inst1.timeout
+VALUE[0] <= Semaforo_Stati:inst.time_to_wait[0]
+VALUE[1] <= Semaforo_Stati:inst.time_to_wait[1]
+VALUE[2] <= Semaforo_Stati:inst.time_to_wait[2]
+VALUE[3] <= Semaforo_Stati:inst.time_to_wait[3]
+VALUE[4] <= Semaforo_Stati:inst.time_to_wait[4]
+VALUE[5] <= Semaforo_Stati:inst.time_to_wait[5]
+VALUE[6] <= Semaforo_Stati:inst.time_to_wait[6]
+VALUE[7] <= Semaforo_Stati:inst.time_to_wait[7]
+
+
+|Semaforo|Semaforo_Stati:inst
+clk => red_a~reg0.CLK
+clk => yellow_a~reg0.CLK
+clk => green_a~reg0.CLK
+clk => red_b~reg0.CLK
+clk => yellow_b~reg0.CLK
+clk => green_b~reg0.CLK
+clk => time_to_wait[7]~reg0.CLK
+clk => time_to_wait[6]~reg0.CLK
+clk => time_to_wait[5]~reg0.CLK
+clk => time_to_wait[4]~reg0.CLK
+clk => time_to_wait[3]~reg0.CLK
+clk => time_to_wait[2]~reg0.CLK
+clk => time_to_wait[1]~reg0.CLK
+clk => time_to_wait[0]~reg0.CLK
+clk => Macchina~8.IN1
+reset => Macchina~9.IN1
+timeout => Macchina~7.OUTPUTSELECT
+timeout => Macchina~6.OUTPUTSELECT
+timeout => Macchina~5.OUTPUTSELECT
+timeout => Macchina~4.OUTPUTSELECT
+timeout => Macchina~3.OUTPUTSELECT
+timeout => Macchina~2.OUTPUTSELECT
+timeout => Macchina~1.OUTPUTSELECT
+timeout => Macchina~0.OUTPUTSELECT
+red_a <= red_a~reg0.DB_MAX_OUTPUT_PORT_TYPE
+yellow_a <= yellow_a~reg0.DB_MAX_OUTPUT_PORT_TYPE
+green_a <= green_a~reg0.DB_MAX_OUTPUT_PORT_TYPE
+red_b <= red_b~reg0.DB_MAX_OUTPUT_PORT_TYPE
+yellow_b <= yellow_b~reg0.DB_MAX_OUTPUT_PORT_TYPE
+green_b <= green_b~reg0.DB_MAX_OUTPUT_PORT_TYPE
+time_to_wait[0] <= time_to_wait[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+time_to_wait[1] <= time_to_wait[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+time_to_wait[2] <= time_to_wait[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+time_to_wait[3] <= time_to_wait[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+time_to_wait[4] <= time_to_wait[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+time_to_wait[5] <= time_to_wait[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+time_to_wait[6] <= time_to_wait[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+time_to_wait[7] <= time_to_wait[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Semaforo|Contatore:inst1
+clk => Count[7].CLK
+clk => Count[6].CLK
+clk => Count[5].CLK
+clk => Count[4].CLK
+clk => Count[3].CLK
+clk => Count[2].CLK
+clk => Count[1].CLK
+clk => Count[0].CLK
+clk => timeout~reg0.CLK
+reset => Count[7].ACLR
+reset => Count[6].ACLR
+reset => Count[5].ACLR
+reset => Count[4].ACLR
+reset => Count[3].ACLR
+reset => Count[2].ACLR
+reset => Count[1].ACLR
+reset => Count[0].ACLR
+time_to_wait[0] => Equal0.IN7
+time_to_wait[1] => Equal0.IN6
+time_to_wait[2] => Equal0.IN5
+time_to_wait[3] => Equal0.IN4
+time_to_wait[4] => Equal0.IN3
+time_to_wait[5] => Equal0.IN2
+time_to_wait[6] => Equal0.IN1
+time_to_wait[7] => Equal0.IN0
+timeout <= timeout~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

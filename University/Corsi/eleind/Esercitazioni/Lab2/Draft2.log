@@ -1,0 +1,21 @@
+Circuit: * C:\Documents and Settings\Lorenzo\Desktop\Lab2\Draft2.asc
+
+Limiting rise time of source i§p0 to 1e-008
+Limiting fall time of source i§p0 to 1e-008
+Direct Newton iteration for .op point succeeded.
+Date: Thu Dec 07 11:22:44 2006
+Total elapsed time: 4.250 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 732348
+traniter = 732345
+tranpoints = 262718
+accept = 243464
+rejected = 19254
+trancuriters = 0
+matrix size = 6
+fillins = 1
+solver = Normal
+

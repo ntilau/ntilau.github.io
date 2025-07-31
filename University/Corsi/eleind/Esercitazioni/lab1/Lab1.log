@@ -1,0 +1,19 @@
+Circuit: * C:\Documents and Settings\Lorenzo\Desktop\Elettronica Industriale\Esercitazioni\lab1\Lab1.asc
+
+Direct Newton iteration for .op point succeeded.
+Date: Sun Jun 24 22:37:23 2007
+Total elapsed time: 29.672 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 500161
+traniter = 500156
+tranpoints = 250079
+accept = 250079
+rejected = 0
+trancuriters = 0
+matrix size = 22
+fillins = 9
+solver = Normal
+

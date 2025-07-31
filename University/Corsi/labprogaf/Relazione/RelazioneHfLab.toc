@@ -1,0 +1,33 @@
+\select@language {italian}
+\contentsline {chapter}{Indice}{iii}{section*.1}
+\contentsline {chapter}{Introduzione}{1}{section*.2}
+\contentsline {chapter}{\chapternumberline {1}Tecniche di adattamento}{5}{chapter.1}
+\contentsline {section}{\numberline {1.1}Matching ideale}{7}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Rete a L}{7}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Singolo Stub}{11}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3} Trasformatore a $\lambda / 4$}{12}{subsection.1.1.3}
+\contentsline {section}{\numberline {1.2}Matching reale}{13}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Rete a L}{14}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Singolo Stub}{17}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3} Trasformatore a $\lambda / 4$}{19}{subsection.1.2.3}
+\contentsline {section}{\numberline {1.3}Riepilogo grafico e tabulare dei risultati ottenuti}{21}{section.1.3}
+\contentsline {chapter}{\chapternumberline {2}Rivelatore di potenza}{23}{chapter.2}
+\contentsline {section}{\numberline {2.1}Scopo e descrizione dell'esperienza}{24}{section.2.1}
+\contentsline {section}{\numberline {2.2}Il diodo HSMS2855: caratteristiche tecniche e curve corrente-tensione}{25}{section.2.2}
+\contentsline {section}{\numberline {2.3}Descrizione del circuito di rivelazione}{27}{section.2.3}
+\contentsline {section}{\numberline {2.4}Scelta della rete di polarizzazione}{28}{section.2.4}
+\contentsline {section}{\numberline {2.5}Valore di soglia ottimale}{32}{section.2.5}
+\contentsline {section}{\numberline {2.6}Rete di adattamento}{33}{section.2.6}
+\contentsline {section}{\numberline {2.7}Risposta transitoria}{38}{section.2.7}
+\contentsline {chapter}{\chapternumberline {3}Transceiver FSK in banda ISM a 2.4 GHz}{41}{chapter.3}
+\contentsline {section}{\numberline {3.1}Modulazione FSK}{42}{section.3.1}
+\contentsline {section}{\numberline {3.2}Architettura del transceiver}{44}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Trasmettitore}{44}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Canale di comunicazione e rumore additivo}{47}{subsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.2.1}Propagazione in campo aperto}{47}{subsubsection.3.2.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2.2}Rumore termico additivo}{48}{subsubsection.3.2.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Ricevitore}{49}{subsection.3.2.3}
+\contentsline {section}{\numberline {3.3}Prestazioni del transceiver}{51}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}BER vs SNR}{54}{subsection.3.3.1}
+\contentsline {chapter}{Conclusione}{56}{section*.13}
+\contentsline {chapter}{Bibliografia}{58}{section*.15}

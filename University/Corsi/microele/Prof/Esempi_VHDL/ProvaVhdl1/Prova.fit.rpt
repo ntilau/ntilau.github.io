@@ -1,0 +1,566 @@
+Fitter report for Prova
+Tue Jun 10 15:39:23 2008
+Quartus II Version 6.1 Build 201 11/27/2006 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Fitter Summary
+  3. Fitter Settings
+  4. Pin-Out File
+  5. Fitter Resource Usage Summary
+  6. Input Pins
+  7. Output Pins
+  8. All Package Pins
+  9. I/O Standard
+ 10. Dedicated Inputs I/O
+ 11. Output Pin Default Load For Reported TCO
+ 12. Fitter Resource Utilization by Entity
+ 13. Control Signals
+ 14. Global & Other Fast Signals
+ 15. Non-Global High Fan-Out Signals
+ 16. Interconnect Usage Summary
+ 17. LAB Macrocells
+ 18. Parallel Expander
+ 19. Shareable Expander
+ 20. Logic Cell Interconnection
+ 21. Fitter Device Options
+ 22. Fitter Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------+
+; Fitter Summary                                                  ;
++-----------------------+-----------------------------------------+
+; Fitter Status         ; Successful - Tue Jun 10 15:39:23 2008   ;
+; Quartus II Version    ; 6.1 Build 201 11/27/2006 SJ Web Edition ;
+; Revision Name         ; Prova                                   ;
+; Top-level Entity Name ; Prova                                   ;
+; Family                ; MAX7000AE                               ;
+; Device                ; EPM7064AEFC100-10                       ;
+; Timing Models         ; Final                                   ;
+; Total macrocells      ; 55 / 64 ( 86 % )                        ;
+; Total pins            ; 48 / 68 ( 71 % )                        ;
++-----------------------+-----------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Fitter Settings                                                       ;
++--------------------------------------------+----------+---------------+
+; Option                                     ; Setting  ; Default Value ;
++--------------------------------------------+----------+---------------+
+; Device                                     ; AUTO     ;               ;
+; Optimize IOC Register Placement for Timing ; On       ; On            ;
+; Limit to One Fitting Attempt               ; Off      ; Off           ;
+; Fitter Initial Placement Seed              ; 1        ; 1             ;
+; Slow Slew Rate                             ; Off      ; Off           ;
+; Fitter Effort                              ; Auto Fit ; Auto Fit      ;
+; Use smart compilation                      ; Off      ; Off           ;
++--------------------------------------------+----------+---------------+
+
+
++--------------+
+; Pin-Out File ;
++--------------+
+The pin-out file can be found in C:/Documents and Settings/Matteo/Desktop/ProvaVhdl/Prova.pin.
+
+
++------------------------------------------------------+
+; Fitter Resource Usage Summary                        ;
++-----------------------------------+------------------+
+; Resource                          ; Usage            ;
++-----------------------------------+------------------+
+; Logic cells                       ; 55 / 64 ( 86 % ) ;
+; Registers                         ; 9 / 64 ( 14 % )  ;
+; Number of pterms used             ; 222              ;
+; User inserted logic elements      ; 0                ;
+; I/O pins                          ; 48 / 68 ( 71 % ) ;
+;     -- Clock pins                 ; 1 / 2 ( 50 % )   ;
+;     -- Dedicated input pins       ; 0 / 2 ( 0 % )    ;
+; Global signals                    ; 1                ;
+; Shareable expanders               ; 39 / 64 ( 61 % ) ;
+; Parallel expanders                ; 20 / 60 ( 33 % ) ;
+; Cells using turbo bit             ; 55 / 64 ( 86 % ) ;
+; Maximum fan-out node              ; NumeroIN[1]      ;
+; Maximum fan-out                   ; 39               ;
+; Highest non-global fan-out signal ; NumeroIN[1]      ;
+; Highest non-global fan-out        ; 39               ;
+; Total fan-out                     ; 607              ;
+; Average fan-out                   ; 4.27             ;
++-----------------------------------+------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Input Pins                                                                                                                                                         ;
++--------------+-------+----------+-----+-----------------------+--------------------+--------+----------------+---------------+--------------+----------------------+
+; Name         ; Pin # ; I/O Bank ; LAB ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; I/O Standard ; Location assigned by ;
++--------------+-------+----------+-----+-----------------------+--------------------+--------+----------------+---------------+--------------+----------------------+
+; Clock        ; A6    ; --       ; --  ; 10                    ; 0                  ; yes    ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; Control      ; C5    ; --       ; 1   ; 2                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; Control2     ; F1    ; --       ; 2   ; 1                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; Control3     ; E8    ; --       ; 4   ; 4                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; NumeroIN[0]  ; D1    ; --       ; 1   ; 32                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; NumeroIN[1]  ; K8    ; --       ; 3   ; 39                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; NumeroIN[2]  ; C6    ; --       ; 4   ; 38                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; NumeroIN[3]  ; B4    ; --       ; 1   ; 30                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; NumeroIN[4]  ; E7    ; --       ; 4   ; 21                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; NumeroIN[5]  ; J3    ; --       ; 2   ; 21                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; NumeroIN[6]  ; J7    ; --       ; 3   ; 22                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; NumeroIN[7]  ; D3    ; --       ; 1   ; 20                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; NumeroIn2[0] ; H4    ; --       ; 2   ; 20                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; NumeroIn2[1] ; J4    ; --       ; 2   ; 27                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; NumeroIn2[2] ; K7    ; --       ; 3   ; 24                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; NumeroIn2[3] ; D10   ; --       ; 4   ; 18                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; NumeroIn2[4] ; F10   ; --       ; 3   ; 9                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; NumeroIn2[5] ; A4    ; --       ; 1   ; 9                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; NumeroIn2[6] ; D2    ; --       ; 1   ; 10                    ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
+; NumeroIn2[7] ; J9    ; --       ; 3   ; 8                     ; 0                  ; no     ; no             ; no            ; 3.3-V LVTTL  ; Fitter               ;
++--------------+-------+----------+-----+-----------------------+--------------------+--------+----------------+---------------+--------------+----------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Output Pins                                                                                                                                                           ;
++----------------+-------+----------+-----+-----------------+---------------+----------------+------------+---------------+--------------+----------------------+-------+
+; Name           ; Pin # ; I/O Bank ; LAB ; Output Register ; Power Up High ; Slow Slew Rate ; Open Drain ; TRI Primitive ; I/O Standard ; Location assigned by ; Load  ;
++----------------+-------+----------+-----+-----------------+---------------+----------------+------------+---------------+--------------+----------------------+-------+
+; NumeroOUT[0]   ; A2    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; NumeroOUT[1]   ; K4    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; NumeroOUT[2]   ; H2    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; NumeroOUT[3]   ; K3    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; NumeroOUT[4]   ; H7    ; --       ; 3   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; NumeroOUT[5]   ; J8    ; --       ; 3   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; NumeroOUT[6]   ; G10   ; --       ; 3   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; NumeroOUT[7]   ; J6    ; --       ; 3   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; NumeroOUT[8]   ; G9    ; --       ; 3   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; TestVector2[0] ; B2    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; TestVector2[1] ; B3    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; TestVector2[2] ; C2    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; TestVector2[3] ; A3    ; --       ; 1   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; TestVector[0]  ; C7    ; --       ; 4   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; TestVector[1]  ; B7    ; --       ; 4   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; TestVector[2]  ; B8    ; --       ; 4   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; TestVector[3]  ; A9    ; --       ; 4   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; TestVector[4]  ; A7    ; --       ; 4   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; TestVector[5]  ; A8    ; --       ; 4   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; TestVector[6]  ; B9    ; --       ; 4   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; TestVector[7]  ; D9    ; --       ; 4   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; Uscita         ; F7    ; --       ; 4   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; Uscita2        ; G2    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
+; Uscita3        ; G1    ; --       ; 2   ; no              ; no            ; no             ; no         ; no            ; 3.3-V LVTTL  ; Fitter               ; 10 pF ;
++----------------+-------+----------+-----+-----------------+---------------+----------------+------------+---------------+--------------+----------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; All Package Pins                                                                                      ;
++----------+------------+----------+----------------+--------+--------------+---------+-----------------+
+; Location ; Pad Number ; I/O Bank ; Pin Name/Usage ; Dir.   ; I/O Standard ; Voltage ; User Assignment ;
++----------+------------+----------+----------------+--------+--------------+---------+-----------------+
+; A1       ; 13         ; --       ; TDI            ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; A2       ; 10         ; --       ; NumeroOUT[0]   ; output ; 3.3-V LVTTL  ;         ; N               ;
+; A3       ; 9          ; --       ; TestVector2[3] ; output ; 3.3-V LVTTL  ;         ; N               ;
+; A4       ; 7          ; --       ; NumeroIn2[5]   ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; A5       ; 1          ; --       ; GND+           ;        ;              ;         ;                 ;
+; A6       ; 82         ; --       ; Clock          ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; A7       ; 76         ; --       ; TestVector[4]  ; output ; 3.3-V LVTTL  ;         ; N               ;
+; A8       ; 74         ; --       ; TestVector[5]  ; output ; 3.3-V LVTTL  ;         ; N               ;
+; A9       ; 73         ; --       ; TestVector[3]  ; output ; 3.3-V LVTTL  ;         ; N               ;
+; A10      ; 70         ; --       ; TDO            ; output ; 3.3-V LVTTL  ;         ; N               ;
+; B1       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; B2       ; 11         ; --       ; TestVector2[0] ; output ; 3.3-V LVTTL  ;         ; N               ;
+; B3       ; 8          ; --       ; TestVector2[1] ; output ; 3.3-V LVTTL  ;         ; N               ;
+; B4       ; 5          ; --       ; NumeroIN[3]    ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; B5       ; 0          ; --       ; GND+           ;        ;              ;         ;                 ;
+; B6       ; 83         ; --       ; GND+           ;        ;              ;         ;                 ;
+; B7       ; 78         ; --       ; TestVector[1]  ; output ; 3.3-V LVTTL  ;         ; N               ;
+; B8       ; 75         ; --       ; TestVector[2]  ; output ; 3.3-V LVTTL  ;         ; N               ;
+; B9       ; 72         ; --       ; TestVector[6]  ; output ; 3.3-V LVTTL  ;         ; N               ;
+; B10      ;            ;          ; NC             ;        ;              ;         ;                 ;
+; C1       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; C2       ; 14         ; --       ; TestVector2[2] ; output ; 3.3-V LVTTL  ;         ; N               ;
+; C3       ; 6          ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; C4       ; 4          ; --       ; GND*           ;        ;              ;         ;                 ;
+; C5       ; 3          ; --       ; Control        ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; C6       ; 80         ; --       ; NumeroIN[2]    ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; C7       ; 79         ; --       ; TestVector[0]  ; output ; 3.3-V LVTTL  ;         ; N               ;
+; C8       ; 25         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; C9       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; C10      ;            ;          ; NC             ;        ;              ;         ;                 ;
+; D1       ; 16         ; --       ; NumeroIN[0]    ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; D2       ; 17         ; --       ; NumeroIn2[6]   ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; D3       ; 15         ; --       ; NumeroIN[7]    ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; D4       ; 12         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; D5       ; 2          ; --       ; VCCINT         ; power  ;              ; 3.3V    ;                 ;
+; D6       ; 41         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; D7       ; 31         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; D8       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; D9       ; 68         ; --       ; TestVector[7]  ; output ; 3.3-V LVTTL  ;         ; N               ;
+; D10      ; 69         ; --       ; NumeroIn2[3]   ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; E1       ; 19         ; --       ; GND*           ;        ;              ;         ;                 ;
+; E2       ; 20         ; --       ; GND*           ;        ;              ;         ;                 ;
+; E3       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; E4       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; E5       ; 18         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; E6       ; 37         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; E7       ; 67         ; --       ; NumeroIN[4]    ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; E8       ; 66         ; --       ; Control3       ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; E9       ; 63         ; --       ; GND*           ;        ;              ;         ;                 ;
+; E10      ; 64         ; --       ; GND*           ;        ;              ;         ;                 ;
+; F1       ; 23         ; --       ; Control2       ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; F2       ; 24         ; --       ; GND*           ;        ;              ;         ;                 ;
+; F3       ; 22         ; --       ; TMS            ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; F4       ; 21         ; --       ; GND*           ;        ;              ;         ;                 ;
+; F5       ; 52         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; F6       ; 58         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; F7       ; 62         ; --       ; Uscita         ; output ; 3.3-V LVTTL  ;         ; N               ;
+; F8       ; 61         ; --       ; TCK            ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; F9       ; 59         ; --       ; GND*           ;        ;              ;         ;                 ;
+; F10      ; 60         ; --       ; NumeroIn2[4]   ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; G1       ; 27         ; --       ; Uscita3        ; output ; 3.3-V LVTTL  ;         ; N               ;
+; G2       ; 28         ; --       ; Uscita2        ; output ; 3.3-V LVTTL  ;         ; N               ;
+; G3       ; 26         ; --       ; GND*           ;        ;              ;         ;                 ;
+; G4       ; 46         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; G5       ; 81         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; G6       ; 42         ; --       ; VCCINT         ; power  ;              ; 3.3V    ;                 ;
+; G7       ; 77         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; G8       ; 57         ; --       ; GND*           ;        ;              ;         ;                 ;
+; G9       ; 55         ; --       ; NumeroOUT[8]   ; output ; 3.3-V LVTTL  ;         ; N               ;
+; G10      ; 56         ; --       ; NumeroOUT[6]   ; output ; 3.3-V LVTTL  ;         ; N               ;
+; H1       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; H2       ; 29         ; --       ; NumeroOUT[2]   ; output ; 3.3-V LVTTL  ;         ; N               ;
+; H3       ; 65         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; H4       ; 34         ; --       ; NumeroIn2[0]   ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; H5       ; 38         ; --       ; GND*           ;        ;              ;         ;                 ;
+; H6       ; 45         ; --       ; GND*           ;        ;              ;         ;                 ;
+; H7       ; 49         ; --       ; NumeroOUT[4]   ; output ; 3.3-V LVTTL  ;         ; N               ;
+; H8       ; 71         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; H9       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; H10      ;            ;          ; NC             ;        ;              ;         ;                 ;
+; J1       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; J2       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; J3       ; 33         ; --       ; NumeroIN[5]    ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; J4       ; 35         ; --       ; NumeroIn2[1]   ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; J5       ; 39         ; --       ; GND*           ;        ;              ;         ;                 ;
+; J6       ; 44         ; --       ; NumeroOUT[7]   ; output ; 3.3-V LVTTL  ;         ; N               ;
+; J7       ; 48         ; --       ; NumeroIN[6]    ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; J8       ; 50         ; --       ; NumeroOUT[5]   ; output ; 3.3-V LVTTL  ;         ; N               ;
+; J9       ; 54         ; --       ; NumeroIn2[7]   ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; J10      ;            ;          ; NC             ;        ;              ;         ;                 ;
+; K1       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; K2       ; 30         ; --       ; GND*           ;        ;              ;         ;                 ;
+; K3       ; 32         ; --       ; NumeroOUT[3]   ; output ; 3.3-V LVTTL  ;         ; N               ;
+; K4       ; 36         ; --       ; NumeroOUT[1]   ; output ; 3.3-V LVTTL  ;         ; N               ;
+; K5       ; 40         ; --       ; GND*           ;        ;              ;         ;                 ;
+; K6       ; 43         ; --       ; GND*           ;        ;              ;         ;                 ;
+; K7       ; 47         ; --       ; NumeroIn2[2]   ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; K8       ; 51         ; --       ; NumeroIN[1]    ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; K9       ;            ;          ; NC             ;        ;              ;         ;                 ;
+; K10      ; 53         ; --       ; GND*           ;        ;              ;         ;                 ;
++----------+------------+----------+----------------+--------+--------------+---------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; I/O Standard                                                                                     ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+; I/O Standard ; Input Vref ; Dedicated Input Pins ; Pins in I/O Bank1 ; Pins in I/O Bank2 ; Total ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+; 3.3-V LVTTL  ; -          ; 1                    ; 0                 ; 0                 ; 1     ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+
+
++---------------------------------------------------------------------+
+; Dedicated Inputs I/O                                                ;
++-------+-------+-------+-------+--------------+------------+---------+
+; Name  ; Pin # ; Type  ; VCCIO ; I/O Standard ; Input Vref ; Current ;
++-------+-------+-------+-------+--------------+------------+---------+
+; Clock ; A6    ; Input ; --    ; 3.3-V LVTTL  ; -          ; 0 mA    ;
++-------+-------+-------+-------+--------------+------------+---------+
+
+
++-----------------------------------------------+
+; Output Pin Default Load For Reported TCO      ;
++--------------+-------+------------------------+
+; I/O Standard ; Load  ; Termination Resistance ;
++--------------+-------+------------------------+
+; 3.3-V LVTTL  ; 10 pF ; Not Available          ;
+; 3.3-V LVCMOS ; 10 pF ; Not Available          ;
+; 3.3-V PCI    ; 10 pF ; 25 Ohm (Parallel)      ;
+; 2.5 V        ; 10 pF ; Not Available          ;
++--------------+-------+------------------------+
+Note: User assignments will override these defaults. The user specified values are listed in the Output Pins and Bidir Pins tables.
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                                     ;
++------------------------------------+------------+------+------------------------------------------------------------------+
+; Compilation Hierarchy Node         ; Macrocells ; Pins ; Full Hierarchy Name                                              ;
++------------------------------------+------------+------+------------------------------------------------------------------+
+; |Prova                             ; 55         ; 48   ; |Prova                                                           ;
+;    |MIA_AND:LaMiaNand|             ; 1          ; 0    ; |Prova|MIA_AND:LaMiaNand                                         ;
+;    |lpm_add_sub:Add0|              ; 7          ; 0    ; |Prova|lpm_add_sub:Add0                                          ;
+;       |addcore:adder[0]|           ; 7          ; 0    ; |Prova|lpm_add_sub:Add0|addcore:adder[0]                         ;
+;    |lpm_add_sub:Add1|              ; 21         ; 0    ; |Prova|lpm_add_sub:Add1                                          ;
+;       |addcore:adder[0]|           ; 21         ; 0    ; |Prova|lpm_add_sub:Add1|addcore:adder[0]                         ;
+;          |a_csnbuffer:result_node| ; 12         ; 0    ; |Prova|lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node ;
++------------------------------------+------------+------+------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Control Signals                                                                       ;
++-------+----------+---------+-------+--------+----------------------+------------------+
+; Name  ; Location ; Fan-Out ; Usage ; Global ; Global Resource Used ; Global Line Name ;
++-------+----------+---------+-------+--------+----------------------+------------------+
+; Clock ; PIN_A6   ; 10      ; Clock ; yes    ; On                   ; --               ;
++-------+----------+---------+-------+--------+----------------------+------------------+
+
+
++----------------------------------------------------------------------+
+; Global & Other Fast Signals                                          ;
++-------+----------+---------+----------------------+------------------+
+; Name  ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ;
++-------+----------+---------+----------------------+------------------+
+; Clock ; PIN_A6   ; 10      ; On                   ; --               ;
++-------+----------+---------+----------------------+------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Non-Global High Fan-Out Signals                                                      ;
++----------------------------------------------------------------------------+---------+
+; Name                                                                       ; Fan-Out ;
++----------------------------------------------------------------------------+---------+
+; NumeroIN[1]                                                                ; 39      ;
+; NumeroIN[2]                                                                ; 38      ;
+; NumeroIN[0]                                                                ; 32      ;
+; NumeroIN[3]                                                                ; 30      ;
+; NumeroIn2[1]                                                               ; 27      ;
+; NumeroIn2[2]                                                               ; 24      ;
+; NumeroIN[6]                                                                ; 22      ;
+; NumeroIN[5]                                                                ; 21      ;
+; NumeroIN[4]                                                                ; 21      ;
+; NumeroIn2[0]                                                               ; 20      ;
+; NumeroIN[7]                                                                ; 20      ;
+; NumeroIn2[3]                                                               ; 18      ;
+; Equal4~48sexpand0                                                          ; 12      ;
+; TestVector~248sexpand0bal                                                  ; 11      ;
+; WideNor0~77sexpand2                                                        ; 11      ;
+; WideNor0~77sexpand1                                                        ; 11      ;
+; WideNor0~77sexpand0                                                        ; 11      ;
+; NumeroIn2[6]                                                               ; 10      ;
+; NumeroIn2[5]                                                               ; 9       ;
+; NumeroIn2[4]                                                               ; 9       ;
+; Equal2~19sexpand0                                                          ; 9       ;
+; Equal3~46sexpand0                                                          ; 9       ;
+; NumeroIn2[7]                                                               ; 8       ;
+; WideNor0~73sexpand1                                                        ; 8       ;
+; lpm_add_sub:Add1|addcore:adder[0]|ps[3]~23                                 ; 7       ;
+; lpm_add_sub:Add0|addcore:adder[0]|p2c[2]~35                                ; 6       ;
+; lpm_add_sub:Add1|addcore:adder[0]|gc[2]~28                                 ; 6       ;
+; lpm_add_sub:Add0|addcore:adder[0]|g2cp[2]~23                               ; 6       ;
+; lpm_add_sub:Add1|addcore:adder[0]|ps[4]~36                                 ; 5       ;
+; lpm_add_sub:Add0|addcore:adder[0]|bg_out~33                                ; 5       ;
+; lpm_add_sub:Add0|addcore:adder[0]|bg_out~31                                ; 5       ;
+; lpm_add_sub:Add0|addcore:adder[0]|bg_out~30                                ; 5       ;
+; lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[2]~230 ; 4       ;
+; Control3                                                                   ; 4       ;
+; lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~123 ; 4       ;
+; lpm_add_sub:Add1|addcore:adder[0]|ps[5]~50                                 ; 4       ;
+; lpm_add_sub:Add0|addcore:adder[0]|bg_out~32                                ; 4       ;
+; lpm_add_sub:Add0|addcore:adder[0]|bg_out~29                                ; 4       ;
+; lpm_add_sub:Add0|addcore:adder[0]|genr_node[3]~88                          ; 4       ;
+; lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~122 ; 3       ;
+; lpm_add_sub:Add1|addcore:adder[0]|gc[2]~19                                 ; 3       ;
+; lpm_add_sub:Add0|addcore:adder[0]|bg_out~39                                ; 3       ;
+; lpm_add_sub:Add0|addcore:adder[0]|prop_node[3]~77                          ; 3       ;
+; lpm_add_sub:Add0|addcore:adder[0]|bg_out~43                                ; 2       ;
+; lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[2]~231 ; 2       ;
+; lpm_add_sub:Add0|addcore:adder[0]|bg_out~42                                ; 2       ;
+; Control                                                                    ; 2       ;
+; TestVector[0]$latch~10                                                     ; 2       ;
+; TestVector[1]$latch~10                                                     ; 2       ;
+; TestVector[2]$latch~10                                                     ; 2       ;
++----------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------+
+; Interconnect Usage Summary                     ;
++----------------------------+-------------------+
+; Interconnect Resource Type ; Usage             ;
++----------------------------+-------------------+
+; Output enables             ; 0 / 6 ( 0 % )     ;
+; PIA buffers                ; 73 / 144 ( 51 % ) ;
++----------------------------+-------------------+
+
+
++-----------------------------------------------------------------------+
+; LAB Macrocells                                                        ;
++-----------------------------------------+-----------------------------+
+; Number of Macrocells  (Average = 13.75) ; Number of LABs  (Total = 4) ;
++-----------------------------------------+-----------------------------+
+; 0                                       ; 0                           ;
+; 1                                       ; 0                           ;
+; 2                                       ; 0                           ;
+; 3                                       ; 0                           ;
+; 4                                       ; 0                           ;
+; 5                                       ; 0                           ;
+; 6                                       ; 0                           ;
+; 7                                       ; 0                           ;
+; 8                                       ; 0                           ;
+; 9                                       ; 0                           ;
+; 10                                      ; 0                           ;
+; 11                                      ; 1                           ;
+; 12                                      ; 1                           ;
+; 13                                      ; 0                           ;
+; 14                                      ; 0                           ;
+; 15                                      ; 0                           ;
+; 16                                      ; 2                           ;
++-----------------------------------------+-----------------------------+
+
+
++---------------------------------------------------------+
+; Parallel Expander                                       ;
++--------------------------+------------------------------+
+; Parallel Expander Length ; Number of Parallel Expanders ;
++--------------------------+------------------------------+
+; 0                        ; 0                            ;
+; 1                        ; 8                            ;
+; 2                        ; 0                            ;
+; 3                        ; 4                            ;
++--------------------------+------------------------------+
+
+
++-------------------------------------------------------------------------------+
+; Shareable Expander                                                            ;
++-------------------------------------------------+-----------------------------+
+; Number of shareable expanders  (Average = 9.75) ; Number of LABs  (Total = 4) ;
++-------------------------------------------------+-----------------------------+
+; 0                                               ; 0                           ;
+; 1                                               ; 0                           ;
+; 2                                               ; 0                           ;
+; 3                                               ; 0                           ;
+; 4                                               ; 0                           ;
+; 5                                               ; 0                           ;
+; 6                                               ; 1                           ;
+; 7                                               ; 0                           ;
+; 8                                               ; 0                           ;
+; 9                                               ; 1                           ;
+; 10                                              ; 0                           ;
+; 11                                              ; 0                           ;
+; 12                                              ; 2                           ;
++-------------------------------------------------+-----------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Logic Cell Interconnection                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ;
++-----+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; LAB ; Logic Cell ; Input                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ; Output                                                                                                                                                                                                                                                                                                                                               ;
++-----+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+;  A  ; LC10       ; Clock, NumeroIN[0], NumeroIn2[0]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ; NumeroOUT[0]                                                                                                                                                                                                                                                                                                                                         ;
+;  A  ; LC14       ; NumeroIN[6], NumeroIN[7], NumeroIn2[7], NumeroIn2[6]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ; lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~123, NumeroOUT[8]~reg0, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~220                                                                                                                                                                            ;
+;  A  ; LC13       ; NumeroIN[7], NumeroIn2[7], NumeroIN[6], NumeroIn2[6]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ; NumeroOUT[8]~reg0, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~216, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~220, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~229                                                                                                ;
+;  A  ; LC7        ; NumeroIN[1], NumeroIN[4], Control3, NumeroIN[0], NumeroIN[5], NumeroIN[7], NumeroIN[6], NumeroIN[3], NumeroIN[2]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ; TestVector2[2]                                                                                                                                                                                                                                                                                                                                       ;
+;  A  ; LC9        ; NumeroIN[1], NumeroIN[4], Control3, NumeroIN[0], NumeroIN[5], NumeroIN[7], NumeroIN[6], NumeroIN[3], NumeroIN[2]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ; TestVector2[0]                                                                                                                                                                                                                                                                                                                                       ;
+;  A  ; LC2        ; lpm_add_sub:Add0|addcore:adder[0]|bg_out~40, lpm_add_sub:Add0|addcore:adder[0]|bg_out~29, NumeroIN[4], NumeroIn2[4], lpm_add_sub:Add0|addcore:adder[0]|bg_out~32, NumeroIN[3], NumeroIn2[3], lpm_add_sub:Add0|addcore:adder[0]|bg_out~30, NumeroIN[2], NumeroIn2[2], lpm_add_sub:Add0|addcore:adder[0]|bg_out~33, NumeroIN[1], NumeroIn2[1], lpm_add_sub:Add0|addcore:adder[0]|bg_out~31, NumeroIN[0], NumeroIn2[0]                                                                                                                                                                                                                                                                                ; lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~123, NumeroOUT[8]~reg0, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~220                                                                                                                                                                            ;
+;  A  ; LC11       ; NumeroIN[1], NumeroIN[4], Control3, NumeroIN[0], NumeroIN[5], NumeroIN[7], NumeroIN[6], NumeroIN[3], NumeroIN[2]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ; TestVector2[3]                                                                                                                                                                                                                                                                                                                                       ;
+;  A  ; LC12       ; NumeroIN[1], NumeroIN[4], Control3, NumeroIN[0], NumeroIN[5], NumeroIN[7], NumeroIN[6], NumeroIN[3], NumeroIN[2]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ; TestVector2[1]                                                                                                                                                                                                                                                                                                                                       ;
+;  A  ; LC15       ; NumeroIN[0], NumeroIN[1], NumeroIN[5], NumeroIN[7], NumeroIN[6], NumeroIN[4], NumeroIN[3], NumeroIN[2]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ; TestVector~242sexpand1, TestVector[0]$latch~10, WideNor0~72sexpand1, TestVector[4]$latch~10, WideNor0~73sexpand1, TestVector[7]$latch~10, TestVector[6]$latch~10, TestVector[5]$latch~10, TestVector[3]$latch~10, TestVector[2]$latch~10, TestVector[1]$latch~10                                                                                     ;
+;  A  ; LC8        ; NumeroIn2[3], NumeroIN[3], lpm_add_sub:Add0|addcore:adder[0]|bg_out~30, NumeroIN[2], NumeroIn2[2], lpm_add_sub:Add0|addcore:adder[0]|bg_out~33, NumeroIN[1], NumeroIn2[1], lpm_add_sub:Add0|addcore:adder[0]|bg_out~31, NumeroIN[0], NumeroIn2[0], lpm_add_sub:Add1|addcore:adder[0]|ps[3]~21, lpm_add_sub:Add1|addcore:adder[0]|ps[3]~22                                                                                                                                                                                                                                                                                                                                                          ; NumeroOUT[4]~reg0, NumeroOUT[5]~reg0, NumeroOUT[6]~reg0, NumeroOUT[7]~reg0, NumeroOUT[8]~reg0, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~220, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~229                                                                                                ;
+;  A  ; LC6        ; lpm_add_sub:Add1|addcore:adder[0]|ps[4]~73, lpm_add_sub:Add0|addcore:adder[0]|bg_out~32, NumeroIn2[3], NumeroIN[3], lpm_add_sub:Add0|addcore:adder[0]|bg_out~30, NumeroIN[2], NumeroIn2[2], lpm_add_sub:Add0|addcore:adder[0]|bg_out~33, NumeroIN[1], NumeroIn2[1], lpm_add_sub:Add0|addcore:adder[0]|bg_out~31, NumeroIN[0], NumeroIn2[0], lpm_add_sub:Add1|addcore:adder[0]|ps[4]~34, lpm_add_sub:Add1|addcore:adder[0]|ps[4]~35                                                                                                                                                                                                                                                                 ; NumeroOUT[5]~reg0, NumeroOUT[6]~reg0, NumeroOUT[7]~reg0, NumeroOUT[8]~reg0, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~220                                                                                                                                                                                               ;
+;  A  ; LC4        ; lpm_add_sub:Add1|addcore:adder[0]|ps[5]~75, lpm_add_sub:Add0|addcore:adder[0]|bg_out~29, lpm_add_sub:Add0|addcore:adder[0]|bg_out~32, NumeroIn2[3], NumeroIN[3], lpm_add_sub:Add0|addcore:adder[0]|bg_out~30, NumeroIN[2], NumeroIn2[2], lpm_add_sub:Add0|addcore:adder[0]|bg_out~33, NumeroIN[1], NumeroIn2[1], lpm_add_sub:Add0|addcore:adder[0]|bg_out~31, NumeroIN[0], NumeroIn2[0], lpm_add_sub:Add1|addcore:adder[0]|ps[5]~48, lpm_add_sub:Add1|addcore:adder[0]|ps[5]~49                                                                                                                                                                                                                    ; NumeroOUT[6]~reg0, NumeroOUT[7]~reg0, NumeroOUT[8]~reg0, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~220                                                                                                                                                                                                                  ;
+;  A  ; LC5        ; NumeroIN[4], NumeroIn2[4]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ; lpm_add_sub:Add1|addcore:adder[0]|ps[4]~36                                                                                                                                                                                                                                                                                                           ;
+;  A  ; LC1        ; NumeroIN[5], NumeroIn2[5]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ; lpm_add_sub:Add0|addcore:adder[0]|bg_out~39                                                                                                                                                                                                                                                                                                          ;
+;  A  ; LC16       ; lpm_add_sub:Add0|addcore:adder[0]|p2c[2]~29, lpm_add_sub:Add0|addcore:adder[0]|bg_out~29, lpm_add_sub:Add0|addcore:adder[0]|bg_out~32, NumeroIn2[3], NumeroIN[3], lpm_add_sub:Add0|addcore:adder[0]|bg_out~30, NumeroIN[2], NumeroIn2[2], lpm_add_sub:Add0|addcore:adder[0]|bg_out~33, NumeroIN[1], NumeroIn2[1], lpm_add_sub:Add0|addcore:adder[0]|bg_out~31, NumeroIN[0], NumeroIn2[0]                                                                                                                                                                                                                                                                                                           ; NumeroOUT[7]~reg0, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~122, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[6]~213, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~216, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~220, NumeroOUT[8]~reg0 ;
+;  A  ; LC3        ; NumeroIN[5], NumeroIn2[5], lpm_add_sub:Add0|addcore:adder[0]|bg_out~29, NumeroIN[4], NumeroIn2[4]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ; lpm_add_sub:Add1|addcore:adder[0]|ps[5]~50                                                                                                                                                                                                                                                                                                           ;
+;  B  ; LC27       ; Clock, Control                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ; Uscita2                                                                                                                                                                                                                                                                                                                                              ;
+;  B  ; LC20       ; Clock, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[0]~131, NumeroIN[0], NumeroIn2[1], NumeroIN[1], NumeroIn2[0]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ; NumeroOUT[1]                                                                                                                                                                                                                                                                                                                                         ;
+;  B  ; LC26       ; Clock, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[1]~137, NumeroIn2[1], NumeroIN[2], NumeroIn2[0], NumeroIN[0], NumeroIN[1], NumeroIn2[2]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ; NumeroOUT[2]                                                                                                                                                                                                                                                                                                                                         ;
+;  B  ; LC28       ; Control, Control2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ; Uscita3                                                                                                                                                                                                                                                                                                                                              ;
+;  B  ; LC24       ; Clock, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[2]~171, lpm_add_sub:Add0|addcore:adder[0]|bg_out~42, NumeroIN[3], NumeroIn2[3], NumeroIn2[1], NumeroIN[1], lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[2]~53, NumeroIN[2], NumeroIn2[2], lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[2]~54                                                                                                                                                                                                                                                                                                                              ; NumeroOUT[3]                                                                                                                                                                                                                                                                                                                                         ;
+;  B  ; LC23       ; lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[2]~165, NumeroIN[3], NumeroIn2[3], NumeroIN[2], NumeroIN[0], NumeroIn2[1], NumeroIN[1], NumeroIn2[0], NumeroIn2[2], lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[2]~51, lpm_add_sub:Add0|addcore:adder[0]|bg_out~42                                                                                                                                                                                                                                                                                                                                                                                     ; NumeroOUT[3]~reg0                                                                                                                                                                                                                                                                                                                                    ;
+;  B  ; LC22       ; lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[2]~159, NumeroIN[3], NumeroIn2[3], NumeroIN[0], NumeroIn2[1], NumeroIn2[0], NumeroIn2[2], NumeroIN[2], NumeroIN[1]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ; lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[2]~171                                                                                                                                                                                                                                                                           ;
+;  B  ; LC21       ; NumeroIN[3], NumeroIn2[3], NumeroIN[2], NumeroIN[1], NumeroIn2[2], NumeroIN[0], NumeroIn2[1], NumeroIn2[0]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[2]~165                                                                                                                                                                                                                                                                           ;
+;  B  ; LC18       ; LessThan0~523, lpm_add_sub:Add1|addcore:adder[0]|ps[4]~78, NumeroIN[4], NumeroIn2[4], lpm_add_sub:Add1|addcore:adder[0]|ps[3]~79, NumeroIN[3], NumeroIn2[3], LessThan0~504, NumeroIN[2], NumeroIn2[2], LessThan0~505, NumeroIN[1], NumeroIn2[1], LessThan0~506, NumeroIN[0], NumeroIn2[0]                                                                                                                                                                                                                                                                                                                                                                                                          ; LessThan0~522                                                                                                                                                                                                                                                                                                                                        ;
+;  B  ; LC25       ; NumeroIN[2], NumeroIN[0], NumeroIN[1], NumeroIn2[0], NumeroIn2[1]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ; NumeroOUT[2]~reg0                                                                                                                                                                                                                                                                                                                                    ;
+;  B  ; LC19       ; NumeroIN[0], NumeroIn2[1], NumeroIN[1]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ; NumeroOUT[1]~reg0                                                                                                                                                                                                                                                                                                                                    ;
+;  B  ; LC17       ; NumeroIN[5], NumeroIn2[5]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ; LessThan0~512                                                                                                                                                                                                                                                                                                                                        ;
+;  C  ; LC38       ; Clock, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[3]~201, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[2]~230, NumeroIN[2], NumeroIN[1], NumeroIn2[2], NumeroIn2[1], lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[2]~231, NumeroIn2[3], NumeroIN[3], lpm_add_sub:Add1|addcore:adder[0]|ps[3]~23                                                                                                                                                                                                                                                                                                                             ; NumeroOUT[4]                                                                                                                                                                                                                                                                                                                                         ;
+;  C  ; LC39       ; Clock, lpm_add_sub:Add1|addcore:adder[0]|ps[4]~36, lpm_add_sub:Add1|addcore:adder[0]|ps[3]~23, lpm_add_sub:Add1|addcore:adder[0]|gc[2]~28                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ; NumeroOUT[5]                                                                                                                                                                                                                                                                                                                                         ;
+;  C  ; LC44       ; Clock, lpm_add_sub:Add1|addcore:adder[0]|ps[5]~50, lpm_add_sub:Add1|addcore:adder[0]|ps[4]~36, lpm_add_sub:Add1|addcore:adder[0]|ps[3]~23, lpm_add_sub:Add1|addcore:adder[0]|gc[2]~28                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ; NumeroOUT[6]                                                                                                                                                                                                                                                                                                                                         ;
+;  C  ; LC34       ; Clock, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[6]~213, lpm_add_sub:Add0|addcore:adder[0]|g2cp[2]~23, NumeroIn2[7], NumeroIN[7], lpm_add_sub:Add0|addcore:adder[0]|p2c[2]~35, lpm_add_sub:Add1|addcore:adder[0]|ps[5]~50, lpm_add_sub:Add1|addcore:adder[0]|ps[4]~36, lpm_add_sub:Add1|addcore:adder[0]|ps[3]~23, lpm_add_sub:Add1|addcore:adder[0]|gc[2]~28                                                                                                                                                                                                                                                                                                            ; NumeroOUT[7]                                                                                                                                                                                                                                                                                                                                         ;
+;  C  ; LC46       ; lpm_add_sub:Add1|addcore:adder[0]|gc[2]~29, NumeroIN[2], NumeroIN[1], NumeroIN[0], NumeroIn2[2], NumeroIn2[1], NumeroIn2[0], NumeroIn2[3], NumeroIN[3]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ; lpm_add_sub:Add1|addcore:adder[0]|gc[2]~37                                                                                                                                                                                                                                                                                                           ;
+;  C  ; LC47       ; lpm_add_sub:Add1|addcore:adder[0]|gc[2]~31, lpm_add_sub:Add1|addcore:adder[0]|gc[2]~19, NumeroIn2[2], NumeroIn2[3], NumeroIN[3], lpm_add_sub:Add0|addcore:adder[0]|bg_out~43, NumeroIN[2], lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[2]~230, NumeroIN[1], NumeroIn2[1]                                                                                                                                                                                                                                                                                                                                                                                                   ; lpm_add_sub:Add1|addcore:adder[0]|gc[2]~28                                                                                                                                                                                                                                                                                                           ;
+;  C  ; LC48       ; lpm_add_sub:Add1|addcore:adder[0]|gc[2]~37, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[2]~230, NumeroIN[2], NumeroIN[1], NumeroIn2[2], NumeroIn2[1], lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[2]~231, NumeroIn2[3], NumeroIN[3]                                                                                                                                                                                                                                                                                                                                                                                                                ; NumeroOUT[5]~reg0, NumeroOUT[6]~reg0, NumeroOUT[7]~reg0, NumeroOUT[8]~reg0, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~216, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~220                                                                                                                   ;
+;  C  ; LC43       ; Clock, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~220, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~122, lpm_add_sub:Add0|addcore:adder[0]|prop_node[3]~77, NumeroIN[7], NumeroIn2[7], lpm_add_sub:Add1|addcore:adder[0]|ps[5]~50, lpm_add_sub:Add1|addcore:adder[0]|ps[4]~36, lpm_add_sub:Add1|addcore:adder[0]|ps[3]~23, lpm_add_sub:Add1|addcore:adder[0]|gc[2]~28, lpm_add_sub:Add0|addcore:adder[0]|bg_out~39, lpm_add_sub:Add0|addcore:adder[0]|genr_node[3]~88, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~123, lpm_add_sub:Add0|addcore:adder[0]|g2cp[2]~23, lpm_add_sub:Add0|addcore:adder[0]|p2c[2]~35 ; NumeroOUT[8]                                                                                                                                                                                                                                                                                                                                         ;
+;  C  ; LC35       ; NumeroIN[2], NumeroIN[1], NumeroIN[0], NumeroIn2[2], NumeroIn2[1], NumeroIn2[0]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ; lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[3]~195                                                                                                                                                                                                                                                                           ;
+;  C  ; LC45       ; NumeroIN[2], NumeroIN[1], NumeroIN[0], NumeroIn2[2], NumeroIn2[1], NumeroIn2[0]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ; lpm_add_sub:Add1|addcore:adder[0]|gc[2]~31                                                                                                                                                                                                                                                                                                           ;
+;  C  ; LC37       ; lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[3]~195, lpm_add_sub:Add1|addcore:adder[0]|gc[2]~19, NumeroIn2[2], NumeroIn2[3], NumeroIN[3], lpm_add_sub:Add0|addcore:adder[0]|bg_out~43, NumeroIN[2], lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[2]~230, NumeroIN[1], NumeroIn2[1]                                                                                                                                                                                                                                                                                                                                                                   ; NumeroOUT[4]~reg0                                                                                                                                                                                                                                                                                                                                    ;
+;  C  ; LC33       ; lpm_add_sub:Add0|addcore:adder[0]|g2cp[2]~23, NumeroIn2[7], NumeroIN[7], lpm_add_sub:Add0|addcore:adder[0]|p2c[2]~35                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ; NumeroOUT[7]~reg0                                                                                                                                                                                                                                                                                                                                    ;
+;  C  ; LC41       ; lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~229, lpm_add_sub:Add0|addcore:adder[0]|g2cp[2]~23, NumeroIN[7], NumeroIn2[7], lpm_add_sub:Add0|addcore:adder[0]|p2c[2]~35, lpm_add_sub:Add1|addcore:adder[0]|gc[2]~28, lpm_add_sub:Add0|addcore:adder[0]|genr_node[3]~88, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~123, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~122                                                                                                                                                                                                                                            ; lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~220                                                                                                                                                                                                                                                                           ;
+;  C  ; LC42       ; lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~216, lpm_add_sub:Add0|addcore:adder[0]|g2cp[2]~23, NumeroIN[7], NumeroIn2[7], lpm_add_sub:Add0|addcore:adder[0]|p2c[2]~35, lpm_add_sub:Add1|addcore:adder[0]|ps[5]~50, lpm_add_sub:Add1|addcore:adder[0]|ps[4]~36, lpm_add_sub:Add1|addcore:adder[0]|ps[3]~23, lpm_add_sub:Add1|addcore:adder[0]|gc[2]~28, lpm_add_sub:Add0|addcore:adder[0]|genr_node[3]~88, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~123, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~122, lpm_add_sub:Add0|addcore:adder[0]|prop_node[3]~77, lpm_add_sub:Add0|addcore:adder[0]|bg_out~39        ; NumeroOUT[8]~reg0                                                                                                                                                                                                                                                                                                                                    ;
+;  C  ; LC40       ; lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~123, lpm_add_sub:Add0|addcore:adder[0]|genr_node[3]~88, lpm_add_sub:Add1|addcore:adder[0]|ps[3]~23                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ; lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~216                                                                                                                                                                                                                                                                           ;
+;  C  ; LC36       ; lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[3]~192, NumeroIN[2], NumeroIN[1], NumeroIN[0], NumeroIn2[2], NumeroIn2[1], NumeroIn2[0], NumeroIn2[3], NumeroIN[3], lpm_add_sub:Add1|addcore:adder[0]|gc[2]~19                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ; lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[3]~201                                                                                                                                                                                                                                                                           ;
+;  D  ; LC58       ; TestVector[3]$latch~10, TestVector~242sexpand1, WideNor0~73sexpand1, WideNor0~77sexpand2, Equal4~48sexpand0, Equal2~19sexpand0, TestVector~248sexpand0bal, WideNor0~77sexpand0, Equal3~46sexpand0, WideNor0~77sexpand1                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ; TestVector[3]$latch~10, TestVector[3]                                                                                                                                                                                                                                                                                                                ;
+;  D  ; LC52       ; NumeroIN[6], NumeroIn2[6], NumeroIN[5], NumeroIn2[5]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ; lpm_add_sub:Add0|addcore:adder[0]|g2cp[2]~23                                                                                                                                                                                                                                                                                                         ;
+;  D  ; LC63       ; TestVector[0]$latch~10, TestVector~248sexpand0bal, Equal3~46sexpand0, WideNor0~77sexpand2, Equal4~48sexpand0, Equal2~19sexpand0, WideNor0~77sexpand0, WideNor0~77sexpand1, WideNor0~73sexpand1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ; TestVector[0]$latch~10, TestVector[0]                                                                                                                                                                                                                                                                                                                ;
+;  D  ; LC62       ; TestVector[1]$latch~10, WideOr2~37sexpand0, WideNor0~73sexpand1, WideNor0~77sexpand2, Equal4~48sexpand0, Equal2~19sexpand0, TestVector~248sexpand0bal, WideNor0~77sexpand0, Equal3~46sexpand0, WideNor0~77sexpand1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ; TestVector[1]$latch~10, TestVector[1]                                                                                                                                                                                                                                                                                                                ;
+;  D  ; LC60       ; TestVector[2]$latch~10, WideNor0~77sexpand2, WideNor0~77sexpand0, Equal3~46sexpand0, WideNor0~77sexpand1, Equal4~48sexpand0, Equal2~19sexpand0, TestVector~248sexpand0bal, WideNor0~73sexpand1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ; TestVector[2]$latch~10, TestVector[2]                                                                                                                                                                                                                                                                                                                ;
+;  D  ; LC61       ; TestVector[4]$latch~10, WideNor0~77sexpand2, TestVector~248sexpand0bal, WideNor0~77sexpand0, Equal3~46sexpand0, WideNor0~77sexpand1, Equal4~48sexpand0, Equal2~19sexpand0, WideNor0~73sexpand1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ; TestVector[4]$latch~10, TestVector[4]                                                                                                                                                                                                                                                                                                                ;
+;  D  ; LC59       ; TestVector[5]$latch~10, NumeroIN[5], NumeroIN[6], NumeroIN[7], NumeroIN[0], NumeroIN[2], NumeroIN[1], NumeroIN[3], NumeroIN[4], WideNor0~77sexpand2, Equal4~48sexpand0, Equal2~19sexpand0, TestVector~248sexpand0bal, WideNor0~77sexpand0, Equal3~46sexpand0, WideNor0~77sexpand1, WideNor0~73sexpand1                                                                                                                                                                                                                                                                                                                                                                                             ; TestVector[5]$latch~10, TestVector[5]                                                                                                                                                                                                                                                                                                                ;
+;  D  ; LC57       ; TestVector[6]$latch~10, Equal3~46sexpand0, WideNor0~73sexpand1, WideNor0~77sexpand2, Equal4~48sexpand0, Equal2~19sexpand0, TestVector~248sexpand0bal, WideNor0~77sexpand0, WideNor0~77sexpand1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ; TestVector[6]$latch~10, TestVector[6]                                                                                                                                                                                                                                                                                                                ;
+;  D  ; LC54       ; TestVector[7]$latch~10, WideNor0~72sexpand1, WideNor0~73sexpand1, WideNor0~77sexpand2, Equal4~48sexpand0, Equal2~19sexpand0, TestVector~248sexpand0bal, WideNor0~77sexpand0, Equal3~46sexpand0, WideNor0~77sexpand1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ; TestVector[7]$latch~10, TestVector[7]                                                                                                                                                                                                                                                                                                                ;
+;  D  ; LC53       ; lpm_add_sub:Add0|addcore:adder[0]|g2cp[2]~24, NumeroIN[6], NumeroIN[5], NumeroIN[4], NumeroIn2[4], NumeroIn2[5], NumeroIn2[6]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ; NumeroOUT[7]~reg0, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~122, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[6]~213, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~216, lpm_add_sub:Add1|addcore:adder[0]|a_csnbuffer:result_node|sout_node[7]~220, NumeroOUT[8]~reg0 ;
+;  D  ; LC49       ; NumeroIN[7], NumeroIn2[7], NumeroIN[6], NumeroIn2[6], LessThan0~512, lpm_add_sub:Add1|addcore:adder[0]|ps[5]~80, lpm_add_sub:Add1|addcore:adder[0]|ps[5]~81                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ; Uscita                                                                                                                                                                                                                                                                                                                                               ;
++-----+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Fitter Device Options                                                   ;
++----------------------------------------------+--------------------------+
+; Option                                       ; Setting                  ;
++----------------------------------------------+--------------------------+
+; Enable user-supplied start-up clock (CLKUSR) ; Off                      ;
+; Enable device-wide reset (DEV_CLRn)          ; Off                      ;
+; Enable device-wide output enable (DEV_OE)    ; Off                      ;
+; Enable INIT_DONE output                      ; Off                      ;
+; Configuration scheme                         ; Passive Serial           ;
+; Reserve all unused pins                      ; As output driving ground ;
+; Security bit                                 ; Off                      ;
+; Base pin-out file on sameframe device        ; Off                      ;
++----------------------------------------------+--------------------------+
+
+
++-----------------+
+; Fitter Messages ;
++-----------------+
+Info: *******************************************************************
+Info: Running Quartus II Fitter
+    Info: Version 6.1 Build 201 11/27/2006 SJ Web Edition
+    Info: Processing started: Tue Jun 10 15:39:23 2008
+Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off Prova -c Prova
+Info: Automatically selected device EPM7064AEFC100-10 for design Prova
+Info: Fitting design with smaller device may be possible, but smaller device must be specified
+Info: Quartus II Fitter was successful. 0 errors, 0 warnings
+    Info: Allocated 125 megabytes of memory during processing
+    Info: Processing ended: Tue Jun 10 15:39:23 2008
+    Info: Elapsed time: 00:00:00
+
+

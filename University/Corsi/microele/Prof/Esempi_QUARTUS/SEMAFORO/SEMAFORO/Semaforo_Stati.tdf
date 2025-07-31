@@ -1,0 +1,86 @@
+TITLE "SEMAFORO";
+
+SUBDESIGN Semaforo_Stati
+(
+	clk								: INPUT;
+	reset							: INPUT;
+	timeout							: INPUT;
+	red_a, yellow_a, green_a 		: OUTPUT;
+	red_b, yellow_b, green_b 		: OUTPUT;
+	value[7..0]						: OUTPUT;
+)
+
+VARIABLE
+	red_a_temp		: NODE;
+	red_b_temp		: NODE;
+	yellow_a_temp	: NODE;
+	yellow_b_temp	: NODE;
+	green_a_temp	: NODE;
+	green_b_temp	: NODE;
+	
+	red_a_reg		: DFF;
+	red_b_reg		: DFF;
+	yellow_a_reg	: DFF;
+	yellow_b_reg	: DFF;
+	green_a_reg		: DFF;
+	green_b_reg		: DFF;
+
+	mm				: MACHINE OF BITS (q1, q2)
+		  		      WITH STATES (red,	yel_a, yel_b,	green);
+		
+BEGIN
+
+	DEFAULTS
+		value[] = B"00000111";
+	END DEFAULTS;
+
+	red_a_reg.clk = clk;
+	red_a_reg.clrn = !reset;
+	red_b_reg.clk = clk;
+	red_b_reg.clrn = !reset;
+	yellow_a_reg.clk = clk;
+	yellow_a_reg.clrn = !reset;
+	yellow_b_reg.clk = clk;
+	yellow_b_reg.clrn = !reset;
+	green_a_reg.clk = clk;
+	green_a_reg.clrn = !reset;
+	green_b_reg.clk = clk;
+	green_b_reg.clrn = !reset;
+
+
+	mm.clk = clk;
+	mm.reset = reset;
+
+	TABLE
+		timeout, mm		=> mm, red_a_temp, yellow_a_temp, green_a_temp, red_b_temp, yellow_b_temp, green_b_temp, value[];
+
+		0, red			=> red		, 1, 0, 0, 0, 0, 1, B"00000111";
+		1, red			=> yel_b	, 1, 0, 0, 0, 0, 1, B"00000111";
+		1, yel_a		=> red		, 0, 1, 1, 1, 0, 0, B"00000011";
+		0, yel_a		=> yel_a	, 0, 1, 1, 1, 0, 0, B"00000011";
+		1, yel_b		=> green	, 1, 0, 0, 0, 1, 1, B"00000011";
+		0, yel_b		=> yel_b	, 1, 0, 0, 0, 1, 1, B"00000011";
+		1, green		=> yel_a	, 0, 0, 1, 1, 0, 0, B"00000111";
+		0, green		=> green	, 0, 0, 1, 1, 0, 0, B"00000111";
+
+	END TABLE;
+
+	red_a_reg.d = red_a_temp;
+	red_a = red_a_reg.q;
+	
+	red_b_reg.d = red_b_temp;
+	red_b = red_b_reg.q;
+	
+	yellow_a_reg.d = yellow_a_temp;
+	yellow_a = yellow_a_reg.q;
+	
+	yellow_b_reg.d = yellow_b_temp;
+	yellow_b = yellow_b_reg.q;
+	
+	green_a_reg.d = green_a_temp;
+	green_a = green_a_reg.q;
+	
+	green_b_reg.d = green_b_temp;
+	green_b = green_b_reg.q;
+
+END;

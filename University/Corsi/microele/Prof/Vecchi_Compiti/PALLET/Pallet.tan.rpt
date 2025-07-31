@@ -1,0 +1,275 @@
+Classic Timing Analyzer report for Pallet
+Wed Jul 04 00:36:44 2007
+Quartus II Version 6.1 Build 201 11/27/2006 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'clk'
+  6. tsu
+  7. tco
+  8. tpd
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                     ;
++------------------------------+-------+---------------+----------------------------------+--------------------------------------------------+-------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                                             ; To                      ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+--------------------------------------------------+-------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 7.300 ns                         ; f_pallet                                         ; Macchina_Pallet:inst|q2 ; --         ; clk      ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 19.500 ns                        ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[0] ; count_enable12          ; clk        ; --       ; 0            ;
+; Worst-case tpd               ; N/A   ; None          ; 10.000 ns                        ; caution                                          ; m_fwd                   ; --         ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -2.200 ns                        ; f_pallet                                         ; Macchina_Pallet:inst|q0 ; --         ; clk      ; 0            ;
+; Clock Setup: 'clk'           ; N/A   ; None          ; 63.29 MHz ( period = 15.800 ns ) ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[0] ; Macchina_Pallet:inst|q2 ; clk        ; clk      ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                                                  ;                         ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+--------------------------------------------------+-------------------------+------------+----------+--------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                             ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                ; Setting            ; From ; To ; Entity Name ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                           ; EPM7032AELC44-10   ;      ;    ;             ;
+; Timing Models                                         ; Final              ;      ;    ;             ;
+; Default hold multicycle                               ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains             ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                        ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                      ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                 ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements               ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                      ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                  ; Off                ;      ;    ;             ;
+; Number of source nodes to report per destination node ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                 ; 10                 ;      ;    ;             ;
+; Number of paths to report                             ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                          ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                            ; Off                ;      ;    ;             ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk'                                                                                                                                                                                                                                         ;
++-------+----------------------------------+--------------------------------------------------+--------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)             ; From                                             ; To                                               ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+----------------------------------+--------------------------------------------------+--------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 63.29 MHz ( period = 15.800 ns ) ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[3] ; Macchina_Pallet:inst|q2                          ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 63.29 MHz ( period = 15.800 ns ) ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[2] ; Macchina_Pallet:inst|q2                          ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 63.29 MHz ( period = 15.800 ns ) ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[1] ; Macchina_Pallet:inst|q2                          ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 63.29 MHz ( period = 15.800 ns ) ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[0] ; Macchina_Pallet:inst|q2                          ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 93.46 MHz ( period = 10.700 ns ) ; Macchina_Pallet:inst|q1                          ; Macchina_Pallet:inst|q2                          ; clk        ; clk      ; None                        ; None                      ; 6.400 ns                ;
+; N/A   ; 93.46 MHz ( period = 10.700 ns ) ; Macchina_Pallet:inst|q0                          ; Macchina_Pallet:inst|q2                          ; clk        ; clk      ; None                        ; None                      ; 6.400 ns                ;
+; N/A   ; 93.46 MHz ( period = 10.700 ns ) ; Macchina_Pallet:inst|q2                          ; Macchina_Pallet:inst|q2                          ; clk        ; clk      ; None                        ; None                      ; 6.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Macchina_Pallet:inst|q1                          ; Macchina_Pallet:inst|q1                          ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Macchina_Pallet:inst|q0                          ; Macchina_Pallet:inst|q1                          ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Macchina_Pallet:inst|q2                          ; Macchina_Pallet:inst|q1                          ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Macchina_Pallet:inst|q1                          ; Macchina_Pallet:inst|q0                          ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Macchina_Pallet:inst|q0                          ; Macchina_Pallet:inst|q0                          ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Macchina_Pallet:inst|q2                          ; Macchina_Pallet:inst|q0                          ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[3] ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[3] ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[2] ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[3] ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[1] ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[3] ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[0] ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[3] ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[2] ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[2] ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[1] ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[2] ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[0] ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[2] ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[1] ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[1] ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[0] ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[1] ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns ) ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[0] ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[0] ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
++-------+----------------------------------+--------------------------------------------------+--------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; tsu                                                                               ;
++-------+--------------+------------+----------+-------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From     ; To                      ; To Clock ;
++-------+--------------+------------+----------+-------------------------+----------+
+; N/A   ; None         ; 7.300 ns   ; s_down   ; Macchina_Pallet:inst|q2 ; clk      ;
+; N/A   ; None         ; 7.300 ns   ; s_up     ; Macchina_Pallet:inst|q2 ; clk      ;
+; N/A   ; None         ; 7.300 ns   ; s_rwd    ; Macchina_Pallet:inst|q2 ; clk      ;
+; N/A   ; None         ; 7.300 ns   ; s_fwd    ; Macchina_Pallet:inst|q2 ; clk      ;
+; N/A   ; None         ; 7.300 ns   ; f_pallet ; Macchina_Pallet:inst|q2 ; clk      ;
+; N/A   ; None         ; 6.300 ns   ; s_down   ; Macchina_Pallet:inst|q0 ; clk      ;
+; N/A   ; None         ; 6.300 ns   ; s_up     ; Macchina_Pallet:inst|q1 ; clk      ;
+; N/A   ; None         ; 6.300 ns   ; start    ; Macchina_Pallet:inst|q2 ; clk      ;
+; N/A   ; None         ; 6.300 ns   ; f_pallet ; Macchina_Pallet:inst|q1 ; clk      ;
+; N/A   ; None         ; 6.300 ns   ; f_pallet ; Macchina_Pallet:inst|q0 ; clk      ;
++-------+--------------+------------+----------+-------------------------+----------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; tco                                                                                                                ;
++-------+--------------+------------+--------------------------------------------------+----------------+------------+
+; Slack ; Required tco ; Actual tco ; From                                             ; To             ; From Clock ;
++-------+--------------+------------+--------------------------------------------------+----------------+------------+
+; N/A   ; None         ; 19.500 ns  ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[3] ; count_enable12 ; clk        ;
+; N/A   ; None         ; 19.500 ns  ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[2] ; count_enable12 ; clk        ;
+; N/A   ; None         ; 19.500 ns  ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[1] ; count_enable12 ; clk        ;
+; N/A   ; None         ; 19.500 ns  ; Contatore:inst11|lpm_counter:Count_rtl_0|dffs[0] ; count_enable12 ; clk        ;
+; N/A   ; None         ; 13.400 ns  ; Macchina_Pallet:inst|q1                          ; m_down         ; clk        ;
+; N/A   ; None         ; 13.400 ns  ; Macchina_Pallet:inst|q0                          ; m_down         ; clk        ;
+; N/A   ; None         ; 13.400 ns  ; Macchina_Pallet:inst|q2                          ; m_down         ; clk        ;
+; N/A   ; None         ; 13.400 ns  ; Macchina_Pallet:inst|q1                          ; m_up           ; clk        ;
+; N/A   ; None         ; 13.400 ns  ; Macchina_Pallet:inst|q0                          ; m_up           ; clk        ;
+; N/A   ; None         ; 13.400 ns  ; Macchina_Pallet:inst|q2                          ; m_up           ; clk        ;
+; N/A   ; None         ; 13.400 ns  ; Macchina_Pallet:inst|q0                          ; count_enable   ; clk        ;
+; N/A   ; None         ; 13.400 ns  ; Macchina_Pallet:inst|q2                          ; count_enable   ; clk        ;
+; N/A   ; None         ; 13.400 ns  ; Macchina_Pallet:inst|q0                          ; m_rwd          ; clk        ;
+; N/A   ; None         ; 13.400 ns  ; Macchina_Pallet:inst|q2                          ; m_rwd          ; clk        ;
+; N/A   ; None         ; 13.400 ns  ; Macchina_Pallet:inst|q1                          ; m_fwd          ; clk        ;
+; N/A   ; None         ; 13.400 ns  ; Macchina_Pallet:inst|q2                          ; m_fwd          ; clk        ;
++-------+--------------+------------+--------------------------------------------------+----------------+------------+
+
+
++----------------------------------------------------------------+
+; tpd                                                            ;
++-------+-------------------+-----------------+---------+--------+
+; Slack ; Required P2P Time ; Actual P2P Time ; From    ; To     ;
++-------+-------------------+-----------------+---------+--------+
+; N/A   ; None              ; 10.000 ns       ; caution ; m_down ;
+; N/A   ; None              ; 10.000 ns       ; caution ; m_up   ;
+; N/A   ; None              ; 10.000 ns       ; caution ; m_rwd  ;
+; N/A   ; None              ; 10.000 ns       ; caution ; m_fwd  ;
++-------+-------------------+-----------------+---------+--------+
+
+
++-----------------------------------------------------------------------------------------+
+; th                                                                                      ;
++---------------+-------------+-----------+----------+-------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From     ; To                      ; To Clock ;
++---------------+-------------+-----------+----------+-------------------------+----------+
+; N/A           ; None        ; -2.200 ns ; s_down   ; Macchina_Pallet:inst|q0 ; clk      ;
+; N/A           ; None        ; -2.200 ns ; s_up     ; Macchina_Pallet:inst|q1 ; clk      ;
+; N/A           ; None        ; -2.200 ns ; s_rwd    ; Macchina_Pallet:inst|q2 ; clk      ;
+; N/A           ; None        ; -2.200 ns ; s_fwd    ; Macchina_Pallet:inst|q2 ; clk      ;
+; N/A           ; None        ; -2.200 ns ; start    ; Macchina_Pallet:inst|q2 ; clk      ;
+; N/A           ; None        ; -2.200 ns ; f_pallet ; Macchina_Pallet:inst|q1 ; clk      ;
+; N/A           ; None        ; -2.200 ns ; f_pallet ; Macchina_Pallet:inst|q0 ; clk      ;
+; N/A           ; None        ; -3.200 ns ; s_down   ; Macchina_Pallet:inst|q2 ; clk      ;
+; N/A           ; None        ; -3.200 ns ; s_up     ; Macchina_Pallet:inst|q2 ; clk      ;
+; N/A           ; None        ; -3.200 ns ; f_pallet ; Macchina_Pallet:inst|q2 ; clk      ;
++---------------+-------------+-----------+----------+-------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 6.1 Build 201 11/27/2006 SJ Web Edition
+    Info: Processing started: Wed Jul 04 00:36:43 2007
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off Pallet -c Pallet
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: Timing Analysis does not support the analysis of latches as synchronous elements for the currently selected device family
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk" is an undefined clock
+Warning: Found 2 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "Macchina_Pallet:inst|q2" as buffer
+    Info: Detected ripple clock "Macchina_Pallet:inst|q0" as buffer
+Info: Clock "clk" has Internal fmax of 63.29 MHz between source register "Contatore:inst11|lpm_counter:Count_rtl_0|dffs[3]" and destination register "Macchina_Pallet:inst|q2" (period= 15.8 ns)
+    Info: + Longest register to register delay is 5.400 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC14; Fanout = 3; REG Node = 'Contatore:inst11|lpm_counter:Count_rtl_0|dffs[3]'
+        Info: 2: + IC(2.100 ns) + CELL(3.300 ns) = 5.400 ns; Loc. = LC2; Fanout = 23; REG Node = 'Macchina_Pallet:inst|q2'
+        Info: Total cell delay = 3.300 ns ( 61.11 % )
+        Info: Total interconnect delay = 2.100 ns ( 38.89 % )
+    Info: - Smallest clock skew is -6.100 ns
+        Info: + Shortest clock path from clock "clk" to destination register is 3.400 ns
+            Info: 1: + IC(0.000 ns) + CELL(2.100 ns) = 2.100 ns; Loc. = PIN_43; Fanout = 3; CLK Node = 'clk'
+            Info: 2: + IC(0.000 ns) + CELL(1.300 ns) = 3.400 ns; Loc. = LC2; Fanout = 23; REG Node = 'Macchina_Pallet:inst|q2'
+            Info: Total cell delay = 3.400 ns ( 100.00 % )
+        Info: - Longest clock path from clock "clk" to source register is 9.500 ns
+            Info: 1: + IC(0.000 ns) + CELL(2.100 ns) = 2.100 ns; Loc. = PIN_43; Fanout = 3; CLK Node = 'clk'
+            Info: 2: + IC(0.000 ns) + CELL(2.800 ns) = 4.900 ns; Loc. = LC2; Fanout = 23; REG Node = 'Macchina_Pallet:inst|q2'
+            Info: 3: + IC(2.100 ns) + CELL(2.500 ns) = 9.500 ns; Loc. = LC14; Fanout = 3; REG Node = 'Contatore:inst11|lpm_counter:Count_rtl_0|dffs[3]'
+            Info: Total cell delay = 7.400 ns ( 77.89 % )
+            Info: Total interconnect delay = 2.100 ns ( 22.11 % )
+    Info: + Micro clock to output delay of source is 1.500 ns
+    Info: + Micro setup delay of destination is 2.800 ns
+Info: tsu for register "Macchina_Pallet:inst|q2" (data pin = "s_down", clock pin = "clk") is 7.300 ns
+    Info: + Longest pin to register delay is 7.900 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.100 ns) = 2.100 ns; Loc. = PIN_44; Fanout = 2; PIN Node = 's_down'
+        Info: 2: + IC(1.500 ns) + CELL(1.200 ns) = 4.800 ns; Loc. = LC1; Fanout = 1; COMB Node = 'Macchina_Pallet:inst|q2~305'
+        Info: 3: + IC(0.000 ns) + CELL(3.100 ns) = 7.900 ns; Loc. = LC2; Fanout = 23; REG Node = 'Macchina_Pallet:inst|q2'
+        Info: Total cell delay = 6.400 ns ( 81.01 % )
+        Info: Total interconnect delay = 1.500 ns ( 18.99 % )
+    Info: + Micro setup delay of destination is 2.800 ns
+    Info: - Shortest clock path from clock "clk" to destination register is 3.400 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.100 ns) = 2.100 ns; Loc. = PIN_43; Fanout = 3; CLK Node = 'clk'
+        Info: 2: + IC(0.000 ns) + CELL(1.300 ns) = 3.400 ns; Loc. = LC2; Fanout = 23; REG Node = 'Macchina_Pallet:inst|q2'
+        Info: Total cell delay = 3.400 ns ( 100.00 % )
+Info: tco from clock "clk" to destination pin "count_enable12" through register "Contatore:inst11|lpm_counter:Count_rtl_0|dffs[3]" is 19.500 ns
+    Info: + Longest clock path from clock "clk" to source register is 9.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.100 ns) = 2.100 ns; Loc. = PIN_43; Fanout = 3; CLK Node = 'clk'
+        Info: 2: + IC(0.000 ns) + CELL(2.800 ns) = 4.900 ns; Loc. = LC2; Fanout = 23; REG Node = 'Macchina_Pallet:inst|q2'
+        Info: 3: + IC(2.100 ns) + CELL(2.500 ns) = 9.500 ns; Loc. = LC14; Fanout = 3; REG Node = 'Contatore:inst11|lpm_counter:Count_rtl_0|dffs[3]'
+        Info: Total cell delay = 7.400 ns ( 77.89 % )
+        Info: Total interconnect delay = 2.100 ns ( 22.11 % )
+    Info: + Micro clock to output delay of source is 1.500 ns
+    Info: + Longest register to pin delay is 8.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC14; Fanout = 3; REG Node = 'Contatore:inst11|lpm_counter:Count_rtl_0|dffs[3]'
+        Info: 2: + IC(2.100 ns) + CELL(4.600 ns) = 6.700 ns; Loc. = LC10; Fanout = 1; COMB Node = 'Contatore:inst11|full~13'
+        Info: 3: + IC(0.000 ns) + CELL(1.800 ns) = 8.500 ns; Loc. = PIN_14; Fanout = 0; PIN Node = 'count_enable12'
+        Info: Total cell delay = 6.400 ns ( 75.29 % )
+        Info: Total interconnect delay = 2.100 ns ( 24.71 % )
+Info: Longest tpd from source pin "caution" to destination pin "m_down" is 10.000 ns
+    Info: 1: + IC(0.000 ns) + CELL(1.500 ns) = 1.500 ns; Loc. = PIN_25; Fanout = 5; PIN Node = 'caution'
+    Info: 2: + IC(2.100 ns) + CELL(4.600 ns) = 8.200 ns; Loc. = LC7; Fanout = 1; COMB Node = 'Macchina_Pallet:inst|m_down~26'
+    Info: 3: + IC(0.000 ns) + CELL(1.800 ns) = 10.000 ns; Loc. = PIN_11; Fanout = 0; PIN Node = 'm_down'
+    Info: Total cell delay = 7.900 ns ( 79.00 % )
+    Info: Total interconnect delay = 2.100 ns ( 21.00 % )
+Info: th for register "Macchina_Pallet:inst|q0" (data pin = "s_down", clock pin = "clk") is -2.200 ns
+    Info: + Longest clock path from clock "clk" to destination register is 3.400 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.100 ns) = 2.100 ns; Loc. = PIN_43; Fanout = 3; CLK Node = 'clk'
+        Info: 2: + IC(0.000 ns) + CELL(1.300 ns) = 3.400 ns; Loc. = LC4; Fanout = 18; REG Node = 'Macchina_Pallet:inst|q0'
+        Info: Total cell delay = 3.400 ns ( 100.00 % )
+    Info: + Micro hold delay of destination is 1.300 ns
+    Info: - Shortest pin to register delay is 6.900 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.100 ns) = 2.100 ns; Loc. = PIN_44; Fanout = 2; PIN Node = 's_down'
+        Info: 2: + IC(1.500 ns) + CELL(3.300 ns) = 6.900 ns; Loc. = LC4; Fanout = 18; REG Node = 'Macchina_Pallet:inst|q0'
+        Info: Total cell delay = 5.400 ns ( 78.26 % )
+        Info: Total interconnect delay = 1.500 ns ( 21.74 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Allocated 95 megabytes of memory during processing
+    Info: Processing ended: Wed Jul 04 00:36:44 2007
+    Info: Elapsed time: 00:00:01
+
+

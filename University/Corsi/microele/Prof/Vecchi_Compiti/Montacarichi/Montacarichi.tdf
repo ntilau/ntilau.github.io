@@ -1,0 +1,65 @@
+TITLE "Montacarichi";
+
+% Matteo Fratini %
+
+SUBDESIGN Montacarichi
+(
+	clk, reset			: INPUT = GND;
+	ct, c1, c2			: INPUT = GND;
+	pt, p1,	p2			: INPUT = GND;
+	at_t, at_1,	at_2	: INPUT = GND;
+
+	m_up, m_down		: OUTPUT;
+	busy_lamp			: OUTPUT;
+)
+
+VARIABLE
+
+	ut, u1, u2	: NODE;
+
+	mm			: MACHINE OF BITS (q0, q1, q2)
+			      WITH STATES (ground, first, second, up_1, up_2, down_1, down_t);
+
+BEGIN
+
+	ut = ct OR pt;
+	u1 = c1 OR p1;
+	u2 = c2 OR p2;
+
+	mm.clk = clk;
+	mm.reset = reset;
+	busy_lamp = m_up OR m_down;
+
+	TABLE
+		mm,	ut, u1, u2, at_t, at_1, at_2	=> mm, m_up, m_down;
+		
+		ground,		0, 1, 0, x, x, x 	=> 	up_1,	0, 0;
+		ground,		0, 0, 1, x, x, x 	=> 	up_2,	0, 0;
+		ground,		x, 1, 1, x, x, x 	=> 	ground,	0, 0;
+		ground,		x, 0, 0, x, x, x 	=> 	ground,	0, 0;
+		
+		first,		1, 0, 0, x, x, x 	=> 	down_t,	0, 0;
+		first,		0, 0, 1, x, x, x 	=> 	up_2,	0, 0;
+		first,		1, x, 1, x, x, x 	=> 	first,	0, 0;
+		first, 		0, x, 0, x, x, x 	=> 	first,	0, 0;
+		
+		second,		1, 0, 0, x, x, x 	=> 	down_t,	0, 0;
+		second,		0, 1, 0, x, x, x 	=> 	down_1,	0, 0;
+		second,		1, 1, x, x, x, x 	=> 	second,	0, 0;
+		second,		0, 0, x, x, x, x 	=> 	second,	0, 0;
+		
+		up_1,		x, x, x, x, 1, x	=>	first,	1, 0;
+		up_1, 		x, x, x, x, 0, x	=>	up_1,	1, 0;
+		
+		up_2,		x, x, x, x, x, 1	=>	second,	1, 0;
+		up_2, 		x, x, x, x, x, 0	=>	up_2,	1, 0;
+		
+		down_t,		x, x, x, 1, x, x	=>	ground,	0, 1;
+		down_t, 	x, x, x, 0, x, x	=>	down_t,	0, 1;
+		
+		down_1,		x, x, x, x, 1, x	=>	first,	0, 1;
+		down_1, 	x, x, x, x, 0, x	=>	down_1,	0, 1;
+
+	END TABLE;
+
+END;
