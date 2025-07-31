@@ -1,3 +1,3 @@
 # Personal website 
 
-[CurriculumVitae](CV/LaurentNtibarikureResume.pdf)
+[CurriculumVitae](Curriculum/LaurentNtibarikureResume.pdf)
