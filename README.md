@@ -1,3 +1,3 @@
 # ntilau.github.io 
 
-![CurriculumVitae](LaurentNtibarikureResume.pdf)
+[CurriculumVitae](CV/LaurentNtibarikureResume.pdf)
