@@ -1,0 +1,1 @@
+sudo apt install make texlive-latex-extra texlive-fonts-extra biber -y
