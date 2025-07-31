@@ -1,0 +1,1 @@
+sudo apt install texlive-latex-base  texlive-extra-utils texlive-fonts-extra texlive-science texlive-publishers texlive-publishers-doc texlive-lang-italian -y

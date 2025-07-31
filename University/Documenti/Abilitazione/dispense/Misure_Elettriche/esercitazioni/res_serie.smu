@@ -1,0 +1,53 @@
+[Header]
+Format=SMU
+ver=2
+appl=GUMWB32
+
+[Title]
+Title='Misure dirette e indirette di resistenze in serie'
+Description=0
+
+[Model]
+Model=1
+Model[0]='Rs=R1+R2'
+
+[Components]
+CompOrder=3
+Comp=3
+Comp[0]=Rs
+Comp[1]=R1
+Comp[2]=R2
+
+[Comp 0]
+Type=Result
+Unit=\Omega\
+Definition=''
+NomUnit=
+UncUnit=
+CovID=0
+Coverage=1
+UncID=0
+Vnom=1104.4
+Ustd=3.3
+Neff=10000
+Description=0
+
+[Comp 1]
+Type=TypBRectang
+Unit=\Omega\
+Definition=''
+Vnom=552.1
+Hlim=4.0647
+Description=0
+
+[Comp 2]
+Type=TypBRectang
+Unit=\Omega\
+Definition=''
+Vnom=552.3
+Hlim=4.0661
+Description=0
+
+[Correlations]
+Description=0
+
