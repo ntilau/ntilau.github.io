@@ -1,0 +1,187 @@
+%%%%%%%%%%%%%%%%%
+% This is an sample CV template created using altacv.cls
+% (v1.7.2, 28 August 2024) written by LianTze Lim (liantze@gmail.com). Compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[9pt,a4paper,ragged2e,withhyper]{altacv} %ragged2e
+%% AltaCV uses the fontawesome5 and simpleicons packages.
+%% See http://texdoc.net/pkg/fontawesome5 and http://texdoc.net/pkg/simpleicons for full list of symbols.
+
+% Change the page layout if you need to
+\geometry{left=1.cm,right=1.cm,top=1.25cm,bottom=1.25cm,columnsep=0.25cm,footskip=1.5\baselineskip}
+
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\fancyhf{}
+\renewcommand{\headrule}{}
+\fancyfoot[R]{\footnotesize \thepage /\pageref{LastPage}}
+\AtBeginDocument{\pagestyle{fancy}}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+
+%\usepackage[hyphens]{url}
+%\usepackage{hyperref}
+
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+% WHEN COMPILING WITH XELATEX PLEASE USE
+% xelatex -shell-escape -output-driver="xdvipdfmx -z 0" sample.tex
+\iftutex 
+  % If using xelatex or lualatex:
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  % If using pdflatex:
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  % \usepackage{sourcesanspro}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% Change the colours if you want to
+\definecolor{SlateGrey}{HTML}{000000}%{2E2E2E}
+\definecolor{LightGrey}{HTML}{000000}%{666666}
+\definecolor{DarkPastelRed}{HTML}{000000}%{450808}
+\definecolor{PastelRed}{HTML}{458EF7}%{8F0D0D}
+\definecolor{GoldenEarth}{HTML}{000000}%{E7D192}
+\colorlet{name}{black}
+\colorlet{tagline}{PastelRed}
+\colorlet{heading}{DarkPastelRed}
+\colorlet{headingrule}{GoldenEarth}
+\colorlet{subheading}{PastelRed}
+\colorlet{accent}{PastelRed}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+% Change some fonts, if necessary
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\cvItemMarker}{{\small\textbullet}}
+\renewcommand{\cvRatingMarker}{\faCircle}
+% ...and the markers for the date/location for \cvevent
+% \renewcommand{\cvDateMarker}{\faCalendar*[regular]}
+% \renewcommand{\cvLocationMarker}{\faMapMarker*}
+
+
+% If your CV/résumé is in a language other than English,
+% then you probably want to change these so that when you
+% copy-paste from the PDF or run pdftotext, the location
+% and date marker icons for \cvevent will paste as correct
+% translations. For example Spanish:
+% \renewcommand{\locationname}{Ubicación}
+% \renewcommand{\datename}{Fecha}
+
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want to use an author-year reference style like APA(6)
+%% for your publication list
+% When using APA6 if you need more author names to be listed
+% because you're e.g. the 12th author, add apamaxprtauth=12
+% \usepackage[backend=biber,style=apa6,sorting=ydnt]{biblatex}
+% \defbibheading{pubtype}{\cvsubsection{#1}}
+% \renewcommand{\bibsetup}{\vspace*{-\baselineskip}}
+% \AtEveryBibitem{%
+%   \makebox[\bibhang][l]{\itemmarker}%
+%   \iffieldundef{doi}{}{\clearfield{url}}%
+% }
+% \setlength{\bibitemsep}{0.25\baselineskip}
+% \setlength{\bibhang}{1.25em}
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want an originally numerical reference style like IEEE
+%% for your publication list
+%\usepackage[backend=biber,style=ieee,sorting=ydnt,defernumbers=true]{biblatex}
+%% For removing numbering entirely when using a numeric style
+% \setlength{\bibhang}{1.25em}
+% \DeclareFieldFormat{labelnumberwidth}{\makebox[\bibhang][l]{\itemmarker}}
+% \setlength{\biblabelsep}{0pt}
+% \defbibheading{pubtype}{\cvsubsection{#1}}
+% \renewcommand{\bibsetup}{\vspace*{-\baselineskip}}
+% \AtEveryBibitem{%
+%   \iffieldundef{doi}{}{\clearfield{url}}%
+% }
+
+%% sample.bib contains your publications
+% \addbibresource{LaurentNtibarikureResume.bib}
+% \usepackage{academicons}\let\faOrcid\aiOrcid
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\name{Laurent Ntibarikure}
+\tagline{Engineering Systems | Physical Modeling | Customer Focus}
+%% You can add multiple photos on the left or right
+% \photoR{2.8cm}{LaurentNtibarikure.jpg}
+% \photoL{2.5cm}{LaurentNtibarikure.jpg}
+
+\personalinfo{%
+  % Not all of these are required!
+  % \email{user@email.com}
+  % \phone{+31-123-456-789}
+  % \mailaddress{}
+  \homepage{ntilau.github.io}
+  % \twitter{@twitterhandle}
+  % \xtwitter{@ntilau}
+  \linkedin{ntilau}
+  \github{ntilau}
+  % \orcid{0009-0006-4601-3618}
+  \location{Eindhoven, Netherlands}
+  %% You can add your own arbitrary detail with
+  %% \printinfo{symbol}{detail}[optional hyperlink prefix]
+  %% \printinfo{\faPaw}{Hey ho!}[https://example.com/]
+
+  %% Or you can declare your own field with
+  %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
+  % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
+  % \gitlab{your_id}
+  %%
+  %% For services and platforms like Mastodon where there isn't a
+  %% straightforward relation between the user ID/nickname and the hyperlink,
+  %% you can use \printinfo directly e.g.
+  % \printinfo{\faMastodon}{@username@instace}[https://instance.url/@username]
+  %% But if you absolutely want to create new dedicated info fields for
+  %% such platforms, then use \NewInfoField* with a star:
+  % \NewInfoField*{mastodon}{\faMastodon}
+  %% then you can use \mastodon, with TWO arguments where the 2nd argument is
+  %% the full hyperlink.
+  % \mastodon{@username@instance}{https://instance.url/@username}
+}
+
+\makecvheader
+
+\cvsection{Cover Letter} 
+
+Dear Hiring Manager
+\bigskip
+
+
+
+
+
+
+
+\bigskip
+Sincerely,
+\medskip
+Laurent Ntibarikure
+
+\end{document}

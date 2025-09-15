@@ -1,0 +1,610 @@
+%%%%%%%%%%%%%%%%%
+% This is an sample CV template created using altacv.cls
+% (v1.7.2, 28 August 2024) written by LianTze Lim (liantze@gmail.com). Compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[9pt,a4paper,ragged2e,withhyper]{altacv} %ragged2e
+%% AltaCV uses the fontawesome5 and simpleicons packages.
+%% See http://texdoc.net/pkg/fontawesome5 and http://texdoc.net/pkg/simpleicons for full list of symbols.
+
+% Change the page layout if you need to
+\geometry{left=1.cm,right=1.cm,top=1.25cm,bottom=1.25cm,columnsep=0.25cm,footskip=1.5\baselineskip}
+
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\fancyhf{}
+\renewcommand{\headrule}{}
+\fancyfoot[R]{\footnotesize \thepage /\pageref{LastPage}}
+\AtBeginDocument{\pagestyle{fancy}}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+
+%\usepackage[hyphens]{url}
+%\usepackage{hyperref}
+
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+% WHEN COMPILING WITH XELATEX PLEASE USE
+% xelatex -shell-escape -output-driver="xdvipdfmx -z 0" sample.tex
+\iftutex 
+  % If using xelatex or lualatex:
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  % If using pdflatex:
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  % \usepackage{sourcesanspro}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% Change the colours if you want to
+\definecolor{SlateGrey}{HTML}{000000}%{2E2E2E}
+\definecolor{LightGrey}{HTML}{000000}%{666666}
+\definecolor{DarkPastelRed}{HTML}{000000}%{450808}
+\definecolor{PastelRed}{HTML}{458EF7}%{8F0D0D}
+\definecolor{GoldenEarth}{HTML}{000000}%{E7D192}
+\colorlet{name}{black}
+\colorlet{tagline}{PastelRed}
+\colorlet{heading}{DarkPastelRed}
+\colorlet{headingrule}{GoldenEarth}
+\colorlet{subheading}{PastelRed}
+\colorlet{accent}{PastelRed}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+% Change some fonts, if necessary
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\cvItemMarker}{{\small\textbullet}}
+\renewcommand{\cvRatingMarker}{\faCircle}
+% ...and the markers for the date/location for \cvevent
+% \renewcommand{\cvDateMarker}{\faCalendar*[regular]}
+% \renewcommand{\cvLocationMarker}{\faMapMarker*}
+
+
+% If your CV/résumé is in a language other than English,
+% then you probably want to change these so that when you
+% copy-paste from the PDF or run pdftotext, the location
+% and date marker icons for \cvevent will paste as correct
+% translations. For example Spanish:
+% \renewcommand{\locationname}{Ubicación}
+% \renewcommand{\datename}{Fecha}
+
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want to use an author-year reference style like APA(6)
+%% for your publication list
+% When using APA6 if you need more author names to be listed
+% because you're e.g. the 12th author, add apamaxprtauth=12
+% \usepackage[backend=biber,style=apa6,sorting=ydnt]{biblatex}
+% \defbibheading{pubtype}{\cvsubsection{#1}}
+% \renewcommand{\bibsetup}{\vspace*{-\baselineskip}}
+% \AtEveryBibitem{%
+%   \makebox[\bibhang][l]{\itemmarker}%
+%   \iffieldundef{doi}{}{\clearfield{url}}%
+% }
+% \setlength{\bibitemsep}{0.25\baselineskip}
+% \setlength{\bibhang}{1.25em}
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want an originally numerical reference style like IEEE
+%% for your publication list
+\usepackage[backend=biber,style=ieee,sorting=ydnt,defernumbers=true]{biblatex}
+%% For removing numbering entirely when using a numeric style
+\setlength{\bibhang}{1.25em}
+\DeclareFieldFormat{labelnumberwidth}{\makebox[\bibhang][l]{\itemmarker}}
+\setlength{\biblabelsep}{0pt}
+\defbibheading{pubtype}{\cvsubsection{#1}}
+\renewcommand{\bibsetup}{\vspace*{-\baselineskip}}
+\AtEveryBibitem{%
+  \iffieldundef{doi}{}{\clearfield{url}}%
+}
+
+%% sample.bib contains your publications
+\addbibresource{LaurentNtibarikureResume.bib}
+% \usepackage{academicons}\let\faOrcid\aiOrcid
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\name{Laurent Ntibarikure}
+\tagline{Engineering Systems | Physical Modeling | Customer Focus}
+%% You can add multiple photos on the left or right
+% \photoR{2.8cm}{LaurentNtibarikure.jpg}
+% \photoL{2.5cm}{LaurentNtibarikure.jpg}
+
+\personalinfo{%
+  % Not all of these are required!
+  % \email{user@email.com}
+  % \phone{+31-123-456-789}
+  % \mailaddress{}
+  \homepage{ntilau.github.io}
+  % \twitter{@twitterhandle}
+  % \xtwitter{@ntilau}
+  \linkedin{ntilau}
+  \github{ntilau}
+  % \orcid{0009-0006-4601-3618}
+  \location{Eindhoven, Netherlands}
+  %% You can add your own arbitrary detail with
+  %% \printinfo{symbol}{detail}[optional hyperlink prefix]
+  % \printinfo{\faPaw}{Hey ho!}[https://example.com/]
+
+  %% Or you can declare your own field with
+  %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
+  % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
+  % \gitlab{your_id}
+  %%
+  %% For services and platforms like Mastodon where there isn't a
+  %% straightforward relation between the user ID/nickname and the hyperlink,
+  %% you can use \printinfo directly e.g.
+  % \printinfo{\faMastodon}{@username@instace}[https://instance.url/@username]
+  %% But if you absolutely want to create new dedicated info fields for
+  %% such platforms, then use \NewInfoField* with a star:
+  % \NewInfoField*{mastodon}{\faMastodon}
+  %% then you can use \mastodon, with TWO arguments where the 2nd argument is
+  %% the full hyperlink.
+  % \mastodon{@username@instance}{https://instance.url/@username}
+}
+
+\makecvheader
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+% \AtBeginEnvironment{itemize}{\small}
+
+%% Set the left/right column width ratio to 6:4.
+\columnratio{0.65}
+
+% Start a 2-column paracol. Both the left and right columns will automatically
+% break across pages if things get too long.
+\begin{paracol}{2}
+\cvsection{Summary}
+My experiences, with a focus on numerical methods, encompass electronic and
+mechatronic system development and technical sales \& support across several
+industries (Energy \& Aerospace, Electronic Design Automation, and Semiconductors).
+
+\medskip
+
+Leveraging such a background, I am currently helping designers to develop more
+effectively towards system-level compliance.
+
+\cvsection{Experience}
+
+\cvevent{Sr Engineer -- Design Enablement}{NXP Semiconductors}{03/2022 -- Present}{Eindhoven, Netherlands}
+\begin{itemize}
+\item Implemented electromagnetic simulation flows for SoCs development and electromagnetic interference
+predictions.
+\item Enhanced vendor solutions to meet the design and integration requirements of the cloud platform.
+\item Developed problem-resolution automation scripts and applied AI/ML algorithms for
+electromagnetic surrogate models.
+\end{itemize}
+\divider
+
+\cvevent{Technical Account Manager}{Ansys}{03/2020 -- 03/2022}{Utrecht, Netherlands}
+\begin{itemize}
+\item Drove customer satisfaction by providing multi-disciplinary technical support and
+managing global presales activities for the Ansys portfolio.
+\item Led teams to architect flows across disciplines, focusing on requirements and
+critical success factors.
+\item Advised global sales and account engineers on addressable initiatives and pipelines
+with preliminary requirements and solutions visions.
+\end{itemize}
+\divider
+
+\cvevent{Sr. Applications Engineer}{Ansys}{01/2019 -- 03/2020}{Utrecht, Netherlands}
+\begin{itemize}
+\item Executed presales activities for electronic systems across industries, supporting
+high frequency solutions and EMC flows across EMEA.
+\item Led technical alignment with customers on automotive electrification and
+connectivity projects, successfully delivering consulting services and trainings.
+\end{itemize}
+\divider
+
+\cvevent{Lead Engineer -- Testing}{Baker Hughes}{06/2013 -- 12/2018}{Florence, Italy}
+\begin{itemize}
+\item Led the development of industrial, ATEX compliant, distributed data acquisition
+systems to streamline tests execution timelines from months to weeks.
+\item Resolved 5+ electromagnetic interference issues in NPI validations and factory
+acceptance tests, contributing to best practices.
+\item Received an innovation award for patent disclosure of the Structural Vibration
+Monitoring System and multiple rewards for innovative solutions and customer impact.
+\end{itemize}
+\divider
+
+\cvevent{Startup Co-founder}{Universit\`a degli Studi di Firenze}{06/2012 -- 06/2013}{Florence, Italy}
+\begin{itemize}
+\item Initiated a spin-off, ElectroSoft, to provide efficient numerical codes for design problems.
+\item Led team promotion and value proposition pitches to business angels.
+\item Developed first opportunities in the defense industry.
+\end{itemize}
+\divider
+
+\cvevent{Doctoral Researcher}{Universit\`a degli Studi di Firenze}{01/2011 -- 06/2013}{Florence, Italy}
+\begin{itemize}
+\item Researched applied \& computational electromagnetics, presenting 10+ papers, advising student theses, and supporting examinations.
+\item Developed high-frequency electromagnetics 3D finite element C++ code for domain decomposition and nonlinear formulations.
+\item Architected a methodology using MathWorks Simulink and Ansys HFSS for electromagnetic compatibility in variable speed drive systems.
+\end{itemize}
+\divider
+
+\cvevent{Visiting Researcher}{Universit\"at des Saarlandes}{10/2009 -- 02/2010}{Saarbr\"ucken, Germany}
+\begin{itemize}
+\item Developed model order reduction in finite element analysis of antenna arrays for fast and accurate beamforming.
+\item Implemented Matlab code for a 3000x matrix reduction and 300x speedup in antenna pattern computation
+\end{itemize}
+\divider
+
+\cvevent{R\&D Engineer}{Universit\`a degli Studi di Firenze}{12/2007 -- 03/2008}{Florence, Italy}
+\begin{itemize}
+\item Developed wireless connectivity for a battery-powered avalanche rescue ground penetrating radar, optimizing firmware for fast full-duplex/half-duplex conversion timing.
+\item Executed the design and assembly of an ISM 868 MHz serial modem PCB prototype with off-the-shelf MCU and Radio (sub-GHz RFFE).
+\item Achieved successful wireless system resulting in improved signal detection accuracy.
+\end{itemize}
+
+\cvsection{Projects}
+
+\cvevent{Bearings loading test rig}{Baker Hughes, a GE Company}{05/2018 - 12/2018}{Florence, Italy}
+\begin{itemize}
+  \item Conceptual design of a novel bearings loading test rig aimed at validating bearings NTIs. 
+  \item Investigated on modeling methods of EM coupling between power (variable speed drive system) 
+  and signals cabling systems to predict potential interference issues.
+\end{itemize}
+\divider
+
+\cvevent{GE Aviation’s Catalyst}{Baker Hughes, a GE Company}{06/2017 - 12/2018}{Prague, Czech Republic}
+\begin{itemize}
+  \item Led special instrumentation design and global technical reviews of FETT with design
+and testing teams (Czech Rep., Poland, USA, Canada).
+  \item Contributed to >4 M\$ corss-P\&L project and customer satisfaction.
+\end{itemize}
+\divider
+
+\cvevent{Gas Turbine embedded SAW sensors}{Baker Hughes, a GE Company}{02/2018 - 12/2018}{Florence, Italy}
+\begin{itemize}
+\item Collaborated with University of Florence to investigate the high-frequency numerical modeling of SAW sensors for the accuracy control of temperature measurements.
+\end{itemize}
+\divider
+
+\cvevent{LM9000: 65 MW aeroderivative gas turbine}{Baker Hughes, a GE Company}{06/2018 - 12/2018}{Florence, Italy}
+\begin{itemize}
+\item Contributed to conceptual instrumentation design and test rigs erection, data
+acquisition architecture and control system design by technical and HAZOP reviews.
+\end{itemize}
+\divider
+
+\cvevent{Cross'd}{}{01/2018 - 11/2018}{Florence, Italy}
+\begin{itemize}
+\item Social networking app PoC based on Bluetooth Low Energy ranging. PoC with Apache
+Cordova and an AWS EC2 instance
+\end{itemize}
+\divider
+
+\cvevent{BLE Asset Tracking}{}{07/2017 - 09/2017}{Florence, Italy}
+\begin{itemize}
+\item Sub 5\$/Unit PoC of BLE tags (TI's CC2640) with firmware optimized for long-battery
+life, aimed at asset tracking and inventory management
+\end{itemize}
+\divider
+
+\cvevent{GE Power slip-ring digital telemetry}{Universit\"at des Saarlandes}{04/2017 - 05/2017}{Saarbr\"ucken, Germany}
+\begin{itemize}
+\item Ran Ansys HFSS simulations to optimize signal integrity over slip-ring connections
+(power supply and ethernet transmission lines) 
+\item Achieved shrinking of the rings spacing leading to manufacturing costs reduction
+\item 4 weeks-FTE cross-P\&L billing and customer satisfaction
+\end{itemize}
+\divider
+
+\cvevent{Wet gas compressors at KLAB}{GE Oil \& Gas}{02/2016 - 06/2016}{Haugesund, Norway}
+\begin{itemize}
+\item Designed and procured validation equipment for ATEX zone 1 test bench. 
+\item Developed Ex-d antenna and low noise amplifier system for GPS synchronization on NI's PXI systems. 
+\item Managed IEC 60079-11 simple apparatus compliance on load cells upon using
+extremely low voltage (1.5 V) Ex-ia Wheatstone bridge conditioners.
+\end{itemize}
+\divider
+
+\cvevent{Power density compressor}{GE Oil \& Gas}{03/2014 - 05/2016}{Florence, Italy}
+\begin{itemize}
+\item Led the commissioning Fieldbus Foundation use in testing lab for more than 240 pressure transducers (0.1\% uncertainty) 
+upon identifing the proper Firmware configuration which enabled for massive and accurate pressure measurements.
+\item Managed capacitive vibration probes ATEX-compliance. 
+\item Developed electrostatic numerical model to predict capacitance variation in various surroundings and target shape conditions. 
+\item Contributed to DM37/08 compliance of the test rig contract specification, including power and signaling cabling selection and proper installation.
+\end{itemize}
+\divider
+
+\cvevent{SNC1-2 steam turbine performance evaluation in 6.2 MW cogeneration plant}{GE Oil \& Gas}{09/2015 - 04/2016}{Florence, Italy}
+\begin{itemize}
+\item Defined novel pressure hookups method at lower cost and better performance to achieve accuracy controlled inter-stage enthalpy measurements 
+according to ASME PTC 19.11. 
+\item Programmed a CAN to Modbus TCP embedded module to enable static torque measurements on a MagCanica telemetry.
+\end{itemize}
+\divider
+
+\cvevent{GE-6G PowerGen Module Structural Vibrations Monitoring System}{GE Oil \& Gas}{11/2015 - 03/2016}{Saarbr\"ucken, Germany}
+\begin{itemize}
+\item Project involving ATEX-compliant distributed acquisition system for more than 150 vibration measurement points, 
+with 40 kHz analog bandwidth, WiFi5 backhaul to storage and real-time monitoring, 
+GPS or daisy-chain clock distribution synchronization \& TSN investigation, 
+characterized of 3D models \& BOM detailed design re-insourcing for timely delivery and cost optimization of 
+certified equipment in less than 4 months (vs typ. 8 months). 
+This also led to the introduction and consolidation of a software based velocity and displacement 
+real-time computation from accelerometers, achieving direct \$150k savings, and subsequent lab processes OPEX improvements. 
+Customer value delivered as onsite Turbomachinery Modules structural commissioning.
+\end{itemize}
+\divider
+
+\cvevent{NovaLT16 gas turbine, bearings and cooling component tests}{GE Oil \& Gas}{04/2014 - 10/2015}{Saarbr\"ucken, Germany}
+\begin{itemize}
+\item Design and validation of smartbox (field datalogger) for analog signals. 
+\item Defined EMC-aware measurement loops design to achieve noise immunity and enhanced measurement accuracies, 
+rigorously applying EN 61000 guidelines (CENELEC 25).
+\end{itemize}
+\divider
+
+\cvevent{GE Aviation’s GE9X High Pressure Compressor}{GE Oil \& Gas}{01/2014 - 04/2014}{Massa, Italy}
+\begin{itemize}
+\item High density data acquisition system design for GE Aviation’s compressor test in Massa. 
+\item Performed mitigation on EMC noise due to 130 kW variable speed ventilation system
+\end{itemize}
+\divider
+
+\cvevent{BCL306 and BCL317 centrifugal compressors rotordynamics}{GE Oil \& Gas}{06/2013 - 03/2014}{Florence, Italy}
+\begin{itemize}
+\item Performed an Ex-p execution of stability’s magnetic exciter, contributed to the
+resolution of customer’s opened nonconformity on rotordynamic vibrations upon
+conducting an electromagnetic interference on Bently Nevada's 3500 RCA.
+\end{itemize}
+\divider
+
+\cvevent{\href{https://github.com/ntilau/FES}{Finite Elements Software (FES)}}{Universit\`a degli Studi di Firenze}{06/2011 - 02/2014}{Florence, Italy}
+\begin{itemize}
+\item FES is an open source C++ framework for the development of "ad-hoc" simulation
+software aimed at a rapid implementation of novel numerical methods based on the
+Galerkin method. Core formulations validated reusing meshes from commercial
+packages (Comsol, HFSS)
+\end{itemize}
+\divider
+
+\cvevent{Spectral domain FEM model order reduction}{Universit\"at des Saarlandes}{10/2009 - 02/2010}{Saarbr\"ucken, Germany}
+\begin{itemize}
+\item Developed in Matlab efficient near-to-far-fields formulations for fast electromagnetic radiation computation in large finite elements problems exploiting model order
+reduction with spectral interpolation for beam steering and pattern angles
+\item Modeled a large patch antenna array, assessing accuracy and performances through mesh/model export from Ansoft HFSS v11
+\end{itemize}
+\divider
+
+\cvevent{RS-232 modem in ISM 868 MHz band}{University of Florence}{01/2007 - 04/2007}{Florence, Italy}
+
+\begin{itemize}
+    \item Designed and prototyped an 868 MHz wireless link for a ground penetration radar
+remote control over RS-232 protocol
+\item C-coded the PIC microcontroller FW and
+optimized in Assembly to garantee the full-duplex operation over half-duplex TI’s
+CC1100 radio. 
+\item Evaluated the performance of the wireless link in open field
+\end{itemize}
+
+
+%\cvsection{A Day of My Life}
+
+% Adapted from @Jake's answer from http://tex.stackexchange.com/a/82729/226
+% \wheelchart{outer radius}{inner radius}{
+% comma-separated list of value/text width/color/detail}
+%\wheelchart{1.5cm}{0.5cm}{%
+%  6/8em/accent!30/{Sleep,\\beautiful sleep},
+%  3/8em/accent!40/Hopeful novelist by night,
+%  8/8em/accent!60/Daytime job,
+%  2/10em/accent/Sports and relaxation,
+%  5/6em/accent!20/Spending time with family
+%}
+
+% use ONLY \newpage if you want to force a page break for
+% ONLY the current column
+%\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%
+%% Switch to the right column. This will now automatically move to the second
+%% page if the content is too long.
+\switchcolumn
+
+%%% 
+\cvsection{Education}
+\cvevent{Doctor of Philosophy - PhD, Electronics Engineering}{Universit\`a degli Studi di Firenze}{01/2011 -- 02/2014}{Florence, Italy}
+School of "RF, Microwaves and Electromagnetics". Computational Methods focus. With grant (Jan 2011 - Jun 2013).
+
+\divider
+
+\cvevent{Master's Degree, Electronics Engineering}{Universit\`a degli Studi di Firenze}{10/2007 -- 04/2010}{Florence, Italy}
+Erasmus Placement/LLP framework thesis semester at Universit\"at des Saarlandes.
+With grant (Sep 2009 - Mar 2010).
+
+\divider
+
+\cvevent{Bachelor's degree, Electrical and Electronics Engineering}{Universit\`a degli Studi di Firenze}{01/2003 - 04/2008}{Florence, Italy}
+
+%%%
+\cvsection{Awards}
+
+\cvachievement{\faTrophy}{EMEA TAM of the Year | Ansys (01/2021)}{Award for customer and industry focus}
+\divider
+
+\cvachievement{\faHeartbeat}{Learn and adapt to win | BHGE (07/2018)}
+{Patent impact award for the disclosure of "Module with sensors arrangement"}
+\divider
+
+\cvachievement{\faHeartbeat}{Customers determine our success | BHGE (03/2017)}
+{Bronze award for the GE Aviation's Catalyst FETT advanced test instrumentation consulting}
+\divider
+
+\cvachievement{\faHeartbeat}{Customers determine our success | GE (10/2016)}
+{Bronze award for the successful execution of the vibration monitoring system ZADCO customer structural vibrations acceptance tests}
+\divider
+
+\cvachievement{\faHeartbeat}{Learn and adapt to win | GE (03/2016)}
+{Bronze award for the co-generation plant cost savings on the SNC1-2 steam turbine performance validation}
+\divider
+
+\cvachievement{\faHeartbeat}{Learn and adapt to win | GE (10/2015)}
+{Bronze award for the introduction and validation of an effective, cost-saving, structural vibrations digital integration algorithm aimed at accurately deriving speed \& displacements measurements from ATEX-compliant accelerometers}
+\divider
+
+\cvachievement{\faHeartbeat}{External focus | GE (06/2014)}
+{Bronze award for the RCA activities on Cessao Onerosa, ADRE monitoring system EMI noise mitigation and customer assurance}
+\divider
+
+\cvachievement{\faTrophy}{Giorgio Barzilai Prize | SIEm (09/2012)}
+{Best paper award for young researchers, for the work "Model order reduction in Finite Element analysis of phased array antennas" presented at the XIX RiNEm}
+\divider
+
+\cvachievement{\faHeartbeat}{Ph.D. studies grant | UniFi (12/2010)}
+{Full tuition fees and allowance for research on Electromagnetic Compatibility modeling techniques in variable speed drive systems - with GE/Nuovo Pignone}
+\divider
+
+\cvachievement{\faHeartbeat}{Dean's listing | UniFi (04/2010)}
+{Commissione di Laurea Specialistica in Ingegneria Elettronica presieduta dal Prof. Piero Tortoli (Prot. 1051 n. class. III/9.1.2 del 24 Maggio 2010)}
+\divider
+
+\cvachievement{\faHeartbeat}{LLP/Erasmus Placement grant | UniFI (10/2009)}
+{Thesis work semester relocation support at Universit\"at des Saarlandes}
+
+%%%
+\cvsection{Certification}
+\cvachievement{\faFile}{Professional Engineer, ID:ES2010277049000038}{Universit\`a degli Studi di Firenze}
+
+%%%
+\cvsection{Courses}
+\cvevent{Command of the Message}{Ansys}{06/2020}{Remote}
+\medskip
+\cvevent{JAWS: Just Another Way of Selling}{Ansys}{02/2020}{Paris, France}
+\medskip
+\cvevent{GE Crotonville: Delivering Customer Impact}{GE Oil \& Gas}{03/2016}{Munich, Germany}
+\medskip
+\cvevent{Total Quality Lean Six Sigma Green Belt}{GE Oil \& Gas}{06/2014}{Florence, Italy}
+
+%%%
+\cvsection{Skills}
+
+% Don't overuse these \cvtag boxes — they're just eye-candies and not essential. If something doesn't fit on a single line, it probably works better as part of an itemized list (probably inlined itemized list), or just as a comma-separated list of strengths.
+
+% The `ragged2e` document class option might cause automatic linebreaks between \cvtag to fail.
+% Either remove the ragged2e option; or 
+% add \LaTeXraggedright in the paragraph for these \cvtag
+{\LaTeXraggedright
+%\cvtag{Hard-working}
+%\cvtag{Eye for detail}
+%\cvtag{Motivator \& Leader}
+\cvtag{Engineering}
+\cvtag{Simulations}
+\cvtag{Management}
+\cvtag{Testing}
+\cvtag{Sales}
+\cvtag{Strategy}
+\cvtag{Leadership}
+\cvtag{Customer Satisfaction}
+\cvtag{Finite Element Analysis}
+\cvtag{RF}
+\cvtag{Electronics}
+\cvtag{Semiconductors}
+\cvtag{Scripting}
+\cvtag{Matlab}
+\cvtag{C++}
+\cvtag{C}
+\cvtag{Python}
+\par}
+
+%\divider\smallskip
+
+%% ...Or manually add linebreaks yourself
+%\cvtag{C++}
+%\cvtag{Embedded Systems}\\
+%\cvtag{Statistical Analysis}
+
+\cvsection{Languages}
+\cvskill{Dutch}{1}
+\divider
+\cvskill{English}{4}
+\divider
+\cvskill{French}{5} %% Supports X.5 values.
+\divider
+\cvskill{German}{1}
+\divider
+\cvskill{Italian}{5}
+\divider
+\cvskill{Kirundi}{5}
+\divider
+\cvskill{Spanish}{3} %% Supports X.5 values.
+
+%% Yeah I didn't spend too much time making all the
+%% spacing consistent... sorry. Use \smallskip, \medskip,
+%% \bigskip, \vspace etc to make adjustments.
+%\medskip
+
+%\cvsection{My Life Philosophy}
+
+%\begin{quote}
+%``Something smart or heartfelt, preferably in one sentence.''
+%\end{quote}
+
+%%%
+%\cvsection{References}
+
+% \cvref{name}{email}{mailing address}
+%\cvref{Prof.\ Alpha Beta}{Institute}{a.beta@university.edu}{Address Line 1\\Address line 2}
+
+%\divider
+
+%\cvref{Prof.\ Gamma Delta}{Institute}{g.delta@university.edu}{Address Line 1\\Address line 2}
+
+\cvsection{Publications}
+
+%% Specify your last name(s) and first name(s) as given in the .bib to automatically bold your own name in the publications list.
+%% One caveat: You need to write \bibnamedelima where there's a space in your name for this to work properly; or write \bibnamedelimi if you use initials in the .bib
+%% You can specify multiple names, especially if you have changed your name or if you need to highlight multiple authors.
+\mynames{Lim/Lian\bibnamedelima Tze,
+  Wong/Lian\bibnamedelima Tze,
+  Lim/Tracy,
+  Lim/L.\bibnamedelimi T.}
+%% MAKE SURE THERE IS NO SPACE AFTER THE FINAL NAME IN YOUR \mynames LIST
+
+\nocite{*}
+
+\printbibliography[heading=pubtype,title={\printinfo{\faFile*[regular]}{Patents}},type=patent]
+
+\divider
+
+\printbibliography[heading=pubtype,title={\printinfo{\faBook}{Books}},type=book]
+
+\divider
+
+\printbibliography[heading=pubtype,title={\printinfo{\faFile*[regular]}{Journal Articles}},type=article]
+
+\divider
+
+\printbibliography[heading=pubtype,title={\printinfo{\faUsers}{Conference Proceedings}},type=inproceedings]
+
+
+
+\end{paracol}
+
+
+\end{document}

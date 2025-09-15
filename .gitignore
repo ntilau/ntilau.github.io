@@ -1,0 +1,13 @@
+.DS_Store
+*.aux 
+*.loa 
+*.lof 
+*.log 
+*.lot 
+*.toc 
+*.bbl 
+*.blg 
+*.out 
+*.run.xml 
+*.bcf 
+*.xmpi
