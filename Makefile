@@ -6,7 +6,7 @@ CL = LaurentNtibarikureCoverLetter
 .SUFFIXES: .aux .pdf .tex
 .PHONY: clean
 
-all : cv
+all : cv clean
 
 cv:
 	$(TEX) $(CV).tex
