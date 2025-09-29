@@ -1,7 +1,7 @@
 TEX = pdflatex -shell-escape # -interaction=nonstopmode -file-line-error
 BIB = biber
-CV = LaurentNtibarikureResume
-CL = LaurentNtibarikureCoverLetter
+CV = LNResume
+CL = LNCoverLetter
 
 .SUFFIXES: .aux .pdf .tex
 .PHONY: clean
