@@ -6,7 +6,7 @@ CL = LNCoverLetter
 .SUFFIXES: .aux .pdf .tex
 .PHONY: clean
 
-all : cv clean
+all : cv
 
 cv:
 	$(TEX) $(CV).tex
