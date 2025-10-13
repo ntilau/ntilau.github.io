@@ -1,3 +1,3 @@
 # Personal website 
 
-[CurriculumVitae](LNResume.pdf)
+[CurriculumVitae](http://ntilau.github.io)
