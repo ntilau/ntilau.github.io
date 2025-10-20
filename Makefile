@@ -20,5 +20,12 @@ cl:
 	$(TEX) $(CL).tex
 	open $(CL).pdf
 
+push:   git add --all
+	git commit -m new
+	git push
+
+pull:   git commit -m new
+	git pull --rebase
+
 clean: 
 	rm -rf *.aux *.loa *.lof *.log *.lot *.toc *.bbl *.blg *.out *.run.xml *.bcf *.xmpi
