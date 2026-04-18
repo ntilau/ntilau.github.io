@@ -11,7 +11,7 @@
 # MS_FILE: Main LaTeX source file (default: thesis)
 MS_TEX      = pdflatex
 MS_TEXFLAGS ?= -interaction=nonstopmode -file-line-error
-MS_BIB      ?=
+MS_BIB      ?= biber
 MS_FILE     ?= lncv
 
 # --- Presentation Build Configuration ---
@@ -29,18 +29,18 @@ PR_FILE     ?= lncl
 
 # LaTeX auxiliary files to remove during clean
 # Includes: cross-references, bibliography, font database, logs, etc.
-CLEAN_EXTS = *.aux *.bcf *.blg *.bbl *.brf *.fdb_latexmk *.fls *.lof *.log *.lot *.lpr *.nav *.out *.run.xml *.snm *.toc *.vrb *.synctex.gz
+CLEAN_EXTS = *.aux *.bcf *.blg *.bbl *.brf *.fdb_latexmk *.fls *.lof *.log *.lot *.lpr *.nav *.out *.run.xml *.snm *.toc *.vrb *.synctex.gz *.xmp*
 
 .SUFFIXES: .aux .pdf .tex
 .PHONY: all manuscript presentation clean distclean help
 
 # Build both manuscript and presentation
-all: manuscript presentation
+all: lncv lncl
 
 # Build manuscript PDF
 # Process: LaTeX → (Bibliography if configured) → LaTeX → LaTeX
 # Three LaTeX passes ensure cross-references and citations are resolved
-manuscript:
+lncv:
 	$(MS_TEX) $(MS_TEXFLAGS) $(MS_FILE).tex
 	@if [ -n "$(MS_BIB)" ]; then $(MS_BIB) $(MS_FILE); fi
 	$(MS_TEX) $(MS_TEXFLAGS) $(MS_FILE).tex
@@ -49,7 +49,7 @@ manuscript:
 # Build presentation PDF (beamer slides)
 # Process: LaTeX → (Bibliography if configured) → LaTeX → LaTeX
 # Three LaTeX passes ensure navigation and cross-references are resolved
-presentation:
+lncl:
 	$(PR_TEX) $(PR_TEXFLAGS) $(PR_FILE).tex
 	@if [ -n "$(PR_BIB)" ]; then $(PR_BIB) $(PR_FILE).aux; fi
 	$(PR_TEX) $(PR_TEXFLAGS) $(PR_FILE).tex

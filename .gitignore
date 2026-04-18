@@ -33,6 +33,8 @@
 *.toc
 *.vrb
 *.xdv
+*.xmp*
+
 
 # Latexmk and related caches
 *.latexmk
