@@ -1,0 +1,44 @@
+*.DS_Store
+
+# LaTeX temporary/build files
+*.aux
+*.acn
+*.acr
+*.alg
+*.bbl
+*.bcf
+*.blg
+*.brf
+*.dvi
+*.fdb_latexmk
+*.fls
+*.glg
+*.glo
+*.gls
+*.hd
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
+*.log
+*.lot
+*.lpr
+*.nav
+*.out
+*.pdfsync
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*.xdv
+
+# Latexmk and related caches
+*.latexmk
+_minted-*
+
+# Temporary/editor artifacts
+*.swp
+*.swo
+*~
