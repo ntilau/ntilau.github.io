@@ -47,7 +47,8 @@ _minted-*
 
 # deditcated coverletter files
 *.tex
-!lncl.tex
-!lncv.tex
+!cl.tex
+!cv.tex
+!my.tex
 *.pdf
-!lncv.pdf
+!cv.pdf

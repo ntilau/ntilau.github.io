@@ -1,27 +1,23 @@
-# ============================================================================
-# Build configuration for Master's thesis manuscript and defense presentation
-# ============================================================================
-
-# --- Manuscript Build Configuration ---
-# MS_TEX: LaTeX engine (default: pdflatex)
-# MS_TEXFLAGS: Flags passed to pdflatex
+# --- CV Build Configuration ---
+# CV_TEX: LaTeX engine (default: pdflatex)
+# CV_TEXFLAGS: Flags passed to pdflatex
 #   -interaction=nonstopmode: non-interactive mode (skip prompts)
 #   -file-line-error: show errors in file:line format
-# MS_BIB: Bibliography processor (optional, empty by default)
-# MS_FILE: Main LaTeX source file (default: thesis)
+# CV_BIB: Bibliography processor (optional, empty by default)
+# CV_FILE: Main LaTeX source file (default: cv)
 CV_TEX      = pdflatex
 CV_TEXFLAGS ?= -interaction=nonstopmode -file-line-error
 CV_BIB      ?= biber
 CV_FILE     ?= cv
 
-# --- Presentation Build Configuration ---
-# PR_TEX: LaTeX engine (default: pdflatex, beamer-compatible)
-# PR_TEXFLAGS: Flags passed to pdflatex
+# --- Cover Letter Build Configuration ---
+# CL_TEX: LaTeX engine (default: pdflatex, beamer-compatible)
+# CL_TEXFLAGS: Flags passed to pdflatex
 #   -shell-escape: allow shell commands (required for some beamer features)
 #   -interaction=nonstopmode: non-interactive mode
 #   -file-line-error: show errors in file:line format
-# PR_BIB: Bibliography processor (optional, empty by default)
-# PR_FILE: Main LaTeX source file (default: defense)
+# CL_BIB: Bibliography processor (optional, empty by default)
+# CL_FILE: Main LaTeX source file (default: cl)
 CL_TEX      = pdflatex
 CL_TEXFLAGS ?= -shell-escape -interaction=nonstopmode -file-line-error
 CL_BIB      ?=
@@ -32,12 +28,12 @@ CL_FILE     ?= cl
 CLEAN_EXTS = *.aux *.bcf *.blg *.bbl *.brf *.fdb_latexmk *.fls *.lof *.log *.lot *.lpr *.nav *.out *.run.xml *.snm *.toc *.vrb *.synctex.gz *.xmp*
 
 .SUFFIXES: .aux .pdf .tex
-.PHONY: all manuscript presentation clean distclean help
+.PHONY: all manuscript presentation setup clean distclean help
 
-# Build both manuscript and presentation
+# Build both CV and cover letter/slides
 all: cv cl
 
-# Build manuscript PDF
+# Build CV PDF
 # Process: LaTeX → (Bibliography if configured) → LaTeX → LaTeX
 # Three LaTeX passes ensure cross-references and citations are resolved
 cv:
@@ -46,14 +42,21 @@ cv:
 	$(CV_TEX) $(CV_TEXFLAGS) $(CV_FILE).tex
 	$(CV_TEX) $(CV_TEXFLAGS) $(CV_FILE).tex
 
-# Build presentation PDF (beamer slides)
+# Build cover letter / slides PDF
 # Process: LaTeX → (Bibliography if configured) → LaTeX → LaTeX
 # Three LaTeX passes ensure navigation and cross-references are resolved
 cl:
 	$(CL_TEX) $(CL_TEXFLAGS) $(CL_FILE).tex
-	# @if [ -n "$(CL_BIB)" ]; then $(CL_BIB) $(CL_FILE).aux; fi
+	# @if [ -n "$(CL_BIB)" ]; then $(CL_BIB) $(CL_FILE); fi
 	# $(CL_TEX) $(CL_TEXFLAGS) $(CL_FILE).tex
 	# $(CL_TEX) $(CL_TEXFLAGS) $(CL_FILE).tex
+
+# Optional aliases for compatibility
+manuscript: cv
+presentation: cl
+
+setup:
+	./setup
 
 # Remove temporary LaTeX files (keep PDFs)
 clean:
@@ -68,21 +71,22 @@ help:
 	@echo "========== LaTeX Build System =========="
 	@echo ""
 	@echo "TARGETS:"
-	@echo "  make / make all      - Build BOTH manuscript and presentation"
-	@echo "  make manuscript      - Build ONLY manuscript/$(MS_FILE).pdf"
-	@echo "  make presentation    - Build ONLY presentation/$(PR_FILE).pdf"
+	@echo "  make / make all      - Build BOTH cv.pdf and cl.pdf"
+	@echo "  make cv              - Build ONLY cv.pdf"
+	@echo "  make cl              - Build ONLY cl.pdf"
+	@echo "  make setup           - Install dependencies using ./setup"
 	@echo "  make clean           - Remove temporary LaTeX files (keeps PDFs)"
 	@echo "  make distclean       - Remove temporary files AND PDFs"
 	@echo "  make help            - Show this help message"
 	@echo ""
 	@echo "CONFIGURABLE VARIABLES (override via: make VAR=value):"
-	@echo "  Manuscript:"
+	@echo "  CV Document:"
 	@echo "    CV_FILE=$(CV_FILE)          - Main source file (no .tex extension)"
 	@echo "    CV_TEX=$(CV_TEX)            - LaTeX engine"
 	@echo "    CV_TEXFLAGS                - Compiler flags"
 	@echo "    CV_BIB=$(CV_BIB)            - Bibliography processor (biber, bibtex, or empty)"
 	@echo ""
-	@echo "  Presentation:"
+	@echo "  Cover Letter / Slides:"
 	@echo "    CL_FILE=$(CL_FILE)          - Main source file (no .tex extension)"
 	@echo "    CL_TEX=$(CL_TEX)            - LaTeX engine"
 	@echo "    CL_TEXFLAGS                - Compiler flags"
@@ -90,7 +94,8 @@ help:
 	@echo ""
 	@echo "EXAMPLES:"
 	@echo "  make                             # Build both documents"
-	@echo "  make manuscript                  # Build thesis only"
+	@echo "  make cv                          # Build CV only"
+	@echo "  make cl                          # Build cover letter / slides only"
+	@echo "  make setup                       # Install dependencies from setup script"
 	@echo "  make clean                       # Clean all temporary files"
-	@echo "  make MS_BIB=biber manuscript     # Build with biber bibliography"
 	@echo "  make help                        # Show this help message"
