@@ -47,9 +47,6 @@ cv:
 # Three LaTeX passes ensure navigation and cross-references are resolved
 cl:
 	$(CL_TEX) $(CL_TEXFLAGS) $(CL_FILE).tex
-	# @if [ -n "$(CL_BIB)" ]; then $(CL_BIB) $(CL_FILE); fi
-	# $(CL_TEX) $(CL_TEXFLAGS) $(CL_FILE).tex
-	# $(CL_TEX) $(CL_TEXFLAGS) $(CL_FILE).tex
 
 # Optional aliases for compatibility
 manuscript: cv
