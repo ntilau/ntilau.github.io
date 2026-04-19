@@ -14,7 +14,7 @@
 %% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
 % \documentclass[10pt,a4paper,normalphoto]{altacv}
 
-\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv} %ragged2e
+\documentclass[11pt,a4paper,ragged2e,withhyper]{altacv} %ragged2e
 \input{ln}
 
 %% Use (and optionally edit if necessary) this .tex if you
@@ -52,8 +52,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-
-
 \makecvheader
 
 \cvsection{Cover Letter} 
@@ -64,21 +62,7 @@ Dear Hiring Manager,
 
 \bigskip
 
-
-
-\medskip
- 
-
-
-\medskip
-
-
-
-\medskip
-
-
-\medskip
-
+\IfFileExists{cl.tex}{\input{cl}}{Create a cl.tex file to include your cover letter here.}
 
 \bigskip
 
@@ -86,6 +70,6 @@ Sincerely,
 
 \medskip
 
-Laurent 
+Laurent Ntibarikure
 
 \end{document}

@@ -44,3 +44,7 @@ _minted-*
 *.swp
 *.swo
 *~
+
+# deditcated coverletter files
+cl.tex
+lncv.pdf
