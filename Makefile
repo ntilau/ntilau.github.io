@@ -9,10 +9,10 @@
 #   -file-line-error: show errors in file:line format
 # MS_BIB: Bibliography processor (optional, empty by default)
 # MS_FILE: Main LaTeX source file (default: thesis)
-MS_TEX      = pdflatex
-MS_TEXFLAGS ?= -interaction=nonstopmode -file-line-error
-MS_BIB      ?= biber
-MS_FILE     ?= lncv
+CV_TEX      = pdflatex
+CV_TEXFLAGS ?= -interaction=nonstopmode -file-line-error
+CV_BIB      ?= biber
+CV_FILE     ?= lncv
 
 # --- Presentation Build Configuration ---
 # PR_TEX: LaTeX engine (default: pdflatex, beamer-compatible)
@@ -22,10 +22,10 @@ MS_FILE     ?= lncv
 #   -file-line-error: show errors in file:line format
 # PR_BIB: Bibliography processor (optional, empty by default)
 # PR_FILE: Main LaTeX source file (default: defense)
-PR_TEX      = pdflatex
-PR_TEXFLAGS ?= -shell-escape -interaction=nonstopmode -file-line-error
-PR_BIB      ?=
-PR_FILE     ?= lncl
+CL_TEX      = pdflatex
+CL_TEXFLAGS ?= -shell-escape -interaction=nonstopmode -file-line-error
+CL_BIB      ?=
+CL_FILE     ?= lncl
 
 # LaTeX auxiliary files to remove during clean
 # Includes: cross-references, bibliography, font database, logs, etc.
@@ -41,19 +41,19 @@ all: cv cl
 # Process: LaTeX → (Bibliography if configured) → LaTeX → LaTeX
 # Three LaTeX passes ensure cross-references and citations are resolved
 cv:
-	$(MS_TEX) $(MS_TEXFLAGS) $(MS_FILE).tex
-	@if [ -n "$(MS_BIB)" ]; then $(MS_BIB) $(MS_FILE); fi
-	$(MS_TEX) $(MS_TEXFLAGS) $(MS_FILE).tex
-	$(MS_TEX) $(MS_TEXFLAGS) $(MS_FILE).tex
+	$(CV_TEX) $(CV_TEXFLAGS) $(CV_FILE).tex
+	@if [ -n "$(CV_BIB)" ]; then $(CV_BIB) $(CV_FILE); fi
+	$(CV_TEX) $(CV_TEXFLAGS) $(CV_FILE).tex
+	$(CV_TEX) $(CV_TEXFLAGS) $(CV_FILE).tex
 
 # Build presentation PDF (beamer slides)
 # Process: LaTeX → (Bibliography if configured) → LaTeX → LaTeX
 # Three LaTeX passes ensure navigation and cross-references are resolved
 cl:
-	$(PR_TEX) $(PR_TEXFLAGS) $(PR_FILE).tex
-	@if [ -n "$(PR_BIB)" ]; then $(PR_BIB) $(PR_FILE).aux; fi
-	$(PR_TEX) $(PR_TEXFLAGS) $(PR_FILE).tex
-	$(PR_TEX) $(PR_TEXFLAGS) $(PR_FILE).tex
+	$(CL_TEX) $(CL_TEXFLAGS) $(CL_FILE).tex
+	# @if [ -n "$(CL_BIB)" ]; then $(CL_BIB) $(CL_FILE).aux; fi
+	# $(CL_TEX) $(CL_TEXFLAGS) $(CL_FILE).tex
+	# $(CL_TEX) $(CL_TEXFLAGS) $(CL_FILE).tex
 
 # Remove temporary LaTeX files (keep PDFs)
 clean:
@@ -61,7 +61,7 @@ clean:
 
 # Remove temporary files AND generated PDFs
 distclean: clean
-	rm -f $(MS_FILE).pdf $(PR_FILE).pdf
+	rm -f $(CV_FILE).pdf $(CL_FILE).pdf
 
 # Display help message with available targets and variables
 help:
@@ -77,16 +77,16 @@ help:
 	@echo ""
 	@echo "CONFIGURABLE VARIABLES (override via: make VAR=value):"
 	@echo "  Manuscript:"
-	@echo "    MS_FILE=$(MS_FILE)          - Main source file (no .tex extension)"
-	@echo "    MS_TEX=$(MS_TEX)            - LaTeX engine"
-	@echo "    MS_TEXFLAGS                - Compiler flags"
-	@echo "    MS_BIB=$(MS_BIB)            - Bibliography processor (biber, bibtex, or empty)"
+	@echo "    CV_FILE=$(CV_FILE)          - Main source file (no .tex extension)"
+	@echo "    CV_TEX=$(CV_TEX)            - LaTeX engine"
+	@echo "    CV_TEXFLAGS                - Compiler flags"
+	@echo "    CV_BIB=$(CV_BIB)            - Bibliography processor (biber, bibtex, or empty)"
 	@echo ""
 	@echo "  Presentation:"
-	@echo "    PR_FILE=$(PR_FILE)          - Main source file (no .tex extension)"
-	@echo "    PR_TEX=$(PR_TEX)            - LaTeX engine"
-	@echo "    PR_TEXFLAGS                - Compiler flags"
-	@echo "    PR_BIB=$(PR_BIB)            - Bibliography processor (biber, bibtex, or empty)"
+	@echo "    CL_FILE=$(CL_FILE)          - Main source file (no .tex extension)"
+	@echo "    CL_TEX=$(CL_TEX)            - LaTeX engine"
+	@echo "    CL_TEXFLAGS                - Compiler flags"
+	@echo "    CL_BIB=$(CL_BIB)            - Bibliography processor (biber, bibtex, or empty)"
 	@echo ""
 	@echo "EXAMPLES:"
 	@echo "  make                             # Build both documents"

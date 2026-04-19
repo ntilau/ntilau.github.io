@@ -75,4 +75,5 @@ main() {
 
 main "$@"
 
-touch cl.tex
+if [ -f app.tex ]; then touch app.tex; done
+
