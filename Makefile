@@ -12,7 +12,7 @@
 CV_TEX      = pdflatex
 CV_TEXFLAGS ?= -interaction=nonstopmode -file-line-error
 CV_BIB      ?= biber
-CV_FILE     ?= lncv
+CV_FILE     ?= cv
 
 # --- Presentation Build Configuration ---
 # PR_TEX: LaTeX engine (default: pdflatex, beamer-compatible)
@@ -25,7 +25,7 @@ CV_FILE     ?= lncv
 CL_TEX      = pdflatex
 CL_TEXFLAGS ?= -shell-escape -interaction=nonstopmode -file-line-error
 CL_BIB      ?=
-CL_FILE     ?= lncl
+CL_FILE     ?= cl
 
 # LaTeX auxiliary files to remove during clean
 # Includes: cross-references, bibliography, font database, logs, etc.
