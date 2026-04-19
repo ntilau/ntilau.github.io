@@ -6,7 +6,7 @@ This repository contains LaTeX source files for a personal curriculum vitae webs
 
 - **`cv.tex`** - Main CV/resume source file
 - **`cl.tex`** - Cover letter / slides source file
-- **`app.tex`** - Optional document source
+- **`app.tex`** - Optional application document source
 - **`altacv.cls`** - Custom LaTeX class for CV formatting
 - **`my.bib`** - Bibliography file
 - **`Makefile`** - Build configuration for LaTeX compilation
