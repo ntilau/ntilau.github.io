@@ -1,0 +1,46 @@
+%%%%%%%%%%%%%%%%%
+% This is an sample CV template created using altacv.cls
+% (v1.7.2, 28 August 2024) written by LianTze Lim (liantze@gmail.com). Compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[11pt,a4paper,ragged2e,withhyper]{altacv} %ragged2e
+\input{my}
+
+\begin{document}
+
+\makecvheader
+
+\cvsection{Cover Letter} 
+
+\bigskip
+
+Dear Hiring Manager,
+
+\bigskip
+
+\IfFileExists{app.tex}{\input{app}}{
+\begin{quotation}
+  Please create an \texttt{app.tex} file containing your personalized application letter. This file will be included automatically when compiling \texttt{cl.tex}.
+\end{quotation}
+}
+
+\bigskip
+
+Sincerely,
+
+\medskip
+
+Laurent Ntibarikure
+
+\end{document}

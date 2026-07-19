@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="github.svg">
+<title>La7 720p</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #000; }
+video { width: 100%; height: 100%; object-fit: contain; display: block; }
+#osd {
+  position: fixed; top: 0; left: 0; right: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,.85) 0%, rgba(0,0,0,.4) 70%, transparent 100%);
+  color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 1.5rem 1.5rem 2.5rem; font-size: 1.4rem; font-weight: 600;
+  pointer-events: none; opacity: 0; transition: opacity .15s;
+  display: flex; align-items: center; gap: .75rem;
+}
+#osd.show { opacity: 1; }
+#osd .num { color: #e50914; font-size: 1rem; opacity: .7; }
+</style>
+</head>
+<body>
+<video id="v" autoplay playsinline></video>
+<div id="osd"><span id="ch-name"></span><span class="num" id="ch-idx"></span></div>
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script>
+const channels = [
+	{name:"France 24",url:"https://live.france24.com/hls/live/2037179/F24_FR_HI_HLS/master_5000.m3u8"},
+	{name:"Arte",url:"https://artesimulcast.akamaized.net/hls/live/2031003/artelive_fr/index.m3u8"},
+	{name:"TV5Monde Info",url:"https://ott.tv5monde.com/Content/HLS/Live/channel(info)/variant.m3u8"},
+	{name:"BFM TV",url:"https://ncdn-live-bfm.pfd.sfr.net/shls/LIVE$BFM_TV/index.m3u8?end=END&start=LIVE"},
+	{name:"Euronews FR",url:"https://2f6c5bf4.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmxheHhUVi1ldV9FdXJvbmV3c0ZyYW5jYWlzX0hMUw/playlist.m3u8"},
+	{name:"Euronews IT",url:"https://cdn-euronews.akamaized.net/live/eds/euronews-it/25085/euronews-it.m3u8"},
+	{name:"Franceinfo",url:"https://viamotionhsi.netplus.ch/live/eds/franceinfo/browser-HLS8/franceinfo.m3u8"},
+	{name:"LCP",url:"https://viamotionhsi.netplus.ch/live/eds/lcp/browser-HLS8/lcp.m3u8"},
+	{name:"L'Équipe",url:"https://dshn8inoshngm.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-gac2i63dmu8b7/LEquipe_FR.m3u8"},
+	{name:"La7",url:"https://d1chghleocc9sm.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-evfku205gqrtf/Live.m3u8"},
+	{name:"Nove",url:"https://d31mw7o1gs0dap.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-y5pbi2sq9r609/NOVE_IT.m3u8"},
+	{name:"TV 2000",url:"https://hls-live-tv2000.akamaized.net/hls/live/2028510/tv2000/master.m3u8"},
+	{name:"Real Time",url:"https://d3562mgijzx0zq.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-kizqtzpvvl3i8/Realtime_IT.m3u8"},
+	{name:"DMAX",url:"https://d2j2nqgg7bzth.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-02k1gv1j0ufwn/DMAX_IT.m3u8"},
+	{name:"Giallo",url:"https://d9fqo6nfqlv2h.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-ulukbrgm1n3yb/Giallo_IT.m3u8"},
+	{name:"Discovery Channel",url:"https://d24aqelmrau4kx.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-l1oas691aj7p2/WBTV_IT.m3u8"},
+	{name:"RTL-TVI",url:"https://tvi-live-hls.akamaized.net/hls/live/2038650/TVI-Live-HLS/master.m3u8"},
+	{name:"La Une",url:"https://c9851ec-rbm-hilv-fsly.cdn.redbee.live/L22/6d35e26e/1bffdaaf.isml/.m3u8"},
+	{name:"BX1",url:"https://59959724487e3.streamlock.net/stream/live/playlist.m3u8"},
+	{name:"ATV",url:"https://live.zendzend.com/mpegts/29375_107244/media_mpegts_0.m3u8"},
+	{name:"MaTele",url:"https://live.matele.be/hls/live.m3u8"},
+	{name:"Notele",url:"https://streaming01.divercom.be/notele_live/direct.stream/playlist.m3u8"},
+	{name:"TV Lux",url:"https://tvlocales-live.freecaster.com/tvlux/95d2f632-0780-4ac1-9895-9e50212dd3b6/95d2f632-0780-4ac1-9895-9e50212dd3b6.isml/master.m3u8"},
+	{name:"TVcom",url:"https://tvlocales-live.freecaster.com/tvcom/95d2f656-ba85-4e13-affc-f1936be1a86d/95d2f656-ba85-4e13-affc-f1936be1a86d.isml/master.m3u8"},
+	{name:"Vedia",url:"https://tvlocales-live.freecaster.com/vedia/95d2f480-b0b0-4027-9f4a-057183312305/95d2f480-b0b0-4027-9f4a-057183312305.isml/master.m3u8"},
+	{name:"TeleMB",url:"https://tvlocales-live.freecaster.com/telemb/95d2f6ca-817a-48c0-aba5-6323a621c2d6/95d2f6ca-817a-48c0-aba5-6323a621c2d6.isml/master.m3u8"},
+	{name:"Qu4tre",url:"https://tvlocales-live.freecaster.com/rtc/95d2f6ec-22f7-4027-b23d-d5372116b2ad/95d2f6ec-22f7-4027-b23d-d5372116b2ad.isml/master.m3u8"},
+	{name:"Bel RTL",url:"https://bel-live-hls.akamaized.net/hls/live/2038650/BEL-Live-HLS/master.m3u8"},
+	{name:"Radio Contact TV",url:"https://contact-live-hls.akamaized.net/hls/live/2038650/CONTACT-Live-HLS/master.m3u8"},
+	{name:"Trends Z",url:"https://d1hz1p2gea2zy4.cloudfront.net/live/rmgtv/RMG-TRENDSZFR-LIVE/index.m3u8"},
+	{name:"Cusano News 7",url:"https://router.xdevel.com/video1s975363-1596/stream/playlist.m3u8"},
+	{name:"LaC News 24",url:"https://f5842579ff984c1c98d63b8d789673eb.msvdn.net/live/S27391994/HVvPMzy/playlist.m3u8"},
+	{name:"Video Mediterraneo",url:"https://bfbe5f347ac4424faf719dda285bc39e.msvdn.net/live/S54897858/4gWO7tTzpK3N/playlist.m3u8"},
+	{name:"Alma TV",url:"https://streaming.softwarecreation.it/AlmaTv/AlmaTv/playlist.m3u8"},
+	{name:"BBC Top Gear Italy",url:"https://amg00793-amg00793c43-rakuten-it-5537.playouts.now.amagi.tv/playlist1080P.m3u8"},
+	{name:"BOM Channel",url:"https://5f22d76e220e1.streamlock.net/canale6/canale6/playlist.m3u8"},
+	{name:"Cusano Italia Tv",url:"https://router.xdevel.com/video0s975363-69/stream/playlist.m3u8"},
+	{name:"Food Network",url:"https://dk3okdd5036kz.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-o4pw0nc02sthz/Foodnetwork_IT.m3u8"},
+	{name:"GO-TV Channel",url:"https://6zklxkbbdw9b-hls-live.mariatvcdn.it/msmotor/2f759512164fc6fe4acbed6a5648993a.sdp/playlist.m3u8"},
+	{name:"Gold Tv",url:"https://streaming.softwarecreation.it/GoldTv/GoldTv/playlist.m3u8"},
+	{name:"Hell's Kitchen Italy",url:"https://amg00654-itv-amg00654c20-rakuten-it-3615.playouts.now.amagi.tv/1080p-cc/index.m3u8"},
+	{name:"HGTV – Home & Garden Tv",url:"https://d1tidto9vz737l.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-joaw4f4kh2en1/HGTV_IT.m3u8"},
+	{name:"Motor Trend",url:"https://d205m6k582pec4.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-asg5puyzdtnqu/Motortrend_IT.m3u8"},
+	{name:"Sophia Tv",url:"https://bild-und-ton.stream/sophiatv-it/smil:sophia-tv-it.smil/playlist.m3u8"},
+	{name:"Travel TV",url:"https://streaming.softwarecreation.it/GoldTvSat/GoldTvSat/playlist.m3u8"},
+	{name:"ACI Sport TV",url:"https://webstream.multistream.it/memfs/e2cb3629-c1a2-495b-b43a-9eb386f04ed8_output_0.m3u8"},
+	{name:"FIFA+",url:"https://5d95f7d7.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWl0X0ZJRkFQbHVzSXRhbGlhbl9ITFM/playlist.m3u8"},
+	{name:"Rete 8 Sport",url:"https://64b16f23efbee.streamlock.net/rete8sport/rete8sport/playlist.m3u8"},
+	{name:"Sportitalia Solocalcio",url:"https://origin-001.streamup.eu/sportitalia/sisolocalcio_abr/playlist.m3u8"},
+	{name:"SuperTennis",url:"https://live-embed.supertennix.hiway.media/restreamer/supertennix_client/gpu-a-c0-16/restreamer/outgest/aa3673f1-e178-44a9-a947-ef41db73211a/manifest.m3u8"},
+	{name:"BeJoy.Kids",url:"https://64b16f23efbee.streamlock.net/bejoy/bejoy/playlist.m3u8"},
+	{name:"Frisbee",url:"https://d6m7lubks416z.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-zmbstsedxme9s/Frisbee_IT.m3u8"},
+	{name:"Iunior Tv",url:"https://5f22d76e220e1.streamlock.net/iuniortv/iuniortv/playlist.m3u8"},
+	{name:"K2",url:"https://d1pmpe0hs35ka5.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-39hsskpppgf72/K2_IT.m3u8"},
+	{name:"Super!",url:"https://495c5a85d9074f29acffeaea9e0215eb.msvdn.net/super/super_main/super_main_hbbtv/playlist.m3u8"},
+	{name:"QVC",url:"https://qrg.akamaized.net/hls/live/2017383/lsqvc1it/master.m3u8"},
+	{name:"Deejay TV",url:"https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S85984808/sMO0tz9Sr2Rk/playlist.m3u8"},
+	{name:"Giornale Radio Tv",url:"https://5f204aff97bee.streamlock.net/GR_tv/livestream/playlist.m3u8"},
+	{name:"R101 TV",url:"https://live02-seg.msr.cdn.mediaset.net/live/ch-er/er-clr.isml/index.m3u8"},
+	{name:"Radio 105 TV",url:"https://live02-seg.msr.cdn.mediaset.net/live/ch-ec/ec-clr.isml/index.m3u8"},
+	{name:"Radio 51 Tv",url:"https://59d7d6f47d7fc.streamlock.net/canale51/canale51/chunklist_w1193883900.m3u8"},
+	{name:"Radio Birikina Tv",url:"https://tvd-bk.fluid.stream/RadioBirikinaTV/livestream/chunklist_w84398277.m3u8"},
+	{name:"Radio Bruno Tv",url:"https://router.xdevel.com/video0s975758-473/stream/playlist.m3u8"},
+	{name:"Radio Capital TV",url:"https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S35394734/Z6U2wGoDYANk/playlist.m3u8"},
+	{name:"Radio Ibiza",url:"https://str48.fluid.stream/RadioIbizaTV/livestream/playlist.m3u8"},
+	{name:"Radio Immagine Tv",url:"https://media.velcom.it:8081/RadioImmagineTV/index.fmp4.m3u8"},
+	{name:"Radio Italia Cina Tv",url:"https://585b674743bbb.streamlock.net/9054/9054/playlist.m3u8"},
+	{name:"Radio KISS KISS TV",url:"https://kk.fluid.stream/KKMulti/smil:KissKissTV.smil/playlist.m3u8"},
+	{name:"Radio Liberta",url:"https://router.xdevel.com/video0s975360-67/stream/playlist_dvr.m3u8"},
+	{name:"Radio m2o Tv",url:"https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S62628868/uhdWBlkC1AoO/playlist.m3u8"},
+	{name:"Radio Monte Kronio Tv (R.M.K.)",url:"https://648026e87a75e.streamlock.net/rmktv/rmktv/playlist.m3u8"},
+	{name:"Radio Montecarlo TV",url:"https://live02-seg.msr.cdn.mediaset.net/live/ch-bb/bb-clr.isml/index.m3u8"},
+	{name:"Radio Norba Tv",url:"https://router.xdevel.com/video0s975885-462/stream/playlist_dvr.m3u8"},
+	{name:"Radio Piter Pan Tv",url:"https://tvd-piter.fluid.stream/RadioPiterpanTV/livestream/chunklist_w1866496033.m3u8"},
+	{name:"Radio Radio Tv",url:"https://200912.global.ssl.fastly.net/646b335e2291a2022444bb7c/live_22f84390fe1411ed919df3da85a483cc/rewind-14400.m3u8"},
+	{name:"Radio Radiosa Tv",url:"https://stream7.zivoli.it/radiosatv/radiosatv/playlist.m3u8"},
+	{name:"Radio ZETA",url:"https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S9346184/XEx1LqlYbNic/playlist.m3u8"},
+	{name:"Radio24-IlSole24OreTV",url:"https://ilsole24ore-radiovisual.akamaized.net/hls/live/2035302/persidera/master.m3u8"},
+	{name:"RadioFreccia",url:"https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S3160845/0tuSetc8UFkF/playlist.m3u8"},
+	{name:"RadioItaliaTV",url:"https://radioitaliatv.akamaized.net/hls/live/2093117/RadioitaliaTV/master.m3u8"},
+	{name:"RDS Social TV",url:"https://stream.rdstv.radio/index.m3u8"},
+	{name:"RTL 102.5",url:"https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S97044836/tbbP8T1ZRPBL/playlist.m3u8"},
+	{name:"RTL 102.5 + Plus",url:"https://streamcdng14-dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S82929343/cAcsSu4Wecc5/chunklist_b5256000.m3u8"},
+	{name:"RTL 102.5 Traffic",url:"https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S38122967/2lyQRIAAGgRR/playlist.m3u8"},
+	{name:"Camera dei Deputati",url:"https://video-ar.radioradicale.it/diretta/camera2/playlist.m3u8"},
+	{name:"Maria Vision",url:"https://1601580044.rsc.cdn77.org/live/_jcn_/amls:CHANNEL_2/playlist.m3u8"},
+	{name:"Padre Pio Tv",url:"https://600f07e114306.streamlock.net/PadrePioTV/livestream/playlist.m3u8"},
+	{name:"Parole di Vita",url:"https://64b16f23efbee.streamlock.net/paroledivita/paroledivita/playlist.m3u8"},
+	{name:"Senato TV",url:"https://senato-live.morescreens.com/SENATO_1_001/playlist.m3u8"},
+	{name:"Tele Radio Pace 1",url:"https://jk3lz2bwlw79-hls-live.mariatvcdn.it/teleradiopace1/efcc8fc46cab26315ce3f5845d76008f.sdp/playlist.m3u8"},
+	{name:"Tele Radio Pace 2",url:"https://zkpywrbgdbeg-hls-live.mariatvcdn.it/teleradiopace2/254c9b5c52a73a94ef0f6169cbd05dc2.sdp/playlist.m3u8"},
+	{name:"Tele Radio Pace 3",url:"https://932y4273djv8-hls-live.mariatvcdn.it/teleradiopace3/d2274c22e9ee09eb2eda01ed0496f8f5.sdp/playlist.m3u8"},
+	{name:"Tele Radio Pace 4",url:"https://j78dpr7nyq5r-hls-live.mariatvcdn.it/teleradiopace4/13d74f2cfe921bfbc262697203d47d8f.sdp/playlist.m3u8"},
+	{name:"UniNettuno University TV",url:"https://stream6-rai-it.akamaized.net/live/uninettuno/playlist.m3u8"},
+	{name:"111 Tv",url:"https://5db313b643fd8.streamlock.net/111/111/playlist.m3u8"},
+	{name:"12 Tv Parma",url:"https://5929b138b139d.streamlock.net/12TVParma/livestream/playlist.m3u8"},
+	{name:"4 You Tv",url:"https://streamsrv2.nets-sr.com:19360/4youtv/4youtv.m3u8"},
+	{name:"Alpauno",url:"https://5f22d76e220e1.streamlock.net/alpaunotv/alpaunotv/playlist.m3u8"},
+	{name:"Alto Adige Tv",url:"https://5f204aff97bee.streamlock.net/AltoAdigeTV/livestream/playlist.m3u8"},
+	{name:"Antenna 2 Bergamo",url:"https://58f12ffd2447a.streamlock.net/Antenna2/livestream/playlist.m3u8"},
+	{name:"Antenna 3 Massa",url:"https://media2021.rtvweb.com/antenna3massa/a3/playlist.m3u8"},
+	{name:"Antenna 3 Veneto Nord Est",url:"https://59d7d6f47d7fc.streamlock.net/antennatreveneto/antennatreveneto.stream/playlist.m3u8"},
+	{name:"Aristanis SuperTv",url:"https://video2.azotosolutions.com:1936/supertvoristano/supertvoristano/playlist.m3u8"},
+	{name:"Arte Network Orler",url:"https://tsw.streamingwebtv24.it:1936/artenetwork/artenetwork/playlist.m3u8"},
+	{name:"Aurora Arte",url:"https://59d7d6f47d7fc.streamlock.net/auroraarte/auroraarte/playlist.m3u8"},
+	{name:"Azzurra Tv Vco",url:"https://59d7d6f47d7fc.streamlock.net/azzurratv/azzurratv/playlist.m3u8"},
+	{name:"Bergamo Tv",url:"https://db142859fd5541b09de25d6507f1f2d3.msvdn.net/live/S17501676/oIxAsgEEA46M/playlist.m3u8?DVR"},
+	{name:"Cafe Tv 24",url:"https://srvx1.selftv.video/cafe/live/playlist.m3u8"},
+	{name:"Canale 10",url:"https://nrvideo1.newradio.it:1936/desxcerbht/desxcerbht/playlist.m3u8"},
+	{name:"Canale 2",url:"https://59d7d6f47d7fc.streamlock.net/canale2/canale2/playlist.m3u8"},
+	{name:"Canale 21",url:"https://0ff9dd7fe9b64bc08a5fc4ed525454c3.msvdn.net/live/S38994111/B7j0ql4XaZtE/playlist.m3u8"},
+	{name:"Canale 21 Extra",url:"https://0ff9dd7fe9b64bc08a5fc4ed525454c3.msvdn.net/live/S42170132/sT6C3LFaD1iA/playlist.m3u8"},
+	{name:"Canale 7",url:"http://wms.shared.streamshow.it:80/canale7/canale7/playlist.m3u8"},
+	{name:"Canale 8 Campania",url:"https://59d7d6f47d7fc.streamlock.net/canale8/canale8/playlist.m3u8"},
+	{name:"Canale Italia",url:"https://ovp-live.akamaized.net/ac115_live/canale1.smil/playlist.m3u8"},
+	{name:"Carina Tv",url:"https://samson.streamerr.co:8081/carinatv/index.m3u8"},
+	{name:"Casa Italia 53",url:"https://ovp-live.akamaized.net/ac115_live/canale3.smil/playlist.m3u8"},
+	{name:"Casa Sanremo Tv",url:"https://router.xdevel.com/video0s975911-633/stream/playlist_dvr.m3u8"},
+	{name:"Castrovillari Tv",url:"http://msh0062.stream.seeweb.it/live/flv:stream00.sdp/playlist.m3u8"},
+	{name:"Cittaceleste Tv",url:"https://sportitaliaamd.akamaized.net/live/Cittaceleste/hls/A990687F506536598442FC5CD12C97CB78873FBA/index.m3u8"},
+	{name:"Company Tv",url:"https://company.fluid.stream/CompanyTV/smil:Company_ALL.smil/playlist.m3u8"},
+	{name:"Cremona 1",url:"https://cdn2.streamshow.it/cloud-cremona1/cremona1/playlist.m3u8"},
+	{name:"Delta Tv",url:"http://hbbtv-server.zivoli.it:8080/hls/deltatv/deltatv/index.m3u8"},
+	{name:"Deluxe 139",url:"https://59d7d6f47d7fc.streamlock.net/pierstyle/pierstyle/playlist.m3u8"},
+	{name:"Di.Tv 80",url:"https://5f22d76e220e1.streamlock.net/ditv80/ditv80/playlist.m3u8"},
+	{name:"Di.Tv 92",url:"https://media2021.rtvweb.com/di_tv_92/live/playlist.m3u8"},
+	{name:"Digital Tv7 Benevento",url:"http://streaming.senecadot.com/live/flv:tv7.sdp/playlist.m3u8"},
+	{name:"è Tv Marche",url:"https://live.ipstream.it/etvmarche/etvmarche.stream/playlist.m3u8"},
+	{name:"è Tv Rete7",url:"https://live.ipstream.it/etv/etv.stream/playlist.m3u8"},
+	{name:"è Tv Umbria",url:"https://live.ipstream.it/etvumbria/etvumbria.stream/playlist.m3u8"},
+	{name:"E'live Brescia Tv",url:"https://59d7d6f47d7fc.streamlock.net/elivebresciatv/elivebresciatv/playlist.m3u8"},
+	{name:"Easy Tv Canale 190",url:"https://diretta.arcapuglia.it:8080/live/easytv/index.m3u8"},
+	{name:"Entella Tv",url:"https://5f22d76e220e1.streamlock.net:443/EntellaTV/EntellaTV/playlist.m3u8"},
+	{name:"Esperia Tv",url:"https://59d7d6f47d7fc.streamlock.net/esperiatv/esperiatv/playlist.m3u8"},
+	{name:"Etna Espresso Channel",url:"https://5db313b643fd8.streamlock.net/Etnachannelponte/Etnachannelponte/playlist.m3u8"},
+	{name:"Euro Tv",url:"https://5f22d76e220e1.streamlock.net/eurotv/eurotv/playlist.m3u8"},
+	{name:"Extra Tv",url:"https://rst2.saiuzwebnetwork.it:8081/extratvlive/index.m3u8"},
+	{name:"Fano Tv",url:"https://diretta.arcapuglia.it:8080/live/fanotv/index.m3u8"},
+	{name:"Giovanni Paolo Tv",url:"https://media2021.rtvweb.com/giovannipaolotv/web/chunklist_w663456797.m3u8"},
+	{name:"Globus Television",url:"https://cdn.cubws.com/live/globus.m3u8"},
+	{name:"GRP Televisione",url:"https://webstream.multistream.it/memfs/a3195c96-f884-4c74-924f-2648814fc0b5.m3u8"},
+	{name:"GS Channel",url:"https://rst.saiuzwebnetwork.it:8081/retereggio/index.m3u8"},
+	{name:"Icaro Tv Rimini",url:"https://59d7d6f47d7fc.streamlock.net/icarotv/icarotv/playlist.m3u8"},
+	{name:"il61",url:"https://5a1178b42cc03.streamlock.net/travel/travel/playlist.m3u8"},
+	{name:"Italia 2 Tv",url:"https://59d7d6f47d7fc.streamlock.net/italia2/italia2/playlist.m3u8"},
+	{name:"Italia 7",url:"https://streaming.softwarecreation.it/Italia7/Italia7/playlist.m3u8"},
+	{name:"La Nuova Tv",url:"https://5dcabf026b188.streamlock.net/lanuovatvbas/livestream/playlist.m3u8"},
+	{name:"La Tenda Tv",url:"https://2-fss-1.streamhoster.com/pl_148/206202-2980948-1/playlist.m3u8"},
+	{name:"La tr3 Marsala",url:"https://tsw.streamingwebtv24.it:1936/eslife1/eslife1/playlist.m3u8"},
+	{name:"Lab Tv",url:"https://customer-yzibk50951uq418a.cloudflarestream.com/a58893dee4b9922a75e41b4ec4243f84/manifest/video.m3u8"},
+	{name:"LaC Tv Calabria",url:"https://f5842579ff984c1c98d63b8d789673eb.msvdn.net/live/S47282891/JWjL3xqPf4bX/playlist.m3u8"},
+	{name:"Lazio Tv",url:"https://streaming.softwarecreation.it/LazioTv/LazioTv/playlist.m3u8"},
+	{name:"Le Cronache Lucane Tv",url:"http://stucazz.com:8888/hls/cronache.m3u8"},
+	{name:"Lira Tv",url:"https://a928c0678d284da5b383f29ecc5dfeec.msvdn.net/live/S57315730/8kTBWibNteJA/playlist.m3u8"},
+	{name:"Lombardia Tv",url:"https://5db313b643fd8.streamlock.net/lmbiatv/lmbiatv/playlist.m3u8"},
+	{name:"Made in BO",url:"https://srvx1.selftv.video/dmchannel/live/playlist.m3u8"},
+	{name:"Minformo Tv",url:"https://5db313b643fd8.streamlock.net:443/MinformoTV/MinformoTV/playlist.m3u8"},
+	{name:"NTI Canale 271",url:"https://www.ntimedia.it/video/S0B/S0B_master.m3u8"},
+	{name:"Nuova Tv 1",url:"https://nuovatv.net:8443/tv/stream.m3u8"},
+	{name:"Nuova TV Nazionale",url:"https://stream4.xdevel.com/video0s975955-782/stream/playlist.m3u8"},
+	{name:"Nuvola Tv",url:"https://stream.nuvola.tv:8181/memfs/4aaa6328-1879-4ebf-b18a-498146d0c61c.m3u8"},
+	{name:"Onda Novara Tv",url:"https://585b674743bbb.streamlock.net/9006/9006/playlist.m3u8"},
+	{name:"Onda Tv Sicilia",url:"https://5926fc9c7c5b2.streamlock.net/9040/9040/playlist.m3u8"},
+	{name:"Onda Web Radio",url:"http://178.33.224.197:1935/ondaradioweb/ondaradioweb/playlist.m3u8"},
+	{name:"Orler Tv",url:"https://w1.mediastreaming.it/orlertv/livestream/playlist.m3u8"},
+	{name:"Otto Channel",url:"https://ottop-live-meride.akamaized.net/hls/live/2039996/ch1/playlist.m3u8"},
+	{name:"Partenope Tv",url:"https://diretta.arcapuglia.it:8080/live/partenope/index.m3u8"},
+	{name:"Peer Tv Alto Adige",url:"https://iptv.peer.biz/live/peertv-it.m3u8"},
+	{name:"Peer TV Sudtirol",url:"https://iptv.peer.biz/live/peertv.m3u8"},
+	{name:"Prima Tv Napoli",url:"https://57068da1deb21.streamlock.net/primatvnapoli/primatvnapoli/playlist.m3u8"},
+	{name:"Prima Tv Sicilia",url:"https://5db313b643fd8.streamlock.net/PrimaTV/PrimaTV/playlist.m3u8"},
+	{name:"Primocanale",url:"https://msh0203.stream.seeweb.it/live/flv:stream2.sdp/playlist.m3u8"},
+	{name:"Promovideo Tv",url:"https://media2021.rtvweb.com/promovideo_web/promovideo/playlist.m3u8"},
+	{name:"Quarto Canale Flegreo",url:"http://live.mariatvcdn.com/dialogos/171e41deedf405f10c7dd6311387fb43.sdp/playlist.m3u8"},
+	{name:"Reggio Tv",url:"https://cdn10.streamshow.it/cloud-reggiotv/reggiotv/playlist.m3u8"},
+	{name:"Rete 55",url:"https://live1.giocabet.tv/stream/6/index.m3u8"},
+	{name:"Rete 8",url:"https://64b16f23efbee.streamlock.net/rete8/rete8/playlist.m3u8"},
+	{name:"Rete Biella Tv",url:"https://sb.top-ix.org/retebiella/streaming/playlist.m3u8"},
+	{name:"Rete Mia",url:"https://5db313b643fd8.streamlock.net/rete/rete/playlist.m3u8"},
+	{name:"Rete Oro Tv",url:"https://5926fc9c7c5b2.streamlock.net/9094/9094/playlist.m3u8"},
+	{name:"Rete Sole",url:"https://5926fc9c7c5b2.streamlock.net/9332/9332/playlist.m3u8"},
+	{name:"Rete Tv Italia",url:"https://57068da1deb21.streamlock.net/retetvitalia/retetvitalia/playlist.m3u8"},
+	{name:"Rete Veneta",url:"http://wms.shared.streamshow.it/reteveneta/reteveneta/playlist.m3u8"},
+	{name:"Rossini Tv",url:"https://stream.rossinitv.it/memfs/3bca4ad7-adfc-4610-ac0e-e826743ddc57.m3u8"},
+	{name:"RTC Quarta Rete",url:"https://msh0232.stream.seeweb.it/live/stream00.sdp/playlist.m3u8"},
+	{name:"RTC Telecalabria",url:"https://w1.mediastreaming.it/calabriachannel/livestream/playlist.m3u8"},
+	{name:"RTI Calabria",url:"https://stream.ets-sistemi.it:8081/rticalabria/index.m3u8"},
+	{name:"Rtp Tv",url:"http://flash2.xdevel.com/rtptv/rtptv/playlist.m3u8"},
+	{name:"Rttr",url:"https://5f204aff97bee.streamlock.net/RTTRlive/livestream/playlist.m3u8"},
+	{name:"Rtv 38 Toscana",url:"https://845d8509d2cb4f249dd0b2ae5755b6c2.msvdn.net/rtv38/rtv38_live_main/mainabr/playlist_dvr.m3u8"},
+	{name:"Sardegna 1",url:"https://7e1cc2454f2242afabe05cc0a2f483cd.msvdn.net/live/S30721796/ZS3Xu8mn5f0J/playlist.m3u8"},
+	{name:"Sesta Rete",url:"https://stream10.xdevel.com/video0s977089-1792/stream/playlist.m3u8"},
+	{name:"Set Tv Cilento",url:"https://stream1.aswifi.it/settv/live/index.m3u8"},
+	{name:"Sienatv",url:"https://router.xdevel.com/video0s976727-1441/stream/playlist.m3u8"},
+	{name:"Stiletv",url:"https://proxy.media.convergenze.it/stiletv/streams/oQOFd7JglHjO1631525551097.m3u8"},
+	{name:"Super J Tv",url:"https://59d39900ebfb8.streamlock.net/SuperJtv/SuperJtv/playlist.m3u8"},
+	{name:"Super Six",url:"https://5db313b643fd8.streamlock.net/SUPERSIXLombardia/SUPERSIXLombardia/playlist.m3u8"},
+	{name:"Supertv",url:"http://wms.shared.streamshow.it:1935/supertv/supertv/live.m3u8"},
+	{name:"T9",url:"https://streaming.softwarecreation.it/tnove/tnove/playlist.m3u8"},
+	{name:"Tcf Tv",url:"https://stream10.xdevel.com/video1s977294-1864/stream/playlist.m3u8"},
+	{name:"Tele Abruzzo Tv",url:"http://uk4.streamingpulse.com:1935/TeleabruzzoTV/TeleabruzzoTV/playlist.m3u8"},
+	{name:"Tele Bari",url:"https://w1.mediastreaming.it/telebari/livestream/playlist.m3u8"},
+	{name:"Tele Boario",url:"https://stream7.xdevel.com/video0s976425-1244/stream/playlist_dvr.m3u8"},
+	{name:"Tele Bruzzano",url:"https://playerssl.telemia.tv/fileadmin/hls/Telebruzzano/telebruzzano_mediachunks.m3u8"},
+	{name:"Tele Chiara",url:"http://fms.tvavicenza.it:1935/telechiara/diretta/playlist.m3u8"},
+	{name:"Tele Foggia",url:"https://59d7d6f47d7fc.streamlock.net/telefoggia/telefoggia/playlist.m3u8"},
+	{name:"Tele Friuli",url:"https://5757bf2aa08e42248fb9b9d620f5d900.msvdn.net/live/S11646715/pE3ax0lT0rBd/playlist.m3u8"},
+	{name:"Tele Ischia",url:"https://rst.saiuzwebnetwork.it:8081/teleischia/index.m3u8"},
+	{name:"Tele Jonio",url:"http://59d7d6f47d7fc.streamlock.net/telejonio/telejonio/playlist.m3u8"},
+	{name:"Tele Liguria Sud",url:"https://64b16f23efbee.streamlock.net/teleliguriasud/teleliguriasud/playlist.m3u8"},
+	{name:"Tele Mantova",url:"https://5ce9406b73c33.streamlock.net/TeleMantova/livestream/playlist.m3u8"},
+	{name:"Tele Mia",url:"https://playerssl.telemia.tv/fileadmin/hls/TelemiaHD/telemia85_mediachunks.m3u8"},
+	{name:"Tele Mia Extra",url:"https://playerssl.telemia.tv/fileadmin/hls/TelemiaExtra/telemiaextra_mediachunks.m3u8"},
+	{name:"Tele Mistretta",url:"https://live.mariatvcdn.com/telemistretta/8fbcd205ada81b295ee6c211c3a80dde.sdp/playlist.m3u8"},
+	{name:"Tele Molise",url:"http://185.202.128.1:1935/Telemolise4K/Telemolise4K/playlist.m3u8"},
+	{name:"Tele Nord Genova",url:"https://64b16f23efbee.streamlock.net/telenord/telenord/playlist.m3u8"},
+	{name:"Tele One",url:"https://648026e87a75e.streamlock.net/teleone/teleone/playlist.m3u8"},
+	{name:"Tele Pace Trento",url:"https://5a1178b42cc03.streamlock.net/telepacetrento/telepacetrento/playlist.m3u8"},
+	{name:"Tele Pavia",url:"http://wms.shared.streamshow.it:1935/telepavia/telepavia/live.m3u8"},
+	{name:"Tele Piadena",url:"https://stream3.xdevel.com/video0s975441-151/stream/playlist_dvr.m3u8"},
+	{name:"Tele Quattro Trieste",url:"http://wms.shared.streamshow.it/telequattro/telequattro/playlist.m3u8"},
+	{name:"Tele Tricolore",url:"https://59d7d6f47d7fc.streamlock.net/rs2/rs2/playlist.m3u8"},
+	{name:"Tele8 Tv",url:"https://57068da1deb21.streamlock.net/teletv8/teletv8/playlist.m3u8"},
+	{name:"Telecity Lombardia",url:"https://64b16f23efbee.streamlock.net/telecitylombardia/telecitylombardia/playlist.m3u8"},
+	{name:"Telecity Piemonte",url:"https://64b16f23efbee.streamlock.net/telecitypiemonte/telecitypiemonte/playlist.m3u8"},
+	{name:"Telecity Valle D'Aosta",url:"https://64b16f23efbee.streamlock.net/telecityvda/telecityvda/playlist.m3u8"},
+	{name:"Telecolor",url:"https://1aadf145546f475282c5b4e658c0ac4b.msvdn.net/live/324149/hlbAWtl/playlist.m3u8"},
+	{name:"Telegenova",url:"https://64b16f23efbee.streamlock.net/telegenova/telegenova/playlist.m3u8"},
+	{name:"Teleleonessa",url:"http://wms.shared.streamshow.it:1935/teleleonessa/teleleonessa/live.m3u8"},
+	{name:"TeleMajg",url:"https://59d7d6f47d7fc.streamlock.net/telemajg/telemajg/playlist.m3u8"},
+	{name:"Telenova",url:"https://64b16f23efbee.streamlock.net/telenova/telenova/playlist.m3u8"},
+	{name:"Telerama",url:"https://58d921499d3d3.streamlock.net/TeleRama/livestream/playlist.m3u8"},
+	{name:"TeleRegione",url:"https://streaming.softwarecreation.it/TR118/TR118/playlist.m3u8"},
+	{name:"TeleRomaDue",url:"https://57068da1deb21.streamlock.net/teletibur/teletibur/playlist.m3u8"},
+	{name:"Teleromagna",url:"https://livetr.teleromagna.it/teleromagna/live/playlist.m3u8"},
+	{name:"Teleromagna 24",url:"https://livetr.teleromagna.it/mia/live/playlist.m3u8"},
+	{name:"Telesveva",url:"https://live2.telesveva.com/hls/svevahd.m3u8"},
+	{name:"Teleuniverso",url:"https://stream.ets-sistemi.it:19360/teleuniverso/teleuniverso.m3u8"},
+	{name:"Televallo Trapani",url:"https://64b16f23efbee.streamlock.net/televallo/televallo/playlist.m3u8"},
+	{name:"TRC Santeramo",url:"https://stream7.livinlive.it/trc/trc/playlist.m3u8"},
+	{name:"TRL Tele Radio Leo",url:"https://5db313b643fd8.streamlock.net/TRL/TRL/playlist.m3u8"},
+	{name:"TSD Tv Arezzo(Tele San Domenico)",url:"https://stream.mariatvcdn.com/tsd/7c59373bfdb38201b9215ff86f0ce6af.sdp/playlist.m3u8"},
+	{name:"Tuscia Sabina 2000Tv",url:"http://ts2000tv.streaming.nextware.it:8081/ts2000tv/ts2000tv/chunks.m3u8"},
+	{name:"Tv 12",url:"https://59d7d6f47d7fc.streamlock.net/tv12/tv12/playlist.m3u8"},
+	{name:"Tv Prato",url:"https://live.mariatvcdn.com/tvprato/2db0dd5674586686a867ec52c3aa8e06.sdp/mono.m3u8"},
+	{name:"Tv Qui Modena",url:"https://59d7d6f47d7fc.streamlock.net/tvqui/tvqui/playlist.m3u8"},
+	{name:"Tv Yes",url:"https://stream1.aswifi.it/radioyes/live/index.m3u8"},
+	{name:"Tva Vicenza",url:"http://fms.tvavicenza.it:1935/live/diretta_1/playlist.m3u8"},
+	{name:"Tvrs Tv",url:"https://cdn8.streamshow.it/cloud-tvrs/tvrs/playlist.m3u8"},
+	{name:"Umbria Tv",url:"https://umbriatv.stream.rubidia.it:8083/live/umbriatv/playlist.m3u8"},
+	{name:"Uno4 Tv",url:"https://cdn.uno4.it/index.m3u8"},
+	{name:"Video Calabria",url:"https://a8a02dd9a49a4fc9810743615c65ab73.msvdn.net/live/S76734991/i6NeNqLYaspb/playlist.m3u8"},
+	{name:"Video Nola",url:"https://videonola.aswifi.it/videonolaabr/live.m3u8"},
+	{name:"Video Regione Sicilia",url:"https://57214cb172d84f8cb311b91513952b03.msvdn.net/live/S40896499/ZuaLjACsWIL4/playlist.m3u8"},
+	{name:"Video Star Tv Sicilia",url:"https://stream9.xdevel.com/video0s976556-1321/stream/playlist.m3u8"},
+	{name:"Videonovara",url:"https://ed04.top-ix.org/avtvlive/videonovara/streaming/playlist.m3u8"},
+	{name:"Videotelecarnia",url:"https://rst2.saiuzwebnetwork.it:8081/vtccarnia/index.m3u8"},
+	{name:"Rai TGR Campania",url:"https://tgrcampania-live.akamaized.net/hls/live/2025562/tgrcampania/tgrcampania/playlist.m3u8"},
+	{name:"Rai TGR Emilia-Romagna",url:"https://tgremiliaromagna-live.akamaized.net/hls/live/2025563/tgremiliaromagna/tgremiliaromagna/playlist.m3u8"},
+	{name:"Rai TGR Lazio",url:"https://tgrlazio-live.akamaized.net/hls/live/2025147/tgrlazio/tgrlazio/playlist.m3u8"},
+	{name:"Rai TGR Lombardia",url:"https://tgrlombardia-live.akamaized.net/hls/live/2025566/tgrlombardia/tgrlombardia/playlist.m3u8"},
+	{name:"Rai TGR Puglia",url:"https://tgrpuglia-live.akamaized.net/hls/live/2025570/tgrpuglia/tgrpuglia/playlist.m3u8"},
+	{name:"Rai TGR Sardegna",url:"https://tgrsardegna-live.akamaized.net/hls/live/2025572/tgrsardegna/tgrsardegna/playlist.m3u8"},
+	{name:"Rai TGR Sicilia",url:"https://tgrsicilia-live.akamaized.net/hls/live/2025573/tgrsicilia/tgrsicilia/playlist.m3u8"},
+	{name:"Rai TGR Toscana",url:"https://tgrtoscana-live.akamaized.net/hls/live/2025574/tgrtoscana/tgrtoscana/playlist.m3u8"},
+	{name:"Rai TGR Veneto",url:"https://tgrveneto-live.akamaized.net/hls/live/2025578/tgrveneto/tgrveneto/playlist.m3u8"},
+	];
+
+
+
+const v = document.getElementById('v');
+const osd = document.getElementById('osd');
+const chName = document.getElementById('ch-name');
+const chIdx = document.getElementById('ch-idx');
+let idx = 0, osdTimer, hls;
+
+function dropChannel(i) {
+  channels.splice(i, 1);
+  if (channels.length === 0) {
+    document.title = 'No streams';
+    chName.textContent = 'All streams failed';
+    chIdx.textContent = '';
+    return;
+  }
+  if (i <= idx) idx--;
+  load(idx < 0 ? 0 : idx + 1);
+}
+
+function load(i) {
+  if (channels.length === 0) return;
+  idx = ((i % channels.length) + channels.length) % channels.length;
+  const ch = channels[idx];
+  document.title = ch.name;
+  chName.textContent = ch.name;
+  chIdx.textContent = (idx + 1) + '/' + channels.length;
+  function showOsd() {
+    osd.classList.add('show');
+    clearTimeout(osdTimer);
+    osdTimer = setTimeout(() => osd.classList.remove('show'), 1800);
+  }
+
+  if (hls) { hls.destroy(); hls = null; }
+  v.pause();
+  v.removeAttribute('src');
+  v.load();
+
+  function fail() {
+    dropChannel(idx);
+  }
+
+  if (Hls.isSupported()) {
+    hls = new Hls();
+    hls.loadSource(ch.url);
+    hls.attachMedia(v);
+    hls.on(Hls.Events.ERROR, (evt, data) => {
+      if (data.fatal) fail();
+    });
+    hls.on(Hls.Events.MANIFEST_PARSED, () => v.play().catch(() => {}));
+  } else if (v.canPlayType('application/vnd.apple.mpegurl')) {
+    v.src = ch.url;
+    v.onerror = fail;
+    v.play().catch(() => {});
+  }
+  v.addEventListener('playing', showOsd, {once: true});
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'PageDown' || e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+    e.preventDefault();
+    load(idx + 1);
+  } else if (e.key === 'PageUp' || e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+    e.preventDefault();
+    load(idx - 1);
+  }
+});
+
+let touchStartX = 0, touchSwiped = false;
+document.addEventListener('touchstart', e => {
+  touchStartX = e.touches[0].clientX;
+  touchSwiped = false;
+}, {passive: true});
+document.addEventListener('touchmove', e => {
+  const dx = e.touches[0].clientX - touchStartX;
+  if (Math.abs(dx) < 100 || touchSwiped) return;
+  e.preventDefault();
+  touchSwiped = true;
+  load(idx + (dx > 0 ? 1 : -1));
+}, {passive: false});
+
+let swipeTimer, swipeTotal = 0;
+document.addEventListener('wheel', e => {
+  if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) return;
+  swipeTotal += e.deltaX;
+  if (Math.abs(swipeTotal) < 200) return;
+  e.preventDefault();
+  clearTimeout(swipeTimer);
+  const dir = swipeTotal > 0 ? 1 : -1;
+  swipeTotal = 0;
+  swipeTimer = setTimeout(() => { swipeTotal = 0; }, 150);
+  load(idx + dir);
+}, {passive: false});
+
+document.addEventListener('click', () => {
+  v.muted = false;
+  v.play().catch(() => {});
+  v.requestFullscreen().catch(() => {});
+});
+
+load(0);
+</script>
+</body>
+</html>
