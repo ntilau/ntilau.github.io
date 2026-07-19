@@ -15,6 +15,7 @@ import csv
 import json
 import os
 import re
+import unicodedata
 import sys
 from dataclasses import dataclass, field, asdict
 from datetime import datetime
@@ -993,21 +994,55 @@ def scrape_linkedin_profile(profile_url: str, headless: bool = True, debug: bool
 # Comparator
 # ---------------------------------------------------------------------------
 
+def _clean_for_match(s: str) -> str:
+    """Normalize text for comparison: strip LaTeX accents, normalize dashes, strip diacritics."""
+    # Normalize unicode: decompose accented chars, strip combining marks (à -> a)
+    s = unicodedata.normalize('NFKD', s)
+    s = re.sub(r'[̀-ͯ]', '', s)
+    # Replace LaTeX accent commands: \`a -> a, \'e -> e, \"o -> o, etc.
+    s = re.sub(r'\\([`\'"^~=cHk])([a-zA-Z])', r'\2', s)
+    # Strip remaining backslashes and braces
+    s = s.replace('\\', '').replace('{', '').replace('}', '')
+    # Normalize dashes (em-dash, en-dash, double-hyphen -> single hyphen)
+    s = s.replace('--', '-').replace('–', '-').replace('—', '-')
+    # Normalize ampersand LaTeX escapes
+    s = s.replace('\\&', '&')
+    # Expand common abbreviations
+    s = re.sub(r'\br ?& ?d\b', 'research and development', s, flags=re.IGNORECASE)
+    # Collapse whitespace
+    s = re.sub(r'\s+', ' ', s).strip()
+    return s
+
+
+# Canonical names for schools/companies that are known aliases of each other
+_COMPANY_CANONICAL = {
+    'saarland university': 'universitat des saarlandes',
+    'university of florence': 'universita degli studi di firenze',
+}
+
+
 def _fuzzy_match(a: str, b: str) -> bool:
     """Case-insensitive substring match after normalising."""
     a = re.sub(r'\s+', ' ', a.lower().strip())
     b = re.sub(r'\s+', ' ', b.lower().strip())
+    a = _clean_for_match(a)
+    b = _clean_for_match(b)
     return a in b or b in a
 
 def _normalise_company(name: str) -> str:
     """Normalise company names for comparison."""
     name = name.lower().strip()
+    name = _clean_for_match(name)
     # Strip common suffixes/variations
     for suffix in [', a ge company', ', a synopsys company', ' (a ge company)',
                    ', a ge co.', ' corporation', ' corp.', ' inc.', ' ltd.',
-                   ' s.r.l.', ' s.p.a.', ' spa', ' srls']:
+                   ' s.r.l.', ' s.p.a.', ' spa', ' srls', ' inc', ' ltd']:
         name = name.replace(suffix, '')
-    name = name.strip()
+    # Remove any remaining punctuation at end
+    name = name.strip().rstrip('., ')
+    # Resolve through canonical aliases
+    if name in _COMPANY_CANONICAL:
+        name = _COMPANY_CANONICAL[name]
     return name
 
 def compare(cv: CVProfile, linkedin_data: dict) -> list[str]:
@@ -1033,9 +1068,9 @@ def compare(cv: CVProfile, linkedin_data: dict) -> list[str]:
         for li_pos in li_positions:
             li_co = _normalise_company(li_pos.get('company', ''))
             if cv_co == li_co or cv_co in li_co or li_co in cv_co:
-                # Check title
-                cv_title = cv_pos.title.lower().strip()
-                li_title = li_pos.get('title', '').lower().strip()
+                # Check title (normalize dashes and LaTeX first)
+                cv_title = _clean_for_match(cv_pos.title.lower().strip())
+                li_title = _clean_for_match(li_pos.get('title', '').lower().strip())
                 if cv_title in li_title or li_title in cv_title:
                     matched = True
                     # Check description
@@ -1053,9 +1088,9 @@ def compare(cv: CVProfile, linkedin_data: dict) -> list[str]:
             )
 
     # --- Skills ---
-    li_skills = [s.lower().strip() for s in linkedin_data.get('skills', [])]
+    li_skills = linkedin_data.get('skills', [])
     for skill in cv.skills:
-        if skill.lower().strip() not in li_skills:
+        if not any(_fuzzy_match(skill, li_skill) for li_skill in li_skills):
             issues.append(f"[SKILL] '{skill}' missing from LinkedIn skills list")
 
     # --- Languages ---
