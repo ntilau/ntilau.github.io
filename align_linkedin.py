@@ -831,90 +831,6 @@ class LinkedInScraper:
             except Exception:
                 pass
 
-    async def _extract_experience(self) -> list[dict]:
-        selectors = [
-            "#experience ~ div ul li.artdeco-list__item",
-            "#experience ~ div .pvs-list__item",
-            "section#experience .pvs-list__container li",
-            "section.experience .profile-section-card",
-        ]
-        items = await self._query_all(selectors)
-        return await self._parse_section_items(items, "title_company_date")
-
-    async def _extract_education(self) -> list[dict]:
-        selectors = [
-            "#education ~ div ul li.artdeco-list__item",
-            "#education ~ div .pvs-list__item",
-            "section#education .pvs-list__container li",
-        ]
-        items = await self._query_all(selectors)
-        return await self._parse_section_items(items, "school_degree_date")
-
-    async def _extract_skills(self) -> list[str]:
-        selectors = [
-            "#skills ~ div ul li span[aria-hidden]",
-            "section#skills .pvs-list__container li span[aria-hidden]",
-            "section.skills .profile-section-card__skill",
-        ]
-        skills = []
-        seen = set()
-        items = await self._query_all(selectors)
-        for item in items:
-            text = (await item.inner_text()).strip()
-            if text and text not in seen:
-                skills.append(text)
-                seen.add(text)
-        return skills
-
-    async def _extract_languages(self) -> list[dict]:
-        selectors = [
-            "#languages ~ div ul li.artdeco-list__item",
-            "#languages ~ div .pvs-list__item",
-            "section#languages .pvs-list__container li",
-        ]
-        items = await self._query_all(selectors)
-        results = []
-        for item in items:
-            text = (await item.inner_text()).strip()
-            lines = [l.strip() for l in text.split("\n") if l.strip()]
-            if lines:
-                lang = {"name": lines[0]}
-                if len(lines) > 1:
-                    lang["proficiency"] = lines[1]
-                results.append(lang)
-        return results
-
-    async def _parse_section_items(self, items, mode: str) -> list[dict]:
-        results = []
-        for item in items:
-            text = (await item.inner_text()).strip()
-            lines = [l.strip() for l in text.split("\n") if l.strip()]
-            if not lines:
-                continue
-            entry = {}
-            if mode == "title_company_date":
-                if len(lines) < 2:
-                    continue
-                entry["title"] = lines[0]
-                entry["company"] = lines[1]
-                entry["date_range"] = ""
-                for line in lines:
-                    if "·" in line:
-                        parts = line.split("·")
-                        entry["date_range"] = parts[0].strip()
-                        break
-                entry["description"] = ""
-            elif mode == "school_degree_date":
-                entry["school"] = lines[0] if len(lines) > 0 else ""
-                entry["degree"] = lines[1] if len(lines) > 1 else ""
-                entry["date_range"] = ""
-                for line in lines:
-                    if "·" in line or " - " in line or " – " in line:
-                        entry["date_range"] = line.strip()
-                        break
-            results.append(entry)
-        return results
-
 
 def _normalize_scraped_data(raw: dict) -> dict:
     """Convert scraped data to the same format as CSV export data."""
@@ -1094,9 +1010,9 @@ def compare(cv: CVProfile, linkedin_data: dict) -> list[str]:
             issues.append(f"[SKILL] '{skill}' missing from LinkedIn skills list")
 
     # --- Languages ---
-    li_langs = [l.get('name', '').lower().strip() for l in linkedin_data.get('languages', [])]
+    li_langs = [l.get('name', '') for l in linkedin_data.get('languages', [])]
     for lang in cv.languages:
-        if lang.name.lower().strip() not in li_langs:
+        if not any(_fuzzy_match(lang.name, li_lang) for li_lang in li_langs):
             issues.append(f"[LANGUAGE] '{lang.name}' missing from LinkedIn languages")
 
     # --- Education ---
