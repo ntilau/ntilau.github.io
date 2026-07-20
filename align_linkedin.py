@@ -92,6 +92,7 @@ class CVProfile:
     github: str
     summary: str
     positions: list[Position] = field(default_factory=list)
+    projects: list[Position] = field(default_factory=list)
     education: list[Education] = field(default_factory=list)
     awards: list[Award] = field(default_factory=list)
     certifications: list[Certification] = field(default_factory=list)
@@ -219,6 +220,7 @@ def parse_cv_tex(path: str) -> CVProfile:
             ))
 
     # --- projects ---
+    projects = []
     proj_section = re.search(
         r'\\cvsection\{Projects\}\s*\n(.*?)(?=\\switchcolumn)',
         content, re.DOTALL
@@ -238,7 +240,7 @@ def parse_cv_tex(path: str) -> CVProfile:
             clean_block = re.sub(r'^\s*%.*$', '', desc_block, flags=re.MULTILINE)
             for item in re.finditer(r'^[ \t]*\\item\s+(.*?)(?=\n[ \t]*\\item|\n[ \t]*\\end|\s*$)', clean_block, re.MULTILINE | re.DOTALL):
                 bullets.append(_clean_desc(item.group(1)))
-            positions.append(Position(
+            projects.append(Position(
                 title=title,
                 company=company,
                 start=_parse_date_range(dates)[0],
@@ -382,7 +384,7 @@ def parse_cv_tex(path: str) -> CVProfile:
 
     return CVProfile(
         name="", headline="", email="", location="", linkedin="", github="", summary=summary,
-        positions=positions, education=education, awards=awards,
+        positions=positions, projects=projects, education=education, awards=awards,
         certifications=certs, courses=courses, publications=publications,
         languages=languages, skills=skills, recommendations=recommendations,
     )
@@ -457,6 +459,22 @@ def read_linkedin_export(linkedin_dir: str) -> dict:
     ldir = Path(linkedin_dir)
     data = {}
 
+    # Projects.csv
+    proj_file = ldir / "Projects.csv"
+    if proj_file.exists():
+        data['projects'] = []
+        with open(proj_file, encoding='utf-8-sig') as f:
+            for row in csv.DictReader(f):
+                title = row.get('Title', '').strip()
+                if title:
+                    data['projects'].append({
+                        'title': title,
+                        'description': row.get('Description', ''),
+                        'start': _normalise_linkedin_date(row.get('Started On', '')),
+                        'end': _normalise_linkedin_date(row.get('Finished On', '')),
+                        'url': row.get('Url', ''),
+                    })
+
     # Positions.csv
     pos_file = ldir / "Positions.csv"
     if pos_file.exists():
@@ -514,6 +532,78 @@ def read_linkedin_export(linkedin_dir: str) -> dict:
                 data['headline'] = row.get('Headline', '')
                 data['summary'] = row.get('Summary', '')
                 break
+
+    # Certifications.csv
+    cert_file = ldir / "Certifications.csv"
+    if cert_file.exists():
+        data['certifications'] = []
+        with open(cert_file, encoding='utf-8-sig') as f:
+            for row in csv.DictReader(f):
+                name = row.get('Name', '').strip()
+                if name:
+                    data['certifications'].append({
+                        'title': name,
+                        'authority': row.get('Authority', ''),
+                        'date': _normalise_linkedin_date(row.get('Started On', '')),
+                        'license': row.get('License Number', ''),
+                    })
+
+    # Publications.csv
+    pub_file = ldir / "Publications.csv"
+    if pub_file.exists():
+        data['publications'] = []
+        with open(pub_file, encoding='utf-8-sig') as f:
+            for row in csv.DictReader(f):
+                name = row.get('Name', '').strip()
+                if name:
+                    data['publications'].append({
+                        'title': name,
+                        'date': _normalise_linkedin_date(row.get('Published On', '')),
+                        'publisher': row.get('Publisher', ''),
+                        'url': row.get('Url', ''),
+                    })
+
+    # Patents.csv — include as publications for matching
+    patent_file = ldir / "Patents.csv"
+    if patent_file.exists():
+        data.setdefault('publications', [])
+        with open(patent_file, encoding='utf-8-sig') as f:
+            for row in csv.DictReader(f):
+                title = row.get('Title', '').strip()
+                if title:
+                    data['publications'].append({
+                        'title': title,
+                        'date': _normalise_linkedin_date(row.get('Issued On', '')),
+                        'publisher': row.get('Issuer', ''),
+                        'url': row.get('Url', ''),
+                    })
+
+    # Honors.csv → awards
+    honors_file = ldir / "Honors.csv"
+    if honors_file.exists():
+        data['awards'] = []
+        with open(honors_file, encoding='utf-8-sig') as f:
+            for row in csv.DictReader(f):
+                title = row.get('Title', '').strip()
+                if title:
+                    data['awards'].append({
+                        'title': title,
+                        'description': row.get('Description', ''),
+                        'date': _normalise_linkedin_date(row.get('Issued On', '')),
+                    })
+
+    # Courses.csv
+    courses_file = ldir / "Courses.csv"
+    if courses_file.exists():
+        data['courses'] = []
+        with open(courses_file, encoding='utf-8-sig') as f:
+            for row in csv.DictReader(f):
+                name = row.get('Name', '').strip()
+                if name:
+                    data['courses'].append({
+                        'title': name,
+                        'number': row.get('Number', ''),
+                    })
 
     return data
 
@@ -919,8 +1009,14 @@ def _clean_for_match(s: str) -> str:
     s = re.sub(r'\\([`\'"^~=cHk])([a-zA-Z])', r'\2', s)
     # Strip remaining backslashes and braces
     s = s.replace('\\', '').replace('{', '').replace('}', '')
-    # Normalize dashes (em-dash, en-dash, double-hyphen -> single hyphen)
-    s = s.replace('--', '-').replace('–', '-').replace('—', '-')
+    # Normalize dashes (em-dash, en-dash, any sequence of hyphens -> single hyphen)
+    s = re.sub(r'[-–—]{2,}', '-', s)
+    s = s.replace('–', '-').replace('—', '-')
+    # Normalize colons to spaces so "Crotonville: Delivering" matches "Crotonville - Delivering"
+    s = s.replace(':', ' ')
+    # Normalize separator hyphens (with space on both sides) to space, leaving
+    # technical hyphens (RS-232, slip-ring) intact
+    s = re.sub(r'\s+-\s+', ' ', s)
     # Normalize ampersand LaTeX escapes
     s = s.replace('\\&', '&')
     # Expand common abbreviations
@@ -1003,6 +1099,22 @@ def compare(cv: CVProfile, linkedin_data: dict) -> list[str]:
                 f"({cv_pos.start} – {cv_pos.end}) not found on LinkedIn"
             )
 
+    # --- Projects ---
+    li_projects = linkedin_data.get('projects', [])
+    for cv_proj in cv.projects:
+        matched = False
+        cv_proj_title = _clean_for_match(cv_proj.title.lower())
+        for li_proj in li_projects:
+            li_title = _clean_for_match(li_proj.get('title', '').lower())
+            if cv_proj_title in li_title or li_title in cv_proj_title:
+                matched = True
+                break
+        if not matched:
+            issues.append(
+                f"[PROJECT] CV entry '{cv_proj.title}' at '{cv_proj.company}' "
+                f"({cv_proj.start} – {cv_proj.end}) not found on LinkedIn"
+            )
+
     # --- Skills ---
     li_skills = linkedin_data.get('skills', [])
     for skill in cv.skills:
@@ -1030,34 +1142,79 @@ def compare(cv: CVProfile, linkedin_data: dict) -> list[str]:
             )
 
     # --- Certifications ---
+    li_certs = linkedin_data.get('certifications', [])
     for cert in cv.certifications:
-        issues.append(
-            f"[CERTIFICATION] '{cert.title} ({cert.issuer})' — "
-            f"verify it is listed on LinkedIn"
-        )
+        matched = False
+        cv_cert_title = _clean_for_match(cert.title.lower())
+        cv_cert_issuer = _clean_for_match(cert.issuer.lower())
+        for li_cert in li_certs:
+            li_title = _clean_for_match(li_cert.get('title', '').lower())
+            li_auth = _clean_for_match(li_cert.get('authority', '').lower())
+            if (cv_cert_title in li_title or li_title in cv_cert_title) and \
+               (not cv_cert_issuer or cv_cert_issuer in li_auth or li_auth in cv_cert_issuer):
+                matched = True
+                break
+        if not matched:
+            issues.append(
+                f"[CERTIFICATION] '{cert.title} ({cert.issuer})' — "
+                f"not found in LinkedIn export"
+            )
 
     # --- Courses ---
+    li_courses = linkedin_data.get('courses', [])
     for course in cv.courses:
-        issues.append(
-            f"[COURSE] '{course.title}' by '{course.provider}' ({course.date}) — "
-            f"verify it is listed on LinkedIn"
-        )
+        matched = False
+        cv_course_title = _clean_for_match(course.title.lower())
+        cv_course_prov = _clean_for_match(course.provider.lower())
+        for li_course in li_courses:
+            li_title = _clean_for_match(li_course.get('title', '').lower())
+            if cv_course_title in li_title or li_title in cv_course_title:
+                matched = True
+                break
+        if not matched:
+            issues.append(
+                f"[COURSE] '{course.title}' by '{course.provider}' ({course.date}) — "
+                f"not found in LinkedIn export"
+            )
 
     # --- Publications ---
     li_pubs = linkedin_data.get('publications', [])
-    if not li_pubs and cv.publications:
-        issues.append(
-            f"[PUBLICATIONS] {len(cv.publications)} publications in CV, "
-            f"none found in LinkedIn export. Add them to the 'Publications' section."
-        )
+    for pub in cv.publications:
+        matched = False
+        cv_pub_title = _clean_for_match(pub.title.lower())
+        for li_pub in li_pubs:
+            li_title = _clean_for_match(li_pub.get('title', '').lower())
+            if cv_pub_title in li_title or li_title in cv_pub_title:
+                matched = True
+                break
+            # Retry with trailing 's' stripped after a consonant (handles "elements" vs "element")
+            cv_plural = re.sub(r'(\b\w{4,}[b-df-hj-np-tv-z])s\b', r'\1', cv_pub_title)
+            li_plural = re.sub(r'(\b\w{4,}[b-df-hj-np-tv-z])s\b', r'\1', li_title)
+            if cv_plural != cv_pub_title or li_plural != li_title:
+                if cv_plural in li_plural or li_plural in cv_plural:
+                    matched = True
+                    break
+        if not matched:
+            issues.append(
+                f"[PUBLICATION] '{pub.title}' ({pub.venue}, {pub.year}) — "
+                f"not found in LinkedIn export"
+            )
 
     # --- Awards ---
     li_awards = linkedin_data.get('awards', [])
-    if not li_awards and cv.awards:
-        issues.append(
-            f"[AWARDS] {len(cv.awards)} awards in CV, none in LinkedIn export. "
-            f"Add them to the 'Honors & Awards' section."
-        )
+    for award in cv.awards:
+        matched = False
+        cv_award_title = _clean_for_match(award.title.lower())
+        for li_award in li_awards:
+            li_title = _clean_for_match(li_award.get('title', '').lower())
+            if cv_award_title in li_title or li_title in cv_award_title:
+                matched = True
+                break
+        if not matched:
+            issues.append(
+                f"[AWARD] '{award.title}' ({award.issuer}, {award.date}) — "
+                f"not found in LinkedIn export"
+            )
 
     return issues
 
