@@ -1017,6 +1017,11 @@ def _clean_for_match(s: str) -> str:
     # Normalize separator hyphens (with space on both sides) to space, leaving
     # technical hyphens (RS-232, slip-ring) intact
     s = re.sub(r'\s+-\s+', ' ', s)
+    # Normalize curly/smart quotes to ASCII apostrophes
+    s = s.replace('‘', "'").replace('’', "'")
+    s = s.replace('“', '"').replace('”', '"')
+    # Normalize number-unit spacing: "65 MW" or "65~MW" -> "65MW" for fuzzy matching
+    s = re.sub(r'(\d+(?:\.\d+)?)[\s~]+(MW|kW|MHz|GHz|kHz|kVA|MVA|kV|V|A|mA|mm|cm|m|km|kmh|mph|kg|g|lb|W|dB|dBm|Hz)', r'\1\2', s, flags=re.IGNORECASE)
     # Normalize ampersand LaTeX escapes
     s = s.replace('\\&', '&')
     # Expand common abbreviations
