@@ -1,7 +1,7 @@
 Title,Description,Started On,Finished On,Association
 "Bearings loading test rig","Conceptual design of a novel bearings loading test rig aimed at validating bearings NTIs. Investigated on modeling methods of EM coupling between power (variable speed drive system) and signals cabling systems to predict potential interference issues.",05/2018,12/2018,"Baker Hughes, a GE Company"
 "GE Aviation's Catalyst","Led special instrumentation design and global technical reviews of FETT with design and testing teams (Czech Rep., Poland, USA, Canada). Contributed to >4M$ cross-P&L project and customer satisfaction.",06/2017,12/2018,"Baker Hughes, a GE Company"
-"Gas Turbine embedded SAW sensors","Advised an MSc student at the University of Florence on SAW sensor high-frequency numerical modeling for accurate temperature measurement control.",02/2018,12/2018,"Baker Hughes, a GE Company"
+"Gas Turbine embedded SAW sensors","Co-advised MEng thesis student with University of Florence to investigate into SAW sensors high frequency numerical modeling for accuracy control of temperature measurements.",02/2018,12/2018,"Baker Hughes, a GE Company"
 "LM9000: 65MW aeroderivative gas turbine","Contributed to conceptual instrumentation design and test rigs erection, data acquisition architecture and control system design by technical and HAZOP reviews.",06/2018,12/2018,"Baker Hughes, a GE Company"
 "Cross'd","Social networking app PoC based on Bluetooth Low Energy ranging. PoC with Apache Cordova and an AWS EC2 instance.",01/2018,11/2018,
 "BLE Asset Tracking","Sub 5$/Unit PoC of BLE tags (TI's CC2640) with firmware optimized for long-battery life, aimed at asset tracking and inventory management.",07/2017,09/2017,
