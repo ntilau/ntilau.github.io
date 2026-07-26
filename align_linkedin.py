@@ -131,6 +131,14 @@ def _parse_date_range(dates: str) -> tuple[str, str]:
     end = _parse_date(parts[1].strip()) if len(parts) >= 2 else ''
     return start, end
 
+def _sortable_date(d: str) -> str:
+    """Convert MM/YYYY to YYYYMM for sorting ('' sorts to '000000' = earliest)."""
+    d = d.strip()
+    m = re.match(r'(\d{1,2})/(\d{4})', d)
+    if m:
+        return f"{m.group(2)}{int(m.group(1)):02d}"
+    return '000000'
+
 def _clean_desc(line: str) -> str:
     """Clean a bullet-point description line."""
     line = re.sub(r'%.*$', '', line)  # strip comments
@@ -310,7 +318,7 @@ def parse_cv_tex(path: str) -> CVProfile:
                 issuer=_tex_strip(m.group(2)),
             ))
 
-    # --- courses ---
+    # --- courses (sorted latest-first by default) ---
     courses = []
     course_section = re.search(
         r'\\cvsection\{Courses\}\s*\n(.*?)(?=\\cvsection\{Skills\})',
@@ -328,6 +336,7 @@ def parse_cv_tex(path: str) -> CVProfile:
                 date=_tex_strip(m.group(3)),
                 location=_tex_strip(m.group(4)),
             ))
+        courses.sort(key=lambda c: _sortable_date(c.date), reverse=True)
 
     # --- skills ---
     skills = []
