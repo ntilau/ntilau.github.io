@@ -1,0 +1,66 @@
+name: Build CV
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '*.tex'
+      - '*.cls'
+      - '*.bib'
+      - 'Makefile'
+      - 'setup'
+      - '.github/workflows/build-cv.yml'
+  pull_request:
+    paths:
+      - '*.tex'
+      - '*.cls'
+      - '*.bib'
+      - 'Makefile'
+      - 'setup'
+      - '.github/workflows/build-cv.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            texlive-latex-extra \
+            texlive-fonts-extra \
+            texlive-lang-italian \
+            texlive-lang-french \
+            biber
+
+      - name: Build CV (pdflatex + biber, 3 passes)
+        run: make cv
+
+      - name: Build Cover Letter
+        run: make cl
+
+      - name: Verify PDFs exist and have content
+        run: |
+          for f in cv.pdf cl.pdf; do
+            if [ ! -s "$f" ]; then
+              echo "ERROR: $f is missing or empty"
+              exit 1
+            fi
+            echo "$f: $(du -h "$f" | cut -f1) — $(pdfinfo "$f" 2>/dev/null | grep 'Pages' | awk '{print $2}') pages"
+          done
+
+      - name: Upload CV PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv
+          path: cv.pdf
+          if-no-files-found: error
+
+      - name: Upload Cover Letter PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl
+          path: cl.pdf
+          if-no-files-found: error
