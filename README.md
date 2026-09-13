@@ -46,7 +46,7 @@ A full LaTeX CV built on a custom [`altacv.cls`](vitae/altacv.cls) fork. Fonts: 
 **Building (requires TeX Live with `pdflatex`/`xelatex` + `biber`):**
 
 ```bash
-./setup                          # install TeX deps (homebrew/apt/pacman/dnf)
+make -C vitae setup                # install TeX deps (homebrew/apt/pacman/dnf)
 make -C vitae cv                 # build cv.pdf (pdflatex + biber, 3 passes)
 make -C vitae cl                 # build cl.pdf (cover letter)
 make -C vitae all                # build both
