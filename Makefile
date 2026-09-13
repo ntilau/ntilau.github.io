@@ -8,7 +8,7 @@
 CV_TEX      = pdflatex
 CV_TEXFLAGS ?= -interaction=nonstopmode -file-line-error
 CV_BIB      ?= biber
-CV_FILE     ?= cv
+CV_FILE     ?= vitae/cv
 
 # --- Cover Letter Build Configuration ---
 # CL_TEX: LaTeX engine (default: pdflatex, beamer-compatible)
@@ -21,11 +21,11 @@ CV_FILE     ?= cv
 CL_TEX      = pdflatex
 CL_TEXFLAGS ?= -shell-escape -interaction=nonstopmode -file-line-error
 CL_BIB      ?=
-CL_FILE     ?= cl
+CL_FILE     ?= vitae/cl
 
 # LaTeX auxiliary files to remove during clean
 # Includes: cross-references, bibliography, font database, logs, etc.
-CLEAN_EXTS = *.aux *.bcf *.blg *.bbl *.brf *.fdb_latexmk *.fls *.lof *.log *.lot *.lpr *.nav *.out *.run.xml *.snm *.toc *.vrb *.synctex.gz *.xmp*
+CLEAN_EXTS = *.aux *.bcf *.blg *.bbl *.brf *.fdb_latexmk *.fls *.lof *.log *.lot *.lpr *.nav *.out *.run.xml *.snm *.toc *.vrb *.synctex.gz *.xmp* vitae/*.aux vitae/*.bcf vitae/*.blg vitae/*.bbl vitae/*.brf vitae/*.fdb_latexmk vitae/*.fls vitae/*.lof vitae/*.log vitae/*.lot vitae/*.lpr vitae/*.nav vitae/*.out vitae/*.run.xml vitae/*.snm vitae/*.toc vitae/*.vrb vitae/*.synctex.gz vitae/*.xmp*
 
 .SUFFIXES: .aux .pdf .tex
 .PHONY: all manuscript presentation setup clean distclean help
@@ -37,16 +37,16 @@ all: cv cl
 # Process: LaTeX → (Bibliography if configured) → LaTeX → LaTeX
 # Three LaTeX passes ensure cross-references and citations are resolved
 cv:
-	$(CV_TEX) $(CV_TEXFLAGS) $(CV_FILE).tex
-	@if [ -n "$(CV_BIB)" ]; then $(CV_BIB) $(CV_FILE); fi
-	$(CV_TEX) $(CV_TEXFLAGS) $(CV_FILE).tex
-	$(CV_TEX) $(CV_TEXFLAGS) $(CV_FILE).tex
+	cd vitae && $(CV_TEX) $(CV_TEXFLAGS) $(notdir $(CV_FILE)).tex
+	@if [ -n "$(CV_BIB)" ]; then cd vitae && $(CV_BIB) $(notdir $(CV_FILE)); fi
+	cd vitae && $(CV_TEX) $(CV_TEXFLAGS) $(notdir $(CV_FILE)).tex
+	cd vitae && $(CV_TEX) $(CV_TEXFLAGS) $(notdir $(CV_FILE)).tex
 
 # Build cover letter / slides PDF
 # Process: LaTeX → (Bibliography if configured) → LaTeX → LaTeX
 # Three LaTeX passes ensure navigation and cross-references are resolved
 cl:
-	$(CL_TEX) $(CL_TEXFLAGS) $(CL_FILE).tex
+	cd vitae && $(CL_TEX) $(CL_TEXFLAGS) $(notdir $(CL_FILE)).tex
 
 # Optional aliases for compatibility
 manuscript: cv
@@ -61,7 +61,7 @@ clean:
 
 # Remove temporary files AND generated PDFs
 distclean: clean
-	rm -f $(CV_FILE).pdf $(CL_FILE).pdf
+	rm -f vitae/$(CV_FILE).pdf vitae/$(CL_FILE).pdf
 
 # Display help message with available targets and variables
 help:
