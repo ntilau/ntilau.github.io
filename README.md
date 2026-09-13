@@ -28,36 +28,36 @@ Single-file HLS-based live TV player with 250+ Italian and French channels, powe
 
 ---
 
-## CV ([`cv.tex`](cv.tex), [`cl.tex`](cl.tex), [`my.tex`](my.tex))
+## CV ([`cv.tex`](vitae/cv.tex), [`cl.tex`](vitae/cl.tex), [`my.tex`](vitae/my.tex))
 
-A full LaTeX CV built on a custom [`altacv.cls`](altacv.cls) fork. Fonts: Roboto Slab (headings) + Lato (body).
+A full LaTeX CV built on a custom [`altacv.cls`](vitae/altacv.cls) fork. Fonts: Roboto Slab (headings) + Lato (body).
 
 **Files:**
 
 | File | Purpose |
 |---|---|
-| [`my.tex`](my.tex) | Shared preamble — geometry, fonts, colors, personal info, biblatex config |
-| [`cv.tex`](cv.tex) | Two-column CV (paracol): Summary, Experience, Projects, Education, Awards, Certifications, Courses, Skills, Languages, Publications ([`my.bib`](my.bib)), Recommendations |
-| [`cl.tex`](cl.tex) | Beamer cover letter — inputs `app.tex` for your personalized letter text (create one!) |
-| [`my.bib`](my.bib) | Bibliography: articles, inproceedings, books, patents |
-| [`altacv.cls`](altacv.cls) | Custom document class (forked from `altacv`) |
-| [`cv.html`](cv.html) | Meta-refresh redirect page → [`cv.pdf`](cv.pdf) |
+| [`my.tex`](vitae/my.tex) | Shared preamble — geometry, fonts, colors, personal info, biblatex config |
+| [`cv.tex`](vitae/cv.tex) | Two-column CV (paracol): Summary, Experience, Projects, Education, Awards, Certifications, Courses, Skills, Languages, Publications ([`my.bib`](vitae/my.bib)), Recommendations |
+| [`cl.tex`](vitae/cl.tex) | Beamer cover letter — inputs `app.tex` for your personalized letter text (create one!) |
+| [`my.bib`](vitae/my.bib) | Bibliography: articles, inproceedings, books, patents |
+| [`altacv.cls`](vitae/altacv.cls) | Custom document class (forked from `altacv`) |
+| [`index.html`](vitae/index.html) | Meta-redirect to CV PDF ([`cv.pdf`](vitae/cv.pdf)) |
 
 **Building (requires TeX Live with `pdflatex`/`xelatex` + `biber`):**
 
 ```bash
 ./setup                          # install TeX deps (homebrew/apt/pacman/dnf)
-make cv                          # build cv.pdf (pdflatex + biber, 3 passes)
-make cl                          # build cl.pdf (cover letter)
-make all                         # build both
-make clean                       # remove aux files
+make -C vitae cv                 # build cv.pdf (pdflatex + biber, 3 passes)
+make -C vitae cl                 # build cl.pdf (cover letter)
+make -C vitae all                # build both
+make -C vitae clean              # remove aux files
 ```
 
 > **Note:** To customize the cover letter, create an `app.tex` file with your personalized text. It is auto-included by `cl.tex`.
 
 ---
 
-## LinkedIn Alignment ([`align_linkedin.py`](align_linkedin.py))
+## LinkedIn Alignment ([`align_linkedin.py`](vitae/align_linkedin.py))
 
 Python tool that parses the LaTeX CV and compares it against LinkedIn profile data to find discrepancies.
 
@@ -65,14 +65,14 @@ Python tool that parses the LaTeX CV and compares it against LinkedIn profile da
 
 | Command | What it does |
 |---|---|
-| `python align_linkedin.py` | Print parsed CV summary |
-| `python align_linkedin.py --json` | Dump CV as JSON |
-| `python align_linkedin.py --scrape` | Scrape LinkedIn (uses handle from `my.tex`), compare automatically |
-| `python align_linkedin.py --scrape --debug` | Scrape + save page screenshot and HTML |
-| `python align_linkedin.py --linkedin-dir <path>` | Compare against a LinkedIn CSV data export (`Download Your Data`) |
+| `python vitae/align_linkedin.py` | Print parsed CV summary |
+| `python vitae/align_linkedin.py --json` | Dump CV as JSON |
+| `python vitae/align_linkedin.py --scrape` | Scrape LinkedIn (uses handle from `my.tex`), compare automatically |
+| `python vitae/align_linkedin.py --scrape --debug` | Scrape + save page screenshot and HTML |
+| `python vitae/align_linkedin.py --linkedin-dir <path>` | Compare against a LinkedIn CSV data export (`Download Your Data`) |
 
 **How it works:**
-- `build_profile()` — parses `my.tex` + `cv.tex` into a structured `CVProfile` dataclass
+- `build_profile()` — parses `vitae/my.tex` + `vitae/cv.tex` into a structured `CVProfile` dataclass
 - `read_linkedin_export()` — reads LinkedIn data export CSV files
 - `LinkedInScraper` — Playwright-based scraper using a persistent browser profile (`~/.linkedin_align_profile`). First run opens a visible Chrome window for manual login; subsequent runs reuse the session
 - `compare()` — fuzzy-matches positions (company + title), skills, languages, and education, then reports discrepancies
@@ -85,7 +85,7 @@ Two GitHub Actions workflows:
 
 | Workflow | Trigger | What it does |
 |---|---|---|
-| [`build-cv.yml`](.github/workflows/build-cv.yml) | Push/PR on `*.tex`, `*.cls`, `*.bib`, `Makefile`, `setup` | Installs TeX Live, builds `cv.pdf` + `cl.pdf`, verifies output, uploads as build artifacts |
+| [`build-cv.yml`](.github/workflows/build-cv.yml) | Push/PR on `vitae/*.tex`, `vitae/*.cls`, `vitae/*.bib`, `vitae/Makefile`, `vitae/setup` | Installs TeX Live, builds `cv.pdf` + `cl.pdf`, verifies output, uploads as build artifacts |
 | [`deploy-pages.yml`](.github/workflows/deploy-pages.yml) | Push to `main` (+ manual dispatch) | Installs TeX Live, builds both PDFs, deploys full site to GitHub Pages |
 
 ---

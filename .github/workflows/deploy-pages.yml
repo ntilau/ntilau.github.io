@@ -3,6 +3,13 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+    paths:
+      - 'vitae/*.tex'
+      - 'vitae/*.cls'
+      - 'vitae/*.bib'
+      - 'vitae/Makefile'
+      - 'vitae/setup'
+      - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -33,10 +40,14 @@ jobs:
             biber
 
       - name: Build CV and Cover Letter
-        run: make all
+        run: |
+          cd vitae
+          make all
 
       - name: Clean LaTeX aux files
-        run: make clean
+        run: |
+          cd vitae
+          make clean
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3

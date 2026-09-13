@@ -6,19 +6,19 @@ on:
   push:
     branches: [main]
     paths:
-      - '*.tex'
-      - '*.cls'
-      - '*.bib'
-      - 'Makefile'
-      - 'setup'
+      - 'vitae/*.tex'
+      - 'vitae/*.cls'
+      - 'vitae/*.bib'
+      - 'vitae/Makefile'
+      - 'vitae/setup'
       - '.github/workflows/build-cv.yml'
   pull_request:
     paths:
-      - '*.tex'
-      - '*.cls'
-      - '*.bib'
-      - 'Makefile'
-      - 'setup'
+      - 'vitae/*.tex'
+      - 'vitae/*.cls'
+      - 'vitae/*.bib'
+      - 'vitae/Makefile'
+      - 'vitae/setup'
       - '.github/workflows/build-cv.yml'
 
 jobs:
@@ -58,10 +58,14 @@ jobs:
             biber
 
       - name: Build CV (pdflatex + biber, 3 passes)
-        run: make cv
+        run: |
+          cd vitae
+          make cv
 
       - name: Build Cover Letter
-        run: make cl
+        run: |
+          cd vitae
+          make cl
 
       - name: Verify PDFs exist and have content
         run: |
