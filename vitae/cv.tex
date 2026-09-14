@@ -177,7 +177,11 @@ Leveraging such a background, I am currently helping designers to develop more e
 
 \cvevent{\href{http://github.com/ntilau/FES}{Finite Element Software (FES)}}{Università degli Studi di Firenze}{06/2011 - 02/2014}{Florence, Italy}
 \begin{itemize}
-\item FES is an open source framework for the development of "ad-hoc" simulation software aimed at a rapid implementation of novel numerical methods based on the Galerkin method. Core formulations verified reusing meshes from commercial packages (Comsol, HFSS)
+\item Developed a multi-backend (C++, Python, MATLAB) open-source finite element solver for electromagnetic and thermal analysis
+\item Implemented core formulations including 3D frequency-domain (curl-curl), 2D TMz, electrostatic, waveport eigenmode, and heat conduction solutions
+\item Integrated advanced features: transfinite element (TFE) method for accurate port modeling, domain decomposition for large problems, nonlinear Kerr materials, and discontinuous Galerkin thermal methods
+\item Verified implementations against commercial package meshes (HFSS, CST) and developed automated testing frameworks
+\item Contributed to all solver components: mesh import, finite element assembly, sparse solvers (MUMPS/ARPACK), and post-processing (S-parameters, VTK fields, radiation patterns, thermal visualizations)
 \end{itemize}
 \divider
 
