@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22><text y=%220.9em%22 font-size=%2290%22>📺</text></svg>">
-<title>La7 720p</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' font-family='%22Apple Color Emoji%22,%20%22Segoe UI Emoji%22,%20%22NotoColorEmoji%22,%20%20%22Android Emoji%22,%20%20EmojiSymbols'%3E📺%3C/text%3E%3C/svg%3E">
+<title>TV</title>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { width: 100%; height: 100%; overflow: hidden; background: #000; }
@@ -356,7 +356,7 @@ let idx = 0, osdTimer, hls;
 function dropChannel(i) {
   channels.splice(i, 1);
   if (channels.length === 0) {
-    document.title = 'No streams';
+    document.title = 'TV';
     chName.textContent = 'All streams failed';
     chIdx.textContent = '';
     return;
@@ -369,7 +369,7 @@ function load(i) {
   if (channels.length === 0) return;
   idx = ((i % channels.length) + channels.length) % channels.length;
   const ch = channels[idx];
-  document.title = ch.name;
+  document.title = 'TV';
   chName.textContent = ch.name;
   chIdx.textContent = (idx + 1) + '/' + channels.length;
   function showOsd() {
