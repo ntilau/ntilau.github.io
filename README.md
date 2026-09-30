@@ -1,14 +1,14 @@
-# La7 720p - Italian TV Streaming Application
+# TV Streaming Application
 
 ![GitHub](https://img.shields.io/github/license/ntilau/ntilau.github.io)
 ![GitHub Repo Size](https://img.shields.io/github/repo-size/ntilau/ntilau.github.io)
 ![GitHub last commit](https://img.shields.io/github/last-commit/ntilau/ntilau.github.io)
 
-A simple, elegant web application for streaming Italian TV channels using HLS.js. This application provides instant access to various Italian television streams with intuitive keyboard, touch, and mouse navigation.
+Discover a seamless way to watch live TV streams from around the world. This lightweight web application leverages HLS.js to deliver reliable streaming with instant fullscreen playback and intuitive navigation across devices.
 
 ## 📺 Features
 
-- **Multiple Italian TV Channels**: Stream La7, France 24, Arte, Rai channels, Mediaset, and many more
+- **Multiple TV Channels**: Stream channels from various countries and genres
 - **Instant Fullscreen**: Automatic fullscreen playback on launch
 - **Intuitive Navigation**: 
   - Keyboard: Arrow keys, PageUp/PageDown
@@ -31,16 +31,17 @@ A simple, elegant web application for streaming Italian TV channels using HLS.js
 
 ## 📋 Channel Categories
 
-The application includes a diverse selection of Italian and international channels available in Italy:
+The application includes a diverse selection of channels from various regions and categories:
 
-- **National Broadcasters**: La7, Rai channels, Mediaset channels
-- **News Channels**: France 24, Euronews, TGCom24, Sky TG24
+- **News Channels**: International news networks
 - **Entertainment & Lifestyle**: Various entertainment and lifestyle channels
 - **Sports**: Sports channels
 - **Kids**: Children's programming
-- **Regional & Local**: Regional and local Italian channels
+- **Regional & Local**: Regional and local channels
 - **Religious**: Religious channels
-- **International**: International channels available in Italy
+- **Educational**: Educational and documentary channels
+- **Music**: Music channels
+- **Government**: Government and parliamentary channels
 
 ## ⚙️ Technical Details
 
@@ -86,4 +87,4 @@ This application provides links to publicly available HLS streams. The content i
 
 ---
 
-*Developed with ❤️ for Italian TV enthusiasts*
+*Developed with ❤️ for TV enthusiasts*
