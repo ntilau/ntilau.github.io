@@ -353,8 +353,27 @@ const channels = [
 	];
 
 
+// Detect iOS devices for playsinline handling
+function isIOS() {
+  return [
+    'iPad Simulator',
+    'iPhone Simulator',
+    'iPod Simulator',
+    'iPad',
+    'iPhone',
+    'iPod'
+  ].includes(navigator.platform)
+  // iPad on iOS 13 detection
+  || (navigator.userAgent.includes('Mac') && 'ontouchend' in document);
+}
+
+
 
 const v = document.getElementById('v');
+// Remove playsinline attribute on iOS to allow JS fullscreen requests
+if (isIOS()) {
+  v.removeAttribute('playsinline');
+}
 const osd = document.getElementById('osd');
 const chName = document.getElementById('ch-name');
 const chIdx = document.getElementById('ch-idx');

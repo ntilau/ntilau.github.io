@@ -4,12 +4,12 @@
 ![GitHub Repo Size](https://img.shields.io/github/repo-size/ntilau/ntilau.github.io)
 ![GitHub last commit](https://img.shields.io/github/last-commit/ntilau/ntilau.github.io)
 
-Discover a seamless way to watch live TV streams from around the world. This lightweight web application leverages HLS.js to deliver reliable streaming with instant fullscreen playback and intuitive navigation across devices.
+Discover a seamless way to watch live TV streams from around the world. This lightweight web application leverages HLS.js to deliver reliable streaming with intuitive navigation across devices.
 
 ## 📺 Features
 
 - **Multiple TV Channels**: Stream channels from various countries and genres
-- **Instant Fullscreen**: Automatic fullscreen playback on launch
+- **Fullscreen Playback**: Attempts fullscreen playback on launch (now supported on iOS Safari via conditional attribute removal)
 - **Intuitive Navigation**: 
   - Keyboard: Arrow keys, PageUp/PageDown
   - Touch/Swipe: Natural gestures on mobile devices
@@ -22,7 +22,7 @@ Discover a seamless way to watch live TV streams from around the world. This lig
 ## 🚀 Usage
 
 1. Simply open `index.html` in any modern web browser
-2. The application begins playback in fullscreen mode automatically
+2. The application begins playback and attempts to enter fullscreen mode
 3. An on-screen display shows the current channel name and position
 4. Navigate between channels using:
    - **Keyboard**: Left/Right arrows or PageUp/PageDown
@@ -76,6 +76,10 @@ Works in any modern browser that supports:
 - HTML5 video element
 - CSS3 transitions and transforms
 - Either HLS.js or native HLS playback (Safari has native HLS support)
+
+### Note on Fullscreen Behavior
+
+The application attempts to enter fullscreen mode using the JavaScript `requestFullscreen()` API. To support fullscreen on iOS Safari, the `playsinline` attribute is conditionally removed on iOS devices, allowing JavaScript-initiated fullscreen requests to work there. On non-iOS platforms, the `playsinline` attribute is retained to prevent unwanted fullscreen transitions during playback. If JavaScript is disabled, the video will remain inline on all devices, but users can still manually enter fullscreen via browser controls.
 
 ## 📄 License
 
