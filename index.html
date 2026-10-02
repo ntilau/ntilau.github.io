@@ -367,6 +367,11 @@ function isIOS() {
   || (navigator.userAgent.includes('Mac') && 'ontouchend' in document);
 }
 
+// Detect mobile devices (iOS or Android)
+function isMobile() {
+  return isIOS() || /Android/i.test(navigator.userAgent);
+}
+
 
 
 const v = document.getElementById('v');
@@ -440,7 +445,40 @@ document.addEventListener('keydown', e => {
 });
 
 let touchStartX = 0, touchSwiped = false;
+// Double-tap detection variables
+let lastTapTime = 0;
+let lastTapX = 0;
+const DOUBLE_TAP_THRESHOLD = 300; // milliseconds
+const TAP_SIDE_THRESHOLD = 0.33; // fraction of screen width for side detection
 document.addEventListener('touchstart', e => {
+  // Double-tap detection for mobile devices
+  if (isMobile()) {
+    const touchX = e.touches[0].clientX;
+    const now = performance.now();
+    const timeSinceLastTap = now - lastTapTime;
+
+    // Check if this is a double-tap on left or right side
+    if (timeSinceLastTap < DOUBLE_TAP_THRESHOLD) {
+      const leftThreshold = window.innerWidth * TAP_SIDE_THRESHOLD;
+      const rightThreshold = window.innerWidth * (1 - TAP_SIDE_THRESHOLD);
+
+      if (touchX < leftThreshold) {
+        // Left side double-tap: page up (previous channel)
+        e.preventDefault();
+        load(idx - 1);
+        lastTapTime = 0; // Reset to prevent triple-tap
+        return;
+      } else if (touchX > rightThreshold) {
+        // Right side double-tap: page down (next channel)
+        e.preventDefault();
+        load(idx + 1);
+        lastTapTime = 0; // Reset to prevent triple-tap
+        return;
+      }
+    }
+  }
+
+  // Existing touchstart logic (reset for swipe detection)
   touchStartX = e.touches[0].clientX;
   touchSwiped = false;
 }, {passive: true});
