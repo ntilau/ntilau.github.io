@@ -38,10 +38,11 @@ jobs:
           # so the SvelteKit app is built to be served from /Ubuni/
           PAGES_BASE_PATH: /Ubuni
 
-      - name: Assemble site (Runinga / Isoko / Ubuni)
+      - name: Assemble site (landing / Runinga / Isoko / Ubuni)
         run: |
           rm -rf site
           mkdir -p site
+          cp index.html site/index.html
           cp -r Runinga site/Runinga
           cp -r Isoko site/Isoko
           cp -r Ubuni/frontend/build site/Ubuni
