@@ -31,7 +31,7 @@ jobs:
       - name: Build Ubuni (SvelteKit) for /Ubuni/
         working-directory: Ubuni/frontend
         run: |
-          npm install
+          npm ci
           npm run build
         env:
           # kit.paths.base is derived from PAGES_BASE_PATH (svelte.config.js),

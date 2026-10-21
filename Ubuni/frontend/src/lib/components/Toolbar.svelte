@@ -24,25 +24,6 @@
 	>
 		Wall
 	</button>
-	<button
-		on:click={() => setTool('door')}
-		class="px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-100 active:bg-gray-200 {$activeTool === 'door' ? 'bg-blue-100 text-blue-700' : ''}"
-	>
-		Door
-	</button>
-	<button
-		on:click={() => setTool('window')}
-		class="px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-100 active:bg-gray-200 {$activeTool === 'window' ? 'bg-blue-100 text-blue-700' : ''}"
-	>
-		Window
-	</button>
-	<button
-		on:click={() => setTool('pan')}
-		class="px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-100 active:bg-gray-200 {$activeTool === 'pan' ? 'bg-blue-100 text-blue-700' : ''}"
-	>
-		Pan
-	</button>
-
 	<div class="flex-1" />
 
 	<button

@@ -39,7 +39,7 @@ npm install
 npm run dev        # nodemon, http://localhost:5003
 ```
 
-It uses an in-memory user store and JWT auth (1-hour expiry); data resets on restart. To exercise the electronics pages locally, point the frontend URLs at your local server — note that `Isoko/scripts/update-*.sh` currently match only localhost/Heroku URLs and are no-ops against the remote host.
+It uses an in-memory user store and JWT auth (1-hour expiry); data resets on restart. To exercise the electronics pages locally, replace the hardcoded remote API URL in the frontend files with `http://localhost:5003`.
 
 ## Ubuni
 
@@ -57,7 +57,6 @@ npm install
 npm run dev        # Vite dev server
 npm run build      # static build in build/
 npm run check      # svelte-check (TypeScript strict)
-npm run lint       # ESLint
 npm run format     # Prettier
 ```
 
@@ -93,4 +92,4 @@ Only static files are deployed. The Isoko backend is not hosted on Pages; the el
 ## Notes
 
 - There is no shared build pipeline, lint config, or test framework at the repository root — each project is independent.
-- Project-specific guidance lives in `Isoko/CLAUDE.md` and `Ubuni/CLAUDE.md`. `Isoko/README.md` is inherited upstream content and does not describe this copy.
+- Project-specific guidance lives in `Isoko/CLAUDE.md` and `Ubuni/CLAUDE.md`.

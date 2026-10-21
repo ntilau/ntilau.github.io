@@ -38,12 +38,7 @@ Isoko/
 ├── style/               # CSS stylesheets (page-specific and component)
 ├── backend/             # Local development server (Node.js/Express)
 │   ├── server.js        # API implementation + mock data
-│   ├── package.json
-│   └── README.md
-├── scripts/             # Helper scripts to switch backend targets
-│   ├── update-backend-url.sh      # -> localhost:5000
-│   ├── update-port-to-5002.sh     # -> localhost:5002
-│   └── update-port-to-5003.sh     # -> localhost:5003
+│   └── package.json
 └── footerImg/           # Image assets for footer
 ```
 
@@ -69,7 +64,7 @@ npm run dev  # Uses nodemon for auto-restart during development
 npm start    # Standard Node.js mode
 
 # The backend will run on http://localhost:5003 by default
-# (Port configurable via PORT environment variable or update scripts)
+# (Port configurable via the PORT environment variable)
 ```
 
 ### Running the Frontend
@@ -93,20 +88,9 @@ sudo chown -R www-data:www-data /var/www/html/
 # Access the site at http://localhost/
 ```
 
-### Switching Backend Targets
+### Backend URL
 
-The frontend is configured to work with a local backend. The current deployment target is set via the update scripts:
-
-- To point to your local backend on port 5003: `./scripts/update-port-to-5003.sh`
-- To port 5002: `./scripts/update-port-to-5002.sh`
-- To port 5000 (original local-dev target): `./scripts/update-backend-url.sh`
-
-These scripts modify:
-  `index.html`, `signin.html`, `signUp.html`, `shoppingcart.html`,
-  `openproduct.html`, `electronics.html`, `electronics-subcategory.html`,
-  `script/electronics.js`
-
-Each script creates a timestamped backup before modifying files.
+The API base URL is hardcoded in the electronics-track HTML pages and `script/electronics.js`. It currently points at `http://143.47.179.233:5003`; change those occurrences directly to use a different backend.
 
 ## Common Development Tasks
 
@@ -148,7 +132,7 @@ Components are imported as ES modules in `<script type="module">` blocks on each
 - `GET /` - Health check
 
 ### Features
-- In-memory storage for users (Map) - fallback when MongoDB is not available
+- In-memory storage for users (Map); all data resets when the server restarts
 - JWT authentication with secret `isoko_secret_key_2026`, 1-hour expiry
 - CORS enabled for all origins (adjust for production as needed)
 - Port configurable via `PORT` environment variable (defaults to 5003)
@@ -158,8 +142,7 @@ Components are imported as ES modules in `<script type="module">` blocks on each
 - **Product**: id, productTitle, price, qty, productImg (array of image URLs)
 
 ### Setup Notes
-- The backend will work without MongoDB (uses in-memory Map for users)
-- For persistent storage, install MongoDB and set `MONGODB_URI` in `.env`
+- Users are stored in an in-memory Map; there is no database layer
 - Passwords are hashed using bcrypt
 - The electronics endpoint returns mock data; extend to fetch from real database as needed
 
@@ -200,7 +183,7 @@ The frontend can be deployed to any static file hosting service (Netlify, Vercel
 Current deployment points to: `http://143.47.179.233:5003`
 
 To deploy elsewhere:
-1. Update frontend to point to your backend instance using the update scripts or manual find/replace
+1. Update the frontend API URLs to point to your backend instance (manual find/replace)
 2. Deploy all files (excluding backend/ if hosting backend separately)
 3. Ensure backend is reachable from the frontend (CORS must be configured appropriately)
 

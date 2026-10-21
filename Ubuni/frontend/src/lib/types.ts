@@ -49,6 +49,6 @@ export type Design = {
   updatedAt: Date;
 };
 
-export type CanvasTool = 'select' | 'wall' | 'door' | 'window' | 'room' | 'furniture' | 'pan';
+export type CanvasTool = 'select' | 'wall' | 'furniture';
 
 export type ViewMode = '2d' | '3d';
