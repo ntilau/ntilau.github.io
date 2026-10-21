@@ -1,62 +1,60 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
 	import { furnitureLibrary } from './catalog';
-	type FurnitureItem = import('$lib/types').FurnitureItem;
-
-	const dispatch = createEventDispatcher<{ itemselect: { item: FurnitureItem } }>();
-
-	export let selectedItem: FurnitureItem | null = null;
+	import { placementItem, setTool, viewMode } from '$lib/store';
+	import type { FurnitureTemplate } from '$lib/types';
 
 	const categoryIcons: Record<string, string> = {
 		seating: '🪑',
-		tables: '🪑',
+		tables: '🍽️',
 		beds: '🛏️',
 		storage: '🗄️',
 		lighting: '💡',
 		decor: '🌿'
 	};
 
-	function getItemIcon(category: string) {
-		return categoryIcons[category] || '📦';
-	}
-
-	function selectItem(item: FurnitureItem) {
-		selectedItem = item;
-		dispatch('itemselect', { item });
+	function choose(item: FurnitureTemplate) {
+		setTool('furniture');
+		placementItem.set(item);
+		viewMode.set('2d');
 	}
 </script>
 
-<div class="flex flex-col h-full bg-gray-50 border-r border-gray-200 p-4 gap-4">
-	<h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Furniture Catalog</h2>
+<section class="p-4">
+	<h2 class="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400">
+		Furniture catalog
+	</h2>
 
-	<div class="flex flex-col gap-2 overflow-y-auto max-h-[60vh]">
-		{#each furnitureLibrary as item}
+	<div class="grid grid-cols-2 gap-2" role="listbox" aria-label="Furniture catalog">
+		{#each furnitureLibrary as item (item.id)}
 			<button
 				type="button"
-				class="flex items-center gap-3 p-2 rounded border cursor-pointer hover:bg-gray-200 transition-colors text-left"
-				class:border-blue-500={selectedItem?.id === item.id}
-				class:bg-blue-50={selectedItem?.id === item.id}
-				on:click={() => selectItem(item)}
+				class="flex items-center gap-2 rounded-md border p-2 text-left transition-colors {$placementItem?.id ===
+				item.id
+					? 'border-blue-500 bg-blue-50'
+					: 'border-slate-200 hover:border-slate-300 hover:bg-slate-50'}"
+				on:click={() => choose(item)}
+				aria-selected={$placementItem?.id === item.id}
 				role="option"
-				aria-selected={selectedItem?.id === item.id}
 			>
-				<div class="w-10 h-10 bg-gray-300 rounded flex items-center justify-center shrink-0 text-lg">
-					{getItemIcon(item.category)}
-				</div>
-				<div class="flex-1 min-w-0">
-					<div class="text-sm font-medium text-gray-700 truncate">{item.name}</div>
-					<div class="text-xs text-gray-500 truncate">{item.category}</div>
-				</div>
+				<span
+					class="flex h-9 w-9 shrink-0 items-center justify-center rounded bg-slate-100 text-base"
+				>
+					{categoryIcons[item.category] ?? '📦'}
+				</span>
+				<span class="min-w-0">
+					<span class="block truncate text-xs font-medium text-slate-700">{item.name}</span>
+					<span class="block text-[10px] text-slate-500">
+						{Math.round(item.size.x * 100)} × {Math.round(item.size.y * 100)} cm
+					</span>
+				</span>
 			</button>
 		{/each}
 	</div>
 
-	{#if selectedItem}
-		<div class="pt-2 border-t border-gray-200">
-			<div class="text-xs font-medium text-gray-600 mb-1">Selected: {selectedItem.name}</div>
-			<div class="text-xs text-gray-500">
-				Size: {selectedItem.size.x}cm × {selectedItem.size.y}cm
-			</div>
-		</div>
+	{#if $placementItem}
+		<p class="mt-3 text-xs leading-5 text-slate-500">
+			Placing <span class="font-medium text-slate-700">{$placementItem.name}</span>. Click the plan
+			to place; press Esc to stop.
+		</p>
 	{/if}
-</div>
+</section>

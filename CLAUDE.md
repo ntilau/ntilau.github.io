@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - `Runinga/` — `Runinga/index.html`: a single-file (~516 lines) HLS streaming TV app with 321 `{name, url}` M3U8 channels (HLS.js from jsDelivr, Safari native fallback). Keyboard, touch/swipe, mouse wheel, and click navigation with an on-screen display; failed streams are dropped automatically. No build step, no tests.
 - `Isoko/` — e-commerce site with a Node.js/Express backend in `backend/` and a vanilla-JS frontend; localStorage-based auth and cart. Has its own `Isoko/CLAUDE.md`.
-- `Ubuni/frontend/` — SvelteKit floor-plan editor (TypeScript strict, Tailwind, Three.js). Has its own `Ubuni/CLAUDE.md`. Commands: `npm run dev/build/preview/check/format`; no test framework.
+- `Ubuni/frontend/` — SvelteKit floor-plan editor (TypeScript strict, Tailwind, Three.js) with a Vitest suite. Has its own `Ubuni/CLAUDE.md`. Commands: `npm run dev/build/preview/check/test/format`.
 
 ## Commands
 
@@ -29,9 +29,10 @@ There are no build, lint, or test commands at the repository root. Run each sub-
 - `npm run build` — production build via `vite build` (outputs to `build/`)
 - `npm run preview` — serve the production build locally for verification
 - `npm run check` — `svelte-kit sync && svelte-check` (TypeScript strict)
+- `npm test` — run the Vitest suite once (`npm run test:watch` for watch mode; `npx vitest run src/lib/geometry.test.ts` for one file)
 - `npm run format` — Prettier
 
-No test framework is configured at root or in any sub-project, so there are no tests to run and no single-test command.
+Only Ubuni configures a test framework (Vitest); there are no tests at the repository root, in Runinga, or in Isoko.
 
 ## Architecture
 
@@ -66,16 +67,19 @@ Details: `Isoko/CLAUDE.md`. The `GET /electronics/{category}` handler returns th
 
 ### Ubuni (`Ubuni/frontend/`)
 
-Client-only SvelteKit floor-plan editor: no backend server, no API routes, no database; all design state lives in browser memory for the session only (not persisted to localStorage or synced to a server).
+Client-only SvelteKit floor-plan editor: no backend server, no API routes, no database. It is a full editor — select, walls, rooms, doors, windows, furniture, and pan tools; drag editing; undo/redo; zoom/fit; 3D orbit and click-selection; an inspector; and JSON/SVG/PDF export with JSON import. One design autosaves to `localStorage` under `ubuni:design:v1`; nothing is uploaded.
 
-- `src/lib/store.ts` — single source of truth: writable `design` store (walls, rooms, doors, windows, furniture) plus UI stores (`activeTool`, `viewMode`, `selectedFurniture`, `isDrawing`, `currentPoint`).
-- `src/lib/types.ts` — domain model: `Design`, `Wall`, `Room`, `Door`, `Window`, `FurnitureItem`, `Point`, `CanvasTool`, `ViewMode`.
-- `src/routes/+page.svelte` — app shell: `Toolbar`, sidebar (2D/3D toggle + `FurnitureCatalog`), canvas area, and fixed `DesignExporter`. The canvas swaps `Canvas2D.svelte` (Three.js orthographic, grid, grid-snapping) for `Canvas3D.svelte` (Three.js perspective, lit walls/furniture with shadows) based on `$viewMode`; both rebuild from the `design` store on every change.
-- `src/lib/catalog/catalog.ts` — `furnitureLibrary` (10 items); `FurnitureCatalog.svelte` dispatches `itemselect`, which sets `selectedFurniture` and switches the tool to `furniture`.
-- `src/lib/export/DesignExporter.svelte` — client-side download of the design as JSON, PDF (jspdf), or SVG; nothing is uploaded.
-- Only `wall` and `furniture` are interactive tools; `select` is the reset/default state (`CanvasTool` was narrowed to these three after the unimplemented door/window/pan buttons were removed).
+- **Units are meters** in the model and both canvases. Catalog sizes are authored in centimeters and converted at the source; the inspector shows centimeters. Defaults: wall thickness 0.15 m, snap 0.1 m, door 0.9 m, window 1.2 m.
+- `src/lib/store.ts` — single source of truth: `design` plus UI stores (`activeTool`, `viewMode`, `selection`, `placementItem`, `snapEnabled`, `zoom2D`, `cursorWorld`, `statusMessage`, `sidebarOpen`). `mutate()` is the sole mutation path and owns undo history, `updatedAt`, and selection pruning; `beginTransaction()`/`endTransaction()` coalesce a drag into one undo step.
+- `src/lib/geometry.ts` — pure math: snapping, projection, opening clamping, opening-aware wall splitting, polygons, bounds. `src/lib/plan.ts` — shared export plan (wall segments with gaps, doors/windows, rooms, furniture).
+- `src/lib/persistence.ts` — SSR-safe load/normalize/autosave (400 ms debounce) and JSON import envelopes.
+- `src/routes/+page.svelte` — app shell: `Toolbar`, sidebar (`FurnitureCatalog` + `Inspector`), the active canvas, `DesignExporter`, and `StatusBar`; the sidebar becomes a drawer below `md`. `Canvas2D.svelte` is the orthographic top-down editor; `Canvas3D.svelte` adds OrbitControls, shadows, openings, and click-selection. Both rebuild from `design` + `selection`.
+- `src/lib/editorKeys.ts` — 2D shortcuts (`V W M D N F H`, `R`, arrows, Delete, Escape, Cmd/Ctrl+Z, G, 0).
+- `src/lib/catalog/catalog.ts` — `furnitureLibrary` (10 items); choosing one sets `placementItem` and the furniture tool.
+- `src/lib/export/` — JSON import and JSON/SVG/PDF downloads; SVG and PDF are vector plans generated from `plan.ts`; nothing is uploaded.
+- Vitest covers `geometry`, `store`, and export modules (`src/lib/*.test.ts`, node environment, `$lib` alias).
 
-Styling: Tailwind (`tailwind.config.js`, `postcss.config.js`); SvelteKit with `adapter-static` (outputs `build/`, configured in `svelte.config.js`); Vite allows filesystem access to `..`. `+layout.svelte` is just a `<slot>`, `+layout.ts` sets `prerender = true`, and all app state lives in `+page.svelte`.
+Styling: Tailwind (`tailwind.config.js`, `postcss.config.js`); `app.css` is imported by `+layout.svelte`; SvelteKit uses `adapter-static` (outputs `build/`, configured in `svelte.config.js`); `+layout.ts` sets `prerender = true`. Vite allows filesystem access to `..`. `kit.paths.base` comes from `PAGES_BASE_PATH`, so production is built with `/Ubuni`. `vite preview` serves the build at `/`, not `/Ubuni/`; test the base-prefixed build by copying `build/` into a directory named `Ubuni/` and serving its parent.
 
 ### Deployment
 
@@ -107,6 +111,7 @@ The Isoko backend is not deployed — Pages serves only its static frontend, whi
 ## Verification
 
 - Open `Runinga/index.html` in a browser; confirm the video loads and left/right arrow keys change channels.
-- Serve the repository root (`python3 -m http.server 8080`) and confirm `/`, `/Runinga/`, and `/Isoko/` load. For Ubuni, run `npm run dev` or `npm run preview` from `Ubuni/frontend/`.
+- Serve the repository root (`python3 -m http.server 8080`) and confirm `/`, `/Runinga/`, and `/Isoko/` load. For Ubuni, run `npm run dev` (or build and preview) from `Ubuni/frontend/`, then draw walls/rooms, add a door, window, and furniture, undo/redo, toggle 3D, and export JSON/SVG/PDF.
+- In `Ubuni/frontend/`, run `npm run check && npm test && PAGES_BASE_PATH=/Ubuni npm run build`; confirm the build emits CSS and a base-prefixed `index.html`.
 - Confirm `Isoko/CLAUDE.md` and `Ubuni/CLAUDE.md` exist at their paths.
 - After editing, re-read this file to confirm no stale line numbers or paths remain.

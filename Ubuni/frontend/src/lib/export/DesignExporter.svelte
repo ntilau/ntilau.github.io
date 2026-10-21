@@ -1,68 +1,110 @@
 <script lang="ts">
-	import { design } from '$lib/store';
-	import { jsPDF } from 'jspdf';
-	import type { Design } from '$lib/types';
+	import { design as designStore, replaceDesign, statusMessage } from '$lib/store';
+	import { designFromImport, exportEnvelope } from '$lib/persistence';
+	import { designToSvg } from './svg';
+	import { downloadBlob, slugify } from './download';
+	import { downloadDesignPdf } from './pdf';
 
-	function exportAsJSON() {
-		const d = $design;
-		const dataStr = JSON.stringify(d, null, 2);
-		const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
-		const exportFileName = `${d.name.replace(/\s+/g, '_')}.json`;
+	let fileInput: HTMLInputElement;
+	let busy = false;
 
-		const linkElement = document.createElement('a');
-		linkElement.setAttribute('href', dataUri);
-		linkElement.setAttribute('download', exportFileName);
-		linkElement.click();
+	function exportJson() {
+		const current = $designStore;
+		downloadBlob(
+			JSON.stringify(exportEnvelope(current), null, 2),
+			`${slugify(current.name)}.json`,
+			'application/json'
+		);
+		statusMessage.set('Design exported as JSON');
 	}
 
-	function exportAsPDF() {
-		const d = $design;
-		const doc = new jsPDF();
-		doc.text(`Floor Plan: ${d.name}`, 20, 20);
-		doc.text(`Walls: ${d.walls.length}`, 20, 30);
-		doc.text(`Rooms: ${d.rooms.length}`, 20, 40);
-		doc.text(`Doors: ${d.doors.length}`, 20, 50);
-		doc.text(`Windows: ${d.windows.length}`, 20, 60);
-		doc.text(`Furniture: ${d.furniture.length}`, 20, 70);
-		doc.save(`${d.name.replace(/\s+/g, '_')}.pdf`);
+	function exportSvg() {
+		const current = $designStore;
+		const { svg } = designToSvg(current);
+		downloadBlob(svg, `${slugify(current.name)}.svg`, 'image/svg+xml');
+		statusMessage.set('Design exported as SVG');
 	}
 
-	function exportAsSVG() {
-		const d = $design;
-		let svgContent = '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600">';
-		d.walls.forEach((wall) => {
-			svgContent += `<line x1="${wall.start.x * 10}" y1="${wall.start.y * 10}" x2="${wall.end.x * 10}" y2="${wall.end.y * 10}" stroke="black" stroke-width="${wall.thickness * 10}" />`;
-		});
-		svgContent += '</svg>';
+	async function exportPdf() {
+		if (busy) return;
+		busy = true;
+		try {
+			await downloadDesignPdf($designStore);
+			statusMessage.set('Design exported as PDF');
+		} catch (error) {
+			statusMessage.set(
+				error instanceof Error ? `PDF export failed: ${error.message}` : 'PDF export failed'
+			);
+		} finally {
+			busy = false;
+		}
+	}
 
-		const dataUri = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgContent);
-		const linkElement = document.createElement('a');
-		linkElement.setAttribute('href', dataUri);
-		linkElement.setAttribute('download', `${d.name.replace(/\s+/g, '_')}.svg`);
-		linkElement.click();
+	function openImport() {
+		fileInput?.click();
+	}
+
+	async function onFileChange(event: Event) {
+		const input = event.currentTarget as HTMLInputElement;
+		const file = input.files?.[0];
+		if (!file) return;
+
+		try {
+			const parsed = JSON.parse(await file.text()) as unknown;
+			const imported = designFromImport(parsed);
+			if (!imported) throw new Error('not a valid Ubuni design file');
+			replaceDesign(imported);
+			statusMessage.set(`Imported ${imported.name}`);
+		} catch (error) {
+			statusMessage.set(
+				error instanceof Error ? `Import failed: ${error.message}` : 'Import failed'
+			);
+		} finally {
+			input.value = '';
+		}
 	}
 </script>
 
-<div class="fixed bottom-6 right-6 flex gap-2 z-50">
+<div class="absolute bottom-3 right-3 z-10 flex flex-wrap items-center gap-1 rounded-lg border border-slate-200 bg-white/95 p-1 shadow-lg backdrop-blur">
 	<button
-		on:click={exportAsJSON}
-		class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-900 transition-colors text-sm"
-		title="Export JSON"
+		type="button"
+		class="rounded px-2.5 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-100"
+		on:click={openImport}
+		title="Import a Ubuni JSON design"
+	>
+		Import
+	</button>
+	<span class="h-4 w-px bg-slate-200" />
+	<button
+		type="button"
+		class="rounded px-2.5 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-100"
+		on:click={exportJson}
+		title="Download the design as JSON"
 	>
 		JSON
 	</button>
 	<button
-		on:click={exportAsPDF}
-		class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors text-sm"
-		title="Export PDF"
-	>
-		PDF
-	</button>
-	<button
-		on:click={exportAsSVG}
-		class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors text-sm"
-		title="Export SVG"
+		type="button"
+		class="rounded px-2.5 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-100"
+		on:click={exportSvg}
+		title="Download a vector SVG plan"
 	>
 		SVG
 	</button>
+	<button
+		type="button"
+		class="rounded px-2.5 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-100 disabled:opacity-50"
+		on:click={exportPdf}
+		disabled={busy}
+		title="Download a vector PDF plan"
+	>
+		{busy ? 'PDF…' : 'PDF'}
+	</button>
+	<input
+		bind:this={fileInput}
+		type="file"
+		accept="application/json,.json"
+		class="hidden"
+		on:change={onFileChange}
+	/>
 </div>

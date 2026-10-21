@@ -1,5 +1,5 @@
-<script>
-	export let children;
+<script lang="ts">
+	import '../app.css';
 </script>
 
-<slot {children} />
+<slot />

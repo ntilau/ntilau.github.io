@@ -45,11 +45,12 @@ It uses an in-memory user store and JWT auth (1-hour expiry); data resets on res
 
 A client-only SvelteKit floor-plan editor built with TypeScript, Tailwind, and Three.js.
 
-- 2D canvas with grid snapping, wall drawing, and furniture placement; 3D lit view with shadows
-- Furniture catalog with 10 items
-- Export the current design as JSON, PDF, or SVG
-- All state is in memory for the session — nothing is persisted or uploaded
-- No tests are configured; `npm run check` provides TypeScript/Svelte validation
+- Full 2D editor: select, wall, room, door, window, furniture, and pan tools with snap-to-grid and endpoint snapping
+- Move/rotate/delete furniture, drag wall endpoints and room vertices, slide openings along walls, undo/redo, zoom and Fit
+- 3D orbit view with openings, room floors, furniture, and click-to-select
+- Inspector for editing selected objects; shortcuts and a live status bar
+- Autosaves one design to `localStorage`; New, JSON import/export, vector SVG and PDF export
+- Vitest suite for geometry, history, and exports
 
 ```bash
 cd Ubuni/frontend
@@ -57,6 +58,7 @@ npm install
 npm run dev        # Vite dev server
 npm run build      # static build in build/
 npm run check      # svelte-check (TypeScript strict)
+npm test           # Vitest
 npm run format     # Prettier
 ```
 
