@@ -1,131 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electronics</title>
-    <link rel="icon" href="https://bit.ly/3rwY3Og" type="image" />
-    <link rel="stylesheet" href="./style/electronics.css">
-    <link rel="stylesheet" href="./style/footer.css">
-    <link rel="stylesheet" href="./style/navbar.css">
-    <script src="https://kit.fontawesome.com/db1e80451c.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/a89380d960.js" crossorigin="anonymous"></script>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-    
-</head>
-
-<body>
-    
-    <section id="navsection">
-
-    </section>
-
-
-
-    <section id="productsection">
-        <div>
-            <div id="subcategory">
-                <a href="#">Categories</a>
-                <a href="#">Printers & Scanners</a>
-                <a href="./electronics-subcategory.html" onclick='storeCategory("Action & Sports Camera")'>Action & Sports Camera</a>
-                <a href="./electronics-subcategory.html" onclick='storeCategory("Action & Sports Camera Accessory")'>Action & Sports Camera Accessory</a>
-                <a href="./electronics-subcategory.html" onclick='storeCategory("Baby & Pet Monitor")'>Baby & Pet Monitor</a>
-                <a href="./electronics-subcategory.html" onclick='storeCategory("Backgrounds")'>Backgrounds</a>
-                <a href="#">Battery Grip</a>
-                <a href="#">Camera Filters</a>
-                <a href="#">Camera Flash Lights</a>
-                <a href="#">Camera Lens Hoods</a>
-                <a href="#">Camera Lenses</a>
-                <a href="#">Camera Straps</a>
-                <a href="#">Camera, Video Bags</a>
-                <a href="#">Car & Vehicle Camera</a>
-                <a href="#">Conference Camera</a>
-                <a href="#">Digital Cameras</a>
-                <a href="#">Digital Photo Frames</a>
-                <a href="#">Drone Sprayer</a>
-                <a href="#">Drones</a>
-                <a href="#">Drones Accessories</a>
-                <a href="#">Film Cameras</a>
-                <a href="#">Films</a>
-                <a href="#">Flash Diffusers</a>
-                <a href="#">Hunting Camera</a>
-                <a href="#">Kids Camera</a>
-                <a href="#">Len Caps</a>
-                <a href="#">Lens Adapters</a>
-                <a href="#">Mini & Hidden Camera</a>
-                <a href="#">Mini Camcorders</a>
-                <a href="#">Mobile Lenses</a>
-                <a href="#">Monopods</a>
-            </div>
-
-            <div id="electronic">
-
-            </div>
-        </div>
-    </section>
-
-    <section id="footersection">
-
-    </section>
-</body>
-
+<!doctype html>
+<html lang="en-IN">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Moved to the shop — Isoko</title>
+		<meta name="robots" content="noindex, nofollow" />
+		<meta http-equiv="refresh" content="0; url=shop.html?category=electronics" />
+		<link rel="canonical" href="shop.html?category=electronics" />
+		<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+		<link rel="stylesheet" href="style/isoko.css" />
+		<script>
+			window.location.replace('shop.html?category=electronics');
+		</script>
+	</head>
+	<body>
+		<main class="page-shell">
+			<div class="container">
+				<div class="empty-state">
+					<p class="eyebrow">This page has moved</p>
+					<h1>Electronics now lives in the shop.</h1>
+					<p>The old category pages have been folded into one searchable market.</p>
+					<a class="btn btn--primary" href="shop.html?category=electronics">Continue to Electronics</a>
+				</div>
+			</div>
+		</main>
+	</body>
 </html>
-<script src="./script/electronics.js"></script>
-<script type="module">
-import footer from "./components/footer.js";
-import navbar from "./components/navbar.js";
-
-document.querySelector("#footersection").innerHTML = footer();
-document.querySelector("#navsection").innerHTML = navbar();
-</script>
-<script>
-    let alibabacart = JSON.parse(localStorage.getItem("alibabacart")) || [];
-    let token = JSON.parse(localStorage.getItem("Authorization"));
-
-
-    function windOpen() {
-        if (token) return;
-        let x = document.getElementById("wind");
-        x.style.display = "block";
-    }
-    function windClose() {
-        if (token) return;
-        let x = document.getElementById("wind");
-        x.style.display = "none";
-    }
-
-    if (token) {
-        setTimeout(async () => {
-            let response = await fetch(`http://143.47.179.233:5003/users/${token}`);
-            user = await response.json();
-
-            document.querySelector("#navbar-signin-logo").innerHTML = `<p id="hi-user">Hi, ${user.firstName}</p>`;
-            let signout = document.createElement("button");
-            signout.onclick = () => {
-                localStorage.setItem("Authorization", null);
-                window.location.href = "./index.html";
-            }
-            signout.innerText = "Sign out";
-            signout.setAttribute("id", "signoutbtn");
-            document.querySelector("#nav-c").append(signout);
-
-            if (alibabacart.length > 0) {
-                document.querySelector("#cartCount").style.display = "block";
-                document.querySelector("#cartCount").textContent = alibabacart.length;
-            }
-        }, 1000);
-    }
-
-    let category = JSON.parse(localStorage.getItem("category"));
-
-    if(category=="Action & Sports Camera"){showCategory("action&sports-camera");}
-    else if(category=="Action & Sports Camera Accessory"){showCategory("action&sports-camera-acessory");}
-    else if(category=="Baby & Pet Monitor"){showCategory("baby&pet-monitor");}
-    else if(category=="Backgrounds"){showCategory("backgrounds");}
-
-    function storeCategory(category){
-        localStorage.setItem("category", JSON.stringify(category));
-    }
-</script>

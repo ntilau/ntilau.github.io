@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en-IN">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Shop the market — Isoko</title>
+		<meta
+			name="description"
+			content="Search and browse electronics, apparel and textiles, and car parts across the Isoko market."
+		/>
+		<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+		<link rel="stylesheet" href="style/isoko.css" />
+	</head>
+	<body data-page="shop">
+		<a class="skip-link" href="#main-content">Skip to content</a>
+		<header id="site-header"></header>
+
+		<main id="main-content">
+			<div class="page-shell">
+				<div class="container">
+					<nav class="breadcrumb" aria-label="Breadcrumb">
+						<a href="index.html">Home</a>
+						<span aria-hidden="true">
+							<svg class="icon" focusable="false"><use href="#icon-chevron"></use></svg>
+						</span>
+						<span aria-current="page">Shop</span>
+					</nav>
+
+					<div class="page-header">
+						<div>
+							<p class="eyebrow">One market, three useful corners</p>
+							<h1>Shop the market</h1>
+							<p>
+								Search everything at once, or narrow the shelves by category. Every product is available
+								to add to a local guest cart.
+							</p>
+						</div>
+					</div>
+
+					<section class="shop-toolbar" aria-label="Search and filter products">
+						<form class="search-form" id="shop-search" action="shop.html" method="get" role="search">
+							<div class="search-field">
+								<label class="visually-hidden" for="shop-query">Search products</label>
+								<svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-search"></use></svg>
+								<input
+									id="shop-query"
+									name="q"
+									type="search"
+									placeholder="Search by name, category, or keyword"
+									autocomplete="off"
+								/>
+							</div>
+							<button class="btn btn--primary" type="submit">Search</button>
+						</form>
+
+						<div class="shop-toolbar__row">
+							<div class="chip-row" id="category-chips" aria-label="Filter by category"></div>
+							<a class="btn btn--ghost btn--small" id="clear-filters" href="shop.html">Clear filters</a>
+						</div>
+					</section>
+
+					<div class="shop-meta">
+						<p class="results-count" id="results-count" aria-live="polite">Loading products…</p>
+						<label class="sort-field" for="sort-select">
+							<span>Sort by</span>
+							<select class="select" id="sort-select"></select>
+						</label>
+					</div>
+
+					<div class="product-grid" id="product-grid"></div>
+
+					<noscript>
+						<div class="empty-state">
+							<h2>Browse by category</h2>
+							<p>JavaScript powers search and the cart. These links still open the right shelf.</p>
+							<a class="btn btn--primary" href="shop.html?category=electronics">Electronics</a>
+							<a class="btn btn--secondary" href="shop.html?category=apparel">Apparel &amp; Textiles</a>
+							<a class="btn btn--secondary" href="shop.html?category=car-parts">Car Parts</a>
+						</div>
+					</noscript>
+				</div>
+			</div>
+		</main>
+
+		<footer id="site-footer"></footer>
+		<div id="toast-region" class="toast-region" role="status" aria-live="polite" aria-atomic="true"></div>
+		<script type="module" src="script/shop.js"></script>
+	</body>
+</html>

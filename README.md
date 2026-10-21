@@ -24,22 +24,23 @@ No build step. Open `Runinga/index.html` directly in a browser, or visit `/Runin
 
 ## Isoko
 
-An Alibaba-inspired storefront split across two data flows:
+A fully static, guest-only marketplace with its own Isoko identity. There is no backend, no accounts, and no payment integration.
 
-- **Electronics** pages fetch products and authenticate against an Express API. The checked-in frontend points at `http://143.47.179.233:5003`.
-- **Apparel and car parts** pages are fully static, with product arrays defined in the HTML.
+- One unified catalog of 44 products across electronics, apparel and textiles, and car parts
+- Search, category filters, and sorting in a shareable, URL-driven shop
+- Product pages with a gallery, quantity controls, related picks, and image fallbacks
+- A cart saved in `localStorage` (`isoko:cart:v1`) with quantity editing and a ₹499 delivery fee, free over ₹10,000
+- A local demo checkout that collects delivery details, generates an order number, saves the last order on the device, and clears the cart — nothing is uploaded or charged
+- Old category and account URLs redirect into the new shop or home page
 
-Auth tokens and the cart live in `localStorage` (`Authorization`, `alibabacart`).
-
-A local API equivalent is included in `Isoko/backend/`:
+No build step or API is required. Serve the repository root and open `/Isoko/`:
 
 ```bash
-cd Isoko/backend
-npm install
-npm run dev        # nodemon, http://localhost:5003
+python3 -m http.server 8080
+# http://localhost:8080/Isoko/
 ```
 
-It uses an in-memory user store and JWT auth (1-hour expiry); data resets on restart. To exercise the electronics pages locally, replace the hardcoded remote API URL in the frontend files with `http://localhost:5003`.
+Product images use remote alicdn URLs with a local branded placeholder on failure. The legacy `alibabacart` cart is migrated once into the new cart format.
 
 ## Ubuni
 
@@ -70,11 +71,10 @@ npm run format     # Prettier
 ├── Runinga/
 │   └── index.html             # streaming app
 ├── Isoko/
-│   ├── *.html                 # storefront pages
-│   ├── components/            # shared ES-module UI
-│   ├── script/                # page-specific JS
-│   ├── style/                 # stylesheets
-│   └── backend/               # local Express API
+│   ├── *.html                 # home, shop, product, cart, redirect stubs
+│   ├── script/                # catalog, cart/store, layout, UI, page controllers
+│   ├── style/                 # one shared design system
+│   └── assets/                # favicon and product placeholder
 ├── Ubuni/
 │   └── frontend/              # SvelteKit app
 └── .github/workflows/
@@ -91,7 +91,7 @@ Pushing to `main` triggers `.github/workflows/deploy.yml`, which:
 2. Assembles a fresh `site/` directory from the landing page, `Runinga/`, `Isoko/`, and the Ubuni build.
 3. Publishes `site/` to GitHub Pages.
 
-Only static files are deployed. The Isoko backend is not hosted on Pages; the electronics pages depend on the remote API URL baked into the frontend.
+Only static files are deployed. Isoko is entirely client-side, so it needs no API host; its cart and demo orders stay in each visitor's browser.
 
 ## Notes
 

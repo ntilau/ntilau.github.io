@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 `ntilau.github.io` is a GitHub Pages site pairing a root landing page with three independent sub-projects, each in its own subdirectory and served at its own path. There is no shared local build, lint, or test setup at the repository root; every sub-project is self-contained. A single root workflow deploys all of them (see [Deployment](#deployment)).
 
 - `Runinga/` — `Runinga/index.html`: a single-file (~516 lines) HLS streaming TV app with 321 `{name, url}` M3U8 channels (HLS.js from jsDelivr, Safari native fallback). Keyboard, touch/swipe, mouse wheel, and click navigation with an on-screen display; failed streams are dropped automatically. No build step, no tests.
-- `Isoko/` — e-commerce site with a Node.js/Express backend in `backend/` and a vanilla-JS frontend; localStorage-based auth and cart. Has its own `Isoko/CLAUDE.md`.
+- `Isoko/` — fully static, guest-only marketplace (44 products across electronics, apparel, and car parts) built with plain HTML, CSS, and ES modules; catalog, local cart, and demo checkout, with no backend or accounts. Has its own `Isoko/CLAUDE.md`.
 - `Ubuni/frontend/` — SvelteKit floor-plan editor (TypeScript strict, Tailwind, Three.js) with a Vitest suite. Has its own `Ubuni/CLAUDE.md`. Commands: `npm run dev/build/preview/check/test/format`.
 
 ## Commands
@@ -21,8 +21,8 @@ There are no build, lint, or test commands at the repository root. Run each sub-
 - Open `Runinga/index.html` in a modern browser. Save edits and reload to test; debug with browser dev tools (F12).
 
 **Isoko** — full details in `Isoko/CLAUDE.md`
-- Backend: `cd Isoko/backend && npm install && npm run dev` (nodemon, auto-restart) or `npm start`; server defaults to http://localhost:5003.
-- Frontend: serve static files, e.g. `python -m http.server 8080` from the repository root, then open http://localhost:8080/Isoko/.
+- Serve static files with `python3 -m http.server 8080` from the repository root, then open http://localhost:8080/Isoko/. There is no backend, build step, or test suite.
+- Syntax-check the ES modules with `for file in Isoko/script/*.js; do node --check "$file" || exit 1; done`.
 
 **Ubuni** — from `Ubuni/frontend/`; full details in `Ubuni/CLAUDE.md`
 - `npm run dev` — Vite dev server (falls back to the next free port if 5173 is taken; URL printed to stdout)
@@ -36,7 +36,7 @@ Only Ubuni configures a test framework (Vitest); there are no tests at the repos
 
 ## Architecture
 
-The repository is a loose collection of independent static/web projects under one GitHub Pages domain. Each sub-project owns its HTML, CSS, JavaScript, and (where applicable) backend. There is no shared state, no common component library, and no cross-project build step. The root `index.html` is a dependency-free landing page linking to the three sub-projects; the root workflow is the only piece that knows about all of them.
+The repository is a loose collection of independent static/web projects under one GitHub Pages domain. Each sub-project owns its HTML, CSS, and JavaScript. There is no shared state, no common component library, and no cross-project build step. The root `index.html` is a dependency-free landing page linking to the three sub-projects; the root workflow is the only piece that knows about all of them.
 
 ### Runinga (`Runinga/index.html`)
 
@@ -55,15 +55,16 @@ Single HTML file with three sections:
 
 ### Isoko (`Isoko/`)
 
-Dual data flow across two tracks:
+Fully static, guest-only marketplace: no backend, auth, payment, or network writes. It has its own Isoko visual identity and uses relative paths so it works at `/Isoko/` on Pages.
 
-- **Electronics track** (electronics, electronics-subcategory, openproduct, shoppingcart, index, signin, signUp): consumes the backend REST API (currently the remote host below; `Isoko/backend/` is a local equivalent) — `POST /register`, `POST /login`, `GET /users/{token}`, `GET /electronics/{category}` — for authentication and product data.
-- **Apparels / car parts track** (apparels, apparel, carpart): static, hardcoded product arrays in the HTML; no backend calls.
-- Both tracks share auth/cart via localStorage: `Authorization` (JWT token), `alibabacart` (cart), `openedProduct` / `details_prod` (opened product). Shared ES-module components live in `components/` (`navbar.js`, `footer.js`, `homepagefooter.js`).
-- Backend (`backend/server.js`): Express + bcryptjs + jsonwebtoken; users live only in an in-memory `Map`, so data resets on restart; JWT secret `isoko_secret_key_2026` with 1-hour expiry; CORS for all origins; port from `PORT` env (default 5003).
-- Backend URL is hardcoded to `http://143.47.179.233:5003` in all eight frontend consumers; to use the local backend, edit those URLs to `http://localhost:5003`.
+- **Pages**: `index.html` (home), `shop.html` (unified catalog), `openproduct.html?id=…` (product detail), and `shoppingcart.html` (cart/checkout, with `?ordered=1` confirmation). Old category and account pages are redirect stubs into the new shop or home.
+- **Catalog** — `script/catalog.js` is the single source of truth for 3 categories and 44 products. Search, category filters, and sorting are pure URL-driven functions. Product IDs are globally unique (`electronics-1`, `apparel-1`, `car-parts-1`).
+- **Cart/orders** — `script/store.js` is the only writer, with `isoko:cart:v1` and `isoko:last-order:v1` in `localStorage`; shipping is ₹499 and free at ₹10,000. Reads validate storage, drop unknown products, merge duplicates, and clamp quantities. A one-time migration converts legacy `alibabacart` entries.
+- **Shared chrome** — `script/layout.js` renders the header/footer, cart badge, mobile menu, and breadcrumbs. `script/ui.js` provides cards, images with a local fallback, quantity steppers, empty states, and toasts; `script/utils.js` holds formatting and URL helpers. One shared stylesheet lives at `style/isoko.css`.
+- **Demo checkout** — collects delivery details locally, creates an `ISK-YYYYMMDD-XXXX` order, saves it on the device, clears the cart, and shows a printable confirmation. Nothing is uploaded and no payment is taken.
+- Product images remain remote alicdn URLs, lazy-loaded, with `assets/product-placeholder.svg` on failure.
 
-Details: `Isoko/CLAUDE.md`. The `GET /electronics/{category}` handler returns the same mock items for every category.
+Details: `Isoko/CLAUDE.md`.
 
 ### Ubuni (`Ubuni/frontend/`)
 
@@ -89,7 +90,7 @@ GitHub Pages must be configured with Source: **GitHub Actions** (`build_type: wo
 2. Assembles a fresh `site/` directory containing `index.html` (landing page), `Runinga/`, `Isoko/`, and the Ubuni build as `Ubuni/`.
 3. Uploads `site/` as the Pages artifact and deploys it.
 
-The Isoko backend is not deployed — Pages serves only its static frontend, which points at the remote backend host noted above. Any root-level file that should be published must be copied into `site/` by the workflow.
+Isoko, Runinga, and the landing page are static and need no API host; Isoko's cart and demo orders stay in each visitor's browser. Any root-level file that should be published must be copied into `site/` by the workflow.
 
 ## Common Tasks
 
@@ -111,7 +112,7 @@ The Isoko backend is not deployed — Pages serves only its static frontend, whi
 ## Verification
 
 - Open `Runinga/index.html` in a browser; confirm the video loads and left/right arrow keys change channels.
-- Serve the repository root (`python3 -m http.server 8080`) and confirm `/`, `/Runinga/`, and `/Isoko/` load. For Ubuni, run `npm run dev` (or build and preview) from `Ubuni/frontend/`, then draw walls/rooms, add a door, window, and furniture, undo/redo, toggle 3D, and export JSON/SVG/PDF.
+- Serve the repository root (`python3 -m http.server 8080`) and confirm `/`, `/Runinga/`, and `/Isoko/` load. For Isoko, verify home search, shop filters/sort, a product add-to-cart, cart persistence and totals, a demo order confirmation, redirects, and no horizontal overflow at 320 px. For Ubuni, run `npm run dev` (or build and preview) from `Ubuni/frontend/`, then draw walls/rooms, add a door, window, and furniture, undo/redo, toggle 3D, and export JSON/SVG/PDF.
 - In `Ubuni/frontend/`, run `npm run check && npm test && PAGES_BASE_PATH=/Ubuni npm run build`; confirm the build emits CSS and a base-prefixed `index.html`.
 - Confirm `Isoko/CLAUDE.md` and `Ubuni/CLAUDE.md` exist at their paths.
 - After editing, re-read this file to confirm no stale line numbers or paths remain.

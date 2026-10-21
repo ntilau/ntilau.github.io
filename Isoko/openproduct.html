@@ -1,147 +1,151 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-IN">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Product — Isoko</title>
+		<meta name="description" content="A closer look at a product from the Isoko market." />
+		<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+		<link rel="stylesheet" href="style/isoko.css" />
+	</head>
+	<body data-page="product">
+		<a class="skip-link" href="#main-content">Skip to content</a>
+		<header id="site-header"></header>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
-    <script src="https://kit.fontawesome.com/683b4b40e3.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./style/openproduct.css">
-    <link rel="stylesheet" href="./style/footer.css">
-    <link rel="stylesheet" href="./style/navbar.css">
-    <script src="https://kit.fontawesome.com/db1e80451c.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/a89380d960.js" crossorigin="anonymous"></script>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-</head>
+		<main id="main-content">
+			<div class="page-shell">
+				<div class="container">
+					<nav class="breadcrumb" aria-label="Breadcrumb">
+						<a href="index.html">Home</a>
+						<span aria-hidden="true">
+							<svg class="icon" focusable="false"><use href="#icon-chevron"></use></svg>
+						</span>
+						<a href="shop.html">Shop</a>
+						<span aria-hidden="true">
+							<svg class="icon" focusable="false"><use href="#icon-chevron"></use></svg>
+						</span>
+						<a id="breadcrumb-category" href="shop.html" hidden></a>
+						<span id="breadcrumb-category-separator" aria-hidden="true" hidden>
+							<svg class="icon" focusable="false"><use href="#icon-chevron"></use></svg>
+						</span>
+						<span id="breadcrumb-current" aria-current="page">Product</span>
+					</nav>
 
-<body>
-    <section id="navsection">
+					<section id="product-view" hidden>
+						<div class="product-layout">
+							<div class="product-gallery">
+								<div class="product-gallery__main" id="gallery-main"></div>
+								<div
+									class="product-gallery__thumbs"
+									id="gallery-thumbs"
+									aria-label="Product images"
+								></div>
+							</div>
 
-    </section>
+							<div class="product-details">
+								<p class="product-details__eyebrow">
+									<a id="product-category" href="shop.html"></a>
+									<span aria-hidden="true">·</span>
+									<span id="product-subcategory"></span>
+								</p>
+								<h1 id="product-title"></h1>
+								<p class="product-price" id="product-price"></p>
+								<p class="product-stock" id="product-stock"></p>
+								<p class="product-description" id="product-description"></p>
 
+								<div class="product-buybox">
+									<div class="product-buybox__row">
+										<span class="product-buybox__label" id="quantity-label">Quantity</span>
+										<div id="quantity-slot"></div>
+									</div>
+									<div class="product-buybox__actions">
+										<button class="btn btn--primary" id="add-to-cart" type="button">
+											Add to cart
+										</button>
+										<a class="btn btn--secondary" href="shoppingcart.html">View cart</a>
+									</div>
+									<p class="shipping-hint">
+										<svg class="icon" aria-hidden="true" focusable="false">
+											<use href="#icon-truck"></use>
+										</svg>
+										<span>Delivery is ₹499, free over ₹10,000. Checkout is a local demo — no payment.</span>
+									</p>
+								</div>
 
-    <div id="displayProductdiv">
-        <div id="productImage">
-            <img src="" alt="">
+								<dl class="spec-list">
+									<div>
+										<dt>SKU</dt>
+										<dd id="spec-sku"></dd>
+									</div>
+									<div>
+										<dt>Category</dt>
+										<dd id="spec-category"></dd>
+									</div>
+									<div>
+										<dt>Subcategory</dt>
+										<dd id="spec-subcategory"></dd>
+									</div>
+									<div>
+										<dt>Availability</dt>
+										<dd id="spec-availability"></dd>
+									</div>
+									<div>
+										<dt>Dispatch</dt>
+										<dd>Ready in 1–2 working days</dd>
+									</div>
+									<div>
+										<dt>Checkout</dt>
+										<dd>Guest demo — no account, no payment</dd>
+									</div>
+								</dl>
+							</div>
+						</div>
 
-            <div id="multiImage">
-            </div>
-        </div>
+						<section class="product-section" aria-labelledby="related-heading">
+							<div class="section-header">
+								<div>
+									<h2 id="related-heading">More from this corner</h2>
+									<p>A few nearby picks from the same category.</p>
+								</div>
+								<a class="btn btn--secondary btn--small" id="related-link" href="shop.html">
+									Browse the category
+								</a>
+							</div>
+							<div class="product-grid" id="related-grid"></div>
+						</section>
+					</section>
 
-        <div id="productdesc">
-            <div id="readytoship">
-                <p>Ready to Ship</p>
-                <p><i class="far fa-check-circle"></i> In Stock <i class="far fa-check-circle"></i> Fast Dispatch</p>
-            </div>
+					<section class="product-not-found" id="product-missing" hidden>
+						<div class="product-not-found__art">
+							<svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-package"></use></svg>
+						</div>
+						<div>
+							<p class="eyebrow">Product not found</p>
+							<h1>That item has left the shelf.</h1>
+							<p>
+								The link may be old or the product may no longer be in this market. The rest of the shop
+								is still open.
+							</p>
+							<div class="hero-actions product-not-found__actions">
+								<a class="btn btn--primary" href="shop.html">Back to the shop</a>
+								<a class="btn btn--secondary" href="index.html">Go home</a>
+							</div>
+						</div>
+					</section>
 
-            <p id="title">
+					<noscript>
+						<div class="empty-state">
+							<h2>Open the shop instead</h2>
+							<p>Product details need JavaScript. You can still browse every category in the shop.</p>
+							<a class="btn btn--primary" href="shop.html">Back to the shop</a>
+						</div>
+					</noscript>
+				</div>
+			</div>
+		</main>
 
-            </p>
-
-            <hr>
-
-            <p id="price">
-
-            </p>
-
-            <hr>
-
-            <div id="qtyDiv">
-                <label for="">Quantity : </label>
-                <div onclick="decQty()">
-                    <p>-</p>
-                </div>
-                <input type="number">
-                <div onclick="incQty()">
-                    <p>+</p>
-                </div>
-                <span>
-                    pieces
-                </span>
-            </div>
-        </div>
-
-
-        <div id="pricedetail">
-            <div id='item-total-price'>
-                <p id="pieces"></p>
-                <p id="item-amount"></p>
-            </div>
-            <span>Processing Time 3 days</span>
-
-            <hr>
-
-            <div id='shipping-total-price'>
-                <p>Shipping</p>
-                <p>₹11,700.63</p>
-            </div>
-
-            <hr>
-
-            <div id='total-price'>
-                <p>Total</p>
-                <p id="showtotal"></p>
-            </div>
-
-            <button>Start Order</button>
-            <button><i class="far fa-envelope"></i> Contact Supplier</button>
-            <button onclick="addtocart()"><i class="fas fa-shopping-cart"></i> Add to cart</button>
-        </div>
-    </div>
-
-    <section id="footersection">
-
-    </section>
-</body>
-
+		<footer id="site-footer"></footer>
+		<div id="toast-region" class="toast-region" role="status" aria-live="polite" aria-atomic="true"></div>
+		<script type="module" src="script/product.js"></script>
+	</body>
 </html>
-<script src="./script/openproduct.js"></script>
-
-<script type="module">
-    import footer from "./components/footer.js";
-    import navbar from "./components/navbar.js";
-
-    document.querySelector("#footersection").innerHTML = footer();
-    document.querySelector("#navsection").innerHTML = navbar();
-
-
-</script>
-<script>
-    alibabacart = JSON.parse(localStorage.getItem("alibabacart")) || [];
-    let token = JSON.parse(localStorage.getItem("Authorization"));
-
-
-    function windOpen() {
-        if (token) return;
-        let x = document.getElementById("wind");
-        x.style.display = "block";
-    }
-    function windClose() {
-        if (token) return;
-        let x = document.getElementById("wind");
-        x.style.display = "none";
-    }
-
-    if (token) {
-        setTimeout(async () => {
-            let response = await fetch(`http://143.47.179.233:5003/users/${token}`);
-            user = await response.json();
-
-            document.querySelector("#navbar-signin-logo").innerHTML = `<p id="hi-user">Hi, ${user.firstName}</p>`;
-            let signout = document.createElement("button");
-            signout.onclick = () => {
-                localStorage.setItem("Authorization", null);
-                window.location.href = "./index.html";
-            }
-            signout.innerText = "Sign out";
-            signout.setAttribute("id", "signoutbtn");
-            document.querySelector("#nav-c").append(signout);
-
-            if (alibabacart.length > 0) {
-                document.querySelector("#cartCount").style.display = "block";
-                document.querySelector("#cartCount").textContent = alibabacart.length;
-            }
-        }, 1000);
-    }
-</script>

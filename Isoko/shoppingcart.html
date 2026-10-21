@@ -1,82 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-IN">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Your cart — Isoko</title>
+		<meta
+			name="description"
+			content="Review your Isoko guest cart, update quantities, and place a local demo order with no payment."
+		/>
+		<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+		<link rel="stylesheet" href="style/isoko.css" />
+	</head>
+	<body data-page="cart">
+		<a class="skip-link" href="#main-content">Skip to content</a>
+		<header id="site-header"></header>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
-    <script src="https://kit.fontawesome.com/db1e80451c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./style/shoppingcart.css">
-    <link rel="stylesheet" href="./style/footer.css">
-</head>
+		<main id="main-content">
+			<div class="page-shell">
+				<div class="container" id="cart-root"></div>
+			</div>
 
-<body>
-    <div id="header">
-        <div>
-            <a href="./index.html"><img src="https://s.alicdn.com/@img/tfs/TB1pDDmmF67gK0jSZPfXXahhFXa-2814-380.png"
-                    alt=""></a>
-        </div>
-        <p>
-            Shopping Cart
-        </p>
-    </div>
+			<noscript>
+				<div class="container">
+					<div class="empty-state">
+						<h1>Your cart needs JavaScript</h1>
+						<p>The cart is stored in this browser, so it needs JavaScript to read and update it.</p>
+						<a class="btn btn--primary" href="shop.html">Back to the shop</a>
+					</div>
+				</div>
+			</noscript>
+		</main>
 
-    <div id="items">
-        <div id="left">
-
-        </div>
-
-        <div id="right">
-            <div>
-                <p>Total Amount</p>
-                <p id="totalamount"></p>
-            </div>
-            <div>
-                <p>Shipping Fee:</p>
-                <p>₹ 11700.63/-</p>
-            </div>
-            <hr>
-            <div>
-                <p>Payment Amount:</p>
-                <p>To be negotiated</p>
-            </div>
-
-            <button onclick="submitorder()">Submit Order</button>
-        </div>
-    </div>
-
-    <section id="footersection">
-
-    </section>
-</body>
-
+		<footer id="site-footer"></footer>
+		<div id="toast-region" class="toast-region" role="status" aria-live="polite" aria-atomic="true"></div>
+		<script type="module" src="script/cart.js"></script>
+	</body>
 </html>
-
-<script type="module">
-    import footer from "./components/footer.js";
-
-    document.querySelector("#footersection").innerHTML = footer();
-</script>
-
-<script src="./script/shoppingcart.js"></script>
-
-<script>
-    let token = JSON.parse(localStorage.getItem("Authorization"));
-
-
-    async function submitorder() {
-        let response = await fetch(`http://143.47.179.233:5003/users/${token}`);
-        user = await response.json();
-
-        if (user) {
-            alert("Your order has been submitted, you will receive a call from the dealer soon.");
-            localStorage.setItem("alibabacart", JSON.stringify([]));
-            window.location.href = "./index.html";
-        }
-        else {
-            alert("You are not signed in");
-            window.location.href = "./signin.html";
-        }
-    }
-</script>

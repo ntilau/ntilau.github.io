@@ -4,187 +4,152 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Isoko.app is a frontend-only static e-commerce site with a dual data-flow architecture:
+Isoko is a **fully static, guest-only marketplace** served at `/Isoko/` on GitHub Pages. It has no backend, no accounts, no payment integration, and no build step. All application state lives in the browser: the cart and the last demo order are stored in `localStorage`, and nothing is uploaded.
 
-1. **Electronics Track** (electronics.html, electronics-subcategory.html, openproduct.html, shoppingcart.html, index.html, signin.html, signUp.html):
-   - Consumes a REST API from the local backend (included in the repository) for authentication and product data
-   - Auth endpoints: POST /register, POST /login, GET /users/{token}
-   - Product endpoint: GET /electronics/{category} (returns mock data)
-   - Uses localStorage for token (`Authorization`), cart (`alibabacart`), opened product (`openedProduct`), category (`category`)
+The site carries its own Isoko brand (warm paper, deep green ink, terracotta and gold accents), not an Alibaba lookalike. It has one unified catalog of **44 products** across three categories: electronics (12), apparel and textiles (12), and car parts (20). Product images remain remote alicdn URLs, lazy-loaded, with a local branded fallback.
 
-2. **Apparels/Car Parts Track** (apparels.html, apparel.html, carpart.html):
-   - Uses **static, hardcoded product arrays** defined directly in the HTML files
-   - No backend API calls; all product data is client-side
-   - Product detail flow uses localStorage (`details_prod` for apparels, `openedProduct` for carparts via shared openproduct.js)
-   - Shares auth/cart mechanisms with electronics track via common navbar.js and localStorage keys
+Every path is relative so the app works both at `/Isoko/` on Pages and from a local static server.
 
-The repository includes a local backend (`backend/`) for development, allowing full functionality without external dependencies.
+## Commands
 
-## Project Structure
-
-```
-Isoko/
-├── [HTML pages for both tracks]
-├── components/          # Shared UI components (ES modules)
-│   ├── navbar.js        # Navigation bar (auth-aware, cart count)
-│   ├── footer.js        # Footer
-│   └── homepagefooter.js# Homepage-specific footer
-├── script/              # Page-specific JavaScript
-│   ├── apparel.js       # Apparel product detail logic
-│   ├── carpart.js       # Car parts logic (static array)
-│   ├── electronics.js   # Electronics product fetching/display
-│   ├── openproduct.js   # Product detail logic (shared)
-│   └── shoppingcart.js  # Shopping cart logic
-├── style/               # CSS stylesheets (page-specific and component)
-├── backend/             # Local development server (Node.js/Express)
-│   ├── server.js        # API implementation + mock data
-│   └── package.json
-└── footerImg/           # Image assets for footer
-```
-
-## Development Setup
-
-### Prerequisites
-- Modern web browser
-- Node.js (v14 or higher) - for local backend
-- Python (for simple frontend server) OR Apache2 (optional)
-
-### Running the Local Backend (Required for Electronics Track)
+There is no build, lint, package manager, or test suite for Isoko.
 
 ```bash
-# Navigate to backend directory
-cd backend
-
-# Install dependencies (first time only)
-npm install
-
-# Start the server
-npm run dev  # Uses nodemon for auto-restart during development
-# OR
-npm start    # Standard Node.js mode
-
-# The backend will run on http://localhost:5003 by default
-# (Port configurable via the PORT environment variable)
+# From the repository root
+python3 -m http.server 8080
+# Open http://localhost:8080/Isoko/
 ```
 
-### Running the Frontend
+Useful static checks:
 
-#### Option 1: Python Built-in Server (Recommended for Development)
 ```bash
-# From repository root
-python -m http.server 8080
+# JS modules are plain ES modules
+for file in Isoko/script/*.js; do node --check "$file" || exit 1; done
 
-# Access the site at http://localhost:8080
+# No backend/API/auth remnants (only the intentional legacy keys in store.js remain)
+rg -n '143\.47\.179\.233|/backend|jwt|bcrypt|Authorization|fetch\(|XMLHttpRequest|axios' Isoko
+
+# No dead controls
+rg -n 'href="#"|href=""|src=""' Isoko
 ```
 
-#### Option 2: Apache2 (Production-like)
-```bash
-# Copy files to Apache document root (adjust path as needed)
-sudo cp -r * /var/www/html/
+Deployment is handled by the root `.github/workflows/deploy.yml`, which copies the entire `Isoko/` directory into the Pages artifact. There is no Isoko-specific workflow.
 
-# Ensure proper permissions
-sudo chown -R www-data:www-data /var/www/html/
+## Page Map
 
-# Access the site at http://localhost/
+| File | Purpose |
+| --- | --- |
+| `index.html` | Editorial home: working search, hero collage, category tiles, featured picks, how-it-works, demo rules |
+| `shop.html` | Unified catalog with search, category chips, sort, result count, and quick-add |
+| `openproduct.html` | Product detail selected by `?id=<global-product-id>`; gallery, quantity, add to cart, related products |
+| `shoppingcart.html` | Guest cart, delivery form, demo checkout, and `?ordered=1` confirmation |
+| `electronics.html`, `electronics-subcategory.html` | Redirect to `shop.html?category=electronics` |
+| `apparels.html`, `apparel.html` | Redirect to `shop.html?category=apparel` |
+| `carpart.html` | Redirect to `shop.html?category=car-parts` |
+| `signin.html`, `signUp.html` | Redirect to `index.html`; accounts no longer exist |
+
+Redirect stubs use `meta refresh`, `window.location.replace`, a visible fallback link, and `noindex`. Keep them working when routes change.
+
+### URL Contract
+
+- `shop.html?category=electronics|apparel|car-parts&q=<search>&sort=featured|price-asc|price-desc|name-asc`
+- `openproduct.html?id=electronics-1` (IDs are globally unique and category-prefixed)
+- `shoppingcart.html?ordered=1` re-renders the saved last order
+
+Shop state is URL-driven. `script/shop.js` reads and validates it on load, then updates the URL with `history.replaceState` as filters change. Unknown categories or sort values fall back to all products / featured order.
+
+## Architecture
+
+### Shared chrome
+
+Every page contains empty `<header id="site-header">` and `<footer id="site-footer">` elements plus `<div id="toast-region" role="status" aria-live="polite">`. `script/layout.js`:
+
+- Injects the inline SVG icon sprite and renders the header/footer.
+- Renders the local `isoko` wordmark, shop/category links, global search form, and cart link with a live quantity badge.
+- Wires the mobile menu (toggle, Escape, outside click, close on navigation, resize).
+- Marks the active nav/category/cart item from `body[data-page]` and query parameters.
+- Subscribes to cart changes; `store.js` also listens for cross-tab `storage` events.
+- Exports `createBreadcrumb()` for JS-rendered pages.
+
+### Catalog — `script/catalog.js`
+
+The single source of truth for categories and products. Never duplicate product data in HTML or page scripts.
+
+Exports: `CATEGORIES`, `SORT_OPTIONS`, `PRODUCTS`, `getProductById()`, `getCategory()`, `getCategoryCount()`, `categoryCounts()`, `getFeatured()`, `getRelated()`, `isValidSort()`, and `queryProducts({ q, category, sort })`.
+
+Product shape:
+
+```js
+{
+  id, title, category, categoryLabel, subcategory, price,
+  images, description, keywords, stock, featured, badge, order
+}
 ```
 
-### Backend URL
+Products are frozen. Images are deduplicated and thumbnail suffixes such as `_50x50` are stripped. Prices are INR and rounded to two decimals. Search normalizes case/diacritics and AND-matches tokens across title, subcategory, category label, keywords, and description. Sorting is pure and operates on copies.
 
-The API base URL is hardcoded in the electronics-track HTML pages and `script/electronics.js`. It currently points at `http://143.47.179.233:5003`; change those occurrences directly to use a different backend.
+Category order is the display order. The three slugs (`electronics`, `apparel`, `car-parts`) are part of the URL contract.
 
-## Common Development Tasks
+### Cart and orders — `script/store.js`
 
-### Editing Pages
-1. Modify HTML files in the root directory for structure/content
-2. Update corresponding CSS files in the `style/` directory
-3. Update JavaScript files in the `script/` directory for page-specific logic
-4. Update component files in the `components/` directory for shared UI elements
+The only module that writes cart/order state. All reads validate and sanitize parsed JSON: unknown product IDs are dropped, duplicate IDs merge, and quantities are clamped to product stock.
 
-### Working with Components
-- **navbar.js**: Handles navigation bar functionality including responsive menu, auth-greeting (Hi, {firstName}), signout button, and cart count display
-- **footer.js**: Manages footer content and social media links
-- **homepagefooter.js**: Controls homepage-specific footer elements
+```js
+CART_KEY       = 'isoko:cart:v1'
+ORDER_KEY      = 'isoko:last-order:v1'
+FLAT_SHIPPING  = 499
+FREE_SHIPPING_AT = 10000
+```
 
-Components are imported as ES modules in `<script type="module">` blocks on each page that uses them.
+Key exports: `getCart()`, `getCartLines()`, `getCartCount()`, `getSubtotal()`, `getShipping()`, `getTotals()`, `addToCart()`, `setQuantity()`, `removeFromCart()`, `clearCart()`, `generateOrderNumber()`, `saveOrder()`, `getLastOrder()`, `subscribeCart()`, `hasPersistentStorage()`.
 
-### Styling
-- CSS follows a pattern: `[page-name].css` for page-specific styles
-- Component-specific styles: `navbar.css`, `footer.css`, `homepagefooter.css`
-- Global/scattered styles: `Mymarket.css`, `fromnewarrivals.css`, etc.
+- Totals are always recomputed from the catalog, never trusted from storage.
+- Shipping is ₹499 flat and free once the subtotal reaches ₹10,000.
+- Every non-silent write dispatches `isoko:cart-change` with current totals; subscribers update the header badge and cart page.
+- `clearCart()` writes an empty canonical cart instead of deleting the key, so legacy migration cannot resurrect items.
+- Legacy migration from `alibabacart` matches normalized product titles, writes the new cart, then removes `alibabacart`, `openedProduct`, and `details_prod`. This migration is intentional; those key names are the only legacy references that should remain.
+- Storage access is guarded. If `localStorage` is blocked or fails, the cart/order fall back to module memory for the current page session.
 
-### JavaScript Patterns
-- Uses vanilla JS with `fetch()` API for HTTP requests (electronics track only)
-- Authentication tokens stored in `localStorage` under key `Authorization` (JWT token)
-- Cart stored in `localStorage` under key `alibabacart`
-- Product detail flow: 
-  - Electronics: click sets `localStorage.openedProduct` → `openproduct.html`
-  - Apparels: click sets `localStorage.details_prod` → `apparel.html`
-  - Car Parts: click sets `localStorage.openedProduct` → `openproduct.html` (shared)
-- Event listeners attached using `addEventListener` or inline `onclick` attributes
+### Demo checkout
 
-## Local Backend Details (`backend/server.js`)
+`script/cart.js` builds the cart, delivery form, summary, and confirmation entirely from JS. Checkout is explicitly a local demonstration: it collects delivery details, validates them, creates an order number in the form `ISK-YYYYMMDD-XXXX`, snapshots items/totals/customer, saves the order under `ORDER_KEY`, clears the cart, replaces the URL with `?ordered=1`, and shows a printable confirmation.
 
-### Endpoints
-- `POST /register` - User registration (bcrypt-hashed passwords)
-- `POST /login` - Returns JWT token and user data (excludes password)
-- `GET /users/{token}` - Auth middleware + returns user data (requires valid token)
-- `GET /electronics/{category}` - Returns mock electronics products (same 3 items for any category)
-- `GET /` - Health check
+- No payment details are requested or processed.
+- Customer details never leave the browser.
+- Confirmation copy must never claim an order was sent, accepted, or paid for.
+- On reload with `?ordered=1`, the saved order is re-rendered; without a saved order, the page falls back to the normal cart and removes the query.
+- Cart quantity controls and remove buttons are `type="button"` so they do not submit the checkout form.
 
-### Features
-- In-memory storage for users (Map); all data resets when the server restarts
-- JWT authentication with secret `isoko_secret_key_2026`, 1-hour expiry
-- CORS enabled for all origins (adjust for production as needed)
-- Port configurable via `PORT` environment variable (defaults to 5003)
+### UI helpers and utilities
 
-### Data Models (Mock)
-- **User**: id, email, password (hashed), firstName, lastName, companyName, telNo, country, tradeRole
-- **Product**: id, productTitle, price, qty, productImg (array of image URLs)
+- `script/ui.js`: icon sprite, `FALLBACK_IMAGE`, image creation with error fallback, product cards/grid, category tiles, empty states, quantity steppers, and toasts. User-controlled text is inserted with `textContent`, not HTML interpolation.
+- `script/utils.js`: money/date formatting (`en-IN`, INR), text normalization, HTML escaping, quantity parsing, image URL cleanup, shop/product URL builders, shop-state parsing, debounce, and DOM helpers.
+- `script/home.js`, `shop.js`, `product.js`, `cart.js`: page controllers; each mounts the layout first.
+- `style/isoko.css`: the single design system. It owns tokens, header/footer, cards, gallery, cart/checkout, forms, toast, empty states, responsive breakpoints, reduced motion, and print styles. `[hidden] { display: none !important; }` is deliberate because author display rules otherwise override the hidden attribute.
 
-### Setup Notes
-- Users are stored in an in-memory Map; there is no database layer
-- Passwords are hashed using bcrypt
-- The electronics endpoint returns mock data; extend to fetch from real database as needed
+### Images and assets
 
-## Important Notes
+- Product images are remote alicdn URLs. They are lazy-loaded except the main product image and first hero image.
+- `attachImageFallback()` swaps failed images for `assets/product-placeholder.svg` and adds `.is-fallback`.
+- `assets/favicon.svg` is the local Isoko favicon. Do not reintroduce Alibaba logos, social/app-store icons, or hotlinked brand assets.
 
-### Dual Data Flow
-- **Electronics pages** depend on the backend API for product data and authentication
-- **Apparels/Car Parts pages** are completely self-contained with static product arrays
-- Both tracks share the same authentication and cart mechanisms via localStorage
-- The navbar component (`navbar.js`) is shared and appears on all pages, showing auth state and cart count
+## Editing Rules
 
-### Authentication Flow
-1. User registers/logs in via `/register` or `/login` endpoints
-2. Backend returns JWT token
-3. Frontend stores token in `localStorage.Authorization` (as JSON-stringified value)
-4. On subsequent page loads, token is checked; if present:
-   - Fetch user data from `/users/{token}`
-   - Update navbar to show "Hi, {firstName}" and signout button
-   - Display cart count if `alibabacart` has items
+- Keep Isoko static: no backend, API calls, authentication, accounts, payment processing, or network writes.
+- Keep all URLs relative (for example `style/isoko.css`, `script/home.js`, `assets/...`) so Pages' `/Isoko/` base works.
+- Put product changes in `catalog.js` only, and preserve globally unique prefixed IDs; old product links depend on them.
+- Put cart/order writes in `store.js` only. Treat `localStorage` as untrusted input.
+- Keep one shared CSS system and one shared header/footer implementation.
+- Preserve accessibility basics: one visible `h1` per view, skip link, semantic landmarks, labeled controls, `aria-live` result/toast regions, keyboard-operable galleries/steppers, visible focus, and reduced-motion/print support.
+- Never label the checkout as real, uploaded, or paid.
 
-### File Relationships
-- HTML files reference CSS via `<link>` tags in `<head>`
-- HTML files reference JavaScript via `<script>` tags before closing `</body>`
-- Component JavaScript files are imported via ES modules in `<script type="module">` blocks
-- All API calls (electronics track only) use the same hardcoded backend URL
+## Verification
 
-### Troubleshooting
-- If electronics features don't work, verify backend is running and frontend is pointing to correct URL
-- Check browser console for JavaScript errors
-- Network tab in dev tools shows API call successes/failures
-- Ensure localStorage keys are set correctly (token, cart, etc.)
-- For Apache2 deployment, ensure .htaccess or server config allows client-side routing
-
-## Deployment
-
-The frontend can be deployed to any static file hosting service (Netlify, Vercel, GitHub Pages, AWS S3, etc.) **provided the backend is accessible**.
-
-Current deployment points to: `http://143.47.179.233:5003`
-
-To deploy elsewhere:
-1. Update the frontend API URLs to point to your backend instance (manual find/replace)
-2. Deploy all files (excluding backend/ if hosting backend separately)
-3. Ensure backend is reachable from the frontend (CORS must be configured appropriately)
-
-No build step is required - copy all files to the static hosting service preserving directory structure.
+1. Serve the repository root and open `http://localhost:8080/Isoko/`.
+2. Home: category tiles navigate to filtered shop URLs; search submits to `shop.html?q=...`; featured quick-add updates the cart badge.
+3. Shop: category/search/sort/clear filters work, URL stays shareable, no-results state appears, and all 44 products render with no filters.
+4. Product: direct `?id=` load, unknown ID not-found panel, gallery switching, quantity clamping, add/merge, related products, image fallback.
+5. Cart: reload persistence, quantity updates, free-shipping threshold at ₹10,000, remove-to-empty, invalid-form focus, valid demo order, confirmation, cart cleared, `?ordered=1` reload.
+6. Legacy migration from `alibabacart`, all redirect stubs, mobile menu, and no horizontal overflow at 320 px.
+7. Check that there are no page errors, console errors, failed local asset requests, dead `href="#"` links, or root-absolute Isoko paths.
+8. After changing docs, re-read this file to ensure no stale paths or line numbers remain.

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Isoko">
+  <rect width="64" height="64" rx="16" fill="#173A2E"/>
+  <path d="M32 12c-8 6-13 13-13 21a13 13 0 0 0 26 0c0-8-5-15-13-21Z" fill="#D9A441" opacity=".25"/>
+  <path d="M32 46V22M32 31c5-1 8-4 9-9-5 0-8 3-9 9Zm0 7c-4-1-7-4-8-8 4 0 7 2 8 8Z" fill="none" stroke="#F7F1E7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="44" cy="18" r="4" fill="#C85C3C"/>
+</svg>
