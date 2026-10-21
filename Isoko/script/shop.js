@@ -1,4 +1,14 @@
-import { CATEGORIES, SORT_OPTIONS, categoryCounts, getCategory, isValidSort, queryProducts } from './catalog.js';
+import {
+	CATEGORIES,
+	PRICE_RANGES,
+	SORT_OPTIONS,
+	categoryCounts,
+	getCategory,
+	getPriceRange,
+	isValidPriceRange,
+	isValidSort,
+	queryProducts
+} from './catalog.js';
 import { mountLayout } from './layout.js';
 import { addToCart } from './store.js';
 import { renderEmptyState, renderProductGrid, showToast } from './ui.js';
@@ -9,6 +19,7 @@ mountLayout();
 const searchForm = document.getElementById('shop-search');
 const searchInput = document.getElementById('shop-query');
 const categoryChips = document.getElementById('category-chips');
+const priceFilters = document.getElementById('price-filters');
 const sortSelect = document.getElementById('sort-select');
 const resultsCount = document.getElementById('results-count');
 const productGrid = document.getElementById('product-grid');
@@ -19,7 +30,8 @@ const initial = readShopState();
 const state = {
 	q: initial.q,
 	category: getCategory(initial.category) ? initial.category : '',
-	sort: isValidSort(initial.sort) ? initial.sort : 'featured'
+	sort: isValidSort(initial.sort) ? initial.sort : 'featured',
+	price: isValidPriceRange(initial.price) ? initial.price : ''
 };
 
 if (searchInput) searchInput.value = state.q;
@@ -36,7 +48,7 @@ function renderChips() {
 	categoryChips.replaceChildren();
 
 	const all = createElement('a', 'chip', 'All products');
-	all.href = buildShopUrl({ q: state.q, sort: state.sort });
+	all.href = buildShopUrl({ q: state.q, sort: state.sort, price: state.price });
 	all.dataset.category = '';
 	all.append(createElement('span', 'chip__count', String(Object.values(counts).reduce((sum, n) => sum + n, 0))));
 	if (!state.category) all.setAttribute('aria-current', 'page');
@@ -44,7 +56,12 @@ function renderChips() {
 
 	for (const category of CATEGORIES) {
 		const chip = createElement('a', 'chip', category.label);
-		chip.href = buildShopUrl({ q: state.q, category: category.slug, sort: state.sort });
+		chip.href = buildShopUrl({
+			q: state.q,
+			category: category.slug,
+			sort: state.sort,
+			price: state.price
+		});
 		chip.dataset.category = category.slug;
 		chip.append(createElement('span', 'chip__count', String(counts[category.slug] ?? 0)));
 		if (state.category === category.slug) chip.setAttribute('aria-current', 'page');
@@ -52,16 +69,44 @@ function renderChips() {
 	}
 }
 
+function renderPriceFilters() {
+	if (!priceFilters) return;
+	priceFilters.replaceChildren();
+
+	const any = createElement('a', 'chip chip--price', 'Any price');
+	any.href = buildShopUrl({ q: state.q, category: state.category, sort: state.sort });
+	any.dataset.price = '';
+	if (!state.price) any.setAttribute('aria-current', 'true');
+	priceFilters.append(any);
+
+	for (const range of PRICE_RANGES) {
+		const chip = createElement('a', 'chip chip--price', range.label);
+		chip.href = buildShopUrl({
+			q: state.q,
+			category: state.category,
+			sort: state.sort,
+			price: range.value
+		});
+		chip.dataset.price = range.value;
+		if (state.price === range.value) chip.setAttribute('aria-current', 'true');
+		priceFilters.append(chip);
+	}
+}
+
 function renderResults() {
 	const products = queryProducts(state);
 	const category = getCategory(state.category);
-	const filtersActive = Boolean(state.q || state.category || state.sort !== 'featured');
+	const price = getPriceRange(state.price);
+	const filtersActive = Boolean(
+		state.q || state.category || state.price || state.sort !== 'featured'
+	);
 
 	if (resultsCount) {
 		if (products.length) {
 			let summary = `${products.length} ${products.length === 1 ? 'product' : 'products'}`;
 			if (category) summary += ` in ${category.label}`;
 			if (state.q) summary += ` for “${state.q}”`;
+			if (price) summary += ` · ${price.label}`;
 			resultsCount.textContent = summary;
 		} else {
 			resultsCount.textContent = 'No products match these filters.';
@@ -75,7 +120,7 @@ function renderResults() {
 			title: 'Nothing on this shelf',
 			text: state.q
 				? `We could not find anything matching “${state.q}”. Try a broader word or clear the filters.`
-				: 'Try another category or clear the filters to see the whole market.',
+				: 'Try another department or price range, or clear the filters to see the whole market.',
 			actionLabel: 'Clear filters',
 			actionHref: 'shop.html',
 			iconName: 'search'
@@ -107,11 +152,13 @@ function update({ updateUrl = true } = {}) {
 	state.q = state.q.trim();
 	if (!getCategory(state.category)) state.category = '';
 	if (!isValidSort(state.sort)) state.sort = 'featured';
+	if (!isValidPriceRange(state.price)) state.price = '';
 
 	if (searchInput && searchInput.value !== state.q) searchInput.value = state.q;
 	if (sortSelect) sortSelect.value = state.sort;
 
 	renderChips();
+	renderPriceFilters();
 	renderResults();
 	if (updateUrl) syncUrl();
 }
@@ -140,6 +187,7 @@ clearFilters?.addEventListener('click', (event) => {
 	state.q = '';
 	state.category = '';
 	state.sort = 'featured';
+	state.price = '';
 	if (searchInput) searchInput.value = '';
 	update();
 	searchInput?.focus({ preventScroll: true });

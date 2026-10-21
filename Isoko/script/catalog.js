@@ -6,21 +6,21 @@ export const CATEGORIES = Object.freeze([
 		label: 'Electronics',
 		blurb: 'Cameras, drones, printers, and useful everyday tech.',
 		icon: 'camera',
-		accent: '#2F6B5E'
+		accent: '#0B5EA8'
 	},
 	{
 		slug: 'apparel',
 		label: 'Apparel & Textiles',
 		blurb: 'Baby basics, modest wear, and garment-maker supplies.',
 		icon: 'shirt',
-		accent: '#B45D45'
+		accent: '#9A3B5C'
 	},
 	{
 		slug: 'car-parts',
 		label: 'Car Parts & Accessories',
 		blurb: 'Maintenance, lighting, cabin comfort, and car care.',
 		icon: 'car',
-		accent: '#A77C2E'
+		accent: '#7A5A00'
 	}
 ]);
 
@@ -29,6 +29,13 @@ export const SORT_OPTIONS = Object.freeze([
 	{ value: 'price-asc', label: 'Price: low to high' },
 	{ value: 'price-desc', label: 'Price: high to low' },
 	{ value: 'name-asc', label: 'Name: A to Z' }
+]);
+
+export const PRICE_RANGES = Object.freeze([
+	{ value: 'under-500', label: 'Under ₹500', min: 0, max: 500 },
+	{ value: '500-2000', label: '₹500 – ₹2,000', min: 500, max: 2000 },
+	{ value: '2000-5000', label: '₹2,000 – ₹5,000', min: 2000, max: 5000 },
+	{ value: 'over-5000', label: '₹5,000 & above', min: 5000, max: Infinity }
 ]);
 
 const CATEGORY_BY_SLUG = new Map(CATEGORIES.map((category) => [category.slug, category]));
@@ -669,13 +676,25 @@ export function isValidSort(value) {
 	return SORT_OPTIONS.some((option) => option.value === value);
 }
 
-export function queryProducts({ q = '', category = '', sort = 'featured' } = {}) {
+export function getPriceRange(value) {
+	return PRICE_RANGES.find((range) => range.value === value) ?? null;
+}
+
+export function isValidPriceRange(value) {
+	return Boolean(getPriceRange(value));
+}
+
+export function queryProducts({ q = '', category = '', sort = 'featured', price = '' } = {}) {
 	const tokens = normalizeText(q).split(' ').filter(Boolean);
 	const activeCategory = getCategory(category) ? category : '';
 	const activeSort = isValidSort(sort) ? sort : 'featured';
+	const activePrice = getPriceRange(price);
 
 	let matches = PRODUCTS.filter((product) => {
 		if (activeCategory && product.category !== activeCategory) return false;
+		if (activePrice && (product.price < activePrice.min || product.price >= activePrice.max)) {
+			return false;
+		}
 		if (!tokens.length) return true;
 
 		const haystack = normalizeText(

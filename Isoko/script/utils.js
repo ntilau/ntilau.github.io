@@ -59,13 +59,14 @@ export function stripImageSize(url) {
 	return String(url).replace(/_(?:50x50|220x220)\.(?:jpg|jpeg|png)$/i, '');
 }
 
-export function buildShopUrl({ q = '', category = '', sort = '' } = {}) {
+export function buildShopUrl({ q = '', category = '', sort = '', price = '' } = {}) {
 	const params = new URLSearchParams();
 	const query = q.trim();
 
 	if (category) params.set('category', category);
 	if (query) params.set('q', query);
 	if (sort && sort !== 'featured') params.set('sort', sort);
+	if (price) params.set('price', price);
 
 	const search = params.toString();
 	return search ? `shop.html?${search}` : 'shop.html';
@@ -80,7 +81,8 @@ export function readShopState(search = window.location.search) {
 	return {
 		q: (params.get('q') ?? '').trim(),
 		category: (params.get('category') ?? '').trim(),
-		sort: (params.get('sort') ?? '').trim()
+		sort: (params.get('sort') ?? '').trim(),
+		price: (params.get('price') ?? '').trim()
 	};
 }
 

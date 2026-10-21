@@ -49,56 +49,80 @@
 									<span id="product-subcategory"></span>
 								</p>
 								<h1 id="product-title"></h1>
-								<p class="product-price" id="product-price"></p>
-								<p class="product-stock" id="product-stock"></p>
 								<p class="product-description" id="product-description"></p>
 
-								<div class="product-buybox">
-									<div class="product-buybox__row">
-										<span class="product-buybox__label" id="quantity-label">Quantity</span>
-										<div id="quantity-slot"></div>
-									</div>
-									<div class="product-buybox__actions">
-										<button class="btn btn--primary" id="add-to-cart" type="button">
-											Add to cart
-										</button>
-										<a class="btn btn--secondary" href="shoppingcart.html">View cart</a>
-									</div>
-									<p class="shipping-hint">
-										<svg class="icon" aria-hidden="true" focusable="false">
-											<use href="#icon-truck"></use>
-										</svg>
-										<span>Delivery is ₹499, free over ₹10,000. Checkout is a local demo — no payment.</span>
-									</p>
+								<section class="product-about" aria-labelledby="product-about-heading">
+									<h2 id="product-about-heading">About this item</h2>
+									<ul class="product-highlights">
+										<li>Sold through this independent, guest-only demo market.</li>
+										<li>Delivery is ₹499, and free once your subtotal reaches ₹10,000.</li>
+										<li>No account, no payment details, and no order is sent anywhere.</li>
+										<li>Product images belong to their original sellers.</li>
+									</ul>
+								</section>
+
+								<section class="product-specs" aria-labelledby="product-specs-heading">
+									<h2 id="product-specs-heading">Product details</h2>
+									<dl class="spec-list">
+										<div>
+											<dt>SKU</dt>
+											<dd id="spec-sku"></dd>
+										</div>
+										<div>
+											<dt>Category</dt>
+											<dd id="spec-category"></dd>
+										</div>
+										<div>
+											<dt>Subcategory</dt>
+											<dd id="spec-subcategory"></dd>
+										</div>
+										<div>
+											<dt>Availability</dt>
+											<dd id="spec-availability"></dd>
+										</div>
+										<div>
+											<dt>Dispatch</dt>
+											<dd>Ready in 1–2 working days</dd>
+										</div>
+										<div>
+											<dt>Checkout</dt>
+											<dd>Guest demo — no account, no payment</dd>
+										</div>
+									</dl>
+								</section>
+							</div>
+
+							<aside class="product-buybox" aria-label="Purchase options">
+								<p class="product-buybox__eyebrow">Buying options</p>
+								<p class="product-price" id="product-price"></p>
+								<p class="product-stock" id="product-stock"></p>
+
+								<p class="product-delivery">
+									<svg class="icon" aria-hidden="true" focusable="false">
+										<use href="#icon-truck"></use>
+									</svg>
+									<span>₹499 delivery · free over ₹10,000</span>
+								</p>
+
+								<div class="product-buybox__row">
+									<span class="product-buybox__label" id="quantity-label">Quantity</span>
+									<div id="quantity-slot"></div>
 								</div>
 
-								<dl class="spec-list">
-									<div>
-										<dt>SKU</dt>
-										<dd id="spec-sku"></dd>
-									</div>
-									<div>
-										<dt>Category</dt>
-										<dd id="spec-category"></dd>
-									</div>
-									<div>
-										<dt>Subcategory</dt>
-										<dd id="spec-subcategory"></dd>
-									</div>
-									<div>
-										<dt>Availability</dt>
-										<dd id="spec-availability"></dd>
-									</div>
-									<div>
-										<dt>Dispatch</dt>
-										<dd>Ready in 1–2 working days</dd>
-									</div>
-									<div>
-										<dt>Checkout</dt>
-										<dd>Guest demo — no account, no payment</dd>
-									</div>
-								</dl>
-							</div>
+								<div class="product-buybox__actions">
+									<button class="btn btn--primary btn--block" id="add-to-cart" type="button">
+										Add to cart
+									</button>
+									<a class="btn btn--secondary btn--block" href="shoppingcart.html">View cart</a>
+								</div>
+
+								<p class="shipping-hint">
+									<svg class="icon" aria-hidden="true" focusable="false">
+										<use href="#icon-shield"></use>
+									</svg>
+									<span>Guest demo checkout. No payment is taken and no order is sent.</span>
+								</p>
+							</aside>
 						</div>
 
 						<section class="product-section" aria-labelledby="related-heading">

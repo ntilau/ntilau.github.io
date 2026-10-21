@@ -3,10 +3,10 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Isoko — a small, independent market</title>
+		<title>Isoko — an independent marketplace</title>
 		<meta
 			name="description"
-			content="Browse electronics, apparel and textiles, and car parts in one calm, independent market. Guest checkout, saved on your device."
+			content="Shop electronics, apparel and textiles, and car parts in one independent marketplace. Guest checkout with a cart saved on your device."
 		/>
 		<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 		<link rel="stylesheet" href="style/isoko.css" />
@@ -16,14 +16,14 @@
 		<header id="site-header"></header>
 
 		<main id="main-content">
-			<section class="hero">
+			<section class="hero hero--storefront">
 				<div class="container hero-grid">
-					<div>
-						<p class="eyebrow">An independent market</p>
-						<h1>Good finds, <em>close to home.</em></h1>
+					<div class="hero-copy">
+						<p class="eyebrow">Shop the Isoko market</p>
+						<h1>Everyday finds, <em>all in one place.</em></h1>
 						<p class="hero-lede">
-							Useful electronics, comfortable textiles, and dependable car parts — gathered in one quiet
-							corner of the web, without accounts or noise.
+							Electronics, apparel and textiles, and car parts — gathered in one independent
+							marketplace. Search the shelves, build a local cart, and check out as a guest.
 						</p>
 
 						<form class="hero-search" action="shop.html" method="get" role="search">
@@ -44,7 +44,7 @@
 						</form>
 
 						<div class="hero-actions">
-							<a class="btn btn--primary" href="shop.html">Shop the market</a>
+							<a class="btn btn--primary" href="shop.html">Shop all products</a>
 							<a class="btn btn--secondary" href="shop.html?category=car-parts">Browse car parts</a>
 						</div>
 
@@ -72,8 +72,8 @@
 				<div class="container">
 					<div class="section-header">
 						<div>
-							<h2 id="categories-heading">Three corners of the market</h2>
-							<p>Every category is browsable on its own, or all together in one searchable shop.</p>
+							<h2 id="categories-heading">Shop by department</h2>
+							<p>Every department is browsable on its own, or all together in one searchable shop.</p>
 						</div>
 						<a class="btn btn--secondary btn--small" href="shop.html">View everything</a>
 					</div>
@@ -85,12 +85,25 @@
 				<div class="container">
 					<div class="section-header">
 						<div>
-							<h2 id="picks-heading">Market picks</h2>
+							<h2 id="picks-heading">Featured in the market</h2>
 							<p>A few useful things worth a closer look this week.</p>
 						</div>
 						<a class="btn btn--secondary btn--small" href="shop.html">See the full market</a>
 					</div>
-					<div class="product-grid" id="featured-grid"></div>
+					<div class="product-grid product-grid--featured" id="featured-grid"></div>
+				</div>
+			</section>
+
+			<section class="section" id="more-to-explore" aria-labelledby="more-heading">
+				<div class="container">
+					<div class="section-header">
+						<div>
+							<h2 id="more-heading">More to explore</h2>
+							<p>More useful picks from across the electronics, apparel, and car-parts shelves.</p>
+						</div>
+						<a class="btn btn--secondary btn--small" href="shop.html">Browse everything</a>
+					</div>
+					<div class="product-grid product-grid--featured" id="more-grid"></div>
 				</div>
 			</section>
 

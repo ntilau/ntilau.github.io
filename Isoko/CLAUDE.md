@@ -6,7 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Isoko is a **fully static, guest-only marketplace** served at `/Isoko/` on GitHub Pages. It has no backend, no accounts, no payment integration, and no build step. All application state lives in the browser: the cart and the last demo order are stored in `localStorage`, and nothing is uploaded.
 
-The site carries its own Isoko brand (warm paper, deep green ink, terracotta and gold accents), not an Alibaba lookalike. It has one unified catalog of **44 products** across three categories: electronics (12), apparel and textiles (12), and car parts (20). Product images remain remote alicdn URLs, lazy-loaded, with a local branded fallback.
+The site uses an independent, Amazon-inspired marketplace design: a dark navy utility header and department bar, a category-aware search field, yellow and orange actions, pale gray page canvas, white product cards, a filter sidebar, and a three-column product page. The `isoko` wordmark, yellow leaf mark, catalog, copy, and assets are Isoko's own; no Amazon logo, smile mark, fonts, assets, or copy are used.
+
+It has one unified catalog of **44 products** across three categories: electronics (12), apparel and textiles (12), and car parts (20). Product images remain remote alicdn URLs, lazy-loaded, with a local branded fallback.
 
 Every path is relative so the app works both at `/Isoko/` on Pages and from a local static server.
 
@@ -39,9 +41,9 @@ Deployment is handled by the root `.github/workflows/deploy.yml`, which copies t
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | Editorial home: working search, hero collage, category tiles, featured picks, how-it-works, demo rules |
-| `shop.html` | Unified catalog with search, category chips, sort, result count, and quick-add |
-| `openproduct.html` | Product detail selected by `?id=<global-product-id>`; gallery, quantity, add to cart, related products |
+| `index.html` | Marketplace home: hero search, category tiles, featured picks, a second product rail, how-it-works, demo rules |
+| `shop.html` | Unified catalog with a filter sidebar (department and price), search, sort, result count, and quick-add |
+| `openproduct.html` | Product detail selected by `?id=<global-product-id>`; three-column gallery, details, buy box, related products |
 | `shoppingcart.html` | Guest cart, delivery form, demo checkout, and `?ordered=1` confirmation |
 | `electronics.html`, `electronics-subcategory.html` | Redirect to `shop.html?category=electronics` |
 | `apparels.html`, `apparel.html` | Redirect to `shop.html?category=apparel` |
@@ -52,11 +54,11 @@ Redirect stubs use `meta refresh`, `window.location.replace`, a visible fallback
 
 ### URL Contract
 
-- `shop.html?category=electronics|apparel|car-parts&q=<search>&sort=featured|price-asc|price-desc|name-asc`
+- `shop.html?category=electronics|apparel|car-parts&q=<search>&sort=featured|price-asc|price-desc|name-asc&price=under-500|500-2000|2000-5000|over-5000`
 - `openproduct.html?id=electronics-1` (IDs are globally unique and category-prefixed)
 - `shoppingcart.html?ordered=1` re-renders the saved last order
 
-Shop state is URL-driven. `script/shop.js` reads and validates it on load, then updates the URL with `history.replaceState` as filters change. Unknown categories or sort values fall back to all products / featured order.
+Shop state is URL-driven. `script/shop.js` reads and validates it on load, then updates the URL with `history.replaceState` as filters change. Unknown categories, sort values, or price ranges fall back to all products / featured order / any price. Price ranges use a half-open interval: `500-2000` means `500 ≤ price < 2000`, and `over-5000` means `price ≥ 5000`.
 
 ## Architecture
 
@@ -65,8 +67,9 @@ Shop state is URL-driven. `script/shop.js` reads and validates it on load, then 
 Every page contains empty `<header id="site-header">` and `<footer id="site-footer">` elements plus `<div id="toast-region" role="status" aria-live="polite">`. `script/layout.js`:
 
 - Injects the inline SVG icon sprite and renders the header/footer.
-- Renders the local `isoko` wordmark, shop/category links, global search form, and cart link with a live quantity badge.
-- Wires the mobile menu (toggle, Escape, outside click, close on navigation, resize).
+- Renders the dark utility header, the local `isoko` wordmark with its yellow leaf mark, a category-aware search form (`input[name="q"]` plus `select[name="category"]`), department navigation, and a cart link with a live quantity badge and subtotal.
+- Launches header searches through `buildShopUrl({ q, category })` and pre-fills both fields on shop pages from `readShopState()`.
+- Wires the mobile menu (toggle, Escape, outside click, close on navigation, resize). The `960px` JS breakpoint must stay in sync with the stylesheet.
 - Marks the active nav/category/cart item from `body[data-page]` and query parameters.
 - Subscribes to cart changes; `store.js` also listens for cross-tab `storage` events.
 - Exports `createBreadcrumb()` for JS-rendered pages.
@@ -75,7 +78,7 @@ Every page contains empty `<header id="site-header">` and `<footer id="site-foot
 
 The single source of truth for categories and products. Never duplicate product data in HTML or page scripts.
 
-Exports: `CATEGORIES`, `SORT_OPTIONS`, `PRODUCTS`, `getProductById()`, `getCategory()`, `getCategoryCount()`, `categoryCounts()`, `getFeatured()`, `getRelated()`, `isValidSort()`, and `queryProducts({ q, category, sort })`.
+Exports: `CATEGORIES`, `SORT_OPTIONS`, `PRICE_RANGES`, `PRODUCTS`, `getProductById()`, `getCategory()`, `getPriceRange()`, `isValidPriceRange()`, `getCategoryCount()`, `categoryCounts()`, `getFeatured()`, `getRelated()`, `isValidSort()`, and `queryProducts({ q, category, sort, price })`.
 
 Product shape:
 
@@ -122,10 +125,10 @@ Key exports: `getCart()`, `getCartLines()`, `getCartCount()`, `getSubtotal()`, `
 
 ### UI helpers and utilities
 
-- `script/ui.js`: icon sprite, `FALLBACK_IMAGE`, image creation with error fallback, product cards/grid, category tiles, empty states, quantity steppers, and toasts. User-controlled text is inserted with `textContent`, not HTML interpolation.
+- `script/ui.js`: icon sprite, `FALLBACK_IMAGE`, image creation with error fallback, marketplace product cards/grid (including the delivery line and quick-add button), category tiles, empty states, quantity steppers, and toasts. User-controlled text is inserted with `textContent`, not HTML interpolation.
 - `script/utils.js`: money/date formatting (`en-IN`, INR), text normalization, HTML escaping, quantity parsing, image URL cleanup, shop/product URL builders, shop-state parsing, debounce, and DOM helpers.
 - `script/home.js`, `shop.js`, `product.js`, `cart.js`: page controllers; each mounts the layout first.
-- `style/isoko.css`: the single design system. It owns tokens, header/footer, cards, gallery, cart/checkout, forms, toast, empty states, responsive breakpoints, reduced motion, and print styles. `[hidden] { display: none !important; }` is deliberate because author display rules otherwise override the hidden attribute.
+- `style/isoko.css`: the single design system. It owns the Amazon-inspired palette (`#131921` header, `#232F3E` subnav/footer, `#EAEDED` page, `#FFD814` primary CTA, `#FFA41C` secondary CTA, `#FEBD69` search button), header/footer, hero, product cards, filter sidebar, three-column product page, cart/checkout, forms, toast, empty states, responsive breakpoints, reduced motion, and print styles. `[hidden] { display: none !important; }` is deliberate because author display rules otherwise override the hidden attribute. The mobile-menu breakpoint is `960px` in both CSS and `layout.js`.
 
 ### Images and assets
 
@@ -142,14 +145,16 @@ Key exports: `getCart()`, `getCartLines()`, `getCartCount()`, `getSubtotal()`, `
 - Keep one shared CSS system and one shared header/footer implementation.
 - Preserve accessibility basics: one visible `h1` per view, skip link, semantic landmarks, labeled controls, `aria-live` result/toast regions, keyboard-operable galleries/steppers, visible focus, and reduced-motion/print support.
 - Never label the checkout as real, uploaded, or paid.
+- Keep the design independent: do not add Amazon logos, the smile mark, Amazon fonts, Amazon copy, or any claim of affiliation. Do not add invented ratings, reviews, discounts, countdowns, or scarcity.
 
 ## Verification
 
 1. Serve the repository root and open `http://localhost:8080/Isoko/`.
-2. Home: category tiles navigate to filtered shop URLs; search submits to `shop.html?q=...`; featured quick-add updates the cart badge.
-3. Shop: category/search/sort/clear filters work, URL stays shareable, no-results state appears, and all 44 products render with no filters.
-4. Product: direct `?id=` load, unknown ID not-found panel, gallery switching, quantity clamping, add/merge, related products, image fallback.
+2. Home: four category tiles navigate to filtered shop URLs; the hero search submits to `shop.html?q=...`; header search submits both `q` and the selected department; featured and secondary-grid quick-add update the cart badge and subtotal.
+3. Shop: department/price/search/sort/clear filters work together, URL stays shareable, active chips carry `aria-current`, price counts are 10/15/10/9 for the four ranges, no-results state appears, and all 44 products render with no filters.
+4. Product: direct `?id=` load, unknown ID not-found panel, gallery switching, quantity clamping, buy-box add/merge, related products, image fallback.
 5. Cart: reload persistence, quantity updates, free-shipping threshold at ₹10,000, remove-to-empty, invalid-form focus, valid demo order, confirmation, cart cleared, `?ordered=1` reload.
 6. Legacy migration from `alibabacart`, all redirect stubs, mobile menu, and no horizontal overflow at 320 px.
-7. Check that there are no page errors, console errors, failed local asset requests, dead `href="#"` links, or root-absolute Isoko paths.
-8. After changing docs, re-read this file to ensure no stale paths or line numbers remain.
+7. At 320/375/768/1024/1440 px, home/shop/product/cart each show exactly one visible `h1` and no horizontal overflow.
+8. Check that there are no page errors, console errors, failed local asset requests, dead `href="#"` links, or root-absolute Isoko paths.
+9. After changing docs, re-read this file to ensure no stale paths or line numbers remain.

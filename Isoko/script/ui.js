@@ -92,15 +92,18 @@ export function productCard(product, { onAdd } = {}) {
 	);
 	meta.append(price, stock);
 
+	const delivery = createElement('p', 'product-card__delivery');
+	delivery.innerHTML = `${icon('truck')}<span>Delivery ₹499 · free over ₹10,000</span>`;
+
 	const addButton = document.createElement('button');
 	addButton.type = 'button';
 	addButton.className = 'btn btn--primary btn--small product-card__add';
 	addButton.dataset.addToCart = product.id;
 	addButton.setAttribute('aria-label', `Add ${product.title} to cart`);
-	addButton.innerHTML = `${icon('plus')}<span>Add to cart</span>`;
+	addButton.innerHTML = `${icon('cart')}<span>Add to cart</span>`;
 	addButton.addEventListener('click', () => onAdd?.(product));
 
-	body.append(eyebrow, heading, meta, addButton);
+	body.append(eyebrow, heading, meta, delivery, addButton);
 	card.append(mediaLink, body);
 	return card;
 }

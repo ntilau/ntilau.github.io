@@ -26,52 +26,75 @@
 						<span aria-current="page">Shop</span>
 					</nav>
 
-					<div class="page-header">
+					<div class="page-header shop-page-header">
 						<div>
-							<p class="eyebrow">One market, three useful corners</p>
+							<p class="eyebrow">One market, three useful departments</p>
 							<h1>Shop the market</h1>
 							<p>
-								Search everything at once, or narrow the shelves by category. Every product is available
-								to add to a local guest cart.
+								Search everything at once, then narrow the shelves by department and price. Every
+								product can be added to a local guest cart.
 							</p>
 						</div>
 					</div>
 
-					<section class="shop-toolbar" aria-label="Search and filter products">
-						<form class="search-form" id="shop-search" action="shop.html" method="get" role="search">
-							<div class="search-field">
-								<label class="visually-hidden" for="shop-query">Search products</label>
-								<svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-search"></use></svg>
-								<input
-									id="shop-query"
-									name="q"
-									type="search"
-									placeholder="Search by name, category, or keyword"
-									autocomplete="off"
-								/>
-							</div>
-							<button class="btn btn--primary" type="submit">Search</button>
-						</form>
+					<section class="shop-layout" aria-label="Search and filter products">
+						<aside class="shop-sidebar" aria-labelledby="filters-heading">
+							<h2 class="shop-sidebar__title" id="filters-heading">Filters</h2>
 
-						<div class="shop-toolbar__row">
-							<div class="chip-row" id="category-chips" aria-label="Filter by category"></div>
-							<a class="btn btn--ghost btn--small" id="clear-filters" href="shop.html">Clear filters</a>
+							<div class="sidebar-section">
+								<h3>Department</h3>
+								<div
+									class="chip-row chip-row--stack"
+									id="category-chips"
+									aria-label="Filter by department"
+								></div>
+							</div>
+
+							<div class="sidebar-section">
+								<h3>Price</h3>
+								<div
+									class="chip-row chip-row--stack"
+									id="price-filters"
+									aria-label="Filter by price"
+								></div>
+							</div>
+
+							<a class="btn btn--ghost btn--small sidebar-clear" id="clear-filters" href="shop.html" hidden>
+								Clear filters
+							</a>
+						</aside>
+
+						<div class="shop-results">
+							<form class="search-form" id="shop-search" action="shop.html" method="get" role="search">
+								<div class="search-field">
+									<label class="visually-hidden" for="shop-query">Search products</label>
+									<svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-search"></use></svg>
+									<input
+										id="shop-query"
+										name="q"
+										type="search"
+										placeholder="Search by name, department, or keyword"
+										autocomplete="off"
+									/>
+								</div>
+								<button class="btn btn--primary" type="submit">Search</button>
+							</form>
+
+							<div class="shop-meta">
+								<p class="results-count" id="results-count" aria-live="polite">Loading products…</p>
+								<label class="sort-field" for="sort-select">
+									<span>Sort by</span>
+									<select class="select" id="sort-select"></select>
+								</label>
+							</div>
+
+							<div class="product-grid" id="product-grid"></div>
 						</div>
 					</section>
 
-					<div class="shop-meta">
-						<p class="results-count" id="results-count" aria-live="polite">Loading products…</p>
-						<label class="sort-field" for="sort-select">
-							<span>Sort by</span>
-							<select class="select" id="sort-select"></select>
-						</label>
-					</div>
-
-					<div class="product-grid" id="product-grid"></div>
-
 					<noscript>
 						<div class="empty-state">
-							<h2>Browse by category</h2>
+							<h2>Browse by department</h2>
 							<p>JavaScript powers search and the cart. These links still open the right shelf.</p>
 							<a class="btn btn--primary" href="shop.html?category=electronics">Electronics</a>
 							<a class="btn btn--secondary" href="shop.html?category=apparel">Apparel &amp; Textiles</a>

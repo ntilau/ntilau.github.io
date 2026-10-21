@@ -7,7 +7,7 @@ Three self-contained web apps served from one GitHub Pages site.
 | Project | Path | What it is |
 | --- | --- | --- |
 | [Runinga](Runinga/index.html) | `/Runinga/` | Fullscreen HLS television player with 321 channels |
-| [Isoko](Isoko/index.html) | `/Isoko/` | E-commerce storefront for electronics, apparel, and car parts |
+| [Isoko](Isoko/index.html) | `/Isoko/` | Amazon-inspired marketplace for electronics, apparel, and car parts |
 | [Ubuni](Ubuni/frontend/) | `/Ubuni/` | SvelteKit floor-plan editor with 2D and 3D views |
 
 The root `index.html` is a dependency-free landing page linking to all three.
@@ -24,11 +24,11 @@ No build step. Open `Runinga/index.html` directly in a browser, or visit `/Runin
 
 ## Isoko
 
-A fully static, guest-only marketplace with its own Isoko identity. There is no backend, no accounts, and no payment integration.
+A fully static, guest-only marketplace with an independent, Amazon-inspired storefront: dark utility header, department search, white product cards, filter sidebar, three-column product page, and cart summary. There is no backend, no accounts, and no payment integration, and no Amazon logos, fonts, assets, or copy are used.
 
 - One unified catalog of 44 products across electronics, apparel and textiles, and car parts
-- Search, category filters, and sorting in a shareable, URL-driven shop
-- Product pages with a gallery, quantity controls, related picks, and image fallbacks
+- Header search that carries a department, plus a shareable shop URL with department, price-range, query, and sort filters
+- Product pages with a gallery, buy box, quantity controls, related picks, and image fallbacks
 - A cart saved in `localStorage` (`isoko:cart:v1`) with quantity editing and a ₹499 delivery fee, free over ₹10,000
 - A local demo checkout that collects delivery details, generates an order number, saves the last order on the device, and clears the cart — nothing is uploaded or charged
 - Old category and account URLs redirect into the new shop or home page

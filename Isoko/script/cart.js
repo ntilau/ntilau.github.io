@@ -115,7 +115,7 @@ function focusRenderedHeading() {
 }
 
 function renderEmptyCart() {
-	document.title = 'Your cart — Isoko';
+	document.title = 'Your cart is empty — Isoko';
 	root.replaceChildren(
 		createBreadcrumb([
 			{ label: 'Home', href: 'index.html' },
@@ -272,14 +272,20 @@ function buildDeliverySection(fields) {
 }
 
 function renderCart(totals) {
-	document.title = 'Your cart — Isoko';
+	document.title = 'Shopping cart — Isoko';
 
 	const pageHeader = createPageHeader({
 		eyebrow: 'Guest cart',
-		title: 'Your cart',
+		title: 'Shopping cart',
 		lede: `${totals.count} ${totals.count === 1 ? 'item' : 'items'} waiting in this browser. Update quantities, then add delivery details when you are ready.`
 	});
 	const cartLede = pageHeader.querySelector('p:not(.eyebrow)');
+
+	const continueLink = document.createElement('a');
+	continueLink.className = 'cart-continue';
+	continueLink.href = 'shop.html';
+	continueLink.textContent = 'Continue shopping';
+	pageHeader.firstElementChild?.append(continueLink);
 
 	root.replaceChildren(
 		createBreadcrumb([
@@ -297,6 +303,11 @@ function renderCart(totals) {
 	const main = createElement('div', 'cart-main');
 	const linesSection = createElement('section', 'cart-lines');
 	linesSection.setAttribute('aria-label', 'Cart items');
+
+	const columnHead = createElement('div', 'cart-lines__head');
+	columnHead.setAttribute('aria-hidden', 'true');
+	columnHead.append(createElement('span', '', 'Items'), createElement('span', '', 'Price'));
+	linesSection.append(columnHead);
 
 	const fields = [];
 	const summary = createElement('aside', 'cart-summary');
