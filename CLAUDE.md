@@ -59,7 +59,7 @@ Dual data flow across two tracks:
 - **Electronics track** (electronics, electronics-subcategory, openproduct, shoppingcart, index, signin, signUp): consumes the backend REST API (currently the remote host below; `Isoko/backend/` is a local equivalent) — `POST /register`, `POST /login`, `GET /users/{token}`, `GET /electronics/{category}` — for authentication and product data.
 - **Apparels / car parts track** (apparels, apparel, carpart): static, hardcoded product arrays in the HTML; no backend calls.
 - Both tracks share auth/cart via localStorage: `Authorization` (JWT token), `alibabacart` (cart), `openedProduct` / `details_prod` (opened product). Shared ES-module components live in `components/` (`navbar.js`, `footer.js`, `homepagefooter.js`).
-- Backend (`backend/server.js`): Express + bcryptjs + jsonwebtoken; users live only in an in-memory `Map` (mongoose is declared in `package.json` but never imported, so data resets on restart); JWT secret `isoko_secret_key_2026` with 1-hour expiry; CORS for all origins; port from `PORT` env (default 5003).
+- Backend (`backend/server.js`): Express + bcryptjs + jsonwebtoken; users live only in an in-memory `Map`, so data resets on restart; JWT secret `isoko_secret_key_2026` with 1-hour expiry; CORS for all origins; port from `PORT` env (default 5003).
 - Backend URL is hardcoded to `http://143.47.179.233:5003` in all eight frontend consumers; to use the local backend, edit those URLs to `http://localhost:5003`.
 
 Details: `Isoko/CLAUDE.md`. The `GET /electronics/{category}` handler returns the same mock items for every category.
@@ -68,7 +68,7 @@ Details: `Isoko/CLAUDE.md`. The `GET /electronics/{category}` handler returns th
 
 Client-only SvelteKit floor-plan editor: no backend server, no API routes, no database; all design state lives in browser memory for the session only (not persisted to localStorage or synced to a server).
 
-- `src/lib/store.ts` — single source of truth: writable `design` store (walls, rooms, doors, windows, furniture) plus UI stores (`activeTool`, `viewMode`, `selectedFurniture`, `isDrawing`, `currentPoint`) and derived counts (`wallCount`, `roomCount`, `furnitureCount`).
+- `src/lib/store.ts` — single source of truth: writable `design` store (walls, rooms, doors, windows, furniture) plus UI stores (`activeTool`, `viewMode`, `selectedFurniture`, `isDrawing`, `currentPoint`).
 - `src/lib/types.ts` — domain model: `Design`, `Wall`, `Room`, `Door`, `Window`, `FurnitureItem`, `Point`, `CanvasTool`, `ViewMode`.
 - `src/routes/+page.svelte` — app shell: `Toolbar`, sidebar (2D/3D toggle + `FurnitureCatalog`), canvas area, and fixed `DesignExporter`. The canvas swaps `Canvas2D.svelte` (Three.js orthographic, grid, grid-snapping) for `Canvas3D.svelte` (Three.js perspective, lit walls/furniture with shadows) based on `$viewMode`; both rebuild from the `design` store on every change.
 - `src/lib/catalog/catalog.ts` — `furnitureLibrary` (10 items); `FurnitureCatalog.svelte` dispatches `itemselect`, which sets `selectedFurniture` and switches the tool to `furniture`.
@@ -79,7 +79,7 @@ Styling: Tailwind (`tailwind.config.js`, `postcss.config.js`); SvelteKit with `a
 
 ### Deployment
 
-The root `.github/workflows/deploy.yml` runs on every push to `main`:
+GitHub Pages must be configured with Source: **GitHub Actions** (`build_type: workflow`). The legacy branch build overwrites the workflow artifact and leaves `/Ubuni/` 404. The root `.github/workflows/deploy.yml` runs on every push to `main`:
 
 1. Installs and builds Ubuni with `npm ci` and `PAGES_BASE_PATH=/Ubuni`, so SvelteKit emits base-prefixed URLs.
 2. Assembles a fresh `site/` directory containing `index.html` (landing page), `Runinga/`, `Isoko/`, and the Ubuni build as `Ubuni/`.

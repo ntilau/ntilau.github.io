@@ -19,7 +19,7 @@ There is no test framework configured (no Vitest/Jest), so there are no tests to
 `frontend/` is a client-only SvelteKit floor-plan editor (ubuni.app). There is no backend server, no API routes, and no database — all state lives in memory in the browser.
 
 ### State
-- `src/lib/store.ts` holds the single source of truth: a writable `design` store (walls, rooms, doors, windows, furniture) plus UI stores (`activeTool`, `viewMode`, `selectedFurniture`, `isDrawing`, `currentPoint`) and derived counts (`wallCount`, `roomCount`, `furnitureCount`). Designs are not persisted to localStorage or synced to a server; they exist only for the session.
+- `src/lib/store.ts` holds the single source of truth: a writable `design` store (walls, rooms, doors, windows, furniture) plus UI stores (`activeTool`, `viewMode`, `selectedFurniture`, `isDrawing`, `currentPoint`). Designs are not persisted to localStorage or synced to a server; they exist only for the session.
 - `src/lib/types.ts` defines the domain model: `Design`, `Wall`, `Room`, `Door`, `Window`, `FurnitureItem`, `Point`, `CanvasTool`, `ViewMode`.
 
 ### Views

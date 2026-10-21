@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5003;
 app.use(cors());
 app.use(express.json());
 
-// In-memory storage for users (fallback when MongoDB is not available)
+// In-memory storage for users (resets on restart)
 const users = new Map();
 let userIdCounter = 1;
 

@@ -167,7 +167,7 @@ Components are imported as ES modules in `<script type="module">` blocks on each
 - HTML files reference CSS via `<link>` tags in `<head>`
 - HTML files reference JavaScript via `<script>` tags before closing `</body>`
 - Component JavaScript files are imported via ES modules in `<script type="module">` blocks
-- All API calls (electronics track only) use the same backend URL configured via update scripts
+- All API calls (electronics track only) use the same hardcoded backend URL
 
 ### Troubleshooting
 - If electronics features don't work, verify backend is running and frontend is pointing to correct URL

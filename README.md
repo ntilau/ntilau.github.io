@@ -81,6 +81,8 @@ npm run format     # Prettier
 
 ## Deployment
 
+Pages is configured with Source: **GitHub Actions**. Do not switch it back to branch deploy: the legacy build overwrites the workflow artifact and leaves `/Ubuni/` 404.
+
 Pushing to `main` triggers `.github/workflows/deploy.yml`, which:
 
 1. Installs dependencies and builds Ubuni with `PAGES_BASE_PATH=/Ubuni`, so it is served from `/Ubuni/`.
