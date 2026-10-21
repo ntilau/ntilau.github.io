@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-`ntilau.github.io` is a GitHub Pages site pairing a root landing page with three independent sub-projects, each in its own subdirectory and served at its own path. There is no shared local build, lint, or test setup at the repository root; every sub-project is self-contained. A single root workflow deploys all of them (see [Deployment](#deployment)).
+`ntilau.github.io` is a GitHub Pages site (live at https://ntilau.github.io/) pairing a root landing page with three independent sub-projects, each in its own subdirectory and served at its own path. There is no shared local build, lint, or test setup at the repository root; every sub-project is self-contained. A single root workflow deploys all of them (see [Deployment](#deployment)).
 
-- `Runinga/` — `Runinga/index.html`: a single-file (~516 lines) HLS streaming TV app with 321 `{name, url}` M3U8 channels (HLS.js from jsDelivr, Safari native fallback). Keyboard, touch/swipe, mouse wheel, and click navigation with an on-screen display; failed streams are dropped automatically. No build step, no tests.
+- `Runinga/` — `Runinga/index.html`: a single-file (~515 lines) HLS streaming TV app with 321 `{name, url}` M3U8 channels (HLS.js from jsDelivr, Safari native fallback). Keyboard, touch/swipe, mouse wheel, and click navigation with an on-screen display; failed streams are dropped automatically. No build step, no tests.
 - `Isoko/` — fully static, guest-only marketplace (44 products across electronics, apparel, and car parts) with an independent, Amazon-inspired UI: dark utility header, department search, filter sidebar with price ranges, and a three-column product page. Built with plain HTML, CSS, and ES modules; catalog, local cart, and demo checkout, with no backend or accounts. Has its own `Isoko/CLAUDE.md`.
 - `Ubuni/frontend/` — SvelteKit floor-plan editor (TypeScript strict, Tailwind, Three.js) with a Vitest suite. Has its own `Ubuni/CLAUDE.md`. Commands: `npm run dev/build/preview/check/test/format`.
 
@@ -15,7 +15,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 There are no build, lint, or test commands at the repository root. Run each sub-project independently:
 
 **Landing page**
-- `python3 -m http.server 8080` from the repository root, then open http://localhost:8080/ — serves `index.html` and both static sub-projects. Ubuni is not reachable at `/Ubuni/` locally even after building (output lands in `Ubuni/frontend/build/`); use its dev server.
+- `python3 -m http.server 8080` from the repository root, then open http://localhost:8080/ — serves `index.html`, `Runinga/`, and `Isoko/`. Ubuni is not reachable at `/Ubuni/` this way even after building (output lands in `Ubuni/frontend/build/`); use its dev server.
 
 **Runinga**
 - Open `Runinga/index.html` in a modern browser. Save edits and reload to test; debug with browser dev tools (F12).
@@ -37,7 +37,7 @@ Only Ubuni configures a test framework (Vitest); there are no tests at the repos
 
 ## Architecture
 
-The repository is a loose collection of independent static/web projects under one GitHub Pages domain. Each sub-project owns its HTML, CSS, and JavaScript. There is no shared state, no common component library, and no cross-project build step. The root `index.html` is a dependency-free landing page linking to the three sub-projects; the root workflow is the only piece that knows about all of them.
+The repository is a loose collection of independent static web projects under one GitHub Pages domain. Each sub-project owns its HTML, CSS, and JavaScript. There is no shared state, no common component library, and no cross-project build step. The root `index.html` is a dependency-free landing page linking to the three sub-projects; the root workflow is the only piece that knows about all of them.
 
 ### Runinga (`Runinga/index.html`)
 
@@ -85,7 +85,7 @@ Styling: Tailwind (`tailwind.config.js`, `postcss.config.js`); `app.css` is impo
 
 ### Deployment
 
-GitHub Pages must be configured with Source: **GitHub Actions** (`build_type: workflow`). The legacy branch build overwrites the workflow artifact and leaves `/Ubuni/` 404. The root `.github/workflows/deploy.yml` runs on every push to `main`:
+GitHub Pages must be configured with Source: **GitHub Actions** (`build_type: workflow`). The legacy branch build overwrites the workflow artifact and leaves `/Ubuni/` 404. The root `.github/workflows/deploy.yml` runs on every push to `main` (and can be dispatched manually):
 
 1. Installs and builds Ubuni with `npm ci` and `PAGES_BASE_PATH=/Ubuni`, so SvelteKit emits base-prefixed URLs.
 2. Assembles a fresh `site/` directory containing `index.html` (landing page), `Runinga/`, `Isoko/`, and the Ubuni build as `Ubuni/`.
@@ -106,7 +106,7 @@ Isoko, Runinga, and the landing page are static and need no API host; Isoko's ca
 - `index.html` — root landing page linking to the three sub-projects
 - `.github/workflows/deploy.yml` — builds and publishes the whole site to GitHub Pages
 - `Runinga/index.html` — the Runinga streaming app
-- `Isoko/CLAUDE.md` — guidance for the Isoko e-commerce sub-project
+- `Isoko/CLAUDE.md` — guidance for the Isoko marketplace sub-project
 - `Ubuni/CLAUDE.md` — guidance for the Ubuni floor-plan editor sub-project
 - Root `CLAUDE.md` — this file
 

@@ -12,6 +12,13 @@ Three self-contained web apps served from one GitHub Pages site.
 
 The root `index.html` is a dependency-free landing page linking to all three.
 
+Live: [Runinga](https://ntilau.github.io/Runinga/) · [Isoko](https://ntilau.github.io/Isoko/) · [Ubuni](https://ntilau.github.io/Ubuni/)
+
+## Requirements
+
+- Runinga, Isoko, and the landing page are static: a modern browser and any static file server are enough.
+- Ubuni requires Node.js and npm; the Pages workflow builds it with Node 20.
+
 ## Runinga
 
 A single-file streaming app: one HTML file containing markup, styles, the channel list, and all playback logic.
@@ -27,7 +34,7 @@ No build step. Open `Runinga/index.html` directly in a browser, or visit `/Runin
 A fully static, guest-only marketplace with an independent, Amazon-inspired storefront: dark utility header, department search, white product cards, filter sidebar, three-column product page, and cart summary. There is no backend, no accounts, and no payment integration, and no Amazon logos, fonts, assets, or copy are used.
 
 - One unified catalog of 44 products across electronics, apparel and textiles, and car parts
-- Header search that carries a department, plus a shareable shop URL with department, price-range, query, and sort filters
+- Header search that carries a department, plus a shareable shop URL with department, price-range (`under-500`, `500-2000`, `2000-5000`, `over-5000`), query, and sort filters
 - Product pages with a gallery, buy box, quantity controls, related picks, and image fallbacks
 - A cart saved in `localStorage` (`isoko:cart:v1`) with quantity editing and a ₹499 delivery fee, free over ₹10,000
 - A local demo checkout that collects delivery details, generates an order number, saves the last order on the device, and clears the cart — nothing is uploaded or charged
@@ -50,7 +57,7 @@ A client-only SvelteKit floor-plan editor built with TypeScript, Tailwind, and T
 - Move/rotate/delete furniture, drag wall endpoints and room vertices, slide openings along walls, undo/redo, zoom and Fit
 - 3D orbit view with openings, room floors, furniture, and click-to-select
 - Inspector for editing selected objects; shortcuts and a live status bar
-- Autosaves one design to `localStorage`; New, JSON import/export, vector SVG and PDF export
+- Autosaves one design to `localStorage` under `ubuni:design:v1`; New, JSON import/export, vector SVG and PDF export
 - Vitest suite for geometry, history, and exports
 
 ```bash
@@ -92,6 +99,21 @@ Pushing to `main` triggers `.github/workflows/deploy.yml`, which:
 3. Publishes `site/` to GitHub Pages.
 
 Only static files are deployed. Isoko is entirely client-side, so it needs no API host; its cart and demo orders stay in each visitor's browser.
+
+## Verification
+
+```bash
+# Syntax-check the Isoko ES modules
+for file in Isoko/script/*.js; do node --check "$file" || exit 1; done
+
+# Ubuni type-check, tests, and base-prefixed production build
+cd Ubuni/frontend
+npm run check
+npm test
+PAGES_BASE_PATH=/Ubuni npm run build
+```
+
+For a full manual pass, serve the repository root and check the landing page, Runinga, and Isoko; run Ubuni from its dev server and exercise its editor and exports.
 
 ## Notes
 
