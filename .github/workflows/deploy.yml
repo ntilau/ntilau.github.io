@@ -45,7 +45,7 @@ jobs:
           cp index.html site/index.html
           cp -r Runinga site/Runinga
           cp -r Isoko site/Isoko
-          cp -r Zunga site/Zunga
+          cp -r Indaro site/Indaro
           cp -r Ubuni/frontend/build site/Ubuni
 
       - name: Upload artifact

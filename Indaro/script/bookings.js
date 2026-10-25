@@ -1,6 +1,6 @@
 import { parseNights, parseGuests, roundMoney } from './utils.js';
 
-const BOOKING_KEY = 'zunga:booking:v1';
+const BOOKING_KEY = 'indaro:booking:v1';
 
 function orderNumber() {
 	const today = new Date();
@@ -98,7 +98,7 @@ export function subscribeBooking(listener) {
 
 export function hasPersistentStorage() {
 	try {
-		const test = '__zunga_test__';
+		const test = '__indaro_test__';
 		localStorage.setItem(test, test);
 		localStorage.removeItem(test);
 		return true;

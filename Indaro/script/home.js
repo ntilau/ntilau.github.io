@@ -41,7 +41,7 @@ export function initHome() {
 
 function getLocationsModule() {
 	// imported at top via listings module to avoid circular concerns
-	return { LOCATIONS: window.__ZUNGA_LOCATIONS || [] };
+	return { LOCATIONS: window.__INDARO_LOCATIONS || [] };
 }
 
 function todayMinInputs(checkIn, checkOut) {

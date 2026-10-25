@@ -40,14 +40,14 @@ export { icon };
 const HEADER_MARKUP = `
 	<div class="announcement">
 		<div class="container announcement__inner">
-			<strong>Zunga</strong> &middot; sample hospitality bookings for Rwanda &mdash; illustrative stays only, not real inventory.
+			<strong>Indaro</strong> &middot; sample hospitality bookings for Rwanda &mdash; illustrative stays only, not real inventory.
 			<a href="#about">Read the site note &rarr;</a>
 			<button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" id="nav-toggle" type="button">${icon('menu')}</button>
 		</div>
 	</div>
 	<header class="header-main" id="header-main">
 		<div class="container header-inner">
-			<a href="index.html" class="brand" aria-label="Zunga home">
+			<a href="index.html" class="brand" aria-label="Indaro home">
 				<svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
 					<defs>
 						<linearGradient id="bungle-grad" x1="0" y1="0" x2="1" y2="1">
@@ -61,7 +61,7 @@ const HEADER_MARKUP = `
 					<circle cx="46" cy="18" r="3" fill="#FFFFFF"/>
 				</svg>
 				<div class="brand__text">
-					<div class="brand__word">Zunga</div>
+					<div class="brand__word">Indaro</div>
 					<div class="brand__tagline">Hospitality &middot; Rwanda</div>
 				</div>
 			</a>
@@ -103,7 +103,7 @@ const FOOTER_MARKUP = `
 	<div class="footer-main">
 		<div class="container footer-grid">
 			<div class="footer-brand">
-				<a href="index.html" class="brand" aria-label="Zunga home">
+				<a href="index.html" class="brand" aria-label="Indaro home">
 					<svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
 						<rect x="1" y="1" width="62" height="62" rx="14" fill="var(--header)"/>
 						<path d="M32 12c-9 0-16 7.5-16 17a17 17 0 0 0 34 0c0-9.5-7-17-16 17Z" fill="url(#bungle-grad)"/>
@@ -111,7 +111,7 @@ const FOOTER_MARKUP = `
 						<circle cx="46" cy="18" r="3" fill="#FFFFFF"/>
 					</svg>
 					<div class="brand__text">
-						<div class="brand__word">Zunga</div>
+						<div class="brand__word">Indaro</div>
 						<div class="brand__tagline">Hospitality &middot; Rwanda</div>
 					</div>
 				</a>
@@ -151,7 +151,7 @@ const FOOTER_MARKUP = `
 	</div>
 	<div class="footer-bottom">
 		<div class="container footer-bottom__inner">
-			<span class="footer-note">&copy; ${new Date().getFullYear()} Zunga &mdash; sample project.</span>
+			<span class="footer-note">&copy; ${new Date().getFullYear()} Indaro &mdash; sample project.</span>
 			<div class="footer-links" style="flex-direction:row; gap:16px;">
 				<a href="#privacy">Privacy</a>
 				<a href="#terms">Terms</a>
