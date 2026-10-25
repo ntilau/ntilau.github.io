@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "exportedAt": "2026-10-25T00:00:00.000Z",
+  "design": {
+    "id": "house-ground-floor",
+    "name": "Ground floor — 250 m² house (4 kids + dependence workers)",
+    "walls": [
+      { "id": "g-wall-ext-1", "start": { "x": 0, "y": 0 }, "end": { "x": 20, "y": 0 }, "thickness": 0.15 },
+      { "id": "g-wall-ext-2", "start": { "x": 20, "y": 0 }, "end": { "x": 20, "y": 12.5 }, "thickness": 0.15 },
+      { "id": "g-wall-ext-3", "start": { "x": 20, "y": 12.5 }, "end": { "x": 0, "y": 12.5 }, "thickness": 0.15 },
+      { "id": "g-wall-ext-4", "start": { "x": 0, "y": 12.5 }, "end": { "x": 0, "y": 0 }, "thickness": 0.15 },
+      { "id": "g-wall-int-1", "start": { "x": 6, "y": 0 }, "end": { "x": 6, "y": 7.5 }, "thickness": 0.15 },
+      { "id": "g-wall-int-2", "start": { "x": 0, "y": 5 }, "end": { "x": 6, "y": 5 }, "thickness": 0.15 },
+      { "id": "g-wall-int-3", "start": { "x": 14, "y": 0 }, "end": { "x": 14, "y": 7 }, "thickness": 0.15 },
+      { "id": "g-wall-int-4", "start": { "x": 6, "y": 7.5 }, "end": { "x": 14, "y": 7.5 }, "thickness": 0.15 },
+      { "id": "g-wall-int-5", "start": { "x": 14, "y": 7 }, "end": { "x": 14, "y": 12 }, "thickness": 0.15 },
+      { "id": "g-wall-int-6", "start": { "x": 14, "y": 12 }, "end": { "x": 20, "y": 12 }, "thickness": 0.15 },
+      { "id": "g-wall-int-7", "start": { "x": 6, "y": 10 }, "end": { "x": 14, "y": 10 }, "thickness": 0.15 },
+      { "id": "g-wall-int-8", "start": { "x": 10, "y": 10 }, "end": { "x": 10, "y": 12.5 }, "thickness": 0.15 }
+    ],
+    "rooms": [
+      { "id": "g-room-1", "points": [ { "x": 0.3, "y": 0.3 }, { "x": 5.7, "y": 0.3 }, { "x": 5.7, "y": 4.7 }, { "x": 0.3, "y": 4.7 } ], "label": "Entrance hall", "color": "#e0e7ff" },
+      { "id": "g-room-2", "points": [ { "x": 6.3, "y": 0.3 }, { "x": 13.7, "y": 0.3 }, { "x": 13.7, "y": 7.2 }, { "x": 6.3, "y": 7.2 } ], "label": "Living room", "color": "#93c5fd" },
+      { "id": "g-room-3", "points": [ { "x": 14.3, "y": 0.3 }, { "x": 19.7, "y": 0.3 }, { "x": 19.7, "y": 6.7 }, { "x": 14.3, "y": 6.7 } ], "label": "Dining room", "color": "#86efac" },
+      { "id": "g-room-4", "points": [ { "x": 14.3, "y": 7.3 }, { "x": 19.7, "y": 7.3 }, { "x": 19.7, "y": 11.7 }, { "x": 14.3, "y": 11.7 } ], "label": "Kitchen", "color": "#fcd34d" },
+      { "id": "g-room-5", "points": [ { "x": 0.3, "y": 5.3 }, { "x": 5.7, "y": 5.3 }, { "x": 5.7, "y": 9.7 }, { "x": 0.3, "y": 9.7 } ], "label": "Dependence worker bedroom", "color": "#f9a8d4" },
+      { "id": "g-room-6", "points": [ { "x": 0.3, "y": 10.3 }, { "x": 5.7, "y": 10.3 }, { "x": 5.7, "y": 12.2 }, { "x": 0.3, "y": 12.2 } ], "label": "Staff bath & laundry", "color": "#c4b5fd" },
+      { "id": "g-room-7", "points": [ { "x": 6.3, "y": 7.8 }, { "x": 13.7, "y": 7.8 }, { "x": 13.7, "y": 9.7 }, { "x": 6.3, "y": 9.7 } ], "label": "Corridor", "color": "#e5e7eb" },
+      { "id": "g-room-8", "points": [ { "x": 10.3, "y": 10.3 }, { "x": 13.7, "y": 10.3 }, { "x": 13.7, "y": 12.2 }, { "x": 10.3, "y": 12.2 } ], "label": "Guest powder room", "color": "#67e8f9" },
+      { "id": "g-room-9", "points": [ { "x": 6.3, "y": 10.3 }, { "x": 9.7, "y": 10.3 }, { "x": 9.7, "y": 12.2 }, { "x": 6.3, "y": 12.2 } ], "label": "Pantry", "color": "#fbbf24" }
+    ],
+    "doors": [
+      { "id": "g-door-front", "position": { "x": 3, "y": 0 }, "width": 0.9, "wallId": "g-wall-ext-1" },
+      { "id": "g-door-hall-living", "position": { "x": 6, "y": 3.2 }, "width": 0.9, "wallId": "g-wall-int-1" },
+      { "id": "g-door-hall-staff", "position": { "x": 2.5, "y": 5 }, "width": 0.9, "wallId": "g-wall-int-2" },
+      { "id": "g-door-living-corridor", "position": { "x": 10, "y": 7.5 }, "width": 0.9, "wallId": "g-wall-int-4" },
+      { "id": "g-door-dining-kitchen", "position": { "x": 14, "y": 3.2 }, "width": 0.9, "wallId": "g-wall-int-3" },
+      { "id": "g-door-kitchen-pantry", "position": { "x": 14, "y": 9.2 }, "width": 0.9, "wallId": "g-wall-int-5" },
+      { "id": "g-door-staff-back", "position": { "x": 0, "y": 11.5 }, "width": 0.9, "wallId": "g-wall-ext-4" },
+      { "id": "g-door-guest-bath", "position": { "x": 12, "y": 10 }, "width": 0.9, "wallId": "g-wall-int-7" }
+    ],
+    "windows": [
+      { "id": "g-win-living-1", "position": { "x": 9, "y": 0 }, "width": 1.5, "wallId": "g-wall-ext-1" },
+      { "id": "g-win-dining-1", "position": { "x": 17, "y": 0 }, "width": 1.5, "wallId": "g-wall-ext-1" },
+      { "id": "g-win-kitchen-back", "position": { "x": 17, "y": 12.5 }, "width": 1.2, "wallId": "g-wall-ext-3" },
+      { "id": "g-win-staff-1", "position": { "x": 0, "y": 7.5 }, "width": 1.2, "wallId": "g-wall-ext-4" }
+    ],
+    "furniture": [
+      { "id": "g-furn-sofa", "name": "Sofa", "category": "seating", "position": { "x": 8, "y": 1.2 }, "size": { "x": 0.9, "y": 0.4 }, "rotation": 0 },
+      { "id": "g-furn-dining-table", "name": "Dining Table", "category": "tables", "position": { "x": 16.5, "y": 3 }, "size": { "x": 0.6, "y": 0.4 }, "rotation": 0 },
+      { "id": "g-furn-kitchen-cabinet", "name": "Cabinet", "category": "storage", "position": { "x": 16.5, "y": 8.5 }, "size": { "x": 0.3, "y": 0.2 }, "rotation": 0 },
+      { "id": "g-furn-staff-bed", "name": "Bed", "category": "beds", "position": { "x": 3, "y": 7.5 }, "size": { "x": 0.6, "y": 0.8 }, "rotation": 0 },
+      { "id": "g-furn-staff-wardrobe", "name": "Cabinet", "category": "storage", "position": { "x": 1.2, "y": 8.5 }, "size": { "x": 0.3, "y": 0.2 }, "rotation": 0 }
+    ],
+    "createdAt": "2026-10-25T00:00:00.000Z",
+    "updatedAt": "2026-10-25T00:00:00.000Z"
+  }
+}

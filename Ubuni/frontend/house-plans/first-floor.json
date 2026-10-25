@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "exportedAt": "2026-10-25T00:00:00.000Z",
+  "design": {
+    "id": "house-first-floor",
+    "name": "First floor — 250 m² house (4 kids + dependence workers)",
+    "walls": [
+      { "id": "f-wall-ext-1", "start": { "x": 0, "y": 0 }, "end": { "x": 20, "y": 0 }, "thickness": 0.15 },
+      { "id": "f-wall-ext-2", "start": { "x": 20, "y": 0 }, "end": { "x": 20, "y": 12.5 }, "thickness": 0.15 },
+      { "id": "f-wall-ext-3", "start": { "x": 20, "y": 12.5 }, "end": { "x": 0, "y": 12.5 }, "thickness": 0.15 },
+      { "id": "f-wall-ext-4", "start": { "x": 0, "y": 12.5 }, "end": { "x": 0, "y": 0 }, "thickness": 0.15 },
+      { "id": "f-wall-int-1", "start": { "x": 6, "y": 0 }, "end": { "x": 6, "y": 5 }, "thickness": 0.15 },
+      { "id": "f-wall-int-2", "start": { "x": 0, "y": 5 }, "end": { "x": 6, "y": 5 }, "thickness": 0.15 },
+      { "id": "f-wall-int-3", "start": { "x": 14, "y": 0 }, "end": { "x": 14, "y": 7 }, "thickness": 0.15 },
+      { "id": "f-wall-int-4", "start": { "x": 6, "y": 7 }, "end": { "x": 14, "y": 7 }, "thickness": 0.15 },
+      { "id": "f-wall-int-5", "start": { "x": 14, "y": 7 }, "end": { "x": 20, "y": 7 }, "thickness": 0.15 },
+      { "id": "f-wall-int-6", "start": { "x": 6, "y": 10 }, "end": { "x": 14, "y": 10 }, "thickness": 0.15 },
+      { "id": "f-wall-int-7", "start": { "x": 10, "y": 10 }, "end": { "x": 10, "y": 12.5 }, "thickness": 0.15 }
+    ],
+    "rooms": [
+      { "id": "f-room-1", "points": [ { "x": 0.3, "y": 0.3 }, { "x": 5.7, "y": 0.3 }, { "x": 5.7, "y": 4.7 }, { "x": 0.3, "y": 4.7 } ], "label": "Kids bedroom A (2 beds)", "color": "#bfdbfe" },
+      { "id": "f-room-2", "points": [ { "x": 6.3, "y": 0.3 }, { "x": 13.7, "y": 0.3 }, { "x": 13.7, "y": 6.7 }, { "x": 6.3, "y": 6.7 } ], "label": "Kids bedroom B (2 beds)", "color": "#93c5fd" },
+      { "id": "f-room-3", "points": [ { "x": 14.3, "y": 0.3 }, { "x": 19.7, "y": 0.3 }, { "x": 19.7, "y": 6.7 }, { "x": 14.3, "y": 6.7 } ], "label": "Study / playroom", "color": "#fcd34d" },
+      { "id": "f-room-4", "points": [ { "x": 6.3, "y": 7.3 }, { "x": 13.7, "y": 7.3 }, { "x": 13.7, "y": 9.7 }, { "x": 6.3, "y": 9.7 } ], "label": "Kids bath", "color": "#67e8f9" },
+      { "id": "f-room-5", "points": [ { "x": 10.3, "y": 10.3 }, { "x": 13.7, "y": 10.3 }, { "x": 13.7, "y": 12.2 }, { "x": 10.3, "y": 12.2 } ], "label": "Linen closet", "color": "#fbbf24" },
+      { "id": "f-room-6", "points": [ { "x": 6.3, "y": 10.3 }, { "x": 9.7, "y": 10.3 }, { "x": 9.7, "y": 12.2 }, { "x": 6.3, "y": 12.2 } ], "label": "Corridor landing", "color": "#e5e7eb" },
+      { "id": "f-room-7", "points": [ { "x": 0.3, "y": 5.3 }, { "x": 5.7, "y": 5.3 }, { "x": 5.7, "y": 12.2 }, { "x": 0.3, "y": 12.2 } ], "label": "Master suite", "color": "#f9a8d4" }
+    ],
+    "doors": [
+      { "id": "f-door-stair", "position": { "x": 3, "y": 0 }, "width": 0.9, "wallId": "f-wall-ext-1" },
+      { "id": "f-door-bedA", "position": { "x": 6, "y": 2.2 }, "width": 0.9, "wallId": "f-wall-int-1" },
+      { "id": "f-door-bedB", "position": { "x": 6, "y": 5.2 }, "width": 0.9, "wallId": "f-wall-int-1" },
+      { "id": "f-door-master", "position": { "x": 0.8, "y": 8.5 }, "width": 0.9, "wallId": "f-wall-ext-4" },
+      { "id": "f-door-study", "position": { "x": 14, "y": 3.2 }, "width": 0.9, "wallId": "f-wall-int-3" },
+      { "id": "f-door-kids-bath", "position": { "x": 10, "y": 7 }, "width": 0.9, "wallId": "f-wall-int-4" },
+      { "id": "f-door-linen", "position": { "x": 12, "y": 10 }, "width": 0.9, "wallId": "f-wall-int-6" }
+    ],
+    "windows": [
+      { "id": "f-win-bedA-1", "position": { "x": 3, "y": 12.5 }, "width": 1.5, "wallId": "f-wall-ext-3" },
+      { "id": "f-win-bedB-1", "position": { "x": 10, "y": 0 }, "width": 1.5, "wallId": "f-wall-ext-1" },
+      { "id": "f-win-study", "position": { "x": 17, "y": 0 }, "width": 1.5, "wallId": "f-wall-ext-1" },
+      { "id": "f-win-master-1", "position": { "x": 0, "y": 8.5 }, "width": 1.5, "wallId": "f-wall-ext-4" },
+      { "id": "f-win-master-2", "position": { "x": 3, "y": 12.5 }, "width": 1.5, "wallId": "f-wall-ext-3" },
+      { "id": "f-win-kids-bath", "position": { "x": 6, "y": 11.8 }, "width": 1.2, "wallId": "f-wall-ext-3" }
+    ],
+    "furniture": [
+      { "id": "f-furn-bedA-1", "name": "Bed", "category": "beds", "position": { "x": 3, "y": 1 }, "size": { "x": 0.6, "y": 0.8 }, "rotation": 0 },
+      { "id": "f-furn-bedA-2", "name": "Bed", "category": "beds", "position": { "x": 3, "y": 3.6 }, "size": { "x": 0.6, "y": 0.8 }, "rotation": 0 },
+      { "id": "f-furn-bedB-1", "name": "Bed", "category": "beds", "position": { "x": 8, "y": 1 }, "size": { "x": 0.6, "y": 0.8 }, "rotation": 0 },
+      { "id": "f-furn-bedB-2", "name": "Bed", "category": "beds", "position": { "x": 8, "y": 3.6 }, "size": { "x": 0.6, "y": 0.8 }, "rotation": 0 },
+      { "id": "f-furn-desk", "name": "Desk", "category": "tables", "position": { "x": 16.5, "y": 2 }, "size": { "x": 0.5, "y": 0.3 }, "rotation": 0 },
+      { "id": "f-furn-master-bed", "name": "Bed", "category": "beds", "position": { "x": 2.5, "y": 9 }, "size": { "x": 0.6, "y": 0.8 }, "rotation": 0 },
+      { "id": "f-furn-master-wadrobe", "name": "Cabinet", "category": "storage", "position": { "x": 1, "y": 10.5 }, "size": { "x": 0.3, "y": 0.2 }, "rotation": 0 }
+    ],
+    "createdAt": "2026-10-25T00:00:00.000Z",
+    "updatedAt": "2026-10-25T00:00:00.000Z"
+  }
+}

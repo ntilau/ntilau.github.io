@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "exportedAt": "2026-10-25T00:00:00.000Z",
+  "design": {
+    "id": "house-second-floor",
+    "name": "Second floor — 250 m² house (4 kids + dependence workers)",
+    "walls": [
+      { "id": "s-wall-ext-1", "start": { "x": 0, "y": 0 }, "end": { "x": 20, "y": 0 }, "thickness": 0.15 },
+      { "id": "s-wall-ext-2", "start": { "x": 20, "y": 0 }, "end": { "x": 20, "y": 12.5 }, "thickness": 0.15 },
+      { "id": "s-wall-ext-3", "start": { "x": 20, "y": 12.5 }, "end": { "x": 0, "y": 12.5 }, "thickness": 0.15 },
+      { "id": "s-wall-ext-4", "start": { "x": 0, "y": 12.5 }, "end": { "x": 0, "y": 0 }, "thickness": 0.15 },
+      { "id": "s-wall-int-1", "start": { "x": 6, "y": 0 }, "end": { "x": 6, "y": 7 }, "thickness": 0.15 },
+      { "id": "s-wall-int-2", "start": { "x": 0, "y": 7 }, "end": { "x": 6, "y": 7 }, "thickness": 0.15 },
+      { "id": "s-wall-int-3", "start": { "x": 14, "y": 0 }, "end": { "x": 14, "y": 7 }, "thickness": 0.15 },
+      { "id": "s-wall-int-4", "start": { "x": 6, "y": 7 }, "end": { "x": 14, "y": 7 }, "thickness": 0.15 },
+      { "id": "s-wall-int-5", "start": { "x": 14, "y": 7 }, "end": { "x": 20, "y": 7 }, "thickness": 0.15 },
+      { "id": "s-wall-int-6", "start": { "x": 10, "y": 7 }, "end": { "x": 10, "y": 12.5 }, "thickness": 0.15 }
+    ],
+    "rooms": [
+      { "id": "s-room-1", "points": [ { "x": 0.3, "y": 0.3 }, { "x": 5.7, "y": 0.3 }, { "x": 5.7, "y": 6.7 }, { "x": 0.3, "y": 6.7 } ], "label": "Teen bedroom (1 kid)", "color": "#bfdbfe" },
+      { "id": "s-room-2", "points": [ { "x": 6.3, "y": 0.3 }, { "x": 13.7, "y": 0.3 }, { "x": 13.7, "y": 6.7 }, { "x": 6.3, "y": 6.7 } ], "label": "Teen bedroom (1 kid)", "color": "#93c5fd" },
+      { "id": "s-room-3", "points": [ { "x": 14.3, "y": 0.3 }, { "x": 19.7, "y": 0.3 }, { "x": 19.7, "y": 6.7 }, { "x": 14.3, "y": 6.7 } ], "label": "Family lounge", "color": "#fcd34d" },
+      { "id": "s-room-4", "points": [ { "x": 6.3, "y": 7.3 }, { "x": 9.7, "y": 7.3 }, { "x": 9.7, "y": 12.2 }, { "x": 6.3, "y": 12.2 } ], "label": "Upper bath", "color": "#67e8f9" },
+      { "id": "s-room-5", "points": [ { "x": 10.3, "y": 7.3 }, { "x": 13.7, "y": 7.3 }, { "x": 13.7, "y": 12.2 }, { "x": 10.3, "y": 12.2 } ], "label": "Kids playroom", "color": "#f9a8d4" },
+      { "id": "s-room-6", "points": [ { "x": 14.3, "y": 7.3 }, { "x": 19.7, "y": 7.3 }, { "x": 19.7, "y": 12.2 }, { "x": 14.3, "y": 12.2 } ], "label": "Terrace access", "color": "#e5e7eb" },
+      { "id": "s-room-7", "points": [ { "x": 0.3, "y": 7.3 }, { "x": 5.7, "y": 7.3 }, { "x": 5.7, "y": 12.2 }, { "x": 0.3, "y": 12.2 } ], "label": "Corridor", "color": "#e5e7eb" }
+    ],
+    "doors": [
+      { "id": "s-door-stair", "position": { "x": 3, "y": 0 }, "width": 0.9, "wallId": "s-wall-ext-1" },
+      { "id": "s-door-bed1", "position": { "x": 6, "y": 3.2 }, "width": 0.9, "wallId": "s-wall-int-1" },
+      { "id": "s-door-bed2", "position": { "x": 6, "y": 5.2 }, "width": 0.9, "wallId": "s-wall-int-1" },
+      { "id": "s-door-lounge", "position": { "x": 14, "y": 3.2 }, "width": 0.9, "wallId": "s-wall-int-3" },
+      { "id": "s-door-upper-bath", "position": { "x": 8, "y": 7 }, "width": 0.9, "wallId": "s-wall-int-4" },
+      { "id": "s-door-playroom", "position": { "x": 12, "y": 7 }, "width": 0.9, "wallId": "s-wall-int-4" },
+      { "id": "s-door-terrace", "position": { "x": 17, "y": 12.5 }, "width": 0.9, "wallId": "s-wall-ext-3" }
+    ],
+    "windows": [
+      { "id": "s-win-bed1", "position": { "x": 3, "y": 12.5 }, "width": 1.5, "wallId": "s-wall-ext-3" },
+      { "id": "s-win-bed2", "position": { "x": 10, "y": 0 }, "width": 1.5, "wallId": "s-wall-ext-1" },
+      { "id": "s-win-lounge", "position": { "x": 17, "y": 0 }, "width": 1.5, "wallId": "s-wall-ext-1" },
+      { "id": "s-win-upper-bath", "position": { "x": 6, "y": 11.8 }, "width": 1.2, "wallId": "s-wall-ext-3" },
+      { "id": "s-win-playroom", "position": { "x": 17, "y": 7.3 }, "width": 1.5, "wallId": "s-wall-ext-2" }
+    ],
+    "furniture": [
+      { "id": "s-furn-bed1", "name": "Bed", "category": "beds", "position": { "x": 2.5, "y": 2 }, "size": { "x": 0.6, "y": 0.8 }, "rotation": 0 },
+      { "id": "s-furn-bed1-desk", "name": "Desk", "category": "tables", "position": { "x": 2.5, "y": 4.5 }, "size": { "x": 0.5, "y": 0.3 }, "rotation": 0 },
+      { "id": "s-furn-bed2", "name": "Bed", "category": "beds", "position": { "x": 8.5, "y": 2 }, "size": { "x": 0.6, "y": 0.8 }, "rotation": 0 },
+      { "id": "s-furn-bed2-desk", "name": "Desk", "category": "tables", "position": { "x": 8.5, "y": 4.5 }, "size": { "x": 0.5, "y": 0.3 }, "rotation": 0 },
+      { "id": "s-furn-lounge-sofa", "name": "Sofa", "category": "seating", "position": { "x": 16.5, "y": 2 }, "size": { "x": 0.9, "y": 0.4 }, "rotation": 0 },
+      { "id": "s-furn-play-rug", "name": "Area Rug", "category": "decor", "position": { "x": 11.5, "y": 9.5 }, "size": { "x": 0.8, "y": 0.6 }, "rotation": 0 }
+    ],
+    "createdAt": "2026-10-25T00:00:00.000Z",
+    "updatedAt": "2026-10-25T00:00:00.000Z"
+  }
+}
