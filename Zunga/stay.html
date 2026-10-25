@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stay &mdash; Zunga</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="style/zunga.css">
+</head>
+<body>
+	<a href="#main-content" class="skip-link">Skip to main content</a>
+
+	<header id="site-header"></header>
+	<div id="toast-region"></div>
+
+	<main id="main-content">
+		<div class="container section--tight">
+			<nav style="margin-bottom:14px;">
+				<a href="stays.html" style="color:var(--accent);text-decoration:none;font-size:14px;">&larr; Back to stays</a>
+			</nav>
+
+			<div id="stay-not-found" class="empty-state" hidden>
+				<div class="empty-state__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+				<h2>Stay not found</h2>
+				<p>The property you requested isn&rsquo;t available. Browse other stays instead.</p>
+				<a href="stays.html" class="btn btn--primary">Browse stays</a>
+			</div>
+
+			<div id="stay-detail" hidden>
+				<div class="section-header" style="margin-bottom:20px;">
+					<div>
+						<h1 id="stay-name">Stay name</h1>
+						<div id="stay-eyebrow" class="eyebrow" style="margin:0 0 6px;"></div>
+						<div id="stay-location" style="color:var(--muted);font-size:14px;">&mdash;</div>
+					</div>
+					<div id="stay-badge" class="eyebrow" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent-soft);color:var(--accent);font-size:11.5px;font-weight:800;padding:3px 8px;border-radius:var(--radius-sm);letter-spacing:0.05em;" hidden></div>
+				</div>
+
+				<div class="listing-card__media" style="height:420px;width:100%;border-radius:var(--radius-lg);overflow:hidden;background:var(--surface-3);margin-bottom:16px;position:relative;">
+					<img id="stay-main-image" src="" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+					<div id="stay-thumbnails" style="display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-top:10px;"></div>
+				</div>
+
+				<div id="stay-stars" style="margin-bottom:10px;"></div>
+				<p id="stay-description" style="color:var(--ink-soft);font-size:15.5px;margin:0 0 16px;line-height:1.6;"></p>
+
+				<div id="stay-amenities" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;"></div>
+
+				<div class="summary" style="margin-top:24px;">
+					<h2 style="margin:0 0 12px;font-size:17px;">Booking</h2>
+					<div class="summary-row">
+						<span>Nightly rate</span>
+						<span id="stay-price">$&mdash;</span>
+					</div>
+					<div class="summary-row">
+						<span>Check-in</span>
+						<span id="stay-checkin-display">&mdash;</span>
+					</div>
+					<div class="summary-row">
+						<span>Check-out</span>
+						<span id="stay-checkout-display">&mdash;</span>
+					</div>
+					<div class="summary-row">
+						<span>Guests</span>
+						<span id="stay-guests-display">2</span>
+					</div>
+					<div class="summary-row summary-row--total">
+						<span>Total</span>
+						<span id="booking-total">$&mdash;</span>
+					</div>
+				</div>
+
+				<div class="field" style="margin-top:16px;">
+					<label for="booking-checkin">Check-in date</label>
+					<input id="booking-checkin" type="date" class="nav-search__input">
+				</div>
+				<div class="field" style="margin-top:12px;">
+					<label for="booking-checkout">Check-out date</label>
+					<input id="booking-checkout" type="date" class="nav-search__input">
+				</div>
+				<div class="field" style="margin-top:12px;">
+					<label for="booking-guests">Guests</label>
+					<input id="booking-guests" type="number" min="1" max="10" value="2" class="nav-search__input" style="width:110px;">
+				</div>
+				<div style="margin-top:16px;">
+					<p id="booking-nights" style="color:var(--muted);margin:0 0 8px;">Select dates to see the total</p>
+					<button id="booking-add" class="btn btn--primary" style="width:100%;padding:12px;">Add to booking</button>
+				</div>
+
+				<section class="section section--tight" style="margin-top:32px;">
+					<div class="section-header">
+						<h2>Similar stays</h2>
+					</div>
+					<div class="product-grid" id="related-grid"></div>
+				</section>
+			</div>
+		</div>
+	</main>
+
+	<footer id="site-footer"></footer>
+	<script type="module" src="script/stay.js"></script>
+</body>
+</html>

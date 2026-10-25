@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stays &mdash; Zunga</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="style/zunga.css">
+</head>
+<body>
+	<a href="#main-content" class="skip-link">Skip to main content</a>
+
+	<header id="site-header"></header>
+	<div id="toast-region"></div>
+
+	<main id="main-content">
+		<div class="container page-header">
+			<div class="eyebrow">Explore stays</div>
+			<h1>Stays</h1>
+			<p>Browse illustrative properties across Rwanda. Use the filters to narrow your search &mdash; the URL updates so you can share it.</p>
+		</div>
+
+		<div class="container section--tight">
+			<div class="filters" id="filter-panel">
+				<h3>Filters</h3>
+				<form id="stays-filter" novalidate>
+					<div class="field">
+						<label for="filter-location">Location <span>Any</span></label>
+						<select id="filter-location" class="nav-search__select">
+							<option value="">Any location</option>
+						</select>
+					</div>
+					<div class="field">
+						<label for="filter-type">Property type <span>Any</span></label>
+						<select id="filter-type" class="nav-search__select">
+							<option value="">Any type</option>
+						</select>
+					</div>
+					<div class="field">
+						<label for="sort-select">Sort by <span>Featured</span></label>
+						<select id="sort-select" class="nav-search__select">
+							<option value="featured">Featured first</option>
+							<option value="price-asc">Price: low to high</option>
+							<option value="price-desc">Price: high to low</option>
+							<option value="name-asc">Name: A to Z</option>
+						</select>
+					</div>
+					<div class="field picker-row">
+						<label for="filter-checkin">Check-in <span>Select date</span></label>
+						<input id="filter-checkin" type="date" class="nav-search__input">
+					</div>
+					<div class="field picker-row">
+						<label for="filter-checkout">Check-out <span>Select date</span></label>
+						<input id="filter-checkout" type="date" class="nav-search__input">
+					</div>
+					<div class="field picker-row">
+						<label for="filter-guests">Guests <span>2</span></label>
+						<input id="filter-guests" type="number" min="1" max="10" value="2" class="nav-search__input" style="width:110px;">
+					</div>
+				</form>
+				<div class="results-count" id="results-count"></div>
+				<div class="chips" id="active-chips"></div>
+				<a href="#" class="clear-filters" id="clear-filters" hidden>Clear all filters</a>
+			</div>
+
+			<div class="product-grid" id="results-grid" role="region" aria-label="Stay listings"></div>
+		</div>
+	</main>
+
+	<footer id="site-footer"></footer>
+	<script type="module" src="script/stays.js"></script>
+</body>
+</html>

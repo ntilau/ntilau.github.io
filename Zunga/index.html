@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zunga &mdash; Hospitality bookings in Rwanda</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="style/zunga.css">
+</head>
+<body>
+	<a href="#main-content" class="skip-link">Skip to main content</a>
+
+	<header id="site-header"></header>
+	<div id="toast-region"></div>
+
+	<main id="main-content">
+		<section class="section section--surface">
+			<div class="container">
+				<div class="hero">
+					<div class="hero-grid">
+						<div class="hero-copy">
+							<div class="eyebrow">Book stays across Rwanda</div>
+							<h1>Find your perfect stay</h1>
+							<p class="hero-lede">Illustrative hotels, lodges, villas and guesthouses from Kigali to Lake Kivu &mdash; browse, compare and book in a few taps.</p>
+							<form id="hero-search" class="hero-search" novalidate>
+								<label for="hero-location">Location <span>Any</span></label>
+								<select id="hero-location" class="nav-search__select">
+									<option value="">Any location</option>
+								</select>
+								<label for="hero-checkin">Check-in <span>Select date</span></label>
+								<input id="hero-checkin" type="date" class="nav-search__input">
+								<label for="hero-checkout">Check-out <span>Select date</span></label>
+								<input id="hero-checkout" type="date" class="nav-search__input">
+								<label for="hero-guests">Guests <span>2</span></label>
+								<input id="hero-guests" type="number" min="1" max="10" value="2" class="nav-search__input" style="width:120px;">
+								<button type="submit" class="nav-search__button">Search stays</button>
+							</form>
+							<div class="hero-notes">
+								<span>No payment &middot; demo booking flow</span>
+								<span>Prices in USD &middot; illustrative listings</span>
+							</div>
+						</div>
+						<div class="hero-collage">
+							<a class="collage-card collage-card--main" href="stays.html?location=kigali">
+								<img class="collage-card__image" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=900&auto=format&fit=crop" alt="Kigali city stay" onerror="this.onerror=null;this.src='assets/stay-placeholder.svg'">
+								<span>Kigali</span>
+							</a>
+							<a class="collage-card" href="stays.html?location=musanze">
+								<img class="collage-card__image" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600&auto=format&fit=crop" alt="Musanze lodge" onerror="this.onerror=null;this.src='assets/stay-placeholder.svg'">
+								<span>Musanze</span>
+							</a>
+							<a class="collage-card" href="stays.html?location=gisenyi">
+								<img class="collage-card__image" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=600&auto=format&fit=crop" alt="Gisenyi villa" onerror="this.onerror=null;this.src='assets/stay-placeholder.svg'">
+								<span>Gisenyi</span>
+							</a>
+							<a class="collage-card" href="stays.html?location=nyungwe">
+								<img class="collage-card__image" src="https://images.unsplash.com/photo-1446776812057-923939d799c3?q=80&w=600&auto=format&fit=crop" alt="Nyungwe cabin" onerror="this.onerror=null;this.src='assets/stay-placeholder.svg'">
+								<span>Nyungwe</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container">
+				<div class="section-header">
+					<div>
+						<h2>Featured stays</h2>
+						<p>Hand-picked illustrative properties across Rwanda.</p>
+					</div>
+					<a href="stays.html" class="btn btn--secondary btn--small">Browse all stays</a>
+				</div>
+				<div class="product-grid" id="featured-grid"></div>
+			</div>
+		</section>
+
+		<section class="section section--surface">
+			<div class="container">
+				<div class="category-grid">
+					<a class="category-tile category-tile--all" href="stays.html">
+						<div class="category-tile__mark"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3 6 3 6-3 2 3h4a2 2 0 012 2z"/><path d="M15 19v-2a2 2 0 00-2-2H9a2 2 0 00-2 2v2z"/><path d="M15 11v2a2 2 0 002 2h2a2 2 0 002-2v-2z"/><path d="M7 19v2a2 2 0 002 2h2a2 2 0 002-2v-2z"/><path d="M11 13v2a2 2 0 002 2h2a2 2 0 002-2v-2z"/></svg></div>
+						<span class="category-tile__count">All stays</span>
+						<h3>All properties</h3>
+						<p>Every illustrative listing available on Zunga.</p>
+						<span class="category-tile__link">View all</span>
+					</a>
+					<a class="category-tile" href="stays.html?type=hotel">
+						<div class="category-tile__mark"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15V4a2 2 0 00-2-2H5a2 2 0 00-2 2v14l4-4h10l4 4z"/></svg></div>
+						<span class="category-tile__count">Hotels</span>
+						<h3>Hotels</h3>
+						<p>Full-service properties with on-site dining and amenities.</p>
+						<span class="category-tile__link">View hotels</span>
+					</a>
+					<a class="category-tile" href="stays.html?type=boutique-hotel">
+						<div class="category-tile__mark"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 17.27L18.18 21l1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+						<span class="category-tile__count">Boutique</span>
+						<h3>Boutique hotels</h3>
+						<p>Intimate, design-focused stays with local character.</p>
+						<span class="category-tile__link">View boutique</span>
+					</a>
+					<a class="category-tile" href="stays.html?type=guesthouse">
+						<div class="category-tile__mark"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7c0-1.885 1.587-3.414 3.539-3.906A15.8 15.8 0 0112 5c1.518 0 2.954.252 4.31.694A9.4 9.4 0 0118.5 7c0 1.885-1.587 3.414-3.539 3.906A15.8 15.8 0 0112 19c-1.518 0-2.954-.252-4.31-.694A9.4 9.4 0 015.5 7zM12 11a4 4 0 014 4v2a4 4 0 01-4 4H8a4 4 0 01-4-4v-2a4 4 0 014-4z"/></svg></div>
+						<span class="category-tile__count">Guesthouses</span>
+						<h3>Guesthouses</h3>
+						<p>Family-run hospitality with home-cooked meals.</p>
+						<span class="category-tile__link">View guesthouses</span>
+					</a>
+					<a class="category-tile" href="stays.html?type=villa">
+						<div class="category-tile__mark"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18M3 15h18"/></svg></div>
+						<span class="category-tile__count">Villas</span>
+						<h3>Villas</h3>
+						<p>Private homes and lakefront retreats for groups.</p>
+						<span class="category-tile__link">View villas</span>
+					</a>
+					<a class="category-tile" href="stays.html?type=glamping">
+						<div class="category-tile__mark"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.88 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
+						<span class="category-tile__count">Glamping</span>
+						<h3>Glamping &amp; campsites</h3>
+						<p>Nature-immersive stays close to the parks.</p>
+						<span class="category-tile__link">View glamping</span>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container">
+				<div class="section-header">
+					<h2>How it works</h2>
+					<p>Search, select, book &mdash; no payment required for this demo.</p>
+				</div>
+				<div class="product-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
+					<article class="listing-card" style="border:none;box-shadow:none;background:transparent;">
+						<div class="listing-card__body" style="padding:0;">
+							<div class="listing-card__eyebrow">Step 1</div>
+							<h3 style="margin:0 0 8px;">Search</h3>
+							<p style="color:var(--muted);margin:0;">Pick a location, dates and guests to see available stays.</p>
+						</div>
+					</article>
+					<article class="listing-card" style="border:none;box-shadow:none;background:transparent;">
+						<div class="listing-card__body" style="padding:0;">
+							<div class="listing-card__eyebrow">Step 2</div>
+							<h3 style="margin:0 0 8px;">Select</h3>
+							<p style="color:var(--muted);margin:0;">Open a property to view details, photos and nightly rate.</p>
+						</div>
+					</article>
+					<article class="listing-card" style="border:none;box-shadow:none;background:transparent;">
+						<div class="listing-card__body" style="padding:0;">
+							<div class="listing-card__eyebrow">Step 3</div>
+							<h3 style="margin:0 0 8px;">Book</h3>
+							<p style="color:var(--muted);margin:0;">Add your details and confirm your demo reservation.</p>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="section section--surface" id="about">
+			<div class="container">
+				<div class="section-header">
+					<h2>Site note</h2>
+					<p>What Zunga is &mdash; and what it isn&rsquo;t.</p>
+				</div>
+				<div style="max-width:700px;">
+					<p>Zunga is a static, illustrative hospitality prototype built to explore accommodation opportunities referenced in the Rwanda Formula 1 &amp; Tourism Investment checklist. All listings, prices, ratings and reviews are sample data &mdash; they are <strong>not real, bookable properties</strong>.</p>
+					<p>This demo has no payment processing, no accounts and no backend. Bookings are stored temporarily in your browser only (localStorage) and are cleared when you start a new booking.</p>
+					<p>Official F1 branding, tickets and paddock access require separate authorization and are not part of this project. Actual demand and pricing must be verified before any investment decision.</p>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer id="site-footer"></footer>
+	<script type="module" src="script/home.js"></script>
+</body>
+</html>
