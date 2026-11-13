@@ -11,7 +11,7 @@
   var sep = location.search ? '&' : '?';
   // On a TV, also turn on the event readout for remote-control diagnosis.
   var tv = /SMART-TV|Tizen|SmartTV/i.test(navigator.userAgent) ? 'debug=1&' : '';
-  location.replace(location.pathname + location.search + sep + tv + 'v=4' + location.hash);
+  location.replace(location.pathname + location.search + sep + tv + 'v=5' + location.hash);
 })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,16 +36,31 @@ video { width: 100%; height: 100%; object-fit: contain; display: block; }
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
   max-height: 50%; overflow: hidden;
   background: rgba(0,0,0,.9); color: #7cfc00;
-  font-family: Menlo, Consolas, monospace; font-size: 1.1rem; line-height: 1.35;
+  font-family: Menlo, Consolas, monospace; font-size: 1.2rem; line-height: 1.35;
   padding: 1rem; white-space: pre-wrap; word-break: break-all;
   display: none; pointer-events: none;
 }
 #dbg.show { display: block; }
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 11;
+  display: none; justify-content: space-between; padding: 1rem;
+}
+#nav.show { display: flex; }
+#nav button {
+  font: inherit; font-size: 2rem; padding: 1rem 2rem; border: 0; border-radius: .6rem;
+  background: rgba(255,255,255,.22); color: #fff; opacity: .85;
+}
+#nav button:active { background: rgba(255,255,255,.45); }
+#nav button:focus {
+  outline: none; background: #e50914; opacity: 1;
+  box-shadow: 0 0 0 .3rem #fff;
+}
 </style>
 </head>
 <body>
 <video id="v" autoplay playsinline></video>
 <div id="osd"><span id="ch-name"></span><span class="num" id="ch-idx"></span></div>
+<div id="nav"><button id="prev">&#9664; PREV</button><button id="next">NEXT &#9654;</button></div>
 <div id="dbg"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -489,11 +504,28 @@ function keyDirection(e) {
   return 0;
 }
 
-document.addEventListener('keydown', e => {
+// Catch remote keys wherever the TV dispatches them: some TV browsers deliver
+// key events on window itself, where a document-level listener never fires.
+const handledKeys = new WeakSet();
+function onKey(e) {
+  if (handledKeys.has(e)) return;
+  handledKeys.add(e);
   const dir = keyDirection(e);
   if (!dir) return;       // Back (10009), Enter, media/colour keys untouched
   e.preventDefault();     // only for matched keys
   load(idx + dir);
+}
+window.addEventListener('keydown', onKey, true);
+document.addEventListener('keydown', onKey, true);
+
+// Pointer/OK fallback for TV browsers that never deliver key events.
+document.getElementById('prev').addEventListener('click', e => {
+  e.stopPropagation();
+  load(idx - 1);
+});
+document.getElementById('next').addEventListener('click', e => {
+  e.stopPropagation();
+  load(idx + 1);
 });
 
 let touchStartX = 0, touchSwiped = false;
@@ -563,18 +595,59 @@ document.addEventListener('click', () => {
 // Temporary diagnostics: open ?debug=1 to show what the TV actually sends.
 if (/[?&]debug=1/.test(location.search)) {
   const dbg = document.getElementById('dbg');
-  const lines = ['build: ' + location.search, 'UA: ' + navigator.userAgent];
+  const nav = document.getElementById('nav');
+  const lines = [];
+  const counts = {};
+  let moves = 0, renderTimer = 0;
+
+  const summary = () => {
+    const total = Object.keys(counts).reduce((n, k) => n + counts[k], 0);
+    return 'tizen=' + (typeof tizen !== 'undefined' ? 'yes' : 'no') +
+           ' input=' + (typeof tizen !== 'undefined' && tizen.tvinputdevice ? 'yes' : 'no') +
+           ' focus=' + document.hasFocus() +
+           ' fs=' + (document.fullscreenElement ? 'yes' : 'no') +
+           ' moves=' + moves + ' events=' + total;
+  };
+  const render = () => {
+    renderTimer = 0;
+    dbg.textContent = 'UA: ' + navigator.userAgent + '\n' + summary() + '\n' +
+                      lines.slice(-8).join('\n');
+  };
+  const schedule = () => {
+    if (!renderTimer) renderTimer = setTimeout(render, 100);
+  };
+  const log = s => {
+    lines.push(s);
+    if (lines.length > 40) lines.shift();
+    render();
+  };
+
   dbg.classList.add('show');
-  const show = () => { dbg.textContent = lines.slice(-9).join('\n'); };
-  const log = s => { lines.push(s); show(); };
-  show();
-  ['keydown', 'keyup', 'keypress', 'wheel', 'scroll', 'click', 'pointerdown', 'mousedown', 'touchstart']
+  nav.classList.add('show');
+  render();
+
+  ['keydown', 'keyup', 'keypress', 'wheel', 'scroll', 'click', 'pointerdown',
+   'mousedown', 'touchstart', 'mousemove', 'pointermove', 'focus', 'blur']
     .forEach(type => {
-      document.addEventListener(type, e => {
-        let s = type + ' key=' + String(e.key) + ' code=' + String(e.code) +
-                ' kc=' + (e.keyCode || e.which || 0);
-        if (type === 'wheel') s += ' dx=' + Math.round(e.deltaX) + ' dy=' + Math.round(e.deltaY);
-        if (type === 'scroll') s += ' y=' + Math.round(window.scrollY || 0);
+      window.addEventListener(type, e => {
+        counts[type] = (counts[type] || 0) + 1;
+        if (type === 'mousemove' || type === 'pointermove') {
+          moves++;
+          if (moves === 1) log(type + ' x=' + Math.round(e.clientX) + ' y=' + Math.round(e.clientY));
+          else schedule();
+          return;
+        }
+        let s = type;
+        if ('key' in e) {
+          s += ' key=' + String(e.key) + ' code=' + String(e.code) +
+               ' kc=' + (e.keyCode || e.which || 0);
+        }
+        if (type === 'click' || type === 'mousedown' || type === 'pointerdown') {
+          s += ' x=' + Math.round(e.clientX);
+        }
+        if (type === 'wheel') {
+          s += ' dx=' + Math.round(e.deltaX) + ' dy=' + Math.round(e.deltaY);
+        }
         log(s);
       }, {capture: true, passive: true});
     });
