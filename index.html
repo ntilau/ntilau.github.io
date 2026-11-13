@@ -9,7 +9,9 @@
 (function () {
   if (location.protocol === 'file:' || /[?&]v=/.test(location.search)) return;
   var sep = location.search ? '&' : '?';
-  location.replace(location.pathname + location.search + sep + 'v=3' + location.hash);
+  // On a TV, also turn on the event readout for remote-control diagnosis.
+  var tv = /SMART-TV|Tizen|SmartTV/i.test(navigator.userAgent) ? 'debug=1&' : '';
+  location.replace(location.pathname + location.search + sep + tv + 'v=4' + location.hash);
 })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
