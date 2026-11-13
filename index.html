@@ -9,7 +9,7 @@
 (function () {
   if (location.protocol === 'file:' || /[?&]v=/.test(location.search)) return;
   var sep = location.search ? '&' : '?';
-  location.replace(location.pathname + location.search + sep + 'v=2' + location.hash);
+  location.replace(location.pathname + location.search + sep + 'v=3' + location.hash);
 })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,11 +30,21 @@ video { width: 100%; height: 100%; object-fit: contain; display: block; }
 }
 #osd.show { opacity: 1; }
 #osd .num { color: #e50914; font-size: 1rem; opacity: .7; }
+#dbg {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+  max-height: 50%; overflow: hidden;
+  background: rgba(0,0,0,.9); color: #7cfc00;
+  font-family: Menlo, Consolas, monospace; font-size: 1.1rem; line-height: 1.35;
+  padding: 1rem; white-space: pre-wrap; word-break: break-all;
+  display: none; pointer-events: none;
+}
+#dbg.show { display: block; }
 </style>
 </head>
 <body>
 <video id="v" autoplay playsinline></video>
 <div id="osd"><span id="ch-name"></span><span class="num" id="ch-idx"></span></div>
+<div id="dbg"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 <script>
@@ -547,6 +557,26 @@ document.addEventListener('click', () => {
   v.play().catch(() => {});
   v.requestFullscreen().catch(() => {});
 });
+
+// Temporary diagnostics: open ?debug=1 to show what the TV actually sends.
+if (/[?&]debug=1/.test(location.search)) {
+  const dbg = document.getElementById('dbg');
+  const lines = ['build: ' + location.search, 'UA: ' + navigator.userAgent];
+  dbg.classList.add('show');
+  const show = () => { dbg.textContent = lines.slice(-9).join('\n'); };
+  const log = s => { lines.push(s); show(); };
+  show();
+  ['keydown', 'keyup', 'keypress', 'wheel', 'scroll', 'click', 'pointerdown', 'mousedown', 'touchstart']
+    .forEach(type => {
+      document.addEventListener(type, e => {
+        let s = type + ' key=' + String(e.key) + ' code=' + String(e.code) +
+                ' kc=' + (e.keyCode || e.which || 0);
+        if (type === 'wheel') s += ' dx=' + Math.round(e.deltaX) + ' dy=' + Math.round(e.deltaY);
+        if (type === 'scroll') s += ' y=' + Math.round(window.scrollY || 0);
+        log(s);
+      }, {capture: true, passive: true});
+    });
+}
 
 load(0);
 v.requestFullscreen().catch(() => {});
