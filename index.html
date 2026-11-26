@@ -2,6 +2,16 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
+<script>
+// Samsung TV browsers cache HTML aggressively (GitHub Pages sends
+// max-age=600). Load every visit through a versioned URL so updated builds
+// are picked up. Bump the version when deploying changes.
+(function () {
+  if (location.protocol === 'file:' || /[?&]v=/.test(location.search)) return;
+  var sep = location.search ? '&' : '?';
+  location.replace(location.pathname + location.search + sep + 'v=5' + location.hash);
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20x%3D%2220%22%20y%3D%2225%22%20width%3D%2260%22%20height%3D%2250%22%20rx%3D%224%22/%3E%3Crect%20x%3D%2230%22%20y%3D%2235%22%20width%3D%2240%22%20height%3D%2230%22%20fill%3D%22%2523000%22/%3E%3Cline%20x1%3D%2250%22%20y1%3D%2215%22%20x2%3D%2250%22%20y2%3D%2225%22%20stroke%3D%22%2523fff%22%20stroke-width%3D%222%22/%3E%3Cline%20x1%3D%2245%22%20y1%3D%2220%22%20x2%3D%2255%22%20y2%3D%2220%22%20stroke%3D%22%2523fff%22%20stroke-width%3D%222%22/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20x%3D%2220%22%20y%3D%2225%22%20width%3D%2260%22%20height%3D%2250%22%20rx%3D%224%22/%3E%3Crect%20x%3D%2230%22%20y%3D%2235%22%20width%3D%2240%22%20height%3D%2230%22%20fill%3D%22%2523000%22/%3E%3Cline%20x1%3D%2250%22%20y1%3D%2215%22%20x2%3D%2250%22%20y2%3D%2225%22%20stroke%3D%22%2523fff%22%20stroke-width%3D%222%22/%3E%3Cline%20x1%3D%2245%22%20y1%3D%2220%22%20x2%3D%2255%22%20y2%3D%2220%22%20stroke%3D%22%2523fff%22%20stroke-width%3D%222%22/%3E%3C/svg%3E">
@@ -29,8 +39,8 @@ video { width: 100%; height: 100%; object-fit: contain; display: block; }
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 <script>
 const channels = [
-	{name:"La7",url:"https://d1chghleocc9sm.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-evfku205gqrtf/Live.m3u8"},
 	{name:"France 24",url:"https://live.france24.com/hls/live/2037179/F24_FR_HI_HLS/master_5000.m3u8"},
+	{name:"La7",url:"https://d1chghleocc9sm.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-evfku205gqrtf/Live.m3u8"},
 	{name:"Arte",url:"https://artesimulcast.akamaized.net/hls/live/2031003/artelive_fr/index.m3u8"},
 	{name:"TV5Monde Info",url:"https://ott.tv5monde.com/Content/HLS/Live/channel(info)/variant.m3u8"},
 	{name:"BFM TV",url:"https://ncdn-live-bfm.pfd.sfr.net/shls/LIVE$BFM_TV/index.m3u8?end=END&start=LIVE"},
@@ -362,9 +372,9 @@ function isIOS() {
     'iPad',
     'iPhone',
     'iPod'
-  ].includes(navigator.platform)
+  ].indexOf(navigator.platform) !== -1
   // iPad on iOS 13 detection
-  || (navigator.userAgent.includes('Mac') && 'ontouchend' in document);
+  || (navigator.userAgent.indexOf('Mac') !== -1 && 'ontouchend' in document);
 }
 
 // Detect mobile devices (iOS or Android)
@@ -434,15 +444,52 @@ function load(i) {
   v.addEventListener('playing', showOsd, {once: true});
 }
 
-document.addEventListener('keydown', e => {
-  if (e.key === 'PageDown' || e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-    e.preventDefault();
-    load(idx + 1);
-  } else if (e.key === 'PageUp' || e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-    e.preventDefault();
-    load(idx - 1);
+// Best-effort: enable ChannelUp/ChannelDown when the Tizen input API exists.
+try {
+  if (typeof tizen !== 'undefined' && tizen.tvinputdevice) {
+    const input = tizen.tvinputdevice;
+    ['ChannelUp', 'ChannelDown'].forEach(name => {
+      try {
+        if (typeof input.registerKey === 'function') {
+          input.registerKey(name);
+        } else if (typeof input.registerKeyBatch === 'function') {
+          input.registerKeyBatch([name], () => {}, () => {});
+        }
+      } catch (err) {}
+    });
   }
-});
+} catch (err) {}
+
+// +1 = next channel, -1 = previous, 0 = not a navigation key.
+function keyDirection(e) {
+  const key = typeof e.key === 'string' ? e.key : '';
+  if (key === 'ChannelUp' || key === 'ArrowDown' ||
+      key === 'ArrowRight' || key === 'PageDown') return 1;
+  if (key === 'ChannelDown' || key === 'ArrowUp' ||
+      key === 'ArrowLeft' || key === 'PageUp') return -1;
+
+  // Older TV browsers may leave e.key empty/"Unidentified", so fall back to
+  // the numeric code. 427/428 are Samsung ChannelUp/ChannelDown, 33/34
+  // PageUp/PageDown, 37-40 the arrow keys.
+  const code = e.keyCode || e.which || 0;
+  if (code === 427 || code === 40 || code === 39 || code === 34) return 1;
+  if (code === 428 || code === 38 || code === 37 || code === 33) return -1;
+  return 0;
+}
+
+// Catch remote keys wherever the TV dispatches them: some TV browsers deliver
+// key events on window itself, where a document-level listener never fires.
+const handledKeys = new WeakSet();
+function onKey(e) {
+  if (handledKeys.has(e)) return;
+  handledKeys.add(e);
+  const dir = keyDirection(e);
+  if (!dir) return;       // Back (10009), Enter, media/colour keys untouched
+  e.preventDefault();     // only for matched keys
+  load(idx + dir);
+}
+window.addEventListener('keydown', onKey, true);
+document.addEventListener('keydown', onKey, true);
 
 let touchStartX = 0, touchSwiped = false;
 // Double-tap detection variables
@@ -507,7 +554,6 @@ document.addEventListener('click', () => {
   v.play().catch(() => {});
   v.requestFullscreen().catch(() => {});
 });
-
 load(0);
 v.requestFullscreen().catch(() => {});
 </script>

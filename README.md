@@ -47,4 +47,3 @@ Pages is configured with Source: **GitHub Actions**. Pushing to `main` triggers 
 ## Notes
 
 - There is no shared build pipeline, lint config, or test framework at the repository root.
-- Detailed developer guidance lives in `CLAUDE.md`.
